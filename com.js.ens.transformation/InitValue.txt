@@ -1,0 +1,68 @@
+//Plate shape parameter
+Width=3000
+Length=5000
+Thickness=30
+//Plate shape parameter-Type2 
+type2_LeftEdgeWavePitch=1000
+type2_RightEdgeWavePitch=1000
+type2_LeftEdgeWaveHeight=20
+type2_RightEdgeWaveHeight=20
+type2_LeftEdgeWavePhase=0
+type2_RightEdgeWavePhase=0
+//Plate shape parameter-Type3
+type3_WavePitch=1000
+type3_WaveHeight=20
+//Plate shape parameter-Type4
+type4_GutterHeight=20 
+//Plate shape parameter-Type5
+type5_GutterHeight=20
+type5_GutterLength=1500
+//Plate shape parameter-Type6
+type6_HeadGutterHeight=20
+type6_HeadGutterLength=1500
+type6_TailGutterHeight=20
+type6_TailGutterLength=1500
+//Plate shape parameter-Type7
+type7_HeadGutterHeight=20
+type7_GutterLength=1500
+type7_GutterLengthLength=1500
+type7_GutterWidthLength=2000
+
+// Mesh parameter
+ThicknessElementNum=4
+WidthAspectRatio=1
+LengthAspectRatio=1
+
+// Plate Information
+PlateVelocity=1000
+TemperatureStart=750
+TemperatureEnd=650
+PassLineOffset=0.0
+	
+// Roll parameter
+UpperRollNum=4
+LowerRollNum=5
+RollPitch=300
+RollLength=5000
+EntryUpperRollGap=30
+ExitUpperRollGap=50
+EntryLowerRollGap=0
+ExitLowerRollGap=0	
+RollFriction=0.3
+RollDiameter=280
+RollCrown=0
+MillStiffness=1.0e5 
+
+// Material parameter
+YoungsModulus=21000
+YieldStrength=900
+TensileStrength=1200
+Elongation=0.3
+ThermalExpansionCoefficient=1.0e-5
+PoissonsRatio=0.3
+MassDensity=7.85e-9
+
+// Solving Option		
+IncrementTime=0.0025
+Domain=4
+Thread=4
