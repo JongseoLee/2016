@@ -122,7 +122,6 @@ public class View extends ViewPart {
 	//--------------------------------
 	
 	public View() {
-		
 	}
 	
 	/**

@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
 
 public class Writer {
 	
-	private Logger log = Logger.getLogger(Writer.class);
+	//private Logger log = Logger.getLogger(Writer.class);
 	
 	private BufferedWriter writer;
 	private String outFilePath;
@@ -44,11 +44,11 @@ public class Writer {
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			log.error(e.getMessage());
+			//log.error(e.getMessage());
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			log.error(e.getMessage());
+			//log.error(e.getMessage());
 		}
 	}
 	
@@ -66,7 +66,7 @@ public class Writer {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			log.error(e.getMessage());
+			//log.error(e.getMessage());
 		}
 	}
 	
@@ -79,14 +79,14 @@ public class Writer {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			log.error(e.getMessage());
+			//log.error(e.getMessage());
 		} finally {
 			try {
 				writer.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				//e.printStackTrace();
-				log.error(e.getMessage());
+				//log.error(e.getMessage());
 			}
 		}
 	}

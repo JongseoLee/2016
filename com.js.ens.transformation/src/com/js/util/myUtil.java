@@ -5,7 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class myUtil {
 	
@@ -52,6 +55,16 @@ public class myUtil {
 		resultPath = f.getName();
 		f = null;
 		return resultPath;
+	}
+	
+	public static void printMap(Map<String,String> map){
+		Set<String> keySet = map.keySet();
+		Iterator<String> iterator = keySet.iterator();
+		while (iterator.hasNext()) {
+			String key = iterator.next();
+			Object value = map.get(key);
+			System.out.printf("key : |%s| value : |%s| %n", key, value);
+		}
 	}
 	
 	public static Boolean makeDir(String folderName){
