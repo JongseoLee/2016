@@ -1,68 +1,228 @@
-//Plate shape parameter
-Width=3000
-Length=5000
-Thickness=30
-//Plate shape parameter-Type2 
-type2_LeftEdgeWavePitch=1000
-type2_RightEdgeWavePitch=1000
-type2_LeftEdgeWaveHeight=20
-type2_RightEdgeWaveHeight=20
-type2_LeftEdgeWavePhase=0
-type2_RightEdgeWavePhase=0
-//Plate shape parameter-Type3
-type3_WavePitch=1000
-type3_WaveHeight=20
-//Plate shape parameter-Type4
-type4_GutterHeight=20 
-//Plate shape parameter-Type5
-type5_GutterHeight=20
-type5_GutterLength=1500
-//Plate shape parameter-Type6
-type6_HeadGutterHeight=20
-type6_HeadGutterLength=1500
-type6_TailGutterHeight=20
-type6_TailGutterLength=1500
-//Plate shape parameter-Type7
-type7_HeadGutterHeight=20
-type7_GutterLength=1500
-type7_GutterLengthLength=1500
-type7_GutterWidthLength=2000
+//
+//Basic
+//
+STRIP NO=
+STHK=
+SWID=
+SLEN=
+SWET=
+PTHK=
+PWID=
+PLEN=
+PWET=
+//
+//Var
+//
+VAR1=
+VAR2=
+VAR3=
+VAR4=
+VAR5=
+VAR6=
+VAR7=
+VAR8=
+VAR9=
+VAR10=
+VAR11=
+VAR12=
+VAR13=
+VAR14=
+VAR15=
+VAR16=
 
-// Mesh parameter
-ThicknessElementNum=4
-WidthAspectRatio=1
-LengthAspectRatio=1
-
-// Plate Information
-PlateVelocity=1000
-TemperatureStart=750
-TemperatureEnd=650
-PassLineOffset=0.0
-	
-// Roll parameter
-UpperRollNum=4
-LowerRollNum=5
-RollPitch=300
-RollLength=5000
-EntryUpperRollGap=30
-ExitUpperRollGap=50
-EntryLowerRollGap=0
-ExitLowerRollGap=0	
-RollFriction=0.3
-RollDiameter=280
-RollCrown=0
-MillStiffness=1.0e5 
-
-// Material parameter
-YoungsModulus=21000
-YieldStrength=900
-TensileStrength=1200
-Elongation=0.3
-ThermalExpansionCoefficient=1.0e-5
-PoissonsRatio=0.3
-MassDensity=7.85e-9
-
-// Solving Option		
-IncrementTime=0.0025
-Domain=4
-Thread=4
+//
+//F1
+//
+//STAND_F1
+BUR TDIA_F1=
+BUR BDIA_F1=
+WR TDIA_F1=
+WR BDIA_F1=
+WR ICRN_F1=
+ENTRY THK_F1=
+EXIT THK_F1=
+PAS LINE_F1=
+ROL GAP_F1=
+STP WID_F1=
+STP LEN_F1=
+ENTRY TEMP_F1=
+EXIT TEMP_F1=
+FRCE_F1=
+TORQ_F1=
+SPEED(mpm)_F1=
+BEND_F1=
+P-CROSS_F1=
+TENS_F1=
+ROL TIM_F1=
+IDL TIM_F1=
+BUR WEAR_F1=
+WR WEAR_F1=
+WR THRM_F1=
+//
+//F2
+//
+//STAND_F2=
+BUR TDIA_F2=
+BUR BDIA_F2=
+WR TDIA_F2=
+WR BDIA_F2=
+WR ICRN_F2=
+ENTRY THK_F2=
+EXIT THK_F2=
+PAS LINE_F2=
+ROL GAP_F2=
+STP WID_F2=
+STP LEN_F2=
+ENTRY TEMP_F2=
+EXIT TEMP_F2=
+FRCE_F2=
+TORQ_F2=
+SPEED(mpm)_F2=
+BEND_F2=
+P-CROSS_F2=
+TENS_F2=
+ROL TIM_F2=
+IDL TIM_F2=
+BUR WEAR_F2=
+WR WEAR_F2=
+WR THRM_F2=
+//
+//F3
+//
+//STAND_F3
+BUR TDIA_F3=
+BUR BDIA_F3=
+WR TDIA_F3=
+WR BDIA_F3=
+WR ICRN_F3=
+ENTRY THK_F3=
+EXIT THK_F3=
+PAS LINE_F3=
+ROL GAP_F3=
+STP WID_F3=
+STP LEN_F3=
+ENTRY TEMP_F3=
+EXIT TEMP_F3=
+FRCE_F3=
+TORQ_F3=
+SPEED(mpm)_F3=
+BEND_F3=
+P-CROSS_F3=
+TENS_F3=
+ROL TIM_F3=
+IDL TIM_F3=
+BUR WEAR_F3=
+WR WEAR_F3=
+WR THRM_F3=
+//
+//F4
+//
+//STAND_F4
+BUR TDIA_F4=
+BUR BDIA_F4=
+WR TDIA_F4=
+WR BDIA_F4=
+WR ICRN_F4=
+ENTRY THK_F4=
+EXIT THK_F4=
+PAS LINE_F4=
+ROL GAP_F4=
+STP WID_F4=
+STP LEN_F4=
+ENTRY TEMP_F4=
+EXIT TEMP_F4=
+FRCE_F4=
+TORQ_F4=
+SPEED(mpm)_F4=
+BEND_F4=
+P-CROSS_F4=
+TENS_F4=
+ROL TIM_F4=
+IDL TIM_F4=
+BUR WEAR_F4=
+WR WEAR_F4=
+WR THRM_F4=
+//
+//F5
+//
+//STAND_F5
+BUR TDIA_F5=
+BUR BDIA_F5=
+WR TDIA_F5=
+WR BDIA_F5=
+WR ICRN_F5=
+ENTRY THK_F5=
+EXIT THK_F5=
+PAS LINE_F5=
+ROL GAP_F5=
+STP WID_F5=
+STP LEN_F5=
+ENTRY TEMP_F5=
+EXIT TEMP_F5=
+FRCE_F5=
+TORQ_F5=
+SPEED(mpm)_F5=
+BEND_F5=
+P-CROSS_F5=
+TENS_F5=
+ROL TIM_F5=
+IDL TIM_F5=
+BUR WEAR_F5=
+WR WEAR_F5=
+WR THRM_F5=
+//
+//F6
+//
+//STAND_F6
+BUR TDIA_F6=
+BUR BDIA_F6=
+WR TDIA_F6=
+WR BDIA_F6=
+WR ICRN_F6=
+ENTRY THK_F6=
+EXIT THK_F6=
+PAS LINE_F6=
+ROL GAP_F6=
+STP WID_F6=
+STP LEN_F6=
+ENTRY TEMP_F6=
+EXIT TEMP_F6=
+FRCE_F6=
+TORQ_F6=
+SPEED(mpm)_F6=
+BEND_F6=
+P-CROSS_F6=
+TENS_F6=
+ROL TIM_F6=
+IDL TIM_F6=
+BUR WEAR_F6=
+WR WEAR_F6=
+WR THRM_F6=
+//
+//F7
+//
+//STAND_F7=
+BUR TDIA_F7=
+BUR BDIA_F7=
+WR TDIA_F7=
+WR BDIA_F7=
+WR ICRN_F7=
+ENTRY THK_F7=
+EXIT THK_F7=
+PAS LINE_F7=
+ROL GAP_F7=
+STP WID_F7=
+STP LEN_F7=
+ENTRY TEMP_F7=
+EXIT TEMP_F7=
+FRCE_F7=
+TORQ_F7=
+SPEED(mpm)_F7=
+BEND_F7=
+P-CROSS_F7=
+TENS_F7=
+ROL TIM_F7=
+IDL TIM_F7=
+BUR WEAR_F7=
+WR WEAR_F7=
+WR THRM_F7=
