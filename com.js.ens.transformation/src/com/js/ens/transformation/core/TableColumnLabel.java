@@ -44,7 +44,7 @@ public class TableColumnLabel {
 		if(tableColumnLabelMap.containsKey(key.trim())){
 			return tableColumnLabelMap.get(key.trim());
 		}else{
-			return "no-InitValue";
+			return "no-ColumnData";
 		}
 	}
 	

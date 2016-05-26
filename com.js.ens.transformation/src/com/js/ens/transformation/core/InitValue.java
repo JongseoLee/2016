@@ -17,7 +17,7 @@ public class InitValue {
 		initValuePath = myUtil.setPath(System.getProperty("user.dir"), "InitValue.txt");
 	}
 	
-	private void readInitValueFile(){
+	public void readInitValueFile(){
 		Reader obj = new Reader(initValuePath);
 		obj.running();
 		ArrayList<String> fileData = new ArrayList<String>();
