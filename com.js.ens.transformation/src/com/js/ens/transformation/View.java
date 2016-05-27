@@ -22,6 +22,7 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Spinner;
 
 public class View extends ViewPart {
 	
@@ -60,6 +61,24 @@ public class View extends ViewPart {
 	private Text textArcLengthOfWR;
 	private Text textArcLengthOfBUR;
 
+	private Text textElementNumberOfThicknessDirection;
+	private Text textAspectRatioOfWidthDirection;
+	private Text textAspectRatioOfLengthDirection;
+	
+	private Text textAngularVelocityOfWR;
+	private Text textAngularVelocityOFBUR;
+	private Text textPlateVelocity;
+	private Text textInitialTemperatureOfPlate;
+	
+	private Text textYoungsModulus;
+	private Text textThermalExpansionCoefficient;
+	private Text textPoissonsRatio;
+	private Text textMassDensity;
+	
+	private Text textSolvingTime;
+	private Text textIncrementTime;
+	
+	
 	public void createPartControl(Composite parent) {
 		//--------------------------------------------------------------------------
 		tclObj = new TableColumnLabel();
@@ -224,6 +243,7 @@ public class View extends ViewPart {
 		// Group1 start
 		//
 		Group grpWorkRollwrShapeParameter = new Group(compositeDetail, SWT.NONE);
+		grpWorkRollwrShapeParameter.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
 		grpWorkRollwrShapeParameter.setText(ulObj.getUILabelValue(UILabel.Work_Roll_shape_parameter));
 		grpWorkRollwrShapeParameter.setLayout(new FormLayout());
 		FormData fd_grpWorkRollwrShapeParameter = new FormData();
@@ -324,6 +344,7 @@ public class View extends ViewPart {
 		// Group2 Strat
 		//
 		Group grpBackUpRollburShapeParameter = new Group(compositeDetail, SWT.NONE);
+		grpBackUpRollburShapeParameter.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
 		grpBackUpRollburShapeParameter.setText(ulObj.getUILabelValue(UILabel.Back_Up_Roll_shape_parameter));
 		grpBackUpRollburShapeParameter.setLayout(new FormLayout());
 		FormData fd_grpBackUpRollburShapeParameter = new FormData();
@@ -424,6 +445,7 @@ public class View extends ViewPart {
 		// Group3 Start
 		// 
 		Group grpPlateShapeParameter = new Group(compositeDetail, SWT.NONE);
+		grpPlateShapeParameter.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
 		grpPlateShapeParameter.setText(ulObj.getUILabelValue(UILabel.Plate_shape_parameter));
 		grpPlateShapeParameter.setLayout(new FormLayout());
 		FormData fd_grpPlateShapeParameter = new FormData();
@@ -511,13 +533,14 @@ public class View extends ViewPart {
 		// Group4 End
 		// 
 		Group grpRollMeshParameter = new Group(compositeDetail, SWT.NONE);
+		grpRollMeshParameter.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
 		grpRollMeshParameter.setText(ulObj.getUILabelValue(UILabel.Roll_mesh_parameter));
 		grpRollMeshParameter.setLayout(new FormLayout());
 		FormData fd_grpRollMeshParameter = new FormData();
 		fd_grpRollMeshParameter.top = new FormAttachment(grpWorkRollwrShapeParameter, 0, SWT.TOP);
 		fd_grpRollMeshParameter.left = new FormAttachment(grpWorkRollwrShapeParameter, 10, SWT.RIGHT);
 		fd_grpRollMeshParameter.right = new FormAttachment(grpWorkRollwrShapeParameter, 410,SWT.RIGHT);
-		fd_grpRollMeshParameter.bottom = new FormAttachment(groupSTAND, 150, SWT.BOTTOM);
+		fd_grpRollMeshParameter.bottom = new FormAttachment(groupSTAND, 120, SWT.BOTTOM);
 		grpRollMeshParameter.setLayoutData(fd_grpRollMeshParameter);
 		
 		Label lblArcLengthOfWR = new Label(grpRollMeshParameter, SWT.NONE);
@@ -551,12 +574,415 @@ public class View extends ViewPart {
 		//
 		// Group4 End
 		//=============
+
+		//=============
+		// Group6 Start
+		//
+		Group grpPlateMeshParameter = new Group(compositeDetail, SWT.NONE);
+		grpPlateMeshParameter.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
+		grpPlateMeshParameter.setText(ulObj.getUILabelValue(UILabel.Plate_mesh_parameter));
+		grpPlateMeshParameter.setLayout(new FormLayout());
+		FormData fd_grpPlateMeshParameter = new FormData();
+		fd_grpPlateMeshParameter.top = new FormAttachment(grpRollMeshParameter, 5);
+		fd_grpPlateMeshParameter.left = new FormAttachment(grpRollMeshParameter, 0, SWT.LEFT);
+		fd_grpPlateMeshParameter.right = new FormAttachment(grpRollMeshParameter, 0,SWT.RIGHT);
+		fd_grpPlateMeshParameter.bottom = new FormAttachment(grpRollMeshParameter, 110, SWT.BOTTOM);
+		grpPlateMeshParameter.setLayoutData(fd_grpPlateMeshParameter);
+		
+		Label lblElementNumberOfThicknessDirection = new Label(grpPlateMeshParameter, SWT.NONE);
+		FormData fd_lblElementNumberOfThicknessDirection = new FormData();
+		fd_lblElementNumberOfThicknessDirection.top = new FormAttachment(0, 10);
+		fd_lblElementNumberOfThicknessDirection.left = new FormAttachment(0, 10);
+		lblElementNumberOfThicknessDirection.setLayoutData(fd_lblElementNumberOfThicknessDirection);
+		lblElementNumberOfThicknessDirection.setText(ulObj.getUILabelValue(UILabel.Element_number_of_thickness_direction));
+		
+		textElementNumberOfThicknessDirection = new Text(grpPlateMeshParameter, SWT.BORDER);
+		FormData fd_textElementNumberOfThicknessDirection = new FormData();
+		fd_textElementNumberOfThicknessDirection.top = new FormAttachment(lblElementNumberOfThicknessDirection,-2,SWT.TOP);
+		fd_textElementNumberOfThicknessDirection.left = new FormAttachment(lblElementNumberOfThicknessDirection,30,SWT.RIGHT);
+		fd_textElementNumberOfThicknessDirection.right = new FormAttachment(100, -10);
+		textElementNumberOfThicknessDirection.setLayoutData(fd_textElementNumberOfThicknessDirection);
+		
+		Label lblAspectRatioOfWidthDirection = new Label(grpPlateMeshParameter, SWT.NONE);
+		FormData fd_lblAspectRatioOfWidthDirection = new FormData();
+		fd_lblAspectRatioOfWidthDirection.top = new FormAttachment(lblElementNumberOfThicknessDirection, 10);
+		fd_lblAspectRatioOfWidthDirection.left = new FormAttachment(lblElementNumberOfThicknessDirection, 0,SWT.LEFT);
+		lblAspectRatioOfWidthDirection.setLayoutData(fd_lblAspectRatioOfWidthDirection);
+		lblAspectRatioOfWidthDirection.setText(ulObj.getUILabelValue(UILabel.Aspect_ratio_of_width_direction));
+		
+		textAspectRatioOfWidthDirection = new Text(grpPlateMeshParameter, SWT.BORDER);
+		FormData fd_textAspectRatioOfWidthDirection = new FormData();
+		fd_textAspectRatioOfWidthDirection.top = new FormAttachment(lblAspectRatioOfWidthDirection,-2,SWT.TOP);
+		fd_textAspectRatioOfWidthDirection.left = new FormAttachment(textElementNumberOfThicknessDirection, 0,SWT.LEFT);
+		fd_textAspectRatioOfWidthDirection.right = new FormAttachment(100, -10);
+		textAspectRatioOfWidthDirection.setLayoutData(fd_textAspectRatioOfWidthDirection);
+		
+		Label lblAspectRatioOfLengthDirection = new Label(grpPlateMeshParameter, SWT.NONE);
+		FormData fd_lblAspectRatioOfLengthDirection = new FormData();
+		fd_lblAspectRatioOfLengthDirection.top = new FormAttachment(lblAspectRatioOfWidthDirection, 10);
+		fd_lblAspectRatioOfLengthDirection.left = new FormAttachment(lblElementNumberOfThicknessDirection, 0,SWT.LEFT);
+		lblAspectRatioOfLengthDirection.setLayoutData(fd_lblAspectRatioOfLengthDirection);
+		lblAspectRatioOfLengthDirection.setText(ulObj.getUILabelValue(UILabel.Aspect_ratio_of_length_direction));
+		
+		textAspectRatioOfLengthDirection = new Text(grpPlateMeshParameter, SWT.BORDER);
+		FormData fd_textAspectRatioOfLengthDirection = new FormData();
+		fd_textAspectRatioOfLengthDirection.top = new FormAttachment(lblAspectRatioOfLengthDirection,-2,SWT.TOP);
+		fd_textAspectRatioOfLengthDirection.left = new FormAttachment(textElementNumberOfThicknessDirection, 0,SWT.LEFT);
+		fd_textAspectRatioOfLengthDirection.right = new FormAttachment(100, -10);
+		textAspectRatioOfLengthDirection.setLayoutData(fd_textAspectRatioOfLengthDirection);
+		
+		//
+		// Group5 End
+		//=============
+		
+		//=============
+		// Group6 Start
+		//
+		Group grpRollPlateInfromation = new Group(compositeDetail, SWT.NONE);
+		grpRollPlateInfromation.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
+		grpRollPlateInfromation.setText(ulObj.getUILabelValue(UILabel.Roll_Plate_information));
+		grpRollPlateInfromation.setLayout(new FormLayout());
+		FormData fd_grpRollPlateInfromation = new FormData();
+		fd_grpRollPlateInfromation.top = new FormAttachment(grpPlateMeshParameter, 5);
+		fd_grpRollPlateInfromation.left = new FormAttachment(grpRollMeshParameter, 0, SWT.LEFT);
+		fd_grpRollPlateInfromation.right = new FormAttachment(grpRollMeshParameter, 0,SWT.RIGHT);
+		fd_grpRollPlateInfromation.bottom = new FormAttachment(grpPlateMeshParameter, 130, SWT.BOTTOM);
+		grpRollPlateInfromation.setLayoutData(fd_grpRollPlateInfromation);
+		
+		Label lblAngularVelocityOfWR = new Label(grpRollPlateInfromation, SWT.NONE);
+		FormData fd_lblAngularVelocityOfWR = new FormData();
+		fd_lblAngularVelocityOfWR.top = new FormAttachment(0, 10);
+		fd_lblAngularVelocityOfWR.left = new FormAttachment(0, 10);
+		lblAngularVelocityOfWR.setLayoutData(fd_lblAngularVelocityOfWR);
+		lblAngularVelocityOfWR.setText(ulObj.getUILabelValue(UILabel.Angular_velocity_of_WR));
+		
+		textAngularVelocityOfWR = new Text(grpRollPlateInfromation, SWT.BORDER);
+		FormData fd_textAngularVelocityOfWR = new FormData();
+		fd_textAngularVelocityOfWR.top = new FormAttachment(lblAngularVelocityOfWR,-2,SWT.TOP);
+		fd_textAngularVelocityOfWR.left = new FormAttachment(lblAngularVelocityOfWR,30,SWT.RIGHT);
+		fd_textAngularVelocityOfWR.right = new FormAttachment(100, -10);
+		textAngularVelocityOfWR.setLayoutData(fd_textAngularVelocityOfWR);
+		
+		Label lblAngularVelocityOfBUR = new Label(grpRollPlateInfromation, SWT.NONE);
+		FormData fd_lblAngularVelocityOfBUR = new FormData();
+		fd_lblAngularVelocityOfBUR.top = new FormAttachment(lblAngularVelocityOfWR, 10);
+		fd_lblAngularVelocityOfBUR.left = new FormAttachment(lblAngularVelocityOfWR, 0,SWT.LEFT);
+		lblAngularVelocityOfBUR.setLayoutData(fd_lblAngularVelocityOfBUR);
+		lblAngularVelocityOfBUR.setText(ulObj.getUILabelValue(UILabel.Angular_velocity_of_BUR));
+		
+		textAngularVelocityOFBUR = new Text(grpRollPlateInfromation, SWT.BORDER);
+		FormData fd_textAngularVelocityOFBUR = new FormData();
+		fd_textAngularVelocityOFBUR.top = new FormAttachment(lblAngularVelocityOfBUR,-2,SWT.TOP);
+		fd_textAngularVelocityOFBUR.left = new FormAttachment(textAngularVelocityOfWR, 0,SWT.LEFT);
+		fd_textAngularVelocityOFBUR.right = new FormAttachment(100, -10);
+		textAngularVelocityOFBUR.setLayoutData(fd_textAngularVelocityOFBUR);
+		
+		Label lblPlateVelocity = new Label(grpRollPlateInfromation, SWT.NONE);
+		FormData fd_lblPlateVelocity = new FormData();
+		fd_lblPlateVelocity.top = new FormAttachment(lblAngularVelocityOfBUR, 10);
+		fd_lblPlateVelocity.left = new FormAttachment(lblAngularVelocityOfWR, 0,SWT.LEFT);
+		lblPlateVelocity.setLayoutData(fd_lblPlateVelocity);
+		lblPlateVelocity.setText(ulObj.getUILabelValue(UILabel.Plate_velocity));
+		
+		textPlateVelocity = new Text(grpRollPlateInfromation, SWT.BORDER);
+		FormData fd_textPlateVelocity = new FormData();
+		fd_textPlateVelocity.top = new FormAttachment(lblPlateVelocity,-2,SWT.TOP);
+		fd_textPlateVelocity.left = new FormAttachment(textAngularVelocityOfWR, 0,SWT.LEFT);
+		fd_textPlateVelocity.right = new FormAttachment(100, -10);
+		textPlateVelocity.setLayoutData(fd_textPlateVelocity);
+		
+		Label lblInitialTemperatureOfPlate = new Label(grpRollPlateInfromation, SWT.NONE);
+		FormData fd_lblInitialTemperatureOfPlate = new FormData();
+		fd_lblInitialTemperatureOfPlate.top = new FormAttachment(lblPlateVelocity, 10);
+		fd_lblInitialTemperatureOfPlate.left = new FormAttachment(lblAngularVelocityOfWR, 0,SWT.LEFT);
+		lblInitialTemperatureOfPlate.setLayoutData(fd_lblInitialTemperatureOfPlate);
+		lblInitialTemperatureOfPlate.setText(ulObj.getUILabelValue(UILabel.initial_temperature_of_plate));
+		
+		textInitialTemperatureOfPlate = new Text(grpRollPlateInfromation, SWT.BORDER);
+		FormData fd_textInitialTemperatureOfPlate = new FormData();
+		fd_textInitialTemperatureOfPlate.top = new FormAttachment(lblInitialTemperatureOfPlate,-2,SWT.TOP);
+		fd_textInitialTemperatureOfPlate.left = new FormAttachment(textAngularVelocityOfWR, 0,SWT.LEFT);
+		fd_textInitialTemperatureOfPlate.right = new FormAttachment(100, -10);
+		textInitialTemperatureOfPlate.setLayoutData(fd_textInitialTemperatureOfPlate);
+		//
+		// Group6 End
+		//=============
+		
+		//=============
+		// Group7 Start
+		//
+		Group grpMaterialParameter = new Group(compositeDetail, SWT.NONE);
+		grpMaterialParameter.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
+		grpMaterialParameter.setText(ulObj.getUILabelValue(UILabel.Material_parameter));
+		grpMaterialParameter.setLayout(new FormLayout());
+		FormData fd_grpMaterialParameter = new FormData();
+		fd_grpMaterialParameter.top = new FormAttachment(grpWorkRollwrShapeParameter, 0, SWT.TOP);
+		fd_grpMaterialParameter.left = new FormAttachment(grpRollMeshParameter, 10, SWT.RIGHT);
+		fd_grpMaterialParameter.right = new FormAttachment(grpRollMeshParameter, 410,SWT.RIGHT);
+		fd_grpMaterialParameter.bottom = new FormAttachment(groupSTAND, 290, SWT.BOTTOM);
+		grpMaterialParameter.setLayoutData(fd_grpMaterialParameter);
+
+		Label lblYoungsModulus = new Label(grpMaterialParameter, SWT.NONE);
+		FormData fd_lblYoungsModulus = new FormData();
+		fd_lblYoungsModulus.top = new FormAttachment(0, 10);
+		fd_lblYoungsModulus.left = new FormAttachment(0, 10);
+		lblYoungsModulus.setLayoutData(fd_lblYoungsModulus);
+		lblYoungsModulus.setText(ulObj.getUILabelValue(UILabel.Youngs_Modulus));
+		
+		Composite compositeYoungsModulus = new Composite(grpMaterialParameter, SWT.NONE);
+		compositeYoungsModulus.setLayout(new FormLayout());
+		FormData fd_compositeYoungsModulus = new FormData();
+		fd_compositeYoungsModulus.top = new FormAttachment(lblYoungsModulus, 5);
+		fd_compositeYoungsModulus.left = new FormAttachment(lblYoungsModulus, 10, SWT.LEFT);
+		fd_compositeYoungsModulus.right = new FormAttachment(lblYoungsModulus,100,SWT.RIGHT);
+		fd_compositeYoungsModulus.bottom = new FormAttachment(lblYoungsModulus,20,SWT.BOTTOM);
+		compositeYoungsModulus.setLayoutData(fd_compositeYoungsModulus);
+		
+		Button btnConstant1 = new Button(compositeYoungsModulus, SWT.RADIO);
+		FormData fd_btnConstant = new FormData();
+		fd_btnConstant.top = new FormAttachment(0, 0);
+		fd_btnConstant.left = new FormAttachment(0, 0);
+		btnConstant1.setLayoutData(fd_btnConstant);
+		btnConstant1.setText(ulObj.getUILabelValue(UILabel.Constatnt));
+		
+		Button btnTable1 = new Button(compositeYoungsModulus, SWT.RADIO);
+		FormData fd_btnTable = new FormData();
+		fd_btnTable.top = new FormAttachment(0, 0);
+		fd_btnTable.left = new FormAttachment(btnConstant1,10,SWT.RIGHT);
+		btnTable1.setLayoutData(fd_btnTable);
+		btnTable1.setText(ulObj.getUILabelValue(UILabel.Table));
+		
+		textYoungsModulus = new Text(grpMaterialParameter, SWT.BORDER);
+		FormData fd_textYoungsModulus = new FormData();
+		fd_textYoungsModulus.top = new FormAttachment(compositeYoungsModulus, 10);
+		fd_textYoungsModulus.left = new FormAttachment(compositeYoungsModulus, 0, SWT.LEFT);
+		fd_textYoungsModulus.right = new FormAttachment(100,-40);
+		textYoungsModulus.setLayoutData(fd_textYoungsModulus);
+		
+		Button btnExplorerYoungsModulus = new Button(grpMaterialParameter, SWT.NONE);
+		FormData fd_btnExplorerYoungsModulus = new FormData();
+		fd_btnExplorerYoungsModulus.top = new FormAttachment(textYoungsModulus, -2, SWT.TOP);
+		fd_btnExplorerYoungsModulus.left = new FormAttachment(textYoungsModulus, 5);
+		btnExplorerYoungsModulus.setLayoutData(fd_btnExplorerYoungsModulus);
+		btnExplorerYoungsModulus.setText("...");
+		
+		Label lblThermalExpansionCoefficient = new Label(grpMaterialParameter, SWT.NONE);
+		FormData fd_lblThermalExpansionCoefficient = new FormData();
+		fd_lblThermalExpansionCoefficient.top = new FormAttachment(textYoungsModulus, 10);
+		fd_lblThermalExpansionCoefficient.left = new FormAttachment(lblYoungsModulus, 0, SWT.LEFT);
+		lblThermalExpansionCoefficient.setLayoutData(fd_lblThermalExpansionCoefficient);
+		lblThermalExpansionCoefficient.setText(ulObj.getUILabelValue(UILabel.Thermal_Expansion_Coefficient));
+		
+		Composite compositeThermalExpansionCoefficient = new Composite(grpMaterialParameter, SWT.NONE);
+		compositeThermalExpansionCoefficient.setLayout(new FormLayout());
+		FormData fd_compositeThermalExpansionCoefficient = new FormData();
+		fd_compositeThermalExpansionCoefficient.top = new FormAttachment(lblThermalExpansionCoefficient, 5);
+		fd_compositeThermalExpansionCoefficient.left = new FormAttachment(lblThermalExpansionCoefficient, 10, SWT.LEFT);
+		fd_compositeThermalExpansionCoefficient.right = new FormAttachment(lblThermalExpansionCoefficient,100,SWT.RIGHT);
+		fd_compositeThermalExpansionCoefficient.bottom = new FormAttachment(lblThermalExpansionCoefficient,20,SWT.BOTTOM);
+		compositeThermalExpansionCoefficient.setLayoutData(fd_compositeThermalExpansionCoefficient);
+		
+		Button btnConstant2 = new Button(compositeThermalExpansionCoefficient, SWT.RADIO);
+		FormData fd_btnConstant2 = new FormData();
+		fd_btnConstant2.top = new FormAttachment(0, 0);
+		fd_btnConstant2.left = new FormAttachment(0, 0);
+		btnConstant2.setLayoutData(fd_btnConstant2);
+		btnConstant2.setText(ulObj.getUILabelValue(UILabel.Constatnt));
+		
+		Button btnTable2 = new Button(compositeThermalExpansionCoefficient, SWT.RADIO);
+		FormData fd_btnTable2 = new FormData();
+		fd_btnTable2.top = new FormAttachment(0, 0);
+		fd_btnTable2.left = new FormAttachment(btnConstant2,10,SWT.RIGHT);
+		btnTable2.setLayoutData(fd_btnTable2);
+		btnTable2.setText(ulObj.getUILabelValue(UILabel.Table));
+		
+		textThermalExpansionCoefficient = new Text(grpMaterialParameter, SWT.BORDER);
+		FormData fd_textThermalExpansionCoefficient = new FormData();
+		fd_textThermalExpansionCoefficient.top = new FormAttachment(compositeThermalExpansionCoefficient, 10);
+		fd_textThermalExpansionCoefficient.left = new FormAttachment(compositeThermalExpansionCoefficient, 0, SWT.LEFT);
+		fd_textThermalExpansionCoefficient.right = new FormAttachment(100,-40);
+		textThermalExpansionCoefficient.setLayoutData(fd_textThermalExpansionCoefficient);
+		
+		Button btnExplorerThermalExpansionCoefficient = new Button(grpMaterialParameter, SWT.NONE);
+		FormData fd_btnExplorerThermalExpansionCoefficient = new FormData();
+		fd_btnExplorerThermalExpansionCoefficient.top = new FormAttachment(textThermalExpansionCoefficient, -2, SWT.TOP);
+		fd_btnExplorerThermalExpansionCoefficient.left = new FormAttachment(textThermalExpansionCoefficient, 5);
+		btnExplorerThermalExpansionCoefficient.setLayoutData(fd_btnExplorerThermalExpansionCoefficient);
+		btnExplorerThermalExpansionCoefficient.setText("...");
+		
+		Label lblPoissonsRatio = new Label(grpMaterialParameter, SWT.NONE);
+		FormData fd_lblPoissonsRatio = new FormData();
+		fd_lblPoissonsRatio.top = new FormAttachment(textThermalExpansionCoefficient, 10);
+		fd_lblPoissonsRatio.left = new FormAttachment(lblYoungsModulus, 0, SWT.LEFT);
+		lblPoissonsRatio.setLayoutData(fd_lblPoissonsRatio);
+		lblPoissonsRatio.setText(ulObj.getUILabelValue(UILabel.Poissons_Ratio));
+		
+		Composite compositePoissonsRatio = new Composite(grpMaterialParameter, SWT.NONE);
+		compositePoissonsRatio.setLayout(new FormLayout());
+		FormData fd_compositePoissonsRatio = new FormData();
+		fd_compositePoissonsRatio.top = new FormAttachment(lblPoissonsRatio, 5);
+		fd_compositePoissonsRatio.left = new FormAttachment(lblPoissonsRatio, 10, SWT.LEFT);
+		fd_compositePoissonsRatio.right = new FormAttachment(lblPoissonsRatio,100,SWT.RIGHT);
+		fd_compositePoissonsRatio.bottom = new FormAttachment(lblPoissonsRatio,20,SWT.BOTTOM);
+		compositePoissonsRatio.setLayoutData(fd_compositePoissonsRatio);
+		
+		Button btnConstant3 = new Button(compositePoissonsRatio, SWT.RADIO);
+		FormData fd_btnConstant3 = new FormData();
+		fd_btnConstant3.top = new FormAttachment(0, 0);
+		fd_btnConstant3.left = new FormAttachment(0, 0);
+		btnConstant3.setLayoutData(fd_btnConstant3);
+		btnConstant3.setText(ulObj.getUILabelValue(UILabel.Constatnt));
+		
+		Button btnTable3 = new Button(compositePoissonsRatio, SWT.RADIO);
+		FormData fd_btnTable3 = new FormData();
+		fd_btnTable3.top = new FormAttachment(0, 0);
+		fd_btnTable3.left = new FormAttachment(btnConstant3,10,SWT.RIGHT);
+		btnTable3.setLayoutData(fd_btnTable3);
+		btnTable3.setText(ulObj.getUILabelValue(UILabel.Table));
+		
+		textPoissonsRatio = new Text(grpMaterialParameter, SWT.BORDER);
+		FormData fd_textPoissonsRatio = new FormData();
+		fd_textPoissonsRatio.top = new FormAttachment(compositePoissonsRatio, 10);
+		fd_textPoissonsRatio.left = new FormAttachment(compositePoissonsRatio, 0, SWT.LEFT);
+		fd_textPoissonsRatio.right = new FormAttachment(100,-40);
+		textPoissonsRatio.setLayoutData(fd_textPoissonsRatio);
+		
+		Button btnExplorerPoissonsRatio = new Button(grpMaterialParameter, SWT.NONE);
+		FormData fd_btnExplorerPoissonsRatio = new FormData();
+		fd_btnExplorerPoissonsRatio.top = new FormAttachment(textPoissonsRatio, -2, SWT.TOP);
+		fd_btnExplorerPoissonsRatio.left = new FormAttachment(textPoissonsRatio, 5);
+		btnExplorerPoissonsRatio.setLayoutData(fd_btnExplorerPoissonsRatio);
+		btnExplorerPoissonsRatio.setText("...");
+		
+		Label lblMassDensity = new Label(grpMaterialParameter, SWT.NONE);
+		FormData fd_lblMassDensity = new FormData();
+		fd_lblMassDensity.top = new FormAttachment(textPoissonsRatio, 10);
+		fd_lblMassDensity.left = new FormAttachment(lblYoungsModulus, 0, SWT.LEFT);
+		lblMassDensity.setLayoutData(fd_lblMassDensity);
+		lblMassDensity.setText(ulObj.getUILabelValue(UILabel.Mass_Density));
+		
+		textMassDensity = new Text(grpMaterialParameter, SWT.BORDER);
+		FormData fd_textMassDensity = new FormData();
+		fd_textMassDensity.top = new FormAttachment(lblMassDensity, -2,SWT.TOP);
+		fd_textMassDensity.left = new FormAttachment(lblMassDensity, 50, SWT.RIGHT);
+		fd_textMassDensity.right = new FormAttachment(100,-10);
+		textMassDensity.setLayoutData(fd_textMassDensity);
+		//
+		// Group7 End
+		//=============
+		
+		/* */
+		//=============
+		// Group8 Start
+		//
+		Group grpSolvingOption = new Group(compositeDetail, SWT.NONE);
+		grpSolvingOption.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
+		grpSolvingOption.setText(ulObj.getUILabelValue(UILabel.Solving_Option));
+		grpSolvingOption.setLayout(new FormLayout());
+		FormData fd_grpSolvingOption = new FormData();
+		fd_grpSolvingOption.top = new FormAttachment(grpMaterialParameter, 5);
+		fd_grpSolvingOption.left = new FormAttachment(grpMaterialParameter, 0, SWT.LEFT);
+		fd_grpSolvingOption.right = new FormAttachment(grpMaterialParameter, 0,SWT.RIGHT);
+		fd_grpSolvingOption.bottom = new FormAttachment(grpMaterialParameter, 190, SWT.BOTTOM);
+		grpSolvingOption.setLayoutData(fd_grpSolvingOption);
+		
+		Label lblSolvingTime = new Label(grpSolvingOption, SWT.NONE);
+		FormData fd_lblSolvingTime = new FormData();
+		fd_lblSolvingTime.top = new FormAttachment(0, 10);
+		fd_lblSolvingTime.left = new FormAttachment(0, 10);
+		lblSolvingTime.setLayoutData(fd_lblSolvingTime);
+		lblSolvingTime.setText(ulObj.getUILabelValue(UILabel.Solving_time));
+		
+		textSolvingTime = new Text(grpSolvingOption, SWT.BORDER);
+		FormData fd_textSolvingTime = new FormData();
+		fd_textSolvingTime.top = new FormAttachment(lblSolvingTime, -2,SWT.TOP);
+		fd_textSolvingTime.left = new FormAttachment(lblSolvingTime, 80, SWT.RIGHT);
+		fd_textSolvingTime.right = new FormAttachment(100,-10);
+		textSolvingTime.setLayoutData(fd_textSolvingTime);
+		
+		Label lblIncrementTime = new Label(grpSolvingOption, SWT.NONE);
+		FormData fd_lblIncrementTime = new FormData();
+		fd_lblIncrementTime.top = new FormAttachment(lblSolvingTime, 10);
+		fd_lblIncrementTime.left = new FormAttachment(lblSolvingTime, 0,SWT.LEFT);
+		lblIncrementTime.setLayoutData(fd_lblIncrementTime);
+		lblIncrementTime.setText(ulObj.getUILabelValue(UILabel.Increment_time));
+		
+		textIncrementTime = new Text(grpSolvingOption, SWT.BORDER);
+		FormData fd_textIncrementTime = new FormData();
+		fd_textIncrementTime.top = new FormAttachment(lblIncrementTime, -2,SWT.TOP);
+		fd_textIncrementTime.left = new FormAttachment(textSolvingTime, 0, SWT.LEFT);
+		fd_textIncrementTime.right = new FormAttachment(100,-10);
+		textIncrementTime.setLayoutData(fd_textIncrementTime);
+		
+		Label lblParallelDDM = new Label(grpSolvingOption, SWT.NONE);
+		FormData fd_lblParallelDDM = new FormData();
+		fd_lblParallelDDM.top = new FormAttachment(lblIncrementTime, 10);
+		fd_lblParallelDDM.left = new FormAttachment(lblSolvingTime, 0,SWT.LEFT);
+		lblParallelDDM.setLayoutData(fd_lblParallelDDM);
+		lblParallelDDM.setText(ulObj.getUILabelValue(UILabel.Parallel_DDM));
+		
+		Button btnUseParallelDDM = new Button(grpSolvingOption, SWT.CHECK);
+		FormData fd_btnParallelDDM = new FormData();
+		fd_btnParallelDDM.top = new FormAttachment(lblParallelDDM, 0, SWT.TOP);
+		fd_btnParallelDDM.left = new FormAttachment(textSolvingTime, 0, SWT.LEFT);
+		btnUseParallelDDM.setLayoutData(fd_btnParallelDDM);
+		btnUseParallelDDM.setText(ulObj.getUILabelValue(UILabel.use));
+		
+		Label lblDomain = new Label(grpSolvingOption, SWT.NONE);
+		FormData fd_lblDomain = new FormData();
+		fd_lblDomain.top = new FormAttachment(lblParallelDDM, 10);
+		fd_lblDomain.left = new FormAttachment(lblSolvingTime, 0,SWT.LEFT);
+		lblDomain.setLayoutData(fd_lblDomain);
+		lblDomain.setText(ulObj.getUILabelValue(UILabel.Domain));
+		
+		Spinner spinnerDomain = new Spinner(grpSolvingOption, SWT.BORDER);
+		FormData fd_spinnerDomain = new FormData();
+		fd_spinnerDomain.top = new FormAttachment(lblDomain, -2,SWT.TOP);
+		fd_spinnerDomain.left = new FormAttachment(textSolvingTime, 0, SWT.LEFT);
+		fd_spinnerDomain.right = new FormAttachment(100,-10);
+		spinnerDomain.setLayoutData(fd_spinnerDomain);
+		spinnerDomain.setEnabled(false);
+		
+		Label lblParallelMultiThread = new Label(grpSolvingOption, SWT.NONE);
+		FormData fd_lblParallelMultiThread = new FormData();
+		fd_lblParallelMultiThread.top = new FormAttachment(lblDomain, 10);
+		fd_lblParallelMultiThread.left = new FormAttachment(lblSolvingTime, 0,SWT.LEFT);
+		lblParallelMultiThread.setLayoutData(fd_lblParallelMultiThread);
+		lblParallelMultiThread.setText(ulObj.getUILabelValue(UILabel.Parallel_Multi_Thread));
+		
+		Button btnUseParallelMultiThread = new Button(grpSolvingOption, SWT.CHECK);
+		FormData fd_btnParallelMultiThread = new FormData();
+		fd_btnParallelMultiThread.top = new FormAttachment(lblParallelMultiThread, 0, SWT.TOP);
+		fd_btnParallelMultiThread.left = new FormAttachment(textSolvingTime, 0, SWT.LEFT);
+		btnUseParallelMultiThread.setLayoutData(fd_btnParallelMultiThread);
+		btnUseParallelMultiThread.setText(ulObj.getUILabelValue(UILabel.use));
+		
+		Label lblThread = new Label(grpSolvingOption, SWT.NONE);
+		FormData fd_lblThread = new FormData();
+		fd_lblThread.top = new FormAttachment(lblParallelMultiThread, 10);
+		fd_lblThread.left = new FormAttachment(lblSolvingTime, 0,SWT.LEFT);
+		lblThread.setLayoutData(fd_lblThread);
+		lblThread.setText(ulObj.getUILabelValue(UILabel.Thread));
+		
+		Spinner spinnerThread = new Spinner(grpSolvingOption, SWT.BORDER);
+		FormData fd_spinnerThread = new FormData();
+		fd_spinnerThread.top = new FormAttachment(lblThread, -2,SWT.TOP);
+		fd_spinnerThread.left = new FormAttachment(textSolvingTime, 0, SWT.LEFT);
+		fd_spinnerThread.right = new FormAttachment(100,-10);
+		spinnerThread.setLayoutData(fd_spinnerThread);
+		spinnerThread.setEnabled(false);
+		//
+		// Group8 End
+		//=============
+		// */
+		
 	}
 
 	
 	public void setFocus() {}
 	
 	public void init_TableColunm(){
+		
 		String [] ColumnName_SlabPlateInfo = new String[]{
 				tclObj.getTableColumnLabel(TableColumnLabel.CL1_0),
 				tclObj.getTableColumnLabel(TableColumnLabel.CL1_1),
@@ -663,6 +1089,4 @@ public class View extends ViewPart {
 		}
 		//med.getTableViewerUpperRoll().setColumnProperties(ColumnProperty_PLog);
 	}
-	
-	
 }

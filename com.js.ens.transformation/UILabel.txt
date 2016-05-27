@@ -72,7 +72,7 @@ Poisson's Ratio=Poisson's Ratio
 Mass Density(Mg/mm^3)=Mass Density(Mg/mm^3)
 //
 //Solving option
-Solving option=Solving option
+Solving Option=Solving Option
 Solving time(sec.)=Solving time(sec.)
 Increment time(sec.)=Increment time(sec.)
 Parallel-DDM=Parallel-DDM
