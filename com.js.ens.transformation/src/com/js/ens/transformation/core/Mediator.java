@@ -1,5 +1,6 @@
 package com.js.ens.transformation.core;
 
-public class TransformationMain {
+public class Mediator {
+	
 
 }

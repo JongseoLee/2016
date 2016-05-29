@@ -971,11 +971,18 @@ public class View extends ViewPart {
 		fd_spinnerThread.right = new FormAttachment(100,-10);
 		spinnerThread.setLayoutData(fd_spinnerThread);
 		spinnerThread.setEnabled(false);
+		
+		
 		//
 		// Group8 End
 		//=============
 		// */
-		
+		Button btnApply = new Button(parent, SWT.NONE);
+		FormData fd_btnApply = new FormData();
+		fd_btnApply.top = new FormAttachment(tabFolder, 6);
+		fd_btnApply.right = new FormAttachment(tabFolder, 0, SWT.RIGHT);
+		btnApply.setLayoutData(fd_btnApply);
+		btnApply.setText("Apply");
 	}
 
 	
