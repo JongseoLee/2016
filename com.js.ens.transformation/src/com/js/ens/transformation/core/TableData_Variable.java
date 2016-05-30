@@ -1,5 +1,9 @@
 package com.js.ens.transformation.core;
 
+import java.util.ArrayList;
+
+import com.js.parser.ParserDefault;
+
 public class TableData_Variable {
 	
 	private String VAR1 = "";
@@ -22,7 +26,28 @@ public class TableData_Variable {
 	public TableData_Variable() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public void setAllData(String data){
+		ArrayList<String> tempList = ParserDefault.splitLineData(data, ",");
+		
+		this.setVAR1((tempList.get(0).length()!=0)?tempList.get(0):"");
+		this.setVAR2((tempList.get(1).length()!=0)?tempList.get(1):"");
+		this.setVAR3((tempList.get(2).length()!=0)?tempList.get(2):"");
+		this.setVAR4((tempList.get(3).length()!=0)?tempList.get(3):"");
+		this.setVAR5((tempList.get(4).length()!=0)?tempList.get(4):"");
+		this.setVAR6((tempList.get(5).length()!=0)?tempList.get(5):"");
+		this.setVAR7((tempList.get(6).length()!=0)?tempList.get(6):"");
+		this.setVAR8((tempList.get(7).length()!=0)?tempList.get(7):"");
+		this.setVAR9((tempList.get(8).length()!=0)?tempList.get(8):"");
+		this.setVAR10((tempList.get(9).length()!=0)?tempList.get(9):"");
+		this.setVAR11((tempList.get(10).length()!=0)?tempList.get(10):"");
+		this.setVAR12((tempList.get(11).length()!=0)?tempList.get(11):"");
+		this.setVAR13((tempList.get(12).length()!=0)?tempList.get(12):"");
+		this.setVAR14((tempList.get(13).length()!=0)?tempList.get(13):"");
+		this.setVAR15((tempList.get(14).length()!=0)?tempList.get(14):"");
+		this.setVAR16((tempList.get(15).length()!=0)?tempList.get(15):"");
+	}
+	
 	public String getVAR1() {
 		return VAR1;
 	}
@@ -149,6 +174,27 @@ public class TableData_Variable {
 
 	public void setVAR16(String vAR16) {
 		VAR16 = vAR16;
+	}
+	
+	public void printAllData(){
+		System.out.println("<<Table - Variable>>");
+		System.out.println("VAR1 : "+this.VAR1);
+		System.out.println("VAR2 : "+this.VAR2);
+		System.out.println("VAR3 : "+this.VAR3);
+		System.out.println("VAR4 : "+this.VAR4);
+		System.out.println("VAR5 : "+this.VAR5);
+		System.out.println("VAR6 : "+this.VAR6);
+		System.out.println("VAR7 : "+this.VAR7);
+		System.out.println("VAR8 : "+this.VAR8);
+		System.out.println("VAR9 : "+this.VAR9);
+		System.out.println("VAR10 : "+this.VAR10);
+		System.out.println("VAR11 : "+this.VAR11);
+		System.out.println("VAR12 : "+this.VAR12);
+		System.out.println("VAR13 : "+this.VAR13);
+		System.out.println("VAR14 : "+this.VAR14);
+		System.out.println("VAR15 : "+this.VAR15);
+		System.out.println("VAR16 : "+this.VAR16);
+		
 	}
 	
 	public String getDB(){

@@ -234,4 +234,33 @@ public class TableData_PLog {
 	public String getDB(){
 		return "";
 	}
+	
+	public void printAllData(){
+		System.out.println("<<Table - P Log>>");
+		System.out.println("STAND = "+this.STAND);
+		System.out.println("BUR_TDIA = "+this.BUR_TDIA);
+		System.out.println("BUR_BDIA = "+this.BUR_BDIA);
+		System.out.println("WR_TDIA = "+this.WR_TDIA);
+		System.out.println("WR_BDIA = "+this.WR_BDIA);
+		System.out.println("WR_ICRN = "+this.WR_ICRN);
+		System.out.println("ENTRY_THK = "+this.ENTRY_THK);
+		System.out.println("EXIT_THK = "+this.EXIT_THK);
+		System.out.println("PAS_LINE = "+this.PAS_LINE);
+		System.out.println("ROL_GAP = "+this.ROL_GAP);
+		System.out.println("STP_WID = "+this.STP_WID);
+		System.out.println("STP_LEN = "+this.STP_LEN);
+		System.out.println("ENTRY_TEMP = "+this.ENTRY_TEMP);
+		System.out.println("EXIT_TEMP = "+this.EXIT_TEMP);
+		System.out.println("FRCE = "+this.FRCE);
+		System.out.println("TORQ = "+this.TORQ);
+		System.out.println("SPEED = "+this.SPEED);
+		System.out.println("BEND = "+this.BEND);
+		System.out.println("P_CROSS = "+this.P_CROSS);
+		System.out.println("TENS = "+this.TENS);
+		System.out.println("ROL_TIM = "+this.ROL_TIM);
+		System.out.println("IDL_TIM = "+this.IDL_TIM);
+		System.out.println("BUR_WEAR = "+this.BUR_WEAR);
+		System.out.println("WR_WEAR = "+this.WR_WEAR);
+		System.out.println("WR_THRM = "+this.WR_THRM);
+	}
 }

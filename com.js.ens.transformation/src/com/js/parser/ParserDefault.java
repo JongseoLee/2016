@@ -15,37 +15,97 @@ public class ParserDefault {
 	}
 	
 	public static ArrayList<String> splitLineData(String line, String delimiter){
-		ArrayList<String> resultLinetDataList = new ArrayList<String>();
+		ArrayList<String> resultLineDataList = new ArrayList<String>();
 		String [] tokens = null;
 		if(delimiter.equals(" ")){
 			tokens = line.split(" ");
 			for(String token : tokens){
 				if(token.length() != 0){
-					resultLinetDataList.add(token);	
+					resultLineDataList.add(token);	
+				}else{
+					//resultLineDataList.add("null");
 				}
 			}
 		}else{
 			tokens = line.split(delimiter);
 			for(String token : tokens){
-				resultLinetDataList.add(token);
+				resultLineDataList.add(token);
 			}
 		}
 		
 		
-		return resultLinetDataList;
+		return resultLineDataList;
+	}
+	public static ArrayList<String> splitLineData_table3(String line, String delimiter){
+		ArrayList<String> resultLineDataList = new ArrayList<String>();
+		String [] tokens = null;
+		if(delimiter.equals(" ")){
+			tokens = line.split(" ");
+			for(String token : tokens){
+				if(token.length() != 0){
+					resultLineDataList.add(token);	
+				}else{
+					//resultLineDataList.add("null");
+				}
+			}
+		}else{
+			tokens = line.split(delimiter);
+			for(String token : tokens){
+				resultLineDataList.add(token);
+			}
+		}
+		
+		if(resultLineDataList.size() == 1){
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+		}else if(resultLineDataList.size() == 2){
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+		}else if(resultLineDataList.size() == 3){
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+		}else if(resultLineDataList.size() == 4){
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+		}else if(resultLineDataList.size() == 5){
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+		}else if(resultLineDataList.size() == 6){
+			resultLineDataList.add("Blank");
+			resultLineDataList.add("Blank");
+		}else if(resultLineDataList.size() == 7){
+			resultLineDataList.add("Blank");
+		}
+		
+		return resultLineDataList;
 	}
 	
 	public ArrayList<String> splitLineData(int fileDataLineNum, String delimiter){
-		ArrayList<String> resultLinetDataList = new ArrayList<String>();
+		ArrayList<String> resultLineDataList = new ArrayList<String>();
 		String line = fileDataList.get(fileDataLineNum);
 		String [] tokens = null;
 		
 		tokens = line.split(delimiter);
 		for(String token : tokens){
-			resultLinetDataList.add(token);
+			resultLineDataList.add(token);
 		}
 		
-		return resultLinetDataList;
+		return resultLineDataList;
 	}
 	
 	public ArrayList<String> splitLineData(int startP, int addP, int fileDataLineNum){

@@ -37,7 +37,7 @@ public class Writer {
 		this.fileDataList.clear();
 	}
 	
-	public void initWriter(){
+	private void initWriter(){
 		File fObj = new File(this.outFilePath);
 		try {
 			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fObj),"UTF8"));
@@ -70,7 +70,7 @@ public class Writer {
 		}
 	}
 	
-	public void writeFile(){
+	private void writeFile(){
 		try {
 			for(String line : this.fileDataList){
 				writer.write(line);

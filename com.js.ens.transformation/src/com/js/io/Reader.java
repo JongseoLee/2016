@@ -36,7 +36,7 @@ public class Reader {
 		//log.info("* Read file path("+ (end-start)/1000.0 +"sec) : "+ this.inFilePath);
 	}
 	
-	public void initReader(){
+	private void initReader(){
 		File fObj = new File(this.inFilePath);
 		try {
 			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fObj),"UTF8"));
@@ -51,7 +51,7 @@ public class Reader {
 		}
 	}
 	
-	public void readFile(){
+	private void readFile(){
 		String line = null;
 		fileDataList = new ArrayList<String>();
 		

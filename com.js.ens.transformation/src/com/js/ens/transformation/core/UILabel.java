@@ -145,4 +145,29 @@ public class UILabel {
 	public static String Table="Table";
 	public static String use="use";
 	
+	public static String BUR_TDIA = "BUR TDIA";
+	public static String BUR_BDIA = "BUR BDIA";
+	public static String WR_TDIA = "WR TDIA";
+	public static String WR_BDIA = "WR BDIA";
+	public static String WR_ICRN = "WR ICRN";
+	public static String ENTRY_THK = "ENTRY THK";
+	public static String EXIT_THK = "EXIT THK";
+	public static String PAS_LINE = "PAS LINE";
+	public static String ROL_GAP = "ROL GAP";
+	public static String STP_WID = "STP WID";
+	public static String STP_LEN = "STP LEN";
+	public static String ENTRY_TEMP = "ENTRY TEMP";
+	public static String EXIT_TEMP = "EXIT TEMP";
+	public static String FRCE = "FRCE";
+	public static String TORQ = "TORQ";
+	public static String SPEED_mpm = "SPEED(mpm)";
+	public static String BEND = "BEND";
+	public static String P_CROSS =  "P-CROSS";
+	public static String TENS = "TENS";
+	public static String ROL_TIM = "ROL TIM";
+	public static String IDL_TIM = "IDL TIM";
+	public static String BUR_WEAR = "BUR WEAR";
+	public static String WR_WEAR = "WR WEAR";
+	public static String WR_THRM = "WR THRM";
+	
 }

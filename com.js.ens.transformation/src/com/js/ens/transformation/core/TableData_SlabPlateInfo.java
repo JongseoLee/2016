@@ -1,5 +1,9 @@
 package com.js.ens.transformation.core;
 
+import java.util.ArrayList;
+
+import com.js.parser.ParserDefault;
+
 public class TableData_SlabPlateInfo {
 	
 	private String STRIP_NO = "";
@@ -15,6 +19,21 @@ public class TableData_SlabPlateInfo {
 	public TableData_SlabPlateInfo() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public void setAllData(String data){
+		ArrayList<String> tempList = ParserDefault.splitLineData(data, ",");
+		
+		this.setSTRIP_NO((tempList.get(0).length()!=0)?tempList.get(0):"");
+		this.setSTHK((tempList.get(1).length()!=0)?tempList.get(1):"");
+		this.setSWID((tempList.get(2).length()!=0)?tempList.get(2):"");
+		this.setSLEN((tempList.get(3).length()!=0)?tempList.get(3):"");
+		this.setSWET((tempList.get(4).length()!=0)?tempList.get(4):"");
+		this.setPTHK((tempList.get(5).length()!=0)?tempList.get(5):"");
+		this.setPWID((tempList.get(6).length()!=0)?tempList.get(6):"");
+		this.setPLEN((tempList.get(7).length()!=0)?tempList.get(7):"");
+		this.setPWET((tempList.get(8).length()!=0)?tempList.get(8):"");
+	}
+	
 
 	public String getSTRIP_NO() {
 		return STRIP_NO;
@@ -87,7 +106,19 @@ public class TableData_SlabPlateInfo {
 	public void setPWET(String pWET) {
 		PWET = pWET;
 	}
-
+	
+	public void printAllData(){
+		System.out.println("<<Table - SlabPlateInfo>>");
+		System.out.println("STRIP_NO : "+this.STRIP_NO);
+		System.out.println("STHK : "+this.STHK);
+		System.out.println("SWID : "+this.SWID);
+		System.out.println("SLEN : "+this.SLEN);
+		System.out.println("SWET : "+this.SWET);
+		System.out.println("PTHK : "+this.PTHK);
+		System.out.println("PWID : "+this.PWID);
+		System.out.println("PLEN : "+this.PLEN);
+		System.out.println("PWET : "+this.PWET);
+	}
 	
 	public String getDB(){
 		return "";

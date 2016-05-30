@@ -14,6 +14,7 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.TableColumn;
 
+import com.js.ens.transformation.core.MainController;
 import com.js.ens.transformation.core.Mediator;
 import com.js.ens.transformation.core.TableColumnLabel;
 import com.js.ens.transformation.core.UILabel;
@@ -30,6 +31,7 @@ import org.eclipse.swt.widgets.Spinner;
 
 public class View extends ViewPart {
 	private Mediator med = Mediator.getInstance();
+	private MainController MC = MainController.getInstance();
 	
 	public View() {
 	}
