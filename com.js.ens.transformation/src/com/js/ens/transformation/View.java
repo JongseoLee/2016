@@ -12,11 +12,15 @@ import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.Label;
-
 import org.eclipse.swt.widgets.TableColumn;
 
+import com.js.ens.transformation.core.Mediator;
 import com.js.ens.transformation.core.TableColumnLabel;
 import com.js.ens.transformation.core.UILabel;
+import com.js.ens.transformation.customWidget.CustomButton;
+import com.js.ens.transformation.customWidget.CustomTableViewer;
+import com.js.ens.transformation.handler.HandlerButton;
+import com.js.ens.transformation.handler.HandlerTableViewer;
 
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Group;
@@ -25,7 +29,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Spinner;
 
 public class View extends ViewPart {
-	
+	private Mediator med = Mediator.getInstance();
 	
 	public View() {
 	}
@@ -113,6 +117,10 @@ public class View extends ViewPart {
 		lblSlabAndPlate.setText(ulObj.getUILabelValue(UILabel.Table1Label));
 		
 		TableViewer tableViewerSlabPlateInfo = new TableViewer(compositeTotal, SWT.BORDER | SWT.FULL_SELECTION);
+		med.setTableViewerSlabPlateInfo(tableViewerSlabPlateInfo);
+		CustomTableViewer C_tableViewerSlabPlateInfo = new CustomTableViewer(Mediator.TABLEVIEWER_tableViewerSlabPlateInfo,med);
+		med.setC_tableViewerSlabPlateInfo(C_tableViewerSlabPlateInfo);
+		C_tableViewerSlabPlateInfo.setCustomWidget_tableViewerSlabPlateInfo();
 		tableSlabPlateInfo = tableViewerSlabPlateInfo.getTable();
 		tableSlabPlateInfo.setLinesVisible(true);
 		tableSlabPlateInfo.setHeaderVisible(true);
@@ -131,6 +139,10 @@ public class View extends ViewPart {
 		lblVariable.setText(ulObj.getUILabelValue(UILabel.Table2Label));
 		
 		TableViewer tableViewerVariable = new TableViewer(compositeTotal, SWT.BORDER | SWT.FULL_SELECTION);
+		med.setTableViewerVariable(tableViewerVariable);
+		CustomTableViewer C_tableViewerVariable = new CustomTableViewer(Mediator.TABLEVIEWER_tableViewerVariable,med);
+		med.setC_tableViewerVariable(C_tableViewerVariable);
+		C_tableViewerVariable.setCustomWidget_tableViewerVariable();
 		tableVariable = tableViewerVariable.getTable();
 		tableVariable.setLinesVisible(true);
 		tableVariable.setHeaderVisible(true);
@@ -149,6 +161,10 @@ public class View extends ViewPart {
 		lblPLog.setText(ulObj.getUILabelValue(UILabel.Table3Label));
 		
 		TableViewer tableViewerPLog = new TableViewer(compositeTotal, SWT.BORDER | SWT.FULL_SELECTION);
+		med.setTableViewerPLog(tableViewerPLog);
+		CustomTableViewer C_tableViewerPLog = new CustomTableViewer(Mediator.TABLEVIEWER_tableViewerPLog,med);
+		med.setC_tableViewerPLog(C_tableViewerPLog);
+		C_tableViewerVariable.setCustomWidget_tableViewerPLog();
 		tablePLog = tableViewerPLog.getTable();
 		tablePLog.setLinesVisible(true);
 		tablePLog.setHeaderVisible(true);
@@ -159,7 +175,18 @@ public class View extends ViewPart {
 		fd_tablePLog.bottom = new FormAttachment(100,-10);
 		tablePLog.setLayoutData(fd_tablePLog);
 		
-		init_TableColunm();
+		Button btnImportPLog = new Button(compositeTotal, SWT.NONE);
+		med.setBtnImportPLog(btnImportPLog);
+		CustomButton C_btnImportPLog = new CustomButton(Mediator.BUTTON_btnImportPLog,med);
+		med.setC_btnImportPLog(C_btnImportPLog);
+		C_btnImportPLog.setCustomWidget_btnImportPLog();
+		FormData fd_btnImportPLog = new FormData();
+		fd_btnImportPLog.bottom = new FormAttachment(tablePLog, 0, SWT.BOTTOM);
+		fd_btnImportPLog.right = new FormAttachment(100, -10);
+		btnImportPLog.setLayoutData(fd_btnImportPLog);
+		btnImportPLog.setText(ulObj.getUILabelValue(UILabel.Import_P_Log));
+		
+		
 		
 		//----------------------------------------------------------------------
 		//----------------------------------------------------------------------
@@ -978,11 +1005,22 @@ public class View extends ViewPart {
 		//=============
 		// */
 		Button btnApply = new Button(parent, SWT.NONE);
+		med.setBtnApply(btnApply);
+		CustomButton C_btnApply = new CustomButton(Mediator.BUTTON_btnApply,med);
+		med.setC_btnApply(C_btnApply);
+		C_btnApply.setCustomWidget_btnApply();
 		FormData fd_btnApply = new FormData();
-		fd_btnApply.top = new FormAttachment(tabFolder, 6);
-		fd_btnApply.right = new FormAttachment(tabFolder, 0, SWT.RIGHT);
+		fd_btnApply.top = new FormAttachment(tabFolder, 5);
+		fd_btnApply.left = new FormAttachment(tabFolder,-110,SWT.RIGHT);
+		fd_btnApply.right = new FormAttachment(tabFolder, -10, SWT.RIGHT);
 		btnApply.setLayoutData(fd_btnApply);
-		btnApply.setText("Apply");
+		btnApply.setText(ulObj.getUILabelValue(UILabel.Apply));
+		
+		
+		
+		init_TableColunm();
+		init_ActionComponent();
+		
 	}
 
 	
@@ -1095,5 +1133,17 @@ public class View extends ViewPart {
 			tableColumn_PLog.setWidth(ColumnWidth_PLog[i]);			
 		}
 		//med.getTableViewerUpperRoll().setColumnProperties(ColumnProperty_PLog);
+	}
+	
+	public void init_ActionComponent(){
+		//Button
+		HandlerButton handlerButton = new HandlerButton();
+		med.getBtnImportPLog().addListener(SWT.Selection, handlerButton);
+		med.getBtnApply().addListener(SWT.Selection, handlerButton);
+		//TableViewer
+		HandlerTableViewer handlerTableViewer = new HandlerTableViewer();
+		med.getTableViewerSlabPlateInfo().addSelectionChangedListener(handlerTableViewer);
+		med.getTableViewerVariable().addSelectionChangedListener(handlerTableViewer);
+		med.getTableViewerPLog().addSelectionChangedListener(handlerTableViewer);
 	}
 }

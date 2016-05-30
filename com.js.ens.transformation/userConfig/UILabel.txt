@@ -1,3 +1,7 @@
+//
+// Button Label
+Import P Log=Import P Log
+Apply=Apply
 // 
 // Tab title 
 Tab1Label=P Log

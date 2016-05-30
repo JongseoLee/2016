@@ -14,7 +14,7 @@ public class UILabel {
 	
 	public UILabel(){
 		UILabelMap = new HashMap<String,String>();
-		UILabelPath = myUtil.setPath(System.getProperty("user.dir"), "UILabel.txt");
+		UILabelPath = myUtil.setPath(myUtil.setPath(System.getProperty("user.dir"), "userConfig"),"UILabel.txt");
 	}
 	
 	public void readUILabelFile(){
@@ -40,7 +40,13 @@ public class UILabel {
 		}
 	}
 	
+	
 	// program variable = map key => value(in UILabel.txt)
+	//
+	// button label
+	//
+	public static String Import_P_Log = "Import P Log";
+	public static String Apply = "Apply";
 	//
 	// Tab title
 	//

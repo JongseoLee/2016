@@ -15,7 +15,8 @@ public class TableColumnLabel {
 	
 	public TableColumnLabel(){
 		tableColumnLabelMap = new HashMap<String,String>();
-		tableColumnLabelPath = myUtil.setPath(System.getProperty("user.dir"), "TableColumnLabel.txt");	
+		//tableColumnLabelPath = myUtil.setPath(System.getProperty("user.dir"), "TableColumnLabel.txt");	
+		tableColumnLabelPath = myUtil.setPath(myUtil.setPath(System.getProperty("user.dir"), "userConfig"),"TableColumnLabel.txt");
 	}
 	
 	public void readTableColumnLabelFile(){

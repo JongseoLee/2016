@@ -14,7 +14,8 @@ public class InitValue {
 	
 	public InitValue(){
 		initValueMap = new HashMap<String,String>();
-		initValuePath = myUtil.setPath(System.getProperty("user.dir"), "InitValue.txt");
+		//initValuePath = myUtil.setPath(System.getProperty("user.dir"), "InitValue.txt");
+		initValuePath = myUtil.setPath(myUtil.setPath(System.getProperty("user.dir"), "userConfig"),"InitValue.txt");
 	}
 	
 	public void readInitValueFile(){
@@ -40,6 +41,7 @@ public class InitValue {
 		}
 	}
 	
+
 	//
 	// basic
 	//
