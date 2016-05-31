@@ -53,5 +53,29 @@
          </menu>
       </menuContribution>
    </extension>
+   <extension
+         id="Transformation"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.js.ens.transformation.application"
+            name="Transformation">
+         <property
+               name="appName"
+               value="Transformation">
+         </property>
+      </product>
+   </extension>
+   <extension
+         id="productRev1"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.js.ens.transformation.application"
+            name="Transformation">
+         <property
+               name="appName"
+               value="Transformation">
+         </property>
+      </product>
+   </extension>
 
 </plugin>

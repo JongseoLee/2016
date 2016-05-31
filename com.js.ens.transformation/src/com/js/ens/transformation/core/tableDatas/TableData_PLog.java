@@ -1,4 +1,4 @@
-package com.js.ens.transformation.core;
+package com.js.ens.transformation.core.tableDatas;
 
 public class TableData_PLog {
 	private String STAND = "";

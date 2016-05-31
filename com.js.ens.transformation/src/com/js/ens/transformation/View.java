@@ -166,7 +166,7 @@ public class View extends ViewPart {
 		med.setTableViewerPLog(tableViewerPLog);
 		CustomTableViewer C_tableViewerPLog = new CustomTableViewer(Mediator.TABLEVIEWER_tableViewerPLog,med);
 		med.setC_tableViewerPLog(C_tableViewerPLog);
-		C_tableViewerVariable.setCustomWidget_tableViewerPLog();
+		C_tableViewerPLog.setCustomWidget_tableViewerPLog();
 		tablePLog = tableViewerPLog.getTable();
 		tablePLog.setLinesVisible(true);
 		tablePLog.setHeaderVisible(true);
@@ -1064,6 +1064,7 @@ public class View extends ViewPart {
 			tableColumn_SlabPlateInfo.setWidth(ColumnWidth_SlabPlateInfo[i]);			
 		}
 		//med.getTableViewerUpperRoll().setColumnProperties(ColumnProperty_SlabPlateInfo);
+		med.getTableViewerSlabPlateInfo().setColumnProperties(ColumnProperty_SlabPlateInfo);
 		
 		String [] ColumnName_Variable = new String[]{
 				tclObj.getTableColumnLabel(TableColumnLabel.CL2_0),
@@ -1114,13 +1115,14 @@ public class View extends ViewPart {
 			tableColumn_Variable.setWidth(ColumnWidth_Variable[i]);			
 		}
 		//med.getTableViewerUpperRoll().setColumnProperties(ColumnProperty_Variable);
+		med.getTableViewerVariable().setColumnProperties(ColumnProperty_Variable);
 		
 		String [] ColumnName_PLog = new String[]{
 				tclObj.getTableColumnLabel(TableColumnLabel.CL3_0),
 				"F1","F2","F3","F4","F5","F6","F7"									
 				};
 		int [] ColumnWidth_PLog  = new int[]{
-				80,80,80,80,80,80,80,80
+				90,80,80,80,80,80,80,80
 				};
 		int [] ColumnAligments_PLog  = new int []{
 				SWT.CENTER,SWT.RIGHT,SWT.RIGHT,SWT.RIGHT,SWT.RIGHT,SWT.RIGHT,SWT.RIGHT,SWT.RIGHT};
@@ -1135,6 +1137,7 @@ public class View extends ViewPart {
 			tableColumn_PLog.setWidth(ColumnWidth_PLog[i]);			
 		}
 		//med.getTableViewerUpperRoll().setColumnProperties(ColumnProperty_PLog);
+		med.getTableViewerPLog().setColumnProperties(ColumnProperty_PLog);
 	}
 	
 	public void init_ActionComponent(){
@@ -1144,8 +1147,8 @@ public class View extends ViewPart {
 		med.getBtnApply().addListener(SWT.Selection, handlerButton);
 		//TableViewer
 		HandlerTableViewer handlerTableViewer = new HandlerTableViewer();
-		med.getTableViewerSlabPlateInfo().addSelectionChangedListener(handlerTableViewer);
-		med.getTableViewerVariable().addSelectionChangedListener(handlerTableViewer);
-		med.getTableViewerPLog().addSelectionChangedListener(handlerTableViewer);
+		//med.getTableViewerSlabPlateInfo().addSelectionChangedListener(handlerTableViewer);
+		//med.getTableViewerVariable().addSelectionChangedListener(handlerTableViewer);
+		//med.getTableViewerPLog().addSelectionChangedListener(handlerTableViewer);
 	}
 }

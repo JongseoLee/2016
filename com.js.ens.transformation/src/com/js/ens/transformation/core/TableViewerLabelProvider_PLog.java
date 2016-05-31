@@ -4,6 +4,9 @@ import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
+import com.js.ens.transformation.core.tableDatas.TableData_PLog;
+import com.js.ens.transformation.core.tableDatas.TableRowData;
+
 public class TableViewerLabelProvider_PLog extends LabelProvider implements
 		ITableLabelProvider {
 
@@ -20,6 +23,29 @@ public class TableViewerLabelProvider_PLog extends LabelProvider implements
 	@Override
 	public String getColumnText(Object element, int columnIndex) {
 		// TODO Auto-generated method stub
+		TableRowData obj = (TableRowData) element;
+		
+		switch(columnIndex){
+		case 0:
+			return obj.getName();
+		case 1:
+			return obj.getF1Value();
+		case 2:
+			return obj.getF2Value();
+		case 3:
+			return obj.getF3Value();
+		case 4:
+			return obj.getF4Value();
+		case 5:
+			return obj.getF5Value();
+		case 6:
+			return obj.getF6Value();
+		case 7:
+			return obj.getF7Value();
+		}
+		
+		return "";
+		/*
 		TableData_PLog TD_PLogObj = (TableData_PLog) element;
 		switch(columnIndex){
 		case 0:
@@ -73,7 +99,8 @@ public class TableViewerLabelProvider_PLog extends LabelProvider implements
 		case 24:
 			return TD_PLogObj.getWR_THRM();
 		}
-		return "";
+		*/
+		
 	}
 
 }

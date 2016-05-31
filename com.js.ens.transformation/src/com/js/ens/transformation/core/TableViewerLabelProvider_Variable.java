@@ -4,6 +4,8 @@ import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
+import com.js.ens.transformation.core.tableDatas.TableData_Variable;
+
 public class TableViewerLabelProvider_Variable extends LabelProvider implements
 		ITableLabelProvider {
 

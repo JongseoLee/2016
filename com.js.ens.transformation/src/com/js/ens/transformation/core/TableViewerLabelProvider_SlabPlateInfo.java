@@ -4,6 +4,8 @@ import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
+import com.js.ens.transformation.core.tableDatas.TableData_SlabPlateInfo;
+
 public class TableViewerLabelProvider_SlabPlateInfo extends LabelProvider
 		implements ITableLabelProvider {
 

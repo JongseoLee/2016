@@ -25,14 +25,17 @@ public class CustomTableViewer implements ICommand {
 		// TODO Auto-generated method stub
 		if(widgetName.equals(Mediator.TABLEVIEWER_tableViewerSlabPlateInfo)){
 			edit_tableViewerSlabPlateInfo();
+			System.out.println("Custom-table1");
 		}
 		
 		if(widgetName.equals(Mediator.TABLEVIEWER_tableViewerVariable)){
 			edit_tableViewerVariable();
+			System.out.println("Custom-table2");
 		}
 		
 		if(widgetName.equals(Mediator.TABLEVIEWER_tableViewerPLog)){
 			edit_tableViewerVariable();
+			System.out.println("Custom-table3");
 		}
 	}
 	
@@ -52,6 +55,7 @@ public class CustomTableViewer implements ICommand {
 	}
 	
 	public void edit_tableViewerSlabPlateInfo(){
+		System.out.println("Custom-table11");
 		CellEditor [] editor = new CellEditor[9];
 		editor[0] = new TextCellEditor(this.table);
 		editor[1] = new TextCellEditor(this.table);
@@ -68,6 +72,7 @@ public class CustomTableViewer implements ICommand {
 	}
 	
 	public void edit_tableViewerVariable(){
+		System.out.println("Custom-table22");
 		CellEditor [] editor = new CellEditor[16];
 		editor[0] = new TextCellEditor(this.table);
 		editor[1] = new TextCellEditor(this.table);
@@ -91,6 +96,8 @@ public class CustomTableViewer implements ICommand {
 	}
 	
 	public void edit_tableViewerPLog(){
+		System.out.println("Custom-table33");
+		/*
 		CellEditor [] editor = new CellEditor[25];
 		editor[0] = null;
 		editor[1] = new TextCellEditor(this.table);
@@ -120,6 +127,7 @@ public class CustomTableViewer implements ICommand {
 		
 		this.tableViewer.setCellModifier(new TableViewerModifier(this.tableViewer));
 		this.tableViewer.setCellEditors(editor);
+		*/
 	}
 	
 	

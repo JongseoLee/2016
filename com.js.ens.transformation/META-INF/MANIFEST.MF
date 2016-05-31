@@ -7,3 +7,7 @@ Bundle-Vendor: JS
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ClassPath: .,
+ lib/jcommon-1.0.23.jar,
+ lib/jfreechart-1.0.19.jar,
+ lib/log4j-1.2.17.jar

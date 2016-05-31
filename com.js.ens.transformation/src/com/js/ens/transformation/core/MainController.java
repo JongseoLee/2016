@@ -7,6 +7,34 @@ import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 
+import com.js.ens.transformation.core.tableDatas.TableData_PLog;
+import com.js.ens.transformation.core.tableDatas.TableData_SlabPlateInfo;
+import com.js.ens.transformation.core.tableDatas.TableData_Variable;
+import com.js.ens.transformation.core.tableDatas.TableRowData;
+import com.js.ens.transformation.core.tableDatas.TableRowData_BEND;
+import com.js.ens.transformation.core.tableDatas.TableRowData_BUR_BDIA;
+import com.js.ens.transformation.core.tableDatas.TableRowData_BUR_TDIA;
+import com.js.ens.transformation.core.tableDatas.TableRowData_BUR_WEAR;
+import com.js.ens.transformation.core.tableDatas.TableRowData_ENTRY_TEMP;
+import com.js.ens.transformation.core.tableDatas.TableRowData_ENTRY_THK;
+import com.js.ens.transformation.core.tableDatas.TableRowData_EXIT_TEMP;
+import com.js.ens.transformation.core.tableDatas.TableRowData_EXIT_THK;
+import com.js.ens.transformation.core.tableDatas.TableRowData_FRCE;
+import com.js.ens.transformation.core.tableDatas.TableRowData_IDL_TIM;
+import com.js.ens.transformation.core.tableDatas.TableRowData_PAS_LINE;
+import com.js.ens.transformation.core.tableDatas.TableRowData_P_CROSS;
+import com.js.ens.transformation.core.tableDatas.TableRowData_ROL_GAP;
+import com.js.ens.transformation.core.tableDatas.TableRowData_ROL_TIM;
+import com.js.ens.transformation.core.tableDatas.TableRowData_SPEED;
+import com.js.ens.transformation.core.tableDatas.TableRowData_STP_LEN;
+import com.js.ens.transformation.core.tableDatas.TableRowData_STP_WID;
+import com.js.ens.transformation.core.tableDatas.TableRowData_TENS;
+import com.js.ens.transformation.core.tableDatas.TableRowData_TORQ;
+import com.js.ens.transformation.core.tableDatas.TableRowData_WR_BDIA;
+import com.js.ens.transformation.core.tableDatas.TableRowData_WR_ICRN;
+import com.js.ens.transformation.core.tableDatas.TableRowData_WR_TDIA;
+import com.js.ens.transformation.core.tableDatas.TableRowData_WR_THRM;
+import com.js.ens.transformation.core.tableDatas.TableRowData_WR_WEAR;
 import com.js.io.Reader;
 import com.js.parser.ParserDefault;
 import com.js.util.myUtil;
@@ -34,6 +62,8 @@ public class MainController {
 	
 	private ArrayList<TableData_PLog> tableDataPLogList = null;
 	private Map<String,String> tableDataPLogMap; 
+	private ArrayList<TableRowData> tableRowDataList = null;
+	
 	
 	//--------------
 	// tab2
@@ -77,6 +107,7 @@ public class MainController {
 			initTableData_SlabPlateInfo(PLogFileDataList,tclObj);
 			initTableData_Variable(PLogFileDataList,tclObj);
 			initTableData_PLog(PLogFileDataList,tclObj);
+			this.updateTableData();
 		}else{
 		}
 	}
@@ -154,10 +185,14 @@ public class MainController {
 			dataList.add(fileDataList.get(i));
 		}
 		this.createPLogObj(dataList);
+		/*
 		for(TableData_PLog obj : this.tableDataPLogList){
 			obj.printAllData();
 		}
-		this.updateTableData();
+		 */
+		this.createTableRowData();
+		
+		
 	}
 	
 	public void createPLogObj(ArrayList<String> dataList){
@@ -390,6 +425,107 @@ public class MainController {
 		}
 	}
 	
+	public void createTableRowData(){
+		//1
+		TableRowData_BUR_TDIA r1Obj = new TableRowData_BUR_TDIA();
+		r1Obj.setAllData(this.tableDataPLogList);
+		//2
+		TableRowData_BUR_BDIA r2Obj = new TableRowData_BUR_BDIA();
+		r2Obj.setAllData(this.tableDataPLogList);
+		//3
+		TableRowData_WR_TDIA r3Obj = new TableRowData_WR_TDIA();
+		r3Obj.setAllData(this.tableDataPLogList);
+		//4
+		TableRowData_WR_BDIA r4Obj = new TableRowData_WR_BDIA();
+		r4Obj.setAllData(this.tableDataPLogList);
+		//5
+		TableRowData_WR_ICRN r5Obj = new TableRowData_WR_ICRN();
+		r5Obj.setAllData(this.tableDataPLogList);
+		//6
+		TableRowData_ENTRY_THK r6Obj = new TableRowData_ENTRY_THK();
+		r6Obj.setAllData(this.tableDataPLogList);
+		//7
+		TableRowData_EXIT_THK r7Obj = new TableRowData_EXIT_THK();
+		r7Obj.setAllData(this.tableDataPLogList);
+		//8
+		TableRowData_PAS_LINE r8Obj = new TableRowData_PAS_LINE();
+		r8Obj.setAllData(this.tableDataPLogList);
+		//9
+		TableRowData_ROL_GAP r9Obj = new TableRowData_ROL_GAP();
+		r9Obj.setAllData(this.tableDataPLogList);
+		//10
+		TableRowData_STP_WID r10Obj = new TableRowData_STP_WID();
+		r10Obj.setAllData(this.tableDataPLogList);
+		//11
+		TableRowData_STP_LEN r11Obj = new TableRowData_STP_LEN();
+		r11Obj.setAllData(this.tableDataPLogList);
+		//12
+		TableRowData_ENTRY_TEMP r12Obj = new TableRowData_ENTRY_TEMP();
+		r12Obj.setAllData(this.tableDataPLogList);
+		//13
+		TableRowData_EXIT_TEMP r13Obj = new TableRowData_EXIT_TEMP();
+		r13Obj.setAllData(this.tableDataPLogList);
+		//14
+		TableRowData_FRCE r14Obj = new TableRowData_FRCE();
+		r14Obj.setAllData(this.tableDataPLogList);
+		//15
+		TableRowData_TORQ r15Obj = new TableRowData_TORQ();
+		r15Obj.setAllData(this.tableDataPLogList);
+		//16
+		TableRowData_SPEED r16Obj = new TableRowData_SPEED();
+		r16Obj.setAllData(this.tableDataPLogList);
+		//17
+		TableRowData_BEND r17Obj = new TableRowData_BEND();
+		r17Obj.setAllData(this.tableDataPLogList);
+		//18
+		TableRowData_P_CROSS r18Obj = new TableRowData_P_CROSS();
+		r18Obj.setAllData(this.tableDataPLogList);
+		//19
+		TableRowData_TENS r19Obj = new TableRowData_TENS();
+		r19Obj.setAllData(this.tableDataPLogList);
+		//20
+		TableRowData_ROL_TIM r20Obj = new TableRowData_ROL_TIM();
+		r20Obj.setAllData(this.tableDataPLogList);
+		//21
+		TableRowData_IDL_TIM r21Obj = new TableRowData_IDL_TIM();
+		r21Obj.setAllData(this.tableDataPLogList);
+		//22
+		TableRowData_BUR_WEAR r22Obj = new TableRowData_BUR_WEAR();
+		r22Obj.setAllData(this.tableDataPLogList);
+		//23
+		TableRowData_WR_WEAR r23Obj = new TableRowData_WR_WEAR();
+		r23Obj.setAllData(this.tableDataPLogList);
+		//24
+		TableRowData_WR_THRM r24Obj = new TableRowData_WR_THRM();
+		r24Obj.setAllData(this.tableDataPLogList);
+		
+		this.tableRowDataList = new ArrayList<TableRowData>();
+		this.tableRowDataList.add(r1Obj);
+		this.tableRowDataList.add(r2Obj);
+		this.tableRowDataList.add(r3Obj);
+		this.tableRowDataList.add(r4Obj);
+		this.tableRowDataList.add(r5Obj);
+		this.tableRowDataList.add(r6Obj);
+		this.tableRowDataList.add(r7Obj);
+		this.tableRowDataList.add(r8Obj);
+		this.tableRowDataList.add(r9Obj);
+		this.tableRowDataList.add(r10Obj);
+		this.tableRowDataList.add(r11Obj);
+		this.tableRowDataList.add(r12Obj);
+		this.tableRowDataList.add(r13Obj);
+		this.tableRowDataList.add(r14Obj);
+		this.tableRowDataList.add(r15Obj);
+		this.tableRowDataList.add(r16Obj);
+		this.tableRowDataList.add(r17Obj);
+		this.tableRowDataList.add(r18Obj);
+		this.tableRowDataList.add(r19Obj);
+		this.tableRowDataList.add(r20Obj);
+		this.tableRowDataList.add(r21Obj);
+		this.tableRowDataList.add(r22Obj);
+		this.tableRowDataList.add(r23Obj);
+		this.tableRowDataList.add(r24Obj);
+	}
+	
 	public void updateTableData(){
 		try{
 			med.getTableViewerSlabPlateInfo().setLabelProvider(new TableViewerLabelProvider_SlabPlateInfo());
@@ -402,7 +538,8 @@ public class MainController {
 			
 			med.getTableViewerPLog().setLabelProvider(new TableViewerLabelProvider_PLog());
 			med.getTableViewerPLog().setContentProvider(new ArrayContentProvider());
-			med.getTableViewerPLog().setInput(this.tableDataPLogList);
+			//med.getTableViewerPLog().setInput(this.tableDataPLogList);
+			med.getTableViewerPLog().setInput(this.tableRowDataList);
 			
 		}catch (Exception e){
 			String msg = "ERROR - Update Roll Table Data";

@@ -3,7 +3,11 @@ package com.js.ens.transformation.core;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Item;
-import org.jfree.util.Log;
+//import org.jfree.util.Log;
+
+import com.js.ens.transformation.core.tableDatas.TableData_PLog;
+import com.js.ens.transformation.core.tableDatas.TableData_SlabPlateInfo;
+import com.js.ens.transformation.core.tableDatas.TableData_Variable;
 
 public class TableViewerModifier implements ICellModifier {
 
@@ -22,7 +26,7 @@ public class TableViewerModifier implements ICellModifier {
 	@Override
 	public boolean canModify(Object element, String property) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -88,6 +92,7 @@ public class TableViewerModifier implements ICellModifier {
 				}
 				
 			}else if(this.tableViewer == med.getTableViewerPLog()){
+				/*
 				TD_PLogObj = (TableData_PLog) element;
 				
 				if(TableColumnLabel.CL3_0.equals(property)){
@@ -141,6 +146,7 @@ public class TableViewerModifier implements ICellModifier {
 				}else if(TableColumnLabel.CL3_24.equals(property)){
 					return TD_PLogObj.getWR_THRM();
 				}
+				// */	
 			}
 		}catch (Exception e){
 			
@@ -216,6 +222,7 @@ public class TableViewerModifier implements ICellModifier {
 					TD_VariableObj.setVAR16((String) value);
 				}
 			}else if(this.tableViewer == med.getTableViewerPLog()){
+				/*
 				TD_PLogObj = (TableData_PLog) element;
 				
 				if(TableColumnLabel.CL3_0.equals(property)){
@@ -269,6 +276,7 @@ public class TableViewerModifier implements ICellModifier {
 				}else if(TableColumnLabel.CL3_24.equals(property)){
 					TD_PLogObj.setWR_THRM((String) value);
 				}
+				// */
 			}
 		}catch (Exception e){
 			//log.error("Table Data Save Error");
