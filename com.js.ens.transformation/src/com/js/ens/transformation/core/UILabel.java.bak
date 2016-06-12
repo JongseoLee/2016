@@ -25,7 +25,6 @@ public class UILabel {
 		for(String line : fileData){
 			String data = line.trim();
 			if(data.contains("=")){
-				//System.out.println(line);
 				ArrayList<String> splitDataTokens = new ArrayList<String>();
 				splitDataTokens = ParserDefault.splitLineData(data,"=");
 				UILabelMap.put(splitDataTokens.get(0).trim(), splitDataTokens.get(1).trim()); 
@@ -71,6 +70,19 @@ public class UILabel {
 	public static String F6="F6";
 	public static String F7="F7";
 		
+	
+	//
+	//Work Roll(WR) shape parameter
+	//
+	/*
+	public static String Work_Roll_shape_parameter="Work Roll(WR) shape parameter";
+	public static String _1st_diameter_in_WR_roll="1st diameter in WR roll(mm)";
+	public static String _2nd_diameter_in_WR_roll="2nd diameter in WR roll(mm)";
+	public static String _3rd_diameter_in_WR_roll="3rd diameter in WR roll(mm)";
+	public static String _1st_length_in_WR_roll="1st length in WR roll(mm)";
+	public static String _2nd_length_in_WR_roll="2nd length in WR roll(mm)";
+	public static String _3rd_length_in_WR_roll="3rd length in WR roll(mm)";
+	*/
 	//
 	// -> Work Roll(WR) parameter
 	// Title 
@@ -85,7 +97,18 @@ public class UILabel {
 	public static String WR_Length="WR Length(mm)";
 	// 5) wr_div_angle
 	public static String WR_Mesh_Angle="WR Mesh Angle(deg.)";
-
+	//
+	//Back Up Roll(BUR) shape parameter
+	//
+	/*
+	public static String Back_Up_Roll_shape_parameter="Back Up Roll(BUR) shape parameter";
+	public static String _1st_diameter_in_BUR_roll="1st diameter in BUR roll(mm)";
+	public static String _2nd_diameter_in_BUR_roll="2nd diameter in BUR roll(mm)";
+	public static String _3rd_diameter_in_BUR_roll="3rd diameter in BUR roll(mm)";
+	public static String _1st_length_in_BUR_roll="1st length in BUR roll(mm)";
+	public static String _2nd_length_in_BUR_roll="2nd length in BUR roll(mm)";
+	public static String _3rd_length_in_BUR_roll="3rd length in BUR roll(mm)";
+	*/
 	//
 	// -> Backup Roll(BUR) Parameters
 	// Title
@@ -99,6 +122,17 @@ public class UILabel {
 	// 4) bur_div_angle
 	public static String BUR_Mesh_Angle="BUR Mesh Angle(deg.)";
 	
+	//
+	//Plate shape parameter
+	//
+	/*
+	public static String Plate_shape_parameter="Plate shape parameter";
+	public static String length_of_plate="length of plate(mm)";
+	public static String width_of_plate="width of plate(mm)";
+	public static String thickness_of_plate="thickness of plate(mm)";
+	public static String initial_position_of_plate="initial position of plate(mm)";
+	public static String roll_gap="roll gap(mm)";
+	*/
 	//
 	//-> Plate Parameters
 	// Title
@@ -121,7 +155,7 @@ public class UILabel {
 	public static String Thickness_Mesh_Divisions="Thickness Mesh Divisions";
 	
 	//
-	//-> Plate Parameters
+	//-> Plate Prarmeters
 	// Title 
 	public static String Process_Information="Process Information";
 	// 1) SPEED
@@ -144,7 +178,36 @@ public class UILabel {
 	public static String Roll_to_Roll_Fric_Coef="Roll to Roll Fric. Coef.";
 	
 	//
-	//-> Material parameter
+	//Roll mesh parameter
+	//
+	/*
+	public static String Roll_mesh_parameter="Roll mesh parameter"; 
+	public static String arc_length_of_WR="arc length of WR(mm)";
+	public static String arc_length_of_BUR="arc length of BUR(mm)";
+	*/
+	//
+	//Plate mesh parameter
+	//
+	/*
+	public static String Plate_mesh_parameter="Plate mesh parameter";
+	public static String Element_number_of_thickness_direction="Element number of thickness direction";
+	public static String Aspect_ratio_of_width_direction="Aspect ratio of width direction";
+	public static String Aspect_ratio_of_length_direction="Aspect ratio of length direction";
+	*/
+	//
+	//Roll & Plate information
+	//
+	/*
+	public static String Roll_Plate_information="Roll & Plate information"; 
+	public static String Angular_velocity_of_WR="Angular velocity of WR(rad/s)";
+	public static String Angular_velocity_of_BUR="Angular velocity of BUR(rad/s)";
+	public static String Plate_velocity="Plate velocity(mm/s)";
+	public static String initial_temperature_of_plate="initial temperature of plate(กษ)";
+	*/
+	
+	//
+	//Material parameter
+	//
 	// Title
 	public static String Material_parameter="Material parameter";
 	// 1) 
@@ -156,6 +219,18 @@ public class UILabel {
 	//4)
 	public static String Mass_Density="Mass Density(Mg/mm^3)";
 	
+	//
+	//Solving option
+	//
+	/*
+	public static String Solving_Option="Solving Option";
+	public static String Solving_time="Solving time(sec.)";
+	public static String Increment_time="Increment time(sec.)";
+	public static String Parallel_DDM="Parallel-DDM";
+	public static String Domain="Domain";
+	public static String Parallel_Multi_Thread="Parallel-Multi Thread";
+	public static String Thread="Thread";
+	*/
 	//
 	//-> Analysis Information
 	// Title

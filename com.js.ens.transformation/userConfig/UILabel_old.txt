@@ -1,0 +1,90 @@
+//
+// Button Label
+Import P Log=Import P Log
+Apply=Apply
+// 
+// Tab title 
+Tab1Label=P Log
+Tab2Label=F1~F7
+//
+// Table
+Table1Label=Slab and Plate Data
+Table2Label=Variable
+Table3Label=P Log
+//
+//STAND
+STAND=STAND
+F1=F1
+F2=F2
+F3=F3
+F4=F4
+F5=F5
+F6=F6
+F7=F7
+//
+//Work Roll(WR) shape parameter
+Work Roll(WR) shape parameter=Work Roll(WR) shape parameter
+1st diameter in WR roll(mm)=1st diameter in WR roll(mm)
+2nd diameter in WR roll(mm)=2nd diameter in WR roll(mm)
+3rd diameter in WR roll(mm)=3rd diameter in WR roll(mm)
+1st length in WR roll(mm)=1st length in WR roll(mm)
+2nd length in WR roll(mm)=2nd lenhth in WR roll(mm)
+3rd length in WR roll(mm)=3rd length in WR roll(mm)
+//
+//Back Up Roll(BUR) shape parameter
+Back Up Roll(BUR) shape parameter=Back Up Roll(BUR) shape parameter
+1st diameter in BUR roll(mm)=1st diameter in BUR roll(mm)
+2nd diameter in BUR roll(mm)=2nd diameter in BUR roll(mm)
+3rd diameter in BUR roll(mm)=3rd diameter in BUR roll(mm)
+1st length in BUR roll(mm)=1st length in BUR roll(mm)
+2nd length in BUR roll(mm)=2nd length in BUR roll(mm)
+3rd length in BUR roll(mm)=3rd length in BUR roll(mm)
+//
+//Plate shape parameter
+Plate shape parameter=Plate shape parameter
+length of plate(mm)=length of plate(mm)
+width of plate(mm)=width of plate(mm)
+thickness of plate(mm)=thickness of plate(mm)
+initial position of plate(mm)=initial position of plate(mm)
+roll gap(mm)=roll gap(mm)
+//
+//Roll mesh parameter
+Roll mesh parameter=Roll mesh parameter
+arc length of WR(mm)=arc length of WR(mm)
+arc length of BUR(mm)=arc length of BUR(mm)
+
+
+//
+//Plate mesh parameter
+Plate mesh parameter=Plate mesh parameter
+Element number of thickness direction=Element number of thickness direction
+Aspect ratio of width direction=Aspect ratio of width direction
+Aspect ratio of length direction=Aspect ratio of length direction
+//
+//Roll & Plate information
+Roll & Plate information=Roll & Plate information
+Angular velocity of WR(rad/s)=Angular velocity of WR(rad/s)
+Angular velocity of BUR(rad/s)=Angular velocity of BUR(rad/s)
+Plate velocity(mm/s)=Plate velocity(mm/s)
+initial temperature of plate(กษ)=initial temperature of plate(กษ)
+//
+//Material parameter
+Material parameter=Material parameter
+Young's Modulus(MPa)=Young's Modulus(MPa)
+Thermal Expansion Coefficient(mm/mm)=Thermal Expansion Coefficient(mm/mm)
+Poisson's Ratio=Poisson's Ratio
+Mass Density(Mg/mm^3)=Mass Density(Mg/mm^3)
+//
+//Solving option
+Solving Option=Solving Option
+Solving time(sec.)=Solving time(sec.)
+Increment time(sec.)=Increment time(sec.)
+Parallel-DDM=Parallel-DDM
+Domain=Domain
+Parallel-Multi Thread=Parallel-Multi Thread
+Thread=Thread
+//
+// ETC
+Constatnt=Constatnt
+Table=Table
+use=use
