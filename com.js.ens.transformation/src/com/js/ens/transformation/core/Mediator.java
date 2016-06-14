@@ -2,6 +2,7 @@ package com.js.ens.transformation.core;
 
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Label;
 
 import com.js.ens.transformation.customWidget.ICommand;
 
@@ -11,6 +12,9 @@ public class Mediator {
 		return instance;
 	}
 	
+	//
+	// Tab 1
+	//
 	private TableViewer tableViewerSlabPlateInfo;
 	public ICommand C_tableViewerSlabPlateInfo;
 	public static String TABLEVIEWER_tableViewerSlabPlateInfo = "tableViewerSlabPlateInfo";
@@ -27,9 +31,21 @@ public class Mediator {
 	public ICommand C_btnImportPLog;
 	public static String BUTTON_btnImportPLog = "btnImportPLog";
 	
+	//
+	// Tab2
+	//
+	
+	//
+	// Common
+	//
+	private Label lblModelNameValue;
+	private Label lblWorkspacePath;
+	
 	private Button btnApply;
 	public ICommand C_btnApply;
 	public static String BUTTON_btnApply = "btnApply";
+	
+	
 	
 	
 	
@@ -108,6 +124,22 @@ public class Mediator {
 	}
 	public void setC_btnApply(ICommand c_btnApply) {
 		C_btnApply = c_btnApply;
+	}
+	
+	
+	public Label getLblModelNameValue() {
+		return lblModelNameValue;
+	}
+	public void setLblModelNameValue(Label lblModelNameValue) {
+		this.lblModelNameValue = lblModelNameValue;
+	}
+	
+	
+	public Label getLblWorkspacePath() {
+		return lblWorkspacePath;
+	}
+	public void setLblWorkspacePath(Label lblWorkspacePath) {
+		this.lblWorkspacePath = lblWorkspacePath;
 	}
 	
 }

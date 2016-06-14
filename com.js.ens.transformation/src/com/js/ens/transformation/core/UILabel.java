@@ -44,6 +44,11 @@ public class UILabel {
 	
 	// program variable = map key => value(in UILabel.txt)
 	//
+	//Common Label
+	//
+	public static String Model_Name = "Model Name";
+	public static String Workspace = "Workspace";
+	//
 	// button label
 	//
 	public static String Import_P_Log = "Import P Log";
