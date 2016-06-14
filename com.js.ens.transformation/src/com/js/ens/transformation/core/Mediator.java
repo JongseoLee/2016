@@ -3,6 +3,7 @@ package com.js.ens.transformation.core;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.TabFolder;
 
 import com.js.ens.transformation.customWidget.ICommand;
 
@@ -12,6 +13,13 @@ public class Mediator {
 		return instance;
 	}
 	
+	
+	private TabFolder tabFolder;
+	public ICommand C_tabFolder;
+	public static String TABFOLDER_tabFolder = "tabFolder";
+	
+	
+
 	//
 	// Tab 1
 	//
@@ -35,6 +43,9 @@ public class Mediator {
 	// Tab2
 	//
 	
+	
+	
+	
 	//
 	// Common
 	//
@@ -48,15 +59,23 @@ public class Mediator {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	//
 	// set get method
 	//
+	public TabFolder getTabFolder() {
+		return tabFolder;
+	}
+	public void setTabFolder(TabFolder tabFolder) {
+		this.tabFolder = tabFolder;
+	}
+	public ICommand getC_tabFolder() {
+		return C_tabFolder;
+	}
+	public void setC_tabFolder(ICommand c_tabFolder) {
+		C_tabFolder = c_tabFolder;
+	}
+	
+	
 	public TableViewer getTableViewerSlabPlateInfo() {
 		return tableViewerSlabPlateInfo;
 	}

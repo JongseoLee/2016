@@ -19,8 +19,10 @@ import com.js.ens.transformation.core.Mediator;
 import com.js.ens.transformation.core.TableColumnLabel;
 import com.js.ens.transformation.core.UILabel;
 import com.js.ens.transformation.customWidget.CustomButton;
+import com.js.ens.transformation.customWidget.CustomTabFolder;
 import com.js.ens.transformation.customWidget.CustomTableViewer;
 import com.js.ens.transformation.handler.HandlerButton;
+import com.js.ens.transformation.handler.HandlerTabFolder;
 import com.js.ens.transformation.handler.HandlerTableViewer;
 
 import org.eclipse.wb.swt.SWTResourceManager;
@@ -28,6 +30,9 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Spinner;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 
 public class View extends ViewPart {
 	private Mediator med = Mediator.getInstance();
@@ -74,15 +79,6 @@ public class View extends ViewPart {
 	private Text textRollToPlateFrictCoef;
 	private Text textRollToRollFrictCoef;
 
-	private Text textElementNumberOfThicknessDirection;
-	private Text textAspectRatioOfWidthDirection;
-	private Text textAspectRatioOfLengthDirection;
-	
-	private Text textAngularVelocityOfWR;
-	private Text textAngularVelocityOFBUR;
-	private Text textPlateVelocity;
-	private Text textInitialTemperatureOfPlate;
-	
 	private Text textYoungsModulus;
 	private Text textThermalExpansionCoefficient;
 	private Text textPoissonsRatio;
@@ -105,7 +101,11 @@ public class View extends ViewPart {
 		//--------------------------------------------------------------------------
 		parent.setLayout(new FormLayout());
 		
-		TabFolder tabFolder = new TabFolder(parent, SWT.NONE);
+		final TabFolder tabFolder = new TabFolder(parent, SWT.NONE);
+		med.setTabFolder(tabFolder);
+		CustomTabFolder C_tabFolder = new CustomTabFolder(Mediator.TABFOLDER_tabFolder,med);
+		med.setC_tabFolder(C_tabFolder);
+		C_tabFolder.setCustomWidget_tabFolder();
 		FormData fd_tabFolder = new FormData();
 		fd_tabFolder.top = new FormAttachment(0,50);
 		fd_tabFolder.left = new FormAttachment(0,0);
@@ -1186,6 +1186,10 @@ public class View extends ViewPart {
 	}
 	
 	public void init_ActionComponent(){
+		//TabFolder
+		HandlerTabFolder handlerTabFolder = new HandlerTabFolder();
+		med.getTabFolder().addListener(SWT.Selection, handlerTabFolder);
+		
 		//Button
 		HandlerButton handlerButton = new HandlerButton();
 		med.getBtnImportPLog().addListener(SWT.Selection, handlerButton);
