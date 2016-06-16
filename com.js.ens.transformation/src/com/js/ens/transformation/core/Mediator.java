@@ -2,6 +2,7 @@ package com.js.ens.transformation.core;
 
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Spinner;
@@ -45,6 +46,9 @@ public class Mediator {
 	//
 	// Tab2
 	//
+	private Composite compositeDetail;
+	private Group groupSTAND;
+	
 	private Button btnF1;
 	public ICommand C_btnF1;
 	public static String BUTTON_btnF1 = "btnF1";
@@ -1206,6 +1210,22 @@ public class Mediator {
 	}
 	public void setC_spinnerThread(ICommand c_spinnerThread) {
 		C_spinnerThread = c_spinnerThread;
+	}
+	
+	
+	public Composite getCompositeDetail() {
+		return compositeDetail;
+	}
+	public void setCompositeDetail(Composite compositeDetail) {
+		this.compositeDetail = compositeDetail;
+	}
+	
+	
+	public Group getGroupSTAND() {
+		return groupSTAND;
+	}
+	public void setGroupSTAND(Group groupSTAND) {
+		this.groupSTAND = groupSTAND;
 	}
 	
 }

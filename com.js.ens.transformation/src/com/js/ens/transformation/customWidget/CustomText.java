@@ -23,6 +23,7 @@ public class CustomText implements ICommand {
 		// TODO Auto-generated method stub
 		if(widgetName.equals(Mediator.TEXT_textTopWRDiameter)){
 			//MC.메서드 호출()
+			System.out.println(med.getTextTopWRDiameter().getText());
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRDiameter)){
 			
 		}else if(widgetName.equals(Mediator.TEXT_textWRCrown)){

@@ -44,13 +44,19 @@ public class CustomButton implements ICommand {
 			//MC.메소드 호출()
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
 			//MC.메소드 호출()
+		}else if(widgetName.equals(Mediator.BUTTON_btnExplorerYoungsModulus)){
+			//MC.메소드 호출()
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
 			//MC.메소드 호출()
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
 			//MC.메소드 호출()
+		}else if(widgetName.equals(Mediator.Button_btnExplorerThermalExpansionCoefficient)){
+			//MC.메소드 호출()
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
 			//MC.메소드 호출()
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			//MC.메소드 호출()
+		}else if(widgetName.equals(Mediator.BUTTON_btnExplorerPoissonsRatio)){
 			//MC.메소드 호출()
 		}else if(widgetName.equals(Mediator.BUTTON_btnParallelDDM)){
 			//MC.메소드 호출()
@@ -105,6 +111,10 @@ public class CustomButton implements ICommand {
 		this.button = med.getBtnTable1_YM();
 	}
 	
+	public void setCustomWidget_btnExplorerYoungsModulus(){
+		this.button = med.getBtnExplorerYoungsModulus();
+	}
+	
 	public void setCustomWidget_btnConstant2_TEC(){
 		this.button = med.getBtnConstant2_TEC();
 	}
@@ -113,12 +123,20 @@ public class CustomButton implements ICommand {
 		this.button = med.getBtnTable2_TEC();
 	}
 	
+	public void setCustomWidget_btnExplorerThermalExpansionCoefficient(){
+		this.button = med.getBtnExplorerThermalExpansionCoefficient();
+	}
+	
 	public void setCustomWidget_btnConstant3_PR(){
 		this.button = med.getBtnConstant3_PR();
 	}
 	
 	public void setCustomWidget_btnTable3_PR(){
 		this.button = med.getBtnTable3_PR();
+	}
+	
+	public void setCustomWidget_btnExplorerPoissonsRatio(){
+		this.button = med.getBtnExplorerPoissonsRatio();
 	}
 	
 	public void setCustomWidget_btnParallelDDM(){

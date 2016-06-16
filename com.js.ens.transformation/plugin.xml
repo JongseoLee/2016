@@ -47,11 +47,81 @@
          <menu
                label="File">
             <command
+                  commandId="com.js.ens.transformation.command.New"
+                  label="New"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.js.ens.transformation.command.Open"
+                  label="Open"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.js.ens.transformation.command.Save"
+                  label="Save"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.js.ens.transformation.command.SaveAs"
+                  label="Save As"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.js.ens.transformation.command.Export"
+                  label="Export"
+                  style="push">
+            </command>
+            <separator
+                  name="com.js.ens.transformation.separator1"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="com.js.ens.transformation.command.Result"
+                  label="Result"
+                  style="push">
+            </command>
+            <separator
+                  name="com.js.ens.transformation.separator2">
+            </separator>
+            <command
                   commandId="org.eclipse.ui.file.exit"
                   label="Exit">
             </command>
          </menu>
       </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.js.ens.transformation.fileMenuHandler.File_NewHandler"
+            id="com.js.ens.transformation.command.New"
+            name="New">
+      </command>
+      <command
+            defaultHandler="com.js.ens.transformation.fileMenuHandler.File_OpenHandler"
+            id="com.js.ens.transformation.command.Open"
+            name="Open">
+      </command>
+      <command
+            defaultHandler="com.js.ens.transformation.fileMenuHandler.File_SaveHandler"
+            id="com.js.ens.transformation.command.Save"
+            name="Save">
+      </command>
+      <command
+            defaultHandler="com.js.ens.transformation.fileMenuHandler.File_SaveAsHandler"
+            id="com.js.ens.transformation.command.SaveAs"
+            name="SaveAs">
+      </command>
+      <command
+            defaultHandler="com.js.ens.transformation.fileMenuHandler.File_ExportHandler"
+            id="com.js.ens.transformation.command.Export"
+            name="Export">
+      </command>
+      <command
+            defaultHandler="com.js.ens.transformation.fileMenuHandler.File_ResultHandler"
+            id="com.js.ens.transformation.command.Result"
+            name="Result">
+      </command>
    </extension>
    <extension
          id="Transformation"
