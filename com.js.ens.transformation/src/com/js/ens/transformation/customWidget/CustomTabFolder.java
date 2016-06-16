@@ -21,7 +21,7 @@ public class CustomTabFolder implements ICommand {
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
-		if(widgetName.equals(med.TABFOLDER_tabFolder)){
+		if(widgetName.equals(Mediator.TABFOLDER_tabFolder)){
 			// tabItem id P Log , F1~F7
 			System.out.println(tabFolder.getSelection()[0].getText());
 			// tabItem no 0 , 1

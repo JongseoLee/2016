@@ -747,19 +747,19 @@ public class View extends ViewPart {
 		fd_compositeYoungsModulus.bottom = new FormAttachment(lblYoungsModulus,20,SWT.BOTTOM);
 		compositeYoungsModulus.setLayoutData(fd_compositeYoungsModulus);
 		
-		Button btnConstant1 = new Button(compositeYoungsModulus, SWT.RADIO);
-		FormData fd_btnConstant = new FormData();
-		fd_btnConstant.top = new FormAttachment(0, 0);
-		fd_btnConstant.left = new FormAttachment(0, 0);
-		btnConstant1.setLayoutData(fd_btnConstant);
-		btnConstant1.setText(ulObj.getUILabelValue(UILabel.Constatnt));
+		Button btnConstant1_YM = new Button(compositeYoungsModulus, SWT.RADIO);
+		FormData fd_btnConstant1_YM = new FormData();
+		fd_btnConstant1_YM.top = new FormAttachment(0, 0);
+		fd_btnConstant1_YM.left = new FormAttachment(0, 0);
+		btnConstant1_YM.setLayoutData(fd_btnConstant1_YM);
+		btnConstant1_YM.setText(ulObj.getUILabelValue(UILabel.Constatnt));
 		
-		Button btnTable1 = new Button(compositeYoungsModulus, SWT.RADIO);
-		FormData fd_btnTable = new FormData();
-		fd_btnTable.top = new FormAttachment(0, 0);
-		fd_btnTable.left = new FormAttachment(btnConstant1,10,SWT.RIGHT);
-		btnTable1.setLayoutData(fd_btnTable);
-		btnTable1.setText(ulObj.getUILabelValue(UILabel.Table));
+		Button btnTable1_YM = new Button(compositeYoungsModulus, SWT.RADIO);
+		FormData fd_btnTable1_YM = new FormData();
+		fd_btnTable1_YM.top = new FormAttachment(0, 0);
+		fd_btnTable1_YM.left = new FormAttachment(btnConstant1_YM,10,SWT.RIGHT);
+		btnTable1_YM.setLayoutData(fd_btnTable1_YM);
+		btnTable1_YM.setText(ulObj.getUILabelValue(UILabel.Table));
 		
 		textYoungsModulus = new Text(grpMaterialParameter, SWT.BORDER);
 		FormData fd_textYoungsModulus = new FormData();
@@ -791,17 +791,17 @@ public class View extends ViewPart {
 		fd_compositeThermalExpansionCoefficient.bottom = new FormAttachment(lblThermalExpansionCoefficient,20,SWT.BOTTOM);
 		compositeThermalExpansionCoefficient.setLayoutData(fd_compositeThermalExpansionCoefficient);
 		
-		Button btnConstant2 = new Button(compositeThermalExpansionCoefficient, SWT.RADIO);
-		FormData fd_btnConstant2 = new FormData();
-		fd_btnConstant2.top = new FormAttachment(0, 0);
-		fd_btnConstant2.left = new FormAttachment(0, 0);
-		btnConstant2.setLayoutData(fd_btnConstant2);
-		btnConstant2.setText(ulObj.getUILabelValue(UILabel.Constatnt));
+		Button btnConstant2_TEC = new Button(compositeThermalExpansionCoefficient, SWT.RADIO);
+		FormData fd_btnConstant2_TEC = new FormData();
+		fd_btnConstant2_TEC.top = new FormAttachment(0, 0);
+		fd_btnConstant2_TEC.left = new FormAttachment(0, 0);
+		btnConstant2_TEC.setLayoutData(fd_btnConstant2_TEC);
+		btnConstant2_TEC.setText(ulObj.getUILabelValue(UILabel.Constatnt));
 		
 		Button btnTable2 = new Button(compositeThermalExpansionCoefficient, SWT.RADIO);
 		FormData fd_btnTable2 = new FormData();
 		fd_btnTable2.top = new FormAttachment(0, 0);
-		fd_btnTable2.left = new FormAttachment(btnConstant2,10,SWT.RIGHT);
+		fd_btnTable2.left = new FormAttachment(btnConstant2_TEC,10,SWT.RIGHT);
 		btnTable2.setLayoutData(fd_btnTable2);
 		btnTable2.setText(ulObj.getUILabelValue(UILabel.Table));
 		
@@ -835,19 +835,19 @@ public class View extends ViewPart {
 		fd_compositePoissonsRatio.bottom = new FormAttachment(lblPoissonsRatio,20,SWT.BOTTOM);
 		compositePoissonsRatio.setLayoutData(fd_compositePoissonsRatio);
 		
-		Button btnConstant3 = new Button(compositePoissonsRatio, SWT.RADIO);
-		FormData fd_btnConstant3 = new FormData();
-		fd_btnConstant3.top = new FormAttachment(0, 0);
-		fd_btnConstant3.left = new FormAttachment(0, 0);
-		btnConstant3.setLayoutData(fd_btnConstant3);
-		btnConstant3.setText(ulObj.getUILabelValue(UILabel.Constatnt));
+		Button btnConstant3_PR = new Button(compositePoissonsRatio, SWT.RADIO);
+		FormData fd_btnConstant3_PR = new FormData();
+		fd_btnConstant3_PR.top = new FormAttachment(0, 0);
+		fd_btnConstant3_PR.left = new FormAttachment(0, 0);
+		btnConstant3_PR.setLayoutData(fd_btnConstant3_PR);
+		btnConstant3_PR.setText(ulObj.getUILabelValue(UILabel.Constatnt));
 		
-		Button btnTable3 = new Button(compositePoissonsRatio, SWT.RADIO);
-		FormData fd_btnTable3 = new FormData();
-		fd_btnTable3.top = new FormAttachment(0, 0);
-		fd_btnTable3.left = new FormAttachment(btnConstant3,10,SWT.RIGHT);
-		btnTable3.setLayoutData(fd_btnTable3);
-		btnTable3.setText(ulObj.getUILabelValue(UILabel.Table));
+		Button btnTable3_PR = new Button(compositePoissonsRatio, SWT.RADIO);
+		FormData fd_btnTable3_PR = new FormData();
+		fd_btnTable3_PR.top = new FormAttachment(0, 0);
+		fd_btnTable3_PR.left = new FormAttachment(btnConstant3_PR,10,SWT.RIGHT);
+		btnTable3_PR.setLayoutData(fd_btnTable3_PR);
+		btnTable3_PR.setText(ulObj.getUILabelValue(UILabel.Table));
 		
 		textPoissonsRatio = new Text(grpMaterialParameter, SWT.BORDER);
 		FormData fd_textPoissonsRatio = new FormData();
@@ -959,12 +959,12 @@ public class View extends ViewPart {
 		lblParallelDDM.setLayoutData(fd_lblParallelDDM);
 		lblParallelDDM.setText(ulObj.getUILabelValue(UILabel.Parallel_DDM));
 		
-		Button btnUseParallelDDM = new Button(grpAnalysisInformation, SWT.CHECK);
+		Button btnParallelDDM = new Button(grpAnalysisInformation, SWT.CHECK);
 		FormData fd_btnParallelDDM = new FormData();
 		fd_btnParallelDDM.top = new FormAttachment(lblParallelDDM, 0, SWT.TOP);
 		fd_btnParallelDDM.left = new FormAttachment(textTimeIncrement_time, 0, SWT.LEFT);
-		btnUseParallelDDM.setLayoutData(fd_btnParallelDDM);
-		btnUseParallelDDM.setText(ulObj.getUILabelValue(UILabel.use));
+		btnParallelDDM.setLayoutData(fd_btnParallelDDM);
+		btnParallelDDM.setText(ulObj.getUILabelValue(UILabel.use));
 		
 		Label lblDomain = new Label(grpAnalysisInformation, SWT.NONE);
 		FormData fd_lblDomain = new FormData();
@@ -988,12 +988,12 @@ public class View extends ViewPart {
 		lblParallelMultiThread.setLayoutData(fd_lblParallelMultiThread);
 		lblParallelMultiThread.setText(ulObj.getUILabelValue(UILabel.Parallel_Multi_Thread));
 		
-		Button btnUseParallelMultiThread = new Button(grpAnalysisInformation, SWT.CHECK);
+		Button btnParallelMultiThread = new Button(grpAnalysisInformation, SWT.CHECK);
 		FormData fd_btnParallelMultiThread = new FormData();
 		fd_btnParallelMultiThread.top = new FormAttachment(lblParallelMultiThread, 0, SWT.TOP);
 		fd_btnParallelMultiThread.left = new FormAttachment(textTimeIncrement_time, 0, SWT.LEFT);
-		btnUseParallelMultiThread.setLayoutData(fd_btnParallelMultiThread);
-		btnUseParallelMultiThread.setText(ulObj.getUILabelValue(UILabel.use));
+		btnParallelMultiThread.setLayoutData(fd_btnParallelMultiThread);
+		btnParallelMultiThread.setText(ulObj.getUILabelValue(UILabel.use));
 		
 		Label lblThread = new Label(grpAnalysisInformation, SWT.NONE);
 		FormData fd_lblThread = new FormData();
