@@ -1,5 +1,7 @@
 package com.js.ens.transformation.dialog;
 
+import java.util.ArrayList;
+
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.graphics.Point;
@@ -16,7 +18,10 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+import com.js.ens.transformation.core.MainController;
+
 public class ApplyDlg extends Dialog {
+	private MainController MC = MainController.getInstance();
 	private boolean isCheckedAll = true;
 	private boolean isCheckedIndividual = false;
 	private boolean isCheckedF1 = false;
@@ -76,7 +81,7 @@ public class ApplyDlg extends Dialog {
 		btnIndividual.setText("Individually selected");
 		btnAll.setSelection(false);
 		
-		Composite composite = new Composite(container, SWT.BORDER);
+		final Composite composite = new Composite(container, SWT.BORDER);
 		composite.setLayout(new FormLayout());
 		FormData fd_composite = new FormData();
 		fd_composite.top = new FormAttachment(btnIndividual, 5);
@@ -141,6 +146,32 @@ public class ApplyDlg extends Dialog {
 		btnF7.setText("F7");
 		btnF7.setSelection(false);
 		
+		isCheckedAll = true;
+		isCheckedIndividual = false;
+		composite.setEnabled(false);
+		btnF1.setSelection(false);
+		btnF2.setSelection(false);
+		btnF3.setSelection(false);
+		btnF4.setSelection(false);
+		btnF5.setSelection(false);
+		btnF6.setSelection(false);
+		btnF7.setSelection(false);
+		btnF1.setEnabled(false);
+		btnF2.setEnabled(false);
+		btnF3.setEnabled(false);
+		btnF4.setEnabled(false);
+		btnF5.setEnabled(false);
+		btnF6.setEnabled(false);
+		btnF7.setEnabled(false);
+		isCheckedF1 = false;
+		isCheckedF2 = false;
+		isCheckedF3 = false;
+		isCheckedF4 = false;
+		isCheckedF5 = false;
+		isCheckedF6 = false;
+		isCheckedF7 = false;
+		
+		
 		//////////////////////////////////////////////////////////////////////
 		btnAll.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -148,8 +179,38 @@ public class ApplyDlg extends Dialog {
 				isCheckedAll = btnAll.getSelection();
 				if(isCheckedAll){
 					isCheckedIndividual = false;
+					composite.setEnabled(false);
+					btnF1.setSelection(false);
+					btnF2.setSelection(false);
+					btnF3.setSelection(false);
+					btnF4.setSelection(false);
+					btnF5.setSelection(false);
+					btnF6.setSelection(false);
+					btnF7.setSelection(false);
+					btnF1.setEnabled(false);
+					btnF2.setEnabled(false);
+					btnF3.setEnabled(false);
+					btnF4.setEnabled(false);
+					btnF5.setEnabled(false);
+					btnF6.setEnabled(false);
+					btnF7.setEnabled(false);
+					isCheckedF1 = false;
+					isCheckedF2 = false;
+					isCheckedF3 = false;
+					isCheckedF4 = false;
+					isCheckedF5 = false;
+					isCheckedF6 = false;
+					isCheckedF7 = false;
 				}else{
 					isCheckedIndividual = true;
+					composite.setEnabled(true);
+					btnF1.setEnabled(true);
+					btnF2.setEnabled(true);
+					btnF3.setEnabled(true);
+					btnF4.setEnabled(true);
+					btnF5.setEnabled(true);
+					btnF6.setEnabled(true);
+					btnF7.setEnabled(true);
 				}
 			}
 		});
@@ -160,8 +221,38 @@ public class ApplyDlg extends Dialog {
 				isCheckedIndividual = btnIndividual.getSelection();
 				if(isCheckedIndividual){
 					isCheckedAll = false;
+					composite.setEnabled(true);
+					btnF1.setEnabled(true);
+					btnF2.setEnabled(true);
+					btnF3.setEnabled(true);
+					btnF4.setEnabled(true);
+					btnF5.setEnabled(true);
+					btnF6.setEnabled(true);
+					btnF7.setEnabled(true);
 				}else{
 					isCheckedAll = true;
+					composite.setEnabled(false);
+					btnF1.setSelection(false);
+					btnF2.setSelection(false);
+					btnF3.setSelection(false);
+					btnF4.setSelection(false);
+					btnF5.setSelection(false);
+					btnF6.setSelection(false);
+					btnF7.setSelection(false);
+					btnF1.setEnabled(false);
+					btnF2.setEnabled(false);
+					btnF3.setEnabled(false);
+					btnF4.setEnabled(false);
+					btnF5.setEnabled(false);
+					btnF6.setEnabled(false);
+					btnF7.setEnabled(false);
+					isCheckedF1 = false;
+					isCheckedF2 = false;
+					isCheckedF3 = false;
+					isCheckedF4 = false;
+					isCheckedF5 = false;
+					isCheckedF6 = false;
+					isCheckedF7 = false;
 				}
 			}
 		});
@@ -227,19 +318,70 @@ public class ApplyDlg extends Dialog {
 		btnOk.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if(isCheckedAll)		System.out.println("All Checked");
-				if(isCheckedIndividual)	System.out.println("Individual Checked");
-				if(isCheckedF1)			System.out.println("F1 Checked");
-				if(isCheckedF2)			System.out.println("F2 Checked");
-				if(isCheckedF3)			System.out.println("F3 Checked");
-				if(isCheckedF4)			System.out.println("F4 Checked");
-				if(isCheckedF5)			System.out.println("F5 Checked");
-				if(isCheckedF6)			System.out.println("F6 Checked");
-				if(isCheckedF7)			System.out.println("F7 Checked");
+				ArrayList<Boolean> result = new ArrayList<Boolean>();
+				if(isCheckedAll){
+					result.add(true);
+					result.add(true);
+					result.add(true);
+					result.add(true);
+					result.add(true);
+					result.add(true);
+					result.add(true);
+					System.out.println("All Checked");
+				}else{
+					if(isCheckedIndividual)	
+						System.out.println("Individual Checked");
+					
+					if(isCheckedF1){
+						System.out.println("F1 Checked");
+						result.add(true);
+					}else{
+						result.add(false);
+					}
+					if(isCheckedF2){
+						System.out.println("F2 Checked");
+						result.add(true);
+					}else{
+						result.add(false);
+					}
+					if(isCheckedF3){
+						System.out.println("F3 Checked");
+						result.add(true);
+					}else{
+						result.add(false);
+					}
+					if(isCheckedF4){
+						System.out.println("F4 Checked");
+						result.add(true);
+					}else{
+						result.add(false);
+					}
+					if(isCheckedF5){
+						System.out.println("F5 Checked");
+						result.add(true);
+					}else{
+						result.add(false);
+					}
+					if(isCheckedF6){
+						System.out.println("F6 Checked");
+						result.add(true);
+					}else{
+						result.add(false);
+					}
+					if(isCheckedF7){
+						System.out.println("F7 Checked");
+						result.add(true);
+					}else{
+						result.add(false);
+					}
+				}
+				RunApplyResult(result);
+				
+				
 			}
 		});
 		
-		Button btnCancel = createButton(parent, IDialogConstants.CANCEL_ID,	IDialogConstants.CANCEL_LABEL, false);
+		createButton(parent, IDialogConstants.CANCEL_ID,	IDialogConstants.CANCEL_LABEL, false);
 		
 	}
 
@@ -249,5 +391,9 @@ public class ApplyDlg extends Dialog {
 	@Override
 	protected Point getInitialSize() {
 		return new Point(402, 260);
+	}
+	
+	private void RunApplyResult(ArrayList<Boolean> result){
+		MC.RunApplyResult(result);
 	}
 }

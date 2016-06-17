@@ -145,6 +145,10 @@
                name="appName"
                value="Transformation">
          </property>
+         <property
+               name="windowImages"
+               value="icons/ENS3232.PNG">
+         </property>
       </product>
    </extension>
 

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 
 import com.js.ens.transformation.core.tableDatas.TableData_PLog;
@@ -35,6 +36,8 @@ import com.js.ens.transformation.core.tableDatas.TableRowData_WR_ICRN;
 import com.js.ens.transformation.core.tableDatas.TableRowData_WR_TDIA;
 import com.js.ens.transformation.core.tableDatas.TableRowData_WR_THRM;
 import com.js.ens.transformation.core.tableDatas.TableRowData_WR_WEAR;
+import com.js.ens.transformation.dialog.ApplyDlg;
+import com.js.ens.transformation.dialog.NewDlg;
 import com.js.io.Reader;
 import com.js.parser.ParserDefault;
 import com.js.util.myUtil;
@@ -48,6 +51,13 @@ public class MainController {
 		return instance;
 	}
 	//--------------
+	// common
+	private ArrayList<Boolean> ApplyResult = new ArrayList<Boolean>(); 
+	
+	private String modelName = null;
+	private String workspace = null;
+	
+	//--------------
 	// tab1
 	private String PLogFilePath = null;
 	private ArrayList<String> PLogFileDataList = null;
@@ -60,13 +70,15 @@ public class MainController {
 	private ArrayList<TableData_Variable> tableDataVariableList = null;
 	private Map<String,String> tableDataVariableMap = null;
 	
+	// tableDataPLogList 는 F1 ~ F7 까지의 데이터 7개 obj가 저장됨
 	private ArrayList<TableData_PLog> tableDataPLogList = null;
 	private Map<String,String> tableDataPLogMap; 
 	private ArrayList<TableRowData> tableRowDataList = null;
 	
-	
 	//--------------
 	// tab2
+	private ArrayList<TableData_PLog> F_ObjList = new ArrayList<TableData_PLog>();
+	
 	
 	public MainController() {
 		// TODO Auto-generated constructor stub
@@ -107,6 +119,7 @@ public class MainController {
 			initTableData_SlabPlateInfo(PLogFileDataList,tclObj);
 			initTableData_Variable(PLogFileDataList,tclObj);
 			initTableData_PLog(PLogFileDataList,tclObj);
+			
 			this.updateTableData();
 		}else{
 		}
@@ -166,10 +179,14 @@ public class MainController {
 	
 	public void initTableData_PLog(ArrayList<String> fileDataList,TableColumnLabel tclObj){
 		// line 7~31 => column 6, data line 7~30
+		/////////////////////////////////////////////////////////////////////
 		//this.TableDataSlabPlateInfoObj.printAllData();
 		//this.TableDataVariableObj.printAllData();
+		/////////////////////////////////////////////////////////////////////
 		int lineNumber = 0;
 		ArrayList<String> dataList = new ArrayList<String>();
+
+		//CSV 파일에서 PLog 테이블 라인 수 찾기
 		for(String line:fileDataList){
 			ArrayList<String> tempList = ParserDefault.splitLineData(line, ",");
 			if(tempList.size()!=0){
@@ -180,28 +197,35 @@ public class MainController {
 			lineNumber++;
 		}
 		
+		// dataList에 PLog의 Line 데이터 저장
 		for(int i = lineNumber+1 ; i<lineNumber+25;i++){
+			/////////////////////////////////////////////////////////////////////
 			//System.out.println(i + " : "+fileDataList.get(i));
+			/////////////////////////////////////////////////////////////////////
 			dataList.add(fileDataList.get(i));
 		}
 		this.createPLogObj(dataList);
+		
+		/////////////////////////////////////////////////////////////////////
 		/*
 		for(TableData_PLog obj : this.tableDataPLogList){
 			obj.printAllData();
 		}
 		 */
+		/////////////////////////////////////////////////////////////////////
+		
+		// UI에 표시한 데이터 형식으로 재 가공
 		this.createTableRowData();
-		
-		
 	}
 	
+	//F1~F7 Obj 만들기
 	public void createPLogObj(ArrayList<String> dataList){
+		// dataList 는 CSV 의 PLog데이터만 넘어옴
 		this.tableDataPLogList = new ArrayList<TableData_PLog>();
 		for(int i=0;i<7;i++){
 			TableData_PLog obj = new TableData_PLog();
 			obj.setSTAND("F"+(i+1));
 			this.tableDataPLogList.add(obj);
-			
 		}
 		
 		for (String line : dataList){
@@ -425,6 +449,7 @@ public class MainController {
 		}
 	}
 	
+	//PLog 테이블 용 데이터 만들기
 	public void createTableRowData(){
 		//1
 		TableRowData_BUR_TDIA r1Obj = new TableRowData_BUR_TDIA();
@@ -526,6 +551,7 @@ public class MainController {
 		this.tableRowDataList.add(r24Obj);
 	}
 	
+	// Table에 데이터 삽입 
 	public void updateTableData(){
 		try{
 			med.getTableViewerSlabPlateInfo().setLabelProvider(new TableViewerLabelProvider_SlabPlateInfo());
@@ -555,7 +581,165 @@ public class MainController {
 	// Button - Apply
 	//
 	public void Apply(){
-		System.out.println("Click Apply Button");
+		ApplyDlg applyDlg = new ApplyDlg(Display.getCurrent().getActiveShell());
+		applyDlg.open();
 	}
 	
+	public void RunApplyResult(ArrayList<Boolean> result){
+		ApplyResult = result;
+		for(int i=0;i<7;i++){
+			if(ApplyResult.get(i)){
+				if(i == 0) makeResultF1();
+				if(i == 1) makeResultF2();
+				if(i == 2) makeResultF3();
+				if(i == 3) makeResultF4();
+				if(i == 4) makeResultF5();
+				if(i == 5) makeResultF6();
+				if(i == 6) makeResultF7();
+			}
+		}
+	}
+	
+	private void makeResultF1(){
+	}
+	private void makeResultF2(){
+	}
+	private void makeResultF3(){
+	}
+	private void makeResultF4(){
+	}
+	private void makeResultF5(){
+	}
+	private void makeResultF6(){
+	}
+	private void makeResultF7(){
+	}
+	//
+	// 
+	//=====================================================================
+
+	//=====================================================================
+	// FileMenu - New Project
+	//
+	public void NewProject(){
+		NewDlg newDlg = new NewDlg(Display.getCurrent().getActiveShell());
+		newDlg.open();
+	}
+	
+	public void RunNewProject(String modelName, String workspace){
+		// NewDlg -> MC
+		
+		this.modelName = modelName;
+		String topFolder = myUtil.setPath(workspace, this.modelName);
+		String procFolder = myUtil.setPath(topFolder, "proc");
+		String resultFolder = myUtil.setPath(topFolder, "result");
+		this.workspace = topFolder;
+		/*
+		if(!myUtil.makeDir(topFolder)) log.warn("[Model Name:"+ModelName +"] topFolder did not make.");
+		if(!myUtil.makeDir(procFolder)) log.warn("[Model Name:"+ModelName +"] prodFolder did not make.");
+		if(!myUtil.makeDir(resultFolder)) log.warn("[Model Name:"+ModelName +"] resultFolder did not make.");
+		*/
+		if(!myUtil.makeDir(topFolder)) System.out.println("[Model Name:"+modelName +"] topFolder did not make.");
+		if(!myUtil.makeDir(procFolder)) System.out.println("[Model Name:"+modelName +"] prodFolder did not make.");
+		if(!myUtil.makeDir(resultFolder)) System.out.println("[Model Name:"+modelName +"] resultFolder did not make.");
+		
+		this.AllComponentEnable();
+		
+		med.getLblModelNameValue().setText(this.modelName);
+		med.getLblWorkspacePath().setText(this.workspace);
+		
+		this.setUpDataSheet();
+		
+	}
+	
+	private void AllComponentEnable(){
+		med.getTabFolder().setEnabled(true);
+	}
+	
+	private void CleaerAllData(){
+	}
+	
+	//F1~F7에서 입력해서 데이터 저장할때 Obj 생성하는 곳
+	private void setUpDataSheet(){
+		this.tableDataPLogList = new ArrayList<TableData_PLog>();
+		for(int i=0;i<7;i++){
+			TableData_PLog obj = new TableData_PLog();
+			obj.setSTAND("F"+(i+1));
+			this.tableDataPLogList.add(obj);
+		}
+	}
+	//
+	//
+	//=====================================================================
+	
+	//=====================================================================
+	// File menu - Open Project
+	//
+	public void OpenProject(){
+	}
+	
+	public void RunOpenProject(){
+	}
+	//
+	//
+	//=====================================================================
+	
+	//=====================================================================
+	// File menu - Save Project
+	//
+	public void SaveProject(){
+	}
+	
+	public void RunSaveProject(){
+	}
+	//
+	//
+	//=====================================================================
+	
+	//=====================================================================
+	// File menu - Save As Project
+	//
+	public void SaveAsProject(){
+	}
+	
+	public void RunSaveAsProject(){
+	}
+	//
+	//
+	//=====================================================================
+	
+	//=====================================================================
+	// File menu - Export Project
+	//
+	public void ExportProject(){
+	}
+	
+	public void RunExportProject(){
+	}
+	//
+	//
+	//=====================================================================
+	
+	//=====================================================================
+	// File menu - Result Project
+	//
+	public void ResultProject(){
+	}
+	
+	public void RunResultProject(){
+	}
+	//
+	//
+	//=====================================================================
+	
+	//=====================================================================
+	// 나머지 부분
+	//
+	public void ChangedTextWidget(){
+		
+	}
+	
+	//
+	//
+	//=====================================================================
 }

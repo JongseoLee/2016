@@ -1248,6 +1248,7 @@ public class View extends ViewPart {
 		// 
 		
 		Label lblModelName = new Label(parent, SWT.NONE);
+		lblModelName.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
 		FormData fd_lblModelName = new FormData();
 		fd_lblModelName.top = new FormAttachment(0, 20);
 		fd_lblModelName.left = new FormAttachment(0, 10);
@@ -1259,13 +1260,15 @@ public class View extends ViewPart {
 		FormData fd_lblModelNameValue = new FormData();
 		fd_lblModelNameValue.top = new FormAttachment(lblModelName, 0, SWT.TOP);
 		fd_lblModelNameValue.left = new FormAttachment(lblModelName, 5);
+		fd_lblModelNameValue.right = new FormAttachment(lblModelName,400);
 		lblModelNameValue.setLayoutData(fd_lblModelNameValue);
 		lblModelNameValue.setText("-");
 		
 		Label lblWorkspace = new Label(parent, SWT.NONE);
+		lblWorkspace.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
 		FormData fd_lblWorkspace = new FormData();
 		fd_lblWorkspace.top = new FormAttachment(lblModelName, 0, SWT.TOP);
-		fd_lblWorkspace.left = new FormAttachment(lblModelNameValue, 100);
+		fd_lblWorkspace.left = new FormAttachment(lblModelNameValue, 20);
 		lblWorkspace.setLayoutData(fd_lblWorkspace);
 		lblWorkspace.setText(ulObj.getUILabelValue(UILabel.Workspace));
 		
@@ -1274,6 +1277,7 @@ public class View extends ViewPart {
 		FormData fd_lblWorkspacePath = new FormData();
 		fd_lblWorkspacePath.top = new FormAttachment(lblModelName, 0, SWT.TOP);
 		fd_lblWorkspacePath.left = new FormAttachment(lblWorkspace, 5);
+		fd_lblWorkspacePath.right = new FormAttachment(100,-10);
 		lblWorkspacePath.setLayoutData(fd_lblWorkspacePath);
 		lblWorkspacePath.setText("-");
 		
@@ -1295,7 +1299,7 @@ public class View extends ViewPart {
 		
 		init_TableColunm();
 		init_ActionComponent();
-		
+		med.getTabFolder().setEnabled(false);
 	}
 
 	
