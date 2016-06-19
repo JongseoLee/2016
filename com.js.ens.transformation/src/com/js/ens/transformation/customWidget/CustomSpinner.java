@@ -24,9 +24,11 @@ public class CustomSpinner implements ICommand {
 		if(widgetName.equals(Mediator.SPINNER_spinnerDomain)){
 			String num = med.getSpinnerDomain().getText();
 			//MC.메소드 호출() 
+			MC.ChangedTextWidget(num, Mediator.SPINNER_spinnerDomain);
 		}else if(widgetName.equals(Mediator.SPINNER_spinnerThread)){
 			String num = med.getSpinnerThread().getText();
 			//MC.메소드 호출()
+			MC.ChangedTextWidget(num, Mediator.SPINNER_spinnerThread);
 		}
 	}
 	

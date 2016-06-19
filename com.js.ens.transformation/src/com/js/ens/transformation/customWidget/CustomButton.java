@@ -27,41 +27,80 @@ public class CustomButton implements ICommand {
 		}else if(widgetName.equals(Mediator.BUTTON_btnApply)){
 			MC.Apply();
 		}else if(widgetName.equals(Mediator.BUTTON_btnF1)){
-			//MC.메소드 호출()
+			if(med.getBtnF1().getSelection())
+				MC.ChangedSTANDValue("F1");
 		}else if(widgetName.equals(Mediator.BUTTON_btnF2)){
-			//MC.메소드 호출()
+			if(med.getBtnF2().getSelection())
+				MC.ChangedSTANDValue("F2");
 		}else if(widgetName.equals(Mediator.BUTTON_btnF3)){
-			//MC.메소드 호출()
+			if(med.getBtnF3().getSelection())
+				MC.ChangedSTANDValue("F3");
 		}else if(widgetName.equals(Mediator.BUTTON_btnF4)){
-			//MC.메소드 호출()
+			if(med.getBtnF4().getSelection())
+				MC.ChangedSTANDValue("F4");
 		}else if(widgetName.equals(Mediator.BUTTON_btnF5)){
-			//MC.메소드 호출()
+			if(med.getBtnF5().getSelection())
+				MC.ChangedSTANDValue("F5");
 		}else if(widgetName.equals(Mediator.BUTTON_btnF6)){
-			//MC.메소드 호출()
+			if(med.getBtnF6().getSelection())
+				MC.ChangedSTANDValue("F6");
 		}else if(widgetName.equals(Mediator.BUTTON_btnF7)){
-			//MC.메소드 호출()
+			if(med.getBtnF7().getSelection())
+				MC.ChangedSTANDValue("F7");
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
 			//MC.메소드 호출()
+			if(med.getBtnConstant1_YM().getSelection())
+				MC.ChangedTextWidget("true", Mediator.BUTTON_btnConstant1_YM);
+			else
+				MC.ChangedTextWidget("false", Mediator.BUTTON_btnConstant1_YM);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
 			//MC.메소드 호출()
+			if(med.getBtnTable1_YM().getSelection())
+				MC.ChangedTextWidget("true", Mediator.BUTTON_btnTable1_YM);
+			else
+				MC.ChangedTextWidget("false", Mediator.BUTTON_btnTable1_YM);
 		}else if(widgetName.equals(Mediator.BUTTON_btnExplorerYoungsModulus)){
 			//MC.메소드 호출()
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
 			//MC.메소드 호출()
+			if(med.getBtnConstant2_TEC().getSelection())
+				MC.ChangedTextWidget("true", Mediator.BUTTON_btnConstant2_TEC);
+			else
+				MC.ChangedTextWidget("false", Mediator.BUTTON_btnConstant2_TEC);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
 			//MC.메소드 호출()
+			if(med.getBtnTable2_TEC().getSelection())
+				MC.ChangedTextWidget("true", Mediator.BUTTON_btnTable2_TEC);
+			else
+				MC.ChangedTextWidget("false", Mediator.BUTTON_btnTable2_TEC);
 		}else if(widgetName.equals(Mediator.Button_btnExplorerThermalExpansionCoefficient)){
 			//MC.메소드 호출()
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
 			//MC.메소드 호출()
+			if(med.getBtnConstant3_PR().getSelection())
+				MC.ChangedTextWidget("true", Mediator.BUTTON_btnConstant3_PR);
+			else
+				MC.ChangedTextWidget("false", Mediator.BUTTON_btnConstant3_PR);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
 			//MC.메소드 호출()
+			if(med.getBtnTable3_PR().getSelection())
+				MC.ChangedTextWidget("true", Mediator.BUTTON_btnTable3_PR);
+			else
+				MC.ChangedTextWidget("false", Mediator.BUTTON_btnTable3_PR);
 		}else if(widgetName.equals(Mediator.BUTTON_btnExplorerPoissonsRatio)){
 			//MC.메소드 호출()
 		}else if(widgetName.equals(Mediator.BUTTON_btnParallelDDM)){
 			//MC.메소드 호출()
+			if(med.getBtnParallelDDM().getSelection())
+				MC.ChangedTextWidget("true", Mediator.BUTTON_btnParallelDDM);
+			else
+				MC.ChangedTextWidget("false", Mediator.BUTTON_btnParallelDDM);
 		}else if(widgetName.equals(Mediator.BUTTON_btnParallelMultiThread)){
 			//MC.메소드 호출()
+			if(med.getBtnParallelMultiThread().getSelection())
+				MC.ChangedTextWidget("true", Mediator.BUTTON_btnParallelMultiThread);
+			else
+				MC.ChangedTextWidget("false", Mediator.BUTTON_btnParallelMultiThread);
 		}
 		
 	}

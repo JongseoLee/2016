@@ -21,75 +21,110 @@ public class CustomText implements ICommand {
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
+		String value;
 		if(widgetName.equals(Mediator.TEXT_textTopWRDiameter)){
 			//MC.메서드 호출()
-			System.out.println(med.getTextTopWRDiameter().getText());
+			value = med.getTextTopWRDiameter().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textTopWRDiameter);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRDiameter)){
-			
+			value = med.getTextBottomWRDiameter().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textBottomWRDiameter);
 		}else if(widgetName.equals(Mediator.TEXT_textWRCrown)){
-			
+			value = med.getTextWRCrown().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textWRCrown);
 		}else if(widgetName.equals(Mediator.TEXT_textWRLength)){
-			
+			value = med.getTextWRLength().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textWRLength);
 		}else if(widgetName.equals(Mediator.TEXT_textWRMeshAngle)){
-			
+			value = med.getTextWRMeshAngle().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textWRMeshAngle);
 		}else if(widgetName.equals(Mediator.TEXT_textTopBURDiameter)){
-			
+			value = med.getTextTopBURDiameter().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textTopBURDiameter);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomBURDiameter)){
-			
+			value = med.getTextBottomBURDiameter().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textBottomBURDiameter);
 		}else if(widgetName.equals(Mediator.TEXT_textBURLength)){
-			
+			value = med.getTextBURLength().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textBURLength);
 		}else if(widgetName.equals(Mediator.TEXT_textBURMeshAngle)){
-			
+			value = med.getTextBURMeshAngle().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textBURMeshAngle);
 		}else if(widgetName.equals(Mediator.TEXT_textThickness)){
-			
+			value = med.getTextThickness().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textThickness);
 		}else if(widgetName.equals(Mediator.TEXT_textWidth)){
-			
+			value = med.getTextWidth().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textWidth);
 		}else if(widgetName.equals(Mediator.TEXT_textLength)){
-			
+			value = med.getTextLength().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textLength);
 		}else if(widgetName.equals(Mediator.TEXT_textEntryTemperature)){
-			
+			value = med.getTextEntryTemperature().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textEntryTemperature);
 		}else if(widgetName.equals(Mediator.TEXT_textExitTemperature)){
-			
+			value = med.getTextExitTemperature().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textExitTemperature);
 		}else if(widgetName.equals(Mediator.TEXT_textInitialPosition)){
-			
+			value = med.getTextInitialPosition().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textInitialPosition);
 		}else if(widgetName.equals(Mediator.TEXT_textMeshLength)){
-			
+			value = med.getTextMeshLength().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textMeshLength);
 		}else if(widgetName.equals(Mediator.TEXT_textThicknessMeshDivisions)){
-			
+			value = med.getTextThicknessMeshDivisions().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textThicknessMeshDivisions);
 		}else if(widgetName.equals(Mediator.TEXT_textVelocity)){
-			
+			value = med.getTextVelocity().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textVelocity);	
 		}else if(widgetName.equals(Mediator.TEXT_textRollGap)){
-			
+			value = med.getTextRollGap().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textRollGap);	
 		}else if(widgetName.equals(Mediator.TEXT_textPassLine)){
-			
+			value = med.getTextPassLine().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textPassLine);	
 		}else if(widgetName.equals(Mediator.TEXT_textPairCrossAngle)){
-			
+			value = med.getTextPassLine().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textPassLine);
 		}else if(widgetName.equals(Mediator.TEXT_textBenderForce)){
-			
+			value = med.getTextBenderForce().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textBenderForce);
 		}else if(widgetName.equals(Mediator.TEXT_textRollTorque)){
-			
+			value = med.getTextRollTorque().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textRollTorque);
 		}else if(widgetName.equals(Mediator.TEXT_textTensionStress)){
-			
+			value = med.getTextTensionStress().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textTensionStress);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToPlateFrictCoef)){
-			
+			value = med.getTextRollToPlateFrictCoef().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textRollToPlateFrictCoef);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
-			
+			value = med.getTextRollToRollFrictCoef().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textRollToRollFrictCoef);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
-			
+			value = med.getTextYoungsModulus().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textYoungsModulus);
 		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
-			
+			value = med.getTextThermalExpansionCoefficient().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textThermalExpansionCoefficient);
 		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
-			
+			value = med.getTextPoissonsRatio().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textPoissonsRatio);
 		}else if(widgetName.equals(Mediator.TEXT_textMassDensity)){
-			
+			value = med.getTextMassDensity().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textMassDensity);
 		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_time)){
-			
+			value = med.getTextTimeIncrement_time().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textTimeIncrement_time);
 		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_dt)){
-			
+			value = med.getTextTimeIncrement_dt().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textTimeIncrement_dt);
 		}else if(widgetName.equals(Mediator.TEXT_textPostWritingFrequency)){
-			
+			value = med.getTextPostWritingFrequency().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textPostWritingFrequency);
 		}else if(widgetName.equals(Mediator.TEXT_textIncrementTime)){
-			
+			value = med.getTextIncrementTime().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textIncrementTime);
 		}
 	}
 	

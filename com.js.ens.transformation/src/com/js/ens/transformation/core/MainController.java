@@ -77,6 +77,7 @@ public class MainController {
 	
 	//--------------
 	// tab2
+	private String StandValue = "F1";
 	private ArrayList<TableData_PLog> F_ObjList = new ArrayList<TableData_PLog>();
 	
 	
@@ -735,9 +736,696 @@ public class MainController {
 	//=====================================================================
 	// 나머지 부분
 	//
-	public void ChangedTextWidget(){
+	
+	public void initComponentValue(){
 		
 	}
+	
+	public void ChangedSTANDValue(String value){
+		this.StandValue = value;
+		//System.out.println("Current STAND : "+value);
+	}
+	
+	public void ChangedTextWidget(String value,String widgetName){
+		System.out.println("key : "+value);
+		switch(this.StandValue){
+			case "F1":
+				this.saveF1Values(value, widgetName);
+				break;
+			case "F2":
+				this.saveF2Values(value, widgetName);
+				break;
+			case "F3":
+				this.saveF3Values(value, widgetName);
+				break;
+			case "F4":
+				this.saveF4Values(value, widgetName);
+				break;
+			case "F5":
+				this.saveF5Values(value, widgetName);
+				break;
+			case "F6":
+				this.saveF6Values(value, widgetName);
+				break;
+			case "F7":
+				this.saveF7Values(value, widgetName);
+				break;
+		}
+	}
+	
+	private void saveF1Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(0);
+		if(widgetName.equals(Mediator.TEXT_textTopWRDiameter)){
+			obj.setWR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRDiameter)){
+			obj.setWR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRCrown)){
+			obj.setWR_ICRN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRLength)){
+			obj.setWr_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRMeshAngle)){
+			obj.setWr_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURDiameter)){
+			obj.setBUR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURDiameter)){
+			obj.setBUR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURLength)){
+			obj.setBur_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURMeshAngle)){
+			obj.setBur_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThickness)){
+			obj.setENTRY_THK(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWidth)){
+			obj.setSTP_WID(value);
+		}else if(widgetName.equals(Mediator.TEXT_textLength)){
+			obj.setSTP_LEN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textEntryTemperature)){
+			obj.setENTRY_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textExitTemperature)){
+			obj.setEXIT_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textInitialPosition)){
+			obj.setP_in(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMeshLength)){
+			obj.setPl_m(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThicknessMeshDivisions)){
+			obj.setT_div(value);
+		}else if(widgetName.equals(Mediator.TEXT_textVelocity)){
+			obj.setSPEED(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollGap)){
+			obj.setROL_GAP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPassLine)){
+			obj.setPAS_LINE(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPairCrossAngle)){
+			obj.setP_CROSS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBenderForce)){
+			obj.setBEND(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollTorque)){
+			obj.setTORQ(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensionStress)){
+			obj.setTENS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToPlateFrictCoef)){
+			obj.setF_r2p(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
+			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
+			obj.setYM_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			obj.setTEC_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			obj.setPR_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMassDensity)){
+			obj.setMD_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_time)){
+			obj.setLcase_time(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_dt)){
+			obj.setLcase_dt(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPostWritingFrequency)){
+			obj.setPost_inc(value);
+		}else if(widgetName.equals(Mediator.TEXT_textIncrementTime)){
+			obj.setInc_time(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelDDM)){
+			obj.setParallelDDM(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerDomain)){
+			obj.setDomain(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelMultiThread)){
+			obj.setParallelMultiThread(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerThread)){
+			obj.setThread(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			obj.setYM_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			obj.setYM_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			obj.setTEC_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			obj.setTEC_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			obj.setPR_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			obj.setPR_Table(value);
+		}
+	}
+	
+	private void saveF2Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(1);
+		if(widgetName.equals(Mediator.TEXT_textTopWRDiameter)){
+			obj.setWR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRDiameter)){
+			obj.setWR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRCrown)){
+			obj.setWR_ICRN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRLength)){
+			obj.setWr_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRMeshAngle)){
+			obj.setWr_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURDiameter)){
+			obj.setBUR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURDiameter)){
+			obj.setBUR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURLength)){
+			obj.setBur_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURMeshAngle)){
+			obj.setBur_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThickness)){
+			obj.setENTRY_THK(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWidth)){
+			obj.setSTP_WID(value);
+		}else if(widgetName.equals(Mediator.TEXT_textLength)){
+			obj.setSTP_LEN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textEntryTemperature)){
+			obj.setENTRY_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textExitTemperature)){
+			obj.setEXIT_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textInitialPosition)){
+			obj.setP_in(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMeshLength)){
+			obj.setPl_m(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThicknessMeshDivisions)){
+			obj.setT_div(value);
+		}else if(widgetName.equals(Mediator.TEXT_textVelocity)){
+			obj.setSPEED(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollGap)){
+			obj.setROL_GAP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPassLine)){
+			obj.setPAS_LINE(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPairCrossAngle)){
+			obj.setP_CROSS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBenderForce)){
+			obj.setBEND(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollTorque)){
+			obj.setTORQ(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensionStress)){
+			obj.setTENS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToPlateFrictCoef)){
+			obj.setF_r2p(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
+			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
+			obj.setYM_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			obj.setTEC_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			obj.setPR_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMassDensity)){
+			obj.setMD_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_time)){
+			obj.setLcase_time(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_dt)){
+			obj.setLcase_dt(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPostWritingFrequency)){
+			obj.setPost_inc(value);
+		}else if(widgetName.equals(Mediator.TEXT_textIncrementTime)){
+			obj.setInc_time(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelDDM)){
+			obj.setParallelDDM(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerDomain)){
+			obj.setDomain(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelMultiThread)){
+			obj.setParallelMultiThread(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerThread)){
+			obj.setThread(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			obj.setYM_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			obj.setYM_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			obj.setTEC_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			obj.setTEC_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			obj.setPR_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			obj.setPR_Table(value);
+		}
+	}
+	
+	private void saveF3Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(2);
+		if(widgetName.equals(Mediator.TEXT_textTopWRDiameter)){
+			obj.setWR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRDiameter)){
+			obj.setWR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRCrown)){
+			obj.setWR_ICRN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRLength)){
+			obj.setWr_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRMeshAngle)){
+			obj.setWr_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURDiameter)){
+			obj.setBUR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURDiameter)){
+			obj.setBUR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURLength)){
+			obj.setBur_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURMeshAngle)){
+			obj.setBur_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThickness)){
+			obj.setENTRY_THK(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWidth)){
+			obj.setSTP_WID(value);
+		}else if(widgetName.equals(Mediator.TEXT_textLength)){
+			obj.setSTP_LEN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textEntryTemperature)){
+			obj.setENTRY_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textExitTemperature)){
+			obj.setEXIT_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textInitialPosition)){
+			obj.setP_in(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMeshLength)){
+			obj.setPl_m(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThicknessMeshDivisions)){
+			obj.setT_div(value);
+		}else if(widgetName.equals(Mediator.TEXT_textVelocity)){
+			obj.setSPEED(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollGap)){
+			obj.setROL_GAP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPassLine)){
+			obj.setPAS_LINE(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPairCrossAngle)){
+			obj.setP_CROSS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBenderForce)){
+			obj.setBEND(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollTorque)){
+			obj.setTORQ(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensionStress)){
+			obj.setTENS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToPlateFrictCoef)){
+			obj.setF_r2p(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
+			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
+			obj.setYM_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			obj.setTEC_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			obj.setPR_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMassDensity)){
+			obj.setMD_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_time)){
+			obj.setLcase_time(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_dt)){
+			obj.setLcase_dt(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPostWritingFrequency)){
+			obj.setPost_inc(value);
+		}else if(widgetName.equals(Mediator.TEXT_textIncrementTime)){
+			obj.setInc_time(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelDDM)){
+			obj.setParallelDDM(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerDomain)){
+			obj.setDomain(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelMultiThread)){
+			obj.setParallelMultiThread(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerThread)){
+			obj.setThread(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			obj.setYM_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			obj.setYM_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			obj.setTEC_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			obj.setTEC_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			obj.setPR_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			obj.setPR_Table(value);
+		}
+	}
+	
+	private void saveF4Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(3);
+		if(widgetName.equals(Mediator.TEXT_textTopWRDiameter)){
+			obj.setWR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRDiameter)){
+			obj.setWR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRCrown)){
+			obj.setWR_ICRN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRLength)){
+			obj.setWr_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRMeshAngle)){
+			obj.setWr_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURDiameter)){
+			obj.setBUR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURDiameter)){
+			obj.setBUR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURLength)){
+			obj.setBur_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURMeshAngle)){
+			obj.setBur_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThickness)){
+			obj.setENTRY_THK(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWidth)){
+			obj.setSTP_WID(value);
+		}else if(widgetName.equals(Mediator.TEXT_textLength)){
+			obj.setSTP_LEN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textEntryTemperature)){
+			obj.setENTRY_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textExitTemperature)){
+			obj.setEXIT_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textInitialPosition)){
+			obj.setP_in(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMeshLength)){
+			obj.setPl_m(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThicknessMeshDivisions)){
+			obj.setT_div(value);
+		}else if(widgetName.equals(Mediator.TEXT_textVelocity)){
+			obj.setSPEED(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollGap)){
+			obj.setROL_GAP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPassLine)){
+			obj.setPAS_LINE(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPairCrossAngle)){
+			obj.setP_CROSS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBenderForce)){
+			obj.setBEND(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollTorque)){
+			obj.setTORQ(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensionStress)){
+			obj.setTENS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToPlateFrictCoef)){
+			obj.setF_r2p(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
+			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
+			obj.setYM_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			obj.setTEC_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			obj.setPR_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMassDensity)){
+			obj.setMD_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_time)){
+			obj.setLcase_time(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_dt)){
+			obj.setLcase_dt(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPostWritingFrequency)){
+			obj.setPost_inc(value);
+		}else if(widgetName.equals(Mediator.TEXT_textIncrementTime)){
+			obj.setInc_time(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelDDM)){
+			obj.setParallelDDM(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerDomain)){
+			obj.setDomain(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelMultiThread)){
+			obj.setParallelMultiThread(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerThread)){
+			obj.setThread(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			obj.setYM_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			obj.setYM_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			obj.setTEC_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			obj.setTEC_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			obj.setPR_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			obj.setPR_Table(value);
+		}
+	}
+	
+	private void saveF5Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(4);
+		if(widgetName.equals(Mediator.TEXT_textTopWRDiameter)){
+			obj.setWR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRDiameter)){
+			obj.setWR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRCrown)){
+			obj.setWR_ICRN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRLength)){
+			obj.setWr_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRMeshAngle)){
+			obj.setWr_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURDiameter)){
+			obj.setBUR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURDiameter)){
+			obj.setBUR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURLength)){
+			obj.setBur_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURMeshAngle)){
+			obj.setBur_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThickness)){
+			obj.setENTRY_THK(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWidth)){
+			obj.setSTP_WID(value);
+		}else if(widgetName.equals(Mediator.TEXT_textLength)){
+			obj.setSTP_LEN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textEntryTemperature)){
+			obj.setENTRY_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textExitTemperature)){
+			obj.setEXIT_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textInitialPosition)){
+			obj.setP_in(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMeshLength)){
+			obj.setPl_m(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThicknessMeshDivisions)){
+			obj.setT_div(value);
+		}else if(widgetName.equals(Mediator.TEXT_textVelocity)){
+			obj.setSPEED(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollGap)){
+			obj.setROL_GAP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPassLine)){
+			obj.setPAS_LINE(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPairCrossAngle)){
+			obj.setP_CROSS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBenderForce)){
+			obj.setBEND(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollTorque)){
+			obj.setTORQ(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensionStress)){
+			obj.setTENS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToPlateFrictCoef)){
+			obj.setF_r2p(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
+			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
+			obj.setYM_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			obj.setTEC_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			obj.setPR_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMassDensity)){
+			obj.setMD_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_time)){
+			obj.setLcase_time(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_dt)){
+			obj.setLcase_dt(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPostWritingFrequency)){
+			obj.setPost_inc(value);
+		}else if(widgetName.equals(Mediator.TEXT_textIncrementTime)){
+			obj.setInc_time(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelDDM)){
+			obj.setParallelDDM(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerDomain)){
+			obj.setDomain(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelMultiThread)){
+			obj.setParallelMultiThread(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerThread)){
+			obj.setThread(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			obj.setYM_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			obj.setYM_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			obj.setTEC_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			obj.setTEC_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			obj.setPR_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			obj.setPR_Table(value);
+		}
+	}
+	
+	private void saveF6Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(5);
+		if(widgetName.equals(Mediator.TEXT_textTopWRDiameter)){
+			obj.setWR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRDiameter)){
+			obj.setWR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRCrown)){
+			obj.setWR_ICRN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRLength)){
+			obj.setWr_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRMeshAngle)){
+			obj.setWr_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURDiameter)){
+			obj.setBUR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURDiameter)){
+			obj.setBUR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURLength)){
+			obj.setBur_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURMeshAngle)){
+			obj.setBur_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThickness)){
+			obj.setENTRY_THK(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWidth)){
+			obj.setSTP_WID(value);
+		}else if(widgetName.equals(Mediator.TEXT_textLength)){
+			obj.setSTP_LEN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textEntryTemperature)){
+			obj.setENTRY_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textExitTemperature)){
+			obj.setEXIT_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textInitialPosition)){
+			obj.setP_in(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMeshLength)){
+			obj.setPl_m(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThicknessMeshDivisions)){
+			obj.setT_div(value);
+		}else if(widgetName.equals(Mediator.TEXT_textVelocity)){
+			obj.setSPEED(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollGap)){
+			obj.setROL_GAP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPassLine)){
+			obj.setPAS_LINE(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPairCrossAngle)){
+			obj.setP_CROSS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBenderForce)){
+			obj.setBEND(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollTorque)){
+			obj.setTORQ(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensionStress)){
+			obj.setTENS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToPlateFrictCoef)){
+			obj.setF_r2p(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
+			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
+			obj.setYM_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			obj.setTEC_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			obj.setPR_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMassDensity)){
+			obj.setMD_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_time)){
+			obj.setLcase_time(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_dt)){
+			obj.setLcase_dt(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPostWritingFrequency)){
+			obj.setPost_inc(value);
+		}else if(widgetName.equals(Mediator.TEXT_textIncrementTime)){
+			obj.setInc_time(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelDDM)){
+			obj.setParallelDDM(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerDomain)){
+			obj.setDomain(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelMultiThread)){
+			obj.setParallelMultiThread(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerThread)){
+			obj.setThread(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			obj.setYM_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			obj.setYM_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			obj.setTEC_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			obj.setTEC_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			obj.setPR_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			obj.setPR_Table(value);
+		}
+	}
+	
+	private void saveF7Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(6);
+		if(widgetName.equals(Mediator.TEXT_textTopWRDiameter)){
+			obj.setWR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRDiameter)){
+			obj.setWR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRCrown)){
+			obj.setWR_ICRN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRLength)){
+			obj.setWr_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWRMeshAngle)){
+			obj.setWr_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURDiameter)){
+			obj.setBUR_TDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURDiameter)){
+			obj.setBUR_BDIA(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURLength)){
+			obj.setBur_len(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBURMeshAngle)){
+			obj.setBur_div_angle(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThickness)){
+			obj.setENTRY_THK(value);
+		}else if(widgetName.equals(Mediator.TEXT_textWidth)){
+			obj.setSTP_WID(value);
+		}else if(widgetName.equals(Mediator.TEXT_textLength)){
+			obj.setSTP_LEN(value);
+		}else if(widgetName.equals(Mediator.TEXT_textEntryTemperature)){
+			obj.setENTRY_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textExitTemperature)){
+			obj.setEXIT_TEMP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textInitialPosition)){
+			obj.setP_in(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMeshLength)){
+			obj.setPl_m(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThicknessMeshDivisions)){
+			obj.setT_div(value);
+		}else if(widgetName.equals(Mediator.TEXT_textVelocity)){
+			obj.setSPEED(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollGap)){
+			obj.setROL_GAP(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPassLine)){
+			obj.setPAS_LINE(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPairCrossAngle)){
+			obj.setP_CROSS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBenderForce)){
+			obj.setBEND(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollTorque)){
+			obj.setTORQ(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensionStress)){
+			obj.setTENS(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToPlateFrictCoef)){
+			obj.setF_r2p(value);
+		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
+			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
+			obj.setYM_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			obj.setTEC_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			obj.setPR_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textMassDensity)){
+			obj.setMD_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_time)){
+			obj.setLcase_time(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_dt)){
+			obj.setLcase_dt(value);
+		}else if(widgetName.equals(Mediator.TEXT_textPostWritingFrequency)){
+			obj.setPost_inc(value);
+		}else if(widgetName.equals(Mediator.TEXT_textIncrementTime)){
+			obj.setInc_time(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelDDM)){
+			obj.setParallelDDM(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerDomain)){
+			obj.setDomain(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnParallelMultiThread)){
+			obj.setParallelMultiThread(value);
+		}else if(widgetName.equals(Mediator.SPINNER_spinnerThread)){
+			obj.setThread(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			obj.setYM_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			obj.setYM_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			obj.setTEC_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			obj.setTEC_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			obj.setPR_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			obj.setPR_Table(value);
+		}
+	}
+	
+	
+	
 	
 	//
 	//

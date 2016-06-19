@@ -1,5 +1,9 @@
 package com.js.ens.transformation.core.tableDatas;
 
+import java.util.ArrayList;
+
+import com.js.ens.transformation.core.UILabel;
+
 public class TableData_PLog {
 	private String STAND = "";
 	private String BUR_TDIA = "";
@@ -26,6 +30,45 @@ public class TableData_PLog {
 	private String BUR_WEAR = "";
 	private String WR_WEAR = "";
 	private String WR_THRM = "";
+	
+	//group1
+	private String wr_len = "";
+	private String wr_div_angle = "";
+	
+	//group2
+	private String bur_len = "";
+	private String bur_div_angle = "";
+	
+	//group3
+	private String p_in = "";
+	private String pl_m = "";
+	private String t_div = "";
+	
+	//group4
+	private String f_r2p = "";
+	private String f_r2r = "";
+	
+	//group5
+	private String YM_Constant = "";
+	private String YM_Table = "";
+	private String YM_Value = "";
+	private String TEC_Constant = "";
+	private String TEC_Table = "";
+	private String TEC_Value = "";
+	private String PR_Constant = "";
+	private String PR_Table = "";
+	private String PR_Value = "";
+	private String MD_Value = "";
+	
+	//group6
+	private String lcase_time = "";
+	private String lcase_dt = "";
+	private String post_inc = "";
+	private String inc_time = "";
+	private String ParallelDDM = "";
+	private String Domain = "";
+	private String ParallelMultiThread = "";
+	private String Thread = "";
 	
 	public TableData_PLog() {
 		// TODO Auto-generated constructor stub
@@ -231,12 +274,290 @@ public class TableData_PLog {
 		WR_THRM = wR_THRM;
 	}
 	
-	public String getDB(){
-		return "";
+	public String getWr_len() {
+		return wr_len;
+	}
+
+	public void setWr_len(String wr_len) {
+		this.wr_len = wr_len;
+	}
+
+	public String getWr_div_angle() {
+		return wr_div_angle;
+	}
+
+	public void setWr_div_angle(String wr_div_angle) {
+		this.wr_div_angle = wr_div_angle;
+	}
+
+	public String getBur_len() {
+		return bur_len;
+	}
+
+	public void setBur_len(String bur_len) {
+		this.bur_len = bur_len;
+	}
+
+	public String getBur_div_angle() {
+		return bur_div_angle;
+	}
+
+	public void setBur_div_angle(String bur_div_angle) {
+		this.bur_div_angle = bur_div_angle;
+	}
+
+	public String getP_in() {
+		return p_in;
+	}
+
+	public void setP_in(String p_in) {
+		this.p_in = p_in;
+	}
+
+	public String getPl_m() {
+		return pl_m;
+	}
+
+	public void setPl_m(String pl_m) {
+		this.pl_m = pl_m;
+	}
+
+	public String getT_div() {
+		return t_div;
+	}
+
+	public void setT_div(String t_div) {
+		this.t_div = t_div;
+	}
+
+	public String getF_r2p() {
+		return f_r2p;
+	}
+
+	public void setF_r2p(String f_r2p) {
+		this.f_r2p = f_r2p;
+	}
+
+	public String getF_r2r() {
+		return f_r2r;
+	}
+
+	public void setF_r2r(String f_r2r) {
+		this.f_r2r = f_r2r;
+	}
+
+	public String getYM_Value() {
+		return YM_Value;
+	}
+
+	public void setYM_Value(String yM_Value) {
+		YM_Value = yM_Value;
+	}
+
+	public String getTEC_Value() {
+		return TEC_Value;
+	}
+
+	public void setTEC_Value(String tEC_Value) {
+		TEC_Value = tEC_Value;
+	}
+
+	public String getPR_Value() {
+		return PR_Value;
+	}
+
+	public void setPR_Value(String pR_Value) {
+		PR_Value = pR_Value;
+	}
+
+	public String getMD_Value() {
+		return MD_Value;
+	}
+
+	public void setMD_Value(String mD_Value) {
+		MD_Value = mD_Value;
+	}
+
+	public String getLcase_time() {
+		return lcase_time;
+	}
+
+	public void setLcase_time(String lcase_time) {
+		this.lcase_time = lcase_time;
+	}
+
+	public String getLcase_dt() {
+		return lcase_dt;
+	}
+
+	public void setLcase_dt(String lcase_dt) {
+		this.lcase_dt = lcase_dt;
+	}
+
+	public String getPost_inc() {
+		return post_inc;
+	}
+
+	public void setPost_inc(String post_inc) {
+		this.post_inc = post_inc;
+	}
+
+	public String getInc_time() {
+		return inc_time;
+	}
+
+	public void setInc_time(String inc_time) {
+		this.inc_time = inc_time;
+	}
+
+	public String getParallelDDM() {
+		return ParallelDDM;
+	}
+
+	public void setParallelDDM(String parallelDDM) {
+		ParallelDDM = parallelDDM;
+	}
+
+	public String getDomain() {
+		return Domain;
+	}
+
+	public void setDomain(String domain) {
+		Domain = domain;
+	}
+
+	public String getParallelMultiThread() {
+		return ParallelMultiThread;
+	}
+
+	public void setParallelMultiThread(String parallelMultiThread) {
+		ParallelMultiThread = parallelMultiThread;
+	}
+
+	public String getThread() {
+		return Thread;
+	}
+
+	public void setThread(String thread) {
+		Thread = thread;
+	}
+
+	public String getYM_Constant() {
+		return YM_Constant;
+	}
+
+	public void setYM_Constant(String yM_Constant) {
+		YM_Constant = yM_Constant;
+	}
+
+	public String getYM_Table() {
+		return YM_Table;
+	}
+
+	public void setYM_Table(String yM_Table) {
+		YM_Table = yM_Table;
+	}
+
+	public String getTEC_Constant() {
+		return TEC_Constant;
+	}
+
+	public void setTEC_Constant(String tEC_Constant) {
+		TEC_Constant = tEC_Constant;
+	}
+
+	public String getTEC_Table() {
+		return TEC_Table;
+	}
+
+	public void setTEC_Table(String tEC_Table) {
+		TEC_Table = tEC_Table;
+	}
+
+	public String getPR_Constant() {
+		return PR_Constant;
+	}
+
+	public void setPR_Constant(String pR_Constant) {
+		PR_Constant = pR_Constant;
+	}
+
+	public String getPR_Table() {
+		return PR_Table;
+	}
+
+	public void setPR_Table(String pR_Table) {
+		PR_Table = pR_Table;
+	}
+
+	public ArrayList<String> getDB(){
+		ArrayList<String> DB = new ArrayList<String>();
+		
+		DB.add("#########################################");
+		DB.add("##########       STAND F1      ##########");
+		
+		//group1 
+		DB.add(UILabel.Top_WR_Diameter			+"="+	this.WR_TDIA);
+		DB.add(UILabel.Bottom_WR_Diameter		+"="+	this.WR_BDIA);
+		DB.add(UILabel.WR_Crown					+"="+	this.WR_ICRN);
+		DB.add(UILabel.WR_Length				+"="+	this.wr_len);	
+		DB.add(UILabel.WR_Mesh_Angle			+"="+	this.wr_div_angle);
+		//group2
+		DB.add(UILabel.Top_BUR_Diameter			+"="+	this.BUR_TDIA);
+		DB.add(UILabel.Bottom_BUR_Diameter		+"="+	this.BUR_BDIA);
+		DB.add(UILabel.BUR_Length				+"="+	this.bur_len);
+		DB.add(UILabel.BUR_Mesh_Angle			+"="+	this.bur_div_angle);
+		//group3
+		DB.add(UILabel.Thickness				+"="+	this.ENTRY_THK);
+		DB.add(UILabel.Width					+"="+	this.STP_WID);
+		DB.add(UILabel.Length					+"="+	this.STP_LEN);
+		DB.add(UILabel.Entry_Temperature		+"="+	this.ENTRY_TEMP);
+		DB.add(UILabel.Exit_Temperature			+"="+	this.EXIT_TEMP);
+		DB.add(UILabel.Initial_Position			+"="+	this.p_in);
+		DB.add(UILabel.Mesh_Length				+"="+	this.pl_m);
+		DB.add(UILabel.Thickness_Mesh_Divisions	+"="+	this.t_div);
+		//group4
+		DB.add(UILabel.Velocity					+"="+	this.SPEED);
+		DB.add(UILabel.Roll_Gap					+"="+	this.ROL_GAP);
+		DB.add(UILabel.Pass_Line				+"="+	this.PAS_LINE);
+		DB.add(UILabel.Pair_Cross_Angle			+"="+	this.P_CROSS);
+		DB.add(UILabel.Bender_Force				+"="+	this.BEND);
+		DB.add(UILabel.Roll_Torque				+"="+	this.TORQ);
+		DB.add(UILabel.Tension_Stress			+"="+	this.TENS);
+		DB.add(UILabel.Roll_to_Plate_Frict_Coef	+"="+	this.f_r2p);
+		DB.add(UILabel.Roll_to_Roll_Fric_Coef	+"="+	this.f_r2r);		
+		//group5
+		DB.add("YM_Constant"					+"="+	this.YM_Constant);
+		DB.add("YM_Table"						+"="+	this.YM_Table);
+		DB.add(UILabel.Youngs_Modulus			+"="+	this.YM_Value);
+		DB.add("TEC_Constant"					+"="+	this.TEC_Constant);
+		DB.add("TEC_Table"						+"="+	this.TEC_Table);
+		DB.add(UILabel.Thermal_Expansion_Coefficient	+"="+	this.TEC_Value);
+		DB.add("PR_Constant"					+"="+	this.PR_Constant);
+		DB.add("PR_Table"						+"="+	this.PR_Table);
+		DB.add(UILabel.Poissons_Ratio			+"="+	this.PR_Value);
+		DB.add(UILabel.Mass_Density				+"="+	this.MD_Value);
+		//group6
+		DB.add(UILabel.Time_Increment_time		+"="+	this.lcase_time);
+		DB.add(UILabel.Time_Increment_dt		+"="+	this.lcase_dt);
+		DB.add(UILabel.Post_Writing_frequency	+"="+	this.post_inc);
+		DB.add(UILabel.Increment_time			+"="+	this.inc_time);
+		DB.add(UILabel.Parallel_DDM				+"="+	this.ParallelDDM);
+		DB.add(UILabel.Domain					+"="+	this.Domain);
+		DB.add(UILabel.Parallel_Multi_Thread	+"="+	this.ParallelMultiThread);
+		DB.add(UILabel.Thread					+"="+	this.Thread);		
+		//
+		DB.add("#########################################");		
+		
+		return DB;
 	}
 	
 	public void printAllData(){
 		System.out.println("<<Table - P Log>>");
+		for(String line : this.getDB()){
+			System.out.println(line);
+		}
+		/*
 		System.out.println("STAND = "+this.STAND);
 		System.out.println("BUR_TDIA = "+this.BUR_TDIA);
 		System.out.println("BUR_BDIA = "+this.BUR_BDIA);
@@ -262,5 +583,7 @@ public class TableData_PLog {
 		System.out.println("BUR_WEAR = "+this.BUR_WEAR);
 		System.out.println("WR_WEAR = "+this.WR_WEAR);
 		System.out.println("WR_THRM = "+this.WR_THRM);
+		*/
+		
 	}
 }

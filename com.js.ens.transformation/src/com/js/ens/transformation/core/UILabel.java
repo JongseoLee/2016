@@ -158,7 +158,7 @@ public class UILabel {
 	public static String Thermal_Expansion_Coefficient="Thermal Expansion Coefficient(mm/mm)";
 	// 3)
 	public static String Poissons_Ratio="Poisson's Ratio";
-	//4)
+	// 4)
 	public static String Mass_Density="Mass Density(Mg/mm^3)";
 	
 	//
