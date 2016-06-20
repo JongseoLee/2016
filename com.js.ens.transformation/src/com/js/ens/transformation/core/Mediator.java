@@ -214,15 +214,15 @@ public class Mediator {
 	
 	private Button btnExplorerYoungsModulus;
 	public ICommand C_btnExplorerYoungsModulus;
-	public static String BUTTON_btnExplorerYoungsModulus;
+	public static String BUTTON_btnExplorerYoungsModulus = "btnExplorerYoungsModulus";
 	
 	private Button btnConstant2_TEC;
 	public ICommand C_btnConstant2_TEC;
-	public static String BUTTON_btnConstant2_TEC;
+	public static String BUTTON_btnConstant2_TEC = "btnConstant2_TEC";
 	
 	private Button btnTable2_TEC;
 	public ICommand C_btnTable2_TEC;
-	public static String BUTTON_btnTable2_TEC;
+	public static String BUTTON_btnTable2_TEC = "btnTable2_TEC";
 	
 	private Text textThermalExpansionCoefficient;
 	public ICommand C_textThermalExpansionCoefficient;

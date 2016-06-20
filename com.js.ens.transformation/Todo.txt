@@ -1,0 +1,13 @@
+<완료>
+1) InitValue 적용 완료
+
+
+<진행>
+2) InitValue -> PLog와 연동 
+3) Import P Log -> F1~F7 와 연동 
+4) TabFolder 이벤트 완성 
+5) DB 파일 생성
+6) Open DB 파일 
+7) Save DB 
+8) proc 만들기 
+

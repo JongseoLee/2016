@@ -48,59 +48,71 @@ public class CustomButton implements ICommand {
 			if(med.getBtnF7().getSelection())
 				MC.ChangedSTANDValue("F7");
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
-			//MC.메소드 호출()
-			if(med.getBtnConstant1_YM().getSelection())
+			if(med.getBtnConstant1_YM().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnConstant1_YM);
-			else
+				med.getBtnExplorerYoungsModulus().setEnabled(false);
+			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnConstant1_YM);
+				med.getBtnExplorerYoungsModulus().setEnabled(true);
+			}
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
-			//MC.메소드 호출()
-			if(med.getBtnTable1_YM().getSelection())
+			if(med.getBtnTable1_YM().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnTable1_YM);
-			else
+				med.getBtnExplorerYoungsModulus().setEnabled(true);
+			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnTable1_YM);
+				med.getBtnExplorerYoungsModulus().setEnabled(false);
+			}
 		}else if(widgetName.equals(Mediator.BUTTON_btnExplorerYoungsModulus)){
-			//MC.메소드 호출()
+			MC.Explorer_YoungsModulus();
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
-			//MC.메소드 호출()
-			if(med.getBtnConstant2_TEC().getSelection())
+			if(med.getBtnConstant2_TEC().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnConstant2_TEC);
-			else
+				med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
+			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnConstant2_TEC);
+				med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
+			}
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
-			//MC.메소드 호출()
-			if(med.getBtnTable2_TEC().getSelection())
+			if(med.getBtnTable2_TEC().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnTable2_TEC);
-			else
+				med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
+			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnTable2_TEC);
+				med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
+			}
 		}else if(widgetName.equals(Mediator.Button_btnExplorerThermalExpansionCoefficient)){
-			//MC.메소드 호출()
+			MC.Explorer_ThermalExpansionCoefficient();
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
-			//MC.메소드 호출()
-			if(med.getBtnConstant3_PR().getSelection())
+			if(med.getBtnConstant3_PR().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnConstant3_PR);
-			else
+				med.getBtnExplorerPoissonsRatio().setEnabled(false);
+			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnConstant3_PR);
+				med.getBtnExplorerPoissonsRatio().setEnabled(true);
+			}
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
-			//MC.메소드 호출()
-			if(med.getBtnTable3_PR().getSelection())
+			if(med.getBtnTable3_PR().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnTable3_PR);
-			else
+				med.getBtnExplorerPoissonsRatio().setEnabled(true);
+			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnTable3_PR);
+				med.getBtnExplorerPoissonsRatio().setEnabled(false);
+			}
 		}else if(widgetName.equals(Mediator.BUTTON_btnExplorerPoissonsRatio)){
-			//MC.메소드 호출()
+			MC.Explorer_PoissonsRatio();
 		}else if(widgetName.equals(Mediator.BUTTON_btnParallelDDM)){
-			//MC.메소드 호출()
-			if(med.getBtnParallelDDM().getSelection())
+			if(med.getBtnParallelDDM().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnParallelDDM);
-			else
+			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnParallelDDM);
+			}
 		}else if(widgetName.equals(Mediator.BUTTON_btnParallelMultiThread)){
-			//MC.메소드 호출()
-			if(med.getBtnParallelMultiThread().getSelection())
+			if(med.getBtnParallelMultiThread().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnParallelMultiThread);
-			else
+			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnParallelMultiThread);
+			}
 		}
 		
 	}

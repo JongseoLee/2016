@@ -933,6 +933,7 @@ public class View extends ViewPart {
 		fd_btnExplorerYoungsModulus.left = new FormAttachment(textYoungsModulus, 5);
 		btnExplorerYoungsModulus.setLayoutData(fd_btnExplorerYoungsModulus);
 		btnExplorerYoungsModulus.setText("...");
+		btnExplorerYoungsModulus.setEnabled(false);
 		
 		Label lblThermalExpansionCoefficient = new Label(grpMaterialParameter, SWT.NONE);
 		FormData fd_lblThermalExpansionCoefficient = new FormData();
@@ -993,6 +994,7 @@ public class View extends ViewPart {
 		fd_btnExplorerThermalExpansionCoefficient.left = new FormAttachment(textThermalExpansionCoefficient, 5);
 		btnExplorerThermalExpansionCoefficient.setLayoutData(fd_btnExplorerThermalExpansionCoefficient);
 		btnExplorerThermalExpansionCoefficient.setText("...");
+		btnExplorerThermalExpansionCoefficient.setEnabled(false);
 		
 		Label lblPoissonsRatio = new Label(grpMaterialParameter, SWT.NONE);
 		FormData fd_lblPoissonsRatio = new FormData();
@@ -1053,6 +1055,7 @@ public class View extends ViewPart {
 		fd_btnExplorerPoissonsRatio.left = new FormAttachment(textPoissonsRatio, 5);
 		btnExplorerPoissonsRatio.setLayoutData(fd_btnExplorerPoissonsRatio);
 		btnExplorerPoissonsRatio.setText("...");
+		btnExplorerPoissonsRatio.setEnabled(false);
 		
 		Label lblMassDensity = new Label(grpMaterialParameter, SWT.NONE);
 		FormData fd_lblMassDensity = new FormData();

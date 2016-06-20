@@ -644,12 +644,12 @@ public class MainController {
 		if(!myUtil.makeDir(procFolder)) System.out.println("[Model Name:"+modelName +"] prodFolder did not make.");
 		if(!myUtil.makeDir(resultFolder)) System.out.println("[Model Name:"+modelName +"] resultFolder did not make.");
 		
+		this.setUpDataSheet();
 		this.AllComponentEnable();
+		this.InitComponentValue();
 		
 		med.getLblModelNameValue().setText(this.modelName);
 		med.getLblWorkspacePath().setText(this.workspace);
-		
-		this.setUpDataSheet();
 		
 	}
 	
@@ -669,6 +669,7 @@ public class MainController {
 			this.tableDataPLogList.add(obj);
 		}
 	}
+	
 	//
 	//
 	//=====================================================================
@@ -737,17 +738,2149 @@ public class MainController {
 	// 나머지 부분
 	//
 	
-	public void initComponentValue(){
+	private void InitComponentValue(){
+		// New Project --> Call InitCompoenetValue
+		this.initF7Values();
+		this.saveAllF7Values();
+		this.initF6Values();
+		this.saveAllF6Values();
+		this.initF5Values();
+		this.saveAllF5Values();
+		this.initF4Values();
+		this.saveAllF4Values();
+		this.initF3Values();
+		this.saveAllF3Values();
+		this.initF2Values();
+		this.saveAllF2Values();
+		this.initF1Values();
+		this.saveAllF1Values();
 		
+	}
+	
+	private void saveAllF1Values(){
+		TableData_PLog obj = tableDataPLogList.get(0);
+		
+		//Group1
+		obj.setWR_TDIA(med.getTextTopWRDiameter().getText());
+		obj.setWR_BDIA(med.getTextBottomWRDiameter().getText());
+		obj.setWR_ICRN(med.getTextWRCrown().getText());
+		obj.setWr_len(med.getTextWRLength().getText());
+		obj.setWr_div_angle(med.getTextWRMeshAngle().getText());
+		//Group2
+		obj.setBUR_TDIA(med.getTextTopBURDiameter().getText());
+		obj.setBUR_BDIA(med.getTextBottomBURDiameter().getText());
+		obj.setBur_len(med.getTextBURLength().getText());
+		obj.setBur_div_angle(med.getTextBURMeshAngle().getText());
+		//Group3
+		obj.setENTRY_THK(med.getTextThickness().getText());
+		obj.setSTP_WID(med.getTextWidth().getText());
+		obj.setSTP_LEN(med.getTextLength().getText());
+		obj.setENTRY_TEMP(med.getTextEntryTemperature().getText());
+		obj.setEXIT_TEMP(med.getTextExitTemperature().getText());
+		obj.setP_in(med.getTextInitialPosition().getText());
+		obj.setPl_m(med.getTextMeshLength().getText());
+		obj.setT_div(med.getTextThicknessMeshDivisions().getText());
+		//Group4
+		obj.setSPEED(med.getTextVelocity().getText());
+		obj.setROL_GAP(med.getTextRollGap().getText());
+		obj.setPAS_LINE(med.getTextPassLine().getText());
+		obj.setP_CROSS(med.getTextPairCrossAngle().getText());
+		obj.setBEND(med.getTextBenderForce().getText());
+		obj.setTORQ(med.getTextRollTorque().getText());
+		obj.setTENS(med.getTextTensionStress().getText());
+		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
+		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		//Group5
+		if(med.getBtnConstant1_YM().getSelection()){
+			obj.setYM_Constant("true");;
+			obj.setYM_Table("false");
+		}else{
+			obj.setYM_Table("true");
+			obj.setYM_Constant("false");
+		}
+		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		if(med.getBtnConstant2_TEC().getSelection()){
+			obj.setTEC_Constant("true");
+			obj.setTEC_Table("false");
+		}else{
+			obj.setTEC_Table("true");
+			obj.setTEC_Constant("false");
+		}
+		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
+		if(med.getBtnConstant3_PR().getSelection()){
+			obj.setPR_Constant("true");
+			obj.setPR_Table("false");
+		}else{
+			obj.setPR_Table("true");
+			obj.setPR_Constant("fasle");
+		}
+		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
+		obj.setMD_Value(med.getTextMassDensity().getText());
+		//Group6
+		obj.setLcase_time(med.getTextTimeIncrement_time().getText());
+		obj.setLcase_dt(med.getTextTimeIncrement_dt().getText());
+		obj.setPost_inc(med.getTextPostWritingFrequency().getText());
+		obj.setInc_time(med.getTextIncrementTime().getText());
+		if(med.getBtnParallelDDM().getSelection()){
+			obj.setParallelDDM("true");
+		}else{
+			obj.setParallelDDM("false");
+		}
+		obj.setDomain(med.getSpinnerDomain().getText());
+		
+		if(med.getBtnParallelMultiThread().getSelection()){
+			obj.setParallelMultiThread("true");
+		}else{
+			obj.setParallelMultiThread("false");
+		}
+		obj.setThread(med.getSpinnerThread().getText());
+	}
+	
+	private void saveAllF2Values(){
+		TableData_PLog obj = tableDataPLogList.get(1);
+		
+		//Group1
+		obj.setWR_TDIA(med.getTextTopWRDiameter().getText());
+		obj.setWR_BDIA(med.getTextBottomWRDiameter().getText());
+		obj.setWR_ICRN(med.getTextWRCrown().getText());
+		obj.setWr_len(med.getTextWRLength().getText());
+		obj.setWr_div_angle(med.getTextWRMeshAngle().getText());
+		//Group2
+		obj.setBUR_TDIA(med.getTextTopBURDiameter().getText());
+		obj.setBUR_BDIA(med.getTextBottomBURDiameter().getText());
+		obj.setBur_len(med.getTextBURLength().getText());
+		obj.setBur_div_angle(med.getTextBURMeshAngle().getText());
+		//Group3
+		obj.setENTRY_THK(med.getTextThickness().getText());
+		obj.setSTP_WID(med.getTextWidth().getText());
+		obj.setSTP_LEN(med.getTextLength().getText());
+		obj.setENTRY_TEMP(med.getTextEntryTemperature().getText());
+		obj.setEXIT_TEMP(med.getTextExitTemperature().getText());
+		obj.setP_in(med.getTextInitialPosition().getText());
+		obj.setPl_m(med.getTextMeshLength().getText());
+		obj.setT_div(med.getTextThicknessMeshDivisions().getText());
+		//Group4
+		obj.setSPEED(med.getTextVelocity().getText());
+		obj.setROL_GAP(med.getTextRollGap().getText());
+		obj.setPAS_LINE(med.getTextPassLine().getText());
+		obj.setP_CROSS(med.getTextPairCrossAngle().getText());
+		obj.setBEND(med.getTextBenderForce().getText());
+		obj.setTORQ(med.getTextRollTorque().getText());
+		obj.setTENS(med.getTextTensionStress().getText());
+		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
+		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		//Group5
+		if(med.getBtnConstant1_YM().getSelection()){
+			obj.setYM_Constant("true");;
+			obj.setYM_Table("false");
+		}else{
+			obj.setYM_Table("true");
+			obj.setYM_Constant("false");
+		}
+		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		if(med.getBtnConstant2_TEC().getSelection()){
+			obj.setTEC_Constant("true");
+			obj.setTEC_Table("false");
+		}else{
+			obj.setTEC_Table("true");
+			obj.setTEC_Constant("false");
+		}
+		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
+		if(med.getBtnConstant3_PR().getSelection()){
+			obj.setPR_Constant("true");
+			obj.setPR_Table("false");
+		}else{
+			obj.setPR_Table("true");
+			obj.setPR_Constant("fasle");
+		}
+		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
+		obj.setMD_Value(med.getTextMassDensity().getText());
+		//Group6
+		obj.setLcase_time(med.getTextTimeIncrement_time().getText());
+		obj.setLcase_dt(med.getTextTimeIncrement_dt().getText());
+		obj.setPost_inc(med.getTextPostWritingFrequency().getText());
+		obj.setInc_time(med.getTextIncrementTime().getText());
+		if(med.getBtnParallelDDM().getSelection()){
+			obj.setParallelDDM("true");
+		}else{
+			obj.setParallelDDM("false");
+		}
+		obj.setDomain(med.getSpinnerDomain().getText());
+		
+		if(med.getBtnParallelMultiThread().getSelection()){
+			obj.setParallelMultiThread("true");
+		}else{
+			obj.setParallelMultiThread("false");
+		}
+		obj.setThread(med.getSpinnerThread().getText());
+	}
+	
+	private void saveAllF3Values(){
+		TableData_PLog obj = tableDataPLogList.get(2);
+		
+		//Group1
+		obj.setWR_TDIA(med.getTextTopWRDiameter().getText());
+		obj.setWR_BDIA(med.getTextBottomWRDiameter().getText());
+		obj.setWR_ICRN(med.getTextWRCrown().getText());
+		obj.setWr_len(med.getTextWRLength().getText());
+		obj.setWr_div_angle(med.getTextWRMeshAngle().getText());
+		//Group2
+		obj.setBUR_TDIA(med.getTextTopBURDiameter().getText());
+		obj.setBUR_BDIA(med.getTextBottomBURDiameter().getText());
+		obj.setBur_len(med.getTextBURLength().getText());
+		obj.setBur_div_angle(med.getTextBURMeshAngle().getText());
+		//Group3
+		obj.setENTRY_THK(med.getTextThickness().getText());
+		obj.setSTP_WID(med.getTextWidth().getText());
+		obj.setSTP_LEN(med.getTextLength().getText());
+		obj.setENTRY_TEMP(med.getTextEntryTemperature().getText());
+		obj.setEXIT_TEMP(med.getTextExitTemperature().getText());
+		obj.setP_in(med.getTextInitialPosition().getText());
+		obj.setPl_m(med.getTextMeshLength().getText());
+		obj.setT_div(med.getTextThicknessMeshDivisions().getText());
+		//Group4
+		obj.setSPEED(med.getTextVelocity().getText());
+		obj.setROL_GAP(med.getTextRollGap().getText());
+		obj.setPAS_LINE(med.getTextPassLine().getText());
+		obj.setP_CROSS(med.getTextPairCrossAngle().getText());
+		obj.setBEND(med.getTextBenderForce().getText());
+		obj.setTORQ(med.getTextRollTorque().getText());
+		obj.setTENS(med.getTextTensionStress().getText());
+		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
+		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		//Group5
+		if(med.getBtnConstant1_YM().getSelection()){
+			obj.setYM_Constant("true");;
+			obj.setYM_Table("false");
+		}else{
+			obj.setYM_Table("true");
+			obj.setYM_Constant("false");
+		}
+		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		if(med.getBtnConstant2_TEC().getSelection()){
+			obj.setTEC_Constant("true");
+			obj.setTEC_Table("false");
+		}else{
+			obj.setTEC_Table("true");
+			obj.setTEC_Constant("false");
+		}
+		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
+		if(med.getBtnConstant3_PR().getSelection()){
+			obj.setPR_Constant("true");
+			obj.setPR_Table("false");
+		}else{
+			obj.setPR_Table("true");
+			obj.setPR_Constant("fasle");
+		}
+		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
+		obj.setMD_Value(med.getTextMassDensity().getText());
+		//Group6
+		obj.setLcase_time(med.getTextTimeIncrement_time().getText());
+		obj.setLcase_dt(med.getTextTimeIncrement_dt().getText());
+		obj.setPost_inc(med.getTextPostWritingFrequency().getText());
+		obj.setInc_time(med.getTextIncrementTime().getText());
+		if(med.getBtnParallelDDM().getSelection()){
+			obj.setParallelDDM("true");
+		}else{
+			obj.setParallelDDM("false");
+		}
+		obj.setDomain(med.getSpinnerDomain().getText());
+		
+		if(med.getBtnParallelMultiThread().getSelection()){
+			obj.setParallelMultiThread("true");
+		}else{
+			obj.setParallelMultiThread("false");
+		}
+		obj.setThread(med.getSpinnerThread().getText());
+	}
+
+	private void saveAllF4Values(){
+		TableData_PLog obj = tableDataPLogList.get(3);
+		
+		//Group1
+		obj.setWR_TDIA(med.getTextTopWRDiameter().getText());
+		obj.setWR_BDIA(med.getTextBottomWRDiameter().getText());
+		obj.setWR_ICRN(med.getTextWRCrown().getText());
+		obj.setWr_len(med.getTextWRLength().getText());
+		obj.setWr_div_angle(med.getTextWRMeshAngle().getText());
+		//Group2
+		obj.setBUR_TDIA(med.getTextTopBURDiameter().getText());
+		obj.setBUR_BDIA(med.getTextBottomBURDiameter().getText());
+		obj.setBur_len(med.getTextBURLength().getText());
+		obj.setBur_div_angle(med.getTextBURMeshAngle().getText());
+		//Group3
+		obj.setENTRY_THK(med.getTextThickness().getText());
+		obj.setSTP_WID(med.getTextWidth().getText());
+		obj.setSTP_LEN(med.getTextLength().getText());
+		obj.setENTRY_TEMP(med.getTextEntryTemperature().getText());
+		obj.setEXIT_TEMP(med.getTextExitTemperature().getText());
+		obj.setP_in(med.getTextInitialPosition().getText());
+		obj.setPl_m(med.getTextMeshLength().getText());
+		obj.setT_div(med.getTextThicknessMeshDivisions().getText());
+		//Group4
+		obj.setSPEED(med.getTextVelocity().getText());
+		obj.setROL_GAP(med.getTextRollGap().getText());
+		obj.setPAS_LINE(med.getTextPassLine().getText());
+		obj.setP_CROSS(med.getTextPairCrossAngle().getText());
+		obj.setBEND(med.getTextBenderForce().getText());
+		obj.setTORQ(med.getTextRollTorque().getText());
+		obj.setTENS(med.getTextTensionStress().getText());
+		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
+		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		//Group5
+		if(med.getBtnConstant1_YM().getSelection()){
+			obj.setYM_Constant("true");;
+			obj.setYM_Table("false");
+		}else{
+			obj.setYM_Table("true");
+			obj.setYM_Constant("false");
+		}
+		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		if(med.getBtnConstant2_TEC().getSelection()){
+			obj.setTEC_Constant("true");
+			obj.setTEC_Table("false");
+		}else{
+			obj.setTEC_Table("true");
+			obj.setTEC_Constant("false");
+		}
+		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
+		if(med.getBtnConstant3_PR().getSelection()){
+			obj.setPR_Constant("true");
+			obj.setPR_Table("false");
+		}else{
+			obj.setPR_Table("true");
+			obj.setPR_Constant("fasle");
+		}
+		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
+		obj.setMD_Value(med.getTextMassDensity().getText());
+		//Group6
+		obj.setLcase_time(med.getTextTimeIncrement_time().getText());
+		obj.setLcase_dt(med.getTextTimeIncrement_dt().getText());
+		obj.setPost_inc(med.getTextPostWritingFrequency().getText());
+		obj.setInc_time(med.getTextIncrementTime().getText());
+		if(med.getBtnParallelDDM().getSelection()){
+			obj.setParallelDDM("true");
+		}else{
+			obj.setParallelDDM("false");
+		}
+		obj.setDomain(med.getSpinnerDomain().getText());
+		
+		if(med.getBtnParallelMultiThread().getSelection()){
+			obj.setParallelMultiThread("true");
+		}else{
+			obj.setParallelMultiThread("false");
+		}
+		obj.setThread(med.getSpinnerThread().getText());
+	}
+	
+	private void saveAllF5Values(){
+		TableData_PLog obj = tableDataPLogList.get(4);
+		
+		//Group1
+		obj.setWR_TDIA(med.getTextTopWRDiameter().getText());
+		obj.setWR_BDIA(med.getTextBottomWRDiameter().getText());
+		obj.setWR_ICRN(med.getTextWRCrown().getText());
+		obj.setWr_len(med.getTextWRLength().getText());
+		obj.setWr_div_angle(med.getTextWRMeshAngle().getText());
+		//Group2
+		obj.setBUR_TDIA(med.getTextTopBURDiameter().getText());
+		obj.setBUR_BDIA(med.getTextBottomBURDiameter().getText());
+		obj.setBur_len(med.getTextBURLength().getText());
+		obj.setBur_div_angle(med.getTextBURMeshAngle().getText());
+		//Group3
+		obj.setENTRY_THK(med.getTextThickness().getText());
+		obj.setSTP_WID(med.getTextWidth().getText());
+		obj.setSTP_LEN(med.getTextLength().getText());
+		obj.setENTRY_TEMP(med.getTextEntryTemperature().getText());
+		obj.setEXIT_TEMP(med.getTextExitTemperature().getText());
+		obj.setP_in(med.getTextInitialPosition().getText());
+		obj.setPl_m(med.getTextMeshLength().getText());
+		obj.setT_div(med.getTextThicknessMeshDivisions().getText());
+		//Group4
+		obj.setSPEED(med.getTextVelocity().getText());
+		obj.setROL_GAP(med.getTextRollGap().getText());
+		obj.setPAS_LINE(med.getTextPassLine().getText());
+		obj.setP_CROSS(med.getTextPairCrossAngle().getText());
+		obj.setBEND(med.getTextBenderForce().getText());
+		obj.setTORQ(med.getTextRollTorque().getText());
+		obj.setTENS(med.getTextTensionStress().getText());
+		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
+		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		//Group5
+		if(med.getBtnConstant1_YM().getSelection()){
+			obj.setYM_Constant("true");;
+			obj.setYM_Table("false");
+		}else{
+			obj.setYM_Table("true");
+			obj.setYM_Constant("false");
+		}
+		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		if(med.getBtnConstant2_TEC().getSelection()){
+			obj.setTEC_Constant("true");
+			obj.setTEC_Table("false");
+		}else{
+			obj.setTEC_Table("true");
+			obj.setTEC_Constant("false");
+		}
+		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
+		if(med.getBtnConstant3_PR().getSelection()){
+			obj.setPR_Constant("true");
+			obj.setPR_Table("false");
+		}else{
+			obj.setPR_Table("true");
+			obj.setPR_Constant("fasle");
+		}
+		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
+		obj.setMD_Value(med.getTextMassDensity().getText());
+		//Group6
+		obj.setLcase_time(med.getTextTimeIncrement_time().getText());
+		obj.setLcase_dt(med.getTextTimeIncrement_dt().getText());
+		obj.setPost_inc(med.getTextPostWritingFrequency().getText());
+		obj.setInc_time(med.getTextIncrementTime().getText());
+		if(med.getBtnParallelDDM().getSelection()){
+			obj.setParallelDDM("true");
+		}else{
+			obj.setParallelDDM("false");
+		}
+		obj.setDomain(med.getSpinnerDomain().getText());
+		
+		if(med.getBtnParallelMultiThread().getSelection()){
+			obj.setParallelMultiThread("true");
+		}else{
+			obj.setParallelMultiThread("false");
+		}
+		obj.setThread(med.getSpinnerThread().getText());
+	}
+	
+	private void saveAllF6Values(){
+		TableData_PLog obj = tableDataPLogList.get(5);
+		
+		//Group1
+		obj.setWR_TDIA(med.getTextTopWRDiameter().getText());
+		obj.setWR_BDIA(med.getTextBottomWRDiameter().getText());
+		obj.setWR_ICRN(med.getTextWRCrown().getText());
+		obj.setWr_len(med.getTextWRLength().getText());
+		obj.setWr_div_angle(med.getTextWRMeshAngle().getText());
+		//Group2
+		obj.setBUR_TDIA(med.getTextTopBURDiameter().getText());
+		obj.setBUR_BDIA(med.getTextBottomBURDiameter().getText());
+		obj.setBur_len(med.getTextBURLength().getText());
+		obj.setBur_div_angle(med.getTextBURMeshAngle().getText());
+		//Group3
+		obj.setENTRY_THK(med.getTextThickness().getText());
+		obj.setSTP_WID(med.getTextWidth().getText());
+		obj.setSTP_LEN(med.getTextLength().getText());
+		obj.setENTRY_TEMP(med.getTextEntryTemperature().getText());
+		obj.setEXIT_TEMP(med.getTextExitTemperature().getText());
+		obj.setP_in(med.getTextInitialPosition().getText());
+		obj.setPl_m(med.getTextMeshLength().getText());
+		obj.setT_div(med.getTextThicknessMeshDivisions().getText());
+		//Group4
+		obj.setSPEED(med.getTextVelocity().getText());
+		obj.setROL_GAP(med.getTextRollGap().getText());
+		obj.setPAS_LINE(med.getTextPassLine().getText());
+		obj.setP_CROSS(med.getTextPairCrossAngle().getText());
+		obj.setBEND(med.getTextBenderForce().getText());
+		obj.setTORQ(med.getTextRollTorque().getText());
+		obj.setTENS(med.getTextTensionStress().getText());
+		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
+		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		//Group5
+		if(med.getBtnConstant1_YM().getSelection()){
+			obj.setYM_Constant("true");;
+			obj.setYM_Table("false");
+		}else{
+			obj.setYM_Table("true");
+			obj.setYM_Constant("false");
+		}
+		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		if(med.getBtnConstant2_TEC().getSelection()){
+			obj.setTEC_Constant("true");
+			obj.setTEC_Table("false");
+		}else{
+			obj.setTEC_Table("true");
+			obj.setTEC_Constant("false");
+		}
+		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
+		if(med.getBtnConstant3_PR().getSelection()){
+			obj.setPR_Constant("true");
+			obj.setPR_Table("false");
+		}else{
+			obj.setPR_Table("true");
+			obj.setPR_Constant("fasle");
+		}
+		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
+		obj.setMD_Value(med.getTextMassDensity().getText());
+		//Group6
+		obj.setLcase_time(med.getTextTimeIncrement_time().getText());
+		obj.setLcase_dt(med.getTextTimeIncrement_dt().getText());
+		obj.setPost_inc(med.getTextPostWritingFrequency().getText());
+		obj.setInc_time(med.getTextIncrementTime().getText());
+		if(med.getBtnParallelDDM().getSelection()){
+			obj.setParallelDDM("true");
+		}else{
+			obj.setParallelDDM("false");
+		}
+		obj.setDomain(med.getSpinnerDomain().getText());
+		
+		if(med.getBtnParallelMultiThread().getSelection()){
+			obj.setParallelMultiThread("true");
+		}else{
+			obj.setParallelMultiThread("false");
+		}
+		obj.setThread(med.getSpinnerThread().getText());
+	}
+	
+	private void saveAllF7Values(){
+		TableData_PLog obj = tableDataPLogList.get(6);
+		
+		//Group1
+		obj.setWR_TDIA(med.getTextTopWRDiameter().getText());
+		obj.setWR_BDIA(med.getTextBottomWRDiameter().getText());
+		obj.setWR_ICRN(med.getTextWRCrown().getText());
+		obj.setWr_len(med.getTextWRLength().getText());
+		obj.setWr_div_angle(med.getTextWRMeshAngle().getText());
+		//Group2
+		obj.setBUR_TDIA(med.getTextTopBURDiameter().getText());
+		obj.setBUR_BDIA(med.getTextBottomBURDiameter().getText());
+		obj.setBur_len(med.getTextBURLength().getText());
+		obj.setBur_div_angle(med.getTextBURMeshAngle().getText());
+		//Group3
+		obj.setENTRY_THK(med.getTextThickness().getText());
+		obj.setSTP_WID(med.getTextWidth().getText());
+		obj.setSTP_LEN(med.getTextLength().getText());
+		obj.setENTRY_TEMP(med.getTextEntryTemperature().getText());
+		obj.setEXIT_TEMP(med.getTextExitTemperature().getText());
+		obj.setP_in(med.getTextInitialPosition().getText());
+		obj.setPl_m(med.getTextMeshLength().getText());
+		obj.setT_div(med.getTextThicknessMeshDivisions().getText());
+		//Group4
+		obj.setSPEED(med.getTextVelocity().getText());
+		obj.setROL_GAP(med.getTextRollGap().getText());
+		obj.setPAS_LINE(med.getTextPassLine().getText());
+		obj.setP_CROSS(med.getTextPairCrossAngle().getText());
+		obj.setBEND(med.getTextBenderForce().getText());
+		obj.setTORQ(med.getTextRollTorque().getText());
+		obj.setTENS(med.getTextTensionStress().getText());
+		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
+		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		//Group5
+		if(med.getBtnConstant1_YM().getSelection()){
+			obj.setYM_Constant("true");;
+			obj.setYM_Table("false");
+		}else{
+			obj.setYM_Table("true");
+			obj.setYM_Constant("false");
+		}
+		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		if(med.getBtnConstant2_TEC().getSelection()){
+			obj.setTEC_Constant("true");
+			obj.setTEC_Table("false");
+		}else{
+			obj.setTEC_Table("true");
+			obj.setTEC_Constant("false");
+		}
+		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
+		if(med.getBtnConstant3_PR().getSelection()){
+			obj.setPR_Constant("true");
+			obj.setPR_Table("false");
+		}else{
+			obj.setPR_Table("true");
+			obj.setPR_Constant("fasle");
+		}
+		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
+		obj.setMD_Value(med.getTextMassDensity().getText());
+		//Group6
+		obj.setLcase_time(med.getTextTimeIncrement_time().getText());
+		obj.setLcase_dt(med.getTextTimeIncrement_dt().getText());
+		obj.setPost_inc(med.getTextPostWritingFrequency().getText());
+		obj.setInc_time(med.getTextIncrementTime().getText());
+		if(med.getBtnParallelDDM().getSelection()){
+			obj.setParallelDDM("true");
+		}else{
+			obj.setParallelDDM("false");
+		}
+		obj.setDomain(med.getSpinnerDomain().getText());
+		
+		if(med.getBtnParallelMultiThread().getSelection()){
+			obj.setParallelMultiThread("true");
+		}else{
+			obj.setParallelMultiThread("false");
+		}
+		obj.setThread(med.getSpinnerThread().getText());
+	}
+	
+	private void initF1Values(){
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		
+		med.getBtnF1().setSelection(true);
+		med.getBtnF2().setSelection(false);
+		med.getBtnF3().setSelection(false);
+		med.getBtnF4().setSelection(false);
+		med.getBtnF5().setSelection(false);
+		med.getBtnF6().setSelection(false);
+		med.getBtnF7().setSelection(false);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getInitValue(InitValue.WR_TDIA_F1));
+		med.getTextBottomWRDiameter().setText(obj.getInitValue(InitValue.WR_BDIA_F1));
+		med.getTextWRCrown().setText(obj.getInitValue(InitValue.WR_ICRN_F1));
+		med.getTextWRLength().setText(obj.getInitValue(InitValue.wr_len_F1));
+		med.getTextWRMeshAngle().setText(obj.getInitValue(InitValue.wr_div_angle_F1));
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getInitValue(InitValue.BUR_TDIA_F1));
+		med.getTextBottomBURDiameter().setText(obj.getInitValue(InitValue.BUR_BDIA_F1));
+		med.getTextBURLength().setText(obj.getInitValue(InitValue.bur_len_F1));
+		med.getTextBURMeshAngle().setText(obj.getInitValue(InitValue.bur_div_angle_F1));
+		//Group3
+		med.getTextThickness().setText(obj.getInitValue(InitValue.ENTRY_THK_F1));
+		med.getTextWidth().setText(obj.getInitValue(InitValue.STP_WID_F1));
+		med.getTextLength().setText(obj.getInitValue(InitValue.STP_LEN_F1));
+		med.getTextEntryTemperature().setText(obj.getInitValue(InitValue.ENTRY_TEMP_F1));
+		med.getTextExitTemperature().setText(obj.getInitValue(InitValue.EXIT_TEMP_F1));
+		med.getTextInitialPosition().setText(obj.getInitValue(InitValue.p_in_F1));
+		med.getTextMeshLength().setText(obj.getInitValue(InitValue.pl_m_F1));
+		med.getTextThicknessMeshDivisions().setText(obj.getInitValue(InitValue.t_div_F1));
+		//Group4
+		med.getTextVelocity().setText(obj.getInitValue(InitValue.SPEED_mpm_F1));
+		med.getTextRollGap().setText(obj.getInitValue(InitValue.ROL_GAP_F1));
+		med.getTextPassLine().setText(obj.getInitValue(InitValue.PAS_LINE_F1));
+		med.getTextPairCrossAngle().setText(obj.getInitValue(InitValue.P_CROSS_F1));
+		med.getTextBenderForce().setText(obj.getInitValue(InitValue.BEND_F1));
+		med.getTextRollTorque().setText(obj.getInitValue(InitValue.TORQ_F1));
+		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F1));
+		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F1));
+		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F1));
+		//Group5
+		if(obj.getInitValue(InitValue.YM_Constant_F1).toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F1));
+		
+		if(obj.getInitValue(InitValue.TEC_Constant_F1).toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F1));
+		
+		if(obj.getInitValue(InitValue.PR_Constant_F1).toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F1));
+		
+		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F1));
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getInitValue(InitValue.lcase_time_F1));
+		med.getTextTimeIncrement_dt().setText(obj.getInitValue(InitValue.lcase_dt_F1));
+		med.getTextPostWritingFrequency().setText(obj.getInitValue(InitValue.post_inc_F1));
+		med.getTextIncrementTime().setText(obj.getInitValue(InitValue.inc_time_F1));
+		if(obj.getInitValue(InitValue.ParallelDDM_F1).toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F1)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F1)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getInitValue(InitValue.ParallelMultiThread_F1).toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F1)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F1)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void initF2Values(){
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		
+		med.getBtnF1().setSelection(false);
+		med.getBtnF2().setSelection(true);
+		med.getBtnF3().setSelection(false);
+		med.getBtnF4().setSelection(false);
+		med.getBtnF5().setSelection(false);
+		med.getBtnF6().setSelection(false);
+		med.getBtnF7().setSelection(false);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getInitValue(InitValue.WR_TDIA_F2));
+		med.getTextBottomWRDiameter().setText(obj.getInitValue(InitValue.WR_BDIA_F2));
+		med.getTextWRCrown().setText(obj.getInitValue(InitValue.WR_ICRN_F2));
+		med.getTextWRLength().setText(obj.getInitValue(InitValue.wr_len_F2));
+		med.getTextWRMeshAngle().setText(obj.getInitValue(InitValue.wr_div_angle_F2));
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getInitValue(InitValue.BUR_TDIA_F2));
+		med.getTextBottomBURDiameter().setText(obj.getInitValue(InitValue.BUR_BDIA_F2));
+		med.getTextBURLength().setText(obj.getInitValue(InitValue.bur_len_F2));
+		med.getTextBURMeshAngle().setText(obj.getInitValue(InitValue.bur_div_angle_F2));
+		//Group3
+		med.getTextThickness().setText(obj.getInitValue(InitValue.ENTRY_THK_F2));
+		med.getTextWidth().setText(obj.getInitValue(InitValue.STP_WID_F2));
+		med.getTextLength().setText(obj.getInitValue(InitValue.STP_LEN_F2));
+		med.getTextEntryTemperature().setText(obj.getInitValue(InitValue.ENTRY_TEMP_F2));
+		med.getTextExitTemperature().setText(obj.getInitValue(InitValue.EXIT_TEMP_F2));
+		med.getTextInitialPosition().setText(obj.getInitValue(InitValue.p_in_F2));
+		med.getTextMeshLength().setText(obj.getInitValue(InitValue.pl_m_F2));
+		med.getTextThicknessMeshDivisions().setText(obj.getInitValue(InitValue.t_div_F2));
+		//Group4
+		med.getTextVelocity().setText(obj.getInitValue(InitValue.SPEED_mpm_F2));
+		med.getTextRollGap().setText(obj.getInitValue(InitValue.ROL_GAP_F2));
+		med.getTextPassLine().setText(obj.getInitValue(InitValue.PAS_LINE_F2));
+		med.getTextPairCrossAngle().setText(obj.getInitValue(InitValue.P_CROSS_F2));
+		med.getTextBenderForce().setText(obj.getInitValue(InitValue.BEND_F2));
+		med.getTextRollTorque().setText(obj.getInitValue(InitValue.TORQ_F2));
+		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F2));
+		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F2));
+		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F2));
+		//Group5
+		if(obj.getInitValue(InitValue.YM_Constant_F2).toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+		
+		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F2));
+		if(obj.getInitValue(InitValue.TEC_Constant_F2).toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F2));
+		
+		if(obj.getInitValue(InitValue.PR_Constant_F2).toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F2));
+		
+		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F2));
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getInitValue(InitValue.lcase_time_F2));
+		med.getTextTimeIncrement_dt().setText(obj.getInitValue(InitValue.lcase_dt_F2));
+		med.getTextPostWritingFrequency().setText(obj.getInitValue(InitValue.post_inc_F2));
+		med.getTextIncrementTime().setText(obj.getInitValue(InitValue.inc_time_F2));
+		if(obj.getInitValue(InitValue.ParallelDDM_F2).toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F2)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F2)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getInitValue(InitValue.ParallelMultiThread_F2).toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F2)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F2)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void initF3Values(){
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		
+		med.getBtnF1().setSelection(false);
+		med.getBtnF2().setSelection(false);
+		med.getBtnF3().setSelection(true);
+		med.getBtnF4().setSelection(false);
+		med.getBtnF5().setSelection(false);
+		med.getBtnF6().setSelection(false);
+		med.getBtnF7().setSelection(false);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getInitValue(InitValue.WR_TDIA_F3));
+		med.getTextBottomWRDiameter().setText(obj.getInitValue(InitValue.WR_BDIA_F3));
+		med.getTextWRCrown().setText(obj.getInitValue(InitValue.WR_ICRN_F3));
+		med.getTextWRLength().setText(obj.getInitValue(InitValue.wr_len_F3));
+		med.getTextWRMeshAngle().setText(obj.getInitValue(InitValue.wr_div_angle_F3));
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getInitValue(InitValue.BUR_TDIA_F3));
+		med.getTextBottomBURDiameter().setText(obj.getInitValue(InitValue.BUR_BDIA_F3));
+		med.getTextBURLength().setText(obj.getInitValue(InitValue.bur_len_F3));
+		med.getTextBURMeshAngle().setText(obj.getInitValue(InitValue.bur_div_angle_F3));
+		//Group3
+		med.getTextThickness().setText(obj.getInitValue(InitValue.ENTRY_THK_F3));
+		med.getTextWidth().setText(obj.getInitValue(InitValue.STP_WID_F3));
+		med.getTextLength().setText(obj.getInitValue(InitValue.STP_LEN_F3));
+		med.getTextEntryTemperature().setText(obj.getInitValue(InitValue.ENTRY_TEMP_F3));
+		med.getTextExitTemperature().setText(obj.getInitValue(InitValue.EXIT_TEMP_F3));
+		med.getTextInitialPosition().setText(obj.getInitValue(InitValue.p_in_F3));
+		med.getTextMeshLength().setText(obj.getInitValue(InitValue.pl_m_F3));
+		med.getTextThicknessMeshDivisions().setText(obj.getInitValue(InitValue.t_div_F3));
+		//Group4
+		med.getTextVelocity().setText(obj.getInitValue(InitValue.SPEED_mpm_F3));
+		med.getTextRollGap().setText(obj.getInitValue(InitValue.ROL_GAP_F3));
+		med.getTextPassLine().setText(obj.getInitValue(InitValue.PAS_LINE_F3));
+		med.getTextPairCrossAngle().setText(obj.getInitValue(InitValue.P_CROSS_F3));
+		med.getTextBenderForce().setText(obj.getInitValue(InitValue.BEND_F3));
+		med.getTextRollTorque().setText(obj.getInitValue(InitValue.TORQ_F3));
+		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F3));
+		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F3));
+		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F3));
+		//Group5
+		if(obj.getInitValue(InitValue.YM_Constant_F3).toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+		
+		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F3));
+		if(obj.getInitValue(InitValue.TEC_Constant_F3).toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F3));
+		
+		if(obj.getInitValue(InitValue.PR_Constant_F3).toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F3));
+		
+		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F3));
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getInitValue(InitValue.lcase_time_F3));
+		med.getTextTimeIncrement_dt().setText(obj.getInitValue(InitValue.lcase_dt_F3));
+		med.getTextPostWritingFrequency().setText(obj.getInitValue(InitValue.post_inc_F3));
+		med.getTextIncrementTime().setText(obj.getInitValue(InitValue.inc_time_F3));
+		if(obj.getInitValue(InitValue.ParallelDDM_F3).toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F3)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F3)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getInitValue(InitValue.ParallelMultiThread_F3).toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F3)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F3)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void initF4Values(){
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		
+		med.getBtnF1().setSelection(false);
+		med.getBtnF2().setSelection(false);
+		med.getBtnF3().setSelection(false);
+		med.getBtnF4().setSelection(true);
+		med.getBtnF5().setSelection(false);
+		med.getBtnF6().setSelection(false);
+		med.getBtnF7().setSelection(false);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getInitValue(InitValue.WR_TDIA_F4));
+		med.getTextBottomWRDiameter().setText(obj.getInitValue(InitValue.WR_BDIA_F4));
+		med.getTextWRCrown().setText(obj.getInitValue(InitValue.WR_ICRN_F4));
+		med.getTextWRLength().setText(obj.getInitValue(InitValue.wr_len_F4));
+		med.getTextWRMeshAngle().setText(obj.getInitValue(InitValue.wr_div_angle_F4));
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getInitValue(InitValue.BUR_TDIA_F4));
+		med.getTextBottomBURDiameter().setText(obj.getInitValue(InitValue.BUR_BDIA_F4));
+		med.getTextBURLength().setText(obj.getInitValue(InitValue.bur_len_F4));
+		med.getTextBURMeshAngle().setText(obj.getInitValue(InitValue.bur_div_angle_F4));
+		//Group3
+		med.getTextThickness().setText(obj.getInitValue(InitValue.ENTRY_THK_F4));
+		med.getTextWidth().setText(obj.getInitValue(InitValue.STP_WID_F4));
+		med.getTextLength().setText(obj.getInitValue(InitValue.STP_LEN_F4));
+		med.getTextEntryTemperature().setText(obj.getInitValue(InitValue.ENTRY_TEMP_F4));
+		med.getTextExitTemperature().setText(obj.getInitValue(InitValue.EXIT_TEMP_F4));
+		med.getTextInitialPosition().setText(obj.getInitValue(InitValue.p_in_F4));
+		med.getTextMeshLength().setText(obj.getInitValue(InitValue.pl_m_F4));
+		med.getTextThicknessMeshDivisions().setText(obj.getInitValue(InitValue.t_div_F4));
+		//Group4
+		med.getTextVelocity().setText(obj.getInitValue(InitValue.SPEED_mpm_F4));
+		med.getTextRollGap().setText(obj.getInitValue(InitValue.ROL_GAP_F4));
+		med.getTextPassLine().setText(obj.getInitValue(InitValue.PAS_LINE_F4));
+		med.getTextPairCrossAngle().setText(obj.getInitValue(InitValue.P_CROSS_F4));
+		med.getTextBenderForce().setText(obj.getInitValue(InitValue.BEND_F4));
+		med.getTextRollTorque().setText(obj.getInitValue(InitValue.TORQ_F4));
+		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F4));
+		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F4));
+		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F4));
+		//Group5
+		if(obj.getInitValue(InitValue.YM_Constant_F4).toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+		
+		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F4));
+		if(obj.getInitValue(InitValue.TEC_Constant_F4).toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F4));
+		
+		if(obj.getInitValue(InitValue.PR_Constant_F4).toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F4));
+		
+		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F4));
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getInitValue(InitValue.lcase_time_F4));
+		med.getTextTimeIncrement_dt().setText(obj.getInitValue(InitValue.lcase_dt_F4));
+		med.getTextPostWritingFrequency().setText(obj.getInitValue(InitValue.post_inc_F4));
+		med.getTextIncrementTime().setText(obj.getInitValue(InitValue.inc_time_F4));
+		if(obj.getInitValue(InitValue.ParallelDDM_F4).toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F4)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F4)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getInitValue(InitValue.ParallelMultiThread_F4).toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F4)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F4)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void initF5Values(){
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		
+		med.getBtnF1().setSelection(false);
+		med.getBtnF2().setSelection(false);
+		med.getBtnF3().setSelection(false);
+		med.getBtnF4().setSelection(false);
+		med.getBtnF5().setSelection(true);
+		med.getBtnF6().setSelection(false);
+		med.getBtnF7().setSelection(false);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getInitValue(InitValue.WR_TDIA_F5));
+		med.getTextBottomWRDiameter().setText(obj.getInitValue(InitValue.WR_BDIA_F5));
+		med.getTextWRCrown().setText(obj.getInitValue(InitValue.WR_ICRN_F5));
+		med.getTextWRLength().setText(obj.getInitValue(InitValue.wr_len_F5));
+		med.getTextWRMeshAngle().setText(obj.getInitValue(InitValue.wr_div_angle_F5));
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getInitValue(InitValue.BUR_TDIA_F5));
+		med.getTextBottomBURDiameter().setText(obj.getInitValue(InitValue.BUR_BDIA_F5));
+		med.getTextBURLength().setText(obj.getInitValue(InitValue.bur_len_F5));
+		med.getTextBURMeshAngle().setText(obj.getInitValue(InitValue.bur_div_angle_F5));
+		//Group3
+		med.getTextThickness().setText(obj.getInitValue(InitValue.ENTRY_THK_F5));
+		med.getTextWidth().setText(obj.getInitValue(InitValue.STP_WID_F5));
+		med.getTextLength().setText(obj.getInitValue(InitValue.STP_LEN_F5));
+		med.getTextEntryTemperature().setText(obj.getInitValue(InitValue.ENTRY_TEMP_F5));
+		med.getTextExitTemperature().setText(obj.getInitValue(InitValue.EXIT_TEMP_F5));
+		med.getTextInitialPosition().setText(obj.getInitValue(InitValue.p_in_F5));
+		med.getTextMeshLength().setText(obj.getInitValue(InitValue.pl_m_F5));
+		med.getTextThicknessMeshDivisions().setText(obj.getInitValue(InitValue.t_div_F5));
+		//Group4
+		med.getTextVelocity().setText(obj.getInitValue(InitValue.SPEED_mpm_F5));
+		med.getTextRollGap().setText(obj.getInitValue(InitValue.ROL_GAP_F5));
+		med.getTextPassLine().setText(obj.getInitValue(InitValue.PAS_LINE_F5));
+		med.getTextPairCrossAngle().setText(obj.getInitValue(InitValue.P_CROSS_F5));
+		med.getTextBenderForce().setText(obj.getInitValue(InitValue.BEND_F5));
+		med.getTextRollTorque().setText(obj.getInitValue(InitValue.TORQ_F5));
+		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F5));
+		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F5));
+		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F5));
+		//Group5
+		if(obj.getInitValue(InitValue.YM_Constant_F5).toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+		
+		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F5));
+		if(obj.getInitValue(InitValue.TEC_Constant_F5).toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F5));
+		
+		if(obj.getInitValue(InitValue.PR_Constant_F5).toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F5));
+		
+		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F5));
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getInitValue(InitValue.lcase_time_F5));
+		med.getTextTimeIncrement_dt().setText(obj.getInitValue(InitValue.lcase_dt_F5));
+		med.getTextPostWritingFrequency().setText(obj.getInitValue(InitValue.post_inc_F5));
+		med.getTextIncrementTime().setText(obj.getInitValue(InitValue.inc_time_F5));
+		if(obj.getInitValue(InitValue.ParallelDDM_F5).toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F5)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F5)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getInitValue(InitValue.ParallelMultiThread_F5).toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F5)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F5)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void initF6Values(){
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		
+		med.getBtnF1().setSelection(false);
+		med.getBtnF2().setSelection(false);
+		med.getBtnF3().setSelection(false);
+		med.getBtnF4().setSelection(false);
+		med.getBtnF5().setSelection(false);
+		med.getBtnF6().setSelection(true);
+		med.getBtnF7().setSelection(false);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getInitValue(InitValue.WR_TDIA_F6));
+		med.getTextBottomWRDiameter().setText(obj.getInitValue(InitValue.WR_BDIA_F6));
+		med.getTextWRCrown().setText(obj.getInitValue(InitValue.WR_ICRN_F6));
+		med.getTextWRLength().setText(obj.getInitValue(InitValue.wr_len_F6));
+		med.getTextWRMeshAngle().setText(obj.getInitValue(InitValue.wr_div_angle_F6));
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getInitValue(InitValue.BUR_TDIA_F6));
+		med.getTextBottomBURDiameter().setText(obj.getInitValue(InitValue.BUR_BDIA_F6));
+		med.getTextBURLength().setText(obj.getInitValue(InitValue.bur_len_F6));
+		med.getTextBURMeshAngle().setText(obj.getInitValue(InitValue.bur_div_angle_F6));
+		//Group3
+		med.getTextThickness().setText(obj.getInitValue(InitValue.ENTRY_THK_F6));
+		med.getTextWidth().setText(obj.getInitValue(InitValue.STP_WID_F6));
+		med.getTextLength().setText(obj.getInitValue(InitValue.STP_LEN_F6));
+		med.getTextEntryTemperature().setText(obj.getInitValue(InitValue.ENTRY_TEMP_F6));
+		med.getTextExitTemperature().setText(obj.getInitValue(InitValue.EXIT_TEMP_F6));
+		med.getTextInitialPosition().setText(obj.getInitValue(InitValue.p_in_F6));
+		med.getTextMeshLength().setText(obj.getInitValue(InitValue.pl_m_F6));
+		med.getTextThicknessMeshDivisions().setText(obj.getInitValue(InitValue.t_div_F6));
+		//Group4
+		med.getTextVelocity().setText(obj.getInitValue(InitValue.SPEED_mpm_F6));
+		med.getTextRollGap().setText(obj.getInitValue(InitValue.ROL_GAP_F6));
+		med.getTextPassLine().setText(obj.getInitValue(InitValue.PAS_LINE_F6));
+		med.getTextPairCrossAngle().setText(obj.getInitValue(InitValue.P_CROSS_F6));
+		med.getTextBenderForce().setText(obj.getInitValue(InitValue.BEND_F6));
+		med.getTextRollTorque().setText(obj.getInitValue(InitValue.TORQ_F6));
+		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F6));
+		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F6));
+		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F6));
+		//Group5
+		if(obj.getInitValue(InitValue.YM_Constant_F6).toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+		
+		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F6));
+		if(obj.getInitValue(InitValue.TEC_Constant_F6).toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F6));
+		
+		if(obj.getInitValue(InitValue.PR_Constant_F6).toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F6));
+		
+		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F6));
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getInitValue(InitValue.lcase_time_F6));
+		med.getTextTimeIncrement_dt().setText(obj.getInitValue(InitValue.lcase_dt_F6));
+		med.getTextPostWritingFrequency().setText(obj.getInitValue(InitValue.post_inc_F6));
+		med.getTextIncrementTime().setText(obj.getInitValue(InitValue.inc_time_F6));
+		if(obj.getInitValue(InitValue.ParallelDDM_F6).toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F6)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F6)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getInitValue(InitValue.ParallelMultiThread_F6).toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F6)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F6)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void initF7Values(){
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		
+		med.getBtnF1().setSelection(false);
+		med.getBtnF2().setSelection(false);
+		med.getBtnF3().setSelection(false);
+		med.getBtnF4().setSelection(false);
+		med.getBtnF5().setSelection(false);
+		med.getBtnF6().setSelection(false);
+		med.getBtnF7().setSelection(true);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getInitValue(InitValue.WR_TDIA_F7));
+		med.getTextBottomWRDiameter().setText(obj.getInitValue(InitValue.WR_BDIA_F7));
+		med.getTextWRCrown().setText(obj.getInitValue(InitValue.WR_ICRN_F7));
+		med.getTextWRLength().setText(obj.getInitValue(InitValue.wr_len_F7));
+		med.getTextWRMeshAngle().setText(obj.getInitValue(InitValue.wr_div_angle_F7));
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getInitValue(InitValue.BUR_TDIA_F7));
+		med.getTextBottomBURDiameter().setText(obj.getInitValue(InitValue.BUR_BDIA_F7));
+		med.getTextBURLength().setText(obj.getInitValue(InitValue.bur_len_F7));
+		med.getTextBURMeshAngle().setText(obj.getInitValue(InitValue.bur_div_angle_F7));
+		//Group3
+		med.getTextThickness().setText(obj.getInitValue(InitValue.ENTRY_THK_F7));
+		med.getTextWidth().setText(obj.getInitValue(InitValue.STP_WID_F7));
+		med.getTextLength().setText(obj.getInitValue(InitValue.STP_LEN_F7));
+		med.getTextEntryTemperature().setText(obj.getInitValue(InitValue.ENTRY_TEMP_F7));
+		med.getTextExitTemperature().setText(obj.getInitValue(InitValue.EXIT_TEMP_F7));
+		med.getTextInitialPosition().setText(obj.getInitValue(InitValue.p_in_F7));
+		med.getTextMeshLength().setText(obj.getInitValue(InitValue.pl_m_F7));
+		med.getTextThicknessMeshDivisions().setText(obj.getInitValue(InitValue.t_div_F7));
+		//Group4
+		med.getTextVelocity().setText(obj.getInitValue(InitValue.SPEED_mpm_F7));
+		med.getTextRollGap().setText(obj.getInitValue(InitValue.ROL_GAP_F7));
+		med.getTextPassLine().setText(obj.getInitValue(InitValue.PAS_LINE_F7));
+		med.getTextPairCrossAngle().setText(obj.getInitValue(InitValue.P_CROSS_F7));
+		med.getTextBenderForce().setText(obj.getInitValue(InitValue.BEND_F7));
+		med.getTextRollTorque().setText(obj.getInitValue(InitValue.TORQ_F7));
+		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F7));
+		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F7));
+		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F7));
+		//Group5
+		if(obj.getInitValue(InitValue.YM_Constant_F7).toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+		
+		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F7));
+		if(obj.getInitValue(InitValue.TEC_Constant_F7).toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F7));
+		
+		if(obj.getInitValue(InitValue.PR_Constant_F7).toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F7));
+		
+		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F7));
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getInitValue(InitValue.lcase_time_F7));
+		med.getTextTimeIncrement_dt().setText(obj.getInitValue(InitValue.lcase_dt_F7));
+		med.getTextPostWritingFrequency().setText(obj.getInitValue(InitValue.post_inc_F7));
+		med.getTextIncrementTime().setText(obj.getInitValue(InitValue.inc_time_F7));
+		if(obj.getInitValue(InitValue.ParallelDDM_F7).toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F7)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Domain_F7)));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getInitValue(InitValue.ParallelMultiThread_F7).toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F7)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getInitValue(InitValue.Thread_F7)));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
 	}
 	
 	public void ChangedSTANDValue(String value){
 		this.StandValue = value;
-		//System.out.println("Current STAND : "+value);
+		System.out.println("Current STAND : "+value);
+		// UI 초기값 변경 코드 삽입
+		switch(this.StandValue){
+		case "F1":
+			this.changedF1UIValues();
+			//System.out.println(tableDataPLogList.get(0).getENTRY_THK());
+			//System.out.println(tableDataPLogList.get(0).getPR_Value());
+			break;
+		case "F2":
+			this.changedF2UIValues();
+			//System.out.println(tableDataPLogList.get(1).getENTRY_THK());
+			//System.out.println(tableDataPLogList.get(1).getPR_Value());
+			break;
+		case "F3":
+			this.changedF3UIValues();
+			//System.out.println(tableDataPLogList.get(2).getENTRY_THK());
+			//System.out.println(tableDataPLogList.get(2).getPR_Value());
+			break;
+		case "F4":
+			this.changedF4UIValues();
+			//System.out.println(tableDataPLogList.get(3).getENTRY_THK());
+			//System.out.println(tableDataPLogList.get(3).getPR_Value());
+			break;
+		case "F5":
+			this.changedF5UIValues();
+			//System.out.println(tableDataPLogList.get(4).getENTRY_THK());
+			//System.out.println(tableDataPLogList.get(4).getPR_Value());
+			break;
+		case "F6":
+			this.changedF6UIValues();
+			//System.out.println(tableDataPLogList.get(5).getENTRY_THK());
+			//System.out.println(tableDataPLogList.get(5).getPR_Value());
+			break;
+		case "F7":
+			this.changedF7UIValues();
+			//System.out.println(tableDataPLogList.get(6).getENTRY_THK());
+			//System.out.println(tableDataPLogList.get(6).getPR_Value());
+			break;
+		}
+	}
+	
+	private void changedF1UIValues(){
+		TableData_PLog obj = tableDataPLogList.get(0);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getWR_TDIA());
+		med.getTextBottomWRDiameter().setText(obj.getWR_BDIA());
+		med.getTextWRCrown().setText(obj.getWR_ICRN());
+		med.getTextWRLength().setText(obj.getWr_len());
+		med.getTextWRMeshAngle().setText(obj.getWr_div_angle());
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getBUR_TDIA());
+		med.getTextBottomBURDiameter().setText(obj.getBUR_BDIA());
+		med.getTextBURLength().setText(obj.getBur_len());
+		med.getTextBURMeshAngle().setText(obj.getBur_div_angle());
+		//Group3
+		med.getTextThickness().setText(obj.getENTRY_THK());
+		med.getTextWidth().setText(obj.getSTP_WID());
+		med.getTextLength().setText(obj.getSTP_LEN());
+		med.getTextEntryTemperature().setText(obj.getENTRY_TEMP());
+		med.getTextExitTemperature().setText(obj.getEXIT_TEMP());
+		med.getTextInitialPosition().setText(obj.getP_in());
+		med.getTextMeshLength().setText(obj.getPl_m());
+		med.getTextThicknessMeshDivisions().setText(obj.getT_div());
+		//Group4
+		med.getTextVelocity().setText(obj.getSPEED());
+		med.getTextRollGap().setText(obj.getROL_GAP());
+		med.getTextPassLine().setText(obj.getPAS_LINE());
+		med.getTextPairCrossAngle().setText(obj.getP_CROSS());
+		med.getTextBenderForce().setText(obj.getBEND());
+		med.getTextRollTorque().setText(obj.getTORQ());
+		med.getTextTensionStress().setText(obj.getTENS());
+		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
+		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		//Group5
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+		med.getTextYoungsModulus().setText(obj.getYM_Value());
+		
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getPR_Value());
+
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getLcase_time());
+		med.getTextTimeIncrement_dt().setText(obj.getLcase_dt());
+		med.getTextPostWritingFrequency().setText(obj.getPost_inc());
+		med.getTextIncrementTime().setText(obj.getInc_time());
+		if(obj.getParallelDDM().toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getParallelMultiThread().toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void changedF2UIValues(){
+		TableData_PLog obj = tableDataPLogList.get(1);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getWR_TDIA());
+		med.getTextBottomWRDiameter().setText(obj.getWR_BDIA());
+		med.getTextWRCrown().setText(obj.getWR_ICRN());
+		med.getTextWRLength().setText(obj.getWr_len());
+		med.getTextWRMeshAngle().setText(obj.getWr_div_angle());
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getBUR_TDIA());
+		med.getTextBottomBURDiameter().setText(obj.getBUR_BDIA());
+		med.getTextBURLength().setText(obj.getBur_len());
+		med.getTextBURMeshAngle().setText(obj.getBur_div_angle());
+		//Group3
+		med.getTextThickness().setText(obj.getENTRY_THK());
+		med.getTextWidth().setText(obj.getSTP_WID());
+		med.getTextLength().setText(obj.getSTP_LEN());
+		med.getTextEntryTemperature().setText(obj.getENTRY_TEMP());
+		med.getTextExitTemperature().setText(obj.getEXIT_TEMP());
+		med.getTextInitialPosition().setText(obj.getP_in());
+		med.getTextMeshLength().setText(obj.getPl_m());
+		med.getTextThicknessMeshDivisions().setText(obj.getT_div());
+		//Group4
+		med.getTextVelocity().setText(obj.getSPEED());
+		med.getTextRollGap().setText(obj.getROL_GAP());
+		med.getTextPassLine().setText(obj.getPAS_LINE());
+		med.getTextPairCrossAngle().setText(obj.getP_CROSS());
+		med.getTextBenderForce().setText(obj.getBEND());
+		med.getTextRollTorque().setText(obj.getTORQ());
+		med.getTextTensionStress().setText(obj.getTENS());
+		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
+		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		//Group5
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+
+		med.getTextYoungsModulus().setText(obj.getYM_Value());
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getPR_Value());
+
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getLcase_time());
+		med.getTextTimeIncrement_dt().setText(obj.getLcase_dt());
+		med.getTextPostWritingFrequency().setText(obj.getPost_inc());
+		med.getTextIncrementTime().setText(obj.getInc_time());
+		if(obj.getParallelDDM().toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getParallelMultiThread().toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void changedF3UIValues(){
+		TableData_PLog obj = tableDataPLogList.get(2);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getWR_TDIA());
+		med.getTextBottomWRDiameter().setText(obj.getWR_BDIA());
+		med.getTextWRCrown().setText(obj.getWR_ICRN());
+		med.getTextWRLength().setText(obj.getWr_len());
+		med.getTextWRMeshAngle().setText(obj.getWr_div_angle());
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getBUR_TDIA());
+		med.getTextBottomBURDiameter().setText(obj.getBUR_BDIA());
+		med.getTextBURLength().setText(obj.getBur_len());
+		med.getTextBURMeshAngle().setText(obj.getBur_div_angle());
+		//Group3
+		med.getTextThickness().setText(obj.getENTRY_THK());
+		med.getTextWidth().setText(obj.getSTP_WID());
+		med.getTextLength().setText(obj.getSTP_LEN());
+		med.getTextEntryTemperature().setText(obj.getENTRY_TEMP());
+		med.getTextExitTemperature().setText(obj.getEXIT_TEMP());
+		med.getTextInitialPosition().setText(obj.getP_in());
+		med.getTextMeshLength().setText(obj.getPl_m());
+		med.getTextThicknessMeshDivisions().setText(obj.getT_div());
+		//Group4
+		med.getTextVelocity().setText(obj.getSPEED());
+		med.getTextRollGap().setText(obj.getROL_GAP());
+		med.getTextPassLine().setText(obj.getPAS_LINE());
+		med.getTextPairCrossAngle().setText(obj.getP_CROSS());
+		med.getTextBenderForce().setText(obj.getBEND());
+		med.getTextRollTorque().setText(obj.getTORQ());
+		med.getTextTensionStress().setText(obj.getTENS());
+		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
+		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		//Group5
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+
+		med.getTextYoungsModulus().setText(obj.getYM_Value());
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getPR_Value());
+
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getLcase_time());
+		med.getTextTimeIncrement_dt().setText(obj.getLcase_dt());
+		med.getTextPostWritingFrequency().setText(obj.getPost_inc());
+		med.getTextIncrementTime().setText(obj.getInc_time());
+		if(obj.getParallelDDM().toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getParallelMultiThread().toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void changedF4UIValues(){
+		TableData_PLog obj = tableDataPLogList.get(3);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getWR_TDIA());
+		med.getTextBottomWRDiameter().setText(obj.getWR_BDIA());
+		med.getTextWRCrown().setText(obj.getWR_ICRN());
+		med.getTextWRLength().setText(obj.getWr_len());
+		med.getTextWRMeshAngle().setText(obj.getWr_div_angle());
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getBUR_TDIA());
+		med.getTextBottomBURDiameter().setText(obj.getBUR_BDIA());
+		med.getTextBURLength().setText(obj.getBur_len());
+		med.getTextBURMeshAngle().setText(obj.getBur_div_angle());
+		//Group3
+		med.getTextThickness().setText(obj.getENTRY_THK());
+		med.getTextWidth().setText(obj.getSTP_WID());
+		med.getTextLength().setText(obj.getSTP_LEN());
+		med.getTextEntryTemperature().setText(obj.getENTRY_TEMP());
+		med.getTextExitTemperature().setText(obj.getEXIT_TEMP());
+		med.getTextInitialPosition().setText(obj.getP_in());
+		med.getTextMeshLength().setText(obj.getPl_m());
+		med.getTextThicknessMeshDivisions().setText(obj.getT_div());
+		//Group4
+		med.getTextVelocity().setText(obj.getSPEED());
+		med.getTextRollGap().setText(obj.getROL_GAP());
+		med.getTextPassLine().setText(obj.getPAS_LINE());
+		med.getTextPairCrossAngle().setText(obj.getP_CROSS());
+		med.getTextBenderForce().setText(obj.getBEND());
+		med.getTextRollTorque().setText(obj.getTORQ());
+		med.getTextTensionStress().setText(obj.getTENS());
+		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
+		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		//Group5
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+
+		med.getTextYoungsModulus().setText(obj.getYM_Value());
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getPR_Value());
+
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getLcase_time());
+		med.getTextTimeIncrement_dt().setText(obj.getLcase_dt());
+		med.getTextPostWritingFrequency().setText(obj.getPost_inc());
+		med.getTextIncrementTime().setText(obj.getInc_time());
+		if(obj.getParallelDDM().toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getParallelMultiThread().toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void changedF5UIValues(){
+		TableData_PLog obj = tableDataPLogList.get(4);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getWR_TDIA());
+		med.getTextBottomWRDiameter().setText(obj.getWR_BDIA());
+		med.getTextWRCrown().setText(obj.getWR_ICRN());
+		med.getTextWRLength().setText(obj.getWr_len());
+		med.getTextWRMeshAngle().setText(obj.getWr_div_angle());
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getBUR_TDIA());
+		med.getTextBottomBURDiameter().setText(obj.getBUR_BDIA());
+		med.getTextBURLength().setText(obj.getBur_len());
+		med.getTextBURMeshAngle().setText(obj.getBur_div_angle());
+		//Group3
+		med.getTextThickness().setText(obj.getENTRY_THK());
+		med.getTextWidth().setText(obj.getSTP_WID());
+		med.getTextLength().setText(obj.getSTP_LEN());
+		med.getTextEntryTemperature().setText(obj.getENTRY_TEMP());
+		med.getTextExitTemperature().setText(obj.getEXIT_TEMP());
+		med.getTextInitialPosition().setText(obj.getP_in());
+		med.getTextMeshLength().setText(obj.getPl_m());
+		med.getTextThicknessMeshDivisions().setText(obj.getT_div());
+		//Group4
+		med.getTextVelocity().setText(obj.getSPEED());
+		med.getTextRollGap().setText(obj.getROL_GAP());
+		med.getTextPassLine().setText(obj.getPAS_LINE());
+		med.getTextPairCrossAngle().setText(obj.getP_CROSS());
+		med.getTextBenderForce().setText(obj.getBEND());
+		med.getTextRollTorque().setText(obj.getTORQ());
+		med.getTextTensionStress().setText(obj.getTENS());
+		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
+		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		//Group5
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+
+		med.getTextYoungsModulus().setText(obj.getYM_Value());
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getPR_Value());
+
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getLcase_time());
+		med.getTextTimeIncrement_dt().setText(obj.getLcase_dt());
+		med.getTextPostWritingFrequency().setText(obj.getPost_inc());
+		med.getTextIncrementTime().setText(obj.getInc_time());
+		if(obj.getParallelDDM().toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getParallelMultiThread().toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void changedF6UIValues(){
+		TableData_PLog obj = tableDataPLogList.get(5);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getWR_TDIA());
+		med.getTextBottomWRDiameter().setText(obj.getWR_BDIA());
+		med.getTextWRCrown().setText(obj.getWR_ICRN());
+		med.getTextWRLength().setText(obj.getWr_len());
+		med.getTextWRMeshAngle().setText(obj.getWr_div_angle());
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getBUR_TDIA());
+		med.getTextBottomBURDiameter().setText(obj.getBUR_BDIA());
+		med.getTextBURLength().setText(obj.getBur_len());
+		med.getTextBURMeshAngle().setText(obj.getBur_div_angle());
+		//Group3
+		med.getTextThickness().setText(obj.getENTRY_THK());
+		med.getTextWidth().setText(obj.getSTP_WID());
+		med.getTextLength().setText(obj.getSTP_LEN());
+		med.getTextEntryTemperature().setText(obj.getENTRY_TEMP());
+		med.getTextExitTemperature().setText(obj.getEXIT_TEMP());
+		med.getTextInitialPosition().setText(obj.getP_in());
+		med.getTextMeshLength().setText(obj.getPl_m());
+		med.getTextThicknessMeshDivisions().setText(obj.getT_div());
+		//Group4
+		med.getTextVelocity().setText(obj.getSPEED());
+		med.getTextRollGap().setText(obj.getROL_GAP());
+		med.getTextPassLine().setText(obj.getPAS_LINE());
+		med.getTextPairCrossAngle().setText(obj.getP_CROSS());
+		med.getTextBenderForce().setText(obj.getBEND());
+		med.getTextRollTorque().setText(obj.getTORQ());
+		med.getTextTensionStress().setText(obj.getTENS());
+		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
+		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		//Group5
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+
+		med.getTextYoungsModulus().setText(obj.getYM_Value());
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getPR_Value());
+
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getLcase_time());
+		med.getTextTimeIncrement_dt().setText(obj.getLcase_dt());
+		med.getTextPostWritingFrequency().setText(obj.getPost_inc());
+		med.getTextIncrementTime().setText(obj.getInc_time());
+		if(obj.getParallelDDM().toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getParallelMultiThread().toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
+	}
+	
+	private void changedF7UIValues(){
+		TableData_PLog obj = tableDataPLogList.get(6);
+		
+		//Group1
+		med.getTextTopWRDiameter().setText(obj.getWR_TDIA());
+		med.getTextBottomWRDiameter().setText(obj.getWR_BDIA());
+		med.getTextWRCrown().setText(obj.getWR_ICRN());
+		med.getTextWRLength().setText(obj.getWr_len());
+		med.getTextWRMeshAngle().setText(obj.getWr_div_angle());
+		//Group2
+		med.getTextTopBURDiameter().setText(obj.getBUR_TDIA());
+		med.getTextBottomBURDiameter().setText(obj.getBUR_BDIA());
+		med.getTextBURLength().setText(obj.getBur_len());
+		med.getTextBURMeshAngle().setText(obj.getBur_div_angle());
+		//Group3
+		med.getTextThickness().setText(obj.getENTRY_THK());
+		med.getTextWidth().setText(obj.getSTP_WID());
+		med.getTextLength().setText(obj.getSTP_LEN());
+		med.getTextEntryTemperature().setText(obj.getENTRY_TEMP());
+		med.getTextExitTemperature().setText(obj.getEXIT_TEMP());
+		med.getTextInitialPosition().setText(obj.getP_in());
+		med.getTextMeshLength().setText(obj.getPl_m());
+		med.getTextThicknessMeshDivisions().setText(obj.getT_div());
+		//Group4
+		med.getTextVelocity().setText(obj.getSPEED());
+		med.getTextRollGap().setText(obj.getROL_GAP());
+		med.getTextPassLine().setText(obj.getPAS_LINE());
+		med.getTextPairCrossAngle().setText(obj.getP_CROSS());
+		med.getTextBenderForce().setText(obj.getBEND());
+		med.getTextRollTorque().setText(obj.getTORQ());
+		med.getTextTensionStress().setText(obj.getTENS());
+		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
+		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		//Group5
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+		}
+
+		med.getTextYoungsModulus().setText(obj.getYM_Value());
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+		}
+		med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+		}
+		med.getTextPoissonsRatio().setText(obj.getPR_Value());
+
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		//Group6
+		med.getTextTimeIncrement_time().setText(obj.getLcase_time());
+		med.getTextTimeIncrement_dt().setText(obj.getLcase_dt());
+		med.getTextPostWritingFrequency().setText(obj.getPost_inc());
+		med.getTextIncrementTime().setText(obj.getInc_time());
+		if(obj.getParallelDDM().toLowerCase().equals("true")){
+			med.getBtnParallelDDM().setSelection(true);
+			med.getSpinnerDomain().setEnabled(true);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelDDM().setSelection(false);
+			med.getSpinnerDomain().setEnabled(false);
+			try{
+				med.getSpinnerDomain().setSelection(Integer.parseInt(obj.getDomain()));
+			}catch(Exception e){
+				med.getSpinnerDomain().setSelection(0);
+			}
+		}
+		if(obj.getParallelMultiThread().toLowerCase().equals("true")){
+			med.getBtnParallelMultiThread().setSelection(true);
+			med.getSpinnerThread().setEnabled(true);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}else{
+			med.getBtnParallelMultiThread().setSelection(false);
+			med.getSpinnerThread().setEnabled(false);
+			try{
+				med.getSpinnerThread().setSelection(Integer.parseInt(obj.getThread()));
+			}catch(Exception e){
+				med.getSpinnerThread().setSelection(0);
+			}
+		}
 	}
 	
 	public void ChangedTextWidget(String value,String widgetName){
-		System.out.println("key : "+value);
+		System.out.println("[ChangedTextWidget] widgetName : "+widgetName+"  ||  key : "+value);
 		switch(this.StandValue){
 			case "F1":
 				this.saveF1Values(value, widgetName);
@@ -772,6 +2905,7 @@ public class MainController {
 				break;
 		}
 	}
+	
 	
 	private void saveF1Values(String value, String widgetName){
 		TableData_PLog obj = tableDataPLogList.get(0);
@@ -1424,8 +3558,67 @@ public class MainController {
 		}
 	}
 	
+	public void Explorer_YoungsModulus(){
+		FileDialog  dlg = new FileDialog (med.getBtnExplorerYoungsModulus().getShell(),SWT.OPEN);
+		dlg.setText("Select Young's Modulus File");
+				
+		String [] extNames = {"ALL(*.*)"};
+		String [] extType = {"*.*"};
+		
+		dlg.setFilterNames(extNames);
+		dlg.setFilterExtensions(extType);
+		
+		dlg.setFilterNames(extNames);
+		String path = dlg.open();
+		if (path == null){
+			return;
+		}else {
+			//this.textYoungsModulus = path;
+			this.ChangedTextWidget(path, Mediator.TEXT_textYoungsModulus);
+			med.getTextYoungsModulus().setText(path);
+		}
+	}
 	
-	
+	public void Explorer_ThermalExpansionCoefficient(){
+		FileDialog  dlg = new FileDialog (med.getBtnExplorerThermalExpansionCoefficient().getShell(),SWT.OPEN);
+		dlg.setText("Select Thermal Expansion Codfficient File");
+		
+		String [] extNames = {"ALL(*.*)"};
+		String [] extType = {"*.*"};
+		
+		dlg.setFilterNames(extNames);
+		dlg.setFilterExtensions(extType);
+		
+		dlg.setFilterNames(extNames);
+		String path = dlg.open();
+		if (path == null){
+			return;
+		}else {
+			this.ChangedTextWidget(path, Mediator.TEXT_textThermalExpansionCoefficient);
+			med.getTextThermalExpansionCoefficient().setText(path);
+		}
+	}
+
+	public void Explorer_PoissonsRatio(){
+		FileDialog  dlg = new FileDialog (med.getBtnExplorerPoissonsRatio().getShell(),SWT.OPEN);
+		dlg.setText("Select Poisson Ratio File");
+		
+		String [] extNames = {"ALL(*.*)"};
+		String [] extType = {"*.*"};
+		
+		dlg.setFilterNames(extNames);
+		dlg.setFilterExtensions(extType);
+		
+		dlg.setFilterNames(extNames);
+		String path = dlg.open();
+		if (path == null){
+			return;
+		}else {
+			//this.textPoissonsRatio = path;
+			this.ChangedTextWidget(path, Mediator.TEXT_textPoissonsRatio);
+			med.getTextPoissonsRatio().setText(path);
+		}
+	}
 	
 	//
 	//

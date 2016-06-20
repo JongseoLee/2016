@@ -28,7 +28,18 @@ public class InitValue {
 			if(data.contains("=")){
 				ArrayList<String> splitDataTokens = new ArrayList<String>();
 				splitDataTokens = ParserDefault.splitLineData(data,"=");
-				initValueMap.put(splitDataTokens.get(0).trim(), splitDataTokens.get(1).trim()); 
+				String key = "";
+				String value = "";
+				if(splitDataTokens.size()==1){
+					key = splitDataTokens.get(0).trim();
+					value = "BLANK";
+					initValueMap.put(key,value);
+				}else{
+					key = splitDataTokens.get(0).trim();
+					value = splitDataTokens.get(1).trim();
+					initValueMap.put(key,value);
+				}
+				 
 			}
 		}
 	}
@@ -78,279 +89,279 @@ public class InitValue {
 	//
 
 	//group1 - F1
-	private static String wr_len_F1 = "wr_len_F1";
-	private static String wr_div_angle_F1 = "wr_div_angle_F1";
+	public static String wr_len_F1 = "wr_len_F1";
+	public static String wr_div_angle_F1 = "wr_div_angle_F1";
 
 	//group2
-	private static String bur_len_F1 = "bur_len_F1";
-	private static String bur_div_angle_F1 = "bur_div_angle_F1";
+	public static String bur_len_F1 = "bur_len_F1";
+	public static String bur_div_angle_F1 = "bur_div_angle_F1";
 
 	//group3
-	private static String p_in_F1 = "p_in_F1";
-	private static String pl_m_F1 = "pl_m_F1";
-	private static String t_div_F1 = "t_div_F1";
+	public static String p_in_F1 = "p_in_F1";
+	public static String pl_m_F1 = "pl_m_F1";
+	public static String t_div_F1 = "t_div_F1";
 
 	//group4
-	private static String f_r2p_F1 = "f_r2p_F1";
-	private static String f_r2r_F1 = "f_r2r_F1";
+	public static String f_r2p_F1 = "f_r2p_F1";
+	public static String f_r2r_F1 = "f_r2r_F1";
 
 	//group5
-	private static String YM_Constant_F1 = "YM_Constant_F1";
-	private static String YM_Table_F1 = "YM_Table_F1";
-	private static String YM_Value_F1 = "YM_Value_F1";
-	private static String TEC_Constant_F1 = "TEC_Constant_F1";
-	private static String TEC_Table_F1 = "TEC_Table_F1";
-	private static String TEC_Value_F1 = "TEC_Value_F1";
-	private static String PR_Constant_F1 = "PR_Constant_F1";
-	private static String PR_Table_F1 = "PR_Table_F1";
-	private static String PR_Value_F1 = "PR_Value_F1";
-	private static String MD_Value_F1 = "MD_Value_F1";
+	public static String YM_Constant_F1 = "YM_Constant_F1";
+	public static String YM_Table_F1 = "YM_Table_F1";
+	public static String YM_Value_F1 = "YM_Value_F1";
+	public static String TEC_Constant_F1 = "TEC_Constant_F1";
+	public static String TEC_Table_F1 = "TEC_Table_F1";
+	public static String TEC_Value_F1 = "TEC_Value_F1";
+	public static String PR_Constant_F1 = "PR_Constant_F1";
+	public static String PR_Table_F1 = "PR_Table_F1";
+	public static String PR_Value_F1 = "PR_Value_F1";
+	public static String MD_Value_F1 = "MD_Value_F1";
 
 	//group6
-	private static String lcase_time_F1 = "lcase_time_F1";
-	private static String lcase_dt_F1 = "lcase_dt_F1";
-	private static String post_inc_F1 = "post_inc_F1";
-	private static String inc_time_F1 = "inc_time_F1";
-	private static String ParallelDDM_F1 = "ParallelDDM_F1";
-	private static String Domain_F1 = "Domain_F1";
-	private static String ParallelMultiThread_F1 = "ParallelMultiThread_F1";
-	private static String Thread_F1 = "Thread_F1";
+	public static String lcase_time_F1 = "lcase_time_F1";
+	public static String lcase_dt_F1 = "lcase_dt_F1";
+	public static String post_inc_F1 = "post_inc_F1";
+	public static String inc_time_F1 = "inc_time_F1";
+	public static String ParallelDDM_F1 = "ParallelDDM_F1";
+	public static String Domain_F1 = "Domain_F1";
+	public static String ParallelMultiThread_F1 = "ParallelMultiThread_F1";
+	public static String Thread_F1 = "Thread_F1";
 
 	// group1 - F2
-	private static String wr_len_F2 = "wr_len_F2";
-	private static String wr_div_angle_F2 = "wr_div_angle_F2";
+	public static String wr_len_F2 = "wr_len_F2";
+	public static String wr_div_angle_F2 = "wr_div_angle_F2";
 
 	//group2
-	private static String bur_len_F2 = "bur_len_F2";
-	private static String bur_div_angle_F2 = "bur_div_angle_F2";
+	public static String bur_len_F2 = "bur_len_F2";
+	public static String bur_div_angle_F2 = "bur_div_angle_F2";
 
 	//group3
-	private static String p_in_F2 = "p_in_F2";
-	private static String pl_m_F2 = "pl_m_F2";
-	private static String t_div_F2 = "t_div_F2";
+	public static String p_in_F2 = "p_in_F2";
+	public static String pl_m_F2 = "pl_m_F2";
+	public static String t_div_F2 = "t_div_F2";
 
 	//group4
-	private static String f_r2p_F2 = "f_r2p_F2";
-	private static String f_r2r_F2 = "f_r2r_F2";
+	public static String f_r2p_F2 = "f_r2p_F2";
+	public static String f_r2r_F2 = "f_r2r_F2";
 
 	//group5
-	private static String YM_Constant_F2 = "YM_Constant_F2";
-	private static String YM_Table_F2 = "YM_Table_F2";
-	private static String YM_Value_F2 = "YM_Value_F2";
-	private static String TEC_Constant_F2 = "TEC_Constant_F2";
-	private static String TEC_Table_F2 = "TEC_Table_F2";
-	private static String TEC_Value_F2 = "TEC_Value_F2";
-	private static String PR_Constant_F2 = "PR_Constant_F2";
-	private static String PR_Table_F2 = "PR_Table_F2";
-	private static String PR_Value_F2 = "PR_Value_F2";
-	private static String MD_Value_F2 = "MD_Value_F2";
+	public static String YM_Constant_F2 = "YM_Constant_F2";
+	public static String YM_Table_F2 = "YM_Table_F2";
+	public static String YM_Value_F2 = "YM_Value_F2";
+	public static String TEC_Constant_F2 = "TEC_Constant_F2";
+	public static String TEC_Table_F2 = "TEC_Table_F2";
+	public static String TEC_Value_F2 = "TEC_Value_F2";
+	public static String PR_Constant_F2 = "PR_Constant_F2";
+	public static String PR_Table_F2 = "PR_Table_F2";
+	public static String PR_Value_F2 = "PR_Value_F2";
+	public static String MD_Value_F2 = "MD_Value_F2";
 
 	//group6
-	private static String lcase_time_F2 = "lcase_time_F2";
-	private static String lcase_dt_F2 = "lcase_dt_F2";
-	private static String post_inc_F2 = "post_inc_F2";
-	private static String inc_time_F2 = "inc_time_F2";
-	private static String ParallelDDM_F2 = "ParallelDDM_F2";
-	private static String Domain_F2 = "Domain_F2";
-	private static String ParallelMultiThread_F2 = "ParallelMultiThread_F2";
-	private static String Thread_F2 = "Thread_F2";
+	public static String lcase_time_F2 = "lcase_time_F2";
+	public static String lcase_dt_F2 = "lcase_dt_F2";
+	public static String post_inc_F2 = "post_inc_F2";
+	public static String inc_time_F2 = "inc_time_F2";
+	public static String ParallelDDM_F2 = "ParallelDDM_F2";
+	public static String Domain_F2 = "Domain_F2";
+	public static String ParallelMultiThread_F2 = "ParallelMultiThread_F2";
+	public static String Thread_F2 = "Thread_F2";
 
 	
 	//group1 F3
-	private static String wr_len_F3 = "wr_len_F3";
-	private static String wr_div_angle_F3 = "wr_div_angle_F3";
+	public static String wr_len_F3 = "wr_len_F3";
+	public static String wr_div_angle_F3 = "wr_div_angle_F3";
 
 	//group2
-	private static String bur_len_F3 = "bur_len_F3";
-	private static String bur_div_angle_F3 = "bur_div_angle_F3";
+	public static String bur_len_F3 = "bur_len_F3";
+	public static String bur_div_angle_F3 = "bur_div_angle_F3";
 
 	//group3
-	private static String p_in_F3 = "p_in_F3";
-	private static String pl_m_F3 = "pl_m_F3";
-	private static String t_div_F3 = "t_div_F3";
+	public static String p_in_F3 = "p_in_F3";
+	public static String pl_m_F3 = "pl_m_F3";
+	public static String t_div_F3 = "t_div_F3";
 
 	//group4
-	private static String f_r2p_F3 = "f_r2p_F3";
-	private static String f_r2r_F3 = "f_r2r_F3";
+	public static String f_r2p_F3 = "f_r2p_F3";
+	public static String f_r2r_F3 = "f_r2r_F3";
 
 	//group5
-	private static String YM_Constant_F3 = "YM_Constant_F3";
-	private static String YM_Table_F3 = "YM_Table_F3";
-	private static String YM_Value_F3 = "YM_Value_F3";
-	private static String TEC_Constant_F3 = "TEC_Constant_F3";
-	private static String TEC_Table_F3 = "TEC_Table_F3";
-	private static String TEC_Value_F3 = "TEC_Value_F3";
-	private static String PR_Constant_F3 = "PR_Constant_F3";
-	private static String PR_Table_F3 = "PR_Table_F3";
-	private static String PR_Value_F3 = "PR_Value_F3";
-	private static String MD_Value_F3 = "MD_Value_F3";
+	public static String YM_Constant_F3 = "YM_Constant_F3";
+	public static String YM_Table_F3 = "YM_Table_F3";
+	public static String YM_Value_F3 = "YM_Value_F3";
+	public static String TEC_Constant_F3 = "TEC_Constant_F3";
+	public static String TEC_Table_F3 = "TEC_Table_F3";
+	public static String TEC_Value_F3 = "TEC_Value_F3";
+	public static String PR_Constant_F3 = "PR_Constant_F3";
+	public static String PR_Table_F3 = "PR_Table_F3";
+	public static String PR_Value_F3 = "PR_Value_F3";
+	public static String MD_Value_F3 = "MD_Value_F3";
 
 	//group6
-	private static String lcase_time_F3 = "lcase_time_F3";
-	private static String lcase_dt_F3 = "lcase_dt_F3";
-	private static String post_inc_F3 = "post_inc_F3";
-	private static String inc_time_F3 = "inc_time_F3";
-	private static String ParallelDDM_F3 = "ParallelDDM_F3";
-	private static String Domain_F3 = "Domain_F3";
-	private static String ParallelMultiThread_F3 = "ParallelMultiThread_F3";
-	private static String Thread_F3 = "Thread_F3";
+	public static String lcase_time_F3 = "lcase_time_F3";
+	public static String lcase_dt_F3 = "lcase_dt_F3";
+	public static String post_inc_F3 = "post_inc_F3";
+	public static String inc_time_F3 = "inc_time_F3";
+	public static String ParallelDDM_F3 = "ParallelDDM_F3";
+	public static String Domain_F3 = "Domain_F3";
+	public static String ParallelMultiThread_F3 = "ParallelMultiThread_F3";
+	public static String Thread_F3 = "Thread_F3";
 
 	//group1 -F4
-	private static String wr_len_F4 = "wr_len_F4";
-	private static String wr_div_angle_F4 = "wr_div_angle_F4";
+	public static String wr_len_F4 = "wr_len_F4";
+	public static String wr_div_angle_F4 = "wr_div_angle_F4";
 
 	//group2
-	private static String bur_len_F4 = "bur_len_F4";
-	private static String bur_div_angle_F4 = "bur_div_angle_F4";
+	public static String bur_len_F4 = "bur_len_F4";
+	public static String bur_div_angle_F4 = "bur_div_angle_F4";
 
 	//group3
-	private static String p_in_F4 = "p_in_F4";
-	private static String pl_m_F4 = "pl_m_F4";
-	private static String t_div_F4 = "t_div_F4";
+	public static String p_in_F4 = "p_in_F4";
+	public static String pl_m_F4 = "pl_m_F4";
+	public static String t_div_F4 = "t_div_F4";
 
 	//group4
-	private static String f_r2p_F4 = "f_r2p_F4";
-	private static String f_r2r_F4 = "f_r2r_F4";
+	public static String f_r2p_F4 = "f_r2p_F4";
+	public static String f_r2r_F4 = "f_r2r_F4";
 
 	//group5
-	private static String YM_Constant_F4 = "YM_Constant_F4";
-	private static String YM_Table_F4 = "YM_Table_F4";
-	private static String YM_Value_F4 = "YM_Value_F4";
-	private static String TEC_Constant_F4 = "TEC_Constant_F4";
-	private static String TEC_Table_F4 = "TEC_Table_F4";
-	private static String TEC_Value_F4 = "TEC_Value_F4";
-	private static String PR_Constant_F4 = "PR_Constant_F4";
-	private static String PR_Table_F4 = "PR_Table_F4";
-	private static String PR_Value_F4 = "PR_Value_F4";
-	private static String MD_Value_F4 = "MD_Value_F4";
+	public static String YM_Constant_F4 = "YM_Constant_F4";
+	public static String YM_Table_F4 = "YM_Table_F4";
+	public static String YM_Value_F4 = "YM_Value_F4";
+	public static String TEC_Constant_F4 = "TEC_Constant_F4";
+	public static String TEC_Table_F4 = "TEC_Table_F4";
+	public static String TEC_Value_F4 = "TEC_Value_F4";
+	public static String PR_Constant_F4 = "PR_Constant_F4";
+	public static String PR_Table_F4 = "PR_Table_F4";
+	public static String PR_Value_F4 = "PR_Value_F4";
+	public static String MD_Value_F4 = "MD_Value_F4";
 
 	//group6
-	private static String lcase_time_F4 = "lcase_time_F4";
-	private static String lcase_dt_F4 = "lcase_dt_F4";
-	private static String post_inc_F4 = "post_inc_F4";
-	private static String inc_time_F4 = "inc_time_F4";
-	private static String ParallelDDM_F4 = "ParallelDDM_F4";
-	private static String Domain_F4 = "Domain_F4";
-	private static String ParallelMultiThread_F4 = "ParallelMultiThread_F4";
-	private static String Thread_F4 = "Thread_F4";
+	public static String lcase_time_F4 = "lcase_time_F4";
+	public static String lcase_dt_F4 = "lcase_dt_F4";
+	public static String post_inc_F4 = "post_inc_F4";
+	public static String inc_time_F4 = "inc_time_F4";
+	public static String ParallelDDM_F4 = "ParallelDDM_F4";
+	public static String Domain_F4 = "Domain_F4";
+	public static String ParallelMultiThread_F4 = "ParallelMultiThread_F4";
+	public static String Thread_F4 = "Thread_F4";
 
 	//group1 - F5
-	private static String wr_len_F5 = "wr_len_F5";
-	private static String wr_div_angle_F5 = "wr_div_angle_F5";
+	public static String wr_len_F5 = "wr_len_F5";
+	public static String wr_div_angle_F5 = "wr_div_angle_F5";
 
 	//group2
-	private static String bur_len_F5 = "bur_len_F5";
-	private static String bur_div_angle_F5 = "bur_div_angle_F5";
+	public static String bur_len_F5 = "bur_len_F5";
+	public static String bur_div_angle_F5 = "bur_div_angle_F5";
 
 	//group3
-	private static String p_in_F5 = "p_in_F5";
-	private static String pl_m_F5 = "pl_m_F5";
-	private static String t_div_F5 = "t_div_F5";
+	public static String p_in_F5 = "p_in_F5";
+	public static String pl_m_F5 = "pl_m_F5";
+	public static String t_div_F5 = "t_div_F5";
 
 	//group4
-	private static String f_r2p_F5 = "f_r2p_F5";
-	private static String f_r2r_F5 = "f_r2r_F5";
+	public static String f_r2p_F5 = "f_r2p_F5";
+	public static String f_r2r_F5 = "f_r2r_F5";
 
 	//group5
-	private static String YM_Constant_F5 = "YM_Constant_F5";
-	private static String YM_Table_F5 = "YM_Table_F5";
-	private static String YM_Value_F5 = "YM_Value_F5";
-	private static String TEC_Constant_F5 = "TEC_Constant_F5";
-	private static String TEC_Table_F5 = "TEC_Table_F5";
-	private static String TEC_Value_F5 = "TEC_Value_F5";
-	private static String PR_Constant_F5 = "PR_Constant_F5";
-	private static String PR_Table_F5 = "PR_Table_F5";
-	private static String PR_Value_F5 = "PR_Value_F5";
-	private static String MD_Value_F5 = "MD_Value_F5";
+	public static String YM_Constant_F5 = "YM_Constant_F5";
+	public static String YM_Table_F5 = "YM_Table_F5";
+	public static String YM_Value_F5 = "YM_Value_F5";
+	public static String TEC_Constant_F5 = "TEC_Constant_F5";
+	public static String TEC_Table_F5 = "TEC_Table_F5";
+	public static String TEC_Value_F5 = "TEC_Value_F5";
+	public static String PR_Constant_F5 = "PR_Constant_F5";
+	public static String PR_Table_F5 = "PR_Table_F5";
+	public static String PR_Value_F5 = "PR_Value_F5";
+	public static String MD_Value_F5 = "MD_Value_F5";
 
 	//group6
-	private static String lcase_time_F5 = "lcase_time_F5";
-	private static String lcase_dt_F5 = "lcase_dt_F5";
-	private static String post_inc_F5 = "post_inc_F5";
-	private static String inc_time_F5 = "inc_time_F5";
-	private static String ParallelDDM_F5 = "ParallelDDM_F5";
-	private static String Domain_F5 = "Domain_F5";
-	private static String ParallelMultiThread_F5 = "ParallelMultiThread_F5";
-	private static String Thread_F5 = "Thread_F5";
+	public static String lcase_time_F5 = "lcase_time_F5";
+	public static String lcase_dt_F5 = "lcase_dt_F5";
+	public static String post_inc_F5 = "post_inc_F5";
+	public static String inc_time_F5 = "inc_time_F5";
+	public static String ParallelDDM_F5 = "ParallelDDM_F5";
+	public static String Domain_F5 = "Domain_F5";
+	public static String ParallelMultiThread_F5 = "ParallelMultiThread_F5";
+	public static String Thread_F5 = "Thread_F5";
 
 	
 	//group1 - F6
-	private static String wr_len_F6 = "wr_len_F6";
-	private static String wr_div_angle_F6 = "wr_div_angle_F6";
+	public static String wr_len_F6 = "wr_len_F6";
+	public static String wr_div_angle_F6 = "wr_div_angle_F6";
 
 	//group2
-	private static String bur_len_F6 = "bur_len_F6";
-	private static String bur_div_angle_F6 = "bur_div_angle_F6";
+	public static String bur_len_F6 = "bur_len_F6";
+	public static String bur_div_angle_F6 = "bur_div_angle_F6";
 
 	//group3
-	private static String p_in_F6 = "p_in_F6";
-	private static String pl_m_F6 = "pl_m_F6";
-	private static String t_div_F6 = "t_div_F6";
+	public static String p_in_F6 = "p_in_F6";
+	public static String pl_m_F6 = "pl_m_F6";
+	public static String t_div_F6 = "t_div_F6";
 
 	//group4
-	private static String f_r2p_F6 = "f_r2p_F6";
-	private static String f_r2r_F6 = "f_r2r_F6";
+	public static String f_r2p_F6 = "f_r2p_F6";
+	public static String f_r2r_F6 = "f_r2r_F6";
 
 	//group5
-	private static String YM_Constant_F6 = "YM_Constant_F6";
-	private static String YM_Table_F6 = "YM_Table_F6";
-	private static String YM_Value_F6 = "YM_Value_F6";
-	private static String TEC_Constant_F6 = "TEC_Constant_F6";
-	private static String TEC_Table_F6 = "TEC_Table_F6";
-	private static String TEC_Value_F6 = "TEC_Value_F6";
-	private static String PR_Constant_F6 = "PR_Constant_F6";
-	private static String PR_Table_F6 = "PR_Table_F6";
-	private static String PR_Value_F6 = "PR_Value_F6";
-	private static String MD_Value_F6 = "MD_Value_F6";
+	public static String YM_Constant_F6 = "YM_Constant_F6";
+	public static String YM_Table_F6 = "YM_Table_F6";
+	public static String YM_Value_F6 = "YM_Value_F6";
+	public static String TEC_Constant_F6 = "TEC_Constant_F6";
+	public static String TEC_Table_F6 = "TEC_Table_F6";
+	public static String TEC_Value_F6 = "TEC_Value_F6";
+	public static String PR_Constant_F6 = "PR_Constant_F6";
+	public static String PR_Table_F6 = "PR_Table_F6";
+	public static String PR_Value_F6 = "PR_Value_F6";
+	public static String MD_Value_F6 = "MD_Value_F6";
 
 	//group6
-	private static String lcase_time_F6 = "lcase_time_F6";
-	private static String lcase_dt_F6 = "lcase_dt_F6";
-	private static String post_inc_F6 = "post_inc_F6";
-	private static String inc_time_F6 = "inc_time_F6";
-	private static String ParallelDDM_F6 = "ParallelDDM_F6";
-	private static String Domain_F6 = "Domain_F6";
-	private static String ParallelMultiThread_F6 = "ParallelMultiThread_F6";
-	private static String Thread_F6 = "Thread_F6";
+	public static String lcase_time_F6 = "lcase_time_F6";
+	public static String lcase_dt_F6 = "lcase_dt_F6";
+	public static String post_inc_F6 = "post_inc_F6";
+	public static String inc_time_F6 = "inc_time_F6";
+	public static String ParallelDDM_F6 = "ParallelDDM_F6";
+	public static String Domain_F6 = "Domain_F6";
+	public static String ParallelMultiThread_F6 = "ParallelMultiThread_F6";
+	public static String Thread_F6 = "Thread_F6";
 	
 	//group1 - F7
-	private static String wr_len_F7 = "wr_len_F7";
-	private static String wr_div_angle_F7 = "wr_div_angle_F7";
+	public static String wr_len_F7 = "wr_len_F7";
+	public static String wr_div_angle_F7 = "wr_div_angle_F7";
 
 	//group2
-	private static String bur_len_F7 = "bur_len_F7";
-	private static String bur_div_angle_F7 = "bur_div_angle_F7";
+	public static String bur_len_F7 = "bur_len_F7";
+	public static String bur_div_angle_F7 = "bur_div_angle_F7";
 
 	//group3
-	private static String p_in_F7 = "p_in_F7";
-	private static String pl_m_F7 = "pl_m_F7";
-	private static String t_div_F7 = "t_div_F7";
+	public static String p_in_F7 = "p_in_F7";
+	public static String pl_m_F7 = "pl_m_F7";
+	public static String t_div_F7 = "t_div_F7";
 
 	//group4
-	private static String f_r2p_F7 = "f_r2p_F7";
-	private static String f_r2r_F7 = "f_r2r_F7";
+	public static String f_r2p_F7 = "f_r2p_F7";
+	public static String f_r2r_F7 = "f_r2r_F7";
 
 	//group5
-	private static String YM_Constant_F7 = "YM_Constant_F7";
-	private static String YM_Table_F7 = "YM_Table_F7";
-	private static String YM_Value_F7 = "YM_Value_F7";
-	private static String TEC_Constant_F7 = "TEC_Constant_F7";
-	private static String TEC_Table_F7 = "TEC_Table_F7";
-	private static String TEC_Value_F7 = "TEC_Value_F7";
-	private static String PR_Constant_F7 = "PR_Constant_F7";
-	private static String PR_Table_F7 = "PR_Table_F7";
-	private static String PR_Value_F7 = "PR_Value_F7";
-	private static String MD_Value_F7 = "MD_Value_F7";
+	public static String YM_Constant_F7 = "YM_Constant_F7";
+	public static String YM_Table_F7 = "YM_Table_F7";
+	public static String YM_Value_F7 = "YM_Value_F7";
+	public static String TEC_Constant_F7 = "TEC_Constant_F7";
+	public static String TEC_Table_F7 = "TEC_Table_F7";
+	public static String TEC_Value_F7 = "TEC_Value_F7";
+	public static String PR_Constant_F7 = "PR_Constant_F7";
+	public static String PR_Table_F7 = "PR_Table_F7";
+	public static String PR_Value_F7 = "PR_Value_F7";
+	public static String MD_Value_F7 = "MD_Value_F7";
 
 	//group6
-	private static String lcase_time_F7 = "lcase_time_F7";
-	private static String lcase_dt_F7 = "lcase_dt_F7";
-	private static String post_inc_F7 = "post_inc_F7";
-	private static String inc_time_F7 = "inc_time_F7";
-	private static String ParallelDDM_F7 = "ParallelDDM_F7";
-	private static String Domain_F7 = "Domain_F7";
-	private static String ParallelMultiThread_F7 = "ParallelMultiThread_F7";
-	private static String Thread_F7 = "Thread_F7";
+	public static String lcase_time_F7 = "lcase_time_F7";
+	public static String lcase_dt_F7 = "lcase_dt_F7";
+	public static String post_inc_F7 = "post_inc_F7";
+	public static String inc_time_F7 = "inc_time_F7";
+	public static String ParallelDDM_F7 = "ParallelDDM_F7";
+	public static String Domain_F7 = "Domain_F7";
+	public static String ParallelMultiThread_F7 = "ParallelMultiThread_F7";
+	public static String Thread_F7 = "Thread_F7";
 
 	
 	//

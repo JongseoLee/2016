@@ -2,8 +2,8 @@
 // program variable -> map key -> value(UI Label  UILabel.txt)
 //
 //Common Label
-Model Name=Model Name
-Workspace=Workspace
+Model Name=Model Name :
+Workspace=Workspace :
 // Button Label
 Import P Log=Import P Log
 Apply=Apply

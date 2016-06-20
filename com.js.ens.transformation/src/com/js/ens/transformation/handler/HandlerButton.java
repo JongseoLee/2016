@@ -33,14 +33,20 @@ public class HandlerButton implements Listener {
 			med.getC_btnConstant1_YM().execute();
 		}else if(event.widget == med.getBtnTable1_YM()){
 			med.getC_btnTable1_YM().execute();
+		}else if(event.widget == med.getBtnExplorerYoungsModulus()){
+			med.getC_btnExplorerYoungsModulus().execute();
 		}else if(event.widget == med.getBtnConstant2_TEC()){
 			med.getC_btnConstant2_TEC().execute();
 		}else if(event.widget == med.getBtnTable2_TEC()){
 			med.getC_btnTable2_TEC().execute();
+		}else if(event.widget == med.getBtnExplorerThermalExpansionCoefficient()){
+			med.getC_btnExplorerThermalExpansionCoefficient().execute();
 		}else if(event.widget == med.getBtnConstant3_PR()){
 			med.getC_btnConstant3_PR().execute();
 		}else if(event.widget == med.getBtnTable3_PR()){
 			med.getC_btnTable3().execute();
+		}else if(event.widget == med.getBtnExplorerPoissonsRatio()){
+			med.getC_btnExplorerPoissonsRatio().execute();
 		}else if(event.widget == med.getBtnParallelDDM()){
 			med.getC_btnParallelDDM().execute();
 		}else if(event.widget == med.getBtnParallelMultiThread()){
