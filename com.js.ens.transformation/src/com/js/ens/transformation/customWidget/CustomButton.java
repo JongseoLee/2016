@@ -24,6 +24,8 @@ public class CustomButton implements ICommand {
 		// TODO Auto-generated method stub
 		if(widgetName.equals(Mediator.BUTTON_btnImportPLog)){
 			MC.ImportPLog();
+		}else if(widgetName.equals(Mediator.BUTTON_btnExportPLog)){
+			MC.ExportPLog();
 		}else if(widgetName.equals(Mediator.BUTTON_btnApply)){
 			MC.Apply();
 		}else if(widgetName.equals(Mediator.BUTTON_btnF1)){
@@ -120,6 +122,10 @@ public class CustomButton implements ICommand {
 	
 	public void setCustomWidget_btnImportPLog(){
 		this.button = med.getBtnImportPLog();
+	}
+	
+	public void setCustomWidget_btnExportPLog(){
+		this.button = med.getBtnExportPLog();
 	}
 	
 	public void setCustomWidget_btnApply(){

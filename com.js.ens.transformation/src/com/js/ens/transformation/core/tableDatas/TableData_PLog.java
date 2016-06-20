@@ -2,9 +2,12 @@ package com.js.ens.transformation.core.tableDatas;
 
 import java.util.ArrayList;
 
+import com.js.ens.transformation.core.InitValue;
+import com.js.ens.transformation.core.Mediator;
 import com.js.ens.transformation.core.UILabel;
 
 public class TableData_PLog {
+	
 	private String STAND = "";
 	private String BUR_TDIA = "";
 	private String BUR_BDIA = "";
@@ -80,8 +83,335 @@ public class TableData_PLog {
 
 	public void setSTAND(String sTAND) {
 		STAND = sTAND;
+		this.setOtherValue(STAND);
+	}
+	private void setOtherValue(String stand){
+		switch (stand){
+		case "F1":
+			this.setOtherF1();
+			break;
+		case "F2":
+			this.setOtherF2();
+			break;
+		case "F3":
+			this.setOtherF3();
+			break;
+		case "F4":
+			this.setOtherF4();
+			break;
+		case "F5":
+			this.setOtherF5();
+			break;
+		case "F6":
+			this.setOtherF6();
+			break;
+		case "F7":
+			this.setOtherF7();
+			break;
+		}
+	}
+	
+	private void setOtherF1(){
+		//group1
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		wr_len = obj.getInitValue(InitValue.wr_len_F1);
+		wr_div_angle = obj.getInitValue(InitValue.wr_div_angle_F1);
+		
+		//group2
+		bur_len = obj.getInitValue(InitValue.bur_len_F1);
+		bur_div_angle = obj.getInitValue(InitValue.bur_div_angle_F1);
+		
+		//group3
+		p_in = obj.getInitValue(InitValue.p_in_F1);
+		pl_m = obj.getInitValue(InitValue.pl_m_F1);
+		t_div = obj.getInitValue(InitValue.t_div_F1);
+		
+		//group4
+		f_r2p = obj.getInitValue(InitValue.f_r2p_F1);
+		f_r2r = obj.getInitValue(InitValue.f_r2r_F1);
+		
+		//group5
+		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F1);
+		YM_Table = obj.getInitValue(InitValue.YM_Table_F1);
+		YM_Value = obj.getInitValue(InitValue.YM_Value_F1);
+		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F1);
+		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F1);
+		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F1);
+		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F1);
+		PR_Table = obj.getInitValue(InitValue.PR_Table_F1);
+		PR_Value = obj.getInitValue(InitValue.PR_Value_F1);
+		MD_Value = obj.getInitValue(InitValue.MD_Value_F1);
+		
+		//group6
+		lcase_time = obj.getInitValue(InitValue.lcase_time_F1);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F1);
+		post_inc = obj.getInitValue(InitValue.post_inc_F1);
+		inc_time = obj.getInitValue(InitValue.inc_time_F1);
+		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F1);
+		Domain = obj.getInitValue(InitValue.Domain_F1);
+		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F1);
+		Thread = obj.getInitValue(InitValue.Thread_F1);
+	}
+	
+	private void setOtherF2(){
+		//group1
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		wr_len = obj.getInitValue(InitValue.wr_len_F2);
+		wr_div_angle = obj.getInitValue(InitValue.wr_div_angle_F2);
+		
+		//group2
+		bur_len = obj.getInitValue(InitValue.bur_len_F2);
+		bur_div_angle = obj.getInitValue(InitValue.bur_div_angle_F2);
+		
+		//group3
+		p_in = obj.getInitValue(InitValue.p_in_F2);
+		pl_m = obj.getInitValue(InitValue.pl_m_F2);
+		t_div = obj.getInitValue(InitValue.t_div_F2);
+		
+		//group4
+		f_r2p = obj.getInitValue(InitValue.f_r2p_F2);
+		f_r2r = obj.getInitValue(InitValue.f_r2r_F2);
+		
+		//group5
+		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F2);
+		YM_Table = obj.getInitValue(InitValue.YM_Table_F2);
+		YM_Value = obj.getInitValue(InitValue.YM_Value_F2);
+		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F2);
+		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F2);
+		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F2);
+		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F2);
+		PR_Table = obj.getInitValue(InitValue.PR_Table_F2);
+		PR_Value = obj.getInitValue(InitValue.PR_Value_F2);
+		MD_Value = obj.getInitValue(InitValue.MD_Value_F2);
+		
+		//group6
+		lcase_time = obj.getInitValue(InitValue.lcase_time_F2);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F2);
+		post_inc = obj.getInitValue(InitValue.post_inc_F2);
+		inc_time = obj.getInitValue(InitValue.inc_time_F2);
+		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F2);
+		Domain = obj.getInitValue(InitValue.Domain_F2);
+		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F2);
+		Thread = obj.getInitValue(InitValue.Thread_F2);
+	}
+	
+	private void setOtherF3(){
+		//group1
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		wr_len = obj.getInitValue(InitValue.wr_len_F3);
+		wr_div_angle = obj.getInitValue(InitValue.wr_div_angle_F3);
+		
+		//group2
+		bur_len = obj.getInitValue(InitValue.bur_len_F3);
+		bur_div_angle = obj.getInitValue(InitValue.bur_div_angle_F3);
+		
+		//group3
+		p_in = obj.getInitValue(InitValue.p_in_F3);
+		pl_m = obj.getInitValue(InitValue.pl_m_F3);
+		t_div = obj.getInitValue(InitValue.t_div_F3);
+		
+		//group4
+		f_r2p = obj.getInitValue(InitValue.f_r2p_F3);
+		f_r2r = obj.getInitValue(InitValue.f_r2r_F3);
+		
+		//group5
+		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F3);
+		YM_Table = obj.getInitValue(InitValue.YM_Table_F3);
+		YM_Value = obj.getInitValue(InitValue.YM_Value_F3);
+		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F3);
+		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F3);
+		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F3);
+		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F3);
+		PR_Table = obj.getInitValue(InitValue.PR_Table_F3);
+		PR_Value = obj.getInitValue(InitValue.PR_Value_F3);
+		MD_Value = obj.getInitValue(InitValue.MD_Value_F3);
+		
+		//group6
+		lcase_time = obj.getInitValue(InitValue.lcase_time_F3);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F3);
+		post_inc = obj.getInitValue(InitValue.post_inc_F3);
+		inc_time = obj.getInitValue(InitValue.inc_time_F3);
+		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F3);
+		Domain = obj.getInitValue(InitValue.Domain_F3);
+		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F3);
+		Thread = obj.getInitValue(InitValue.Thread_F3);
+	}
+	
+	private void setOtherF4(){
+		//group1
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		wr_len = obj.getInitValue(InitValue.wr_len_F4);
+		wr_div_angle = obj.getInitValue(InitValue.wr_div_angle_F4);
+		
+		//group2
+		bur_len = obj.getInitValue(InitValue.bur_len_F4);
+		bur_div_angle = obj.getInitValue(InitValue.bur_div_angle_F4);
+		
+		//group3
+		p_in = obj.getInitValue(InitValue.p_in_F4);
+		pl_m = obj.getInitValue(InitValue.pl_m_F4);
+		t_div = obj.getInitValue(InitValue.t_div_F4);
+		
+		//group4
+		f_r2p = obj.getInitValue(InitValue.f_r2p_F4);
+		f_r2r = obj.getInitValue(InitValue.f_r2r_F4);
+		
+		//group5
+		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F4);
+		YM_Table = obj.getInitValue(InitValue.YM_Table_F4);
+		YM_Value = obj.getInitValue(InitValue.YM_Value_F4);
+		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F4);
+		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F4);
+		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F4);
+		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F4);
+		PR_Table = obj.getInitValue(InitValue.PR_Table_F4);
+		PR_Value = obj.getInitValue(InitValue.PR_Value_F4);
+		MD_Value = obj.getInitValue(InitValue.MD_Value_F4);
+		
+		//group6
+		lcase_time = obj.getInitValue(InitValue.lcase_time_F4);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F4);
+		post_inc = obj.getInitValue(InitValue.post_inc_F4);
+		inc_time = obj.getInitValue(InitValue.inc_time_F4);
+		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F4);
+		Domain = obj.getInitValue(InitValue.Domain_F4);
+		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F4);
+		Thread = obj.getInitValue(InitValue.Thread_F4);
 	}
 
+	private void setOtherF5(){
+		//group1
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		wr_len = obj.getInitValue(InitValue.wr_len_F5);
+		wr_div_angle = obj.getInitValue(InitValue.wr_div_angle_F5);
+		
+		//group2
+		bur_len = obj.getInitValue(InitValue.bur_len_F5);
+		bur_div_angle = obj.getInitValue(InitValue.bur_div_angle_F5);
+		
+		//group3
+		p_in = obj.getInitValue(InitValue.p_in_F5);
+		pl_m = obj.getInitValue(InitValue.pl_m_F5);
+		t_div = obj.getInitValue(InitValue.t_div_F5);
+		
+		//group4
+		f_r2p = obj.getInitValue(InitValue.f_r2p_F5);
+		f_r2r = obj.getInitValue(InitValue.f_r2r_F5);
+		
+		//group5
+		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F5);
+		YM_Table = obj.getInitValue(InitValue.YM_Table_F5);
+		YM_Value = obj.getInitValue(InitValue.YM_Value_F5);
+		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F5);
+		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F5);
+		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F5);
+		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F5);
+		PR_Table = obj.getInitValue(InitValue.PR_Table_F5);
+		PR_Value = obj.getInitValue(InitValue.PR_Value_F5);
+		MD_Value = obj.getInitValue(InitValue.MD_Value_F5);
+		
+		//group6
+		lcase_time = obj.getInitValue(InitValue.lcase_time_F5);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F5);
+		post_inc = obj.getInitValue(InitValue.post_inc_F5);
+		inc_time = obj.getInitValue(InitValue.inc_time_F5);
+		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F5);
+		Domain = obj.getInitValue(InitValue.Domain_F5);
+		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F5);
+		Thread = obj.getInitValue(InitValue.Thread_F5);
+	}
+	
+	private void setOtherF6(){
+		//group1
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		wr_len = obj.getInitValue(InitValue.wr_len_F6);
+		wr_div_angle = obj.getInitValue(InitValue.wr_div_angle_F6);
+		
+		//group2
+		bur_len = obj.getInitValue(InitValue.bur_len_F6);
+		bur_div_angle = obj.getInitValue(InitValue.bur_div_angle_F6);
+		
+		//group3
+		p_in = obj.getInitValue(InitValue.p_in_F6);
+		pl_m = obj.getInitValue(InitValue.pl_m_F6);
+		t_div = obj.getInitValue(InitValue.t_div_F6);
+		
+		//group4
+		f_r2p = obj.getInitValue(InitValue.f_r2p_F6);
+		f_r2r = obj.getInitValue(InitValue.f_r2r_F6);
+		
+		//group5
+		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F6);
+		YM_Table = obj.getInitValue(InitValue.YM_Table_F6);
+		YM_Value = obj.getInitValue(InitValue.YM_Value_F6);
+		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F6);
+		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F6);
+		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F6);
+		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F6);
+		PR_Table = obj.getInitValue(InitValue.PR_Table_F6);
+		PR_Value = obj.getInitValue(InitValue.PR_Value_F6);
+		MD_Value = obj.getInitValue(InitValue.MD_Value_F6);
+		
+		//group6
+		lcase_time = obj.getInitValue(InitValue.lcase_time_F6);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F6);
+		post_inc = obj.getInitValue(InitValue.post_inc_F6);
+		inc_time = obj.getInitValue(InitValue.inc_time_F6);
+		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F6);
+		Domain = obj.getInitValue(InitValue.Domain_F6);
+		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F6);
+		Thread = obj.getInitValue(InitValue.Thread_F6);
+	}
+	
+	private void setOtherF7(){
+		//group1
+		InitValue obj = new InitValue();
+		obj.readInitValueFile();
+		wr_len = obj.getInitValue(InitValue.wr_len_F7);
+		wr_div_angle = obj.getInitValue(InitValue.wr_div_angle_F7);
+		
+		//group2
+		bur_len = obj.getInitValue(InitValue.bur_len_F7);
+		bur_div_angle = obj.getInitValue(InitValue.bur_div_angle_F7);
+		
+		//group3
+		p_in = obj.getInitValue(InitValue.p_in_F7);
+		pl_m = obj.getInitValue(InitValue.pl_m_F7);
+		t_div = obj.getInitValue(InitValue.t_div_F7);
+		
+		//group4
+		f_r2p = obj.getInitValue(InitValue.f_r2p_F7);
+		f_r2r = obj.getInitValue(InitValue.f_r2r_F7);
+		
+		//group5
+		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F7);
+		YM_Table = obj.getInitValue(InitValue.YM_Table_F7);
+		YM_Value = obj.getInitValue(InitValue.YM_Value_F7);
+		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F7);
+		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F7);
+		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F7);
+		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F7);
+		PR_Table = obj.getInitValue(InitValue.PR_Table_F7);
+		PR_Value = obj.getInitValue(InitValue.PR_Value_F7);
+		MD_Value = obj.getInitValue(InitValue.MD_Value_F7);
+		
+		//group6
+		lcase_time = obj.getInitValue(InitValue.lcase_time_F7);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F7);
+		post_inc = obj.getInitValue(InitValue.post_inc_F7);
+		inc_time = obj.getInitValue(InitValue.inc_time_F7);
+		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F7);
+		Domain = obj.getInitValue(InitValue.Domain_F7);
+		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F7);
+		Thread = obj.getInitValue(InitValue.Thread_F7);
+	}
+	
 	public String getBUR_TDIA() {
 		return BUR_TDIA;
 	}

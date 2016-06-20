@@ -198,9 +198,20 @@ public class View extends ViewPart {
 		C_btnImportPLog.setCustomWidget_btnImportPLog();
 		FormData fd_btnImportPLog = new FormData();
 		fd_btnImportPLog.bottom = new FormAttachment(tablePLog, 0, SWT.BOTTOM);
-		fd_btnImportPLog.right = new FormAttachment(100, -10);
+		fd_btnImportPLog.right = new FormAttachment(100, -100);
 		btnImportPLog.setLayoutData(fd_btnImportPLog);
 		btnImportPLog.setText(ulObj.getUILabelValue(UILabel.Import_P_Log));
+		
+		Button btnExportPLog = new Button(compositeTotal, SWT.NONE);
+		med.setBtnExportPLog(btnExportPLog);
+		CustomButton C_btnExportPLog = new CustomButton(Mediator.BUTTON_btnExportPLog,med);
+		med.setC_btnExportPLog(C_btnExportPLog);
+		C_btnExportPLog.setCustomWidget_btnExportPLog();
+		FormData fd_btnExportPLog = new FormData();
+		fd_btnExportPLog.bottom = new FormAttachment(tablePLog, 0, SWT.BOTTOM);
+		fd_btnExportPLog.right = new FormAttachment(100, -10);
+		btnExportPLog.setLayoutData(fd_btnExportPLog);
+		btnExportPLog.setText(ulObj.getUILabelValue(UILabel.Export_P_Log));
 		
 		
 		
@@ -526,7 +537,7 @@ public class View extends ViewPart {
 		fd_grpPlateParameter.top = new FormAttachment(grpBackUpRollburParameter, 5);
 		fd_grpPlateParameter.left = new FormAttachment(grpWorkRollwrParameter, 0,SWT.LEFT);
 		fd_grpPlateParameter.right = new FormAttachment(grpWorkRollwrParameter, 0,SWT.RIGHT);
-		fd_grpPlateParameter.bottom = new FormAttachment(grpBackUpRollburParameter, 250, SWT.BOTTOM);
+		fd_grpPlateParameter.bottom = new FormAttachment(grpBackUpRollburParameter, 280, SWT.BOTTOM);
 		grpPlateParameter.setLayoutData(fd_grpPlateParameter);
 		
 		Label lblThickness = new Label(grpPlateParameter, SWT.NONE);
@@ -1251,7 +1262,7 @@ public class View extends ViewPart {
 		// 
 		
 		Label lblModelName = new Label(parent, SWT.NONE);
-		lblModelName.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
+		lblModelName.setFont(SWTResourceManager.getFont("Arial", 11, SWT.BOLD));
 		FormData fd_lblModelName = new FormData();
 		fd_lblModelName.top = new FormAttachment(0, 20);
 		fd_lblModelName.left = new FormAttachment(0, 10);
@@ -1259,6 +1270,8 @@ public class View extends ViewPart {
 		lblModelName.setText(ulObj.getUILabelValue(UILabel.Model_Name));
 		
 		Label lblModelNameValue = new Label(parent, SWT.NONE);
+		lblModelNameValue.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLUE));
+		lblModelNameValue.setFont(SWTResourceManager.getFont("Arial", 11, SWT.BOLD));
 		med.setLblModelNameValue(lblModelNameValue);
 		FormData fd_lblModelNameValue = new FormData();
 		fd_lblModelNameValue.top = new FormAttachment(lblModelName, 0, SWT.TOP);
@@ -1268,7 +1281,7 @@ public class View extends ViewPart {
 		lblModelNameValue.setText("-");
 		
 		Label lblWorkspace = new Label(parent, SWT.NONE);
-		lblWorkspace.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
+		lblWorkspace.setFont(SWTResourceManager.getFont("Arial", 11, SWT.BOLD));
 		FormData fd_lblWorkspace = new FormData();
 		fd_lblWorkspace.top = new FormAttachment(lblModelName, 0, SWT.TOP);
 		fd_lblWorkspace.left = new FormAttachment(lblModelNameValue, 20);
@@ -1276,6 +1289,8 @@ public class View extends ViewPart {
 		lblWorkspace.setText(ulObj.getUILabelValue(UILabel.Workspace));
 		
 		Label lblWorkspacePath = new Label(parent, SWT.NONE);
+		lblWorkspacePath.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLUE));
+		lblWorkspacePath.setFont(SWTResourceManager.getFont("Arial", 11, SWT.BOLD));
 		med.setLblWorkspacePath(lblWorkspacePath);
 		FormData fd_lblWorkspacePath = new FormData();
 		fd_lblWorkspacePath.top = new FormAttachment(lblModelName, 0, SWT.TOP);
@@ -1303,6 +1318,7 @@ public class View extends ViewPart {
 		init_TableColunm();
 		init_ActionComponent();
 		med.getTabFolder().setEnabled(false);
+		med.getBtnApply().setEnabled(false);
 	}
 
 	
@@ -1428,6 +1444,7 @@ public class View extends ViewPart {
 		//Button
 		HandlerButton handlerButton = new HandlerButton();
 		med.getBtnImportPLog().addListener(SWT.Selection, handlerButton);
+		med.getBtnExportPLog().addListener(SWT.Selection, handlerButton);
 		med.getBtnApply().addListener(SWT.Selection, handlerButton);
 		med.getBtnF1().addListener(SWT.Selection, handlerButton);
 		med.getBtnF2().addListener(SWT.Selection, handlerButton);

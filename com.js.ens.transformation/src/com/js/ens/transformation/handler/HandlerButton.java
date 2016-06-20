@@ -13,6 +13,8 @@ public class HandlerButton implements Listener {
 		// TODO Auto-generated method stub
 		if(event.widget == med.getBtnImportPLog()){
 			med.getC_btnImportPLog().execute();
+		}else if(event.widget == med.getBtnExportPLog()){
+			med.getC_btnExportPLog().execute();
 		}else if(event.widget == med.getBtnApply()){
 			med.getC_btnApply().execute();
 		}else if(event.widget == med.getBtnF1()){

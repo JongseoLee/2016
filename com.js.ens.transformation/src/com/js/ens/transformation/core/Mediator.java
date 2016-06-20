@@ -43,6 +43,11 @@ public class Mediator {
 	public ICommand C_btnImportPLog;
 	public static String BUTTON_btnImportPLog = "btnImportPLog";
 	
+	private Button btnExportPLog;
+	public ICommand C_btnExportPLog;
+	public static String BUTTON_btnExportPLog = "btnExportPLog";
+	
+	
 	//
 	// Tab2
 	//
@@ -373,6 +378,18 @@ public class Mediator {
 		C_btnImportPLog = c_btnImportPLog;
 	}
 	
+	public Button getBtnExportPLog() {
+		return btnExportPLog;
+	}
+	public void setBtnExportPLog(Button btnExportPLog) {
+		this.btnExportPLog = btnExportPLog;
+	}
+	public ICommand getC_btnExportPLog() {
+		return C_btnExportPLog;
+	}
+	public void setC_btnExportPLog(ICommand c_btnExportPLog) {
+		C_btnExportPLog = c_btnExportPLog;
+	}
 	
 	public Button getBtnApply() {
 		return btnApply;

@@ -101,7 +101,7 @@ public class MainController {
 			return;
 		}else { 
 			PLogFilePath = path;
-			parsingPLogFile();
+			this.parsingPLogFile();
 		}
 	}
 	
@@ -124,6 +124,17 @@ public class MainController {
 			this.updateTableData();
 		}else{
 		}
+	}
+	
+	private void parsingPLogFile(ArrayList<String> initDataList){
+		TableColumnLabel tclObj = new TableColumnLabel();
+		tclObj.readTableColumnLabelFile();
+		
+		initTableData_SlabPlateInfo(initDataList,tclObj);
+		initTableData_Variable(initDataList,tclObj);
+		initTableData_PLog(initDataList,tclObj);
+		
+		this.updateTableData();
 	}
 
 	public void initTableData_SlabPlateInfo(ArrayList<String> fileDataList,TableColumnLabel tclObj){
@@ -579,6 +590,18 @@ public class MainController {
 	//=====================================================================
 	
 	//=====================================================================
+	//
+	//
+	public void ExportPLog(){
+		System.out.println("Export P Log File");
+	}
+	
+	//
+	//
+	//=====================================================================
+	
+	
+	//=====================================================================
 	// Button - Apply
 	//
 	public void Apply(){
@@ -635,11 +658,7 @@ public class MainController {
 		String procFolder = myUtil.setPath(topFolder, "proc");
 		String resultFolder = myUtil.setPath(topFolder, "result");
 		this.workspace = topFolder;
-		/*
-		if(!myUtil.makeDir(topFolder)) log.warn("[Model Name:"+ModelName +"] topFolder did not make.");
-		if(!myUtil.makeDir(procFolder)) log.warn("[Model Name:"+ModelName +"] prodFolder did not make.");
-		if(!myUtil.makeDir(resultFolder)) log.warn("[Model Name:"+ModelName +"] resultFolder did not make.");
-		*/
+		
 		if(!myUtil.makeDir(topFolder)) System.out.println("[Model Name:"+modelName +"] topFolder did not make.");
 		if(!myUtil.makeDir(procFolder)) System.out.println("[Model Name:"+modelName +"] prodFolder did not make.");
 		if(!myUtil.makeDir(resultFolder)) System.out.println("[Model Name:"+modelName +"] resultFolder did not make.");
@@ -655,6 +674,7 @@ public class MainController {
 	
 	private void AllComponentEnable(){
 		med.getTabFolder().setEnabled(true);
+		med.getBtnApply().setEnabled(true);
 	}
 	
 	private void CleaerAllData(){
@@ -754,7 +774,290 @@ public class MainController {
 		this.saveAllF2Values();
 		this.initF1Values();
 		this.saveAllF1Values();
+	
+		this.initPLogTables();
+	}
+	
+	private void initPLogTables(){
+		InitValue obj =new InitValue();
+		obj.readInitValueFile();
+		ArrayList<String> initDataList = new ArrayList<String>();
+		initDataList.add("STRIP NO,STHK,SWID,SLEN,SWET,PTHK,PWID,PLEN,PWET,,,,,,,");
+		String line2 = obj.getInitValue(InitValue.STRIP_NO)+","+
+						obj.getInitValue(InitValue.STHK)+","+
+						obj.getInitValue(InitValue.SWID)+","+
+						obj.getInitValue(InitValue.SLEN)+","+
+						obj.getInitValue(InitValue.SWET)+","+
+						obj.getInitValue(InitValue.PTHK)+","+
+						obj.getInitValue(InitValue.PWID)+","+
+						obj.getInitValue(InitValue.PLEN)+","+
+						obj.getInitValue(InitValue.PWET)+","+
+						",,,,,,";
+		initDataList.add(line2);
+		initDataList.add(",,,,,,,,,,,,,,,");
+		initDataList.add("VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8,VAR9,VAR10,VAR11,VAR12,VAR13,VAR14,VAR15,VAR16");
+		String line5 = obj.getInitValue(InitValue.VAR1)+","+
+						obj.getInitValue(InitValue.VAR2)+","+
+						obj.getInitValue(InitValue.VAR3)+","+
+						obj.getInitValue(InitValue.VAR4)+","+
+						obj.getInitValue(InitValue.VAR5)+","+
+						obj.getInitValue(InitValue.VAR6)+","+
+						obj.getInitValue(InitValue.VAR7)+","+
+						obj.getInitValue(InitValue.VAR8)+","+
+						obj.getInitValue(InitValue.VAR9)+","+
+						obj.getInitValue(InitValue.VAR10)+","+
+						obj.getInitValue(InitValue.VAR11)+","+
+						obj.getInitValue(InitValue.VAR12)+","+
+						obj.getInitValue(InitValue.VAR13)+","+
+						obj.getInitValue(InitValue.VAR14)+","+
+						obj.getInitValue(InitValue.VAR15)+","+
+						obj.getInitValue(InitValue.VAR16);
+		initDataList.add(line5);
+		initDataList.add(",,,,,,,,,,,,,,,");
+		initDataList.add("STAND,F1,F2,F3,F4,F5,F6,F7,,,,,,,,");
+		String line8 = "BUR TDIA"+","+
+					tableDataPLogList.get(0).getBUR_TDIA()+","+
+					tableDataPLogList.get(1).getBUR_TDIA()+","+
+					tableDataPLogList.get(2).getBUR_TDIA()+","+
+					tableDataPLogList.get(3).getBUR_TDIA()+","+
+					tableDataPLogList.get(4).getBUR_TDIA()+","+
+					tableDataPLogList.get(5).getBUR_TDIA()+","+
+					tableDataPLogList.get(6).getBUR_TDIA()+","+
+					",,,,,,,";
+		initDataList.add(line8);
+		String line9 = "BUR BDIA"+","+
+					tableDataPLogList.get(0).getBUR_BDIA()+","+
+					tableDataPLogList.get(1).getBUR_BDIA()+","+
+					tableDataPLogList.get(2).getBUR_BDIA()+","+
+					tableDataPLogList.get(3).getBUR_BDIA()+","+
+					tableDataPLogList.get(4).getBUR_BDIA()+","+
+					tableDataPLogList.get(5).getBUR_BDIA()+","+
+					tableDataPLogList.get(6).getBUR_BDIA()+","+
+					",,,,,,,";
+		initDataList.add(line9);
+		String line10 = "WR TDIA"+","+
+					tableDataPLogList.get(0).getWR_TDIA()+","+
+					tableDataPLogList.get(1).getWR_TDIA()+","+
+					tableDataPLogList.get(2).getWR_TDIA()+","+
+					tableDataPLogList.get(3).getWR_TDIA()+","+
+					tableDataPLogList.get(4).getWR_TDIA()+","+
+					tableDataPLogList.get(5).getWR_TDIA()+","+
+					tableDataPLogList.get(6).getWR_TDIA()+","+
+					",,,,,,,";
+		initDataList.add(line10);
+		String line11 = "WR BDIA"+","+
+					tableDataPLogList.get(0).getWR_BDIA()+","+
+					tableDataPLogList.get(1).getWR_BDIA()+","+
+					tableDataPLogList.get(2).getWR_BDIA()+","+
+					tableDataPLogList.get(3).getWR_BDIA()+","+
+					tableDataPLogList.get(4).getWR_BDIA()+","+
+					tableDataPLogList.get(5).getWR_BDIA()+","+
+					tableDataPLogList.get(6).getWR_BDIA()+","+
+					",,,,,,,";
+		initDataList.add(line11);
+		String line12 = "WR ICRN"+","+
+					tableDataPLogList.get(0).getWR_ICRN()+","+
+					tableDataPLogList.get(1).getWR_ICRN()+","+
+					tableDataPLogList.get(2).getWR_ICRN()+","+
+					tableDataPLogList.get(3).getWR_ICRN()+","+
+					tableDataPLogList.get(4).getWR_ICRN()+","+
+					tableDataPLogList.get(5).getWR_ICRN()+","+
+					tableDataPLogList.get(6).getWR_ICRN()+","+
+					",,,,,,,";
+		initDataList.add(line12);
+		String line13 = "ENTRY THK"+","+
+					tableDataPLogList.get(0).getENTRY_THK()+","+
+					tableDataPLogList.get(1).getENTRY_THK()+","+
+					tableDataPLogList.get(2).getENTRY_THK()+","+
+					tableDataPLogList.get(3).getENTRY_THK()+","+
+					tableDataPLogList.get(4).getENTRY_THK()+","+
+					tableDataPLogList.get(5).getENTRY_THK()+","+
+					tableDataPLogList.get(6).getENTRY_THK()+","+
+					",,,,,,,";
+		initDataList.add(line13);
+		String line14 = "EXIT THK"+","+
+					tableDataPLogList.get(0).getEXIT_THK()+","+
+					tableDataPLogList.get(1).getEXIT_THK()+","+
+					tableDataPLogList.get(2).getEXIT_THK()+","+
+					tableDataPLogList.get(3).getEXIT_THK()+","+
+					tableDataPLogList.get(4).getEXIT_THK()+","+
+					tableDataPLogList.get(5).getEXIT_THK()+","+
+					tableDataPLogList.get(6).getEXIT_THK()+","+
+					",,,,,,,";
+		initDataList.add(line14);
+		String line15 = "PAS LINE"+","+
+					tableDataPLogList.get(0).getPAS_LINE()+","+
+					tableDataPLogList.get(1).getPAS_LINE()+","+
+					tableDataPLogList.get(2).getPAS_LINE()+","+
+					tableDataPLogList.get(3).getPAS_LINE()+","+
+					tableDataPLogList.get(4).getPAS_LINE()+","+
+					tableDataPLogList.get(5).getPAS_LINE()+","+
+					tableDataPLogList.get(6).getPAS_LINE()+","+
+					",,,,,,,";
+		initDataList.add(line15);
+		String line16 = "ROL GAP"+","+
+					tableDataPLogList.get(0).getROL_GAP()+","+
+					tableDataPLogList.get(1).getROL_GAP()+","+
+					tableDataPLogList.get(2).getROL_GAP()+","+
+					tableDataPLogList.get(3).getROL_GAP()+","+
+					tableDataPLogList.get(4).getROL_GAP()+","+
+					tableDataPLogList.get(5).getROL_GAP()+","+
+					tableDataPLogList.get(6).getROL_GAP()+","+
+					",,,,,,,";
+		initDataList.add(line16);
+		String line17 = "STP WID"+","+
+					tableDataPLogList.get(0).getSTP_WID()+","+
+					tableDataPLogList.get(1).getSTP_WID()+","+
+					tableDataPLogList.get(2).getSTP_WID()+","+
+					tableDataPLogList.get(3).getSTP_WID()+","+
+					tableDataPLogList.get(4).getSTP_WID()+","+
+					tableDataPLogList.get(5).getSTP_WID()+","+
+					tableDataPLogList.get(6).getSTP_WID()+","+
+					",,,,,,,";
+		initDataList.add(line17);
+		String line18 = "STP LEN"+","+
+					tableDataPLogList.get(0).getSTP_LEN()+","+
+					tableDataPLogList.get(1).getSTP_LEN()+","+
+					tableDataPLogList.get(2).getSTP_LEN()+","+
+					tableDataPLogList.get(3).getSTP_LEN()+","+
+					tableDataPLogList.get(4).getSTP_LEN()+","+
+					tableDataPLogList.get(5).getSTP_LEN()+","+
+					tableDataPLogList.get(6).getSTP_LEN()+","+
+					",,,,,,,";
+		initDataList.add(line18);
+		String line19 = "ENTRY TEMP"+","+
+					tableDataPLogList.get(0).getSTP_LEN()+","+
+					tableDataPLogList.get(1).getSTP_LEN()+","+
+					tableDataPLogList.get(2).getSTP_LEN()+","+
+					tableDataPLogList.get(3).getSTP_LEN()+","+
+					tableDataPLogList.get(4).getSTP_LEN()+","+
+					tableDataPLogList.get(5).getSTP_LEN()+","+
+					tableDataPLogList.get(6).getSTP_LEN()+","+
+					",,,,,,,";
+		initDataList.add(line19);
+		String line20 = "EXIT TEMP"+","+
+					tableDataPLogList.get(0).getEXIT_TEMP()+","+
+					tableDataPLogList.get(1).getEXIT_TEMP()+","+
+					tableDataPLogList.get(2).getEXIT_TEMP()+","+
+					tableDataPLogList.get(3).getEXIT_TEMP()+","+
+					tableDataPLogList.get(4).getEXIT_TEMP()+","+
+					tableDataPLogList.get(5).getEXIT_TEMP()+","+
+					tableDataPLogList.get(6).getEXIT_TEMP()+","+
+					",,,,,,,";
+		initDataList.add(line20);
+		String line21 = "FRCE"+","+
+					tableDataPLogList.get(0).getFRCE()+","+
+					tableDataPLogList.get(1).getFRCE()+","+
+					tableDataPLogList.get(2).getFRCE()+","+
+					tableDataPLogList.get(3).getFRCE()+","+
+					tableDataPLogList.get(4).getFRCE()+","+
+					tableDataPLogList.get(5).getFRCE()+","+
+					tableDataPLogList.get(6).getFRCE()+","+					
+					",,,,,,,";
+		initDataList.add(line21);
+		String line22 = "TORQ"+","+
+					tableDataPLogList.get(0).getTORQ()+","+					
+					tableDataPLogList.get(1).getTORQ()+","+
+					tableDataPLogList.get(2).getTORQ()+","+
+					tableDataPLogList.get(3).getTORQ()+","+
+					tableDataPLogList.get(4).getTORQ()+","+
+					tableDataPLogList.get(5).getTORQ()+","+
+					tableDataPLogList.get(6).getTORQ()+","+
+					",,,,,,,";
+		initDataList.add(line22);
+		String line23 = "SPEED(mpm)"+","+
+					tableDataPLogList.get(0).getSPEED()+","+
+					tableDataPLogList.get(1).getSPEED()+","+
+					tableDataPLogList.get(2).getSPEED()+","+
+					tableDataPLogList.get(3).getSPEED()+","+
+					tableDataPLogList.get(4).getSPEED()+","+
+					tableDataPLogList.get(5).getSPEED()+","+
+					tableDataPLogList.get(6).getSPEED()+","+					
+					",,,,,,,";
+		initDataList.add(line23);
+		String line24 = "BEND"+","+
+					tableDataPLogList.get(0).getBEND()+","+
+					tableDataPLogList.get(1).getBEND()+","+
+					tableDataPLogList.get(2).getBEND()+","+
+					tableDataPLogList.get(3).getBEND()+","+
+					tableDataPLogList.get(4).getBEND()+","+
+					tableDataPLogList.get(5).getBEND()+","+
+					tableDataPLogList.get(6).getBEND()+","+
+					",,,,,,,";
+		initDataList.add(line24);
+		String line25 = "P-CROSS"+","+
+					tableDataPLogList.get(0).getP_CROSS()+","+
+					tableDataPLogList.get(1).getP_CROSS()+","+
+					tableDataPLogList.get(2).getP_CROSS()+","+
+					tableDataPLogList.get(3).getP_CROSS()+","+
+					tableDataPLogList.get(4).getP_CROSS()+","+
+					tableDataPLogList.get(5).getP_CROSS()+","+
+					tableDataPLogList.get(6).getP_CROSS()+","+
+					",,,,,,,";
+		initDataList.add(line25);
+		String line26 = "TENS"+","+
+					tableDataPLogList.get(0).getTENS()+","+
+					tableDataPLogList.get(1).getTENS()+","+
+					tableDataPLogList.get(2).getTENS()+","+
+					tableDataPLogList.get(3).getTENS()+","+
+					tableDataPLogList.get(4).getTENS()+","+
+					tableDataPLogList.get(5).getTENS()+","+
+					tableDataPLogList.get(6).getTENS()+","+
+					",,,,,,,";
+		initDataList.add(line26);
+		String line27 = "ROL TIM"+","+
+					tableDataPLogList.get(0).getROL_TIM()+","+
+					tableDataPLogList.get(1).getROL_TIM()+","+
+					tableDataPLogList.get(2).getROL_TIM()+","+
+					tableDataPLogList.get(3).getROL_TIM()+","+
+					tableDataPLogList.get(4).getROL_TIM()+","+
+					tableDataPLogList.get(5).getROL_TIM()+","+
+					tableDataPLogList.get(6).getROL_TIM()+","+					
+					",,,,,,,";
+		initDataList.add(line27);
+		String line28 = "IDL TIM"+","+
+					tableDataPLogList.get(0).getIDL_TIM()+","+
+					tableDataPLogList.get(1).getIDL_TIM()+","+
+					tableDataPLogList.get(2).getIDL_TIM()+","+
+					tableDataPLogList.get(3).getIDL_TIM()+","+
+					tableDataPLogList.get(4).getIDL_TIM()+","+
+					tableDataPLogList.get(5).getIDL_TIM()+","+
+					tableDataPLogList.get(6).getIDL_TIM()+","+
+					",,,,,,,";
+		initDataList.add(line28);
+		String line29 = "BUR WEAR"+","+
+					tableDataPLogList.get(0).getBUR_WEAR()+","+
+					tableDataPLogList.get(1).getBUR_WEAR()+","+
+					tableDataPLogList.get(2).getBUR_WEAR()+","+
+					tableDataPLogList.get(3).getBUR_WEAR()+","+
+					tableDataPLogList.get(4).getBUR_WEAR()+","+
+					tableDataPLogList.get(5).getBUR_WEAR()+","+
+					tableDataPLogList.get(6).getBUR_WEAR()+","+					
+					",,,,,,,";
+		initDataList.add(line29);
+		String line30 = "WR WEAR"+","+ 
+					tableDataPLogList.get(0).getWR_WEAR()+","+
+					tableDataPLogList.get(1).getWR_WEAR()+","+
+					tableDataPLogList.get(2).getWR_WEAR()+","+
+					tableDataPLogList.get(3).getWR_WEAR()+","+
+					tableDataPLogList.get(4).getWR_WEAR()+","+
+					tableDataPLogList.get(5).getWR_WEAR()+","+
+					tableDataPLogList.get(6).getWR_WEAR()+","+
+					",,,,,,,";
+		initDataList.add(line30);
+		String line31 = "WR THRM"+","+
+					tableDataPLogList.get(0).getWR_THRM()+","+
+					tableDataPLogList.get(1).getWR_THRM()+","+
+					tableDataPLogList.get(2).getWR_THRM()+","+
+					tableDataPLogList.get(3).getWR_THRM()+","+
+					tableDataPLogList.get(4).getWR_THRM()+","+
+					tableDataPLogList.get(5).getWR_THRM()+","+
+					tableDataPLogList.get(6).getWR_THRM()+","+					
+					",,,,,,,";
+		initDataList.add(line31);
 		
+		
+		this.parsingPLogFile(initDataList);
 	}
 	
 	private void saveAllF1Values(){
@@ -2879,6 +3182,7 @@ public class MainController {
 		}
 	}
 	
+	
 	public void ChangedTextWidget(String value,String widgetName){
 		System.out.println("[ChangedTextWidget] widgetName : "+widgetName+"  ||  key : "+value);
 		switch(this.StandValue){
@@ -2905,7 +3209,6 @@ public class MainController {
 				break;
 		}
 	}
-	
 	
 	private void saveF1Values(String value, String widgetName){
 		TableData_PLog obj = tableDataPLogList.get(0);
@@ -3624,3 +3927,5 @@ public class MainController {
 	//
 	//=====================================================================
 }
+
+

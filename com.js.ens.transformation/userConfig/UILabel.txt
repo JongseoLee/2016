@@ -6,6 +6,7 @@ Model Name=Model Name :
 Workspace=Workspace :
 // Button Label
 Import P Log=Import P Log
+Export P Log=Export P Log
 Apply=Apply
 // 
 // Tab title 

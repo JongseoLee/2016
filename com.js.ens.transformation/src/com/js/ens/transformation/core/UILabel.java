@@ -52,6 +52,7 @@ public class UILabel {
 	// button label
 	//
 	public static String Import_P_Log = "Import P Log";
+	public static String Export_P_Log = "Export P Log";
 	public static String Apply = "Apply";
 	//
 	// Tab title
