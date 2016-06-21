@@ -86,6 +86,12 @@ ParallelDDM_F1=true
 Domain_F1=4
 ParallelMultiThread_F1=true
 Thread_F1=4
+tb_vel_rate_F1=tb_vel_rate
+wr_trot_F1=wr_trot
+wr_brot_F1=wr_brot
+bur_trot_F1=bur_trot
+bur_brot_F1=bur_brot
+
 
 //
 //F2
@@ -143,6 +149,11 @@ ParallelDDM_F2=true
 Domain_F2=4
 ParallelMultiThread_F2=true
 Thread_F2=4
+tb_vel_rate_F2=tb_vel_rate
+wr_trot_F2=wr_trot
+wr_brot_F2=wr_brot
+bur_trot_F2=bur_trot
+bur_brot_F2=bur_brot
 //
 //F3
 //
@@ -199,6 +210,11 @@ ParallelDDM_F3=true
 Domain_F3=4
 ParallelMultiThread_F3=true
 Thread_F3=4
+tb_vel_rate_F3=tb_vel_rate
+wr_trot_F3=wr_trot
+wr_brot_F3=wr_brot
+bur_trot_F3=bur_trot
+bur_brot_F3=bur_brot
 //
 //F4
 //
@@ -255,6 +271,11 @@ ParallelDDM_F4=true
 Domain_F4=4
 ParallelMultiThread_F4=true
 Thread_F4=4
+tb_vel_rate_F4=tb_vel_rate
+wr_trot_F4=wr_trot
+wr_brot_F4=wr_brot
+bur_trot_F4=bur_trot
+bur_brot_F4=bur_brot
 //
 //F5
 //
@@ -311,6 +332,11 @@ ParallelDDM_F5=true
 Domain_F5=4
 ParallelMultiThread_F5=true
 Thread_F5=4
+tb_vel_rate_F5=tb_vel_rate
+wr_trot_F5=wr_trot
+wr_brot_F5=wr_brot
+bur_trot_F5=bur_trot
+bur_brot_F5=bur_brot
 //
 //F6
 //
@@ -367,6 +393,11 @@ ParallelDDM_F6=true
 Domain_F6=4
 ParallelMultiThread_F6=true
 Thread_F6=4
+tb_vel_rate_F6=tb_vel_rate
+wr_trot_F6=wr_trot
+wr_brot_F6=wr_brot
+bur_trot_F6=bur_trot
+bur_brot_F6=bur_brot
 //
 //F7
 //
@@ -423,3 +454,8 @@ ParallelDDM_F7=true
 Domain_F7=4
 ParallelMultiThread_F7=true
 Thread_F7=4
+tb_vel_rate_F7=tb_vel_rate
+wr_trot_F7=wr_trot
+wr_brot_F7=wr_brot
+bur_trot_F7=bur_trot
+bur_brot_F7=bur_brot

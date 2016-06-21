@@ -82,6 +82,11 @@ public class View extends ViewPart {
 	private Text textTensionStress;
 	private Text textRollToPlateFrictCoef;
 	private Text textRollToRollFrictCoef;
+	private Text textTopBotVelRate;
+	private Text textTopWRRotVel;
+	private Text textBottomWRRotVel;
+	private Text textTopBURRotVel;
+	private Text textBottomBURRotVel;
 
 	private Text textYoungsModulus;
 	private Text textThermalExpansionCoefficient;
@@ -701,7 +706,7 @@ public class View extends ViewPart {
 		fd_grpProcessInformation.top = new FormAttachment(grpWorkRollwrParameter, 0, SWT.TOP);
 		fd_grpProcessInformation.left = new FormAttachment(grpWorkRollwrParameter, 10, SWT.RIGHT);
 		fd_grpProcessInformation.right = new FormAttachment(grpWorkRollwrParameter, 410,SWT.RIGHT);
-		fd_grpProcessInformation.bottom = new FormAttachment(groupSTAND, 290, SWT.BOTTOM);
+		fd_grpProcessInformation.bottom = new FormAttachment(groupSTAND, 430, SWT.BOTTOM);
 		grpProcessInformation.setLayoutData(fd_grpProcessInformation);
 		
 		Label lblVelocity = new Label(grpProcessInformation, SWT.NONE);
@@ -718,7 +723,7 @@ public class View extends ViewPart {
 		C_textVelocity.setCustomWidget_textVelocity();
 		FormData fd_textVelocity = new FormData();
 		fd_textVelocity.top = new FormAttachment(lblVelocity,-2,SWT.TOP);
-		fd_textVelocity.left = new FormAttachment(lblVelocity,60,SWT.RIGHT);
+		fd_textVelocity.left = new FormAttachment(lblVelocity,90,SWT.RIGHT);
 		fd_textVelocity.right = new FormAttachment(100, -10);
 		textVelocity.setLayoutData(fd_textVelocity);
 
@@ -866,6 +871,96 @@ public class View extends ViewPart {
 		fd_textRollToRollFrictCoef.right = new FormAttachment(100, -10);
 		textRollToRollFrictCoef.setLayoutData(fd_textRollToRollFrictCoef);
 		
+		Label lblTopBotVelRate = new Label(grpProcessInformation, SWT.NONE);
+		FormData fd_lblTopBotVelRate = new FormData();
+		fd_lblTopBotVelRate.top = new FormAttachment(lblRollToRollFrictCoef, 20);
+		fd_lblTopBotVelRate.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
+		lblTopBotVelRate.setLayoutData(fd_lblTopBotVelRate);
+		lblTopBotVelRate.setText(ulObj.getUILabelValue(UILabel.Top_Bot_Vel_Rete));
+
+		textTopBotVelRate = new Text(grpProcessInformation, SWT.BORDER);
+		med.setTextTopBotVelRate(textTopBotVelRate);
+		CustomText C_textTopBotVelRate = new CustomText(Mediator.TEXT_textTopBotVelRate,med);
+		med.setC_textTopBotVelRate(C_textTopBotVelRate);
+		C_textTopBotVelRate.setCustomWidget_textTopBotVelRate();
+		FormData fd_textTopBotVelRate = new FormData();
+		fd_textTopBotVelRate.top = new FormAttachment(lblTopBotVelRate,-2,SWT.TOP);
+		fd_textTopBotVelRate.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
+		fd_textTopBotVelRate.right = new FormAttachment(100, -10);
+		textTopBotVelRate.setLayoutData(fd_textTopBotVelRate);
+
+		Label lblTopWRRotVel = new Label(grpProcessInformation, SWT.NONE);
+		FormData fd_lblTopWRRotVel = new FormData();
+		fd_lblTopWRRotVel.top = new FormAttachment(lblTopBotVelRate, 10);
+		fd_lblTopWRRotVel.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
+		lblTopWRRotVel.setLayoutData(fd_lblTopWRRotVel);
+		lblTopWRRotVel.setText(ulObj.getUILabelValue(UILabel.Top_WR_Rot_Vel_RPM));
+
+		textTopWRRotVel = new Text(grpProcessInformation, SWT.BORDER);
+		med.setTextTopWRRotVel(textTopWRRotVel);
+		CustomText C_textTopWRRotVel = new CustomText(Mediator.TEXT_textTopWRRotVel, med);
+		med.setC_textTopWRRotVel(C_textTopWRRotVel);
+		C_textTopWRRotVel.setCustomWidget_textTopWRRotVel();
+		FormData fd_textTopWRRotVel = new FormData();
+		fd_textTopWRRotVel.top = new FormAttachment(lblTopWRRotVel,-2,SWT.TOP);
+		fd_textTopWRRotVel.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
+		fd_textTopWRRotVel.right = new FormAttachment(100, -10);
+		textTopWRRotVel.setLayoutData(fd_textTopWRRotVel);
+		
+		Label lblBottomWRRotVel = new Label(grpProcessInformation, SWT.NONE);
+		FormData fd_lblBottomWRRotVel = new FormData();
+		fd_lblBottomWRRotVel.top = new FormAttachment(lblTopWRRotVel, 10);
+		fd_lblBottomWRRotVel.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
+		lblBottomWRRotVel.setLayoutData(fd_lblBottomWRRotVel);
+		lblBottomWRRotVel.setText(ulObj.getUILabelValue(UILabel.Bottom_WR_Rot_Vel_RPM));
+
+		textBottomWRRotVel = new Text(grpProcessInformation, SWT.BORDER);
+		med.setTextBottomWRRotVel(textBottomWRRotVel);
+		CustomText C_textBottomWRRotVel = new CustomText(Mediator.TEXT_textBottomWRRotVel, med);		 															
+		med.setC_textBottomWRRotVel(C_textBottomWRRotVel);
+		C_textBottomWRRotVel.setCustomWidget_textBottomWRRotVel();
+		FormData fd_textBottomWRRotVel = new FormData();
+		fd_textBottomWRRotVel.top = new FormAttachment(lblBottomWRRotVel,-2,SWT.TOP);
+		fd_textBottomWRRotVel.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
+		fd_textBottomWRRotVel.right = new FormAttachment(100, -10);
+		textBottomWRRotVel.setLayoutData(fd_textBottomWRRotVel);
+		
+		Label lblTopBURRotVel = new Label(grpProcessInformation, SWT.NONE);
+		FormData fd_lblTopBURRotVel = new FormData();
+		fd_lblTopBURRotVel.top = new FormAttachment(lblBottomWRRotVel, 10);
+		fd_lblTopBURRotVel.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
+		lblTopBURRotVel.setLayoutData(fd_lblTopBURRotVel);
+		lblTopBURRotVel.setText(ulObj.getUILabelValue(UILabel.Top_BUR_Rot_Vel_RPM));
+
+		textTopBURRotVel = new Text(grpProcessInformation, SWT.BORDER);
+		med.setTextTopBURRotVel(textTopBURRotVel);
+		CustomText C_textTopBURRotVel = new CustomText(Mediator.TEXT_textTopBURRotVel, med);		 															
+		med.setC_textTopBURRotVel(C_textTopBURRotVel);
+		C_textTopBURRotVel.setCustomWidget_textTopBURRotVel();
+		FormData fd_textTopBURRotVel = new FormData();
+		fd_textTopBURRotVel.top = new FormAttachment(lblTopBURRotVel,-2,SWT.TOP);
+		fd_textTopBURRotVel.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
+		fd_textTopBURRotVel.right = new FormAttachment(100, -10);
+		textTopBURRotVel.setLayoutData(fd_textTopBURRotVel);
+		
+		Label lblBottomBURRotVel = new Label(grpProcessInformation, SWT.NONE);
+		FormData fd_lblBottomBURRotVel = new FormData();
+		fd_lblBottomBURRotVel.top = new FormAttachment(lblTopBURRotVel, 10);
+		fd_lblBottomBURRotVel.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
+		lblBottomBURRotVel.setLayoutData(fd_lblBottomBURRotVel);
+		lblBottomBURRotVel.setText(ulObj.getUILabelValue(UILabel.Bottom_BUR_Rot_Vel_RPM));
+
+		textBottomBURRotVel = new Text(grpProcessInformation, SWT.BORDER);
+		med.setTextBottomBURRotVel(textBottomBURRotVel);
+		CustomText C_textBottomBURRotVel = new CustomText(Mediator.TEXT_textBottomBURRotVel, med);		 															
+		med.setC_textBottomBURRotVel(C_textBottomBURRotVel);
+		C_textBottomBURRotVel.setCustomWidget_textBottomBURRotVel();
+		FormData fd_textBottomBURRotVel = new FormData();
+		fd_textBottomBURRotVel.top = new FormAttachment(lblBottomBURRotVel,-2,SWT.TOP);
+		fd_textBottomBURRotVel.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
+		fd_textBottomBURRotVel.right = new FormAttachment(100, -10);
+		textBottomBURRotVel.setLayoutData(fd_textBottomBURRotVel);
+		
 		//
 		// Group4 End
 		//=============
@@ -882,7 +977,7 @@ public class View extends ViewPart {
 		fd_grpMaterialParameter.top = new FormAttachment(grpWorkRollwrParameter, 0, SWT.TOP);
 		fd_grpMaterialParameter.left = new FormAttachment(grpProcessInformation, 10, SWT.RIGHT);
 		fd_grpMaterialParameter.right = new FormAttachment(grpProcessInformation, 410,SWT.RIGHT);
-		fd_grpMaterialParameter.bottom = new FormAttachment(groupSTAND, 320, SWT.BOTTOM);
+		fd_grpMaterialParameter.bottom = new FormAttachment(groupSTAND, 340, SWT.BOTTOM);
 		grpMaterialParameter.setLayoutData(fd_grpMaterialParameter);
 
 		Label lblYoungsModulus = new Label(grpMaterialParameter, SWT.NONE);
@@ -1103,7 +1198,7 @@ public class View extends ViewPart {
 		fd_grpAnalysisInformation.top = new FormAttachment(grpMaterialParameter, 5);
 		fd_grpAnalysisInformation.left = new FormAttachment(grpMaterialParameter, 0, SWT.LEFT);
 		fd_grpAnalysisInformation.right = new FormAttachment(grpMaterialParameter, 0,SWT.RIGHT);
-		fd_grpAnalysisInformation.bottom = new FormAttachment(grpMaterialParameter, 270, SWT.BOTTOM);
+		fd_grpAnalysisInformation.bottom = new FormAttachment(grpMaterialParameter, 290, SWT.BOTTOM);
 		grpAnalysisInformation.setLayoutData(fd_grpAnalysisInformation);
 		
 		Label lblTimeIncrement_time = new Label(grpAnalysisInformation, SWT.NONE);
@@ -1501,6 +1596,11 @@ public class View extends ViewPart {
 		med.getTextTensionStress().addListener(SWT.CHANGED, handlerText);
 		med.getTextRollToPlateFrictCoef().addListener(SWT.CHANGED, handlerText);
 		med.getTextRollToRollFrictCoef().addListener(SWT.CHANGED, handlerText);
+		med.getTextTopBotVelRate().addListener(SWT.Selection, handlerText);
+		med.getTextTopWRRotVel().addListener(SWT.Selection, handlerText);
+		med.getTextBottomWRRotVel().addListener(SWT.Selection, handlerText);
+		med.getTextTopBURRotVel().addListener(SWT.Selection, handlerText);
+		med.getTextBottomBURRotVel().addListener(SWT.Selection, handlerText);
 		
 		med.getTextYoungsModulus().addListener(SWT.CHANGED, handlerText);
 		med.getTextThermalExpansionCoefficient().addListener(SWT.CHANGED, handlerText);

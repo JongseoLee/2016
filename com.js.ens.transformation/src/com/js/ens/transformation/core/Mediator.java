@@ -202,6 +202,26 @@ public class Mediator {
 	public ICommand C_textRollToRollFrictCoef;
 	public static String TEXT_textRollToRollFrictCoef = "textRollToRollFrictCoef";
 	
+	private Text textTopBotVelRate;
+	public ICommand C_textTopBotVelRate;
+	public static String TEXT_textTopBotVelRate = "textTopBotVelRate";
+	
+	private Text textTopWRRotVel;
+	public ICommand C_textTopWRRotVel;
+	public static String TEXT_textTopWRRotVel = "textTopWRRotVel";
+	
+	private Text textBottomWRRotVel;
+	public ICommand C_textBottomWRRotVel;
+	public static String TEXT_textBottomWRRotVel = "textBottomWRRotVel";
+	
+	private Text textTopBURRotVel;
+	public ICommand C_textTopBURRotVel;
+	public static String TEXT_textTopBURRotVel = "textTopBURRotVel";
+	
+	private Text textBottomBURRotVel;
+	public ICommand C_textBottomBURRotVel;
+	public static String TEXT_textBottomBURRotVel = "textBottomBURRotVel";
+	
 	//group 5
 	private Group grpMaterialParameter;
 	
@@ -1243,6 +1263,76 @@ public class Mediator {
 	}
 	public void setGroupSTAND(Group groupSTAND) {
 		this.groupSTAND = groupSTAND;
+	}
+	
+	
+	public Text getTextTopBotVelRate() {
+		return textTopBotVelRate;
+	}
+	public void setTextTopBotVelRate(Text textTopBotVelRate) {
+		this.textTopBotVelRate = textTopBotVelRate;
+	}
+	public ICommand getC_textTopBotVelRate() {
+		return C_textTopBotVelRate;
+	}
+	public void setC_textTopBotVelRate(ICommand c_textTopBotVelRate) {
+		C_textTopBotVelRate = c_textTopBotVelRate;
+	}
+	
+	
+	public Text getTextTopWRRotVel() {
+		return textTopWRRotVel;
+	}
+	public void setTextTopWRRotVel(Text textTopWRRotVel) {
+		this.textTopWRRotVel = textTopWRRotVel;
+	}
+	public ICommand getC_textTopWRRotVel() {
+		return C_textTopWRRotVel;
+	}
+	public void setC_textTopWRRotVel(ICommand c_textTopWRRotVel) {
+		C_textTopWRRotVel = c_textTopWRRotVel;
+	}
+	
+	
+	public Text getTextBottomWRRotVel() {
+		return textBottomWRRotVel;
+	}
+	public void setTextBottomWRRotVel(Text textBottomWRRotVel) {
+		this.textBottomWRRotVel = textBottomWRRotVel;
+	}
+	public ICommand getC_textBottomWRRotVel() {
+		return C_textBottomWRRotVel;
+	}
+	public void setC_textBottomWRRotVel(ICommand c_textBottomWRRotVel) {
+		C_textBottomWRRotVel = c_textBottomWRRotVel;
+	}
+	
+	
+	public Text getTextTopBURRotVel() {
+		return textTopBURRotVel;
+	}
+	public void setTextTopBURRotVel(Text textTopBURRotVel) {
+		this.textTopBURRotVel = textTopBURRotVel;
+	}
+	public ICommand getC_textTopBURRotVel() {
+		return C_textTopBURRotVel;
+	}
+	public void setC_textTopBURRotVel(ICommand c_textTopBURRotVel) {
+		C_textTopBURRotVel = c_textTopBURRotVel;
+	}
+	
+	
+	public Text getTextBottomBURRotVel() {
+		return textBottomBURRotVel;
+	}
+	public void setTextBottomBURRotVel(Text textBottomBURRotVel) {
+		this.textBottomBURRotVel = textBottomBURRotVel;
+	}
+	public ICommand getC_textBottomBURRotVel() {
+		return C_textBottomBURRotVel;
+	}
+	public void setC_textBottomBURRotVel(ICommand c_textBottomBURRotVel) {
+		C_textBottomBURRotVel = c_textBottomBURRotVel;
 	}
 	
 }

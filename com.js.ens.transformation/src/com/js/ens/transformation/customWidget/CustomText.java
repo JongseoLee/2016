@@ -101,6 +101,21 @@ public class CustomText implements ICommand {
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			value = med.getTextRollToRollFrictCoef().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textRollToRollFrictCoef);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
+			value = med.getTextTopBotVelRate().getText().trim();
+			MC.ChangedTextWidget(value, Mediator.TEXT_textTopBotVelRate);
+		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
+			value = med.getTextTopWRRotVel().getText().trim();
+			MC.ChangedTextWidget(value, Mediator.TEXT_textTopWRRotVel);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
+			value = med.getTextBottomWRRotVel().getText().trim();
+			MC.ChangedTextWidget(value, Mediator.TEXT_textBottomWRRotVel);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURRotVel)){
+			value = med.getTextBottomBURRotVel().getText().trim();
+			MC.ChangedTextWidget(value, Mediator.TEXT_textTopBURRotVel);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
+			value = med.getTextBottomBURRotVel().getText().trim();
+			MC.ChangedTextWidget(value, Mediator.TEXT_textBottomBURRotVel);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
 			value = med.getTextYoungsModulus().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textYoungsModulus);
@@ -206,6 +221,23 @@ public class CustomText implements ICommand {
 	public void setCustomWidget_textRollToRollFrictCoef(){
 		this.text = med.getTextRollToRollFrictCoef();
 	}
+	public void setCustomWidget_textTopBotVelRate(){
+		this.text = med.getTextTopBotVelRate();
+	}
+	public void setCustomWidget_textTopWRRotVel(){
+		this.text = med.getTextTopWRRotVel();
+	}
+	public void setCustomWidget_textBottomWRRotVel(){
+		this.text = med.getTextBottomWRRotVel();
+	}
+	public void setCustomWidget_textTopBURRotVel(){
+		this.text = med.getTextTopBURRotVel();
+	}
+	public void setCustomWidget_textBottomBURRotVel(){
+		this.text = med.getTextBottomBURRotVel();
+	}
+	
+	
 	public void setCustomWidget_textYoungsModulus(){
 		this.text = med.getTextYoungsModulus();
 	}

@@ -65,6 +65,16 @@ public class HandlerText implements Listener {
 			med.getC_textRollToPlateFrictCoef().execute();
 		}else if(event.widget == med.getTextRollToRollFrictCoef()){
 			med.getC_textRollToRollFrictCoef().execute();
+		}else if(event.widget == med.getTextTopBotVelRate()){
+			med.getC_textTopBotVelRate().execute();
+		}else if(event.widget == med.getTextTopWRRotVel()){
+			med.getC_textTopWRRotVel().execute();
+		}else if(event.widget == med.getTextBottomWRRotVel()){
+			med.getC_textBottomWRRotVel().execute();
+		}else if(event.widget == med.getTextTopBURRotVel()){
+			med.getC_textTopBURRotVel().execute();
+		}else if(event.widget == med.getTextBottomBURRotVel()){
+			med.getC_textBottomBURRotVel().execute();
 		}else if(event.widget == med.getTextYoungsModulus()){
 			med.getC_textYoungsModulus().execute();
 		}else if(event.widget == med.getTextThermalExpansionCoefficient()){

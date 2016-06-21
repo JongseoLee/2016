@@ -219,11 +219,11 @@ public class MainController {
 		this.createPLogObj(dataList);
 		
 		/////////////////////////////////////////////////////////////////////
-		/*
+		/* 
 		for(TableData_PLog obj : this.tableDataPLogList){
 			obj.printAllData();
 		}
-		 */
+		// */
 		/////////////////////////////////////////////////////////////////////
 		
 		// UI에 표시한 데이터 형식으로 재 가공
@@ -585,6 +585,7 @@ public class MainController {
 			System.out.println(msg);
 		}
 	}
+	
 	//
 	//
 	//=====================================================================
@@ -775,6 +776,7 @@ public class MainController {
 		this.initF1Values();
 		this.saveAllF1Values();
 	
+		// initvalue -> plog table 동기화
 		this.initPLogTables();
 	}
 	
@@ -1093,6 +1095,11 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setWr_trot(med.getTextTopWRRotVel().getText());
+		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
+		obj.setBur_trot(med.getTextTopBURRotVel().getText());
+		obj.setBur_brot(med.getTextBottomBURRotVel().getText());
 		//Group5
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
@@ -1140,6 +1147,17 @@ public class MainController {
 			obj.setParallelMultiThread("false");
 		}
 		obj.setThread(med.getSpinnerThread().getText());
+		
+		InitValue Vobj = new InitValue();
+		Vobj.readInitValueFile();
+		
+		obj.setFRCE(Vobj.getInitValue(InitValue.FRCE_F1));
+		obj.setEXIT_THK(Vobj.getInitValue(InitValue.EXIT_THK_F1));
+		obj.setROL_TIM(Vobj.getInitValue(InitValue.ROL_TIM_F1));
+		obj.setIDL_TIM(Vobj.getInitValue(InitValue.IDL_TIM_F1));
+		obj.setBUR_WEAR(Vobj.getInitValue(InitValue.BUR_WEAR_F1));
+		obj.setWR_WEAR(Vobj.getInitValue(InitValue.WR_WEAR_F1));
+		obj.setWR_THRM(Vobj.getInitValue(InitValue.WR_THRM_F1));
 	}
 	
 	private void saveAllF2Values(){
@@ -1175,6 +1193,11 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setWr_trot(med.getTextTopWRRotVel().getText());
+		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
+		obj.setBur_trot(med.getTextTopBURRotVel().getText());
+		obj.setBur_brot(med.getTextBottomBURRotVel().getText());
 		//Group5
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
@@ -1222,6 +1245,17 @@ public class MainController {
 			obj.setParallelMultiThread("false");
 		}
 		obj.setThread(med.getSpinnerThread().getText());
+		
+		InitValue Vobj = new InitValue();
+		Vobj.readInitValueFile();
+		
+		obj.setFRCE(Vobj.getInitValue(InitValue.FRCE_F2));
+		obj.setEXIT_THK(Vobj.getInitValue(InitValue.EXIT_THK_F2));
+		obj.setROL_TIM(Vobj.getInitValue(InitValue.ROL_TIM_F2));
+		obj.setIDL_TIM(Vobj.getInitValue(InitValue.IDL_TIM_F2));
+		obj.setBUR_WEAR(Vobj.getInitValue(InitValue.BUR_WEAR_F2));
+		obj.setWR_WEAR(Vobj.getInitValue(InitValue.WR_WEAR_F2));
+		obj.setWR_THRM(Vobj.getInitValue(InitValue.WR_THRM_F2));
 	}
 	
 	private void saveAllF3Values(){
@@ -1257,6 +1291,11 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setWr_trot(med.getTextTopWRRotVel().getText());
+		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
+		obj.setBur_trot(med.getTextTopBURRotVel().getText());
+		obj.setBur_brot(med.getTextBottomBURRotVel().getText());
 		//Group5
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
@@ -1304,6 +1343,17 @@ public class MainController {
 			obj.setParallelMultiThread("false");
 		}
 		obj.setThread(med.getSpinnerThread().getText());
+		
+		InitValue Vobj = new InitValue();
+		Vobj.readInitValueFile();
+		
+		obj.setFRCE(Vobj.getInitValue(InitValue.FRCE_F3));
+		obj.setEXIT_THK(Vobj.getInitValue(InitValue.EXIT_THK_F3));
+		obj.setROL_TIM(Vobj.getInitValue(InitValue.ROL_TIM_F3));
+		obj.setIDL_TIM(Vobj.getInitValue(InitValue.IDL_TIM_F3));
+		obj.setBUR_WEAR(Vobj.getInitValue(InitValue.BUR_WEAR_F3));
+		obj.setWR_WEAR(Vobj.getInitValue(InitValue.WR_WEAR_F3));
+		obj.setWR_THRM(Vobj.getInitValue(InitValue.WR_THRM_F3));
 	}
 
 	private void saveAllF4Values(){
@@ -1339,6 +1389,11 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setWr_trot(med.getTextTopWRRotVel().getText());
+		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
+		obj.setBur_trot(med.getTextTopBURRotVel().getText());
+		obj.setBur_brot(med.getTextBottomBURRotVel().getText());
 		//Group5
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
@@ -1386,6 +1441,17 @@ public class MainController {
 			obj.setParallelMultiThread("false");
 		}
 		obj.setThread(med.getSpinnerThread().getText());
+		
+		InitValue Vobj = new InitValue();
+		Vobj.readInitValueFile();
+		
+		obj.setFRCE(Vobj.getInitValue(InitValue.FRCE_F4));
+		obj.setEXIT_THK(Vobj.getInitValue(InitValue.EXIT_THK_F4));
+		obj.setROL_TIM(Vobj.getInitValue(InitValue.ROL_TIM_F4));
+		obj.setIDL_TIM(Vobj.getInitValue(InitValue.IDL_TIM_F4));
+		obj.setBUR_WEAR(Vobj.getInitValue(InitValue.BUR_WEAR_F4));
+		obj.setWR_WEAR(Vobj.getInitValue(InitValue.WR_WEAR_F4));
+		obj.setWR_THRM(Vobj.getInitValue(InitValue.WR_THRM_F4));
 	}
 	
 	private void saveAllF5Values(){
@@ -1421,6 +1487,11 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setWr_trot(med.getTextTopWRRotVel().getText());
+		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
+		obj.setBur_trot(med.getTextTopBURRotVel().getText());
+		obj.setBur_brot(med.getTextBottomBURRotVel().getText());
 		//Group5
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
@@ -1468,6 +1539,17 @@ public class MainController {
 			obj.setParallelMultiThread("false");
 		}
 		obj.setThread(med.getSpinnerThread().getText());
+		
+		InitValue Vobj = new InitValue();
+		Vobj.readInitValueFile();
+		
+		obj.setFRCE(Vobj.getInitValue(InitValue.FRCE_F5));
+		obj.setEXIT_THK(Vobj.getInitValue(InitValue.EXIT_THK_F5));
+		obj.setROL_TIM(Vobj.getInitValue(InitValue.ROL_TIM_F5));
+		obj.setIDL_TIM(Vobj.getInitValue(InitValue.IDL_TIM_F5));
+		obj.setBUR_WEAR(Vobj.getInitValue(InitValue.BUR_WEAR_F5));
+		obj.setWR_WEAR(Vobj.getInitValue(InitValue.WR_WEAR_F5));
+		obj.setWR_THRM(Vobj.getInitValue(InitValue.WR_THRM_F5));
 	}
 	
 	private void saveAllF6Values(){
@@ -1503,6 +1585,11 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setWr_trot(med.getTextTopWRRotVel().getText());
+		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
+		obj.setBur_trot(med.getTextTopBURRotVel().getText());
+		obj.setBur_brot(med.getTextBottomBURRotVel().getText());
 		//Group5
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
@@ -1550,6 +1637,17 @@ public class MainController {
 			obj.setParallelMultiThread("false");
 		}
 		obj.setThread(med.getSpinnerThread().getText());
+		
+		InitValue Vobj = new InitValue();
+		Vobj.readInitValueFile();
+		
+		obj.setFRCE(Vobj.getInitValue(InitValue.FRCE_F6));
+		obj.setEXIT_THK(Vobj.getInitValue(InitValue.EXIT_THK_F6));
+		obj.setROL_TIM(Vobj.getInitValue(InitValue.ROL_TIM_F6));
+		obj.setIDL_TIM(Vobj.getInitValue(InitValue.IDL_TIM_F6));
+		obj.setBUR_WEAR(Vobj.getInitValue(InitValue.BUR_WEAR_F6));
+		obj.setWR_WEAR(Vobj.getInitValue(InitValue.WR_WEAR_F6));
+		obj.setWR_THRM(Vobj.getInitValue(InitValue.WR_THRM_F6));
 	}
 	
 	private void saveAllF7Values(){
@@ -1585,6 +1683,11 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
+		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setWr_trot(med.getTextTopWRRotVel().getText());
+		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
+		obj.setBur_trot(med.getTextTopBURRotVel().getText());
+		obj.setBur_brot(med.getTextBottomBURRotVel().getText());
 		//Group5
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
@@ -1632,6 +1735,17 @@ public class MainController {
 			obj.setParallelMultiThread("false");
 		}
 		obj.setThread(med.getSpinnerThread().getText());
+		
+		InitValue Vobj = new InitValue();
+		Vobj.readInitValueFile();
+		
+		obj.setFRCE(Vobj.getInitValue(InitValue.FRCE_F7));
+		obj.setEXIT_THK(Vobj.getInitValue(InitValue.EXIT_THK_F7));
+		obj.setROL_TIM(Vobj.getInitValue(InitValue.ROL_TIM_F7));
+		obj.setIDL_TIM(Vobj.getInitValue(InitValue.IDL_TIM_F7));
+		obj.setBUR_WEAR(Vobj.getInitValue(InitValue.BUR_WEAR_F7));
+		obj.setWR_WEAR(Vobj.getInitValue(InitValue.WR_WEAR_F7));
+		obj.setWR_THRM(Vobj.getInitValue(InitValue.WR_THRM_F7));
 	}
 	
 	private void initF1Values(){
@@ -1676,6 +1790,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F1));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F1));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F1));
+		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F1));
+		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F1));
+		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F1));
+		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F1));
+		med.getTextBottomBURRotVel().setText(obj.getInitValue(InitValue.bur_brot_F1));
 		//Group5
 		if(obj.getInitValue(InitValue.YM_Constant_F1).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -1788,6 +1907,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F2));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F2));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F2));
+		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F2));
+		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F2));
+		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F2));
+		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F2));
+		med.getTextBottomBURRotVel().setText(obj.getInitValue(InitValue.bur_brot_F2));
 		//Group5
 		if(obj.getInitValue(InitValue.YM_Constant_F2).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -1900,6 +2024,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F3));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F3));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F3));
+		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F3));
+		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F3));
+		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F3));
+		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F3));
+		med.getTextBottomBURRotVel().setText(obj.getInitValue(InitValue.bur_brot_F3));
 		//Group5
 		if(obj.getInitValue(InitValue.YM_Constant_F3).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -2012,6 +2141,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F4));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F4));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F4));
+		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F4));
+		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F4));
+		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F4));
+		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F4));
+		med.getTextBottomBURRotVel().setText(obj.getInitValue(InitValue.bur_brot_F4));
 		//Group5
 		if(obj.getInitValue(InitValue.YM_Constant_F4).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -2124,6 +2258,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F5));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F5));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F5));
+		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F5));
+		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F5));
+		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F5));
+		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F5));
+		med.getTextBottomBURRotVel().setText(obj.getInitValue(InitValue.bur_brot_F5));
 		//Group5
 		if(obj.getInitValue(InitValue.YM_Constant_F5).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -2236,6 +2375,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F6));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F6));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F6));
+		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F6));
+		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F6));
+		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F6));
+		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F6));
+		med.getTextBottomBURRotVel().setText(obj.getInitValue(InitValue.bur_brot_F6));
 		//Group5
 		if(obj.getInitValue(InitValue.YM_Constant_F6).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -2348,6 +2492,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F7));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F7));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F7));
+		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F7));
+		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F7));
+		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F7));
+		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F7));
+		med.getTextBottomBURRotVel().setText(obj.getInitValue(InitValue.bur_brot_F7));
 		//Group5
 		if(obj.getInitValue(InitValue.YM_Constant_F7).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -2494,6 +2643,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextTopWRRotVel().setText(obj.getWr_trot());
+		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
+		med.getTextTopBURRotVel().setText(obj.getBur_trot());
+		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -2597,6 +2751,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextTopWRRotVel().setText(obj.getWr_trot());
+		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
+		med.getTextTopBURRotVel().setText(obj.getBur_trot());
+		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -2700,6 +2859,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextTopWRRotVel().setText(obj.getWr_trot());
+		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
+		med.getTextTopBURRotVel().setText(obj.getBur_trot());
+		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -2803,6 +2967,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextTopWRRotVel().setText(obj.getWr_trot());
+		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
+		med.getTextTopBURRotVel().setText(obj.getBur_trot());
+		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -2906,6 +3075,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextTopWRRotVel().setText(obj.getWr_trot());
+		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
+		med.getTextTopBURRotVel().setText(obj.getBur_trot());
+		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -3009,6 +3183,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextTopWRRotVel().setText(obj.getWr_trot());
+		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
+		med.getTextTopBURRotVel().setText(obj.getBur_trot());
+		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -3112,6 +3291,11 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
+		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextTopWRRotVel().setText(obj.getWr_trot());
+		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
+		med.getTextTopBURRotVel().setText(obj.getBur_trot());
+		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
@@ -3264,6 +3448,16 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
+			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
+			obj.setWr_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
+			obj.setWr_brot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURRotVel)){
+			obj.setBur_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
+			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
 			obj.setYM_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
@@ -3357,6 +3551,16 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
+			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
+			obj.setWr_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
+			obj.setWr_brot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURRotVel)){
+			obj.setBur_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
+			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
 			obj.setYM_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
@@ -3450,6 +3654,16 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
+			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
+			obj.setWr_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
+			obj.setWr_brot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURRotVel)){
+			obj.setBur_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
+			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
 			obj.setYM_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
@@ -3543,6 +3757,16 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
+			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
+			obj.setWr_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
+			obj.setWr_brot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURRotVel)){
+			obj.setBur_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
+			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
 			obj.setYM_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
@@ -3636,6 +3860,16 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
+			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
+			obj.setWr_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
+			obj.setWr_brot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURRotVel)){
+			obj.setBur_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
+			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
 			obj.setYM_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
@@ -3729,6 +3963,16 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
+			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
+			obj.setWr_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
+			obj.setWr_brot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURRotVel)){
+			obj.setBur_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
+			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
 			obj.setYM_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
@@ -3822,6 +4066,16 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
+			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
+			obj.setWr_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
+			obj.setWr_brot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTopBURRotVel)){
+			obj.setBur_trot(value);
+		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
+			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
 			obj.setYM_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
@@ -3920,6 +4174,21 @@ public class MainController {
 			//this.textPoissonsRatio = path;
 			this.ChangedTextWidget(path, Mediator.TEXT_textPoissonsRatio);
 			med.getTextPoissonsRatio().setText(path);
+		}
+	}
+	
+	public void ChangedTabFolder(int index){
+		if(index == 0){
+			this.initPLogTables();
+		}else if(index == 1){
+			med.getBtnF1().setSelection(true);
+			med.getBtnF2().setSelection(false);
+			med.getBtnF3().setSelection(false);
+			med.getBtnF4().setSelection(false);
+			med.getBtnF5().setSelection(false);
+			med.getBtnF6().setSelection(false);
+			med.getBtnF7().setSelection(false);
+			this.ChangedSTANDValue("F1");
 		}
 	}
 	

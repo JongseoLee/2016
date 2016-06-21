@@ -149,6 +149,18 @@ public class UILabel {
 	// 9) f_r2r
 	public static String Roll_to_Roll_Fric_Coef="Roll to Roll Fric. Coef.";
 	
+	// 10) tb_vel_rate
+	public static String Top_Bot_Vel_Rete="Top-Bot. Vel Rete";
+	// 11) wr_trot
+	public static String Top_WR_Rot_Vel_RPM="Top WR Rot. Vel.(RPM)";
+	// 12) wr_brot
+	public static String Bottom_WR_Rot_Vel_RPM="Bottom WR Rot. Vel.(RPM)";
+	// 13) bur_trot
+	public static String Top_BUR_Rot_Vel_RPM="Top BUR Rot. Vel.(RPM)";
+	// 14) bur_brot
+	public static String Bottom_BUR_Rot_Vel_RPM="Bottom BUR Rot. Vel.(RPM)";
+	
+	
 	//
 	//-> Material parameter
 	// Title

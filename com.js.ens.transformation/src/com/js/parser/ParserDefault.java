@@ -56,40 +56,40 @@ public class ParserDefault {
 		}
 		
 		if(resultLineDataList.size() == 1){
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
 		}else if(resultLineDataList.size() == 2){
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
 		}else if(resultLineDataList.size() == 3){
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
 		}else if(resultLineDataList.size() == 4){
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
 		}else if(resultLineDataList.size() == 5){
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
 		}else if(resultLineDataList.size() == 6){
-			resultLineDataList.add("Blank");
-			resultLineDataList.add("Blank");
+			resultLineDataList.add("");
+			resultLineDataList.add("");
 		}else if(resultLineDataList.size() == 7){
-			resultLineDataList.add("Blank");
+			resultLineDataList.add("");
 		}
 		
 		return resultLineDataList;

@@ -6,7 +6,6 @@ Model Name=Model Name :
 Workspace=Workspace :
 // Button Label
 Import P Log=Import P Log
-Export P Log=Export P Log
 Apply=Apply
 // 
 // Tab title 
@@ -144,6 +143,17 @@ Tension Stress(Kgf/mm2)=Tension Stress(Kgf/mm2)
 Roll to Plate Frict. Coef.=Roll to Plate Frict. Coef.
 // 9) f_r2r
 Roll to Roll Fric. Coef.=Roll to Roll Fric. Coef.
+
+// 10) tb_vel_rate
+Top-Bot. Vel Rete=Top-Bot. Vel Rete
+// 11) wr_trot
+Top WR Rot. Vel.(RPM)=Top WR Rot. Vel.(RPM)
+// 12) wr_brot
+Bottom WR Rot. Vel.(RPM)=Bottom WR Rot. Vel.(RPM)
+// 13) bur_trot
+Top BUR Rot. Vel.(RPM)=Top BUR Rot. Vel.(RPM)
+// 14) bur_brot
+Bottom BUR Rot. Vel.(RPM)=Bottom BUR Rot. Vel.(RPM)
 //---------------------------------------------------------------
 
 

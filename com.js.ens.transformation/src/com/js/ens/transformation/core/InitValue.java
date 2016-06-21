@@ -32,7 +32,7 @@ public class InitValue {
 				String value = "";
 				if(splitDataTokens.size()==1){
 					key = splitDataTokens.get(0).trim();
-					value = "BLANK";
+					value = "";
 					initValueMap.put(key,value);
 				}else{
 					key = splitDataTokens.get(0).trim();
@@ -100,11 +100,17 @@ public class InitValue {
 	public static String p_in_F1 = "p_in_F1";
 	public static String pl_m_F1 = "pl_m_F1";
 	public static String t_div_F1 = "t_div_F1";
+	
 
 	//group4
 	public static String f_r2p_F1 = "f_r2p_F1";
 	public static String f_r2r_F1 = "f_r2r_F1";
-
+	public static String tb_vel_rate_F1="tb_vel_rate_F1";
+	public static String wr_trot_F1="wr_trot_F1";
+	public static String wr_brot_F1="wr_brot_F1";
+	public static String bur_trot_F1="bur_trot_F1";
+	public static String bur_brot_F1="bur_brot_F1";
+	
 	//group5
 	public static String YM_Constant_F1 = "YM_Constant_F1";
 	public static String YM_Table_F1 = "YM_Table_F1";
@@ -143,7 +149,12 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F2 = "f_r2p_F2";
 	public static String f_r2r_F2 = "f_r2r_F2";
-
+	public static String tb_vel_rate_F2="tb_vel_rate_F2";
+	public static String wr_trot_F2="wr_trot_F2";
+	public static String wr_brot_F2="wr_brot_F2";
+	public static String bur_trot_F2="bur_trot_F2";
+	public static String bur_brot_F2="bur_brot_F2";
+	
 	//group5
 	public static String YM_Constant_F2 = "YM_Constant_F2";
 	public static String YM_Table_F2 = "YM_Table_F2";
@@ -183,7 +194,12 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F3 = "f_r2p_F3";
 	public static String f_r2r_F3 = "f_r2r_F3";
-
+	public static String tb_vel_rate_F3="tb_vel_rate_F3";
+	public static String wr_trot_F3="wr_trot_F3";
+	public static String wr_brot_F3="wr_brot_F3";
+	public static String bur_trot_F3="bur_trot_F3";
+	public static String bur_brot_F3="bur_brot_F3";
+	
 	//group5
 	public static String YM_Constant_F3 = "YM_Constant_F3";
 	public static String YM_Table_F3 = "YM_Table_F3";
@@ -222,6 +238,11 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F4 = "f_r2p_F4";
 	public static String f_r2r_F4 = "f_r2r_F4";
+	public static String tb_vel_rate_F4="tb_vel_rate_F4";
+	public static String wr_trot_F4="wr_trot_F4";
+	public static String wr_brot_F4="wr_brot_F4";
+	public static String bur_trot_F4="bur_trot_F4";
+	public static String bur_brot_F4="bur_brot_F4";
 
 	//group5
 	public static String YM_Constant_F4 = "YM_Constant_F4";
@@ -261,6 +282,11 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F5 = "f_r2p_F5";
 	public static String f_r2r_F5 = "f_r2r_F5";
+	public static String tb_vel_rate_F5="tb_vel_rate_F5";
+	public static String wr_trot_F5="wr_trot_F5";
+	public static String wr_brot_F5="wr_brot_F5";
+	public static String bur_trot_F5="bur_trot_F5";
+	public static String bur_brot_F5="bur_brot_F5";
 
 	//group5
 	public static String YM_Constant_F5 = "YM_Constant_F5";
@@ -301,6 +327,11 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F6 = "f_r2p_F6";
 	public static String f_r2r_F6 = "f_r2r_F6";
+	public static String tb_vel_rate_F6="tb_vel_rate_F6";
+	public static String wr_trot_F6="wr_trot_F6";
+	public static String wr_brot_F6="wr_brot_F6";
+	public static String bur_trot_F6="bur_trot_F6";
+	public static String bur_brot_F6="bur_brot_F6";
 
 	//group5
 	public static String YM_Constant_F6 = "YM_Constant_F6";
@@ -340,6 +371,11 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F7 = "f_r2p_F7";
 	public static String f_r2r_F7 = "f_r2r_F7";
+	public static String tb_vel_rate_F7="tb_vel_rate_F7";
+	public static String wr_trot_F7="wr_trot_F7";
+	public static String wr_brot_F7="wr_brot_F7";
+	public static String bur_trot_F7="bur_trot_F7";
+	public static String bur_brot_F7="bur_brot_F7";
 
 	//group5
 	public static String YM_Constant_F7 = "YM_Constant_F7";
@@ -391,7 +427,7 @@ public class InitValue {
 	public static String IDL_TIM_F1 = "IDL TIM_F1";
 	public static String BUR_WEAR_F1 = "BUR WEAR_F1";
 	public static String WR_WEAR_F1 = "WR WEAR_F1";
-	public static String WR_THRM_F1 = "THRM_F1";
+	public static String WR_THRM_F1 = "WR THRM_F1";
 	//
 	//F2
 	//
@@ -419,7 +455,7 @@ public class InitValue {
 	public static String IDL_TIM_F2 = "IDL TIM_F2";
 	public static String BUR_WEAR_F2 = "BUR WEAR_F2";
 	public static String WR_WEAR_F2 = "WR WEAR_F2";
-	public static String WR_THRM_F2 = "THRM_F2";
+	public static String WR_THRM_F2 = "WR THRM_F2";
 	//
 	//F3
 	//
@@ -447,7 +483,7 @@ public class InitValue {
 	public static String IDL_TIM_F3 = "IDL TIM_F3";
 	public static String BUR_WEAR_F3 = "BUR WEAR_F3";
 	public static String WR_WEAR_F3 = "WR WEAR_F3";
-	public static String WR_THRM_F3 = "THRM_F3";
+	public static String WR_THRM_F3 = "WR THRM_F3";
 	//
 	//F4
 	//
@@ -475,7 +511,7 @@ public class InitValue {
 	public static String IDL_TIM_F4 = "IDL TIM_F4";
 	public static String BUR_WEAR_F4 = "BUR WEAR_F4";
 	public static String WR_WEAR_F4 = "WR WEAR_F4";
-	public static String WR_THRM_F4 = "THRM_F4";
+	public static String WR_THRM_F4 = "WR THRM_F4";
 	//
 	//F5
 	//
@@ -503,7 +539,7 @@ public class InitValue {
 	public static String IDL_TIM_F5 = "IDL TIM_F5";
 	public static String BUR_WEAR_F5 = "BUR WEAR_F5";
 	public static String WR_WEAR_F5 = "WR WEAR_F5";
-	public static String WR_THRM_F5 = "THRM_F5";
+	public static String WR_THRM_F5 = "WR THRM_F5";
 	//
 	//F6
 	//
@@ -531,7 +567,7 @@ public class InitValue {
 	public static String IDL_TIM_F6 = "IDL TIM_F6";
 	public static String BUR_WEAR_F6 = "BUR WEAR_F6";
 	public static String WR_WEAR_F6 = "WR WEAR_F6";
-	public static String WR_THRM_F6 = "THRM_F6";
+	public static String WR_THRM_F6 = "WR THRM_F6";
 	//
 	//F7
 	//
@@ -559,6 +595,6 @@ public class InitValue {
 	public static String IDL_TIM_F7 = "IDL TIM_F7";
 	public static String BUR_WEAR_F7 = "BUR WEAR_F7";
 	public static String WR_WEAR_F7 = "WR WEAR_F7";
-	public static String WR_THRM_F7 = "THRM_F7";
+	public static String WR_THRM_F7 = "WR THRM_F7";
 	
 }

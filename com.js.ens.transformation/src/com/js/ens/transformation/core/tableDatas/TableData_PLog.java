@@ -50,6 +50,11 @@ public class TableData_PLog {
 	//group4
 	private String f_r2p = "";
 	private String f_r2r = "";
+	private String tb_vel_rate = "";
+	private String wr_trot = "";
+	private String wr_brot = "";
+	private String bur_trot = "";
+	private String bur_brot = "";
 	
 	//group5
 	private String YM_Constant = "";
@@ -130,6 +135,11 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F1);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F1);
+		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F1);
+		wr_trot = obj.getInitValue(InitValue.wr_trot_F1);
+		wr_brot = obj.getInitValue(InitValue.wr_brot_F1);
+		bur_trot = obj.getInitValue(InitValue.bur_trot_F1);
+		bur_brot = obj.getInitValue(InitValue.bur_brot_F1);
 		
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F1);
@@ -173,6 +183,11 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F2);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F2);
+		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F2);
+		wr_trot = obj.getInitValue(InitValue.wr_trot_F2);
+		wr_brot = obj.getInitValue(InitValue.wr_brot_F2);
+		bur_trot = obj.getInitValue(InitValue.bur_trot_F2);
+		bur_brot = obj.getInitValue(InitValue.bur_brot_F2);
 		
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F2);
@@ -216,6 +231,11 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F3);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F3);
+		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F3);
+		wr_trot = obj.getInitValue(InitValue.wr_trot_F3);
+		wr_brot = obj.getInitValue(InitValue.wr_brot_F3);
+		bur_trot = obj.getInitValue(InitValue.bur_trot_F3);
+		bur_brot = obj.getInitValue(InitValue.bur_brot_F3);
 		
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F3);
@@ -259,6 +279,11 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F4);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F4);
+		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F4);
+		wr_trot = obj.getInitValue(InitValue.wr_trot_F4);
+		wr_brot = obj.getInitValue(InitValue.wr_brot_F4);
+		bur_trot = obj.getInitValue(InitValue.bur_trot_F4);
+		bur_brot = obj.getInitValue(InitValue.bur_brot_F4);
 		
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F4);
@@ -302,6 +327,11 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F5);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F5);
+		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F5);
+		wr_trot = obj.getInitValue(InitValue.wr_trot_F5);
+		wr_brot = obj.getInitValue(InitValue.wr_brot_F5);
+		bur_trot = obj.getInitValue(InitValue.bur_trot_F5);
+		bur_brot = obj.getInitValue(InitValue.bur_brot_F5);
 		
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F5);
@@ -345,6 +375,11 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F6);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F6);
+		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F6);
+		wr_trot = obj.getInitValue(InitValue.wr_trot_F6);
+		wr_brot = obj.getInitValue(InitValue.wr_brot_F6);
+		bur_trot = obj.getInitValue(InitValue.bur_trot_F6);
+		bur_brot = obj.getInitValue(InitValue.bur_brot_F6);
 		
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F6);
@@ -388,6 +423,11 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F7);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F7);
+		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F7);
+		wr_trot = obj.getInitValue(InitValue.wr_trot_F7);
+		wr_brot = obj.getInitValue(InitValue.wr_brot_F7);
+		bur_trot = obj.getInitValue(InitValue.bur_trot_F7);
+		bur_brot = obj.getInitValue(InitValue.bur_brot_F7);
 		
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F7);
@@ -820,11 +860,51 @@ public class TableData_PLog {
 		PR_Table = pR_Table;
 	}
 
+	public String getTb_vel_rate() {
+		return tb_vel_rate;
+	}
+
+	public void setTb_vel_rate(String tb_vel_rate) {
+		this.tb_vel_rate = tb_vel_rate;
+	}
+
+	public String getWr_trot() {
+		return wr_trot;
+	}
+
+	public void setWr_trot(String wr_trot) {
+		this.wr_trot = wr_trot;
+	}
+
+	public String getWr_brot() {
+		return wr_brot;
+	}
+
+	public void setWr_brot(String wr_brot) {
+		this.wr_brot = wr_brot;
+	}
+
+	public String getBur_trot() {
+		return bur_trot;
+	}
+
+	public void setBur_trot(String bur_trot) {
+		this.bur_trot = bur_trot;
+	}
+
+	public String getBur_brot() {
+		return bur_brot;
+	}
+
+	public void setBur_brot(String bur_brot) {
+		this.bur_brot = bur_brot;
+	}
+
 	public ArrayList<String> getDB(){
 		ArrayList<String> DB = new ArrayList<String>();
 		
 		DB.add("#########################################");
-		DB.add("##########       STAND F1      ##########");
+		DB.add("#===>  STAND "+this.STAND);
 		
 		//group1 
 		DB.add(UILabel.Top_WR_Diameter			+"="+	this.WR_TDIA);
@@ -855,7 +935,12 @@ public class TableData_PLog {
 		DB.add(UILabel.Roll_Torque				+"="+	this.TORQ);
 		DB.add(UILabel.Tension_Stress			+"="+	this.TENS);
 		DB.add(UILabel.Roll_to_Plate_Frict_Coef	+"="+	this.f_r2p);
-		DB.add(UILabel.Roll_to_Roll_Fric_Coef	+"="+	this.f_r2r);		
+		DB.add(UILabel.Roll_to_Roll_Fric_Coef	+"="+	this.f_r2r);
+		DB.add(UILabel.Top_Bot_Vel_Rete			+"="+	this.tb_vel_rate);
+		DB.add(UILabel.Top_WR_Rot_Vel_RPM		+"="+	this.wr_trot);
+		DB.add(UILabel.Bottom_WR_Rot_Vel_RPM	+"="+	this.wr_brot);
+		DB.add(UILabel.Top_BUR_Rot_Vel_RPM		+"="+	this.bur_trot);
+		DB.add(UILabel.Bottom_BUR_Rot_Vel_RPM	+"="+	this.bur_brot);
 		//group5
 		DB.add("YM_Constant"					+"="+	this.YM_Constant);
 		DB.add("YM_Table"						+"="+	this.YM_Table);
@@ -876,44 +961,23 @@ public class TableData_PLog {
 		DB.add(UILabel.Domain					+"="+	this.Domain);
 		DB.add(UILabel.Parallel_Multi_Thread	+"="+	this.ParallelMultiThread);
 		DB.add(UILabel.Thread					+"="+	this.Thread);		
-		//
+		//PLog values
+		DB.add("FRCE"							+"="+	this.FRCE);
+		DB.add("EXIT THK"						+"="+	this.EXIT_THK);
+		DB.add("ROL TIM"						+"="+	this.ROL_TIM);
+		DB.add("IDL TIM"						+"="+	this.IDL_TIM);
+		DB.add("BUR WEAR"						+"="+	this.BUR_WEAR);
+		DB.add("WR WEAR"						+"="+	this.WR_WEAR);
+		DB.add("WR THRM"						+"="+	this.WR_THRM);
 		DB.add("#########################################");		
 		
 		return DB;
 	}
 	
 	public void printAllData(){
-		System.out.println("<<Table - P Log>>");
+		//System.out.println("<<Table - P Log>>");
 		for(String line : this.getDB()){
 			System.out.println(line);
 		}
-		/*
-		System.out.println("STAND = "+this.STAND);
-		System.out.println("BUR_TDIA = "+this.BUR_TDIA);
-		System.out.println("BUR_BDIA = "+this.BUR_BDIA);
-		System.out.println("WR_TDIA = "+this.WR_TDIA);
-		System.out.println("WR_BDIA = "+this.WR_BDIA);
-		System.out.println("WR_ICRN = "+this.WR_ICRN);
-		System.out.println("ENTRY_THK = "+this.ENTRY_THK);
-		System.out.println("EXIT_THK = "+this.EXIT_THK);
-		System.out.println("PAS_LINE = "+this.PAS_LINE);
-		System.out.println("ROL_GAP = "+this.ROL_GAP);
-		System.out.println("STP_WID = "+this.STP_WID);
-		System.out.println("STP_LEN = "+this.STP_LEN);
-		System.out.println("ENTRY_TEMP = "+this.ENTRY_TEMP);
-		System.out.println("EXIT_TEMP = "+this.EXIT_TEMP);
-		System.out.println("FRCE = "+this.FRCE);
-		System.out.println("TORQ = "+this.TORQ);
-		System.out.println("SPEED = "+this.SPEED);
-		System.out.println("BEND = "+this.BEND);
-		System.out.println("P_CROSS = "+this.P_CROSS);
-		System.out.println("TENS = "+this.TENS);
-		System.out.println("ROL_TIM = "+this.ROL_TIM);
-		System.out.println("IDL_TIM = "+this.IDL_TIM);
-		System.out.println("BUR_WEAR = "+this.BUR_WEAR);
-		System.out.println("WR_WEAR = "+this.WR_WEAR);
-		System.out.println("WR_THRM = "+this.WR_THRM);
-		*/
-		
 	}
 }

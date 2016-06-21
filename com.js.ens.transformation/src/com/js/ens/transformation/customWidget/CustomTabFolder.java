@@ -26,11 +26,17 @@ public class CustomTabFolder implements ICommand {
 			System.out.println(tabFolder.getSelection()[0].getText());
 			// tabItem no 0 , 1
 			System.out.println(tabFolder.getSelectionIndex());
+			if(tabFolder.getSelectionIndex() == 0){
+				MC.ChangedTabFolder(0);
+			}else if(tabFolder.getSelectionIndex() == 1){
+				MC.ChangedTabFolder(1);
+			}
 		}
 	}
 	
 	public void setCustomWidget_tabFolder(){
 		this.tabFolder = med.getTabFolder();
+		
 	}
 
 }
