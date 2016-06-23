@@ -2,6 +2,7 @@ package com.js.ens.transformation.core.tableDatas;
 
 import java.util.ArrayList;
 
+import com.js.ens.transformation.core.InitValue;
 import com.js.parser.ParserDefault;
 
 public class TableData_SlabPlateInfo {
@@ -109,20 +110,26 @@ public class TableData_SlabPlateInfo {
 	
 	public void printAllData(){
 		System.out.println("<<Table - SlabPlateInfo>>");
-		System.out.println("STRIP_NO : "+this.STRIP_NO);
-		System.out.println("STHK : "+this.STHK);
-		System.out.println("SWID : "+this.SWID);
-		System.out.println("SLEN : "+this.SLEN);
-		System.out.println("SWET : "+this.SWET);
-		System.out.println("PTHK : "+this.PTHK);
-		System.out.println("PWID : "+this.PWID);
-		System.out.println("PLEN : "+this.PLEN);
-		System.out.println("PWET : "+this.PWET);
+		for(String line : this.getDB()){
+			System.out.println(line);
+		}
 	}
 	
-	public String getDB(){
-		return "";
-	}
+	public ArrayList<String> getDB(){
+		ArrayList<String> DB = new ArrayList<String>();
+		DB.add("#########################################");
+		DB.add("#-> SlabPlate Info");
+		
+		DB.add(InitValue.STRIP_NO	+"="+	this.STRIP_NO);
+		DB.add(InitValue.STHK	 	+"="+	this.STHK);
+		DB.add(InitValue.SWID	 	+"="+	this.SWID);
+		DB.add(InitValue.SLEN	 	+"="+	this.SLEN);
+		DB.add(InitValue.SWET	 	+"="+	this.SWET);
+		DB.add(InitValue.PTHK	 	+"="+	this.PTHK);
+		DB.add(InitValue.PWID	 	+"="+	this.PWID);
+		DB.add(InitValue.PLEN	 	+"="+	this.PLEN);
+		DB.add(InitValue.PWET 		+"="+	this.PWET);
 
-	
+		return DB;
+	}
 }

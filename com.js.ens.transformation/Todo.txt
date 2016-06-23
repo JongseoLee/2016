@@ -3,7 +3,8 @@
 * InitValue -> PLog와 연동 
 * UI 추가 
 * TabFolder 이벤트 완성
-* Import P Log -> F1~F7 와 연동 
+* Import P Log -> F1~F7 와 연동
+* File Menu Dialog  
 <진행>
 * DB 파일 생성
 * Open DB 파일 

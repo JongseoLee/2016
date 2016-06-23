@@ -3,52 +3,116 @@ package com.js.ens.transformation.core.tableDatas;
 import java.util.ArrayList;
 
 import com.js.ens.transformation.core.InitValue;
-import com.js.parser.ParserDefault;
 
-public class TableData_Variable {
+public class TableData_common {
+	//
+	//Basic
+	//
+	private String STRIP ="";
+	private String STHK="";
+	private String SWID="";
+	private String SLEN="";
+	private String SWET="";
+	private String PTHK="";
+	private String PWID="";
+	private String PLEN="";
+	private String PWET="";
+	//
+	//Var
+	//
+	private String VAR1="";
+	private String VAR2="";
+	private String VAR3="";
+	private String VAR4="";
+	private String VAR5="";
+	private String VAR6="";
+	private String VAR7="";
+	private String VAR8="";
+	private String VAR9="";
+	private String VAR10="";
+	private String VAR11="";
+	private String VAR12="";
+	private String VAR13="";
+	private String VAR14="";
+	private String VAR15="";
+	private String VAR16="";
 	
-	private String VAR1 = "";
-	private String VAR2 = "";
-	private String VAR3 = "";
-	private String VAR4 = "";
-	private String VAR5 = "";
-	private String VAR6 = "";
-	private String VAR7 = "";
-	private String VAR8 = "";
-	private String VAR9 = "";
-	private String VAR10 = "";
-	private String VAR11 = "";
-	private String VAR12 = "";
-	private String VAR13 = "";
-	private String VAR14 = "";
-	private String VAR15 = "";
-	private String VAR16 = "";
-	
-	public TableData_Variable() {
+	public TableData_common() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public void setAllData(String data){
-		ArrayList<String> tempList = ParserDefault.splitLineData(data, ",");
-		
-		this.setVAR1((tempList.get(0).length()!=0)?tempList.get(0):"");
-		this.setVAR2((tempList.get(1).length()!=0)?tempList.get(1):"");
-		this.setVAR3((tempList.get(2).length()!=0)?tempList.get(2):"");
-		this.setVAR4((tempList.get(3).length()!=0)?tempList.get(3):"");
-		this.setVAR5((tempList.get(4).length()!=0)?tempList.get(4):"");
-		this.setVAR6((tempList.get(5).length()!=0)?tempList.get(5):"");
-		this.setVAR7((tempList.get(6).length()!=0)?tempList.get(6):"");
-		this.setVAR8((tempList.get(7).length()!=0)?tempList.get(7):"");
-		this.setVAR9((tempList.get(8).length()!=0)?tempList.get(8):"");
-		this.setVAR10((tempList.get(9).length()!=0)?tempList.get(9):"");
-		this.setVAR11((tempList.get(10).length()!=0)?tempList.get(10):"");
-		this.setVAR12((tempList.get(11).length()!=0)?tempList.get(11):"");
-		this.setVAR13((tempList.get(12).length()!=0)?tempList.get(12):"");
-		this.setVAR14((tempList.get(13).length()!=0)?tempList.get(13):"");
-		this.setVAR15((tempList.get(14).length()!=0)?tempList.get(14):"");
-		this.setVAR16((tempList.get(15).length()!=0)?tempList.get(15):"");
+
+	public String getSTRIP() {
+		return STRIP;
 	}
-	
+
+	public void setSTRIP(String sTRIP) {
+		STRIP = sTRIP;
+	}
+
+	public String getSTHK() {
+		return STHK;
+	}
+
+	public void setSTHK(String sTHK) {
+		STHK = sTHK;
+	}
+
+	public String getSWID() {
+		return SWID;
+	}
+
+	public void setSWID(String sWID) {
+		SWID = sWID;
+	}
+
+	public String getSLEN() {
+		return SLEN;
+	}
+
+	public void setSLEN(String sLEN) {
+		SLEN = sLEN;
+	}
+
+	public String getSWET() {
+		return SWET;
+	}
+
+	public void setSWET(String sWET) {
+		SWET = sWET;
+	}
+
+	public String getPTHK() {
+		return PTHK;
+	}
+
+	public void setPTHK(String pTHK) {
+		PTHK = pTHK;
+	}
+
+	public String getPWID() {
+		return PWID;
+	}
+
+	public void setPWID(String pWID) {
+		PWID = pWID;
+	}
+
+	public String getPLEN() {
+		return PLEN;
+	}
+
+	public void setPLEN(String pLEN) {
+		PLEN = pLEN;
+	}
+
+	public String getPWET() {
+		return PWET;
+	}
+
+	public void setPWET(String pWET) {
+		PWET = pWET;
+	}
+
 	public String getVAR1() {
 		return VAR1;
 	}
@@ -180,7 +244,17 @@ public class TableData_Variable {
 	public ArrayList<String> getDB(){
 		ArrayList<String> DB = new ArrayList<String>();
 		DB.add("#########################################");
-		DB.add("#-> Variable Info");
+		DB.add("#-> Common");
+		
+		DB.add(InitValue.STRIP_NO	+"="+	this.STRIP);
+		DB.add(InitValue.STHK	 	+"="+	this.STHK);
+		DB.add(InitValue.SWID	 	+"="+	this.SWID);
+		DB.add(InitValue.SLEN	 	+"="+	this.SLEN);
+		DB.add(InitValue.SWET	 	+"="+	this.SWET);
+		DB.add(InitValue.PTHK	 	+"="+	this.PTHK);
+		DB.add(InitValue.PWID	 	+"="+	this.PWID);
+		DB.add(InitValue.PLEN	 	+"="+	this.PLEN);
+		DB.add(InitValue.PWET 		+"="+	this.PWET);
 		
 		DB.add(InitValue.VAR1	 	+"="+	this.VAR1);
 		DB.add(InitValue.VAR2	 	+"="+	this.VAR2);

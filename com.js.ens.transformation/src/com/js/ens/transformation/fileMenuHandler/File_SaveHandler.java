@@ -5,8 +5,10 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 
-public class File_SaveHandler extends AbstractHandler implements IHandler {
+import com.js.ens.transformation.core.MainController;
 
+public class File_SaveHandler extends AbstractHandler implements IHandler {
+	private MainController MC = MainController.getInstance();
 	public File_SaveHandler() {
 		// TODO Auto-generated constructor stub
 	}
@@ -14,7 +16,7 @@ public class File_SaveHandler extends AbstractHandler implements IHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		// TODO Auto-generated method stub
-		System.out.println("menu - Save");
+		MC.SaveProject();
 		return null;
 	}
 

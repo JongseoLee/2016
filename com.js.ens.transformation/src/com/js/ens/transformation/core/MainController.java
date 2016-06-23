@@ -37,8 +37,15 @@ import com.js.ens.transformation.core.tableDatas.TableRowData_WR_TDIA;
 import com.js.ens.transformation.core.tableDatas.TableRowData_WR_THRM;
 import com.js.ens.transformation.core.tableDatas.TableRowData_WR_WEAR;
 import com.js.ens.transformation.dialog.ApplyDlg;
+import com.js.ens.transformation.dialog.ExportDlg;
 import com.js.ens.transformation.dialog.NewDlg;
+import com.js.ens.transformation.dialog.OpenDlg;
+import com.js.ens.transformation.dialog.ResultDlg;
+import com.js.ens.transformation.dialog.SaveAsDlg;
+import com.js.ens.transformation.dialog.SaveDlg;
+import com.js.ens.transformation.dialog.MessageDlg;
 import com.js.io.Reader;
+import com.js.io.Writer;
 import com.js.parser.ParserDefault;
 import com.js.util.myUtil;
 
@@ -71,6 +78,7 @@ public class MainController {
 	private Map<String,String> tableDataVariableMap = null;
 	
 	// tableDataPLogList 는 F1 ~ F7 까지의 데이터 7개 obj가 저장됨
+	//private TableData_common  tabeDataCommon = null;
 	private ArrayList<TableData_PLog> tableDataPLogList = null;
 	private Map<String,String> tableDataPLogMap; 
 	private ArrayList<TableRowData> tableRowDataList = null;
@@ -678,7 +686,10 @@ public class MainController {
 		med.getBtnApply().setEnabled(true);
 	}
 	
-	private void CleaerAllData(){
+	private void CleanAllData(){
+		this.setUpDataSheet();
+		this.AllComponentEnable();
+		this.InitComponentValue();
 	}
 	
 	//F1~F7에서 입력해서 데이터 저장할때 Obj 생성하는 곳
@@ -699,10 +710,41 @@ public class MainController {
 	// File menu - Open Project
 	//
 	public void OpenProject(){
+		OpenDlg openDlg = new OpenDlg(Display.getCurrent().getActiveShell());
+		openDlg.open();
 	}
 	
-	public void RunOpenProject(){
+	public void RunOpenProject(String DBFilePath){
+		System.out.println(DBFilePath);
+		this.CleanAllData();	//InitValue로 초기화
+		this.readDBFile(DBFilePath);
+		
 	}
+	
+	private void readDBFile(String DBFielPath){
+		Reader obj = new Reader(DBFielPath);
+		obj.running();
+		for(String line : obj.getFileDataList()){
+			System.out.println(line);
+		}
+		
+		/*
+		 * 1) opne 하면 modelName Workspace 라벨 변경 
+		 * 2) #-> SlabPlate Info
+		 *    #-> Variable Info
+		 * 	  #-> STAND F2
+		 * 	 이거로 구분해서 각각 obj에 저장 
+		 */
+		
+	}
+	
+	//
+	//
+	//=====================================================================
+
+	//=====================================================================
+	// File menu - Save Project
+	//
 	//
 	//
 	//=====================================================================
@@ -711,9 +753,41 @@ public class MainController {
 	// File menu - Save Project
 	//
 	public void SaveProject(){
+		SaveDlg saveDlg = new SaveDlg(Display.getCurrent().getActiveShell());
+		saveDlg.open();
 	}
 	
 	public void RunSaveProject(){
+		System.out.println("Save Project");
+		// Create DB File => modelName.ens
+		ArrayList<String> outputDBList = new ArrayList<String>();
+		String DBPath = myUtil.setPath(this.workspace, this.modelName+".ens");
+		outputDBList.add("###################");
+		outputDBList.add("### ENS DB FILE ###");
+		outputDBList.add("###################");
+		outputDBList.add("Model Name="+this.modelName);
+		outputDBList.add("Workspace="+this.workspace);
+		try{
+			for(String line1 : this.TableDataSlabPlateInfoObj.getDB()){
+				outputDBList.add(line1);
+			}
+			for(String line2 : this.TableDataVariableObj.getDB()){
+				outputDBList.add(line2);
+			}
+			for(TableData_PLog obj : this.tableDataPLogList){
+				for(String line3 : obj.getDB()){
+					outputDBList.add(line3);
+				}
+			}
+			Writer obj = new Writer(DBPath,outputDBList);
+			obj.running();
+			
+		}catch(Exception e){
+			String msg = "ERROR - Save Data";
+			msg = msg +"\n"+e.getMessage();
+			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(),msg);
+			messageDlg.open();
+		}
 	}
 	//
 	//
@@ -723,9 +797,55 @@ public class MainController {
 	// File menu - Save As Project
 	//
 	public void SaveAsProject(){
+		SaveAsDlg saveAsDlg = new SaveAsDlg(Display.getCurrent().getActiveShell());
+		saveAsDlg.open();
 	}
 	
-	public void RunSaveAsProject(){
+	public void RunSaveAsProject(String newPath, String newModelName){
+		// SaveAs DB File => modelName.ens 
+		ArrayList<String> outputDBList = new ArrayList<String>();
+		this.modelName = newModelName;
+		String topFolder =  myUtil.setPath(newPath, newModelName);
+		String procFolder = myUtil.setPath(topFolder, "proc");
+		String resultFolder = myUtil.setPath(topFolder, "result");
+		String newDBFilePath = myUtil.setPath(topFolder, newModelName+".ens");
+		this.workspace = topFolder;
+		
+		med.getLblModelNameValue().setText(this.modelName);
+		med.getLblWorkspacePath().setText(this.workspace);
+
+		myUtil.makeDir(topFolder);
+		myUtil.makeDir(procFolder);
+		myUtil.makeDir(resultFolder);
+		
+		outputDBList.add("###################");
+		outputDBList.add("### ENS DB FILE ###");
+		outputDBList.add("###################");
+		outputDBList.add("Model Name="+this.modelName);
+		outputDBList.add("Workspace="+this.workspace);
+		
+		try{
+			if(newDBFilePath != null){
+				for(String line1 : this.TableDataSlabPlateInfoObj.getDB()){
+					outputDBList.add(line1);
+				}
+				for(String line2 : this.TableDataVariableObj.getDB()){
+					outputDBList.add(line2);
+				}
+				for(TableData_PLog obj : this.tableDataPLogList){
+					for(String line3 : obj.getDB()){
+						outputDBList.add(line3);
+					}
+				}
+				Writer obj = new Writer(newDBFilePath,outputDBList);
+				obj.running();
+			}
+		}catch(Exception e){
+			String msg = "ERROR - Save Data";
+			msg = msg +"\n"+e.getMessage();
+			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(),msg);
+			messageDlg.open();
+		}
 	}
 	//
 	//
@@ -735,9 +855,13 @@ public class MainController {
 	// File menu - Export Project
 	//
 	public void ExportProject(){
+		ExportDlg exportDlg = new ExportDlg(Display.getCurrent().getActiveShell());
+		exportDlg.open();
 	}
 	
 	public void RunExportProject(){
+		//모든 proc 생성
+		System.out.println("Export");
 	}
 	//
 	//
@@ -747,10 +871,11 @@ public class MainController {
 	// File menu - Result Project
 	//
 	public void ResultProject(){
+		ResultDlg resultDlg = new ResultDlg(Display.getCurrent().getActiveShell());
+		resultDlg.open();
 	}
 	
-	public void RunResultProject(){
-	}
+	
 	//
 	//
 	//=====================================================================
@@ -776,7 +901,7 @@ public class MainController {
 		this.initF1Values();
 		this.saveAllF1Values();
 	
-		// initvalue -> plog table 동기화
+		// initvalue -> PLog table 동기화
 		this.initPLogTables();
 	}
 	
@@ -4192,9 +4317,24 @@ public class MainController {
 		}
 	}
 	
+	
 	//
 	//
 	//=====================================================================
+	
+	public String getModelName() {
+		return modelName;
+	}
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+	public String getWorkspace() {
+		return workspace;
+	}
+	public void setWorkspace(String workspace) {
+		this.workspace = workspace;
+	}
+	
 }
 
 

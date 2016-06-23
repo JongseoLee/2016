@@ -904,7 +904,7 @@ public class TableData_PLog {
 		ArrayList<String> DB = new ArrayList<String>();
 		
 		DB.add("#########################################");
-		DB.add("#===>  STAND "+this.STAND);
+		DB.add("#->STAND="+this.STAND);
 		
 		//group1 
 		DB.add(UILabel.Top_WR_Diameter			+"="+	this.WR_TDIA);
