@@ -1,0 +1,23 @@
+| Created by Marc Mentat 2013.1.0 (64bit)
+*prog_option compatibility:prog_version:ment2013.1
+|
+*open_model wr_top_3d.mud
+*move_reset
+*set_move_translation y (wr_tdia+roll_gap)/2
+*move_model
+*save_model
+*open_model bur_top_3d.mud
+*move_reset
+*set_move_translation y wr_tdia+(bur_tdia+roll_gap)/2
+*move_model
+*save_model
+*open_model wr_bottom_3d.mud
+*move_reset
+*set_move_translation y -1*(wr_bdia+roll_gap)/2
+*move_model
+*save_model
+*open_model bur_bottom_3d.mud
+*move_reset
+*set_move_translation y -wr_bdia-(bur_bdia+roll_gap)/2
+*move_model
+*save_model

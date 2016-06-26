@@ -1,0 +1,20 @@
+| Created by Marc Mentat 2013.1.0 (64bit)
+*prog_option compatibility:prog_version:ment2013.1
+*prog_analysis_class structural
+*prog_use_current_job on
+| Generate Roller Table 
+*exec_proc 02_rtable_gen_f1_f7.proc
+*merge_models wr_top_3d.mud
+*merge_models wr_bottom_3d.mud
+*merge_models bur_top_3d.mud
+*merge_models bur_bottom_3d.mud
+*fill_view
+*renumber_all
+*identify_sets *regen
+| Blocked the below due to using model section option
+| *exec_procedure 051_material_property.proc 
+*exec_procedure 052_contact_f1_f7.proc
+|*exec_procedure 053_initial_condition.proc
+*exec_procedure 054_link_gen.proc
+*exec_procedure 055_boundary_condition_f1_f7.proc
+*sweep_all

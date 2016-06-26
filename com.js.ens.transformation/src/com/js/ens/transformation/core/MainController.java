@@ -1,6 +1,7 @@
 package com.js.ens.transformation.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -44,6 +45,7 @@ import com.js.ens.transformation.dialog.ResultDlg;
 import com.js.ens.transformation.dialog.SaveAsDlg;
 import com.js.ens.transformation.dialog.SaveDlg;
 import com.js.ens.transformation.dialog.MessageDlg;
+import com.js.ens.transformation.proc.ProcMaker;
 import com.js.io.Reader;
 import com.js.io.Writer;
 import com.js.parser.ParserDefault;
@@ -603,6 +605,284 @@ public class MainController {
 	//
 	public void ExportPLog(){
 		System.out.println("Export P Log File");
+		
+		ArrayList<String> initDataList = new ArrayList<String>();
+		initDataList.add("STRIP NO,STHK,SWID,SLEN,SWET,PTHK,PWID,PLEN,PWET,,,,,,,");
+		String line2 = TableDataSlabPlateInfoObj.getSTRIP_NO()+","+
+						TableDataSlabPlateInfoObj.getSTHK()+","+
+						TableDataSlabPlateInfoObj.getSWID()+","+
+						TableDataSlabPlateInfoObj.getSLEN()+","+
+						TableDataSlabPlateInfoObj.getSWET()+","+
+						TableDataSlabPlateInfoObj.getPTHK()+","+
+						TableDataSlabPlateInfoObj.getPWID()+","+
+						TableDataSlabPlateInfoObj.getPLEN()+","+
+						TableDataSlabPlateInfoObj.getPWET()+","+
+						",,,,,,";
+		initDataList.add(line2);
+		initDataList.add(",,,,,,,,,,,,,,,");
+		initDataList.add("VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8,VAR9,VAR10,VAR11,VAR12,VAR13,VAR14,VAR15,VAR16");
+		String line5 = TableDataVariableObj.getVAR1()+","+
+						TableDataVariableObj.getVAR2()+","+
+						TableDataVariableObj.getVAR3()+","+
+						TableDataVariableObj.getVAR4()+","+
+						TableDataVariableObj.getVAR5()+","+
+						TableDataVariableObj.getVAR6()+","+
+						TableDataVariableObj.getVAR7()+","+
+						TableDataVariableObj.getVAR8()+","+
+						TableDataVariableObj.getVAR9()+","+
+						TableDataVariableObj.getVAR10()+","+
+						TableDataVariableObj.getVAR11()+","+
+						TableDataVariableObj.getVAR12()+","+
+						TableDataVariableObj.getVAR13()+","+
+						TableDataVariableObj.getVAR14()+","+
+						TableDataVariableObj.getVAR15()+","+
+						TableDataVariableObj.getVAR16();
+		initDataList.add(line5);
+		initDataList.add(",,,,,,,,,,,,,,,");
+		initDataList.add("STAND,F1,F2,F3,F4,F5,F6,F7,,,,,,,,");
+		String line8 = "BUR TDIA"+","+
+					tableDataPLogList.get(0).getBUR_TDIA()+","+
+					tableDataPLogList.get(1).getBUR_TDIA()+","+
+					tableDataPLogList.get(2).getBUR_TDIA()+","+
+					tableDataPLogList.get(3).getBUR_TDIA()+","+
+					tableDataPLogList.get(4).getBUR_TDIA()+","+
+					tableDataPLogList.get(5).getBUR_TDIA()+","+
+					tableDataPLogList.get(6).getBUR_TDIA()+","+
+					",,,,,,,";
+		initDataList.add(line8);
+		String line9 = "BUR BDIA"+","+
+					tableDataPLogList.get(0).getBUR_BDIA()+","+
+					tableDataPLogList.get(1).getBUR_BDIA()+","+
+					tableDataPLogList.get(2).getBUR_BDIA()+","+
+					tableDataPLogList.get(3).getBUR_BDIA()+","+
+					tableDataPLogList.get(4).getBUR_BDIA()+","+
+					tableDataPLogList.get(5).getBUR_BDIA()+","+
+					tableDataPLogList.get(6).getBUR_BDIA()+","+
+					",,,,,,,";
+		initDataList.add(line9);
+		String line10 = "WR TDIA"+","+
+					tableDataPLogList.get(0).getWR_TDIA()+","+
+					tableDataPLogList.get(1).getWR_TDIA()+","+
+					tableDataPLogList.get(2).getWR_TDIA()+","+
+					tableDataPLogList.get(3).getWR_TDIA()+","+
+					tableDataPLogList.get(4).getWR_TDIA()+","+
+					tableDataPLogList.get(5).getWR_TDIA()+","+
+					tableDataPLogList.get(6).getWR_TDIA()+","+
+					",,,,,,,";
+		initDataList.add(line10);
+		String line11 = "WR BDIA"+","+
+					tableDataPLogList.get(0).getWR_BDIA()+","+
+					tableDataPLogList.get(1).getWR_BDIA()+","+
+					tableDataPLogList.get(2).getWR_BDIA()+","+
+					tableDataPLogList.get(3).getWR_BDIA()+","+
+					tableDataPLogList.get(4).getWR_BDIA()+","+
+					tableDataPLogList.get(5).getWR_BDIA()+","+
+					tableDataPLogList.get(6).getWR_BDIA()+","+
+					",,,,,,,";
+		initDataList.add(line11);
+		String line12 = "WR ICRN"+","+
+					tableDataPLogList.get(0).getWR_ICRN()+","+
+					tableDataPLogList.get(1).getWR_ICRN()+","+
+					tableDataPLogList.get(2).getWR_ICRN()+","+
+					tableDataPLogList.get(3).getWR_ICRN()+","+
+					tableDataPLogList.get(4).getWR_ICRN()+","+
+					tableDataPLogList.get(5).getWR_ICRN()+","+
+					tableDataPLogList.get(6).getWR_ICRN()+","+
+					",,,,,,,";
+		initDataList.add(line12);
+		String line13 = "ENTRY THK"+","+
+					tableDataPLogList.get(0).getENTRY_THK()+","+
+					tableDataPLogList.get(1).getENTRY_THK()+","+
+					tableDataPLogList.get(2).getENTRY_THK()+","+
+					tableDataPLogList.get(3).getENTRY_THK()+","+
+					tableDataPLogList.get(4).getENTRY_THK()+","+
+					tableDataPLogList.get(5).getENTRY_THK()+","+
+					tableDataPLogList.get(6).getENTRY_THK()+","+
+					",,,,,,,";
+		initDataList.add(line13);
+		String line14 = "EXIT THK"+","+
+					tableDataPLogList.get(0).getEXIT_THK()+","+
+					tableDataPLogList.get(1).getEXIT_THK()+","+
+					tableDataPLogList.get(2).getEXIT_THK()+","+
+					tableDataPLogList.get(3).getEXIT_THK()+","+
+					tableDataPLogList.get(4).getEXIT_THK()+","+
+					tableDataPLogList.get(5).getEXIT_THK()+","+
+					tableDataPLogList.get(6).getEXIT_THK()+","+
+					",,,,,,,";
+		initDataList.add(line14);
+		String line15 = "PAS LINE"+","+
+					tableDataPLogList.get(0).getPAS_LINE()+","+
+					tableDataPLogList.get(1).getPAS_LINE()+","+
+					tableDataPLogList.get(2).getPAS_LINE()+","+
+					tableDataPLogList.get(3).getPAS_LINE()+","+
+					tableDataPLogList.get(4).getPAS_LINE()+","+
+					tableDataPLogList.get(5).getPAS_LINE()+","+
+					tableDataPLogList.get(6).getPAS_LINE()+","+
+					",,,,,,,";
+		initDataList.add(line15);
+		String line16 = "ROL GAP"+","+
+					tableDataPLogList.get(0).getROL_GAP()+","+
+					tableDataPLogList.get(1).getROL_GAP()+","+
+					tableDataPLogList.get(2).getROL_GAP()+","+
+					tableDataPLogList.get(3).getROL_GAP()+","+
+					tableDataPLogList.get(4).getROL_GAP()+","+
+					tableDataPLogList.get(5).getROL_GAP()+","+
+					tableDataPLogList.get(6).getROL_GAP()+","+
+					",,,,,,,";
+		initDataList.add(line16);
+		String line17 = "STP WID"+","+
+					tableDataPLogList.get(0).getSTP_WID()+","+
+					tableDataPLogList.get(1).getSTP_WID()+","+
+					tableDataPLogList.get(2).getSTP_WID()+","+
+					tableDataPLogList.get(3).getSTP_WID()+","+
+					tableDataPLogList.get(4).getSTP_WID()+","+
+					tableDataPLogList.get(5).getSTP_WID()+","+
+					tableDataPLogList.get(6).getSTP_WID()+","+
+					",,,,,,,";
+		initDataList.add(line17);
+		String line18 = "STP LEN"+","+
+					tableDataPLogList.get(0).getSTP_LEN()+","+
+					tableDataPLogList.get(1).getSTP_LEN()+","+
+					tableDataPLogList.get(2).getSTP_LEN()+","+
+					tableDataPLogList.get(3).getSTP_LEN()+","+
+					tableDataPLogList.get(4).getSTP_LEN()+","+
+					tableDataPLogList.get(5).getSTP_LEN()+","+
+					tableDataPLogList.get(6).getSTP_LEN()+","+
+					",,,,,,,";
+		initDataList.add(line18);
+		String line19 = "ENTRY TEMP"+","+
+					tableDataPLogList.get(0).getSTP_LEN()+","+
+					tableDataPLogList.get(1).getSTP_LEN()+","+
+					tableDataPLogList.get(2).getSTP_LEN()+","+
+					tableDataPLogList.get(3).getSTP_LEN()+","+
+					tableDataPLogList.get(4).getSTP_LEN()+","+
+					tableDataPLogList.get(5).getSTP_LEN()+","+
+					tableDataPLogList.get(6).getSTP_LEN()+","+
+					",,,,,,,";
+		initDataList.add(line19);
+		String line20 = "EXIT TEMP"+","+
+					tableDataPLogList.get(0).getEXIT_TEMP()+","+
+					tableDataPLogList.get(1).getEXIT_TEMP()+","+
+					tableDataPLogList.get(2).getEXIT_TEMP()+","+
+					tableDataPLogList.get(3).getEXIT_TEMP()+","+
+					tableDataPLogList.get(4).getEXIT_TEMP()+","+
+					tableDataPLogList.get(5).getEXIT_TEMP()+","+
+					tableDataPLogList.get(6).getEXIT_TEMP()+","+
+					",,,,,,,";
+		initDataList.add(line20);
+		String line21 = "FRCE"+","+
+					tableDataPLogList.get(0).getFRCE()+","+
+					tableDataPLogList.get(1).getFRCE()+","+
+					tableDataPLogList.get(2).getFRCE()+","+
+					tableDataPLogList.get(3).getFRCE()+","+
+					tableDataPLogList.get(4).getFRCE()+","+
+					tableDataPLogList.get(5).getFRCE()+","+
+					tableDataPLogList.get(6).getFRCE()+","+					
+					",,,,,,,";
+		initDataList.add(line21);
+		String line22 = "TORQ"+","+
+					tableDataPLogList.get(0).getTORQ()+","+					
+					tableDataPLogList.get(1).getTORQ()+","+
+					tableDataPLogList.get(2).getTORQ()+","+
+					tableDataPLogList.get(3).getTORQ()+","+
+					tableDataPLogList.get(4).getTORQ()+","+
+					tableDataPLogList.get(5).getTORQ()+","+
+					tableDataPLogList.get(6).getTORQ()+","+
+					",,,,,,,";
+		initDataList.add(line22);
+		String line23 = "SPEED(mpm)"+","+
+					tableDataPLogList.get(0).getSPEED()+","+
+					tableDataPLogList.get(1).getSPEED()+","+
+					tableDataPLogList.get(2).getSPEED()+","+
+					tableDataPLogList.get(3).getSPEED()+","+
+					tableDataPLogList.get(4).getSPEED()+","+
+					tableDataPLogList.get(5).getSPEED()+","+
+					tableDataPLogList.get(6).getSPEED()+","+					
+					",,,,,,,";
+		initDataList.add(line23);
+		String line24 = "BEND"+","+
+					tableDataPLogList.get(0).getBEND()+","+
+					tableDataPLogList.get(1).getBEND()+","+
+					tableDataPLogList.get(2).getBEND()+","+
+					tableDataPLogList.get(3).getBEND()+","+
+					tableDataPLogList.get(4).getBEND()+","+
+					tableDataPLogList.get(5).getBEND()+","+
+					tableDataPLogList.get(6).getBEND()+","+
+					",,,,,,,";
+		initDataList.add(line24);
+		String line25 = "P-CROSS"+","+
+					tableDataPLogList.get(0).getP_CROSS()+","+
+					tableDataPLogList.get(1).getP_CROSS()+","+
+					tableDataPLogList.get(2).getP_CROSS()+","+
+					tableDataPLogList.get(3).getP_CROSS()+","+
+					tableDataPLogList.get(4).getP_CROSS()+","+
+					tableDataPLogList.get(5).getP_CROSS()+","+
+					tableDataPLogList.get(6).getP_CROSS()+","+
+					",,,,,,,";
+		initDataList.add(line25);
+		String line26 = "TENS"+","+
+					tableDataPLogList.get(0).getTENS()+","+
+					tableDataPLogList.get(1).getTENS()+","+
+					tableDataPLogList.get(2).getTENS()+","+
+					tableDataPLogList.get(3).getTENS()+","+
+					tableDataPLogList.get(4).getTENS()+","+
+					tableDataPLogList.get(5).getTENS()+","+
+					tableDataPLogList.get(6).getTENS()+","+
+					",,,,,,,";
+		initDataList.add(line26);
+		String line27 = "ROL TIM"+","+
+					tableDataPLogList.get(0).getROL_TIM()+","+
+					tableDataPLogList.get(1).getROL_TIM()+","+
+					tableDataPLogList.get(2).getROL_TIM()+","+
+					tableDataPLogList.get(3).getROL_TIM()+","+
+					tableDataPLogList.get(4).getROL_TIM()+","+
+					tableDataPLogList.get(5).getROL_TIM()+","+
+					tableDataPLogList.get(6).getROL_TIM()+","+					
+					",,,,,,,";
+		initDataList.add(line27);
+		String line28 = "IDL TIM"+","+
+					tableDataPLogList.get(0).getIDL_TIM()+","+
+					tableDataPLogList.get(1).getIDL_TIM()+","+
+					tableDataPLogList.get(2).getIDL_TIM()+","+
+					tableDataPLogList.get(3).getIDL_TIM()+","+
+					tableDataPLogList.get(4).getIDL_TIM()+","+
+					tableDataPLogList.get(5).getIDL_TIM()+","+
+					tableDataPLogList.get(6).getIDL_TIM()+","+
+					",,,,,,,";
+		initDataList.add(line28);
+		String line29 = "BUR WEAR"+","+
+					tableDataPLogList.get(0).getBUR_WEAR()+","+
+					tableDataPLogList.get(1).getBUR_WEAR()+","+
+					tableDataPLogList.get(2).getBUR_WEAR()+","+
+					tableDataPLogList.get(3).getBUR_WEAR()+","+
+					tableDataPLogList.get(4).getBUR_WEAR()+","+
+					tableDataPLogList.get(5).getBUR_WEAR()+","+
+					tableDataPLogList.get(6).getBUR_WEAR()+","+					
+					",,,,,,,";
+		initDataList.add(line29);
+		String line30 = "WR WEAR"+","+ 
+					tableDataPLogList.get(0).getWR_WEAR()+","+
+					tableDataPLogList.get(1).getWR_WEAR()+","+
+					tableDataPLogList.get(2).getWR_WEAR()+","+
+					tableDataPLogList.get(3).getWR_WEAR()+","+
+					tableDataPLogList.get(4).getWR_WEAR()+","+
+					tableDataPLogList.get(5).getWR_WEAR()+","+
+					tableDataPLogList.get(6).getWR_WEAR()+","+
+					",,,,,,,";
+		initDataList.add(line30);
+		String line31 = "WR THRM"+","+
+					tableDataPLogList.get(0).getWR_THRM()+","+
+					tableDataPLogList.get(1).getWR_THRM()+","+
+					tableDataPLogList.get(2).getWR_THRM()+","+
+					tableDataPLogList.get(3).getWR_THRM()+","+
+					tableDataPLogList.get(4).getWR_THRM()+","+
+					tableDataPLogList.get(5).getWR_THRM()+","+
+					tableDataPLogList.get(6).getWR_THRM()+","+					
+					",,,,,,,";
+		initDataList.add(line31);
+		String csvPath = myUtil.setPath(this.workspace, this.modelName +".csv");
+		Writer obj = new Writer(csvPath,initDataList);
+		obj.running();
 	}
 	
 	//
@@ -634,18 +914,32 @@ public class MainController {
 	}
 	
 	private void makeResultF1(){
+		ProcMaker procObj1 = new ProcMaker(UILabel.F1);
+		procObj1.running();		
 	}
 	private void makeResultF2(){
+		ProcMaker procObj2 = new ProcMaker(UILabel.F2);
+		procObj2.running();
 	}
 	private void makeResultF3(){
+		ProcMaker procObj3 = new ProcMaker(UILabel.F3);
+		procObj3.running();
 	}
 	private void makeResultF4(){
+		ProcMaker procObj4 = new ProcMaker(UILabel.F4);
+		procObj4.running();
 	}
 	private void makeResultF5(){
+		ProcMaker procObj5 = new ProcMaker(UILabel.F5);
+		procObj5.running();
 	}
 	private void makeResultF6(){
+		ProcMaker procObj6 = new ProcMaker(UILabel.F6);
+		procObj6.running();
 	}
 	private void makeResultF7(){
+		ProcMaker procObj7 = new ProcMaker(UILabel.F7);
+		procObj7.running();
 	}
 	//
 	// 
@@ -721,21 +1015,141 @@ public class MainController {
 		
 	}
 	
-	private void readDBFile(String DBFielPath){
-		Reader obj = new Reader(DBFielPath);
+	private void readDBFile(String DBFilePath){
+		
+		String path = myUtil.getParrentPath(DBFilePath);
+		String fileName = myUtil.getFileName(DBFilePath);
+		this.modelName = ParserDefault.splitLineData(fileName, "\\.").get(0);
+		
+		if(myUtil.getFileName(path).equals(this.modelName)){
+			String procFolder = myUtil.setPath(path, "proc");
+			String resultFolder = myUtil.setPath(path, "result");
+			
+			if(!myUtil.checkPath(procFolder)){
+				myUtil.makeDir(procFolder);
+			}
+			if(!myUtil.checkPath(resultFolder)){
+				myUtil.makeDir(resultFolder);
+			}
+			
+			this.workspace = path;
+			System.out.println(this.workspace);
+			
+			med.getLblModelNameValue().setText(this.modelName);
+			med.getLblWorkspacePath().setText(this.workspace);
+			setAllDataUI(DBFilePath);
+			AllComponentEnable();
+			
+		}else {
+			String topFolder =  myUtil.setPath(path, this.modelName);
+			String procFolder = myUtil.setPath(topFolder, "proc");
+			String resultFolder = myUtil.setPath(topFolder, "result");
+			String newDBFilePath = myUtil.setPath(topFolder, this.modelName+".ens");
+			this.workspace = topFolder;
+			
+			myUtil.makeDir(topFolder);
+			myUtil.makeDir(procFolder);
+			myUtil.makeDir(resultFolder);
+			myUtil.fileCopy(DBFilePath, newDBFilePath);
+			
+			med.getLblModelNameValue().setText(this.modelName);
+			med.getLblWorkspacePath().setText(this.workspace);
+			setAllDataUI(newDBFilePath);
+			AllComponentEnable();
+		}
+				
+		
+	
+	}
+	
+	private void setAllDataUI(String DBFilePath){
+		
+		Reader obj = new Reader(DBFilePath);
 		obj.running();
+
+		Map<String,String> openDBMap = new HashMap<String,String>();
+		ArrayList<String> parsingDataList;
+		
 		for(String line : obj.getFileDataList()){
-			System.out.println(line);
+			parsingDataList = ParserDefault.splitLineData(line, "=");
+			if(parsingDataList.size()==1){
+				openDBMap.put(parsingDataList.get(0), " ");
+			}else{
+				openDBMap.put(parsingDataList.get(0), parsingDataList.get(1));
+			}
 		}
 		
-		/*
-		 * 1) opne 하면 modelName Workspace 라벨 변경 
-		 * 2) #-> SlabPlate Info
-		 *    #-> Variable Info
-		 * 	  #-> STAND F2
-		 * 	 이거로 구분해서 각각 obj에 저장 
-		 */
 		
+		for(TableData_PLog Pobj : this.tableDataPLogList){
+			Pobj.setWR_TDIA(openDBMap.get(UILabel.Top_WR_Diameter+"_"+Pobj.getSTAND()));
+			Pobj.setWR_BDIA(openDBMap.get(UILabel.Bottom_WR_Diameter+"_"+Pobj.getSTAND()));
+			Pobj.setWR_ICRN(openDBMap.get(UILabel.WR_Crown+"_"+Pobj.getSTAND()));
+			Pobj.setWr_len(openDBMap.get(UILabel.WR_Length+"_"+Pobj.getSTAND()));
+			Pobj.setWr_div_angle(openDBMap.get(UILabel.WR_Mesh_Angle+"_"+Pobj.getSTAND()));
+			
+			Pobj.setBUR_TDIA(openDBMap.get(UILabel.Top_BUR_Diameter+"_"+Pobj.getSTAND()));
+			Pobj.setBUR_BDIA(openDBMap.get(UILabel.Bottom_BUR_Diameter+"_"+Pobj.getSTAND()));
+			Pobj.setBur_len(openDBMap.get(UILabel.BUR_Length+"_"+Pobj.getSTAND()));
+			Pobj.setBur_div_angle(openDBMap.get(UILabel.BUR_Mesh_Angle+"_"+Pobj.getSTAND()));
+			
+			Pobj.setENTRY_THK(openDBMap.get(UILabel.Thickness+"_"+Pobj.getSTAND()));
+			Pobj.setSTP_WID(openDBMap.get(UILabel.Width+"_"+Pobj.getSTAND()));
+			Pobj.setSTP_LEN(openDBMap.get(UILabel.Length+"_"+Pobj.getSTAND()));
+			Pobj.setENTRY_TEMP(openDBMap.get(UILabel.Entry_Temperature+"_"+Pobj.getSTAND()));
+			Pobj.setEXIT_TEMP(openDBMap.get(UILabel.Exit_Temperature+"_"+Pobj.getSTAND()));
+			Pobj.setP_in(openDBMap.get(UILabel.Initial_Position+"_"+Pobj.getSTAND()));
+			Pobj.setPl_m(openDBMap.get(UILabel.Mesh_Length+"_"+Pobj.getSTAND()));
+			Pobj.setT_div(openDBMap.get(UILabel.Thickness_Mesh_Divisions+"_"+Pobj.getSTAND()));
+			
+			Pobj.setSPEED(openDBMap.get(UILabel.Velocity+"_"+Pobj.getSTAND()));
+			Pobj.setROL_GAP(openDBMap.get(UILabel.Roll_Gap+"_"+Pobj.getSTAND()));
+			Pobj.setPAS_LINE(openDBMap.get(UILabel.Pass_Line+"_"+Pobj.getSTAND()));
+			Pobj.setP_CROSS(openDBMap.get(UILabel.Pair_Cross_Angle+"_"+Pobj.getSTAND()));
+			Pobj.setBEND(openDBMap.get(UILabel.Bender_Force+"_"+Pobj.getSTAND()));
+			Pobj.setTORQ(openDBMap.get(UILabel.Roll_Torque+"_"+Pobj.getSTAND()));
+			Pobj.setTENS(openDBMap.get(UILabel.Tension_Stress+"_"+Pobj.getSTAND()));
+			Pobj.setF_r2p(openDBMap.get(UILabel.Roll_to_Plate_Frict_Coef+"_"+Pobj.getSTAND()));
+			Pobj.setF_r2r(openDBMap.get(UILabel.Roll_to_Roll_Fric_Coef+"_"+Pobj.getSTAND()));
+			
+			Pobj.setTb_vel_rate(openDBMap.get(UILabel.Top_Bot_Vel_Rete+"_"+Pobj.getSTAND()));
+			Pobj.setWr_trot(openDBMap.get(UILabel.Top_WR_Rot_Vel_RPM+"_"+Pobj.getSTAND()));
+			Pobj.setWr_brot(openDBMap.get(UILabel.Bottom_BUR_Rot_Vel_RPM+"_"+Pobj.getSTAND()));
+			Pobj.setBur_trot(openDBMap.get(UILabel.Top_BUR_Rot_Vel_RPM+"_"+Pobj.getSTAND()));
+			Pobj.setBur_brot(openDBMap.get(UILabel.Bottom_BUR_Rot_Vel_RPM+"_"+Pobj.getSTAND()));
+			
+			Pobj.setYM_Constant(openDBMap.get("YM_Constant"+"_"+Pobj.getSTAND()));
+			Pobj.setYM_Table(openDBMap.get("YM_Table"+"_"+Pobj.getSTAND()));
+			Pobj.setYM_Value(openDBMap.get(UILabel.Youngs_Modulus+"_"+Pobj.getSTAND()));
+			
+			Pobj.setTEC_Constant(openDBMap.get("TEC_Constant"+"_"+Pobj.getSTAND()));
+			Pobj.setTEC_Table(openDBMap.get("TEC_Table"+"_"+Pobj.getSTAND()));
+			Pobj.setTEC_Value(openDBMap.get(UILabel.Thermal_Expansion_Coefficient+"_"+Pobj.getSTAND()));
+			
+			Pobj.setPR_Constant(openDBMap.get("PR_Constant"+"_"+Pobj.getSTAND()));
+			Pobj.setPR_Table(openDBMap.get("PR_Table"+"_"+Pobj.getSTAND()));
+			Pobj.setPR_Value(openDBMap.get(UILabel.Poissons_Ratio+"_"+Pobj.getSTAND()));
+			
+			Pobj.setMD_Value(openDBMap.get(UILabel.Mass_Density+"_"+Pobj.getSTAND()));
+			
+			Pobj.setLcase_time(openDBMap.get(UILabel.Time_Increment_time+"_"+Pobj.getSTAND()));
+			Pobj.setLcase_dt(openDBMap.get(UILabel.Time_Increment_dt+"_"+Pobj.getSTAND()));
+			Pobj.setPost_inc(openDBMap.get(UILabel.Post_Writing_frequency+"_"+Pobj.getSTAND()));
+			Pobj.setInc_time(openDBMap.get(UILabel.Increment_time+"_"+Pobj.getSTAND()));
+			Pobj.setParallelDDM(openDBMap.get(UILabel.Parallel_DDM+"_"+Pobj.getSTAND()));
+			Pobj.setDomain(openDBMap.get(UILabel.Domain+"_"+Pobj.getSTAND()));
+			Pobj.setParallelMultiThread(openDBMap.get(UILabel.Parallel_Multi_Thread+"_"+Pobj.getSTAND()));
+			Pobj.setThread(openDBMap.get(UILabel.Thread+"_"+Pobj.getSTAND()));
+			
+			Pobj.setFRCE(openDBMap.get("FRCE"+"_"+Pobj.getSTAND()));
+			Pobj.setEXIT_THK(openDBMap.get("EXIT THK"+"_"+Pobj.getSTAND()));
+			Pobj.setROL_TIM(openDBMap.get("ROL TIM"+"_"+Pobj.getSTAND()));
+			Pobj.setIDL_TIM(openDBMap.get("IDL TIM"+"_"+Pobj.getSTAND()));
+			Pobj.setBUR_WEAR(openDBMap.get("BUR WEAR"+"_"+Pobj.getSTAND()));
+			Pobj.setWR_WEAR(openDBMap.get("WR WEAR"+"_"+Pobj.getSTAND()));
+			Pobj.setWR_THRM(openDBMap.get("WR THRM"+"_"+Pobj.getSTAND()));
+		}
+		
+		this.initPLogTables_open(openDBMap);
 	}
 	
 	//
@@ -765,8 +1179,8 @@ public class MainController {
 		outputDBList.add("###################");
 		outputDBList.add("### ENS DB FILE ###");
 		outputDBList.add("###################");
-		outputDBList.add("Model Name="+this.modelName);
-		outputDBList.add("Workspace="+this.workspace);
+		//outputDBList.add("Model Name="+this.modelName);
+		//outputDBList.add("Workspace="+this.workspace);
 		try{
 			for(String line1 : this.TableDataSlabPlateInfoObj.getDB()){
 				outputDBList.add(line1);
@@ -821,8 +1235,8 @@ public class MainController {
 		outputDBList.add("###################");
 		outputDBList.add("### ENS DB FILE ###");
 		outputDBList.add("###################");
-		outputDBList.add("Model Name="+this.modelName);
-		outputDBList.add("Workspace="+this.workspace);
+		//outputDBList.add("Model Name="+this.modelName);
+		//outputDBList.add("Workspace="+this.workspace);
 		
 		try{
 			if(newDBFilePath != null){
@@ -862,6 +1276,20 @@ public class MainController {
 	public void RunExportProject(){
 		//모든 proc 생성
 		System.out.println("Export");
+		ProcMaker procObj1 = new ProcMaker(UILabel.F1);
+		procObj1.running();
+		ProcMaker procObj2 = new ProcMaker(UILabel.F2);
+		procObj2.running();
+		ProcMaker procObj3 = new ProcMaker(UILabel.F3);
+		procObj3.running();
+		ProcMaker procObj4 = new ProcMaker(UILabel.F4);
+		procObj4.running();
+		ProcMaker procObj5 = new ProcMaker(UILabel.F5);
+		procObj5.running();
+		ProcMaker procObj6 = new ProcMaker(UILabel.F6);
+		procObj6.running();
+		ProcMaker procObj7 = new ProcMaker(UILabel.F7);
+		procObj7.running();
 	}
 	//
 	//
@@ -1182,8 +1610,286 @@ public class MainController {
 					tableDataPLogList.get(6).getWR_THRM()+","+					
 					",,,,,,,";
 		initDataList.add(line31);
-		
-		
+		this.parsingPLogFile(initDataList);
+	}
+	
+	private void initPLogTables_open(Map<String,String> openDBMap){
+		InitValue obj =new InitValue();
+		obj.readInitValueFile();
+		ArrayList<String> initDataList = new ArrayList<String>();
+		initDataList.add("STRIP NO,STHK,SWID,SLEN,SWET,PTHK,PWID,PLEN,PWET,,,,,,,");
+		String line2 = openDBMap.get(InitValue.STRIP_NO)+","+
+						openDBMap.get(InitValue.STHK)+","+
+						openDBMap.get(InitValue.SWID)+","+
+						openDBMap.get(InitValue.SLEN)+","+
+						openDBMap.get(InitValue.SWET)+","+
+						openDBMap.get(InitValue.PTHK)+","+
+						openDBMap.get(InitValue.PWID)+","+
+						openDBMap.get(InitValue.PLEN)+","+
+						openDBMap.get(InitValue.PWET)+","+
+						",,,,,,";
+		initDataList.add(line2);
+		initDataList.add(",,,,,,,,,,,,,,,");
+		initDataList.add("VAR1,VAR2,VAR3,VAR4,VAR5,VAR6,VAR7,VAR8,VAR9,VAR10,VAR11,VAR12,VAR13,VAR14,VAR15,VAR16");
+		String line5 = openDBMap.get(InitValue.VAR1)+","+
+						openDBMap.get(InitValue.VAR2)+","+
+						openDBMap.get(InitValue.VAR3)+","+
+						openDBMap.get(InitValue.VAR4)+","+
+						openDBMap.get(InitValue.VAR5)+","+
+						openDBMap.get(InitValue.VAR6)+","+
+						openDBMap.get(InitValue.VAR7)+","+
+						openDBMap.get(InitValue.VAR8)+","+
+						openDBMap.get(InitValue.VAR9)+","+
+						openDBMap.get(InitValue.VAR10)+","+
+						openDBMap.get(InitValue.VAR11)+","+
+						openDBMap.get(InitValue.VAR12)+","+
+						openDBMap.get(InitValue.VAR13)+","+
+						openDBMap.get(InitValue.VAR14)+","+
+						openDBMap.get(InitValue.VAR15)+","+
+						openDBMap.get(InitValue.VAR16);
+		initDataList.add(line5);
+		initDataList.add(",,,,,,,,,,,,,,,");
+		initDataList.add("STAND,F1,F2,F3,F4,F5,F6,F7,,,,,,,,");
+		String line8 = "BUR TDIA"+","+
+					tableDataPLogList.get(0).getBUR_TDIA()+","+
+					tableDataPLogList.get(1).getBUR_TDIA()+","+
+					tableDataPLogList.get(2).getBUR_TDIA()+","+
+					tableDataPLogList.get(3).getBUR_TDIA()+","+
+					tableDataPLogList.get(4).getBUR_TDIA()+","+
+					tableDataPLogList.get(5).getBUR_TDIA()+","+
+					tableDataPLogList.get(6).getBUR_TDIA()+","+
+					",,,,,,,";
+		initDataList.add(line8);
+		String line9 = "BUR BDIA"+","+
+					tableDataPLogList.get(0).getBUR_BDIA()+","+
+					tableDataPLogList.get(1).getBUR_BDIA()+","+
+					tableDataPLogList.get(2).getBUR_BDIA()+","+
+					tableDataPLogList.get(3).getBUR_BDIA()+","+
+					tableDataPLogList.get(4).getBUR_BDIA()+","+
+					tableDataPLogList.get(5).getBUR_BDIA()+","+
+					tableDataPLogList.get(6).getBUR_BDIA()+","+
+					",,,,,,,";
+		initDataList.add(line9);
+		String line10 = "WR TDIA"+","+
+					tableDataPLogList.get(0).getWR_TDIA()+","+
+					tableDataPLogList.get(1).getWR_TDIA()+","+
+					tableDataPLogList.get(2).getWR_TDIA()+","+
+					tableDataPLogList.get(3).getWR_TDIA()+","+
+					tableDataPLogList.get(4).getWR_TDIA()+","+
+					tableDataPLogList.get(5).getWR_TDIA()+","+
+					tableDataPLogList.get(6).getWR_TDIA()+","+
+					",,,,,,,";
+		initDataList.add(line10);
+		String line11 = "WR BDIA"+","+
+					tableDataPLogList.get(0).getWR_BDIA()+","+
+					tableDataPLogList.get(1).getWR_BDIA()+","+
+					tableDataPLogList.get(2).getWR_BDIA()+","+
+					tableDataPLogList.get(3).getWR_BDIA()+","+
+					tableDataPLogList.get(4).getWR_BDIA()+","+
+					tableDataPLogList.get(5).getWR_BDIA()+","+
+					tableDataPLogList.get(6).getWR_BDIA()+","+
+					",,,,,,,";
+		initDataList.add(line11);
+		String line12 = "WR ICRN"+","+
+					tableDataPLogList.get(0).getWR_ICRN()+","+
+					tableDataPLogList.get(1).getWR_ICRN()+","+
+					tableDataPLogList.get(2).getWR_ICRN()+","+
+					tableDataPLogList.get(3).getWR_ICRN()+","+
+					tableDataPLogList.get(4).getWR_ICRN()+","+
+					tableDataPLogList.get(5).getWR_ICRN()+","+
+					tableDataPLogList.get(6).getWR_ICRN()+","+
+					",,,,,,,";
+		initDataList.add(line12);
+		String line13 = "ENTRY THK"+","+
+					tableDataPLogList.get(0).getENTRY_THK()+","+
+					tableDataPLogList.get(1).getENTRY_THK()+","+
+					tableDataPLogList.get(2).getENTRY_THK()+","+
+					tableDataPLogList.get(3).getENTRY_THK()+","+
+					tableDataPLogList.get(4).getENTRY_THK()+","+
+					tableDataPLogList.get(5).getENTRY_THK()+","+
+					tableDataPLogList.get(6).getENTRY_THK()+","+
+					",,,,,,,";
+		initDataList.add(line13);
+		String line14 = "EXIT THK"+","+
+					tableDataPLogList.get(0).getEXIT_THK()+","+
+					tableDataPLogList.get(1).getEXIT_THK()+","+
+					tableDataPLogList.get(2).getEXIT_THK()+","+
+					tableDataPLogList.get(3).getEXIT_THK()+","+
+					tableDataPLogList.get(4).getEXIT_THK()+","+
+					tableDataPLogList.get(5).getEXIT_THK()+","+
+					tableDataPLogList.get(6).getEXIT_THK()+","+
+					",,,,,,,";
+		initDataList.add(line14);
+		String line15 = "PAS LINE"+","+
+					tableDataPLogList.get(0).getPAS_LINE()+","+
+					tableDataPLogList.get(1).getPAS_LINE()+","+
+					tableDataPLogList.get(2).getPAS_LINE()+","+
+					tableDataPLogList.get(3).getPAS_LINE()+","+
+					tableDataPLogList.get(4).getPAS_LINE()+","+
+					tableDataPLogList.get(5).getPAS_LINE()+","+
+					tableDataPLogList.get(6).getPAS_LINE()+","+
+					",,,,,,,";
+		initDataList.add(line15);
+		String line16 = "ROL GAP"+","+
+					tableDataPLogList.get(0).getROL_GAP()+","+
+					tableDataPLogList.get(1).getROL_GAP()+","+
+					tableDataPLogList.get(2).getROL_GAP()+","+
+					tableDataPLogList.get(3).getROL_GAP()+","+
+					tableDataPLogList.get(4).getROL_GAP()+","+
+					tableDataPLogList.get(5).getROL_GAP()+","+
+					tableDataPLogList.get(6).getROL_GAP()+","+
+					",,,,,,,";
+		initDataList.add(line16);
+		String line17 = "STP WID"+","+
+					tableDataPLogList.get(0).getSTP_WID()+","+
+					tableDataPLogList.get(1).getSTP_WID()+","+
+					tableDataPLogList.get(2).getSTP_WID()+","+
+					tableDataPLogList.get(3).getSTP_WID()+","+
+					tableDataPLogList.get(4).getSTP_WID()+","+
+					tableDataPLogList.get(5).getSTP_WID()+","+
+					tableDataPLogList.get(6).getSTP_WID()+","+
+					",,,,,,,";
+		initDataList.add(line17);
+		String line18 = "STP LEN"+","+
+					tableDataPLogList.get(0).getSTP_LEN()+","+
+					tableDataPLogList.get(1).getSTP_LEN()+","+
+					tableDataPLogList.get(2).getSTP_LEN()+","+
+					tableDataPLogList.get(3).getSTP_LEN()+","+
+					tableDataPLogList.get(4).getSTP_LEN()+","+
+					tableDataPLogList.get(5).getSTP_LEN()+","+
+					tableDataPLogList.get(6).getSTP_LEN()+","+
+					",,,,,,,";
+		initDataList.add(line18);
+		String line19 = "ENTRY TEMP"+","+
+					tableDataPLogList.get(0).getSTP_LEN()+","+
+					tableDataPLogList.get(1).getSTP_LEN()+","+
+					tableDataPLogList.get(2).getSTP_LEN()+","+
+					tableDataPLogList.get(3).getSTP_LEN()+","+
+					tableDataPLogList.get(4).getSTP_LEN()+","+
+					tableDataPLogList.get(5).getSTP_LEN()+","+
+					tableDataPLogList.get(6).getSTP_LEN()+","+
+					",,,,,,,";
+		initDataList.add(line19);
+		String line20 = "EXIT TEMP"+","+
+					tableDataPLogList.get(0).getEXIT_TEMP()+","+
+					tableDataPLogList.get(1).getEXIT_TEMP()+","+
+					tableDataPLogList.get(2).getEXIT_TEMP()+","+
+					tableDataPLogList.get(3).getEXIT_TEMP()+","+
+					tableDataPLogList.get(4).getEXIT_TEMP()+","+
+					tableDataPLogList.get(5).getEXIT_TEMP()+","+
+					tableDataPLogList.get(6).getEXIT_TEMP()+","+
+					",,,,,,,";
+		initDataList.add(line20);
+		String line21 = "FRCE"+","+
+					tableDataPLogList.get(0).getFRCE()+","+
+					tableDataPLogList.get(1).getFRCE()+","+
+					tableDataPLogList.get(2).getFRCE()+","+
+					tableDataPLogList.get(3).getFRCE()+","+
+					tableDataPLogList.get(4).getFRCE()+","+
+					tableDataPLogList.get(5).getFRCE()+","+
+					tableDataPLogList.get(6).getFRCE()+","+					
+					",,,,,,,";
+		initDataList.add(line21);
+		String line22 = "TORQ"+","+
+					tableDataPLogList.get(0).getTORQ()+","+					
+					tableDataPLogList.get(1).getTORQ()+","+
+					tableDataPLogList.get(2).getTORQ()+","+
+					tableDataPLogList.get(3).getTORQ()+","+
+					tableDataPLogList.get(4).getTORQ()+","+
+					tableDataPLogList.get(5).getTORQ()+","+
+					tableDataPLogList.get(6).getTORQ()+","+
+					",,,,,,,";
+		initDataList.add(line22);
+		String line23 = "SPEED(mpm)"+","+
+					tableDataPLogList.get(0).getSPEED()+","+
+					tableDataPLogList.get(1).getSPEED()+","+
+					tableDataPLogList.get(2).getSPEED()+","+
+					tableDataPLogList.get(3).getSPEED()+","+
+					tableDataPLogList.get(4).getSPEED()+","+
+					tableDataPLogList.get(5).getSPEED()+","+
+					tableDataPLogList.get(6).getSPEED()+","+					
+					",,,,,,,";
+		initDataList.add(line23);
+		String line24 = "BEND"+","+
+					tableDataPLogList.get(0).getBEND()+","+
+					tableDataPLogList.get(1).getBEND()+","+
+					tableDataPLogList.get(2).getBEND()+","+
+					tableDataPLogList.get(3).getBEND()+","+
+					tableDataPLogList.get(4).getBEND()+","+
+					tableDataPLogList.get(5).getBEND()+","+
+					tableDataPLogList.get(6).getBEND()+","+
+					",,,,,,,";
+		initDataList.add(line24);
+		String line25 = "P-CROSS"+","+
+					tableDataPLogList.get(0).getP_CROSS()+","+
+					tableDataPLogList.get(1).getP_CROSS()+","+
+					tableDataPLogList.get(2).getP_CROSS()+","+
+					tableDataPLogList.get(3).getP_CROSS()+","+
+					tableDataPLogList.get(4).getP_CROSS()+","+
+					tableDataPLogList.get(5).getP_CROSS()+","+
+					tableDataPLogList.get(6).getP_CROSS()+","+
+					",,,,,,,";
+		initDataList.add(line25);
+		String line26 = "TENS"+","+
+					tableDataPLogList.get(0).getTENS()+","+
+					tableDataPLogList.get(1).getTENS()+","+
+					tableDataPLogList.get(2).getTENS()+","+
+					tableDataPLogList.get(3).getTENS()+","+
+					tableDataPLogList.get(4).getTENS()+","+
+					tableDataPLogList.get(5).getTENS()+","+
+					tableDataPLogList.get(6).getTENS()+","+
+					",,,,,,,";
+		initDataList.add(line26);
+		String line27 = "ROL TIM"+","+
+					tableDataPLogList.get(0).getROL_TIM()+","+
+					tableDataPLogList.get(1).getROL_TIM()+","+
+					tableDataPLogList.get(2).getROL_TIM()+","+
+					tableDataPLogList.get(3).getROL_TIM()+","+
+					tableDataPLogList.get(4).getROL_TIM()+","+
+					tableDataPLogList.get(5).getROL_TIM()+","+
+					tableDataPLogList.get(6).getROL_TIM()+","+					
+					",,,,,,,";
+		initDataList.add(line27);
+		String line28 = "IDL TIM"+","+
+					tableDataPLogList.get(0).getIDL_TIM()+","+
+					tableDataPLogList.get(1).getIDL_TIM()+","+
+					tableDataPLogList.get(2).getIDL_TIM()+","+
+					tableDataPLogList.get(3).getIDL_TIM()+","+
+					tableDataPLogList.get(4).getIDL_TIM()+","+
+					tableDataPLogList.get(5).getIDL_TIM()+","+
+					tableDataPLogList.get(6).getIDL_TIM()+","+
+					",,,,,,,";
+		initDataList.add(line28);
+		String line29 = "BUR WEAR"+","+
+					tableDataPLogList.get(0).getBUR_WEAR()+","+
+					tableDataPLogList.get(1).getBUR_WEAR()+","+
+					tableDataPLogList.get(2).getBUR_WEAR()+","+
+					tableDataPLogList.get(3).getBUR_WEAR()+","+
+					tableDataPLogList.get(4).getBUR_WEAR()+","+
+					tableDataPLogList.get(5).getBUR_WEAR()+","+
+					tableDataPLogList.get(6).getBUR_WEAR()+","+					
+					",,,,,,,";
+		initDataList.add(line29);
+		String line30 = "WR WEAR"+","+ 
+					tableDataPLogList.get(0).getWR_WEAR()+","+
+					tableDataPLogList.get(1).getWR_WEAR()+","+
+					tableDataPLogList.get(2).getWR_WEAR()+","+
+					tableDataPLogList.get(3).getWR_WEAR()+","+
+					tableDataPLogList.get(4).getWR_WEAR()+","+
+					tableDataPLogList.get(5).getWR_WEAR()+","+
+					tableDataPLogList.get(6).getWR_WEAR()+","+
+					",,,,,,,";
+		initDataList.add(line30);
+		String line31 = "WR THRM"+","+
+					tableDataPLogList.get(0).getWR_THRM()+","+
+					tableDataPLogList.get(1).getWR_THRM()+","+
+					tableDataPLogList.get(2).getWR_THRM()+","+
+					tableDataPLogList.get(3).getWR_THRM()+","+
+					tableDataPLogList.get(4).getWR_THRM()+","+
+					tableDataPLogList.get(5).getWR_THRM()+","+
+					tableDataPLogList.get(6).getWR_THRM()+","+					
+					",,,,,,,";
+		initDataList.add(line31);
 		this.parsingPLogFile(initDataList);
 	}
 	
@@ -4333,6 +5039,25 @@ public class MainController {
 	}
 	public void setWorkspace(String workspace) {
 		this.workspace = workspace;
+	}
+	public TableData_SlabPlateInfo getTableDataSlabPlateInfoObj() {
+		return TableDataSlabPlateInfoObj;
+	}
+	public void setTableDataSlabPlateInfoObj(
+			TableData_SlabPlateInfo tableDataSlabPlateInfoObj) {
+		TableDataSlabPlateInfoObj = tableDataSlabPlateInfoObj;
+	}
+	public TableData_Variable getTableDataVariableObj() {
+		return TableDataVariableObj;
+	}
+	public void setTableDataVariableObj(TableData_Variable tableDataVariableObj) {
+		TableDataVariableObj = tableDataVariableObj;
+	}
+	public ArrayList<TableData_PLog> getTableDataPLogList() {
+		return tableDataPLogList;
+	}
+	public void setTableDataPLogList(ArrayList<TableData_PLog> tableDataPLogList) {
+		this.tableDataPLogList = tableDataPLogList;
 	}
 	
 }

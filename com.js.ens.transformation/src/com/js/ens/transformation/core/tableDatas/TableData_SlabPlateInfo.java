@@ -118,7 +118,7 @@ public class TableData_SlabPlateInfo {
 	public ArrayList<String> getDB(){
 		ArrayList<String> DB = new ArrayList<String>();
 		DB.add("#########################################");
-		DB.add("#-> SlabPlate Info");
+		DB.add("#->SlabPlateInfo");
 		
 		DB.add(InitValue.STRIP_NO	+"="+	this.STRIP_NO);
 		DB.add(InitValue.STHK	 	+"="+	this.STHK);
@@ -132,4 +132,7 @@ public class TableData_SlabPlateInfo {
 
 		return DB;
 	}
+	
+	
+	
 }

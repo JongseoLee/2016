@@ -1,0 +1,36 @@
+|
+| Create Roller Table
+|
+*set_surface_type quad
+*add_surface point(0.0+p_in,0.0,p_wid/2+200.0)
+             point(-p_len+p_in-1000.0,0.0,p_wid/2+200.0)
+             point(-p_len+p_in-1000.0,0.0,0.0-100.0)
+             point(0.0+p_in,0.0,0.0-100.0)             
+*add_surface point(0.0+p_in,0.0,p_wid/2+200.0)
+             point(0.0+p_in,0.0,0.0-100.0)    
+             point(0.0+p_in+95.0,-100.0,0.0-100.0)
+             point(0.0+p_in+95.0,-100.0,p_wid/2+200.0)
+*add_surface point(0.0-p_in,0.0,0.0-100.0)    
+             point(0.0-p_in,0.0,p_wid/2+200.0)
+             point(0.0-p_in-95.0,-100.0,p_wid/2+200.0)
+             point(0.0-p_in-95.0,-100.0,0.0-100.0)
+*add_surface point(0.0-p_in,0.0,p_wid/2+200.0)
+             point(0.0-p_in,0.0,0.0-100.0)    
+             point(0.0-p_in+p_len*10,0.0,0.0-100.0)             
+             point(0.0-p_in+p_len*10,0.0,p_wid/2+200.0)  
+*move_reset
+*set_move_translation y 0-p_thk/2
+*move_surfaces
+1 2 3 4
+#
+*store_surfaces roll_table
+1 2 3 4
+#                     
+*add_surface point(-p_len+p_in-1000.0,-3000.0,0.0)
+             point(-p_len+p_in-1000.0,+3000.0,0.0)    
+             point(0.0-p_in+p_len*10,+3000.0,0.0)             
+             point(0.0-p_in+p_len*10,-3000.0,0.0)   
+ *store_surfaces symm_plane
+5 
+#       
+*save_as_model roll_table yes                

@@ -1,0 +1,31 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+|
+*new_model yes
+| Section Change
+*eval_define dia_chg bur_tdia_chg
+*exec_proc bur_f1_f7.proc
+|
+| Expand the Roll Section and Make 3D Roll
+|
+*expand_reset
+*set_expand_rotations
+0,0,bur_div_angle
+*set_expand_repetitions
+360/bur_div_angle
+*expand_elements
+all_existing
+*expand_reset
+*sweep_all
+*remove_unused_nodes
+*remove_unused_points
+*renumber_all
+*fill_view
+*clear_geometry
+*store_elements bur_top all_existing
+| define material property
+*mater_read c45
+*mater_name bur_top
+*add_mater_elements all_existing
+*save_as_model bur_top_3d.mud yes
+*select_method_single

@@ -1,0 +1,50 @@
+*open_model posco_bur_f1_f7_r1_base.mud
+*move_reset
+*set_move_translation y dia_chg/2.0
+*move_curves 9 72 73 2 #
+*set_convert_uvdiv u 15
+*set_convert_uvdiv v 1
+*convert_surfaces
+12
+11
+# | End of List
+*set_convert_uvdiv u 15
+*set_convert_uvdiv v 3
+*convert_surfaces
+ 10
+# | End of List
+*set_convert_uvdiv u 1
+*set_convert_uvdiv v 1
+*convert_surfaces
+ 8 9
+# | End of List
+*set_convert_uvdiv u 1
+*set_convert_uvdiv v 3
+*convert_surfaces
+ 7
+# | End of List
+*set_convert_uvdiv u 2
+*set_convert_uvdiv v 1
+*convert_surfaces
+ 6
+# | End of List
+*set_convert_uvdiv u 2
+*set_convert_uvdiv v 3
+*convert_surfaces
+ 4 5
+# | End of List
+*set_convert_uvdiv u 1
+*convert_surfaces
+ 3
+# | End of List
+*set_convert_uvdiv u 3
+*set_convert_uvdiv v 3
+*convert_surfaces
+ 1
+ 2
+# | End of List
+*sweep_all
+*move_reset
+*set_move_rotation y 90
+*move_model
+*system_reset

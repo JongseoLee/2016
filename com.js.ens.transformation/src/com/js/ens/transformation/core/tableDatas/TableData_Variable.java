@@ -180,7 +180,7 @@ public class TableData_Variable {
 	public ArrayList<String> getDB(){
 		ArrayList<String> DB = new ArrayList<String>();
 		DB.add("#########################################");
-		DB.add("#-> Variable Info");
+		DB.add("#->VariableInfo");
 		
 		DB.add(InitValue.VAR1	 	+"="+	this.VAR1);
 		DB.add(InitValue.VAR2	 	+"="+	this.VAR2);

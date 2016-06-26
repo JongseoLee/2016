@@ -4,10 +4,11 @@
 * UI 추가 
 * TabFolder 이벤트 완성
 * Import P Log -> F1~F7 와 연동
-* File Menu Dialog  
-<진행>
+* File Menu Dialog
 * DB 파일 생성
-* Open DB 파일 
-* Save DB 
+* Open DB 파일
+* Save DB    
 * proc 만들기 
+<진행>
+
 

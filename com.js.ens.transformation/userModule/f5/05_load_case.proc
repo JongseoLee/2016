@@ -1,0 +1,12 @@
+| Created by Marc Mentat 2014.0.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*new_loadcase *loadcase_type struc:dyn_trans
+*loadcase_ctable ctable1
+*loadcase_value maxrec 100
+*loadcase_value time lcase_time
+*loadcase_value nsteps lcase_time/lcase_dt

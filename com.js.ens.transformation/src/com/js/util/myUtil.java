@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.channels.FileChannel;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -94,6 +95,25 @@ public class myUtil {
 	}
 	 
 	public static void fileCopy(String inFileName, String outFileName) {
+		try{
+			FileInputStream inputStream = new FileInputStream(inFileName);         
+			FileOutputStream outputStream = new FileOutputStream(outFileName);
+			  
+			FileChannel fcin =  inputStream.getChannel();
+			FileChannel fcout = outputStream.getChannel();
+			  
+			long size = fcin.size();
+			fcin.transferTo(0, size, fcout);
+			  
+			fcout.close();
+			fcin.close();
+			  
+			outputStream.close();
+			inputStream.close();
+		}catch(Exception e){
+			
+		}
+		/*
 		FileInputStream fis = null;
 		FileOutputStream fos = null;
 		File fisf = new File(inFileName);
@@ -124,6 +144,7 @@ public class myUtil {
 			}
 			fosf.setExecutable(true);
 		}
+		*/
 	 }
 	 
 	public static void fileMove(String inFileName, String outFileName) {

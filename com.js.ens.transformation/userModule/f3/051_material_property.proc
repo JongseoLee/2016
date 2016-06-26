@@ -1,0 +1,7 @@
+| Created by Marc Mentat 2014.0.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+*prog_use_current_job on
+|
+*mater_read C45.mfd
+*add_mater_elements all_existing

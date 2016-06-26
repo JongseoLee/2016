@@ -52,54 +52,54 @@ public class CustomButton implements ICommand {
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
 			if(med.getBtnConstant1_YM().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnConstant1_YM);
-				med.getBtnExplorerYoungsModulus().setEnabled(false);
+				//med.getBtnExplorerYoungsModulus().setEnabled(false);
 			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnConstant1_YM);
-				med.getBtnExplorerYoungsModulus().setEnabled(true);
+				//med.getBtnExplorerYoungsModulus().setEnabled(true);
 			}
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
 			if(med.getBtnTable1_YM().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnTable1_YM);
-				med.getBtnExplorerYoungsModulus().setEnabled(true);
+				//med.getBtnExplorerYoungsModulus().setEnabled(true);
 			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnTable1_YM);
-				med.getBtnExplorerYoungsModulus().setEnabled(false);
+				//med.getBtnExplorerYoungsModulus().setEnabled(false);
 			}
 		}else if(widgetName.equals(Mediator.BUTTON_btnExplorerYoungsModulus)){
 			MC.Explorer_YoungsModulus();
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
 			if(med.getBtnConstant2_TEC().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnConstant2_TEC);
-				med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
+				//med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
 			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnConstant2_TEC);
-				med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
+				//med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
 			}
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
 			if(med.getBtnTable2_TEC().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnTable2_TEC);
-				med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
+				//med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
 			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnTable2_TEC);
-				med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
+				//med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
 			}
 		}else if(widgetName.equals(Mediator.Button_btnExplorerThermalExpansionCoefficient)){
 			MC.Explorer_ThermalExpansionCoefficient();
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
 			if(med.getBtnConstant3_PR().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnConstant3_PR);
-				med.getBtnExplorerPoissonsRatio().setEnabled(false);
+				//med.getBtnExplorerPoissonsRatio().setEnabled(false);
 			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnConstant3_PR);
-				med.getBtnExplorerPoissonsRatio().setEnabled(true);
+				//med.getBtnExplorerPoissonsRatio().setEnabled(true);
 			}
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
 			if(med.getBtnTable3_PR().getSelection()){
 				MC.ChangedTextWidget("true", Mediator.BUTTON_btnTable3_PR);
-				med.getBtnExplorerPoissonsRatio().setEnabled(true);
+				//med.getBtnExplorerPoissonsRatio().setEnabled(true);
 			}else{
 				MC.ChangedTextWidget("false", Mediator.BUTTON_btnTable3_PR);
-				med.getBtnExplorerPoissonsRatio().setEnabled(false);
+				//med.getBtnExplorerPoissonsRatio().setEnabled(false);
 			}
 		}else if(widgetName.equals(Mediator.BUTTON_btnExplorerPoissonsRatio)){
 			MC.Explorer_PoissonsRatio();

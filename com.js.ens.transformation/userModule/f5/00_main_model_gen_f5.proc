@@ -1,0 +1,22 @@
+| Created by Marc Mentat 2014.0.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+|
+|  Define Parameters for modeling
+*exec_procedure 01_define_parameters_f5.proc
+| Generate Rolls
+*exec_procedure 03_rolls_gen_f4_f7.proc
+| 
+|   Import Plate model section
+|
+*new_msect_external
+*msect_name plate
+*msect_external_data_file plate_job1_stage04.sec
+|
+| Assy Parts & Material/Contact Definintion
+|
+*exec_procedure 04_assy_parts_f1_f7.proc
+| Define LoadCase & Jobs
+*exec_procedure 05_load_case.proc 
+*exec_procedure 06_job_f1_f7.proc
+*save_as_model %model%_f5.mud yes
