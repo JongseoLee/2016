@@ -1,7 +1,12 @@
 package com.js.ens.transformation.proc;
 
+import org.apache.log4j.Logger;
+import org.eclipse.swt.widgets.Display;
+
+import com.js.ens.transformation.Application;
 import com.js.ens.transformation.core.MainController;
 import com.js.ens.transformation.core.UILabel;
+import com.js.ens.transformation.dialog.MessageDlg;
 import com.js.util.myUtil;
 
 public class ProcMaker {
@@ -112,6 +117,7 @@ public class ProcMaker {
 		CopyProc cpObj = new CopyProc();
 		GenProc_00 genProc00Obj = new GenProc_00();
 		GenProc_01 genProc01Obj = new GenProc_01();
+			
 		
 		if(this.StandType.equals(UILabel.F1)){
 			myUtil.makeDir(myUtil.setPath(this.destPath, UILabel.F1));

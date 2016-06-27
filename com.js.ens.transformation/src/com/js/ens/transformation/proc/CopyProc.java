@@ -2,12 +2,15 @@ package com.js.ens.transformation.proc;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
 import com.js.ens.transformation.core.MainController;
 import com.js.ens.transformation.core.UILabel;
 import com.js.io.Reader;
 import com.js.util.myUtil;
 
 public class CopyProc {
+	private Logger log = Logger.getLogger(CopyProc.class);
 	private MainController MC = MainController.getInstance();
 	private String configFolder = myUtil.setPath(System.getProperty("user.dir"),"userConfig");
 	private String userModuleFolder = myUtil.setPath(System.getProperty("user.dir"), "userModule");
@@ -59,16 +62,22 @@ public class CopyProc {
 		this.copy(filelistPath,UILabel.F7);
 	}
 	
-	private void copy(String filelistPath,String StandType){
+	private void copy(String filelistPath, String StandType){
 		Reader reader = new Reader(filelistPath);
 		reader.running();
 		ArrayList<String> fileList = new ArrayList<String>();
 		fileList = reader.getFileDataList();
 		
 		for(int i=2;i<fileList.size();i++){
+			//log.info("* START - Write file");
 			String procPath = myUtil.setPath(myUtil.setPath(userModuleFolder, StandType), fileList.get(i));
 			String destProcPath = myUtil.setPath(myUtil.setPath(destFolder,StandType), fileList.get(i));
+			long start = System.currentTimeMillis();
 			myUtil.fileCopy(procPath, destProcPath);
+			long end =System.currentTimeMillis();
+			//log.info("* End - Write file("+ (end-start)/1000.0 +"sec)");
+			log.info("* Export File Path("+ (end-start)/1000.0 +"sec) : " + destProcPath);
+			
 		}
 	}
 	

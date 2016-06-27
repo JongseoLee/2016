@@ -1,10 +1,14 @@
 package com.js.ens.transformation;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
+
+import com.js.util.myUtil;
 
 /**
  * This class controls all aspects of the application's execution
@@ -14,8 +18,15 @@ public class Application implements IApplication {
 	/* (non-Javadoc)
 	 * @see org.eclipse.equinox.app.IApplication#start(org.eclipse.equinox.app.IApplicationContext)
 	 */
+	private Logger log = Logger.getLogger(Application.class);
+	
+	
 	public Object start(IApplicationContext context) {
 		Display display = PlatformUI.createDisplay();
+		String userConfigPath = myUtil.setPath(System.getProperty("user.dir"), "userConfig");
+		System.setProperty("LogPath.ens", myUtil.setPath(System.getProperty("user.dir"), "userLog"));
+		PropertyConfigurator.configure(myUtil.setPath(userConfigPath,"log4j.properties"));
+		log.info("Start ENS Transformation");
 		try {
 			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
 			if (returnCode == PlatformUI.RETURN_RESTART) {

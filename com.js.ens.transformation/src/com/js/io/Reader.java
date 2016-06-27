@@ -10,12 +10,12 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 
 
 public class Reader {
 	
-	//private Logger log = Logger.getLogger(Reader.class);
+	private Logger log = Logger.getLogger(Reader.class);
 	
 	private BufferedReader reader;
 	private String inFilePath; 
@@ -42,12 +42,12 @@ public class Reader {
 			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fObj),"UTF8"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			//log.error(e.getMessage());
+			//e.printStackTrace();
+			log.error(e.getMessage());
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			//log.error(e.getMessage());
+			//e.printStackTrace();
+			log.error(e.getMessage());
 		}
 	}
 	
@@ -64,14 +64,14 @@ public class Reader {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
-			//log.error(e.getMessage());
+			log.error(e.getMessage());
 		} finally {
 			try {
 				reader.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				//e.printStackTrace();
-				//log.error(e.getMessage());
+				log.error(e.getMessage());
 			}
 		}
 	}
