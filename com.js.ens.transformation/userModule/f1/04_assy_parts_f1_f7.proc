@@ -3,6 +3,7 @@
 *prog_analysis_class structural
 *prog_use_current_job on
 | Generate Roller Table 
+|*new_model yes
 *exec_proc 02_rtable_gen_f1_f7.proc
 *merge_models wr_top_3d.mud
 *merge_models wr_bottom_3d.mud
@@ -17,4 +18,5 @@
 |*exec_procedure 053_initial_condition.proc
 *exec_procedure 054_link_gen.proc
 *exec_procedure 055_boundary_condition_f1_f7.proc
+*exec_procedure 056_apply_local_sys_f1_f7.proc
 *sweep_all

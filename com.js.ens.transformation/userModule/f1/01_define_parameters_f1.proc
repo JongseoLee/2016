@@ -37,11 +37,6 @@
 |!P bur_bdia : bottom work roll diameter : mm : (BUR BDIA)
 |!P wr_crown : top & bottom workroll initial crown : mm : (WR ICRN)
 |
-|*eval_define wr_tdia 815.49 |!P
-|*eval_define wr_bdia 813.85 |!P
-|*eval_define bur_tdia 1552 |!P
-|*eval_define bur_bdia 1596 |!P
-|*eval_define wr_crown -0.1 |!P
 *eval_define wr_tdia %WR TDIA% |!P
 *eval_define wr_bdia %WR BDIA% |!P
 *eval_define bur_tdia %BUR TDIA% |!P
@@ -66,7 +61,6 @@
 |
 |!P roll_gap : roll gap : mm : (ROL GAP)
 |
-|*eval_define roll_gap 14.17 |!P
 *eval_define roll_gap %ROL GAP% |!P
 
 |
@@ -75,8 +69,6 @@
 |!D  wr_div_angle : work roll division angle : deg. : 10.0
 |!D  bur_div_angle : work roll division angle : deg. : 10.0
 |
-|*eval_define wr_div_angle 10.0 |!D
-|*eval_define bur_div_angle 10.0 |!D
 *eval_define wr_div_angle %wr_div_angle% |!D
 *eval_define bur_div_angle %bur_div_angle% |!D
 |
@@ -86,14 +78,9 @@
 |!D wr_len_4-7 : Length of work roll(f4-f7) : mm : 3520.0
 |!D bur_len : Length of backup roll(f1-f7) : mm : 3520.0
 |
-|*eval_define wr_len 3570.0/2.0 | for F1-F3 Work Roll |!D
-|| *eval_define wr_len 3520.0/2.0 | for F4-F7 Work Roll |!D
-|*eval_define bur_len 3520.0/2.0 | for F1-F7 BackUp Roll |!D
 *eval_define wr_len %wr_len%/2.0 | for F1-F3 Work Roll |!D
 | *eval_define wr_len %wr_len%/2.0 | for F4-F7 Work Roll |!D
 *eval_define bur_len %bur_len%/2.0 | for F1-F7 BackUp Roll |!D
-
-
 |
 |  Define plate Parameters
 |
@@ -110,27 +97,18 @@
 |!D pl_m  : mesh size in plate length direction
 |!D pw_m  : mesh size in plate width direction
 |
-|*eval_define p_thk 33.06       |!P
-|*eval_define p_wid 1050.0      |!P
-|*eval_define p_len 300.0       |!P
-|*eval_define p_ent_temp 982.0  |!P
-|*eval_define p_exit_temp 959.0 |!P
-|*eval_define p_in -100.0       |!D
-|*eval_define pl_m 20.0         |!D
-|*eval_define t_div 4           |!D
-
-*eval_define p_thk %ENTRY THK%		|!P	
-*eval_define p_wid %STP WID%		|!P
-*eval_define p_len %STP LEN%		|!P
-*eval_define p_ent_temp %ENTRY TEMP%	|!P
-*eval_define p_exit_temp %EXIT TEMP%	|!P
-*eval_define p_in %p_in%		|!D
-*eval_define pl_m %pl_m%		|!D
-*eval_define t_div %t_div%		|!D
-*eval_define l_div p_len/pl_m		|!C
-*eval_define w_div p_wid/pl_m/2		|!C
-*eval_define pl_m p_len/l_div		|!C
-*eval_define pw_m p_wid/w_div		|!C
+*eval_define p_thk %ENTRY THK%       |!P
+*eval_define p_wid %STP WID%      |!P
+*eval_define p_len %STP LEN%       |!P
+*eval_define p_ent_temp %ENTRY TEMP%  |!P
+*eval_define p_exit_temp %EXIT TEMP% |!P
+*eval_define p_in %p_in%       |!D
+*eval_define pl_m %pl_m%         |!D
+*eval_define t_div %t_div%           |!D
+*eval_define l_div p_len/pl_m  |!C
+*eval_define w_div p_wid/pl_m/2  |!C
+*eval_define pl_m p_len/l_div  |!C
+*eval_define pw_m p_wid/w_div  |!C
 |
 |  Define Plate Velocity & Roll Rotation Parameters
 |
@@ -144,14 +122,12 @@
 |!C bur_brot : bottom backup roll rotational velocity : rad/s :
 |
 *eval_define mpm2mmps 1000.0/60.0  |!C
-|*eval_define pl_vel_mpm 56.0  |!P
 *eval_define pl_vel_mpm %SPEED%  |!P
 *eval_define pl_vel  pl_vel_mpm*mpm2mmps   |!C
 *eval_define wr_trot pl_vel/(wr_tdia/2)    |!C
 *eval_define wr_brot pl_vel/(wr_bdia/2)    |!C
 *eval_define bur_trot pl_vel/(bur_tdia/2)  |!C
 *eval_define bur_brot pl_vel/(bur_bdia/2)  |!C
-
 | 
 | Define Pass Information.
 |
@@ -161,25 +137,19 @@
 |!P  roll_torque : Rolling Torque :   tone.m : (TORQ) 
 |!P  tens_f  : Tension Stress : kgf/mm2 : (TENS)
 |
-|*eval_define pass_line 9.2                |!P
-|*eval_define p_cross_ang 0.09             |!P
-|*eval_define roll_torque 0.0*9.8          |!P
-|*eval_define bend_f 69.3*1000.0*9.8       |!P
-|*eval_define tens_f 0.0*9.8*p_thk*p_wid   |!P
-*eval_define pass_line %PAS LINE%         |!P
-*eval_define p_cross_ang %P-CROSS%        |!P
+*eval_define pass_line %PAS LINE%                |!P
+*eval_define p_cross_ang %P-CROSS%             |!P
 *eval_define roll_torque %TORQ%*9.8          |!P
 *eval_define bend_f %BEND%*1000.0*9.8       |!P
 *eval_define tens_f %TENS%*9.8*p_thk*p_wid   |!P
-
+|!C  Calculated Pass Line Adjustment : mm : 
+*eval_define pass_line_adj (p_thk-roll_gap)/2-pass_line
 |
 |Define Friction Coef.
 |
 |!U f_r2p : friction coef. betwee roll to plate :
 |!U f_r2r : friction coef. betwee roll to roll :
 |
-|*eval_define f_r2p 0.3 | Friction Coef. of Roll to Plate Contact  |!U
-|*eval_define f_r2r 0.1 | Friction Coef. of Roll to Roll Contact  |!U 
 *eval_define f_r2p %f_r2p% | Friction Coef. of Roll to Plate Contact  |!U
 *eval_define f_r2r %f_r2r% | Friction Coef. of Roll to Roll Contact  |!U 
 |
@@ -189,58 +159,59 @@
 |!C lcase_time : analysis time calculated by (thk*len)/(roll gap) : sec. :
 |!C lcase_inc : increment no. of loadcase
 |!D post_inc : Post writing increment.
-*eval_define lcase_time (p_thk*p_len)/(roll_gap*pl_vel)*1.2   |!C
-|*eval_define lcase_dt 0.001    |!D
-|*eval_define post_inc 5    |!D
-*eval_define lcase_dt %lcase_dt%    |!D
+*eval_define lcase_time (p_thk*p_len)/(roll_gap*pl_vel)   |!C
+*eval_define lcase_dt %lcase_dt%/pl_vel    |!D
 *eval_define post_inc %post_inc%    |!D
 | *eval_define lcase_inc lcase_time/lcase_dt 
+|!D g_fac : Gravity Acc. Factor for applying intial velocity.
+*eval_define g_fac 4.0 |!D
 
-|%FRCE%		|P Log table
-|%EXIT THK%	|P Log table
-|%ROL TIM%	|P Log table
-|%IDL TIM%	|P Log table
-|%BUR WEAR%	|P Log table
-|%WR WEAR%	|P Log table
-|%WR THRM%	|P Log table
+
+|%FRCE%  |P Log table
+|%EXIT THK%  |P Log table
+|%ROL TIM%  |P Log table
+|%IDL TIM%  |P Log table
+|%BUR WEAR%  |P Log table
+|%WR WEAR%  |P Log table
+|%WR THRM%  |P Log table
 	
-|%YM VALUE%	|Young's Modulus(MPa)
-|%TEH VALUE%	|Thermal Expansion Coefficient(mm/mm)
-|%PR VALUE%	|Poisson's Ratio
-|%MD VALUE%	|Mass Density(Mg/mm^3)
+|%YM VALUE%  |Young's Modulus(MPa)
+|%TEH VALUE%  |Thermal Expansion Coefficient(mm/mm)
+|%PR VALUE%  |Poisson's Ratio
+|%MD VALUE%  |Mass Density(Mg/mm^3)
 	
-|%inc_time%	|Increment time(sec.)
-|%Domain%	|Domain
-|%Thread%	|Thread
+|%inc_time%  |Increment time(sec.)
+|%Domain%  |Domain
+|%Thread%  |Thread
 	
-|%tb_vel_rate%	|Top-Bot. Vel Rete
-|%wr_trot%	|Top WR Rot. Vel.(RPM)
-|%wr_brot%	|Bottom WR Rot. Vel.(RPM)
-|%bur_trot%	|Top BUR Rot. Vel.(RPM)
-|%bur_brot%	|Bottom BUR Rot. Vel.(RPM)
+|%speed_different_ratio%  |Speed Different Ratio
+|%wr_trot%  |Top WR Rot. Vel.(RPM)
+|%wr_brot%  |Bottom WR Rot. Vel.(RPM)
+|%bur_trot%  |Top BUR Rot. Vel.(RPM)
+|%bur_brot%  Bottom BUR Rot. Vel.(RPM)
 	
-|%VAR1%		|Variable Table
-|%VAR2%		|Variable Table
-|%VAR3%		|Variable Table
-|%VAR4%		|Variable Table
-|%VAR5%		|Variable Table
-|%VAR6%		|Variable Table
-|%VAR7%		|Variable Table
-|%VAR8%		|Variable Table
-|%VAR9%		|Variable Table
-|%VAR10%	|Variable Table
-|%VAR11%	|Variable Table
-|%VAR12%	|Variable Table
-|%VAR13%	|Variable Table
-|%VAR14%	|Variable Table
-|%VAR15%	|Variable Table
-|%VAR16%	|Variable Table
+|%VAR1%  |Variable Table
+|%VAR2%  |Variable Table
+|%VAR3%  |Variable Table
+|%VAR4%  |Variable Table
+|%VAR5%  |Variable Table
+|%VAR6%  |Variable Table
+|%VAR7%  |Variable Table
+|%VAR8%  |Variable Table
+|%VAR9%  |Variable Table
+|%VAR10%  |Variable Table
+|%VAR11%  |Variable Table
+|%VAR12%  |Variable Table
+|%VAR13%  |Variable Table
+|%VAR14%  |Variable Table
+|%VAR15%  |Variable Table
+|%VAR16%  |Variable Table
 	
-|%STHK%		|SlabPlate Table
-|%SWID%		|SlabPlate Table
-|%SLEN%		|SlabPlate Table
-|%SWET%		|SlabPlate Table
-|%PTHK%		|SlabPlate Table
-|%PWID%		|SlabPlate Table
-|%PLEN%		|SlabPlate Table
-|%PWET%		|SlabPlate Table
+|%STHK%  |SlabPlate Table
+|%SWID%  |SlabPlate Table
+|%SLEN%  |SlabPlate Table
+|%SWET%  |SlabPlate Table
+|%PTHK%  |SlabPlate Table
+|%PWID%  |SlabPlate Table
+|%PLEN%  |SlabPlate Table
+|%PWET%  |SlabPlate Table

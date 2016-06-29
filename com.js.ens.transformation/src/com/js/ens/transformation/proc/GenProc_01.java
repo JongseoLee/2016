@@ -97,8 +97,11 @@ public class GenProc_01 {
 	private void readSourceData(String ori_filePath){
 		Reader reader = new Reader(ori_filePath);
 		reader.running();
-		this.ori_fileDataList=reader.getFileDataList();
-		
+		//ArrayList<String> temp = new ArrayList<String>();
+		for(String line : reader.getFileDataList()){
+			this.ori_fileDataList.add(line.replace("\t", "  "));
+		}
+		//this.ori_fileDataList=reader.getFileDataList();
 	}
 	
 	private void swapValue(int StandType){
@@ -253,8 +256,8 @@ public class GenProc_01 {
 				procDataList.add(newLien);	
 			}
 			
-			else if(line.contains(ProcMaker.tb_vel_rate)){
-				String newLien = line.replace(ProcMaker.tb_vel_rate, plogObj.get(StandType).getTb_vel_rate() );
+			else if(line.contains(ProcMaker.speed_different_ratio)){
+				String newLien = line.replace(ProcMaker.speed_different_ratio, plogObj.get(StandType).getSpeed_different_ratio());
 				procDataList.add(newLien);	
 			}else if(line.contains(ProcMaker.wr_trot)){
 				String newLien = line.replace(ProcMaker.wr_trot, plogObj.get(StandType).getWr_trot());

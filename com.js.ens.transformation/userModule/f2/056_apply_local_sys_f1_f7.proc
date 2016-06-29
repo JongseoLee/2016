@@ -1,0 +1,46 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*move_reset
+*set_move_rotation y p_cross_ang
+*move_elements
+wr_top
+bur_top
+*move_nodes
+10000001 10000002
+#
+*set_move_rotation y -p_cross_ang
+*move_elements
+wr_bottom
+bur_bottom
+#
+*move_nodes
+10000003
+10000004
+#
+*new_transform
+*transform_name
+*transform_name transform_top
+*transform_rotate
+0.0 
+p_cross_ang
+0.0
+*add_transform_nodes
+10000001
+10000002
+#
+*new_transform
+*transform_name
+*transform_name transform_bot
+*transform_rotate
+0.0
+-p_cross_ang
+0.0
+*add_transform_nodes
+10000003
+10000004
+#

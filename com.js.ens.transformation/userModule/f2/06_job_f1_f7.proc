@@ -26,3 +26,9 @@
 *job_option lump:on
 *job_param post post_inc
 *add_job_all_msects
+*job_option assem_recov_multi_threading:on
+*job_param assem_recov_nthreads
+3
+*job_option mfront_sparse_multi_threading:on
+*job_param nthreads
+3

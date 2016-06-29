@@ -1,4 +1,4 @@
-*open_model posco_wr_f4_f7_r1_base.mud
+*open_model rolls\posco_wr_f4_f7_r1_base.mud
 *remove_surfaces 
 12 16 #
 *remove_curves
@@ -24,8 +24,8 @@
 | 66 67 #
 *set_surface_type ruled
 *add_surfaces
-57 66 #
-58 67 #
+57 66 
+58 67 
 *sweep_all
 *set_convert_uvdiv u 15
 *set_convert_uvdiv v 2
@@ -69,4 +69,21 @@
 *move_reset
 *set_move_rotation y 90
 *move_model
+*select_method_box
+*select_edges
+-100 100
+-5000 5000
+-0.1 0.1
+@set($convert_entities,edges)
+*edge_lines
+all_selected
+*select_elements
+-100 100
+-5000 5000
+-0.1 0.1
+*set_expand_translation z -50
+*expand_elements
+all_selected
+*select_clear
+*select_method_single
 | *save_as_model wr_f4_f7.mud yes

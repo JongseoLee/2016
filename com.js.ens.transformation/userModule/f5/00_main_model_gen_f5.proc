@@ -9,6 +9,7 @@
 | 
 |   Import Plate model section
 |
+*new_model yes
 *new_msect_external
 *msect_name plate
 *msect_external_data_file plate_job1_stage04.sec
@@ -19,4 +20,9 @@
 | Define LoadCase & Jobs
 *exec_procedure 05_load_case.proc 
 *exec_procedure 06_job_f1_f7.proc
+| ADD Global Remeshing & Adjust Loadcase
+*exec_procedure 07_add_global_remesh_f2_f7.proc
 *save_as_model %model%_f5.mud yes
+| Change Input for Temperature Proile
+*job_write_input yes
+*py_file_run m01_change_input.py 

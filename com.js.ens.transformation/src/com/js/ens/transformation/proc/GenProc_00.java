@@ -91,8 +91,11 @@ public class GenProc_00 {
 	private void readSourceData(String ori_filePath){
 		Reader reader = new Reader(ori_filePath);
 		reader.running();
-		this.ori_fileDataList=reader.getFileDataList();
 		
+		for(String line : reader.getFileDataList()){
+			this.ori_fileDataList.add(line.replace("\t", "  "));
+		}
+		//this.ori_fileDataList=reader.getFileDataList();
 	}
 	
 	private void swapValue(){

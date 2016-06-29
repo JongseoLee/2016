@@ -202,9 +202,9 @@ public class Mediator {
 	public ICommand C_textRollToRollFrictCoef;
 	public static String TEXT_textRollToRollFrictCoef = "textRollToRollFrictCoef";
 	
-	private Text textTopBotVelRate;
-	public ICommand C_textTopBotVelRate;
-	public static String TEXT_textTopBotVelRate = "textTopBotVelRate";
+	private Text textSpeedDifferentRatio;
+	public ICommand C_textSpeedDifferentRatio;
+	public static String TEXT_textSpeedDifferentRatio = "textSpeedDifferentRatio";
 	
 	private Text textTopWRRotVel;
 	public ICommand C_textTopWRRotVel;
@@ -1266,17 +1266,17 @@ public class Mediator {
 	}
 	
 	
-	public Text getTextTopBotVelRate() {
-		return textTopBotVelRate;
+	public Text getTextSpeedDifferentRatio() {
+		return textSpeedDifferentRatio;
 	}
-	public void setTextTopBotVelRate(Text textTopBotVelRate) {
-		this.textTopBotVelRate = textTopBotVelRate;
+	public void setTextSpeedDifferentRatio(Text textSpeedDifferentRatio) {
+		this.textSpeedDifferentRatio = textSpeedDifferentRatio;
 	}
-	public ICommand getC_textTopBotVelRate() {
-		return C_textTopBotVelRate;
+	public ICommand getC_textSpeedDifferentRatio() {
+		return C_textSpeedDifferentRatio;
 	}
-	public void setC_textTopBotVelRate(ICommand c_textTopBotVelRate) {
-		C_textTopBotVelRate = c_textTopBotVelRate;
+	public void setC_textSpeedDifferentRatio(ICommand c_textSpeedDifferentRatio) {
+		C_textSpeedDifferentRatio = c_textSpeedDifferentRatio;
 	}
 	
 	

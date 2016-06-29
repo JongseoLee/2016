@@ -20,10 +20,10 @@
 |
 *new_model yes
 *set_surface_type quad
-*add_surface point(-p_len+p_in,0.0,p_wid/2)
-             point(0.0+p_in,0.0,p_wid/2)
-             point(0.0+p_in,0.0,0.0)
-             point(-p_len+p_in,0.0,0.0)
+*add_surface point(-p_len+p_in,pass_line_adj,p_wid/2)
+             point(0.0+p_in,pass_line_adj,p_wid/2)
+             point(0.0+p_in,pass_line_adj,0.0)
+             point(-p_len+p_in,pass_line_adj,0.0)
 *set_convert_divisions l_div w_div
 *convert_surfaces 1 # | End of 
 *expand_reset
@@ -40,22 +40,22 @@
 |
 | Create Roller Table
 |
-*add_surface point(0.0+p_in,0.0,p_wid/2+200.0)
-             point(-p_len+p_in-1000.0,0.0,p_wid/2+200.0)
-             point(-p_len+p_in-1000.0,0.0,0.0-100.0)
-             point(0.0+p_in,0.0,0.0-100.0)             
-*add_surface point(0.0+p_in,0.0,p_wid/2+200.0)
-             point(0.0+p_in,0.0,0.0-100.0)    
-             point(0.0+p_in+95.0,-100.0,0.0-100.0)
-             point(0.0+p_in+95.0,-100.0,p_wid/2+200.0)
-*add_surface point(0.0-p_in,0.0,0.0-100.0)    
-             point(0.0-p_in,0.0,p_wid/2+200.0)
-             point(0.0-p_in-95.0,-100.0,p_wid/2+200.0)
-             point(0.0-p_in-95.0,-100.0,0.0-100.0)
-*add_surface point(0.0-p_in,0.0,p_wid/2+200.0)
-             point(0.0-p_in,0.0,0.0-100.0)    
-             point(0.0-p_in+p_len*10,0.0,0.0-100.0)             
-             point(0.0-p_in+p_len*10,0.0,p_wid/2+200.0)  
+*add_surface point(0.0+p_in,pass_line_adj,p_wid/2+200.0)
+             point(-p_len+p_in-1000.0,pass_line_adj,p_wid/2+200.0)
+             point(-p_len+p_in-1000.0,pass_line_adj,0.0-100.0)
+             point(0.0+p_in,pass_line_adj,0.0-100.0)             
+*add_surface point(0.0+p_in,pass_line_adj,p_wid/2+200.0)
+             point(0.0+p_in,pass_line_adj,0.0-100.0)    
+             point(0.0+p_in+95.0,-100.0+pass_line_adj,0.0-100.0)
+             point(0.0+p_in+95.0,-100.0+pass_line_adj,p_wid/2+200.0)
+*add_surface point(0.0-p_in,pass_line_adj,0.0-100.0)    
+             point(0.0-p_in,pass_line_adj,p_wid/2+200.0)
+             point(0.0-p_in-95.0,-100.0+pass_line_adj,p_wid/2+200.0)
+             point(0.0-p_in-95.0,-100.0+pass_line_adj,0.0-100.0)
+*add_surface point(0.0-p_in,pass_line_adj,p_wid/2+200.0)
+             point(0.0-p_in,pass_line_adj,0.0-100.0)    
+             point(0.0-p_in+p_len*10,pass_line_adj,0.0-100.0)             
+             point(0.0-p_in+p_len*10,pass_line_adj,p_wid/2+200.0)  
 *move_reset
 *set_move_translation y 0-p_thk/2
 *move_surfaces

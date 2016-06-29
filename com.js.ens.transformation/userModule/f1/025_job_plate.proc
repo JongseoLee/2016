@@ -27,3 +27,4 @@
 *save_as_model plate yes
 *job_submit_reset
 *submit_job 1 
+*monitor_job

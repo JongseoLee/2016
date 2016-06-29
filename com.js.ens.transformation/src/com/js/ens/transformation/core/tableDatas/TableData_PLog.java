@@ -50,7 +50,7 @@ public class TableData_PLog {
 	//group4
 	private String f_r2p = "";
 	private String f_r2r = "";
-	private String tb_vel_rate = "";
+	private String speed_different_ratio = "";
 	private String wr_trot = "";
 	private String wr_brot = "";
 	private String bur_trot = "";
@@ -135,7 +135,7 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F1);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F1);
-		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F1);
+		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F1);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F1);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F1);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F1);
@@ -183,7 +183,7 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F2);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F2);
-		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F2);
+		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F2);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F2);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F2);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F2);
@@ -231,7 +231,7 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F3);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F3);
-		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F3);
+		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F3);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F3);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F3);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F3);
@@ -279,7 +279,7 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F4);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F4);
-		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F4);
+		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F4);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F4);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F4);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F4);
@@ -327,7 +327,7 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F5);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F5);
-		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F5);
+		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F5);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F5);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F5);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F5);
@@ -375,7 +375,7 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F6);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F6);
-		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F6);
+		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F6);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F6);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F6);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F6);
@@ -423,7 +423,7 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F7);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F7);
-		tb_vel_rate = obj.getInitValue(InitValue.tb_vel_rate_F7);
+		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F7);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F7);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F7);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F7);
@@ -860,12 +860,12 @@ public class TableData_PLog {
 		PR_Table = pR_Table;
 	}
 
-	public String getTb_vel_rate() {
-		return tb_vel_rate;
+	public String getSpeed_different_ratio() {
+		return speed_different_ratio;
 	}
 
-	public void setTb_vel_rate(String tb_vel_rate) {
-		this.tb_vel_rate = tb_vel_rate;
+	public void setSpeed_different_ratio(String speed_different_ratio) {
+		this.speed_different_ratio = speed_different_ratio;
 	}
 
 	public String getWr_trot() {
@@ -936,7 +936,7 @@ public class TableData_PLog {
 		DB.add(UILabel.Tension_Stress			+"_"+this.STAND+"="+	this.TENS);
 		DB.add(UILabel.Roll_to_Plate_Frict_Coef	+"_"+this.STAND+"="+	this.f_r2p);
 		DB.add(UILabel.Roll_to_Roll_Fric_Coef	+"_"+this.STAND+"="+	this.f_r2r);
-		DB.add(UILabel.Top_Bot_Vel_Rete			+"_"+this.STAND+"="+	this.tb_vel_rate);
+		DB.add(UILabel.Speed_Different_Ratio	+"_"+this.STAND+"="+	this.speed_different_ratio);
 		DB.add(UILabel.Top_WR_Rot_Vel_RPM		+"_"+this.STAND+"="+	this.wr_trot);
 		DB.add(UILabel.Bottom_WR_Rot_Vel_RPM	+"_"+this.STAND+"="+	this.wr_brot);
 		DB.add(UILabel.Top_BUR_Rot_Vel_RPM		+"_"+this.STAND+"="+	this.bur_trot);

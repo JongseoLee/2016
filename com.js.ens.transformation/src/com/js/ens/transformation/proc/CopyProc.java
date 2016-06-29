@@ -72,6 +72,8 @@ public class CopyProc {
 			//log.info("* START - Write file");
 			String procPath = myUtil.setPath(myUtil.setPath(userModuleFolder, StandType), fileList.get(i));
 			String destProcPath = myUtil.setPath(myUtil.setPath(destFolder,StandType), fileList.get(i));
+			System.out.println("!!=>"+procPath);
+			System.out.println("!!=>"+destProcPath);
 			long start = System.currentTimeMillis();
 			myUtil.fileCopy(procPath, destProcPath);
 			long end =System.currentTimeMillis();

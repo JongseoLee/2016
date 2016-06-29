@@ -1273,7 +1273,7 @@ public class MainController {
 			Pobj.setF_r2p(openDBMap.get(UILabel.Roll_to_Plate_Frict_Coef+"_"+Pobj.getSTAND()));
 			Pobj.setF_r2r(openDBMap.get(UILabel.Roll_to_Roll_Fric_Coef+"_"+Pobj.getSTAND()));
 			
-			Pobj.setTb_vel_rate(openDBMap.get(UILabel.Top_Bot_Vel_Rete+"_"+Pobj.getSTAND()));
+			Pobj.setSpeed_different_ratio(openDBMap.get(UILabel.Speed_Different_Ratio+"_"+Pobj.getSTAND()));
 			Pobj.setWr_trot(openDBMap.get(UILabel.Top_WR_Rot_Vel_RPM+"_"+Pobj.getSTAND()));
 			Pobj.setWr_brot(openDBMap.get(UILabel.Bottom_BUR_Rot_Vel_RPM+"_"+Pobj.getSTAND()));
 			Pobj.setBur_trot(openDBMap.get(UILabel.Top_BUR_Rot_Vel_RPM+"_"+Pobj.getSTAND()));
@@ -2272,7 +2272,7 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2370,7 +2370,7 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2468,7 +2468,7 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2566,7 +2566,7 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2664,7 +2664,7 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2762,7 +2762,7 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2860,7 +2860,7 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setTb_vel_rate(med.getTextTopBotVelRate().getText());
+		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2967,7 +2967,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F1));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F1));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F1));
-		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F1));
+		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F1));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F1));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F1));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F1));
@@ -3084,7 +3084,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F2));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F2));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F2));
-		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F2));
+		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F2));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F2));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F2));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F2));
@@ -3201,7 +3201,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F3));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F3));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F3));
-		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F3));
+		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F3));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F3));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F3));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F3));
@@ -3318,7 +3318,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F4));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F4));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F4));
-		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F4));
+		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F4));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F4));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F4));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F4));
@@ -3435,7 +3435,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F5));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F5));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F5));
-		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F5));
+		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F5));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F5));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F5));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F5));
@@ -3552,7 +3552,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F6));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F6));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F6));
-		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F6));
+		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F6));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F6));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F6));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F6));
@@ -3669,7 +3669,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F7));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F7));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F7));
-		med.getTextTopBotVelRate().setText(obj.getInitValue(InitValue.tb_vel_rate_F7));
+		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F7));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F7));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F7));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F7));
@@ -3820,7 +3820,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -3928,7 +3928,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4036,7 +4036,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4144,7 +4144,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4252,7 +4252,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4360,7 +4360,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4468,7 +4468,7 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextTopBotVelRate().setText(obj.getTb_vel_rate());
+		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4625,8 +4625,8 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
-			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
+			obj.setSpeed_different_ratio(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -4728,8 +4728,8 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
-			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
+			obj.setSpeed_different_ratio(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -4831,8 +4831,8 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
-			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
+			obj.setSpeed_different_ratio(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -4934,8 +4934,8 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
-			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
+			obj.setSpeed_different_ratio(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -5037,8 +5037,8 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
-			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
+			obj.setSpeed_different_ratio(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -5140,8 +5140,8 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
-			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
+			obj.setSpeed_different_ratio(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -5243,8 +5243,8 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
-			obj.setTb_vel_rate(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
+			obj.setSpeed_different_ratio(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){

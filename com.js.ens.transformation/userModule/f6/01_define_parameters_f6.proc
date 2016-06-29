@@ -139,6 +139,8 @@
 *eval_define roll_torque %TORQ%*9.8            |!P
 *eval_define bend_f %BEND%*1000.0*9.8         |!P
 *eval_define tens_f %TENS%*9.8*p_thk*p_wid   |!P
+|!C  Calculated Pass Line Adjustment : mm : 
+*eval_define pass_line_adj (p_thk-roll_gap)/2-pass_line
 |
 |Define Friction Coef.
 |
@@ -154,58 +156,59 @@
 |!C lcase_time : analysis time calculated by (thk*len)/(roll gap) : sec. :
 |!C lcase_inc : increment no. of loadcase
 |!D post_inc : Post writing increment.
-*eval_define lcase_time (p_thk*p_len)/(roll_gap*pl_vel)*1.2   |!C
-*eval_define lcase_dt %lcase_dt%    |!D
+*eval_define lcase_time (p_thk*p_len)/(roll_gap*pl_vel)  |!C
+*eval_define lcase_dt %lcase_dt%/pl_vel    |!D
 *eval_define post_inc %post_inc%    |!D
 | *eval_define lcase_inc lcase_time/lcase_dt 
+|!D g_fac : Gravity Acc. Factor for applying intial velocity.
+*eval_define g_fac 4.0 |!D
 
 
-
-|%FRCE%		|P Log table
-|%EXIT THK%	|P Log table
-|%ROL TIM%	|P Log table
-|%IDL TIM%	|P Log table
-|%BUR WEAR%	|P Log table
-|%WR WEAR%	|P Log table
-|%WR THRM%	|P Log table
+|%FRCE%  |P Log table
+|%EXIT THK%  |P Log table
+|%ROL TIM%  |P Log table
+|%IDL TIM%  |P Log table
+|%BUR WEAR%  |P Log table
+|%WR WEAR%  |P Log table
+|%WR THRM%  |P Log table
 	
-|%YM VALUE%	|Young's Modulus(MPa)
-|%TEH VALUE%	|Thermal Expansion Coefficient(mm/mm)
-|%PR VALUE%	|Poisson's Ratio
-|%MD VALUE%	|Mass Density(Mg/mm^3)
+|%YM VALUE%  |Young's Modulus(MPa)
+|%TEH VALUE%  |Thermal Expansion Coefficient(mm/mm)
+|%PR VALUE%  |Poisson's Ratio
+|%MD VALUE%  |Mass Density(Mg/mm^3)
 	
-|%inc_time%	|Increment time(sec.)
-|%Domain%	|Domain
-|%Thread%	|Thread
+|%inc_time%  |Increment time(sec.)
+|%Domain%  |Domain
+|%Thread%  |Thread
 	
-|%tb_vel_rate%	|Top-Bot. Vel Rete
-|%wr_trot%	|Top WR Rot. Vel.(RPM)
-|%wr_brot%	|Bottom WR Rot. Vel.(RPM)
-|%bur_trot%	|Top BUR Rot. Vel.(RPM)
-|%bur_brot%	|Bottom BUR Rot. Vel.(RPM)
+|%speed_different_ratio%  |Speed Different Ratio
+|%wr_trot%  |Top WR Rot. Vel.(RPM)
+|%wr_brot%  |Bottom WR Rot. Vel.(RPM)
+|%bur_trot%  |Top BUR Rot. Vel.(RPM)
+|%bur_brot%  Bottom BUR Rot. Vel.(RPM)
 	
-|%VAR1%		|Variable Table
-|%VAR2%		|Variable Table
-|%VAR3%		|Variable Table
-|%VAR4%		|Variable Table
-|%VAR5%		|Variable Table
-|%VAR6%		|Variable Table
-|%VAR7%		|Variable Table
-|%VAR8%		|Variable Table
-|%VAR9%		|Variable Table
-|%VAR10%	|Variable Table
-|%VAR11%	|Variable Table
-|%VAR12%	|Variable Table
-|%VAR13%	|Variable Table
-|%VAR14%	|Variable Table
-|%VAR15%	|Variable Table
-|%VAR16%	|Variable Table
+|%VAR1%  |Variable Table
+|%VAR2%  |Variable Table
+|%VAR3%  |Variable Table
+|%VAR4%  |Variable Table
+|%VAR5%  |Variable Table
+|%VAR6%  |Variable Table
+|%VAR7%  |Variable Table
+|%VAR8%  |Variable Table
+|%VAR9%  |Variable Table
+|%VAR10%  |Variable Table
+|%VAR11%  |Variable Table
+|%VAR12%  |Variable Table
+|%VAR13%  |Variable Table
+|%VAR14%  |Variable Table
+|%VAR15%  |Variable Table
+|%VAR16%  |Variable Table
 	
-|%STHK%		|SlabPlate Table
-|%SWID%		|SlabPlate Table
-|%SLEN%		|SlabPlate Table
-|%SWET%		|SlabPlate Table
-|%PTHK%		|SlabPlate Table
-|%PWID%		|SlabPlate Table
-|%PLEN%		|SlabPlate Table
-|%PWET%		|SlabPlate Table
+|%STHK%  |SlabPlate Table
+|%SWID%  |SlabPlate Table
+|%SLEN%  |SlabPlate Table
+|%SWET%  |SlabPlate Table
+|%PTHK%  |SlabPlate Table
+|%PWID%  |SlabPlate Table
+|%PLEN%  |SlabPlate Table
+|%PWET%  |SlabPlate Table

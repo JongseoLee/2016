@@ -101,9 +101,9 @@ public class CustomText implements ICommand {
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			value = med.getTextRollToRollFrictCoef().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textRollToRollFrictCoef);
-		}else if(widgetName.equals(Mediator.TEXT_textTopBotVelRate)){
-			value = med.getTextTopBotVelRate().getText().trim();
-			MC.ChangedTextWidget(value, Mediator.TEXT_textTopBotVelRate);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
+			value = med.getTextSpeedDifferentRatio().getText().trim();
+			MC.ChangedTextWidget(value, Mediator.TEXT_textSpeedDifferentRatio);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			value = med.getTextTopWRRotVel().getText().trim();
 			MC.ChangedTextWidget(value, Mediator.TEXT_textTopWRRotVel);
@@ -221,8 +221,8 @@ public class CustomText implements ICommand {
 	public void setCustomWidget_textRollToRollFrictCoef(){
 		this.text = med.getTextRollToRollFrictCoef();
 	}
-	public void setCustomWidget_textTopBotVelRate(){
-		this.text = med.getTextTopBotVelRate();
+	public void setCustomWidget_textSpeedDifferentRatio(){
+		this.text = med.getTextSpeedDifferentRatio();
 	}
 	public void setCustomWidget_textTopWRRotVel(){
 		this.text = med.getTextTopWRRotVel();

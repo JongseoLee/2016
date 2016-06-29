@@ -150,7 +150,8 @@ public class UILabel {
 	public static String Roll_to_Roll_Fric_Coef="Roll to Roll Fric. Coef.";
 	
 	// 10) tb_vel_rate
-	public static String Top_Bot_Vel_Rete="Top-Bot. Vel Rete";
+	// 
+	public static String Speed_Different_Ratio="Speed Different Ratio";
 	// 11) wr_trot
 	public static String Top_WR_Rot_Vel_RPM="Top WR Rot. Vel.(RPM)";
 	// 12) wr_brot

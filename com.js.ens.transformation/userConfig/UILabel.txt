@@ -146,7 +146,7 @@ Roll to Plate Frict. Coef.=Roll to Plate Frict. Coef.
 Roll to Roll Fric. Coef.=Roll to Roll Fric. Coef.
 
 // 10) tb_vel_rate
-Top-Bot. Vel Rete=Top-Bot. Vel Rete
+Speed Different Ratio=Speed Different Ratio
 // 11) wr_trot
 Top WR Rot. Vel.(RPM)=Top WR Rot. Vel.(RPM)
 // 12) wr_brot

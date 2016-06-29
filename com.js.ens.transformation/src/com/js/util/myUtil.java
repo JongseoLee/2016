@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -56,6 +57,14 @@ public class myUtil {
 		resultPath = f.getName();
 		f = null;
 		return resultPath;
+	}
+	
+	public static void printArrayList(ArrayList<String> list){
+		System.out.println("=================================");
+		for(String str:list){
+			System.out.println(str);
+		}
+		System.out.println("=================================");
 	}
 	
 	public static void printMap(Map<String,String> map){

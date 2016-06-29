@@ -35,6 +35,16 @@ roll_table
 07_Symm_plane
 *add_contact_body_surfaces
 symm_plane
+*new_cbody symmetry
+*contact_body_name
+08_symm_top
+*add_contact_body_surfaces
+symm_top
+*new_cbody symmetry
+*contact_body_name
+09_symm_bottom
+*add_contact_body_surfaces
+symm_bottom
 *identify_contact *regen
 *fill_view
 |
@@ -84,18 +94,15 @@ Symm_interact
 *ctable_entry 01_Plate 06_Roller_table
 *contact_table_option 01_Plate 06_Roller_table contact:on
 *prog_string ctable:old_interact plate2roll_table *ctable_entry_interact 01_Plate 06_Roller_table
-*ctable_entry 01_Plate 07_Symm_plane
-*contact_table_option 01_Plate 07_Symm_plane contact:on
-*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 01_Plate 07_Symm_plane
-*ctable_entry 02_WR_top 07_Symm_plane
-*contact_table_option 02_WR_top 07_Symm_plane contact:on
-*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 02_WR_top 07_Symm_plane
-*ctable_entry 03_BUR_top 07_Symm_plane
-*contact_table_option 03_BUR_top 07_Symm_plane contact:on
-*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 03_BUR_top 07_Symm_plane
-*ctable_entry 04_WR_bottom 07_Symm_plane
-*contact_table_option 04_WR_bottom 07_Symm_plane contact:on
-*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 04_WR_bottom 07_Symm_plane
-*ctable_entry 05_BUR_bottom 07_Symm_plane
-*contact_table_option 05_BUR_bottom 07_Symm_plane contact:on
-*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 05_BUR_bottom 07_Symm_plane
+*ctable_entry 02_WR_top 08_symm_top
+*contact_table_option 02_WR_top 08_symm_top contact:on
+*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 02_WR_top 08_symm_top
+*ctable_entry 03_BUR_top 08_symm_top
+*contact_table_option 03_BUR_top 08_symm_top contact:on
+*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 03_BUR_top 08_symm_top
+*ctable_entry 04_WR_bottom 09_symm_bottom
+*contact_table_option 04_WR_bottom 09_symm_bottom contact:on
+*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 04_WR_bottom 09_symm_bottom
+*ctable_entry 05_BUR_bottom 09_symm_bottom
+*contact_table_option 05_BUR_bottom 09_symm_bottom contact:on
+*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 05_BUR_bottom 09_symm_bottom

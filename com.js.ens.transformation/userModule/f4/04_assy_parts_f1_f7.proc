@@ -17,4 +17,5 @@
 |*exec_procedure 053_initial_condition.proc
 *exec_procedure 054_link_gen.proc
 *exec_procedure 055_boundary_condition_f1_f7.proc
+*exec_procedure 056_apply_local_sys_f1_f7.proc
 *sweep_all

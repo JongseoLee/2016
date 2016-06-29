@@ -105,7 +105,7 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F1 = "f_r2p_F1";
 	public static String f_r2r_F1 = "f_r2r_F1";
-	public static String tb_vel_rate_F1="tb_vel_rate_F1";
+	public static String speed_different_ratio_F1="speed_different_ratio_F1";
 	public static String wr_trot_F1="wr_trot_F1";
 	public static String wr_brot_F1="wr_brot_F1";
 	public static String bur_trot_F1="bur_trot_F1";
@@ -149,7 +149,7 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F2 = "f_r2p_F2";
 	public static String f_r2r_F2 = "f_r2r_F2";
-	public static String tb_vel_rate_F2="tb_vel_rate_F2";
+	public static String speed_different_ratio_F2="speed_different_ratio_F2";
 	public static String wr_trot_F2="wr_trot_F2";
 	public static String wr_brot_F2="wr_brot_F2";
 	public static String bur_trot_F2="bur_trot_F2";
@@ -194,7 +194,7 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F3 = "f_r2p_F3";
 	public static String f_r2r_F3 = "f_r2r_F3";
-	public static String tb_vel_rate_F3="tb_vel_rate_F3";
+	public static String speed_different_ratio_F3="speed_different_ratio_F3";
 	public static String wr_trot_F3="wr_trot_F3";
 	public static String wr_brot_F3="wr_brot_F3";
 	public static String bur_trot_F3="bur_trot_F3";
@@ -238,7 +238,7 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F4 = "f_r2p_F4";
 	public static String f_r2r_F4 = "f_r2r_F4";
-	public static String tb_vel_rate_F4="tb_vel_rate_F4";
+	public static String speed_different_ratio_F4="speed_different_ratio_F4";
 	public static String wr_trot_F4="wr_trot_F4";
 	public static String wr_brot_F4="wr_brot_F4";
 	public static String bur_trot_F4="bur_trot_F4";
@@ -282,7 +282,7 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F5 = "f_r2p_F5";
 	public static String f_r2r_F5 = "f_r2r_F5";
-	public static String tb_vel_rate_F5="tb_vel_rate_F5";
+	public static String speed_different_ratio_F5="speed_different_ratio_F5";
 	public static String wr_trot_F5="wr_trot_F5";
 	public static String wr_brot_F5="wr_brot_F5";
 	public static String bur_trot_F5="bur_trot_F5";
@@ -327,7 +327,7 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F6 = "f_r2p_F6";
 	public static String f_r2r_F6 = "f_r2r_F6";
-	public static String tb_vel_rate_F6="tb_vel_rate_F6";
+	public static String speed_different_ratio_F6="speed_different_ratio_F6";
 	public static String wr_trot_F6="wr_trot_F6";
 	public static String wr_brot_F6="wr_brot_F6";
 	public static String bur_trot_F6="bur_trot_F6";
@@ -371,7 +371,7 @@ public class InitValue {
 	//group4
 	public static String f_r2p_F7 = "f_r2p_F7";
 	public static String f_r2r_F7 = "f_r2r_F7";
-	public static String tb_vel_rate_F7="tb_vel_rate_F7";
+	public static String speed_different_ratio_F7="speed_different_ratio_F7";
 	public static String wr_trot_F7="wr_trot_F7";
 	public static String wr_brot_F7="wr_brot_F7";
 	public static String bur_trot_F7="bur_trot_F7";

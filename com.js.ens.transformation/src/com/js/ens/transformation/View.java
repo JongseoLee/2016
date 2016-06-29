@@ -23,13 +23,16 @@ import com.js.ens.transformation.customWidget.CustomSpinner;
 import com.js.ens.transformation.customWidget.CustomTabFolder;
 import com.js.ens.transformation.customWidget.CustomTableViewer;
 import com.js.ens.transformation.customWidget.CustomText;
+import com.js.ens.transformation.dialog.MessageDlg;
 import com.js.ens.transformation.handler.HandlerButton;
 import com.js.ens.transformation.handler.HandlerSpinner;
 import com.js.ens.transformation.handler.HandlerTabFolder;
 import com.js.ens.transformation.handler.HandlerTableViewer;
 import com.js.ens.transformation.handler.HandlerText;
+import com.js.util.myUtil;
 
 import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Text;
@@ -37,6 +40,8 @@ import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
 
 public class View extends ViewPart {
 	private Mediator med = Mediator.getInstance();
@@ -82,7 +87,7 @@ public class View extends ViewPart {
 	private Text textTensionStress;
 	private Text textRollToPlateFrictCoef;
 	private Text textRollToRollFrictCoef;
-	private Text textTopBotVelRate;
+	private Text textSpeedDifferentRatio;
 	private Text textTopWRRotVel;
 	private Text textBottomWRRotVel;
 	private Text textTopBURRotVel;
@@ -871,27 +876,27 @@ public class View extends ViewPart {
 		fd_textRollToRollFrictCoef.right = new FormAttachment(100, -10);
 		textRollToRollFrictCoef.setLayoutData(fd_textRollToRollFrictCoef);
 		
-		Label lblTopBotVelRate = new Label(grpProcessInformation, SWT.NONE);
-		FormData fd_lblTopBotVelRate = new FormData();
-		fd_lblTopBotVelRate.top = new FormAttachment(lblRollToRollFrictCoef, 20);
-		fd_lblTopBotVelRate.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
-		lblTopBotVelRate.setLayoutData(fd_lblTopBotVelRate);
-		lblTopBotVelRate.setText(ulObj.getUILabelValue(UILabel.Top_Bot_Vel_Rete));
+		Label lblSpeedDifferentRatio = new Label(grpProcessInformation, SWT.NONE);
+		FormData fd_lblSpeedDifferentRatio = new FormData();
+		fd_lblSpeedDifferentRatio.top = new FormAttachment(lblRollToRollFrictCoef, 20);
+		fd_lblSpeedDifferentRatio.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
+		lblSpeedDifferentRatio.setLayoutData(fd_lblSpeedDifferentRatio);
+		lblSpeedDifferentRatio.setText(ulObj.getUILabelValue(UILabel.Speed_Different_Ratio));
 
-		textTopBotVelRate = new Text(grpProcessInformation, SWT.BORDER);
-		med.setTextTopBotVelRate(textTopBotVelRate);
-		CustomText C_textTopBotVelRate = new CustomText(Mediator.TEXT_textTopBotVelRate,med);
-		med.setC_textTopBotVelRate(C_textTopBotVelRate);
-		C_textTopBotVelRate.setCustomWidget_textTopBotVelRate();
-		FormData fd_textTopBotVelRate = new FormData();
-		fd_textTopBotVelRate.top = new FormAttachment(lblTopBotVelRate,-2,SWT.TOP);
-		fd_textTopBotVelRate.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
-		fd_textTopBotVelRate.right = new FormAttachment(100, -10);
-		textTopBotVelRate.setLayoutData(fd_textTopBotVelRate);
+		textSpeedDifferentRatio = new Text(grpProcessInformation, SWT.BORDER);
+		med.setTextSpeedDifferentRatio(textSpeedDifferentRatio);
+		CustomText C_textSpeedDifferentRatio = new CustomText(Mediator.TEXT_textSpeedDifferentRatio,med);
+		med.setC_textSpeedDifferentRatio(C_textSpeedDifferentRatio);
+		C_textSpeedDifferentRatio.setCustomWidget_textSpeedDifferentRatio();
+		FormData fd_textSpeedDifferentRatio = new FormData();
+		fd_textSpeedDifferentRatio.top = new FormAttachment(lblSpeedDifferentRatio,-2,SWT.TOP);
+		fd_textSpeedDifferentRatio.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
+		fd_textSpeedDifferentRatio.right = new FormAttachment(100, -10);
+		textSpeedDifferentRatio.setLayoutData(fd_textSpeedDifferentRatio);
 
 		Label lblTopWRRotVel = new Label(grpProcessInformation, SWT.NONE);
 		FormData fd_lblTopWRRotVel = new FormData();
-		fd_lblTopWRRotVel.top = new FormAttachment(lblTopBotVelRate, 10);
+		fd_lblTopWRRotVel.top = new FormAttachment(lblSpeedDifferentRatio, 10);
 		fd_lblTopWRRotVel.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
 		lblTopWRRotVel.setLayoutData(fd_lblTopWRRotVel);
 		lblTopWRRotVel.setText(ulObj.getUILabelValue(UILabel.Top_WR_Rot_Vel_RPM));
@@ -1393,6 +1398,20 @@ public class View extends ViewPart {
 		fd_lblWorkspacePath.right = new FormAttachment(100,-10);
 		lblWorkspacePath.setLayoutData(fd_lblWorkspacePath);
 		lblWorkspacePath.setText("-");
+		lblWorkspacePath.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDoubleClick(MouseEvent e) {
+				String value = med.getLblWorkspacePath().getText();
+				if(myUtil.checkPath(value)){
+					if(myUtil.checkOS().equals("window")){
+						try{
+							Runtime.getRuntime().exec("explorer "+ value);
+						}catch(Exception ezz){
+						}
+					}
+				}
+			}
+		});
 		
 		Button btnApply = new Button(parent, SWT.NONE);
 		med.setBtnApply(btnApply);
@@ -1596,7 +1615,7 @@ public class View extends ViewPart {
 		med.getTextTensionStress().addListener(SWT.CHANGED, handlerText);
 		med.getTextRollToPlateFrictCoef().addListener(SWT.CHANGED, handlerText);
 		med.getTextRollToRollFrictCoef().addListener(SWT.CHANGED, handlerText);
-		med.getTextTopBotVelRate().addListener(SWT.Selection, handlerText);
+		med.getTextSpeedDifferentRatio().addListener(SWT.Selection, handlerText);
 		med.getTextTopWRRotVel().addListener(SWT.Selection, handlerText);
 		med.getTextBottomWRRotVel().addListener(SWT.Selection, handlerText);
 		med.getTextTopBURRotVel().addListener(SWT.Selection, handlerText);
