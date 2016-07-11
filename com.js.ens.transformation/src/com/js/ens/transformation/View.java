@@ -99,8 +99,8 @@ public class View extends ViewPart {
 	private Text textPoissonsRatio;
 	private Text textMassDensity;
 	
-	private Text textTimeIncrement_time;
-	private Text textTimeIncrement_dt;
+	private Text textAnalysisTime;
+	private Text textNoOfInc;
 	private Text textPostWritingFrequency;
 	private Text textIncrementTime;
 	
@@ -420,6 +420,7 @@ public class View extends ViewPart {
 		fd_textWRLength.left = new FormAttachment(textTopWRDiameter, 0,SWT.LEFT);
 		fd_textWRLength.right = new FormAttachment(100, -10);
 		textWRLength.setLayoutData(fd_textWRLength);
+		textWRLength.setEnabled(false);
 		
 		Label lblWRMeshAngle = new Label(grpWorkRollwrParameter, SWT.NONE);
 		FormData fd_lblWRMeshAngle = new FormData();
@@ -512,6 +513,7 @@ public class View extends ViewPart {
 		fd_textBURLength.left = new FormAttachment(textTopBURDiameter, 0,SWT.LEFT);
 		fd_textBURLength.right = new FormAttachment(100, -10);
 		textBURLength.setLayoutData(fd_textBURLength);
+		textBURLength.setEnabled(false);
 		
 		Label lblBURMeshAngle = new Label(grpBackUpRollburParameter, SWT.NONE);
 		FormData fd_lblBURMeshAngle = new FormData();
@@ -729,7 +731,7 @@ public class View extends ViewPart {
 		C_textVelocity.setCustomWidget_textVelocity();
 		FormData fd_textVelocity = new FormData();
 		fd_textVelocity.top = new FormAttachment(lblVelocity,-2,SWT.TOP);
-		fd_textVelocity.left = new FormAttachment(lblVelocity,90,SWT.RIGHT);
+		fd_textVelocity.left = new FormAttachment(lblVelocity,130,SWT.RIGHT);
 		fd_textVelocity.right = new FormAttachment(100, -10);
 		textVelocity.setLayoutData(fd_textVelocity);
 
@@ -930,6 +932,7 @@ public class View extends ViewPart {
 		fd_textTopWRRotVel.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
 		fd_textTopWRRotVel.right = new FormAttachment(100, -10);
 		textTopWRRotVel.setLayoutData(fd_textTopWRRotVel);
+		textTopWRRotVel.setEnabled(false);
 		
 		Label lblBottomWRRotVel = new Label(grpProcessInformation, SWT.NONE);
 		FormData fd_lblBottomWRRotVel = new FormData();
@@ -948,6 +951,7 @@ public class View extends ViewPart {
 		fd_textBottomWRRotVel.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
 		fd_textBottomWRRotVel.right = new FormAttachment(100, -10);
 		textBottomWRRotVel.setLayoutData(fd_textBottomWRRotVel);
+		textBottomWRRotVel.setEnabled(false);
 		
 		Label lblTopBURRotVel = new Label(grpProcessInformation, SWT.NONE);
 		FormData fd_lblTopBURRotVel = new FormData();
@@ -966,6 +970,7 @@ public class View extends ViewPart {
 		fd_textTopBURRotVel.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
 		fd_textTopBURRotVel.right = new FormAttachment(100, -10);
 		textTopBURRotVel.setLayoutData(fd_textTopBURRotVel);
+		textTopBURRotVel.setEnabled(false);
 		
 		Label lblBottomBURRotVel = new Label(grpProcessInformation, SWT.NONE);
 		FormData fd_lblBottomBURRotVel = new FormData();
@@ -984,6 +989,7 @@ public class View extends ViewPart {
 		fd_textBottomBURRotVel.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
 		fd_textBottomBURRotVel.right = new FormAttachment(100, -10);
 		textBottomBURRotVel.setLayoutData(fd_textBottomBURRotVel);
+		textBottomBURRotVel.setEnabled(false);
 		
 		//
 		// Group4 End
@@ -1225,64 +1231,46 @@ public class View extends ViewPart {
 		fd_grpAnalysisInformation.bottom = new FormAttachment(grpMaterialParameter, 290, SWT.BOTTOM);
 		grpAnalysisInformation.setLayoutData(fd_grpAnalysisInformation);
 		
-		Label lblTimeIncrement_time = new Label(grpAnalysisInformation, SWT.NONE);
-		FormData fd_lblTimeIncrement_time = new FormData();
-		fd_lblTimeIncrement_time.top = new FormAttachment(0, 10);
-		fd_lblTimeIncrement_time.left = new FormAttachment(0, 10);
-		lblTimeIncrement_time.setLayoutData(fd_lblTimeIncrement_time);
-		lblTimeIncrement_time.setText(ulObj.getUILabelValue(UILabel.Time_Increment_time));
+		Label lblAnalysisTime = new Label(grpAnalysisInformation, SWT.NONE);
+		FormData fd_lblAnalysisTime = new FormData();
+		fd_lblAnalysisTime.top = new FormAttachment(0, 10);
+		fd_lblAnalysisTime.left = new FormAttachment(0, 10);
+		lblAnalysisTime.setLayoutData(fd_lblAnalysisTime);
+		lblAnalysisTime.setText(ulObj.getUILabelValue(UILabel.Analysis_Time));
 		
-		textTimeIncrement_time = new Text(grpAnalysisInformation, SWT.BORDER);
-		med.setTextTimeIncrement_time(textTimeIncrement_time);
-		CustomText C_textTimeIncrement_time = new CustomText(Mediator.TEXT_textTimeIncrement_time,med);
-		med.setC_textTimeIncrement_time(C_textTimeIncrement_time);
-		C_textTimeIncrement_time.setCustomWidget_textTimeIncrement_time();
-		FormData fd_textTimeIncrement_time = new FormData();
-		fd_textTimeIncrement_time.top = new FormAttachment(lblTimeIncrement_time, -2,SWT.TOP);
-		fd_textTimeIncrement_time.left = new FormAttachment(lblTimeIncrement_time, 80, SWT.RIGHT);
-		fd_textTimeIncrement_time.right = new FormAttachment(100,-10);
-		textTimeIncrement_time.setLayoutData(fd_textTimeIncrement_time);
+		textAnalysisTime = new Text(grpAnalysisInformation, SWT.BORDER);
+		med.setTextAnalysisTime(textAnalysisTime);
+		CustomText C_textAnalysisTime = new CustomText(Mediator.TEXT_textAnalysisTime,med);
+		med.setC_textAnalysisTime(C_textAnalysisTime);
+		C_textAnalysisTime.setCustomWidget_textAnalysisTime();
+		FormData fd_textAnalysisTime = new FormData();
+		fd_textAnalysisTime.top = new FormAttachment(lblAnalysisTime, -2,SWT.TOP);
+		fd_textAnalysisTime.left = new FormAttachment(lblAnalysisTime, 80, SWT.RIGHT);
+		fd_textAnalysisTime.right = new FormAttachment(100,-10);
+		textAnalysisTime.setLayoutData(fd_textAnalysisTime);
 		
-		Label lblTimeIncrement_dt = new Label(grpAnalysisInformation, SWT.NONE);
-		FormData fd_lblTimeIncrement_dt = new FormData();
-		fd_lblTimeIncrement_dt.top = new FormAttachment(lblTimeIncrement_time, 10);
-		fd_lblTimeIncrement_dt.left = new FormAttachment(lblTimeIncrement_time, 0,SWT.LEFT);
-		lblTimeIncrement_dt.setLayoutData(fd_lblTimeIncrement_dt);
-		lblTimeIncrement_dt.setText(ulObj.getUILabelValue(UILabel.Time_Increment_dt));
+		Label lblNoOfInc = new Label(grpAnalysisInformation, SWT.NONE);
+		FormData fd_lblNoOfInc = new FormData();
+		fd_lblNoOfInc.top = new FormAttachment(lblAnalysisTime, 10);
+		fd_lblNoOfInc.left = new FormAttachment(lblAnalysisTime, 0,SWT.LEFT);
+		lblNoOfInc.setLayoutData(fd_lblNoOfInc);
+		lblNoOfInc.setText(ulObj.getUILabelValue(UILabel.No_of_Inc));
 		
-		textTimeIncrement_dt = new Text(grpAnalysisInformation, SWT.BORDER);
-		med.setTextTimeIncrement_dt(textTimeIncrement_dt);
-		CustomText C_textTimeIncrement_dt = new CustomText(Mediator.TEXT_textTimeIncrement_dt,med);
-		med.setC_textTimeIncrement_dt(C_textTimeIncrement_dt);
-		C_textTimeIncrement_dt.setCustomWidget_textTimeIncrement_dt();
-		FormData fd_textTimeIncrement_dt = new FormData();
-		fd_textTimeIncrement_dt.top = new FormAttachment(lblTimeIncrement_dt, -2,SWT.TOP);
-		fd_textTimeIncrement_dt.left = new FormAttachment(textTimeIncrement_time, 0, SWT.LEFT);
-		fd_textTimeIncrement_dt.right = new FormAttachment(100,-10);
-		textTimeIncrement_dt.setLayoutData(fd_textTimeIncrement_dt);
-		
-		Label lblPostWritingFrequency = new Label(grpAnalysisInformation, SWT.NONE);
-		FormData fd_lblPostWritingFrequency = new FormData();
-		fd_lblPostWritingFrequency.top = new FormAttachment(lblTimeIncrement_dt, 10);
-		fd_lblPostWritingFrequency.left = new FormAttachment(lblTimeIncrement_time, 0,SWT.LEFT);
-		lblPostWritingFrequency.setLayoutData(fd_lblPostWritingFrequency);
-		lblPostWritingFrequency.setText(ulObj.getUILabelValue(UILabel.Post_Writing_frequency));
-		
-		textPostWritingFrequency = new Text(grpAnalysisInformation, SWT.BORDER);
-		med.setTextPostWritingFrequency(textPostWritingFrequency);
-		CustomText C_textPostWritingFrequency = new CustomText(Mediator.TEXT_textPostWritingFrequency,med);
-		med.setC_textPostWritingFrequency(C_textPostWritingFrequency);
-		C_textPostWritingFrequency.setCustomWidget_textPostWritingFrequency();
-		FormData fd_textPostWritingFrequency = new FormData();
-		fd_textPostWritingFrequency.top = new FormAttachment(lblPostWritingFrequency, -2,SWT.TOP);
-		fd_textPostWritingFrequency.left = new FormAttachment(textTimeIncrement_time, 0, SWT.LEFT);
-		fd_textPostWritingFrequency.right = new FormAttachment(100,-10);
-		textPostWritingFrequency.setLayoutData(fd_textPostWritingFrequency);
+		textNoOfInc = new Text(grpAnalysisInformation, SWT.BORDER);
+		med.setTextNoOfInc(textNoOfInc);
+		CustomText C_textNoOfInc = new CustomText(Mediator.TEXT_textNoOfInc,med);
+		med.setC_textNoOfInc(C_textNoOfInc);
+		C_textNoOfInc.setCustomWidget_textNoOfInc();
+		FormData fd_textNoOfInc = new FormData();
+		fd_textNoOfInc.top = new FormAttachment(lblNoOfInc, -2,SWT.TOP);
+		fd_textNoOfInc.left = new FormAttachment(textAnalysisTime, 0, SWT.LEFT);
+		fd_textNoOfInc.right = new FormAttachment(100,-10);
+		textNoOfInc.setLayoutData(fd_textNoOfInc);
 		
 		Label lblIncrementTime = new Label(grpAnalysisInformation, SWT.NONE);
 		FormData fd_lblIncrementTime = new FormData();
-		fd_lblIncrementTime.top = new FormAttachment(lblPostWritingFrequency, 10);
-		fd_lblIncrementTime.left = new FormAttachment(lblTimeIncrement_time, 0,SWT.LEFT);
+		fd_lblIncrementTime.top = new FormAttachment(lblNoOfInc, 10);
+		fd_lblIncrementTime.left = new FormAttachment(lblAnalysisTime, 0,SWT.LEFT);
 		lblIncrementTime.setLayoutData(fd_lblIncrementTime);
 		lblIncrementTime.setText(ulObj.getUILabelValue(UILabel.Increment_time));
 		
@@ -1293,14 +1281,32 @@ public class View extends ViewPart {
 		C_textIncrementTime.setCustomWidget_textIncrementTime();
 		FormData fd_textIncrementTime = new FormData();
 		fd_textIncrementTime.top = new FormAttachment(lblIncrementTime, -2,SWT.TOP);
-		fd_textIncrementTime.left = new FormAttachment(textTimeIncrement_time, 0, SWT.LEFT);
+		fd_textIncrementTime.left = new FormAttachment(textAnalysisTime, 0, SWT.LEFT);
 		fd_textIncrementTime.right = new FormAttachment(100,-10);
 		textIncrementTime.setLayoutData(fd_textIncrementTime);
 		
+		Label lblPostWritingFrequency = new Label(grpAnalysisInformation, SWT.NONE);
+		FormData fd_lblPostWritingFrequency = new FormData();
+		fd_lblPostWritingFrequency.top = new FormAttachment(lblIncrementTime, 10);
+		fd_lblPostWritingFrequency.left = new FormAttachment(lblAnalysisTime, 0,SWT.LEFT);
+		lblPostWritingFrequency.setLayoutData(fd_lblPostWritingFrequency);
+		lblPostWritingFrequency.setText(ulObj.getUILabelValue(UILabel.Post_Writing_frequency));
+		
+		textPostWritingFrequency = new Text(grpAnalysisInformation, SWT.BORDER);
+		med.setTextPostWritingFrequency(textPostWritingFrequency);
+		CustomText C_textPostWritingFrequency = new CustomText(Mediator.TEXT_textPostWritingFrequency,med);
+		med.setC_textPostWritingFrequency(C_textPostWritingFrequency);
+		C_textPostWritingFrequency.setCustomWidget_textPostWritingFrequency();
+		FormData fd_textPostWritingFrequency = new FormData();
+		fd_textPostWritingFrequency.top = new FormAttachment(lblPostWritingFrequency, -2,SWT.TOP);
+		fd_textPostWritingFrequency.left = new FormAttachment(textAnalysisTime, 0, SWT.LEFT);
+		fd_textPostWritingFrequency.right = new FormAttachment(100,-10);
+		textPostWritingFrequency.setLayoutData(fd_textPostWritingFrequency);
+		
 		Label lblParallelDDM = new Label(grpAnalysisInformation, SWT.NONE);
 		FormData fd_lblParallelDDM = new FormData();
-		fd_lblParallelDDM.top = new FormAttachment(lblIncrementTime, 10);
-		fd_lblParallelDDM.left = new FormAttachment(lblTimeIncrement_time, 0,SWT.LEFT);
+		fd_lblParallelDDM.top = new FormAttachment(lblPostWritingFrequency, 10);
+		fd_lblParallelDDM.left = new FormAttachment(lblAnalysisTime, 0,SWT.LEFT);
 		lblParallelDDM.setLayoutData(fd_lblParallelDDM);
 		lblParallelDDM.setText(ulObj.getUILabelValue(UILabel.Parallel_DDM));
 		
@@ -1311,14 +1317,14 @@ public class View extends ViewPart {
 		C_btnParallelDDM.setCustomWidget_btnParallelDDM();
 		FormData fd_btnParallelDDM = new FormData();
 		fd_btnParallelDDM.top = new FormAttachment(lblParallelDDM, 0, SWT.TOP);
-		fd_btnParallelDDM.left = new FormAttachment(textTimeIncrement_time, 0, SWT.LEFT);
+		fd_btnParallelDDM.left = new FormAttachment(textAnalysisTime, 0, SWT.LEFT);
 		btnParallelDDM.setLayoutData(fd_btnParallelDDM);
 		btnParallelDDM.setText(ulObj.getUILabelValue(UILabel.use));
 		
 		Label lblDomain = new Label(grpAnalysisInformation, SWT.NONE);
 		FormData fd_lblDomain = new FormData();
 		fd_lblDomain.top = new FormAttachment(lblParallelDDM, 10);
-		fd_lblDomain.left = new FormAttachment(lblTimeIncrement_time, 0,SWT.LEFT);
+		fd_lblDomain.left = new FormAttachment(lblAnalysisTime, 0,SWT.LEFT);
 		lblDomain.setLayoutData(fd_lblDomain);
 		lblDomain.setText(ulObj.getUILabelValue(UILabel.Domain));
 		
@@ -1329,15 +1335,15 @@ public class View extends ViewPart {
 		C_spinnerDomain.setCustomWidget_spinnerDomain();
 		FormData fd_spinnerDomain = new FormData();
 		fd_spinnerDomain.top = new FormAttachment(lblDomain, -2,SWT.TOP);
-		fd_spinnerDomain.left = new FormAttachment(textTimeIncrement_time, 0, SWT.LEFT);
+		fd_spinnerDomain.left = new FormAttachment(textAnalysisTime, 0, SWT.LEFT);
 		fd_spinnerDomain.right = new FormAttachment(100,-10);
 		spinnerDomain.setLayoutData(fd_spinnerDomain);
-		spinnerDomain.setEnabled(false);
+		
 		
 		Label lblParallelMultiThread = new Label(grpAnalysisInformation, SWT.NONE);
 		FormData fd_lblParallelMultiThread = new FormData();
 		fd_lblParallelMultiThread.top = new FormAttachment(lblDomain, 10);
-		fd_lblParallelMultiThread.left = new FormAttachment(lblTimeIncrement_time, 0,SWT.LEFT);
+		fd_lblParallelMultiThread.left = new FormAttachment(lblAnalysisTime, 0,SWT.LEFT);
 		lblParallelMultiThread.setLayoutData(fd_lblParallelMultiThread);
 		lblParallelMultiThread.setText(ulObj.getUILabelValue(UILabel.Parallel_Multi_Thread));
 		
@@ -1348,14 +1354,14 @@ public class View extends ViewPart {
 		C_btnParallelMultiThread.setCustomWidget_btnParallelMultiThread();
 		FormData fd_btnParallelMultiThread = new FormData();
 		fd_btnParallelMultiThread.top = new FormAttachment(lblParallelMultiThread, 0, SWT.TOP);
-		fd_btnParallelMultiThread.left = new FormAttachment(textTimeIncrement_time, 0, SWT.LEFT);
+		fd_btnParallelMultiThread.left = new FormAttachment(textAnalysisTime, 0, SWT.LEFT);
 		btnParallelMultiThread.setLayoutData(fd_btnParallelMultiThread);
 		btnParallelMultiThread.setText(ulObj.getUILabelValue(UILabel.use));
 		
 		Label lblThread = new Label(grpAnalysisInformation, SWT.NONE);
 		FormData fd_lblThread = new FormData();
 		fd_lblThread.top = new FormAttachment(lblParallelMultiThread, 10);
-		fd_lblThread.left = new FormAttachment(lblTimeIncrement_time, 0,SWT.LEFT);
+		fd_lblThread.left = new FormAttachment(lblAnalysisTime, 0,SWT.LEFT);
 		lblThread.setLayoutData(fd_lblThread);
 		lblThread.setText(ulObj.getUILabelValue(UILabel.Thread));
 		
@@ -1366,10 +1372,10 @@ public class View extends ViewPart {
 		C_spinnerThread.setCustomWidget_spinnerThread();
 		FormData fd_spinnerThread = new FormData();
 		fd_spinnerThread.top = new FormAttachment(lblThread, -2,SWT.TOP);
-		fd_spinnerThread.left = new FormAttachment(textTimeIncrement_time, 0, SWT.LEFT);
+		fd_spinnerThread.left = new FormAttachment(textAnalysisTime, 0, SWT.LEFT);
 		fd_spinnerThread.right = new FormAttachment(100,-10);
 		spinnerThread.setLayoutData(fd_spinnerThread);
-		spinnerThread.setEnabled(false);
+		
 		//
 		// Group6 End
 		//=============
@@ -1634,21 +1640,24 @@ public class View extends ViewPart {
 		med.getTextTensionStress().addListener(SWT.CHANGED, handlerText);
 		med.getTextRollToPlateFrictCoef().addListener(SWT.CHANGED, handlerText);
 		med.getTextRollToRollFrictCoef().addListener(SWT.CHANGED, handlerText);
-		med.getTextSpeedDifferentRatioTopRoll().addListener(SWT.Selection, handlerText);
-		med.getTextSpeedDifferentRatioBottomRoll().addListener(SWT.Selection, handlerText);
-		med.getTextTopWRRotVel().addListener(SWT.Selection, handlerText);
-		med.getTextBottomWRRotVel().addListener(SWT.Selection, handlerText);
-		med.getTextTopBURRotVel().addListener(SWT.Selection, handlerText);
-		med.getTextBottomBURRotVel().addListener(SWT.Selection, handlerText);
+		med.getTextSpeedDifferentRatioTopRoll().addListener(SWT.CHANGED, handlerText);
+		med.getTextSpeedDifferentRatioBottomRoll().addListener(SWT.CHANGED, handlerText);
+		med.getTextTopWRRotVel().addListener(SWT.CHANGED, handlerText);
+		med.getTextBottomWRRotVel().addListener(SWT.CHANGED, handlerText);
+		med.getTextTopBURRotVel().addListener(SWT.CHANGED, handlerText);
+		med.getTextBottomBURRotVel().addListener(SWT.CHANGED, handlerText);
 		
 		med.getTextYoungsModulus().addListener(SWT.CHANGED, handlerText);
 		med.getTextThermalExpansionCoefficient().addListener(SWT.CHANGED, handlerText);
 		med.getTextPoissonsRatio().addListener(SWT.CHANGED, handlerText);
+		med.getTextMassDensity().addListener(SWT.CHANGED, handlerText);
 		
-		med.getTextTimeIncrement_time().addListener(SWT.CHANGED, handlerText);
-		med.getTextTimeIncrement_dt().addListener(SWT.CHANGED, handlerText);
+		med.getTextAnalysisTime().addListener(SWT.CHANGED, handlerText);
+		med.getTextNoOfInc().addListener(SWT.CHANGED, handlerText);
 		med.getTextPostWritingFrequency().addListener(SWT.CHANGED, handlerText);
 		med.getTextIncrementTime().addListener(SWT.CHANGED, handlerText);
+		//med.getTextPostWritingFrequency().addListener(SWT.CHANGED, handlerText);
+		//med.getTextIncrementTime().addListener(SWT.CHANGED, handlerText);
 		
 		
 		//TableViewer

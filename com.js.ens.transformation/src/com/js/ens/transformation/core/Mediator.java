@@ -285,13 +285,13 @@ public class Mediator {
 	//group 6
 	private Group grpAnalysisInformation;
 	
-	private Text textTimeIncrement_time;
-	public ICommand C_textTimeIncrement_time;
-	public static String TEXT_textTimeIncrement_time = "textTimeIncrement_time";
+	private Text textAnalysisTime;
+	public ICommand C_textAnalysisTime;
+	public static String TEXT_textAnalysisTime = "textAnalysisTime";
 	
-	private Text textTimeIncrement_dt;
-	public ICommand C_textTimeIncrement_dt;
-	public static String TEXT_textTimeIncrement_dt = "textTimeIncrement_dt";
+	private Text textNoOfInc;
+	public ICommand C_textNoOfInc;
+	public static String TEXT_textNoOfInc = "textNoOfInc";
 	
 	private Text textPostWritingFrequency;
 	public ICommand C_textPostWritingFrequency;
@@ -1142,31 +1142,31 @@ public class Mediator {
 	}
 	
 	
-	public Text getTextTimeIncrement_time() {
-		return textTimeIncrement_time;
+	public Text getTextAnalysisTime() {
+		return textAnalysisTime;
 	}
-	public void setTextTimeIncrement_time(Text textTimeIncrement_time) {
-		this.textTimeIncrement_time = textTimeIncrement_time;
+	public void setTextAnalysisTime(Text textAnalysisTime) {
+		this.textAnalysisTime = textAnalysisTime;
 	}
-	public ICommand getC_textTimeIncrement_time() {
-		return C_textTimeIncrement_time;
+	public ICommand getC_textAnalysisTime() {
+		return C_textAnalysisTime;
 	}
-	public void setC_textTimeIncrement_time(ICommand c_textTimeIncrement_time) {
-		C_textTimeIncrement_time = c_textTimeIncrement_time;
+	public void setC_textAnalysisTime(ICommand c_textAnalysisTime) {
+		C_textAnalysisTime = c_textAnalysisTime;
 	}
 
 	
-	public Text getTextTimeIncrement_dt() {
-		return textTimeIncrement_dt;
+	public Text getTextNoOfInc() {
+		return textNoOfInc;
 	}
-	public void setTextTimeIncrement_dt(Text textTimeIncrement_dt) {
-		this.textTimeIncrement_dt = textTimeIncrement_dt;
+	public void setTextNoOfInc(Text textNoOfInc) {
+		this.textNoOfInc = textNoOfInc;
 	}
-	public ICommand getC_textTimeIncrement_dt() {
-		return C_textTimeIncrement_dt;
+	public ICommand getC_textNoOfInc() {
+		return C_textNoOfInc;
 	}
-	public void setC_textTimeIncrement_dt(ICommand c_textTimeIncrement_dt) {
-		C_textTimeIncrement_dt = c_textTimeIncrement_dt;
+	public void setC_textNoOfInc(ICommand c_textNoOfInc) {
+		C_textNoOfInc = c_textNoOfInc;
 	}
 	
 	

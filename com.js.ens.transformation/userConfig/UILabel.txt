@@ -139,22 +139,20 @@ Mass Density(Mg/mm^3)=Mass Density(Mg/mm^3)
 // Title
 Analysis Information=Analysis Information
 // 1) lcase_time
-Time Increment(sec.-time)=Time Increment(sec.-time)
+Analysis Time(sec.)=Analysis Time(sec.)
 // 2) lcase_dt
-Time Increment(sec.-dt)=Time Increment(sec.-dt)
+No. of Inc=No. of Inc
 // 3) post_inc
 Post Writing frequency=Post Writing frequency
-// 4) solving_time
-Solving time(sec.)=Solving time(sec.)
-// 5) increment_time
-Increment time(sec.)=Increment time(sec.)
-// 6) parallel_DDM
+// 4) increment_time
+Increment time(sec.)=Time Increment(sec.)
+// 5) parallel_DDM
 Parallel-DDM=Parallel-DDM
-// 7) domain
+// 6) domain
 Domain=Domain
-// 8) parallel_Multi_Thread
+// 7) parallel_Multi_Thread
 Parallel-Multi Thread=Parallel-Multi Thread
-// 9) thread
+// 8) thread
 Thread=Thread
 //---------------------------------------------------------------
 //---------------------------------------------------------------

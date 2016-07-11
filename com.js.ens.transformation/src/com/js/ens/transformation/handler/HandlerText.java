@@ -52,7 +52,7 @@ public class HandlerText implements Listener {
 		}else if(event.widget == med.getTextPassLine()){
 			med.getC_textPassLine().execute();
 		}else if(event.widget == med.getTextPairCrossAngle()){
-			med.getC_textPassLine().execute();
+			med.getC_textPairCrossAngle().execute();
 		}else if(event.widget == med.getTextPairCrossAngle()){
 			med.getC_textPairCrossAngle().execute();
 		}else if(event.widget == med.getTextBenderForce()){
@@ -85,12 +85,10 @@ public class HandlerText implements Listener {
 			med.getC_textPoissonsRatio().execute();
 		}else if(event.widget == med.getTextMassDensity()){
 			med.getC_textMassDensity().execute();
-		}else if(event.widget == med.getTextTimeIncrement_time()){
-			med.getC_textTimeIncrement_time().execute();
-		}else if(event.widget == med.getTextTimeIncrement_dt()){
-			med.getC_textTimeIncrement_dt().execute();
-		}else if(event.widget == med.getTextPostWritingFrequency()){
-			med.getC_textPostWritingFrequency().execute();
+		}else if(event.widget == med.getTextAnalysisTime()){
+			med.getC_textAnalysisTime().execute();
+		}else if(event.widget == med.getTextNoOfInc()){
+			med.getC_textNoOfInc().execute();
 		}else if(event.widget == med.getTextPostWritingFrequency()){
 			med.getC_textPostWritingFrequency().execute();
 		}else if(event.widget == med.getTextIncrementTime()){

@@ -85,7 +85,7 @@ public class CustomText implements ICommand {
 			MC.ChangedTextWidget(value,Mediator.TEXT_textPassLine);	
 		}else if(widgetName.equals(Mediator.TEXT_textPairCrossAngle)){
 			value = med.getTextPairCrossAngle().getText().trim();
-			MC.ChangedTextWidget(value,Mediator.TEXT_textPassLine);
+			MC.ChangedTextWidget(value,Mediator.TEXT_textPairCrossAngle);
 		}else if(widgetName.equals(Mediator.TEXT_textBenderForce)){
 			value = med.getTextBenderForce().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textBenderForce);
@@ -114,7 +114,7 @@ public class CustomText implements ICommand {
 			value = med.getTextBottomWRRotVel().getText().trim();
 			MC.ChangedTextWidget(value, Mediator.TEXT_textBottomWRRotVel);
 		}else if(widgetName.equals(Mediator.TEXT_textTopBURRotVel)){
-			value = med.getTextBottomBURRotVel().getText().trim();
+			value = med.getTextTopBURRotVel().getText().trim();
 			MC.ChangedTextWidget(value, Mediator.TEXT_textTopBURRotVel);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
 			value = med.getTextBottomBURRotVel().getText().trim();
@@ -131,12 +131,12 @@ public class CustomText implements ICommand {
 		}else if(widgetName.equals(Mediator.TEXT_textMassDensity)){
 			value = med.getTextMassDensity().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textMassDensity);
-		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_time)){
-			value = med.getTextTimeIncrement_time().getText().trim();
-			MC.ChangedTextWidget(value,Mediator.TEXT_textTimeIncrement_time);
-		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement_dt)){
-			value = med.getTextTimeIncrement_dt().getText().trim();
-			MC.ChangedTextWidget(value,Mediator.TEXT_textTimeIncrement_dt);
+		}else if(widgetName.equals(Mediator.TEXT_textAnalysisTime)){
+			value = med.getTextAnalysisTime().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textAnalysisTime);
+		}else if(widgetName.equals(Mediator.TEXT_textNoOfInc)){
+			value = med.getTextNoOfInc().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textNoOfInc);
 		}else if(widgetName.equals(Mediator.TEXT_textPostWritingFrequency)){
 			value = med.getTextPostWritingFrequency().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textPostWritingFrequency);
@@ -256,11 +256,11 @@ public class CustomText implements ICommand {
 	public void setCustomWidget_textMassDensity(){
 		this.text = med.getTextMassDensity();
 	}
-	public void setCustomWidget_textTimeIncrement_time(){
-		this.text = med.getTextTimeIncrement_time();
+	public void setCustomWidget_textAnalysisTime(){
+		this.text = med.getTextAnalysisTime();
 	}
-	public void setCustomWidget_textTimeIncrement_dt(){
-		this.text = med.getTextTimeIncrement_dt();
+	public void setCustomWidget_textNoOfInc(){
+		this.text = med.getTextNoOfInc();
 	}
 	public void setCustomWidget_textPostWritingFrequency(){
 		this.text = med.getTextPostWritingFrequency();

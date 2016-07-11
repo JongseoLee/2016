@@ -207,29 +207,27 @@ public class UILabel {
 	// Title
 	public static String Analysis_Information="Analysis Information";
 	// 1) lcase_time
-	public static String Time_Increment_time="Time Increment(sec.-time)";
+	public static String Analysis_Time="Analysis Time(sec.)";
 	public static String lcase_time="lcase_time"; 
 	// 2) lcase_dt
-	public static String Time_Increment_dt="Time Increment(sec.-dt)";			
+	public static String No_of_Inc="No. of Inc";			
 	public static String lcase_dt="lcase_dt";
 	// 3) post_inc
 	public static String Post_Writing_frequency="Post Writing frequency";
 	public static String post_inc="post_inc";
-	// 4) solving_time
-	public static String Solving_time="Solving time(sec.)";
-	// 5) increment_time
+	// 4) increment_time
 	public static String Increment_time="Increment time(sec.)";
 	public static String inc_time="inc_time";
-	// 6) parallel_DDM
+	// 5) parallel_DDM
 	public static String Parallel_DDM="Parallel-DDM";
 	public static String ParallelDDM="ParallelDDM";
-	// 7) domain
+	// 6) domain
 	public static String Domain="Domain";
 	//public static String Domain="Domain";
-	// 8) parallel_Multi_Thread
+	// 7) parallel_Multi_Thread
 	public static String Parallel_Multi_Thread="Parallel-Multi Thread";			
 	public static String ParallelMultiThread="ParallelMultiThread";
-	// 9) thread
+	// 8) thread
 	public static String Thread="Thread";
 	//public static String Thread="Thread";
 	
