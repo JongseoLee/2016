@@ -202,9 +202,13 @@ public class Mediator {
 	public ICommand C_textRollToRollFrictCoef;
 	public static String TEXT_textRollToRollFrictCoef = "textRollToRollFrictCoef";
 	
-	private Text textSpeedDifferentRatio;
-	public ICommand C_textSpeedDifferentRatio;
-	public static String TEXT_textSpeedDifferentRatio = "textSpeedDifferentRatio";
+	private Text textSpeedDifferentRatioTopRoll;
+	public ICommand C_textSpeedDifferentRatioTopRoll;
+	public static String TEXT_textSpeedDifferentRatioTopRoll = "textSpeedDifferentRatioTopRoll";
+	
+	private Text textSpeedDifferentRatioBottomRoll;
+	public ICommand C_textSpeedDifferentRatioBottomRoll;
+	public static String TEXT_textSpeedDifferentRatioBottomRoll = "textSpeedDifferentRatioBottomRoll";
 	
 	private Text textTopWRRotVel;
 	public ICommand C_textTopWRRotVel;
@@ -1266,17 +1270,30 @@ public class Mediator {
 	}
 	
 	
-	public Text getTextSpeedDifferentRatio() {
-		return textSpeedDifferentRatio;
+	public Text getTextSpeedDifferentRatioTopRoll() {
+		return textSpeedDifferentRatioTopRoll;
 	}
-	public void setTextSpeedDifferentRatio(Text textSpeedDifferentRatio) {
-		this.textSpeedDifferentRatio = textSpeedDifferentRatio;
+	public void setTextSpeedDifferentRatioTopRoll(Text textSpeedDifferentRatioTopRoll) {
+		this.textSpeedDifferentRatioTopRoll = textSpeedDifferentRatioTopRoll;
 	}
-	public ICommand getC_textSpeedDifferentRatio() {
-		return C_textSpeedDifferentRatio;
+	public ICommand getC_textSpeedDifferentRatioTopRoll() {
+		return C_textSpeedDifferentRatioTopRoll;
 	}
-	public void setC_textSpeedDifferentRatio(ICommand c_textSpeedDifferentRatio) {
-		C_textSpeedDifferentRatio = c_textSpeedDifferentRatio;
+	public void setC_textSpeedDifferentRatioTopRoll(ICommand c_textSpeedDifferentRatioTopRoll) {
+		C_textSpeedDifferentRatioTopRoll = c_textSpeedDifferentRatioTopRoll;
+	}
+	
+	public Text getTextSpeedDifferentRatioBottomRoll() {
+		return textSpeedDifferentRatioBottomRoll;
+	}
+	public void setTextSpeedDifferentRatioBottomRoll(Text textSpeedDifferentRatioBottomRoll) {
+		this.textSpeedDifferentRatioBottomRoll = textSpeedDifferentRatioBottomRoll;
+	}
+	public ICommand getC_textSpeedDifferentRatioBottomRoll() {
+		return C_textSpeedDifferentRatioBottomRoll;
+	}
+	public void setC_textSpeedDifferentRatioBottomRoll(ICommand c_textSpeedDifferentRatioBottomRoll) {
+		C_textSpeedDifferentRatioBottomRoll = c_textSpeedDifferentRatioBottomRoll;
 	}
 	
 	

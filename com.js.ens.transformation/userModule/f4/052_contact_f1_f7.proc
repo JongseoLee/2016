@@ -94,6 +94,9 @@ Symm_interact
 *ctable_entry 01_Plate 06_Roller_table
 *contact_table_option 01_Plate 06_Roller_table contact:on
 *prog_string ctable:old_interact plate2roll_table *ctable_entry_interact 01_Plate 06_Roller_table
+*ctable_entry 01_Plate 07_Symm_plane
+*contact_table_option 01_Plate 07_Symm_plane contact:on
+*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 01_Plate 07_Symm_plane
 *ctable_entry 02_WR_top 08_symm_top
 *contact_table_option 02_WR_top 08_symm_top contact:on
 *prog_string ctable:old_interact Symm_interact *ctable_entry_interact 02_WR_top 08_symm_top
@@ -106,3 +109,13 @@ Symm_interact
 *ctable_entry 05_BUR_bottom 09_symm_bottom
 *contact_table_option 05_BUR_bottom 09_symm_bottom contact:on
 *prog_string ctable:old_interact Symm_interact *ctable_entry_interact 05_BUR_bottom 09_symm_bottom
+|
+| Add Contact Table 0
+|
+*edit_contact_table ctable1
+*copy_contact_table
+*contact_table_name ctable0
+*ctable_entry 01_Plate 02_WR_top
+*contact_table_option 01_Plate 02_WR_top contact:off
+*ctable_entry 01_Plate 04_WR_bottom
+*contact_table_option 01_Plate 04_WR_bottom contact:off

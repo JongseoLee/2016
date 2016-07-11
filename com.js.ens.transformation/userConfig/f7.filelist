@@ -27,7 +27,9 @@ m01_change_input.pyc
 Marc Mentat 2014.2.0(Classic) OpenGL.lnk
 plate_job1_stage06.sec
 wr_f4_f7.proc
-wr_f4_f7_crown.proc
+wr_f4_f7_mcrown.proc
+wr_f4_f7_pcrown.proc
+wr_f4_f7.py
 rolls\posco_bur_f1_f7_r1_base.mud
 rolls\posco_wr_f1_f3_r1_base.mud
 rolls\posco_wr_f4_f7_r1_base.mud

@@ -50,7 +50,8 @@ public class TableData_PLog {
 	//group4
 	private String f_r2p = "";
 	private String f_r2r = "";
-	private String speed_different_ratio = "";
+	private String speed_different_ratio_top_roll = "";
+	private String speed_different_ratio_bottom_roll = "";
 	private String wr_trot = "";
 	private String wr_brot = "";
 	private String bur_trot = "";
@@ -80,6 +81,7 @@ public class TableData_PLog {
 	
 	public TableData_PLog() {
 		// TODO Auto-generated constructor stub
+		
 	}
 
 	public String getSTAND() {
@@ -120,48 +122,50 @@ public class TableData_PLog {
 		//group1
 		InitValue obj = new InitValue();
 		obj.readInitValueFile();
-		wr_len = obj.getInitValue(InitValue.wr_len_F1);
-		wr_div_angle = obj.getInitValue(InitValue.wr_div_angle_F1);
+		
+		if(wr_len.equals(""))			wr_len = obj.getInitValue(InitValue.wr_len_F1);
+		if(wr_div_angle.equals(""))		wr_div_angle = obj.getInitValue(InitValue.wr_div_angle_F1);
 		
 		//group2
-		bur_len = obj.getInitValue(InitValue.bur_len_F1);
-		bur_div_angle = obj.getInitValue(InitValue.bur_div_angle_F1);
+		if(bur_len.equals(""))			bur_len = obj.getInitValue(InitValue.bur_len_F1);
+		if(bur_div_angle.equals(""))	bur_div_angle = obj.getInitValue(InitValue.bur_div_angle_F1);
 		
 		//group3
-		p_in = obj.getInitValue(InitValue.p_in_F1);
-		pl_m = obj.getInitValue(InitValue.pl_m_F1);
-		t_div = obj.getInitValue(InitValue.t_div_F1);
+		if(p_in.equals(""))				p_in = obj.getInitValue(InitValue.p_in_F1);
+		if(pl_m.equals(""))				pl_m = obj.getInitValue(InitValue.pl_m_F1);
+		if(t_div.equals(""))			t_div = obj.getInitValue(InitValue.t_div_F1);
 		
 		//group4
-		f_r2p = obj.getInitValue(InitValue.f_r2p_F1);
-		f_r2r = obj.getInitValue(InitValue.f_r2r_F1);
-		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F1);
-		wr_trot = obj.getInitValue(InitValue.wr_trot_F1);
-		wr_brot = obj.getInitValue(InitValue.wr_brot_F1);
-		bur_trot = obj.getInitValue(InitValue.bur_trot_F1);
-		bur_brot = obj.getInitValue(InitValue.bur_brot_F1);
+		if(f_r2p.equals(""))					f_r2p = obj.getInitValue(InitValue.f_r2p_F1);
+		if(f_r2r.equals(""))					f_r2r = obj.getInitValue(InitValue.f_r2r_F1);
+		if(speed_different_ratio_top_roll.equals(""))		speed_different_ratio_top_roll = obj.getInitValue(InitValue.tv_vel_rate_top_F1);
+		if(speed_different_ratio_bottom_roll.equals(""))	speed_different_ratio_bottom_roll = obj.getInitValue(InitValue.tv_vel_rate_top_F1);
+		if(wr_trot.equals(""))					wr_trot = obj.getInitValue(InitValue.wr_trot_F1);
+		if(wr_brot.equals(""))					wr_brot = obj.getInitValue(InitValue.wr_brot_F1);
+		if(bur_trot.equals(""))					bur_trot = obj.getInitValue(InitValue.bur_trot_F1);
+		if(bur_brot.equals(""))					bur_brot = obj.getInitValue(InitValue.bur_brot_F1);
 		
 		//group5
-		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F1);
-		YM_Table = obj.getInitValue(InitValue.YM_Table_F1);
-		YM_Value = obj.getInitValue(InitValue.YM_Value_F1);
-		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F1);
-		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F1);
-		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F1);
-		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F1);
-		PR_Table = obj.getInitValue(InitValue.PR_Table_F1);
-		PR_Value = obj.getInitValue(InitValue.PR_Value_F1);
-		MD_Value = obj.getInitValue(InitValue.MD_Value_F1);
+		if(YM_Constant.equals(""))			YM_Constant = obj.getInitValue(InitValue.YM_Constant_F1);
+		if(YM_Table.equals(""))				YM_Table = obj.getInitValue(InitValue.YM_Table_F1);
+		if(YM_Value.equals(""))				YM_Value = obj.getInitValue(InitValue.YM_Value_F1);
+		if(TEC_Constant.equals(""))			TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F1);
+		if(TEC_Table.equals(""))			TEC_Table = obj.getInitValue(InitValue.TEC_Table_F1);
+		if(TEC_Value.equals(""))			TEC_Value = obj.getInitValue(InitValue.TEC_Value_F1);
+		if(PR_Constant.equals(""))			PR_Constant = obj.getInitValue(InitValue.PR_Constant_F1);
+		if(PR_Table.equals(""))				PR_Table = obj.getInitValue(InitValue.PR_Table_F1);
+		if(PR_Value.equals(""))				PR_Value = obj.getInitValue(InitValue.PR_Value_F1);
+		if(MD_Value.equals(""))				MD_Value = obj.getInitValue(InitValue.MD_Value_F1);
 		
 		//group6
-		lcase_time = obj.getInitValue(InitValue.lcase_time_F1);
-		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F1);
-		post_inc = obj.getInitValue(InitValue.post_inc_F1);
-		inc_time = obj.getInitValue(InitValue.inc_time_F1);
-		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F1);
-		Domain = obj.getInitValue(InitValue.Domain_F1);
-		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F1);
-		Thread = obj.getInitValue(InitValue.Thread_F1);
+		if(lcase_time.equals(""))			lcase_time = obj.getInitValue(InitValue.lcase_time_F1);
+		if(lcase_dt.equals(""))				lcase_dt = obj.getInitValue(InitValue.lcase_dt_F1);
+		if(post_inc.equals(""))				post_inc = obj.getInitValue(InitValue.post_inc_F1);
+		if(inc_time.equals(""))				inc_time = obj.getInitValue(InitValue.inc_time_F1);
+		if(ParallelDDM.equals(""))			ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F1);
+		if(Domain.equals(""))				Domain = obj.getInitValue(InitValue.Domain_F1);
+		if(ParallelMultiThread.equals(""))	ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F1);
+		if(Thread.equals(""))				Thread = obj.getInitValue(InitValue.Thread_F1);
 	}
 	
 	private void setOtherF2(){
@@ -183,7 +187,8 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F2);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F2);
-		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F2);
+		speed_different_ratio_top_roll = obj.getInitValue(InitValue.tv_vel_rate_top_F2);
+		speed_different_ratio_bottom_roll = obj.getInitValue(InitValue.tv_vel_rate_bottom_F2);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F2);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F2);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F2);
@@ -231,7 +236,8 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F3);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F3);
-		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F3);
+		speed_different_ratio_top_roll = obj.getInitValue(InitValue.tv_vel_rate_top_F3);
+		speed_different_ratio_bottom_roll = obj.getInitValue(InitValue.tv_vel_rate_bottom_F3);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F3);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F3);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F3);
@@ -279,7 +285,8 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F4);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F4);
-		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F4);
+		speed_different_ratio_top_roll = obj.getInitValue(InitValue.tv_vel_rate_top_F4);
+		speed_different_ratio_bottom_roll = obj.getInitValue(InitValue.tv_vel_rate_bottom_F4);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F4);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F4);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F4);
@@ -327,7 +334,8 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F5);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F5);
-		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F5);
+		speed_different_ratio_top_roll = obj.getInitValue(InitValue.tv_vel_rate_top_F5);
+		speed_different_ratio_bottom_roll = obj.getInitValue(InitValue.tv_vel_rate_bottom_F5);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F5);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F5);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F5);
@@ -375,7 +383,8 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F6);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F6);
-		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F6);
+		speed_different_ratio_top_roll = obj.getInitValue(InitValue.tv_vel_rate_top_F6);
+		speed_different_ratio_bottom_roll = obj.getInitValue(InitValue.tv_vel_rate_bottom_F6);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F6);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F6);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F6);
@@ -423,7 +432,8 @@ public class TableData_PLog {
 		//group4
 		f_r2p = obj.getInitValue(InitValue.f_r2p_F7);
 		f_r2r = obj.getInitValue(InitValue.f_r2r_F7);
-		speed_different_ratio = obj.getInitValue(InitValue.speed_different_ratio_F7);
+		speed_different_ratio_top_roll = obj.getInitValue(InitValue.tv_vel_rate_top_F7);
+		speed_different_ratio_bottom_roll = obj.getInitValue(InitValue.tv_vel_rate_bottom_F7);
 		wr_trot = obj.getInitValue(InitValue.wr_trot_F7);
 		wr_brot = obj.getInitValue(InitValue.wr_brot_F7);
 		bur_trot = obj.getInitValue(InitValue.bur_trot_F7);
@@ -860,12 +870,20 @@ public class TableData_PLog {
 		PR_Table = pR_Table;
 	}
 
-	public String getSpeed_different_ratio() {
-		return speed_different_ratio;
+	public String getSpeed_different_ratio_top_roll() {
+		return speed_different_ratio_top_roll;
 	}
 
-	public void setSpeed_different_ratio(String speed_different_ratio) {
-		this.speed_different_ratio = speed_different_ratio;
+	public void setSpeed_different_ratio_top_roll(String speed_different_ratio_top_roll) {
+		this.speed_different_ratio_top_roll = speed_different_ratio_top_roll;
+	}
+	
+	public String getSpeed_different_ratio_bottom_roll() {
+		return speed_different_ratio_bottom_roll;
+	}
+
+	public void setSpeed_different_ratio_bottom_roll(String speed_different_ratio_bottom_roll) {
+		this.speed_different_ratio_bottom_roll = speed_different_ratio_bottom_roll;
 	}
 
 	public String getWr_trot() {
@@ -936,7 +954,8 @@ public class TableData_PLog {
 		DB.add(UILabel.Tension_Stress			+"_"+this.STAND+"="+	this.TENS);
 		DB.add(UILabel.Roll_to_Plate_Frict_Coef	+"_"+this.STAND+"="+	this.f_r2p);
 		DB.add(UILabel.Roll_to_Roll_Fric_Coef	+"_"+this.STAND+"="+	this.f_r2r);
-		DB.add(UILabel.Speed_Different_Ratio	+"_"+this.STAND+"="+	this.speed_different_ratio);
+		DB.add(UILabel.Speed_Different_Ratio_top_roll	+"_"+this.STAND+"="+	this.speed_different_ratio_top_roll);
+		DB.add(UILabel.Speed_Different_Ratio_bottom_roll+"_"+this.STAND+"="+	this.speed_different_ratio_bottom_roll);
 		DB.add(UILabel.Top_WR_Rot_Vel_RPM		+"_"+this.STAND+"="+	this.wr_trot);
 		DB.add(UILabel.Bottom_WR_Rot_Vel_RPM	+"_"+this.STAND+"="+	this.wr_brot);
 		DB.add(UILabel.Top_BUR_Rot_Vel_RPM		+"_"+this.STAND+"="+	this.bur_trot);

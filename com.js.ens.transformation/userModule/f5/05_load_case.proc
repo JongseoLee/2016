@@ -6,7 +6,20 @@
 *set_model_length_unit millimeter
 |
 *new_loadcase *loadcase_type struc:dyn_trans
+*loadcase_name lcase0
+*loadcase_ctable ctable0
+*loadcase_value maxrec 100
+*loadcase_value time lcase_time/1000
+*loadcase_option stepping:multicriteria
+*new_loadcase *loadcase_type struc:dyn_trans
+*loadcase_name lcase1
 *loadcase_ctable ctable1
 *loadcase_value maxrec 100
-*loadcase_value time lcase_time
-*loadcase_value nsteps lcase_time/lcase_dt
+*loadcase_value time lcase_time/10
+*loadcase_option stepping:multicriteria
+*new_loadcase *loadcase_type struc:dyn_trans
+*loadcase_name lcase2
+*loadcase_ctable ctable1
+*loadcase_value maxrec 100
+*loadcase_value time lcase_time*1.1
+*loadcase_value nsteps lcase_inc

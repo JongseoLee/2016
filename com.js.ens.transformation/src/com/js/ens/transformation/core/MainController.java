@@ -83,6 +83,7 @@ public class MainController {
 	// tableDataPLogList 는 F1 ~ F7 까지의 데이터 7개 obj가 저장됨
 	//private TableData_common  tabeDataCommon = null;
 	private ArrayList<TableData_PLog> tableDataPLogList = null;
+	private ArrayList<String> otherValueList = null;
 	//private Map<String,String> tableDataPLogMap; 
 	private ArrayList<TableRowData> tableRowDataList = null;
 	
@@ -131,6 +132,7 @@ public class MainController {
 			initTableData_SlabPlateInfo(PLogFileDataList,tclObj);
 			initTableData_Variable(PLogFileDataList,tclObj);
 			initTableData_PLog(PLogFileDataList,tclObj);
+			
 			
 			this.updateTableData();
 		}else{
@@ -229,6 +231,8 @@ public class MainController {
 	//F1~F7 Obj 만들기
 	private void createPLogObj(ArrayList<String> dataList){
 		// dataList 는 CSV 의 PLog데이터만 넘어옴
+		this.saveOtherValues();
+		
 		this.tableDataPLogList = new ArrayList<TableData_PLog>();
 		for(int i=0;i<7;i++){
 			TableData_PLog obj = new TableData_PLog();
@@ -453,6 +457,281 @@ public class MainController {
 				this.tableDataPLogList.get(4).setWR_THRM(tempList.get(5));
 				this.tableDataPLogList.get(5).setWR_THRM(tempList.get(6));
 				this.tableDataPLogList.get(6).setWR_THRM(tempList.get(7));
+			}
+		}
+		
+		for (String line : this.otherValueList){
+			ArrayList<String> tempList = ParserDefault.splitLineData_table3(line, ",");
+			if(tempList.get(0).equals(UILabel.wr_len)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}
+			if(tempList.get(0).equals(UILabel.wr_div_angle)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}
+			if(tempList.get(0).equals(UILabel.bur_len)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.bur_div_angle)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}
+			if(tempList.get(0).equals(UILabel.p_in)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.pl_m)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.t_div)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}
+			if(tempList.get(0).equals(UILabel.f_r2p)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.f_r2r)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.tb_vel_rate_top)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.tb_vel_rate_bottom)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.wr_trot)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.wr_brot)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.bur_trot)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.bur_brot)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}
+			if(tempList.get(0).equals(UILabel.YM_Constant)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.YM_Table)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.YM_Value)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.TEC_Constant)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.TEC_Table)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.TEC_Value)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.PR_Constant)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.PR_Table)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.PR_Value)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.MD_Value)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}
+			if(tempList.get(0).equals(UILabel.lcase_time)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.lcase_dt)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.post_inc)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.inc_time)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.ParallelDDM)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.Domain)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.ParallelMultiThread)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.Thread)){
+				this.tableDataPLogList.get(0).setBUR_TDIA(tempList.get(1));
+				this.tableDataPLogList.get(1).setBUR_TDIA(tempList.get(2));
+				this.tableDataPLogList.get(2).setBUR_TDIA(tempList.get(3));
+				this.tableDataPLogList.get(3).setBUR_TDIA(tempList.get(4));
+				this.tableDataPLogList.get(4).setBUR_TDIA(tempList.get(5));
+				this.tableDataPLogList.get(5).setBUR_TDIA(tempList.get(6));
+				this.tableDataPLogList.get(6).setBUR_TDIA(tempList.get(7));
 			}
 		}
 	}
@@ -734,13 +1013,13 @@ public class MainController {
 				",,,,,,,";
 		initDataList.add(line18);
 		String line19 = "ENTRY TEMP"+","+
-				tableDataPLogList.get(0).getSTP_LEN()+","+
-				tableDataPLogList.get(1).getSTP_LEN()+","+
-				tableDataPLogList.get(2).getSTP_LEN()+","+
-				tableDataPLogList.get(3).getSTP_LEN()+","+
-				tableDataPLogList.get(4).getSTP_LEN()+","+
-				tableDataPLogList.get(5).getSTP_LEN()+","+
-				tableDataPLogList.get(6).getSTP_LEN()+","+
+				tableDataPLogList.get(0).getENTRY_TEMP()+","+
+				tableDataPLogList.get(1).getENTRY_TEMP()+","+
+				tableDataPLogList.get(2).getENTRY_TEMP()+","+
+				tableDataPLogList.get(3).getENTRY_TEMP()+","+
+				tableDataPLogList.get(4).getENTRY_TEMP()+","+
+				tableDataPLogList.get(5).getENTRY_TEMP()+","+
+				tableDataPLogList.get(6).getENTRY_TEMP()+","+
 				",,,,,,,";
 		initDataList.add(line19);
 		String line20 = "EXIT TEMP"+","+
@@ -1273,7 +1552,8 @@ public class MainController {
 			Pobj.setF_r2p(openDBMap.get(UILabel.Roll_to_Plate_Frict_Coef+"_"+Pobj.getSTAND()));
 			Pobj.setF_r2r(openDBMap.get(UILabel.Roll_to_Roll_Fric_Coef+"_"+Pobj.getSTAND()));
 			
-			Pobj.setSpeed_different_ratio(openDBMap.get(UILabel.Speed_Different_Ratio+"_"+Pobj.getSTAND()));
+			Pobj.setSpeed_different_ratio_top_roll(openDBMap.get(UILabel.Speed_Different_Ratio_top_roll+"_"+Pobj.getSTAND()));
+			Pobj.setSpeed_different_ratio_bottom_roll(openDBMap.get(UILabel.Speed_Different_Ratio_bottom_roll+"_"+Pobj.getSTAND()));
 			Pobj.setWr_trot(openDBMap.get(UILabel.Top_WR_Rot_Vel_RPM+"_"+Pobj.getSTAND()));
 			Pobj.setWr_brot(openDBMap.get(UILabel.Bottom_BUR_Rot_Vel_RPM+"_"+Pobj.getSTAND()));
 			Pobj.setBur_trot(openDBMap.get(UILabel.Top_BUR_Rot_Vel_RPM+"_"+Pobj.getSTAND()));
@@ -1827,13 +2107,13 @@ public class MainController {
 					",,,,,,,";
 		initDataList.add(line18);
 		String line19 = "ENTRY TEMP"+","+
-					tableDataPLogList.get(0).getSTP_LEN()+","+
-					tableDataPLogList.get(1).getSTP_LEN()+","+
-					tableDataPLogList.get(2).getSTP_LEN()+","+
-					tableDataPLogList.get(3).getSTP_LEN()+","+
-					tableDataPLogList.get(4).getSTP_LEN()+","+
-					tableDataPLogList.get(5).getSTP_LEN()+","+
-					tableDataPLogList.get(6).getSTP_LEN()+","+
+					tableDataPLogList.get(0).getENTRY_TEMP()+","+
+					tableDataPLogList.get(1).getENTRY_TEMP()+","+
+					tableDataPLogList.get(2).getENTRY_TEMP()+","+
+					tableDataPLogList.get(3).getENTRY_TEMP()+","+
+					tableDataPLogList.get(4).getENTRY_TEMP()+","+
+					tableDataPLogList.get(5).getENTRY_TEMP()+","+
+					tableDataPLogList.get(6).getENTRY_TEMP()+","+
 					",,,,,,,";
 		initDataList.add(line19);
 		String line20 = "EXIT TEMP"+","+
@@ -2107,13 +2387,13 @@ public class MainController {
 					",,,,,,,";
 		initDataList.add(line18);
 		String line19 = "ENTRY TEMP"+","+
-					tableDataPLogList.get(0).getSTP_LEN()+","+
-					tableDataPLogList.get(1).getSTP_LEN()+","+
-					tableDataPLogList.get(2).getSTP_LEN()+","+
-					tableDataPLogList.get(3).getSTP_LEN()+","+
-					tableDataPLogList.get(4).getSTP_LEN()+","+
-					tableDataPLogList.get(5).getSTP_LEN()+","+
-					tableDataPLogList.get(6).getSTP_LEN()+","+
+					tableDataPLogList.get(0).getENTRY_TEMP()+","+
+					tableDataPLogList.get(1).getENTRY_TEMP()+","+
+					tableDataPLogList.get(2).getENTRY_TEMP()+","+
+					tableDataPLogList.get(3).getENTRY_TEMP()+","+
+					tableDataPLogList.get(4).getENTRY_TEMP()+","+
+					tableDataPLogList.get(5).getENTRY_TEMP()+","+
+					tableDataPLogList.get(6).getENTRY_TEMP()+","+
 					",,,,,,,";
 		initDataList.add(line19);
 		String line20 = "EXIT TEMP"+","+
@@ -2272,7 +2552,8 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
+		obj.setSpeed_different_ratio_top_roll(med.getTextSpeedDifferentRatioTopRoll().getText());
+		obj.setSpeed_different_ratio_bottom_roll(med.getTextSpeedDifferentRatioBottomRoll().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2370,7 +2651,8 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
+		obj.setSpeed_different_ratio_top_roll(med.getTextSpeedDifferentRatioTopRoll().getText());
+		obj.setSpeed_different_ratio_bottom_roll(med.getTextSpeedDifferentRatioBottomRoll().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2468,7 +2750,8 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
+		obj.setSpeed_different_ratio_top_roll(med.getTextSpeedDifferentRatioTopRoll().getText());
+		obj.setSpeed_different_ratio_bottom_roll(med.getTextSpeedDifferentRatioBottomRoll().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2566,7 +2849,8 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
+		obj.setSpeed_different_ratio_top_roll(med.getTextSpeedDifferentRatioTopRoll().getText());
+		obj.setSpeed_different_ratio_bottom_roll(med.getTextSpeedDifferentRatioBottomRoll().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2664,7 +2948,8 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
+		obj.setSpeed_different_ratio_top_roll(med.getTextSpeedDifferentRatioTopRoll().getText());
+		obj.setSpeed_different_ratio_bottom_roll(med.getTextSpeedDifferentRatioBottomRoll().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2762,7 +3047,8 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
+		obj.setSpeed_different_ratio_top_roll(med.getTextSpeedDifferentRatioTopRoll().getText());
+		obj.setSpeed_different_ratio_bottom_roll(med.getTextSpeedDifferentRatioBottomRoll().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2860,7 +3146,8 @@ public class MainController {
 		obj.setTENS(med.getTextTensionStress().getText());
 		obj.setF_r2p(med.getTextRollToPlateFrictCoef().getText());
 		obj.setF_r2r(med.getTextRollToRollFrictCoef().getText());
-		obj.setSpeed_different_ratio(med.getTextSpeedDifferentRatio().getText());
+		obj.setSpeed_different_ratio_top_roll(med.getTextSpeedDifferentRatioTopRoll().getText());
+		obj.setSpeed_different_ratio_bottom_roll(med.getTextSpeedDifferentRatioBottomRoll().getText());
 		obj.setWr_trot(med.getTextTopWRRotVel().getText());
 		obj.setWr_brot(med.getTextBottomWRRotVel().getText());
 		obj.setBur_trot(med.getTextTopBURRotVel().getText());
@@ -2967,7 +3254,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F1));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F1));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F1));
-		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F1));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_top_F1));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_bottom_F1));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F1));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F1));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F1));
@@ -3084,7 +3372,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F2));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F2));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F2));
-		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F2));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_top_F2));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_bottom_F2));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F2));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F2));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F2));
@@ -3201,7 +3490,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F3));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F3));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F3));
-		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F3));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_top_F3));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_bottom_F3));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F3));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F3));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F3));
@@ -3318,7 +3608,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F4));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F4));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F4));
-		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F4));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_top_F4));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_bottom_F4));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F4));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F4));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F4));
@@ -3435,7 +3726,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F5));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F5));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F5));
-		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F5));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_top_F5));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_bottom_F5));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F5));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F5));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F5));
@@ -3552,7 +3844,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F6));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F6));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F6));
-		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F6));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_top_F6));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_bottom_F6));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F6));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F6));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F6));
@@ -3669,7 +3962,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F7));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F7));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F7));
-		med.getTextSpeedDifferentRatio().setText(obj.getInitValue(InitValue.speed_different_ratio_F7));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_top_F7));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tv_vel_rate_bottom_F7));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F7));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F7));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F7));
@@ -3820,7 +4114,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getSpeed_different_ratio_top_roll());
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getSpeed_different_ratio_bottom_roll());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -3928,7 +4223,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getSpeed_different_ratio_top_roll());
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getSpeed_different_ratio_bottom_roll());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4036,7 +4332,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getSpeed_different_ratio_top_roll());
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getSpeed_different_ratio_bottom_roll());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4144,7 +4441,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getSpeed_different_ratio_top_roll());
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getSpeed_different_ratio_bottom_roll());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4252,7 +4550,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getSpeed_different_ratio_top_roll());
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getSpeed_different_ratio_bottom_roll());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4360,7 +4659,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getSpeed_different_ratio_top_roll());
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getSpeed_different_ratio_bottom_roll());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4468,7 +4768,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getTENS());
 		med.getTextRollToPlateFrictCoef().setText(obj.getF_r2p());
 		med.getTextRollToRollFrictCoef().setText(obj.getF_r2r());
-		med.getTextSpeedDifferentRatio().setText(obj.getSpeed_different_ratio());
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getSpeed_different_ratio_top_roll());
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getSpeed_different_ratio_bottom_roll());
 		med.getTextTopWRRotVel().setText(obj.getWr_trot());
 		med.getTextBottomWRRotVel().setText(obj.getWr_brot());
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
@@ -4545,7 +4846,7 @@ public class MainController {
 	
 	
 	public void ChangedTextWidget(String value,String widgetName){
-		//System.out.println("[ChangedTextWidget] widgetName : "+widgetName+"  ||  key : "+value);
+		System.out.println("[ChangedTextWidget] widgetName : "+widgetName+"  ||  key : "+value);
 		switch(this.StandValue){
 			case "F1":
 				this.saveF1Values(value, widgetName);
@@ -4625,8 +4926,10 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
-			obj.setSpeed_different_ratio(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioTopRoll)){
+			obj.setSpeed_different_ratio_top_roll(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioBottomRoll)){
+			obj.setSpeed_different_ratio_bottom_roll(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -4728,8 +5031,10 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
-			obj.setSpeed_different_ratio(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioTopRoll)){
+			obj.setSpeed_different_ratio_top_roll(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioBottomRoll)){
+			obj.setSpeed_different_ratio_bottom_roll(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -4831,8 +5136,10 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
-			obj.setSpeed_different_ratio(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioTopRoll)){
+			obj.setSpeed_different_ratio_top_roll(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioBottomRoll)){
+			obj.setSpeed_different_ratio_bottom_roll(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -4934,8 +5241,10 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
-			obj.setSpeed_different_ratio(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioTopRoll)){
+			obj.setSpeed_different_ratio_top_roll(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioBottomRoll)){
+			obj.setSpeed_different_ratio_bottom_roll(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -5037,8 +5346,10 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
-			obj.setSpeed_different_ratio(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioTopRoll)){
+			obj.setSpeed_different_ratio_top_roll(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioBottomRoll)){
+			obj.setSpeed_different_ratio_bottom_roll(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -5140,8 +5451,10 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
-			obj.setSpeed_different_ratio(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioTopRoll)){
+			obj.setSpeed_different_ratio_top_roll(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioBottomRoll)){
+			obj.setSpeed_different_ratio_bottom_roll(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -5243,8 +5556,10 @@ public class MainController {
 			obj.setF_r2p(value);
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			obj.setF_r2r(value);
-		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
-			obj.setSpeed_different_ratio(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioTopRoll)){
+			obj.setSpeed_different_ratio_top_roll(value);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioBottomRoll)){
+			obj.setSpeed_different_ratio_bottom_roll(value);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			obj.setWr_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomWRRotVel)){
@@ -5356,8 +5671,11 @@ public class MainController {
 	
 	public void ChangedTabFolder(int index){
 		if(index == 0){
+			checkObj();
 			this.loadPlogTables();
+			checkObj();
 		}else if(index == 1){
+			checkObj();
 			med.getBtnF1().setSelection(true);
 			med.getBtnF2().setSelection(false);
 			med.getBtnF3().setSelection(false);
@@ -5366,6 +5684,14 @@ public class MainController {
 			med.getBtnF6().setSelection(false);
 			med.getBtnF7().setSelection(false);
 			this.ChangedSTANDValue("F1");
+			checkObj();
+		}
+	}
+	
+	private void checkObj(){
+		for(TableData_PLog obj : this.tableDataPLogList){
+			obj.printAllData();
+			break;
 		}
 	}
 	
@@ -5516,13 +5842,13 @@ public class MainController {
 					",,,,,,,";
 		initDataList.add(line18);
 		String line19 = "ENTRY TEMP"+","+
-					tableDataPLogList.get(0).getSTP_LEN()+","+
-					tableDataPLogList.get(1).getSTP_LEN()+","+
-					tableDataPLogList.get(2).getSTP_LEN()+","+
-					tableDataPLogList.get(3).getSTP_LEN()+","+
-					tableDataPLogList.get(4).getSTP_LEN()+","+
-					tableDataPLogList.get(5).getSTP_LEN()+","+
-					tableDataPLogList.get(6).getSTP_LEN()+","+
+					tableDataPLogList.get(0).getENTRY_TEMP()+","+
+					tableDataPLogList.get(1).getENTRY_TEMP()+","+
+					tableDataPLogList.get(2).getENTRY_TEMP()+","+
+					tableDataPLogList.get(3).getENTRY_TEMP()+","+
+					tableDataPLogList.get(4).getENTRY_TEMP()+","+
+					tableDataPLogList.get(5).getENTRY_TEMP()+","+
+					tableDataPLogList.get(6).getENTRY_TEMP()+","+
 					",,,,,,,";
 		initDataList.add(line19);
 		String line20 = "EXIT TEMP"+","+
@@ -5645,7 +5971,322 @@ public class MainController {
 					tableDataPLogList.get(6).getWR_THRM()+","+					
 					",,,,,,,";
 		initDataList.add(line31);
+//		this.saveOtherValues();		
 		this.parsingPLogFile(initDataList);
+	}
+	
+	private void saveOtherValues(){
+		this.otherValueList = new ArrayList<String>();
+		String ov_line1 = "wr_len"+","+
+						tableDataPLogList.get(0).getWr_len()+","+
+						tableDataPLogList.get(1).getWr_len()+","+
+						tableDataPLogList.get(2).getWr_len()+","+
+						tableDataPLogList.get(3).getWr_len()+","+
+						tableDataPLogList.get(4).getWr_len()+","+
+						tableDataPLogList.get(5).getWr_len()+","+
+						tableDataPLogList.get(6).getWr_len()+","+
+						",,,,,,,";
+		String ov_line2 = "wr_div_angle"+","+
+				tableDataPLogList.get(0).getWr_div_angle()+","+
+				tableDataPLogList.get(1).getWr_div_angle()+","+
+				tableDataPLogList.get(2).getWr_div_angle()+","+
+				tableDataPLogList.get(3).getWr_div_angle()+","+
+				tableDataPLogList.get(4).getWr_div_angle()+","+
+				tableDataPLogList.get(5).getWr_div_angle()+","+
+				tableDataPLogList.get(6).getWr_div_angle()+","+
+				",,,,,,,";
+		String ov_line3 = "bur_len"+","+
+				tableDataPLogList.get(0).getBur_len()+","+
+				tableDataPLogList.get(1).getBur_len()+","+
+				tableDataPLogList.get(2).getBur_len()+","+
+				tableDataPLogList.get(3).getBur_len()+","+
+				tableDataPLogList.get(4).getBur_len()+","+
+				tableDataPLogList.get(5).getBur_len()+","+
+				tableDataPLogList.get(6).getBur_len()+","+
+				",,,,,,,";
+		String ov_line4 = "bur_div_angle"+","+
+				tableDataPLogList.get(0).getBur_div_angle()+","+
+				tableDataPLogList.get(1).getBur_div_angle()+","+
+				tableDataPLogList.get(2).getBur_div_angle()+","+
+				tableDataPLogList.get(3).getBur_div_angle()+","+
+				tableDataPLogList.get(4).getBur_div_angle()+","+
+				tableDataPLogList.get(5).getBur_div_angle()+","+
+				tableDataPLogList.get(6).getBur_div_angle()+","+
+				",,,,,,,";
+		String ov_line5 = "p_in"+","+
+				tableDataPLogList.get(0).getP_in()+","+
+				tableDataPLogList.get(1).getP_in()+","+
+				tableDataPLogList.get(2).getP_in()+","+
+				tableDataPLogList.get(3).getP_in()+","+
+				tableDataPLogList.get(4).getP_in()+","+
+				tableDataPLogList.get(5).getP_in()+","+
+				tableDataPLogList.get(6).getP_in()+","+
+				",,,,,,,";
+		String ov_line6 = "pl_m"+","+
+				tableDataPLogList.get(0).getPl_m()+","+
+				tableDataPLogList.get(1).getPl_m()+","+
+				tableDataPLogList.get(2).getPl_m()+","+
+				tableDataPLogList.get(3).getPl_m()+","+
+				tableDataPLogList.get(4).getPl_m()+","+
+				tableDataPLogList.get(5).getPl_m()+","+
+				tableDataPLogList.get(6).getPl_m()+","+
+				",,,,,,,";
+		String ov_line7 = "t_div"+","+
+				tableDataPLogList.get(0).getT_div()+","+
+				tableDataPLogList.get(1).getT_div()+","+
+				tableDataPLogList.get(2).getT_div()+","+
+				tableDataPLogList.get(3).getT_div()+","+
+				tableDataPLogList.get(4).getT_div()+","+
+				tableDataPLogList.get(5).getT_div()+","+
+				tableDataPLogList.get(6).getT_div()+","+
+				",,,,,,,";
+		String ov_line8 = "f_r2p"+","+
+				tableDataPLogList.get(0).getF_r2p()+","+
+				tableDataPLogList.get(1).getF_r2p()+","+
+				tableDataPLogList.get(2).getF_r2p()+","+
+				tableDataPLogList.get(3).getF_r2p()+","+
+				tableDataPLogList.get(4).getF_r2p()+","+
+				tableDataPLogList.get(5).getF_r2p()+","+
+				tableDataPLogList.get(6).getF_r2p()+","+
+				",,,,,,,";
+		String ov_line9 = "f_r2r"+","+
+				tableDataPLogList.get(0).getF_r2r()+","+
+				tableDataPLogList.get(1).getF_r2r()+","+
+				tableDataPLogList.get(2).getF_r2r()+","+
+				tableDataPLogList.get(3).getF_r2r()+","+
+				tableDataPLogList.get(4).getF_r2r()+","+
+				tableDataPLogList.get(5).getF_r2r()+","+
+				tableDataPLogList.get(6).getF_r2r()+","+
+				",,,,,,,";
+		
+		String ov_line10 = "tb_vel_rate_top"+","+
+				tableDataPLogList.get(0).getSpeed_different_ratio_top_roll()+","+
+				tableDataPLogList.get(1).getSpeed_different_ratio_top_roll()+","+
+				tableDataPLogList.get(2).getSpeed_different_ratio_top_roll()+","+
+				tableDataPLogList.get(3).getSpeed_different_ratio_top_roll()+","+
+				tableDataPLogList.get(4).getSpeed_different_ratio_top_roll()+","+
+				tableDataPLogList.get(5).getSpeed_different_ratio_top_roll()+","+
+				tableDataPLogList.get(6).getSpeed_different_ratio_top_roll()+","+
+				",,,,,,,";
+		String ov_line11 = "tb_vel_rate_bottom"+","+
+				tableDataPLogList.get(0).getSpeed_different_ratio_bottom_roll()+","+
+				tableDataPLogList.get(1).getSpeed_different_ratio_bottom_roll()+","+
+				tableDataPLogList.get(2).getSpeed_different_ratio_bottom_roll()+","+
+				tableDataPLogList.get(3).getSpeed_different_ratio_bottom_roll()+","+
+				tableDataPLogList.get(4).getSpeed_different_ratio_bottom_roll()+","+
+				tableDataPLogList.get(5).getSpeed_different_ratio_bottom_roll()+","+
+				tableDataPLogList.get(6).getSpeed_different_ratio_bottom_roll()+","+
+				",,,,,,,";
+		String ov_line12 = "wr_trot"+","+
+				tableDataPLogList.get(0).getWr_trot()+","+
+				tableDataPLogList.get(1).getWr_trot()+","+
+				tableDataPLogList.get(2).getWr_trot()+","+
+				tableDataPLogList.get(3).getWr_trot()+","+
+				tableDataPLogList.get(4).getWr_trot()+","+
+				tableDataPLogList.get(5).getWr_trot()+","+
+				tableDataPLogList.get(6).getWr_trot()+","+
+				",,,,,,,";
+		String ov_line13 = "wr_brot"+","+
+				tableDataPLogList.get(0).getWr_brot()+","+
+				tableDataPLogList.get(1).getWr_brot()+","+
+				tableDataPLogList.get(2).getWr_brot()+","+
+				tableDataPLogList.get(3).getWr_brot()+","+
+				tableDataPLogList.get(4).getWr_brot()+","+
+				tableDataPLogList.get(5).getWr_brot()+","+
+				tableDataPLogList.get(6).getWr_brot()+","+
+				",,,,,,,";
+		String ov_line14 = "bur_trot"+","+
+				tableDataPLogList.get(0).getBur_trot()+","+
+				tableDataPLogList.get(1).getBur_trot()+","+
+				tableDataPLogList.get(2).getBur_trot()+","+
+				tableDataPLogList.get(3).getBur_trot()+","+
+				tableDataPLogList.get(4).getBur_trot()+","+
+				tableDataPLogList.get(5).getBur_trot()+","+
+				tableDataPLogList.get(6).getBur_trot()+","+
+				",,,,,,,";
+		String ov_line15 = "bur_brot"+","+
+				tableDataPLogList.get(0).getBur_brot()+","+
+				tableDataPLogList.get(1).getBur_brot()+","+
+				tableDataPLogList.get(2).getBur_brot()+","+
+				tableDataPLogList.get(3).getBur_brot()+","+
+				tableDataPLogList.get(4).getBur_brot()+","+
+				tableDataPLogList.get(5).getBur_brot()+","+
+				tableDataPLogList.get(6).getBur_brot()+","+
+				",,,,,,,";
+		String ov_line16 = "YM_Constant"+","+
+				tableDataPLogList.get(0).getYM_Constant()+","+
+				tableDataPLogList.get(1).getYM_Constant()+","+
+				tableDataPLogList.get(2).getYM_Constant()+","+
+				tableDataPLogList.get(3).getYM_Constant()+","+
+				tableDataPLogList.get(4).getYM_Constant()+","+
+				tableDataPLogList.get(5).getYM_Constant()+","+
+				tableDataPLogList.get(6).getYM_Constant()+","+
+				",,,,,,,";
+		String ov_line17 = "YM_Table"+","+
+				tableDataPLogList.get(0).getYM_Table()+","+
+				tableDataPLogList.get(1).getYM_Table()+","+
+				tableDataPLogList.get(2).getYM_Table()+","+
+				tableDataPLogList.get(3).getYM_Table()+","+
+				tableDataPLogList.get(4).getYM_Table()+","+
+				tableDataPLogList.get(5).getYM_Table()+","+
+				tableDataPLogList.get(6).getYM_Table()+","+
+				",,,,,,,";
+		String ov_line18 = "YM_Value"+","+
+				tableDataPLogList.get(0).getYM_Value()+","+
+				tableDataPLogList.get(1).getYM_Value()+","+
+				tableDataPLogList.get(2).getYM_Value()+","+
+				tableDataPLogList.get(3).getYM_Value()+","+
+				tableDataPLogList.get(4).getYM_Value()+","+
+				tableDataPLogList.get(5).getYM_Value()+","+
+				tableDataPLogList.get(6).getYM_Value()+","+
+				",,,,,,,";
+		String ov_line19 = "TEC_Constant"+","+
+				tableDataPLogList.get(0).getTEC_Constant()+","+
+				tableDataPLogList.get(1).getTEC_Constant()+","+
+				tableDataPLogList.get(2).getTEC_Constant()+","+
+				tableDataPLogList.get(3).getTEC_Constant()+","+
+				tableDataPLogList.get(4).getTEC_Constant()+","+
+				tableDataPLogList.get(5).getTEC_Constant()+","+
+				tableDataPLogList.get(6).getTEC_Constant()+","+
+				",,,,,,,";
+		String ov_line20 = "TEC_Table"+","+
+				tableDataPLogList.get(0).getTEC_Table()+","+
+				tableDataPLogList.get(1).getTEC_Table()+","+
+				tableDataPLogList.get(2).getTEC_Table()+","+
+				tableDataPLogList.get(3).getTEC_Table()+","+
+				tableDataPLogList.get(4).getTEC_Table()+","+
+				tableDataPLogList.get(5).getTEC_Table()+","+
+				tableDataPLogList.get(6).getTEC_Table()+","+
+				",,,,,,,";
+		String ov_line21 = "TEC_Value"+","+
+				tableDataPLogList.get(0).getTEC_Value()+","+
+				tableDataPLogList.get(1).getTEC_Value()+","+
+				tableDataPLogList.get(2).getTEC_Value()+","+
+				tableDataPLogList.get(3).getTEC_Value()+","+
+				tableDataPLogList.get(4).getTEC_Value()+","+
+				tableDataPLogList.get(5).getTEC_Value()+","+
+				tableDataPLogList.get(6).getTEC_Value()+","+
+				",,,,,,,";
+		String ov_line22 = "PR_Constant"+","+
+				tableDataPLogList.get(0).getPR_Constant()+","+
+				tableDataPLogList.get(1).getPR_Constant()+","+
+				tableDataPLogList.get(2).getPR_Constant()+","+
+				tableDataPLogList.get(3).getPR_Constant()+","+
+				tableDataPLogList.get(4).getPR_Constant()+","+
+				tableDataPLogList.get(5).getPR_Constant()+","+
+				tableDataPLogList.get(6).getPR_Constant()+","+
+				",,,,,,,";
+		String ov_line23 = "PR_Table"+","+
+				tableDataPLogList.get(0).getPR_Table()+","+
+				tableDataPLogList.get(1).getPR_Table()+","+
+				tableDataPLogList.get(2).getPR_Table()+","+
+				tableDataPLogList.get(3).getPR_Table()+","+
+				tableDataPLogList.get(4).getPR_Table()+","+
+				tableDataPLogList.get(5).getPR_Table()+","+
+				tableDataPLogList.get(6).getPR_Table()+","+
+				",,,,,,,";
+		String ov_line24 = "PR_Value"+","+
+				tableDataPLogList.get(0).getPR_Value()+","+
+				tableDataPLogList.get(1).getPR_Value()+","+
+				tableDataPLogList.get(2).getPR_Value()+","+
+				tableDataPLogList.get(3).getPR_Value()+","+
+				tableDataPLogList.get(4).getPR_Value()+","+
+				tableDataPLogList.get(5).getPR_Value()+","+
+				tableDataPLogList.get(6).getPR_Value()+","+
+				",,,,,,,";
+		String ov_line25 = "MD_Value"+","+
+				tableDataPLogList.get(0).getMD_Value()+","+
+				tableDataPLogList.get(1).getMD_Value()+","+
+				tableDataPLogList.get(2).getMD_Value()+","+
+				tableDataPLogList.get(3).getMD_Value()+","+
+				tableDataPLogList.get(4).getMD_Value()+","+
+				tableDataPLogList.get(5).getMD_Value()+","+
+				tableDataPLogList.get(6).getMD_Value()+","+
+				",,,,,,,";
+		String ov_line26 = "lcase_time"+","+
+				tableDataPLogList.get(0).getLcase_time()+","+
+				tableDataPLogList.get(1).getLcase_time()+","+
+				tableDataPLogList.get(2).getLcase_time()+","+
+				tableDataPLogList.get(3).getLcase_time()+","+
+				tableDataPLogList.get(4).getLcase_time()+","+
+				tableDataPLogList.get(5).getLcase_time()+","+
+				tableDataPLogList.get(6).getLcase_time()+","+
+				",,,,,,,";
+		String ov_line27 = "lcase_dt"+","+
+				tableDataPLogList.get(0).getLcase_dt()+","+
+				tableDataPLogList.get(1).getLcase_dt()+","+
+				tableDataPLogList.get(2).getLcase_dt()+","+
+				tableDataPLogList.get(3).getLcase_dt()+","+
+				tableDataPLogList.get(4).getLcase_dt()+","+
+				tableDataPLogList.get(5).getLcase_dt()+","+
+				tableDataPLogList.get(6).getLcase_dt()+","+
+				",,,,,,,";
+		String ov_line28 = "post_inc"+","+
+				tableDataPLogList.get(0).getPost_inc()+","+
+				tableDataPLogList.get(1).getPost_inc()+","+
+				tableDataPLogList.get(2).getPost_inc()+","+
+				tableDataPLogList.get(3).getPost_inc()+","+
+				tableDataPLogList.get(4).getPost_inc()+","+
+				tableDataPLogList.get(5).getPost_inc()+","+
+				tableDataPLogList.get(6).getPost_inc()+","+
+				",,,,,,,";
+		String ov_line29 = "inc_time"+","+
+				tableDataPLogList.get(0).getInc_time()+","+
+				tableDataPLogList.get(1).getInc_time()+","+
+				tableDataPLogList.get(2).getInc_time()+","+
+				tableDataPLogList.get(3).getInc_time()+","+
+				tableDataPLogList.get(4).getInc_time()+","+
+				tableDataPLogList.get(5).getInc_time()+","+
+				tableDataPLogList.get(6).getInc_time()+","+
+				",,,,,,,";
+		String ov_line30 = "ParallelDDM"+","+
+				tableDataPLogList.get(0).getParallelDDM()+","+
+				tableDataPLogList.get(1).getParallelDDM()+","+
+				tableDataPLogList.get(2).getParallelDDM()+","+
+				tableDataPLogList.get(3).getParallelDDM()+","+
+				tableDataPLogList.get(4).getParallelDDM()+","+
+				tableDataPLogList.get(5).getParallelDDM()+","+
+				tableDataPLogList.get(6).getParallelDDM()+","+
+				",,,,,,,";
+		String ov_line31 = "Domain"+","+
+				tableDataPLogList.get(0).getDomain()+","+
+				tableDataPLogList.get(1).getDomain()+","+
+				tableDataPLogList.get(2).getDomain()+","+
+				tableDataPLogList.get(3).getDomain()+","+
+				tableDataPLogList.get(4).getDomain()+","+
+				tableDataPLogList.get(5).getDomain()+","+
+				tableDataPLogList.get(6).getDomain()+","+
+				",,,,,,,";
+		String ov_line32 = "ParallelMultiThread"+","+
+				tableDataPLogList.get(0).getParallelMultiThread()+","+
+				tableDataPLogList.get(1).getParallelMultiThread()+","+
+				tableDataPLogList.get(2).getParallelMultiThread()+","+
+				tableDataPLogList.get(3).getParallelMultiThread()+","+
+				tableDataPLogList.get(4).getParallelMultiThread()+","+
+				tableDataPLogList.get(5).getParallelMultiThread()+","+
+				tableDataPLogList.get(6).getParallelMultiThread()+","+
+				",,,,,,,";
+		String ov_line33 = "Thread"+","+
+				tableDataPLogList.get(0).getThread()+","+
+				tableDataPLogList.get(1).getThread()+","+
+				tableDataPLogList.get(2).getThread()+","+
+				tableDataPLogList.get(3).getThread()+","+
+				tableDataPLogList.get(4).getThread()+","+
+				tableDataPLogList.get(5).getThread()+","+
+				tableDataPLogList.get(6).getThread()+","+
+				",,,,,,,";
+		otherValueList.add(ov_line1);otherValueList.add(ov_line2);otherValueList.add(ov_line3);
+		otherValueList.add(ov_line4);otherValueList.add(ov_line5);otherValueList.add(ov_line6);
+		otherValueList.add(ov_line7);otherValueList.add(ov_line8);otherValueList.add(ov_line9);
+		otherValueList.add(ov_line10);otherValueList.add(ov_line11);otherValueList.add(ov_line12);
+		otherValueList.add(ov_line13);otherValueList.add(ov_line14);otherValueList.add(ov_line15);
+		otherValueList.add(ov_line16);otherValueList.add(ov_line17);otherValueList.add(ov_line18);
+		otherValueList.add(ov_line19);otherValueList.add(ov_line20);otherValueList.add(ov_line21);
+		otherValueList.add(ov_line22);otherValueList.add(ov_line23);otherValueList.add(ov_line24);
+		otherValueList.add(ov_line25);otherValueList.add(ov_line26);otherValueList.add(ov_line27);
+		otherValueList.add(ov_line28);otherValueList.add(ov_line29);otherValueList.add(ov_line30);
+		otherValueList.add(ov_line31);otherValueList.add(ov_line32);otherValueList.add(ov_line33);
+		
 	}
 	
 	//

@@ -84,7 +84,7 @@ public class CustomText implements ICommand {
 			value = med.getTextPassLine().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textPassLine);	
 		}else if(widgetName.equals(Mediator.TEXT_textPairCrossAngle)){
-			value = med.getTextPassLine().getText().trim();
+			value = med.getTextPairCrossAngle().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textPassLine);
 		}else if(widgetName.equals(Mediator.TEXT_textBenderForce)){
 			value = med.getTextBenderForce().getText().trim();
@@ -101,9 +101,12 @@ public class CustomText implements ICommand {
 		}else if(widgetName.equals(Mediator.TEXT_textRollToRollFrictCoef)){
 			value = med.getTextRollToRollFrictCoef().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textRollToRollFrictCoef);
-		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatio)){
-			value = med.getTextSpeedDifferentRatio().getText().trim();
-			MC.ChangedTextWidget(value, Mediator.TEXT_textSpeedDifferentRatio);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioTopRoll)){
+			value = med.getTextSpeedDifferentRatioTopRoll().getText().trim();
+			MC.ChangedTextWidget(value, Mediator.TEXT_textSpeedDifferentRatioTopRoll);
+		}else if(widgetName.equals(Mediator.TEXT_textSpeedDifferentRatioBottomRoll)){
+			value = med.getTextSpeedDifferentRatioBottomRoll().getText().trim();
+			MC.ChangedTextWidget(value, Mediator.TEXT_textSpeedDifferentRatioBottomRoll);
 		}else if(widgetName.equals(Mediator.TEXT_textTopWRRotVel)){
 			value = med.getTextTopWRRotVel().getText().trim();
 			MC.ChangedTextWidget(value, Mediator.TEXT_textTopWRRotVel);
@@ -221,8 +224,11 @@ public class CustomText implements ICommand {
 	public void setCustomWidget_textRollToRollFrictCoef(){
 		this.text = med.getTextRollToRollFrictCoef();
 	}
-	public void setCustomWidget_textSpeedDifferentRatio(){
-		this.text = med.getTextSpeedDifferentRatio();
+	public void setCustomWidget_textSpeedDifferentRatioTopRoll(){
+		this.text = med.getTextSpeedDifferentRatioTopRoll();
+	}
+	public void setCustomWidget_textSpeedDifferentRatioBottomRoll(){
+		this.text = med.getTextSpeedDifferentRatioBottomRoll();
 	}
 	public void setCustomWidget_textTopWRRotVel(){
 		this.text = med.getTextTopWRRotVel();

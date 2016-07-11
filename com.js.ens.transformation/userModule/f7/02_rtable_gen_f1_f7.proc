@@ -33,17 +33,17 @@
 *store_surfaces symm_plane
 5 
 #
-*add_surface point(-2*bur_bdia,-2*bur_bdia,-50.0)
-             point(-2*bur_bdia,2*wr_bdia,-50.0)    
-             point(2*bur_bdia,2*wr_bdia,-50.0)             
-             point(2*bur_bdia,-2*bur_bdia,-50.0)     
+*add_surface point(-2*bur_bdia,-2*wr_tdia,-50.0)
+             point(-2*bur_bdia,3*bur_bdia,-50.0)
+             point(2*bur_bdia,3*bur_bdia,-50.0)             
+             point(2*bur_bdia,-2*wr_tdia,-50.0)   
 *store_surfaces symm_top
 6 
 #         
-*add_surface point(-2*bur_bdia,-2*wr_tdia,-50.0)
-             point(-2*bur_bdia,2*bur_bdia,-50.0)
-             point(2*bur_bdia,2*bur_bdia,-50.0)             
-             point(2*bur_bdia,-2*wr_tdia,-50.0)   
+*add_surface point(-2*bur_bdia,-3*bur_bdia,-50.0)
+             point(-2*bur_bdia,2*wr_bdia,-50.0)    
+             point(2*bur_bdia,2*wr_bdia,-50.0)             
+             point(2*bur_bdia,-3*bur_bdia,-50.0)     
 *store_surfaces symm_bottom
 7 
 #              

@@ -51,7 +51,7 @@ public class HandlerText implements Listener {
 			med.getC_textRollGap().execute();
 		}else if(event.widget == med.getTextPassLine()){
 			med.getC_textPassLine().execute();
-		}else if(event.widget == med.getTextPassLine()){
+		}else if(event.widget == med.getTextPairCrossAngle()){
 			med.getC_textPassLine().execute();
 		}else if(event.widget == med.getTextPairCrossAngle()){
 			med.getC_textPairCrossAngle().execute();
@@ -65,8 +65,10 @@ public class HandlerText implements Listener {
 			med.getC_textRollToPlateFrictCoef().execute();
 		}else if(event.widget == med.getTextRollToRollFrictCoef()){
 			med.getC_textRollToRollFrictCoef().execute();
-		}else if(event.widget == med.getTextSpeedDifferentRatio()){
-			med.getC_textSpeedDifferentRatio().execute();
+		}else if(event.widget == med.getTextSpeedDifferentRatioTopRoll()){
+			med.getC_textSpeedDifferentRatioTopRoll().execute();
+		}else if(event.widget == med.getTextSpeedDifferentRatioBottomRoll()){
+			med.getC_textSpeedDifferentRatioBottomRoll().execute();
 		}else if(event.widget == med.getTextTopWRRotVel()){
 			med.getC_textTopWRRotVel().execute();
 		}else if(event.widget == med.getTextBottomWRRotVel()){

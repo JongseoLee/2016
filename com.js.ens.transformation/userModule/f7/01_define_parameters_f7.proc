@@ -77,7 +77,7 @@
 |!D bur_len : Length of backup roll(f1-f7) : mm : 3520.0
 |
 |*eval_define wr_len %wr_len%/2.0 | for F1-F3 Work Roll |!D
- *eval_define wr_len %wr_len%/2.0 | for F4-F7 Work Roll |!D
+*eval_define wr_len %wr_len%/2.0 | for F4-F7 Work Roll |!D
 *eval_define bur_len %bur_len%/2.0 | for F1-F7 BackUp Roll |!D
 |
 |  Define plate Parameters
@@ -156,10 +156,12 @@
 |!C lcase_time : analysis time calculated by (thk*len)/(roll gap) : sec. :
 |!C lcase_inc : increment no. of loadcase
 |!D post_inc : Post writing increment.
-*eval_define lcase_time (p_thk*p_len)/(roll_gap*pl_vel)  |!C
-*eval_define lcase_dt %lcase_dt%/pl_vel    |!D
-*eval_define post_inc %post_inc%    |!D
-| *eval_define lcase_inc lcase_time/lcase_dt 
+| -- *eval_define lcase_time (p_thk*p_len)/(roll_gap*pl_vel)  |!C
+| -- *eval_define lcase_dt %lcase_dt%/pl_vel    |!D
+*eval_define lcase_time p_len*1.2/pl_vel       |!C
+*eval_define lcase_inc 4000               |!D    
+*eval_define lcase_dt lcase_time/lcase_inc    |!D
+*eval_define post_inc %post_inc%    |!D 
 |!D g_fac : Gravity Acc. Factor for applying intial velocity.
 *eval_define g_fac 4.0 |!D
 

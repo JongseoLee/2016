@@ -87,7 +87,8 @@ public class View extends ViewPart {
 	private Text textTensionStress;
 	private Text textRollToPlateFrictCoef;
 	private Text textRollToRollFrictCoef;
-	private Text textSpeedDifferentRatio;
+	private Text textSpeedDifferentRatioTopRoll;
+	private Text textSpeedDifferentRatioBottomRoll;
 	private Text textTopWRRotVel;
 	private Text textBottomWRRotVel;
 	private Text textTopBURRotVel;
@@ -425,7 +426,7 @@ public class View extends ViewPart {
 		fd_lblWRMeshAngle.top = new FormAttachment(lblWRLength, 10);
 		fd_lblWRMeshAngle.left = new FormAttachment(lblTopWRDiameter, 0,SWT.LEFT);
 		lblWRMeshAngle.setLayoutData(fd_lblWRMeshAngle);
-		lblWRMeshAngle.setText(ulObj.getUILabelValue(UILabel.WR_Length));
+		lblWRMeshAngle.setText(ulObj.getUILabelValue(UILabel.WR_Mesh_Angle));
 		
 		textWRMeshAngle = new Text(grpWorkRollwrParameter, SWT.BORDER);
 		med.setTextWRMeshAngle(textWRMeshAngle);
@@ -573,7 +574,7 @@ public class View extends ViewPart {
 		fd_lblWidth.top = new FormAttachment(lblThickness, 10);
 		fd_lblWidth.left = new FormAttachment(lblThickness, 0,SWT.LEFT);
 		lblWidth.setLayoutData(fd_lblWidth);
-		lblWidth.setText(ulObj.getUILabelValue(UILabel.Length));
+		lblWidth.setText(ulObj.getUILabelValue(UILabel.Width));
 		
 		textWidth = new Text(grpPlateParameter, SWT.BORDER);
 		med.setTextWidth(textWidth);
@@ -711,7 +712,7 @@ public class View extends ViewPart {
 		fd_grpProcessInformation.top = new FormAttachment(grpWorkRollwrParameter, 0, SWT.TOP);
 		fd_grpProcessInformation.left = new FormAttachment(grpWorkRollwrParameter, 10, SWT.RIGHT);
 		fd_grpProcessInformation.right = new FormAttachment(grpWorkRollwrParameter, 410,SWT.RIGHT);
-		fd_grpProcessInformation.bottom = new FormAttachment(groupSTAND, 430, SWT.BOTTOM);
+		fd_grpProcessInformation.bottom = new FormAttachment(groupSTAND, 480, SWT.BOTTOM);
 		grpProcessInformation.setLayoutData(fd_grpProcessInformation);
 		
 		Label lblVelocity = new Label(grpProcessInformation, SWT.NONE);
@@ -876,27 +877,45 @@ public class View extends ViewPart {
 		fd_textRollToRollFrictCoef.right = new FormAttachment(100, -10);
 		textRollToRollFrictCoef.setLayoutData(fd_textRollToRollFrictCoef);
 		
-		Label lblSpeedDifferentRatio = new Label(grpProcessInformation, SWT.NONE);
-		FormData fd_lblSpeedDifferentRatio = new FormData();
-		fd_lblSpeedDifferentRatio.top = new FormAttachment(lblRollToRollFrictCoef, 20);
-		fd_lblSpeedDifferentRatio.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
-		lblSpeedDifferentRatio.setLayoutData(fd_lblSpeedDifferentRatio);
-		lblSpeedDifferentRatio.setText(ulObj.getUILabelValue(UILabel.Speed_Different_Ratio));
+		Label lblSpeedDifferentRatioTopRoll = new Label(grpProcessInformation, SWT.NONE);
+		FormData fd_lblSpeedDifferentRatioTopRoll = new FormData();
+		fd_lblSpeedDifferentRatioTopRoll.top = new FormAttachment(lblRollToRollFrictCoef, 20);
+		fd_lblSpeedDifferentRatioTopRoll.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
+		lblSpeedDifferentRatioTopRoll.setLayoutData(fd_lblSpeedDifferentRatioTopRoll);
+		lblSpeedDifferentRatioTopRoll.setText(ulObj.getUILabelValue(UILabel.Speed_Different_Ratio_top_roll));
 
-		textSpeedDifferentRatio = new Text(grpProcessInformation, SWT.BORDER);
-		med.setTextSpeedDifferentRatio(textSpeedDifferentRatio);
-		CustomText C_textSpeedDifferentRatio = new CustomText(Mediator.TEXT_textSpeedDifferentRatio,med);
-		med.setC_textSpeedDifferentRatio(C_textSpeedDifferentRatio);
-		C_textSpeedDifferentRatio.setCustomWidget_textSpeedDifferentRatio();
-		FormData fd_textSpeedDifferentRatio = new FormData();
-		fd_textSpeedDifferentRatio.top = new FormAttachment(lblSpeedDifferentRatio,-2,SWT.TOP);
-		fd_textSpeedDifferentRatio.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
-		fd_textSpeedDifferentRatio.right = new FormAttachment(100, -10);
-		textSpeedDifferentRatio.setLayoutData(fd_textSpeedDifferentRatio);
+		textSpeedDifferentRatioTopRoll = new Text(grpProcessInformation, SWT.BORDER);
+		med.setTextSpeedDifferentRatioTopRoll(textSpeedDifferentRatioTopRoll);		    
+		CustomText C_textSpeedDifferentRatioTopRoll = new CustomText(Mediator.TEXT_textSpeedDifferentRatioTopRoll,med);
+		med.setC_textSpeedDifferentRatioTopRoll(C_textSpeedDifferentRatioTopRoll);
+		C_textSpeedDifferentRatioTopRoll.setCustomWidget_textSpeedDifferentRatioTopRoll();
+		FormData fd_textSpeedDifferentRatioTopRoll = new FormData();
+		fd_textSpeedDifferentRatioTopRoll.top = new FormAttachment(lblSpeedDifferentRatioTopRoll,-2,SWT.TOP);
+		fd_textSpeedDifferentRatioTopRoll.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
+		fd_textSpeedDifferentRatioTopRoll.right = new FormAttachment(100, -10);
+		textSpeedDifferentRatioTopRoll.setLayoutData(fd_textSpeedDifferentRatioTopRoll);
+		
+		Label lblSpeedDifferentRatioBottomRoll = new Label(grpProcessInformation, SWT.NONE);
+		FormData fd_lblSpeedDifferentRatioBottomRoll = new FormData();
+		fd_lblSpeedDifferentRatioBottomRoll.top = new FormAttachment(lblSpeedDifferentRatioTopRoll, 10);
+		fd_lblSpeedDifferentRatioBottomRoll.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
+		lblSpeedDifferentRatioBottomRoll.setLayoutData(fd_lblSpeedDifferentRatioBottomRoll);
+		lblSpeedDifferentRatioBottomRoll.setText(ulObj.getUILabelValue(UILabel.Speed_Different_Ratio_bottom_roll));
+
+		textSpeedDifferentRatioBottomRoll = new Text(grpProcessInformation, SWT.BORDER);
+		med.setTextSpeedDifferentRatioBottomRoll(textSpeedDifferentRatioBottomRoll);		    
+		CustomText C_textSpeedDifferentRatioBottomRoll = new CustomText(Mediator.TEXT_textSpeedDifferentRatioBottomRoll,med);
+		med.setC_textSpeedDifferentRatioBottomRoll(C_textSpeedDifferentRatioBottomRoll);
+		C_textSpeedDifferentRatioBottomRoll.setCustomWidget_textSpeedDifferentRatioBottomRoll();
+		FormData fd_textSpeedDifferentRatioBottomRoll = new FormData();
+		fd_textSpeedDifferentRatioBottomRoll.top = new FormAttachment(lblSpeedDifferentRatioBottomRoll,-2,SWT.TOP);
+		fd_textSpeedDifferentRatioBottomRoll.left = new FormAttachment(textVelocity, 0,SWT.LEFT);
+		fd_textSpeedDifferentRatioBottomRoll.right = new FormAttachment(100, -10);
+		textSpeedDifferentRatioBottomRoll.setLayoutData(fd_textSpeedDifferentRatioBottomRoll);
 
 		Label lblTopWRRotVel = new Label(grpProcessInformation, SWT.NONE);
 		FormData fd_lblTopWRRotVel = new FormData();
-		fd_lblTopWRRotVel.top = new FormAttachment(lblSpeedDifferentRatio, 10);
+		fd_lblTopWRRotVel.top = new FormAttachment(lblSpeedDifferentRatioBottomRoll, 10);
 		fd_lblTopWRRotVel.left = new FormAttachment(lblVelocity, 0,SWT.LEFT);
 		lblTopWRRotVel.setLayoutData(fd_lblTopWRRotVel);
 		lblTopWRRotVel.setText(ulObj.getUILabelValue(UILabel.Top_WR_Rot_Vel_RPM));
@@ -1615,7 +1634,8 @@ public class View extends ViewPart {
 		med.getTextTensionStress().addListener(SWT.CHANGED, handlerText);
 		med.getTextRollToPlateFrictCoef().addListener(SWT.CHANGED, handlerText);
 		med.getTextRollToRollFrictCoef().addListener(SWT.CHANGED, handlerText);
-		med.getTextSpeedDifferentRatio().addListener(SWT.Selection, handlerText);
+		med.getTextSpeedDifferentRatioTopRoll().addListener(SWT.Selection, handlerText);
+		med.getTextSpeedDifferentRatioBottomRoll().addListener(SWT.Selection, handlerText);
 		med.getTextTopWRRotVel().addListener(SWT.Selection, handlerText);
 		med.getTextBottomWRRotVel().addListener(SWT.Selection, handlerText);
 		med.getTextTopBURRotVel().addListener(SWT.Selection, handlerText);

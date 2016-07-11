@@ -1,0 +1,16 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*new_loadcase *loadcase_type struc:dyn_trans
+*loadcase_option stepping:multicriteria
+*exec_procedure C:\work\POSCO_3D_Rolling\prog\0629\usermodule\f1\05_load_case.proc
+*previous_loadcase
+*next_loadcase
+*previous_loadcase
+*previous_loadcase
+*loadcase_name lcase10
+*quit yes

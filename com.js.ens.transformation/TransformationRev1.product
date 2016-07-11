@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Transformation" id="com.js.ens.transformation.productRev1" application="com.js.ens.transformation.application" useFeatures="false" includeLaunchers="true">
-
+<product name="HRolling-3d" id="com.js.ens.transformation.productRev1" application="com.js.ens.transformation.application" useFeatures="false" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -15,8 +14,7 @@
 
    <windowImages i32="/com.js.ens.transformation/icons/ENS3232.PNG"/>
 
-
-   <launcher name="Transformation">
+   <launcher name="HRolling-3d">
       <solaris/>
       <win useIco="false">
          <bmp
@@ -24,7 +22,6 @@
             winMediumHigh="/com.js.ens.transformation/icons/ENS323232.BMP"/>
       </win>
    </launcher>
-
 
    <vm>
       <windows include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</windows>

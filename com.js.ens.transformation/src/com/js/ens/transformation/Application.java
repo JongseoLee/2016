@@ -26,7 +26,7 @@ public class Application implements IApplication {
 		String userConfigPath = myUtil.setPath(System.getProperty("user.dir"), "userConfig");
 		System.setProperty("LogPath.ens", myUtil.setPath(System.getProperty("user.dir"), "userLog"));
 		PropertyConfigurator.configure(myUtil.setPath(userConfigPath,"log4j.properties"));
-		log.info("Start ENS Transformation");
+		log.info("Start HRolling-3d");
 		try {
 			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
 			if (returnCode == PlatformUI.RETURN_RESTART) {

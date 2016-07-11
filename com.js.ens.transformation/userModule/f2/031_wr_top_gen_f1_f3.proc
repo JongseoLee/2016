@@ -4,7 +4,8 @@
 *new_model yes
 | Section Change
 *eval_define dia_chg wr_tdia_chg
-*exec_proc wr_f1_f3_crown.proc
+|*exec_proc wr_f1_f3_crown.proc
+*py_file_run wr_f1_f3.py
 |
 | Expand the Roll Section and Make 3D Roll
 |

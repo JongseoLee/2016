@@ -6,9 +6,11 @@
 *set_model_length_unit millimeter
 |
 *prog_use_current_job on *new_job *job_class structural
+*add_job_loadcases lcase0
 *add_job_loadcases lcase1
+*add_job_loadcases lcase2
 *job_option frictype:coulomb_bilinear
-*job_contact_table ctable1
+*job_contact_table ctable0
 *add_post_tensor stress
 *add_post_tensor strain
 *add_post_tensor el_strain

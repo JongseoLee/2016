@@ -10,6 +10,8 @@
 *move_elements
 wr_top
 bur_top
+*move_surfaces
+symm_top
 *move_nodes
 10000001 10000002
 #
@@ -18,6 +20,8 @@ bur_top
 wr_bottom
 bur_bottom
 #
+*move_surfaces
+symm_bottom
 *move_nodes
 10000003
 10000004

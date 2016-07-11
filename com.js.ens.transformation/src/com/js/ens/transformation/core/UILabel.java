@@ -89,8 +89,10 @@ public class UILabel {
 	public static String WR_Crown="WR Crown(mm)";
 	// 4) Default-wr_len1-3
 	public static String WR_Length="WR Length(mm)";
+	public static String wr_len = "wr_len";
 	// 5) wr_div_angle
 	public static String WR_Mesh_Angle="WR Mesh Angle(deg.)";
+	public static String wr_div_angle="wr_div_angle";
 
 	//
 	// -> Backup Roll(BUR) Parameters
@@ -102,8 +104,10 @@ public class UILabel {
 	public static String Bottom_BUR_Diameter="Bottom BUR Diameter(mm)";
 	// 3) bur_len1-3
 	public static String BUR_Length="BUR Length(mm)";
+	public static String bur_len="bur_len";
 	// 4) bur_div_angle
 	public static String BUR_Mesh_Angle="BUR Mesh Angle(deg.)";
+	public static String bur_div_angle="bur_div_angle";
 	
 	//
 	//-> Plate Parameters
@@ -121,10 +125,13 @@ public class UILabel {
 	public static String Exit_Temperature="Exit Temperature(C)";
 	// 6) p_in
 	public static String Initial_Position="Initial Position(mm)";	
+	public static String p_in="p_in";
 	// 7) pl_m
 	public static String Mesh_Length="Mesh Length(mm)";	
+	public static String pl_m="pl_m";
 	// 8) t_div
 	public static String Thickness_Mesh_Divisions="Thickness Mesh Divisions";
+	public static String t_div="t_div";
 	
 	//
 	//-> Plate Parameters
@@ -146,20 +153,29 @@ public class UILabel {
 	public static String Tension_Stress="Tension Stress(Kgf/mm2)";			
 	// 8) f_r2p
 	public static String Roll_to_Plate_Frict_Coef="Roll to Plate Frict. Coef.";			
+	public static String f_r2p="f_r2p";
 	// 9) f_r2r
 	public static String Roll_to_Roll_Fric_Coef="Roll to Roll Fric. Coef.";
+	public static String f_r2r="f_r2r";
 	
-	// 10) tb_vel_rate
-	// 
-	public static String Speed_Different_Ratio="Speed Different Ratio";
-	// 11) wr_trot
+	// 10) tb_vel_rate_top
+	public static String Speed_Different_Ratio_top_roll="Speed Different Ratio-top roll(%)";
+	public static String tb_vel_rate_top = "tb_vel_rate_top";
+	// 11) tb_vel_rate_bottom
+	public static String Speed_Different_Ratio_bottom_roll="Speed Different Ratio-bottom roll(%)";
+	public static String tb_vel_rate_bottom="tb_vel_rate_bottom";
+	// 12) wr_trot
 	public static String Top_WR_Rot_Vel_RPM="Top WR Rot. Vel.(RPM)";
-	// 12) wr_brot
+	public static String wr_trot="wr_trot";
+	// 13) wr_brot
 	public static String Bottom_WR_Rot_Vel_RPM="Bottom WR Rot. Vel.(RPM)";
-	// 13) bur_trot
+	public static String wr_brot="wr_brot";
+	// 14) bur_trot
 	public static String Top_BUR_Rot_Vel_RPM="Top BUR Rot. Vel.(RPM)";
-	// 14) bur_brot
+	public static String bur_trot="bur_trot";
+	// 15) bur_brot
 	public static String Bottom_BUR_Rot_Vel_RPM="Bottom BUR Rot. Vel.(RPM)";
+	public static String bur_brot="bur_brot";
 	
 	
 	//
@@ -174,6 +190,17 @@ public class UILabel {
 	public static String Poissons_Ratio="Poisson's Ratio";
 	// 4)
 	public static String Mass_Density="Mass Density(Mg/mm^3)";
+	public static String YM_Constant="YM_Constant";
+	public static String YM_Table="YM_Table";
+	public static String YM_Value="YM_Value";
+	public static String TEC_Constant="TEC_Constant";
+	public static String TEC_Table="TEC_Table";
+	public static String TEC_Value="TEC_Value";
+	public static String PR_Constant="PR_Constant";
+	public static String PR_Table="PR_Table";
+	public static String PR_Value="PR_Value";
+	public static String MD_Value="MD_Value";
+	
 	
 	//
 	//-> Analysis Information
@@ -181,22 +208,30 @@ public class UILabel {
 	public static String Analysis_Information="Analysis Information";
 	// 1) lcase_time
 	public static String Time_Increment_time="Time Increment(sec.-time)";
+	public static String lcase_time="lcase_time"; 
 	// 2) lcase_dt
 	public static String Time_Increment_dt="Time Increment(sec.-dt)";			
+	public static String lcase_dt="lcase_dt";
 	// 3) post_inc
 	public static String Post_Writing_frequency="Post Writing frequency";
+	public static String post_inc="post_inc";
 	// 4) solving_time
 	public static String Solving_time="Solving time(sec.)";
 	// 5) increment_time
 	public static String Increment_time="Increment time(sec.)";
+	public static String inc_time="inc_time";
 	// 6) parallel_DDM
 	public static String Parallel_DDM="Parallel-DDM";
+	public static String ParallelDDM="ParallelDDM";
 	// 7) domain
 	public static String Domain="Domain";
+	//public static String Domain="Domain";
 	// 8) parallel_Multi_Thread
 	public static String Parallel_Multi_Thread="Parallel-Multi Thread";			
+	public static String ParallelMultiThread="ParallelMultiThread";
 	// 9) thread
 	public static String Thread="Thread";
+	//public static String Thread="Thread";
 	
 	//
 	// ETC

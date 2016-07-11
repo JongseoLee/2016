@@ -13,32 +13,5 @@ plate_remesh
 *adapg_rmsh_body
 01_Plate
 *adapg_option immediate_crit:on
-*copy_loadcase
-*loadcase_name
-*loadcase_name lcase0
-*add_loadcase_adapgs plate_remesh
-*loadcase_value time
-0.001
-*loadcase_value nsteps
-5
-|
-| Add Contact Table 0
-|
-*edit_contact_table ctable1
-*copy_contact_table
-*contact_table_name ctable0
-*ctable_entry 01_Plate 02_WR_top
-*contact_table_option 01_Plate 02_WR_top contact:off
-*ctable_entry 01_Plate 04_WR_bottom
-*contact_table_option 01_Plate 04_WR_bottom contact:off
 *edit_loadcase lcase0
-*loadcase_ctable
-ctable0
-*job_contact_table
-ctable0
-|
-| Redefine Loadcases 
-|
-*remove_job_loadcases lcase1
-*add_job_loadcases lcase0
-*add_job_loadcases lcase1
+*add_loadcase_adapgs plate_remesh

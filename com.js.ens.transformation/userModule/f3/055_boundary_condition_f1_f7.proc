@@ -66,8 +66,8 @@ bend_force
 time
 *table_add
 0,0
-0.05,1
-100,1.0
+lcase_time/1000.0,1.0
+lcase_time*5,1.0
 *new_apply *apply_type point_load @popdown(apply_new_pm)
 *apply_name bender_force_top
 *apply_dof y *apply_dof_value y bend_f 

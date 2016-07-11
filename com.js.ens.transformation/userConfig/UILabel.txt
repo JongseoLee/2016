@@ -1,6 +1,8 @@
+//
 // Link
 // program variable -> map key -> value(UI Label  UILabel.txt)
 //
+
 //Common Label
 Model Name=Model Name :
 Workspace=Workspace :
@@ -27,25 +29,11 @@ F4=F4
 F5=F5
 F6=F6
 F7=F7
-
-//####################################
 //
 //Tab2UI
 //
-
 //---------------------------------------------------------------
 //Work Roll(WR) parameter
-// Title and 5 Label
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Work Roll(WR) shape parameter||Work Roll(WR) shape parameter
-//1st diameter in WR roll(mm)||1st diameter in WR roll(mm)
-//2nd diameter in WR roll(mm)||2nd diameter in WR roll(mm)
-//3rd diameter in WR roll(mm)||3rd diameter in WR roll(mm)
-//1st length in WR roll(mm)||1st length in WR roll(mm)
-//2nd length in WR roll(mm)||2nd lenhth in WR roll(mm)
-//3rd length in WR roll(mm)||3rd length in WR roll(mm)
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 // Title 
 Work Roll(WR) Parameters=Work Roll(WR) Parameters
 // 1) WR_TDIA
@@ -59,21 +47,9 @@ WR Length(mm)=WR Length(mm)
 // 5) wr_div_angle
 WR Mesh Angle(deg.)=WR Mesh Angle(deg.)
 //---------------------------------------------------------------
-
-
 //---------------------------------------------------------------
 //Back Up Roll(BUR) parameter
 // Title and 4 Label
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//Back Up Roll(BUR) shape parameter||Back Up Roll(BUR) shape parameter
-//1st diameter in BUR roll(mm)||1st diameter in BUR roll(mm)
-//2nd diameter in BUR roll(mm)||2nd diameter in BUR roll(mm)
-//3rd diameter in BUR roll(mm)||3rd diameter in BUR roll(mm)
-//1st length in BUR roll(mm)||1st length in BUR roll(mm)
-//2nd length in BUR roll(mm)||2nd length in BUR roll(mm)
-//3rd length in BUR roll(mm)||3rd length in BUR roll(mm)
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 // Title
 Backup Roll(BUR) Parameters=Backup Roll(BUR) Parameters
 // 1) BUR_TDIA
@@ -85,21 +61,9 @@ BUR Length(mm)=BUR Length(mm)
 // 4) bur_div_angle
 BUR Mesh Angle(deg.)=BUR Mesh Angle(deg.)
 //---------------------------------------------------------------
-
-
-
 //---------------------------------------------------------------
 //Plate parameter
 // Title and 8 Label 
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//Plate shape parameter||Plate shape parameter
-//length of plate(mm)||length of plate(mm)
-//width of plate(mm)||width of plate(mm)
-//thickness of plate(mm)||thickness of plate(mm)
-//initial position of plate(mm)||initial position of plate(mm)
-//roll gap(mm)||roll gap(mm)
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 // Title
 Plate Parameters=Plate Parameters
 // 1) ENTRY_THK
@@ -119,11 +83,9 @@ Mesh Length(mm)=Mesh Length(mm)
 // 8) t_div
 Thickness Mesh Divisions=Thickness Mesh Divisions
 //---------------------------------------------------------------
-
 //---------------------------------------------------------------
 // Process Information
-// Title and 9 Label
-
+// Title and 14 Label
 // Title 
 Process Information=Process Information
 // 1) SPEED
@@ -144,54 +106,22 @@ Tension Stress(Kgf/mm2)=Tension Stress(Kgf/mm2)
 Roll to Plate Frict. Coef.=Roll to Plate Frict. Coef.
 // 9) f_r2r
 Roll to Roll Fric. Coef.=Roll to Roll Fric. Coef.
-
-// 10) tb_vel_rate
-Speed Different Ratio=Speed Different Ratio
-// 11) wr_trot
+// 10) tb_vel_rate_top
+Speed Different Ratio-top roll(%)=Speed Different Ratio-top roll(%)
+// 11) tb_vel_rate_bottom
+Speed Different Ratio-bottom roll(%)=Speed Different Ratio-bottom roll(%)
+// 12) wr_trot
 Top WR Rot. Vel.(RPM)=Top WR Rot. Vel.(RPM)
-// 12) wr_brot
+// 13) wr_brot
 Bottom WR Rot. Vel.(RPM)=Bottom WR Rot. Vel.(RPM)
-// 13) bur_trot
+// 14) bur_trot
 Top BUR Rot. Vel.(RPM)=Top BUR Rot. Vel.(RPM)
-// 14) bur_brot
+// 15) bur_brot
 Bottom BUR Rot. Vel.(RPM)=Bottom BUR Rot. Vel.(RPM)
 //---------------------------------------------------------------
-
-
-//---------------------------------------------------------------
-//Roll mesh parameter
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//Roll mesh parameter||Roll mesh parameter
-//arc length of WR(mm)||arc length of WR(mm)
-//arc length of BUR(mm)||arc length of BUR(mm)
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//---------------------------------------------------------------
-//---------------------------------------------------------------
-//Plate mesh parameter
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//Plate mesh parameter||Plate mesh parameter
-//Element number of thickness direction||Element number of thickness direction
-//Aspect ratio of width direction||Aspect ratio of width direction
-//Aspect ratio of length direction||Aspect ratio of length direction
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//---------------------------------------------------------------
-//---------------------------------------------------------------
-//Roll & Plate information
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//Roll & Plate information||Roll & Plate information
-//Angular velocity of WR(rad/s)||Angular velocity of WR(rad/s)
-//Angular velocity of BUR(rad/s)||Angular velocity of BUR(rad/s)
-//Plate velocity(mm/s)||Plate velocity(mm/s)
-//initial temperature of plate(กษ)||initial temperature of plate(กษ)
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//---------------------------------------------------------------
-
-
-
 //---------------------------------------------------------------
 //Material parameter
 //Title and 4 Label
-
 // Title
 Material parameter=Material parameter
 // 1)
@@ -203,21 +133,9 @@ Poisson's Ratio=Poisson's Ratio
 // 4)
 Mass Density(Mg/mm^3)=Mass Density(Mg/mm^3)
 //---------------------------------------------------------------
-
-
 //---------------------------------------------------------------
 // Analysis Information
-// Title and 
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//Solving Option||Solving Option
-//Solving time(sec.)||Solving time(sec.)
-//Increment time(sec.)||Increment time(sec.)
-//Parallel-DDM||Parallel-DDM
-//Domain||Domain
-//Parallel-Multi Thread||Parallel-Multi Thread
-//Thread||Thread
-//OLD++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+// Title and 9 Label
 // Title
 Analysis Information=Analysis Information
 // 1) lcase_time
@@ -239,11 +157,7 @@ Parallel-Multi Thread=Parallel-Multi Thread
 // 9) thread
 Thread=Thread
 //---------------------------------------------------------------
-
-
-
 //---------------------------------------------------------------
-//
 // ETC
 Constatnt=Constatnt
 Table=Table
