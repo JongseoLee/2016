@@ -11,30 +11,30 @@ import com.js.util.myUtil;
 public class Equation {
 	private Map<String,String> equationMap;
 	private String equationPath;
+	private static final double PI = Math.PI;
 	
 	public Equation() {
 		equationMap = new HashMap<String,String>();
 		equationPath = myUtil.setPath(myUtil.setPath(System.getProperty("user.dir"), "userConfig"),"eq.txt");
 		// TODO Auto-generated constructor stub
 		/*
-			// Analysis Time(sec.) %lcase_time%
-			lcase_time = p_len*p_thk/(roll_gap*pl_vel)*ltime_scale
+			// Analysis Time(sec.) 
+			lcase_time = #p_len# * #p_thk# /( #roll_gap# * #pl_vel_mpm# * 1000.0 / 60.0 ) * #ltime_scale#
 			
-			// Time increment(sec.) %lcase_dt%
-			lcase_dt = lcase_time / lcase_inc 
+			// Time increment(sec.) 
+			lcase_dt = #lcase_time# / #lcase_inc# 
 			
-			// Top WR Rot. Vel.(RPM) %wr_trot%
-			wr_trot = pl_vel_mpm*1000/60/(wr_tdia/2)*(tb_vel_rate_top/100)*60/(2*pi)
+			// Top WR Rot. Vel.(RPM) 
+			wr_trot = #pl_vel_mpm# * 1000 /60 / ( #wr_tdia# / 2 ) * ( #vel_rate_top# / 100 ) * 60 / ( 2 * @pi )
 			
+			// Bottom WR Rot. Vel.(RPM) 
+			wr_brot = #pl_vel_mpm# * 1000 / 60 / ( #wr_bdia# / 2 ) * ( #vel_rate_bottom# /100 ) * 60 / ( 2 * @pi )
 			
-			// Bottom WR Rot. Vel.(RPM) %wr_brot%
-			wr_brot = pl_vel_mpm*1000/60/(wr_bdia/2)*(tb_vel_rate_bottom/100)*60/(2*pi)
+			// Top BUR Rot. Vel.(RPM) 
+			bur_trot = #pl_vel_mpm# * 1000 / 60 / ( #bur_tdia# / 2 ) * ( #vel_rate_top# / 100 ) * 60 / ( 2 * @pi )
 			
-			// Top BUR Rot. Vel.(RPM) %bur_trot%
-			bur_trot = pl_vel_mpm*1000/60/(bur_tdia/2)*(tb_vel_rate_top/100)*60/(2*pi)
-			
-			// Bottom BUR Rot. Vel.(RPM) %bur_brot%
-			bur_brot = pl_vel_mpm*1000/60/(bur_bdia/2)*(tb_vel_rate_bottom/100)*60/(2*pi)
+			// Bottom BUR Rot. Vel.(RPM) 
+			bur_brot = #pl_vel_mpm# * 1000 / 60 / ( #bur_bdia# / 2 ) * ( #vel_rate_bottom# / 100 ) * 60 / ( 2 * @pi )
 		*/
 	}
 	

@@ -158,12 +158,12 @@ public class UILabel {
 	public static String Roll_to_Roll_Fric_Coef="Roll to Roll Fric. Coef.";
 	public static String f_r2r="f_r2r";
 	
-	// 10) tb_vel_rate_top
+	// 10) vel_rate_top
 	public static String Speed_Different_Ratio_top_roll="Speed Different Ratio-top roll(%)";
-	public static String tb_vel_rate_top = "tb_vel_rate_top";
-	// 11) tb_vel_rate_bottom
+	public static String vel_rate_top = "vel_rate_top";
+	// 11) vel_rate_bottom
 	public static String Speed_Different_Ratio_bottom_roll="Speed Different Ratio-bottom roll(%)";
-	public static String tb_vel_rate_bottom="tb_vel_rate_bottom";
+	public static String vel_rate_bottom="vel_rate_bottom";
 	// 12) wr_trot
 	public static String Top_WR_Rot_Vel_RPM="Top WR Rot. Vel.(RPM)";
 	public static String wr_trot="wr_trot";

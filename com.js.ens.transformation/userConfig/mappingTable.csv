@@ -55,8 +55,8 @@ ltime_scale,%ltime_scale%,ltime_scale,ltime_scale(UI에는 없음)
 domain,%Domain%,Domain,Domain
 thread,%Thread%,Thread,Thread
 ,,,
-tb_vel_rate_top,%tb_vel_rate_top%,speed_different_ratio_top_roll,Speed Different Ratio-top roll(%)
-tb_vel_rate_bottom,%tb_vel_rate_bottom%,speed_different_ratio_bottom_roll,Speed Different Ratio-bottom roll(%)
+vel_rate_top,%vel_rate_top%,speed_different_ratio_top_roll,Speed Different Ratio-top roll(%)
+vel_rate_bottom,%vel_rate_bottom%,speed_different_ratio_bottom_roll,Speed Different Ratio-bottom roll(%)
 wr_trot,%wr_trot%,wr_trot,Top WR Rot. Vel.(RPM)
 wr_brot,%wr_brot%,wr_brot,Bottom WR Rot. Vel.(RPM)
 bur_trot,%bur_trot%,bur_trot,Top BUR Rot. Vel.(RPM)

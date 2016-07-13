@@ -262,11 +262,11 @@ public class GenProc_01 {
 				procDataList.add(newLien);	
 			}
 			
-			else if(line.contains(ProcMaker.tv_vel_rate_top)){
-				String newLien = line.replace(ProcMaker.tv_vel_rate_top, plogObj.get(StandType).getSpeed_different_ratio_top_roll());
+			else if(line.contains(ProcMaker.vel_rate_top)){
+				String newLien = line.replace(ProcMaker.vel_rate_top, plogObj.get(StandType).getSpeed_different_ratio_top_roll());
 				procDataList.add(newLien);	
-			}else if(line.contains(ProcMaker.tv_vel_rate_bottom)){
-				String newLien = line.replace(ProcMaker.tv_vel_rate_bottom, plogObj.get(StandType).getSpeed_different_ratio_bottom_roll());
+			}else if(line.contains(ProcMaker.vel_rate_bottom)){
+				String newLien = line.replace(ProcMaker.vel_rate_bottom, plogObj.get(StandType).getSpeed_different_ratio_bottom_roll());
 				procDataList.add(newLien);	
 			}else if(line.contains(ProcMaker.wr_trot)){
 				String newLien = line.replace(ProcMaker.wr_trot, plogObj.get(StandType).getWr_trot());

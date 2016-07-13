@@ -3,8 +3,13 @@ package com.js.util;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptEngine;
+import javax.script.ScriptException;
+
 import com.js.io.Writer;
 import com.js.parser.ParserDefault;
+
 
 public class test {
 
@@ -169,11 +174,27 @@ public class test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		/*
 		String str = "|\t\t\t|";
 		System.out.println(str);
 		String newStr = str.replace("\t", "a");
 		System.out.println(newStr);
-
+		 */
+		
+		String eq = "#p_len# * #p_thk# /( #roll_gap# * #pl_vel_mpm# * 1000.0 / 60.0 ) * #ltime_scale#";
+		String eq2 = "10 * 10 /( 2 * 5 * 1000.0 / 1000.0 ) * 50";
+		//double result =  
+		ScriptEngineManager mgr = new ScriptEngineManager();
+		ScriptEngine engine = mgr.getEngineByName("JavaScript");
+		try {
+			System.out.println("Result : "+ engine.eval(eq2));
+		} catch (ScriptException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 	
 }

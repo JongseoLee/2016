@@ -73,8 +73,8 @@ public class ProcMaker {
 	public static String Domain = "%Domain%";
 	public static String Thread = "%Thread%";
 
-	public static String tv_vel_rate_top = "%tv_vel_rate_top%";
-	public static String tv_vel_rate_bottom = "%tv_vel_rate_bottom%";
+	public static String vel_rate_top = "%vel_rate_top%";
+	public static String vel_rate_bottom = "%vel_rate_bottom%";
 	public static String wr_trot = "%wr_trot%";
 	public static String wr_brot = "%wr_brot%";
 	public static String bur_trot = "%bur_trot%";

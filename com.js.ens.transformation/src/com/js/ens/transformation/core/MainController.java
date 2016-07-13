@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
@@ -538,7 +542,7 @@ public class MainController {
 				this.tableDataPLogList.get(4).setF_r2r(tempList.get(5));
 				this.tableDataPLogList.get(5).setF_r2r(tempList.get(6));
 				this.tableDataPLogList.get(6).setF_r2r(tempList.get(7));
-			}if(tempList.get(0).equals(UILabel.tb_vel_rate_top)){
+			}if(tempList.get(0).equals(UILabel.vel_rate_top)){
 				this.tableDataPLogList.get(0).setSpeed_different_ratio_top_roll(tempList.get(1));
 				this.tableDataPLogList.get(1).setSpeed_different_ratio_top_roll(tempList.get(2));
 				this.tableDataPLogList.get(2).setSpeed_different_ratio_top_roll(tempList.get(3));
@@ -546,7 +550,7 @@ public class MainController {
 				this.tableDataPLogList.get(4).setSpeed_different_ratio_top_roll(tempList.get(5));
 				this.tableDataPLogList.get(5).setSpeed_different_ratio_top_roll(tempList.get(6));
 				this.tableDataPLogList.get(6).setSpeed_different_ratio_top_roll(tempList.get(7));
-			}if(tempList.get(0).equals(UILabel.tb_vel_rate_bottom)){
+			}if(tempList.get(0).equals(UILabel.vel_rate_bottom)){
 				this.tableDataPLogList.get(0).setSpeed_different_ratio_bottom_roll(tempList.get(1));
 				this.tableDataPLogList.get(1).setSpeed_different_ratio_bottom_roll(tempList.get(2));
 				this.tableDataPLogList.get(2).setSpeed_different_ratio_bottom_roll(tempList.get(3));
@@ -3254,8 +3258,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F1));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F1));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F1));
-		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_top_F1));
-		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_bottom_F1));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.vel_rate_top_F1));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.vel_rate_bottom_F1));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F1));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F1));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F1));
@@ -3372,8 +3376,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F2));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F2));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F2));
-		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_top_F2));
-		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_bottom_F2));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.vel_rate_top_F2));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.vel_rate_bottom_F2));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F2));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F2));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F2));
@@ -3490,8 +3494,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F3));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F3));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F3));
-		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_top_F3));
-		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_bottom_F3));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.vel_rate_top_F3));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.vel_rate_bottom_F3));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F3));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F3));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F3));
@@ -3608,8 +3612,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F4));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F4));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F4));
-		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_top_F4));
-		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_bottom_F4));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.vel_rate_top_F4));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.vel_rate_bottom_F4));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F4));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F4));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F4));
@@ -3726,8 +3730,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F5));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F5));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F5));
-		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_top_F5));
-		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_bottom_F5));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.vel_rate_top_F5));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.vel_rate_bottom_F5));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F5));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F5));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F5));
@@ -3844,8 +3848,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F6));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F6));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F6));
-		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_top_F6));
-		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_bottom_F6));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.vel_rate_top_F6));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.vel_rate_bottom_F6));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F6));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F6));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F6));
@@ -3962,8 +3966,8 @@ public class MainController {
 		med.getTextTensionStress().setText(obj.getInitValue(InitValue.TENS_F7));
 		med.getTextRollToPlateFrictCoef().setText(obj.getInitValue(InitValue.f_r2p_F7));
 		med.getTextRollToRollFrictCoef().setText(obj.getInitValue(InitValue.f_r2r_F7));
-		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_top_F7));
-		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.tb_vel_rate_bottom_F7));
+		med.getTextSpeedDifferentRatioTopRoll().setText(obj.getInitValue(InitValue.vel_rate_top_F7));
+		med.getTextSpeedDifferentRatioBottomRoll().setText(obj.getInitValue(InitValue.vel_rate_bottom_F7));
 		med.getTextTopWRRotVel().setText(obj.getInitValue(InitValue.wr_trot_F7));
 		med.getTextBottomWRRotVel().setText(obj.getInitValue(InitValue.wr_brot_F7));
 		med.getTextTopBURRotVel().setText(obj.getInitValue(InitValue.bur_trot_F7));
@@ -6059,7 +6063,7 @@ public class MainController {
 				tableDataPLogList.get(6).getF_r2r()+","+
 				",,,,,,,";
 		
-		String ov_line10 = "tb_vel_rate_top"+","+
+		String ov_line10 = "vel_rate_top"+","+
 				tableDataPLogList.get(0).getSpeed_different_ratio_top_roll()+","+
 				tableDataPLogList.get(1).getSpeed_different_ratio_top_roll()+","+
 				tableDataPLogList.get(2).getSpeed_different_ratio_top_roll()+","+
@@ -6068,7 +6072,7 @@ public class MainController {
 				tableDataPLogList.get(5).getSpeed_different_ratio_top_roll()+","+
 				tableDataPLogList.get(6).getSpeed_different_ratio_top_roll()+","+
 				",,,,,,,";
-		String ov_line11 = "tb_vel_rate_bottom"+","+
+		String ov_line11 = "vel_rate_bottom"+","+
 				tableDataPLogList.get(0).getSpeed_different_ratio_bottom_roll()+","+
 				tableDataPLogList.get(1).getSpeed_different_ratio_bottom_roll()+","+
 				tableDataPLogList.get(2).getSpeed_different_ratio_bottom_roll()+","+
@@ -6298,6 +6302,79 @@ public class MainController {
 		otherValueList.add(ov_line34);
 		
 	}
+	
+	//
+	//
+	//=====================================================================
+	
+	//=====================================================================
+	// Equation function
+	//
+	public void calc_lcase_time(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		Mapping mappingObj = new Mapping();
+		mappingObj.readMappingTableFile();
+		
+		String eqation = eqObj.getEquation(Equation.lcase_time);
+		
+	}
+	
+	public void calc_lcase_dt(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		Mapping mappingObj = new Mapping();
+		mappingObj.readMappingTableFile();
+		
+		
+	}
+	
+	public void calc_wr_trot(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		Mapping mappingObj = new Mapping();
+		mappingObj.readMappingTableFile();
+	}
+	
+	public void calc_wr_brot(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		Mapping mappingObj = new Mapping();
+		mappingObj.readMappingTableFile();
+	}
+	
+	public void calc_bur_trot(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		Mapping mappingObj = new Mapping();
+		mappingObj.readMappingTableFile();
+	}
+	
+	public void clac_bur_brot(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		Mapping mappingObj = new Mapping();
+		mappingObj.readMappingTableFile();
+	}
+	
+	private String makeResult(String eqation){
+		
+		String newline ="";
+		
+		ScriptEngineManager mgr = new ScriptEngineManager();
+		ScriptEngine engine = mgr.getEngineByName("JavaScript");
+		try {
+			System.out.println("Result : "+ engine.eval(newline));
+		} catch (ScriptException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return "";
+	}
+	
+	
 	
 	//
 	//
