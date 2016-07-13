@@ -1,0 +1,89 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*set_surface_type quad
+*add_surfaces
+point(-p_len+10*p_in,-(wr_bdia+bur_bdia)-1000,-1000)
+point(-p_len+10*p_in,-(wr_bdia+bur_bdia)-1000,p_wid+1000)
+point(-p_len+10*p_in,(wr_tdia+bur_tdia)+1000,p_wid+1000)
+point(-p_len+10*p_in,(wr_tdia+bur_tdia)+1000,-1000)
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+push_plate
+*add_contact_body_surfaces
+*dynamic_model_off
+ 8
+# | End of List
+*contact_option control:load
+|@popdown(contact_rigid_load_pm) @popdown(contact_rigid_pm)
+*cbody_control_node
+node(-p_len-10*p_in,0,0)
+*cbody_control_node_rot
+node(-p_len-10*p_in,100,0)
+|@pop(1) @popup(contact_rigid_pm) @popup(contact_rigid_load_pm)
+*contact_value initvx
+1
+*new_interact mesh:mesh *interact_option state_1:solid *interact_option state_2:solid *interact_option skip_structural_2:on
+*interact_name
+plate2push
+*edit_contact_table ctable0
+*ctable_entry 01_Plate push_plate
+*contact_table_option 01_Plate push_plate contact:on
+*prog_string ctable:old_interact plate2roll_table *ctable_entry_interact 01_Plate push_plate
+*edit_contact_table ctable1
+*ctable_entry 01_Plate push_plate
+*contact_table_option 01_Plate push_plate contact:on
+*prog_string ctable:old_interact plate2roll_table *ctable_entry_interact 01_Plate push_plate
+*new_md_table 1 1
+*set_md_table_type 1
+time
+*table_add
+0,0
+lcase_time/10/2 1
+lcase_time/10 0
+lcase_time 0
+*table_name
+push_load
+*new_apply *apply_type point_load @popdown(apply_new_pm)
+*apply_name
+push_load
+*add_apply_nodes
+10000005
+#
+*apply_dof x *apply_dof_value x
+*apply_dof_value x 1000
+*apply_dof_table x
+push_load
+*new_apply *apply_type fixed_displacement @popdown(apply_new_pm)
+*apply_name
+push_fix
+*apply_dof y *apply_dof_value y
+*apply_dof z *apply_dof_value z
+*add_apply_nodes
+10000005
+#
+*new_apply *apply_type fixed_displacement @popdown(apply_new_pm)
+*apply_name
+push_aux_fix
+*apply_dof x *apply_dof_value x
+*apply_dof y *apply_dof_value y
+*apply_dof z *apply_dof_value z
+*add_apply_nodes
+10000006
+#
+*edit_loadcase lcase0
+*add_loadcase_loads push_load
+*add_loadcase_loads push_fix
+*add_loadcase_loads push_aux_fix
+*edit_loadcase lcase1
+*add_loadcase_loads push_load
+*add_loadcase_loads push_fix
+*add_loadcase_loads push_aux_fix
+*edit_loadcase lcase2
+*add_loadcase_loads push_load
+*add_loadcase_loads push_fix
+*add_loadcase_loads push_aux_fix

@@ -3,5 +3,15 @@
 *prog_analysis_class structural
 *prog_use_current_job on
 |
-*mater_read C45.mfd
-*add_mater_elements all_existing
+*edit_mater wr_top
+*mater_option structural:plasticity:off
+*mater_option structural:thermal_expansion:off
+*edit_mater wr_bottom
+*mater_option structural:plasticity:off
+*mater_option structural:thermal_expansion:off
+*edit_mater bur_top
+*mater_option structural:plasticity:off
+*mater_option structural:thermal_expansion:off
+*edit_mater bur_bottom
+*mater_option structural:plasticity:off
+*mater_option structural:thermal_expansion:off

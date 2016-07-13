@@ -1,0 +1,12 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*exec_procedure F:\Rolling_3D\Program\0711\userModule\f2\01_define_parameters_f2.proc
+*exec_procedure F:\Rolling_3D\Program\0711\userModule\f2\02_plate_gen_individual.proc
+*fill_view
+*exec_procedure F:\Rolling_3D\Program\0711\userModule\f2\01_define_parameters_f2.proc
+*quit yes

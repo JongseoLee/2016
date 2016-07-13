@@ -1,0 +1,40 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*select_clear
+*select_method_box
+*select_faces
+p_in-0.5 p_in+0.5
+pass_line_adj-0.5-p_thk/2 pass_line_adj+0.5+p_thk/2
+-0.5 p_wid+0.5
+*new_md_table 1 1
+*table_name
+pull_pressure
+*set_md_table_type 1
+time
+*table_add
+0,0
+lcase_time/10/2 1
+lcase_time/10 0
+lcase_time 0
+*new_apply *apply_type face_load @popdown(apply_new_pm)
+*apply_name
+pull_pressure
+*apply_dof p 
+*apply_dof_value p -10
+*apply_dof_table p
+pull_pressure
+*add_apply_faces
+all_selected
+*edit_loadcase lcase0
+*add_loadcase_loads pull_pressure
+*next_loadcase
+*edit_loadcase lcase1
+*add_loadcase_loads pull_pressure
+*edit_loadcase lcase2
+*add_loadcase_loads pull_pressure
+

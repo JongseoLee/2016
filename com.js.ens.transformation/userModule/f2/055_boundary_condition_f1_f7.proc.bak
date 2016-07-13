@@ -1,0 +1,112 @@
+| Created by Marc Mentat 2014.0.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+| Create A table for defining rotation movement
+*new_md_table 1 1
+*set_md_table_type 1
+time
+*table_name
+Rotation
+*table_add
+0 0
+1 1
+*new_apply *apply_type fixed_displacement @popdown(apply_new_pm)
+*apply_name WR_top_rot
+*apply_dof x *apply_dof_value x
+| *apply_dof y *apply_dof_value y
+*apply_dof z *apply_dof_value z
+*apply_dof rx *apply_dof_value rx
+*apply_dof ry *apply_dof_value ry
+*apply_dof rz *apply_dof_value rz wr_trot
+*apply_dof_table rz Rotation
+*add_apply_nodes 10000001 # | End of List
+*new_apply *apply_type fixed_displacement @popdown(apply_new_pm)
+*apply_name BUR_top_rot
+*apply_dof x *apply_dof_value x
+*apply_dof y *apply_dof_value y
+*apply_dof z *apply_dof_value z
+*apply_dof rx *apply_dof_value rx
+*apply_dof ry *apply_dof_value ry
+*apply_dof rz *apply_dof_value rz -bur_trot
+*apply_dof_table rz Rotation
+*add_apply_nodes 10000002 # | End of List
+*new_apply *apply_type fixed_displacement @popdown(apply_new_pm)
+*apply_name WR_bottom_rot
+*apply_dof x *apply_dof_value x
+| *apply_dof y *apply_dof_value y
+*apply_dof z *apply_dof_value z
+*apply_dof rx *apply_dof_value rx
+*apply_dof ry *apply_dof_value ry
+*apply_dof rz *apply_dof_value rz -wr_brot
+*apply_dof_table rz Rotation
+*add_apply_nodes 10000003 # | End of List
+*new_apply *apply_type fixed_displacement @popdown(apply_new_pm)
+*apply_name BUR_bottom_rot
+*apply_dof x *apply_dof_value x
+*apply_dof y *apply_dof_value y
+*apply_dof z *apply_dof_value z
+*apply_dof rx *apply_dof_value rx
+*apply_dof ry *apply_dof_value ry
+*apply_dof rz *apply_dof_value rz bur_brot
+*apply_dof_table rz Rotation
+*add_apply_nodes 10000004 # | End of List
+*new_apply *apply_type gravity_load @popdown(apply_new_pm)
+*apply_name gravity
+*apply_dof y *apply_dof_value y
+*apply_dof_value y -9800
+|*add_apply_msects plate #
+*add_apply_elements plate
+*new_md_table 1 1
+*table_name
+bend_force
+*set_md_table_type 1
+time
+*table_add
+0,0
+lcase_time/1000.0,1.0
+lcase_time*5,1.0
+*new_apply *apply_type point_load @popdown(apply_new_pm)
+*apply_name bender_force_top
+*apply_dof y *apply_dof_value y bend_f 
+*apply_dof_table y bend_force
+*add_apply_nodes
+10000001
+# | End of List
+*new_apply *apply_type point_load @popdown(apply_new_pm)
+*apply_name bender_force_bottom
+*apply_dof y *apply_dof_value y -bend_f 
+*apply_dof_table y bend_force
+*add_apply_nodes
+10000003
+# | End of List
+*select_clear
+*invisible_selected
+|
+| Create Temperature Table
+|
+*new_md_table 1 1
+*table_name
+temperature_profile
+*set_md_table_type 1
+x_coordinate
+*table_add
+-1000 p_ent_temp
+p_in p_ent_temp
+-p_in p_exit_temp
+1000 p_exit_temp
+|
+|  Create Temperature Profile B.C.
+|
+*new_apply *apply_type state_variable @popdown(apply_new_pm)
+*apply_name
+temperature
+|*add_apply_elements 1 #
+*add_apply_elements
+plate
+
+*apply_dof var *apply_dof_value var
+*apply_dof_table var
+temperature_profile

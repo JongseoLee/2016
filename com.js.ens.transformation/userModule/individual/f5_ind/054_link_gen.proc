@@ -1,0 +1,115 @@
+| Created by Marc Mentat 2014.0.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+|
+|  Define Roll Diameter Information
+|
+| wr_tdia : top work roll diameter
+| wr_bdia : bottom work roll diameter
+| bur_tdia : top work roll diameter
+| bur_bdia : bottom work roll diameter
+|
+|  Define roll gap Parameters
+|
+| roll_gap : roll gap
+|
+|
+|  Define Roll Length Information
+|
+| wr_len : Length of work roll
+| bur_len : Length of backup roll
+|
+*select_clear
+*visible_selected
+*add_nodes
+0 (roll_gap/2+wr_tdia/2) (wr_len+100.0)            | Create Ceter Node of WR_top
+0 (roll_gap/2+wr_tdia+bur_tdia/2) (bur_len+100.0)   | Create Ceter Node of BUR_top
+0 (-roll_gap/2-wr_bdia/2) (wr_len+100.0)          | Create Ceter Node of WR_bottom
+0 (-roll_gap/2-wr_bdia-bur_bdia/2) (bur_len+100.0) | Create Ceter Node of WR_bottom
+*prog_param renumber:start
+10000001
+*renumber_node_list all_visible
+| Add tied nodes
+|  ----------------------
+*select_clear
+*new_rbe2 *rbe2_name wr_top
+*rbe2_ret_node 10000001
+*rbe2_tied_dof 1
+*rbe2_tied_dof 2
+*rbe2_tied_dof 3
+*rbe2_tied_dof 4
+*rbe2_tied_dof 5
+*rbe2_tied_dof 6
+*invisible_selected
+*select_sets wr_top
+*visible_selected
+*select_method_box
+*select_nodes
+-wr_tdia/2-50 wr_tdia/2+50
+roll_gap/2-50 roll_gap/2+wr_tdia+50
+wr_len-1.0 wr_len+1.0
+*add_rbe2_tied_nodes all_selected
+*select_clear
+|  ----------------------
+*new_rbe2 *rbe2_name bur_top
+*rbe2_ret_node 10000002
+*rbe2_tied_dof 1
+*rbe2_tied_dof 2
+*rbe2_tied_dof 3
+*rbe2_tied_dof 4
+*rbe2_tied_dof 5
+*rbe2_tied_dof 6
+*invisible_selected
+*select_sets wr_top
+*visible_selected
+*select_method_box
+*select_nodes
+-bur_tdia/2-50 bur_tdia/2+50
+roll_gap/2+wr_tdia-50 roll_gap/2+wr_tdia+bur_tdia+50
+bur_len-1.0 bur_len+1.0
+*add_rbe2_tied_nodes all_selected
+|  ----------------------
+*select_clear
+*new_rbe2 *rbe2_name wr_bottom
+*rbe2_ret_node 10000003
+*rbe2_tied_dof 1
+*rbe2_tied_dof 2
+*rbe2_tied_dof 3
+*rbe2_tied_dof 4
+*rbe2_tied_dof 5
+*rbe2_tied_dof 6
+*invisible_selected
+*select_sets wr_bottom
+*visible_selected
+*select_method_box
+*select_nodes
+-wr_bdia/2-50 wr_bdia/2+50
+-roll_gap/2-wr_bdia-50 -roll_gap/2+50
+wr_len-1.0 wr_len+1.0
+*add_rbe2_tied_nodes all_selected
+*select_clear
+|  ----------------------
+*new_rbe2 *rbe2_name bur_bottom
+*rbe2_ret_node 10000004
+*rbe2_tied_dof 1
+*rbe2_tied_dof 2
+*rbe2_tied_dof 3
+*rbe2_tied_dof 4
+*rbe2_tied_dof 5
+*rbe2_tied_dof 6
+*invisible_selected
+*select_sets wr_bottom
+*visible_selected
+*select_method_box
+*select_nodes
+-bur_bdia/2-50 bur_bdia/2+50
+-roll_gap/2-wr_bdia-bur_bdia-50 -roll_gap/2-wr_tdia+50
+bur_len-1.0 bur_len+1.0
+*add_rbe2_tied_nodes all_selected
+*select_method_single
+*select_clear
+*invisible_selected

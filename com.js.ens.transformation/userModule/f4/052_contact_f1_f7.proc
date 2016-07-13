@@ -7,8 +7,8 @@
 |
 *new_cbody mesh *contact_option state:solid *contact_option skip_structural:off
 *contact_body_name 01_Plate
-|*add_contact_body_elements plate
-*add_cbody_msects plate #
+*add_contact_body_elements plate
+|*add_cbody_msects plate #
 *new_cbody mesh *contact_option state:solid *contact_option skip_structural:off
 *contact_body_name 02_WR_top
 *add_contact_body_elements wr_top
@@ -68,8 +68,11 @@ symm_bottom
 *new_interact mesh:geometry *interact_option state_1:solid
 *interact_name
 plate2roll_table
-*interact_param friction
-.0
+*interact_option dist_tol:redefined
+*interact_param dist_tol 5
+*interact_option bias_factor:redefined
+*interact_param bias_factor 0.95
+*interact_param friction 0.0
 *new_interact mesh:symmetry *interact_option state_1:solid
 *interact_name
 Symm_interact

@@ -1,0 +1,32 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+|
+*new_model yes
+| Section Change
+*eval_define dia_chg wr_tdia_chg
+| *exec_proc wr_f4_f7_crown.proc
+*py_file_run wr_f4_f7.py
+|
+| Expand the Roll Section and Make 3D Roll
+|
+*expand_reset
+*set_expand_rotations
+0,0,wr_div_angle
+*set_expand_repetitions
+360/wr_div_angle
+*expand_elements
+all_existing
+*expand_reset
+*sweep_all
+*remove_unused_nodes
+*remove_unused_points
+*renumber_all
+*fill_view
+*clear_geometry
+*store_elements wr_top all_existing
+| define material property
+*mater_read c45
+*mater_name wr_top
+*add_mater_elements all_existing
+*save_as_model wr_top_3d.mud yes
+*select_method_single

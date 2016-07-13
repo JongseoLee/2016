@@ -1,0 +1,36 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*edit_loadcase lcase0
+*loadcase_value maxrec
+50
+*loadcase_option nonpos:on
+*loadcase_option proceed:on
+*loadcase_option stepping:fixed
+*loadcase_value nsteps
+5
+*next_loadcase
+*loadcase_value maxrec
+50
+*loadcase_option nonpos:on
+*loadcase_option proceed:on
+*loadcase_option stepping:fixed
+*loadcase_value nsteps
+200
+*next_loadcase
+*loadcase_option nonpos:on
+*loadcase_option proceed:on
+*loadcase_value maxrec
+50
+| Appended by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*loadcase_option converge:resid_or_disp
