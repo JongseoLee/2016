@@ -297,9 +297,9 @@ public class Mediator {
 	public ICommand C_textPostWritingFrequency;
 	public static String TEXT_textPostWritingFrequency = "textPostWritingFrequency";
 	
-	private Text textIncrementTime;
-	public ICommand C_textIncrementTime;
-	public static String TEXT_textIncrementTime= "textIncrementTime";
+	private Text textTimeIncrement;
+	public ICommand C_textTimeIncrement;
+	public static String TEXT_textTimeIncrement= "textTimeIncrement";
 	
 	private Button btnParallelDDM;
 	public ICommand C_btnParallelDDM;
@@ -1184,17 +1184,17 @@ public class Mediator {
 	}
 	
 	
-	public Text getTextIncrementTime() {
-		return textIncrementTime;
+	public Text getTextTimeIncrement() {
+		return textTimeIncrement;
 	}
-	public void setTextIncrementTime(Text textIncrementTime) {
-		this.textIncrementTime = textIncrementTime;
+	public void setTextTimeIncrement(Text textTimeIncrement) {
+		this.textTimeIncrement = textTimeIncrement;
 	}
-	public ICommand getC_textIncrementTime() {
-		return C_textIncrementTime;
+	public ICommand getC_textTimeIncrement() {
+		return C_textTimeIncrement;
 	}
-	public void setC_textIncrementTime(ICommand c_textIncrementTime) {
-		C_textIncrementTime = c_textIncrementTime;
+	public void setC_textTimeIncrement(ICommand c_textTimeIncrement) {
+		C_textTimeIncrement = c_textTimeIncrement;
 	}
 	
 	

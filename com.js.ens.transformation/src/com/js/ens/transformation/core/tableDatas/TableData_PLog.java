@@ -71,9 +71,10 @@ public class TableData_PLog {
 	
 	//group6
 	private String lcase_time = "";
-	private String lcase_dt = "";
+	private String lcase_inc = "";
 	private String post_inc = "";
-	private String inc_time = "";
+	private String lcase_dt = "";
+	private String ltime_scale = "";
 	private String ParallelDDM = "";
 	private String Domain = "";
 	private String ParallelMultiThread = "";
@@ -159,9 +160,10 @@ public class TableData_PLog {
 		
 		//group6
 		lcase_time = obj.getInitValue(InitValue.lcase_time_F1);
-		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F1);
+		lcase_inc = obj.getInitValue(InitValue.lcase_inc_F1);
 		post_inc = obj.getInitValue(InitValue.post_inc_F1);
-		inc_time = obj.getInitValue(InitValue.inc_time_F1);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F1);
+		ltime_scale = obj.getInitValue(InitValue.ltime_scale_F1);
 		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F1);
 		Domain = obj.getInitValue(InitValue.Domain_F1);
 		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F1);
@@ -208,9 +210,10 @@ public class TableData_PLog {
 		
 		//group6
 		lcase_time = obj.getInitValue(InitValue.lcase_time_F2);
-		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F2);
+		lcase_inc = obj.getInitValue(InitValue.lcase_inc_F2);
 		post_inc = obj.getInitValue(InitValue.post_inc_F2);
-		inc_time = obj.getInitValue(InitValue.inc_time_F2);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F2);
+		ltime_scale = obj.getInitValue(InitValue.ltime_scale_F2);
 		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F2);
 		Domain = obj.getInitValue(InitValue.Domain_F2);
 		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F2);
@@ -257,9 +260,10 @@ public class TableData_PLog {
 		
 		//group6
 		lcase_time = obj.getInitValue(InitValue.lcase_time_F3);
-		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F3);
+		lcase_inc = obj.getInitValue(InitValue.lcase_inc_F3);
 		post_inc = obj.getInitValue(InitValue.post_inc_F3);
-		inc_time = obj.getInitValue(InitValue.inc_time_F3);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F3);
+		ltime_scale = obj.getInitValue(InitValue.ltime_scale_F3);
 		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F3);
 		Domain = obj.getInitValue(InitValue.Domain_F3);
 		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F3);
@@ -306,9 +310,10 @@ public class TableData_PLog {
 		
 		//group6
 		lcase_time = obj.getInitValue(InitValue.lcase_time_F4);
-		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F4);
+		lcase_inc = obj.getInitValue(InitValue.lcase_inc_F4);
 		post_inc = obj.getInitValue(InitValue.post_inc_F4);
-		inc_time = obj.getInitValue(InitValue.inc_time_F4);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F4);
+		ltime_scale = obj.getInitValue(InitValue.ltime_scale_F4);
 		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F4);
 		Domain = obj.getInitValue(InitValue.Domain_F4);
 		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F4);
@@ -355,9 +360,10 @@ public class TableData_PLog {
 		
 		//group6
 		lcase_time = obj.getInitValue(InitValue.lcase_time_F5);
-		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F5);
+		lcase_inc = obj.getInitValue(InitValue.lcase_inc_F5);
 		post_inc = obj.getInitValue(InitValue.post_inc_F5);
-		inc_time = obj.getInitValue(InitValue.inc_time_F5);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F5);
+		ltime_scale = obj.getInitValue(InitValue.ltime_scale_F5);
 		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F5);
 		Domain = obj.getInitValue(InitValue.Domain_F5);
 		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F5);
@@ -404,9 +410,10 @@ public class TableData_PLog {
 		
 		//group6
 		lcase_time = obj.getInitValue(InitValue.lcase_time_F6);
-		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F6);
+		lcase_inc = obj.getInitValue(InitValue.lcase_inc_F6);
 		post_inc = obj.getInitValue(InitValue.post_inc_F6);
-		inc_time = obj.getInitValue(InitValue.inc_time_F6);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F6);
+		ltime_scale = obj.getInitValue(InitValue.ltime_scale_F6);
 		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F6);
 		Domain = obj.getInitValue(InitValue.Domain_F6);
 		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F6);
@@ -453,9 +460,10 @@ public class TableData_PLog {
 		
 		//group6
 		lcase_time = obj.getInitValue(InitValue.lcase_time_F7);
-		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F7);
+		lcase_inc = obj.getInitValue(InitValue.lcase_inc_F7);
 		post_inc = obj.getInitValue(InitValue.post_inc_F7);
-		inc_time = obj.getInitValue(InitValue.inc_time_F7);
+		lcase_dt = obj.getInitValue(InitValue.lcase_dt_F7);
+		ltime_scale = obj.getInitValue(InitValue.ltime_scale_F7);
 		ParallelDDM = obj.getInitValue(InitValue.ParallelDDM_F7);
 		Domain = obj.getInitValue(InitValue.Domain_F7);
 		ParallelMultiThread = obj.getInitValue(InitValue.ParallelMultiThread_F7);
@@ -766,12 +774,12 @@ public class TableData_PLog {
 		this.lcase_time = lcase_time;
 	}
 
-	public String getLcase_dt() {
-		return lcase_dt;
+	public String getlcase_inc() {
+		return lcase_inc;
 	}
 
-	public void setLcase_dt(String lcase_dt) {
-		this.lcase_dt = lcase_dt;
+	public void setlcase_inc(String lcase_inc) {
+		this.lcase_inc = lcase_inc;
 	}
 
 	public String getPost_inc() {
@@ -782,12 +790,20 @@ public class TableData_PLog {
 		this.post_inc = post_inc;
 	}
 
-	public String getInc_time() {
-		return inc_time;
+	public String getlcase_dt() {
+		return lcase_dt;
 	}
 
-	public void setInc_time(String inc_time) {
-		this.inc_time = inc_time;
+	public void setlcase_dt(String lcase_dt) {
+		this.lcase_dt = lcase_dt;
+	}
+	
+	public String getLtime_scale() {
+		return ltime_scale;
+	}
+
+	public void setLtime_scale(String ltime_scale) {
+		this.ltime_scale = ltime_scale;
 	}
 
 	public String getParallelDDM() {
@@ -973,9 +989,10 @@ public class TableData_PLog {
 		DB.add(UILabel.Mass_Density				+"_"+this.STAND+"="+	this.MD_Value);
 		//group6
 		DB.add(UILabel.Analysis_Time			+"_"+this.STAND+"="+	this.lcase_time);
-		DB.add(UILabel.No_of_Inc				+"_"+this.STAND+"="+	this.lcase_dt);
+		DB.add(UILabel.No_of_Inc				+"_"+this.STAND+"="+	this.lcase_inc);
 		DB.add(UILabel.Post_Writing_frequency	+"_"+this.STAND+"="+	this.post_inc);
-		DB.add(UILabel.Increment_time			+"_"+this.STAND+"="+	this.inc_time);
+		DB.add(UILabel.Time_Increment			+"_"+this.STAND+"="+	this.lcase_dt);
+		DB.add(UILabel.ltime_scale				+"_"+this.STAND+"="+	this.ltime_scale);
 		DB.add(UILabel.Parallel_DDM				+"_"+this.STAND+"="+	this.ParallelDDM);
 		DB.add(UILabel.Domain					+"_"+this.STAND+"="+	this.Domain);
 		DB.add(UILabel.Parallel_Multi_Thread	+"_"+this.STAND+"="+	this.ParallelMultiThread);

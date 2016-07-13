@@ -102,7 +102,7 @@ public class View extends ViewPart {
 	private Text textAnalysisTime;
 	private Text textNoOfInc;
 	private Text textPostWritingFrequency;
-	private Text textIncrementTime;
+	private Text textTimeIncrement;
 	
 	
 	
@@ -1266,28 +1266,10 @@ public class View extends ViewPart {
 		fd_textNoOfInc.left = new FormAttachment(textAnalysisTime, 0, SWT.LEFT);
 		fd_textNoOfInc.right = new FormAttachment(100,-10);
 		textNoOfInc.setLayoutData(fd_textNoOfInc);
-		
-		Label lblIncrementTime = new Label(grpAnalysisInformation, SWT.NONE);
-		FormData fd_lblIncrementTime = new FormData();
-		fd_lblIncrementTime.top = new FormAttachment(lblNoOfInc, 10);
-		fd_lblIncrementTime.left = new FormAttachment(lblAnalysisTime, 0,SWT.LEFT);
-		lblIncrementTime.setLayoutData(fd_lblIncrementTime);
-		lblIncrementTime.setText(ulObj.getUILabelValue(UILabel.Increment_time));
-		
-		textIncrementTime = new Text(grpAnalysisInformation, SWT.BORDER);
-		med.setTextIncrementTime(textIncrementTime);
-		CustomText C_textIncrementTime = new CustomText(Mediator.TEXT_textIncrementTime,med);
-		med.setC_textIncrementTime(C_textIncrementTime);
-		C_textIncrementTime.setCustomWidget_textIncrementTime();
-		FormData fd_textIncrementTime = new FormData();
-		fd_textIncrementTime.top = new FormAttachment(lblIncrementTime, -2,SWT.TOP);
-		fd_textIncrementTime.left = new FormAttachment(textAnalysisTime, 0, SWT.LEFT);
-		fd_textIncrementTime.right = new FormAttachment(100,-10);
-		textIncrementTime.setLayoutData(fd_textIncrementTime);
-		
+
 		Label lblPostWritingFrequency = new Label(grpAnalysisInformation, SWT.NONE);
 		FormData fd_lblPostWritingFrequency = new FormData();
-		fd_lblPostWritingFrequency.top = new FormAttachment(lblIncrementTime, 10);
+		fd_lblPostWritingFrequency.top = new FormAttachment(lblNoOfInc, 10);
 		fd_lblPostWritingFrequency.left = new FormAttachment(lblAnalysisTime, 0,SWT.LEFT);
 		lblPostWritingFrequency.setLayoutData(fd_lblPostWritingFrequency);
 		lblPostWritingFrequency.setText(ulObj.getUILabelValue(UILabel.Post_Writing_frequency));
@@ -1302,6 +1284,26 @@ public class View extends ViewPart {
 		fd_textPostWritingFrequency.left = new FormAttachment(textAnalysisTime, 0, SWT.LEFT);
 		fd_textPostWritingFrequency.right = new FormAttachment(100,-10);
 		textPostWritingFrequency.setLayoutData(fd_textPostWritingFrequency);
+		
+		Label lblTimeIncrement = new Label(grpAnalysisInformation, SWT.NONE);
+		FormData fd_lblTimeIncrement = new FormData();
+		fd_lblTimeIncrement.top = new FormAttachment(lblPostWritingFrequency, 10);
+		fd_lblTimeIncrement.left = new FormAttachment(lblAnalysisTime, 0,SWT.LEFT);
+		lblTimeIncrement.setLayoutData(fd_lblTimeIncrement);
+		lblTimeIncrement.setText(ulObj.getUILabelValue(UILabel.Time_Increment));
+		
+		textTimeIncrement = new Text(grpAnalysisInformation, SWT.BORDER);
+		med.setTextTimeIncrement(textTimeIncrement);
+		CustomText C_textTimeIncrement = new CustomText(Mediator.TEXT_textTimeIncrement,med);
+		med.setC_textTimeIncrement(C_textTimeIncrement);
+		C_textTimeIncrement.setCustomWidget_textTimeIncrement();
+		FormData fd_textTimeIncrement = new FormData();
+		fd_textTimeIncrement.top = new FormAttachment(lblTimeIncrement, -2,SWT.TOP);
+		fd_textTimeIncrement.left = new FormAttachment(textAnalysisTime, 0, SWT.LEFT);
+		fd_textTimeIncrement.right = new FormAttachment(100,-10);
+		textTimeIncrement.setLayoutData(fd_textTimeIncrement);
+		
+		
 		
 		Label lblParallelDDM = new Label(grpAnalysisInformation, SWT.NONE);
 		FormData fd_lblParallelDDM = new FormData();
@@ -1655,9 +1657,9 @@ public class View extends ViewPart {
 		med.getTextAnalysisTime().addListener(SWT.CHANGED, handlerText);
 		med.getTextNoOfInc().addListener(SWT.CHANGED, handlerText);
 		med.getTextPostWritingFrequency().addListener(SWT.CHANGED, handlerText);
-		med.getTextIncrementTime().addListener(SWT.CHANGED, handlerText);
+		med.getTextTimeIncrement().addListener(SWT.CHANGED, handlerText);
 		//med.getTextPostWritingFrequency().addListener(SWT.CHANGED, handlerText);
-		//med.getTextIncrementTime().addListener(SWT.CHANGED, handlerText);
+		//med.getTextTimeIncrement().addListener(SWT.CHANGED, handlerText);
 		
 		
 		//TableViewer

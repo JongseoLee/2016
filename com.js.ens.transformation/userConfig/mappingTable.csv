@@ -1,0 +1,89 @@
+Proc. Var.,Var.,Prog. Var,UI Label
+wr_tdia,%WR TDIA%,WR_TDIA,Top WR Diameter(mm)
+wr_bdia,%WR BDIA%,WR_BDIA,Bottom WR Diameter(mm)
+bur_tdia,%BUR TDIA%,BUR_TDIA,Top BUR Diameter(mm)
+bur_bdia,%BUR BDIA%,BUR_BDIA,Bottom BUR Diameter(mm)
+wr_crown,%WR ICRN%,WR_ICRN,WR Crown(mm)
+,,,
+roll_gap,%ROL GAP%,ROL_GAP,Roll Gap(mm)
+,,,
+wr_div_angle,%wr_div_angle%,wr_div_angle,WR Mesh Angle(deg.)
+bur_div_angle,%bur_div_angle%,bur_div_angle,BUR Mesh Angle(deg.)
+,,,
+wr_len,%wr_len%,wr_len,WR Length(mm)
+bur_len,%bur_len%,bur_len,BUR Length(mm)
+,,,
+p_thk,%ENTRY THK%,ENTRY_THK,Thickness(mm)
+p_wid,%STP WID%,STP_WID,Width(mm)
+p_len,%STP LEN%,STP_LEN,Length(mm)
+p_ent_temp,%ENTRY TEMP%,ENTRY_TEMP,Entry Temperature(C)
+p_exit_temp,%EXIT TEMP%,EXIT_TEMP,Exit Temperature(C)
+p_in,%p_in%,p_in,Initial Position(mm)
+pl_m,%pl_m%,pl_m,Mesh Length(mm)
+t_div,%t_div%,t_div,Thickness Mesh Divisions
+,,,
+pl_vel_mpm,%SPEED%,SPEED,Velocity(mpm)
+,,,
+pass_line,%PAS LINE%,PAS_LINE,Pass Line(mm)
+p_cross_ang,%P-CROSS%,P_CROSS,Pair Cross Angle(Deg.)
+roll_torque,%TORQ%,TORQ,Roll Torque(Tone.m)
+bend_f,%BEND%,BEND,Bender Force(Tone)
+tens_f,%TENS%,TENS,Tension Stress(Kgf/mm2)
+,,,
+f_r2p,%f_r2p%,f_r2p,Roll to Plate Frict. Coef.
+f_r2r,%f_r2r%,f_r2r,Roll to Roll Fric. Coef.
+,,,
+lcase_inc,%lcase_inc%,lcase_inc,No. of Inc
+post_inc,%post_inc%,post_inc,Post Writing frequency
+,,,
+frce,%FRCE%,FRCE,P Log table
+exit_thk,%EXIT THK%,EXIT_THK,P Log table
+rol_tim,%ROL TIM%,ROL_TIM,P Log table
+idl_tim,%IDL TIM%,IDL_TIM,P Log table
+bur_wear,%BUR WEAR%,BUR_WEAR,P Log table
+wr_wear,%WR WEAR%,WR_WEAR,P Log table
+wr_thrm,%WR THRM%,WR_THRM,P Log table
+,,,
+ym_value,%YM VALUE%,YM_Value,Young's Modulus(MPa)
+the_value,%TEH VALUE%,TEC_Value,Thermal Expansion Coefficient(mm/mm)
+pr_value,%PR VALUE%,PR_Value,Poisson's Ratio
+md_value,%MD VALUE%,MD_Value,Mass Density(Mg/mm^3)
+,,,
+lcase_time,%lcase_time%,lcase_time,Analysis Time(sec.)
+lcase_dt,%lcase_dt%,lcase_dt,Time Increment(sec.)
+ltime_scale,%ltime_scale%,ltime_scale,ltime_scale(UI에는 없음)
+domain,%Domain%,Domain,Domain
+thread,%Thread%,Thread,Thread
+,,,
+tb_vel_rate_top,%tb_vel_rate_top%,speed_different_ratio_top_roll,Speed Different Ratio-top roll(%)
+tb_vel_rate_bottom,%tb_vel_rate_bottom%,speed_different_ratio_bottom_roll,Speed Different Ratio-bottom roll(%)
+wr_trot,%wr_trot%,wr_trot,Top WR Rot. Vel.(RPM)
+wr_brot,%wr_brot%,wr_brot,Bottom WR Rot. Vel.(RPM)
+bur_trot,%bur_trot%,bur_trot,Top BUR Rot. Vel.(RPM)
+bur_brot,%bur_brot%,bur_brot,Bottom BUR Rot. Vel.(RPM)
+,,,
+var1,%VAR1%,VAR1,Variable Table
+var2,%VAR2%,VAR2,Variable Table
+var3,%VAR3%,VAR3,Variable Table
+var4,%VAR4%,VAR4,Variable Table
+var5,%VAR5%,VAR5,Variable Table
+var6,%VAR6%,VAR6,Variable Table
+var7,%VAR7%,VAR7,Variable Table
+var8,%VAR8%,VAR8,Variable Table
+var9,%VAR9%,VAR9,Variable Table
+var10,%VAR10%,VAR10,Variable Table
+var11,%VAR11%,VAR11,Variable Table
+var12,%VAR12%,VAR12,Variable Table
+var13,%VAR13%,VAR13,Variable Table
+var14,%VAR14%,VAR14,Variable Table
+var15,%VAR15%,VAR15,Variable Table
+var16,%VAR16%,VAR16,Variable Table
+,,,
+sthk,%STHK%,STHK,SlabPlate Table
+swid,%SWID%,SWID,SlabPlate Table
+slen,%SLEN%,SLEN,SlabPlate Table
+swet,%SWET%,SWET,SlabPlate Table
+pthk,%PTHK%,PTHK,SlabPlate Table
+pwid,%PWID%,PWID,SlabPlate Table
+plen,%PLEN%,PLEN,SlabPlate Table
+pwet,%PWET%,PWET,SlabPlate Table

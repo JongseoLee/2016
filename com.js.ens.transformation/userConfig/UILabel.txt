@@ -140,12 +140,12 @@ Mass Density(Mg/mm^3)=Mass Density(Mg/mm^3)
 Analysis Information=Analysis Information
 // 1) lcase_time
 Analysis Time(sec.)=Analysis Time(sec.)
-// 2) lcase_dt
+// 2) lcase_inc
 No. of Inc=No. of Inc
 // 3) post_inc
 Post Writing frequency=Post Writing frequency
 // 4) increment_time
-Increment time(sec.)=Time Increment(sec.)
+Time Increment(sec.)=Time Increment(sec.)
 // 5) parallel_DDM
 Parallel-DDM=Parallel-DDM
 // 6) domain

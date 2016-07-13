@@ -209,15 +209,17 @@ public class UILabel {
 	// 1) lcase_time
 	public static String Analysis_Time="Analysis Time(sec.)";
 	public static String lcase_time="lcase_time"; 
-	// 2) lcase_dt
+	// 2) lcase_inc
 	public static String No_of_Inc="No. of Inc";			
-	public static String lcase_dt="lcase_dt";
+	public static String lcase_inc="lcase_inc";
 	// 3) post_inc
 	public static String Post_Writing_frequency="Post Writing frequency";
 	public static String post_inc="post_inc";
 	// 4) increment_time
-	public static String Increment_time="Increment time(sec.)";
-	public static String inc_time="inc_time";
+	public static String Time_Increment="Time Increment(sec.)";
+	public static String lcase_dt="lcase_dt";
+	// 4-2) ltime_scale 
+	public static String ltime_scale = "ltime_scale";
 	// 5) parallel_DDM
 	public static String Parallel_DDM="Parallel-DDM";
 	public static String ParallelDDM="ParallelDDM";

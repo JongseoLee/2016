@@ -140,9 +140,9 @@ public class CustomText implements ICommand {
 		}else if(widgetName.equals(Mediator.TEXT_textPostWritingFrequency)){
 			value = med.getTextPostWritingFrequency().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textPostWritingFrequency);
-		}else if(widgetName.equals(Mediator.TEXT_textIncrementTime)){
-			value = med.getTextIncrementTime().getText().trim();
-			MC.ChangedTextWidget(value,Mediator.TEXT_textIncrementTime);
+		}else if(widgetName.equals(Mediator.TEXT_textTimeIncrement)){
+			value = med.getTextTimeIncrement().getText().trim();
+			MC.ChangedTextWidget(value,Mediator.TEXT_textTimeIncrement);
 		}
 	}
 	
@@ -265,8 +265,8 @@ public class CustomText implements ICommand {
 	public void setCustomWidget_textPostWritingFrequency(){
 		this.text = med.getTextPostWritingFrequency();
 	}
-	public void setCustomWidget_textIncrementTime(){
-		this.text = med.getTextIncrementTime();
+	public void setCustomWidget_textTimeIncrement(){
+		this.text = med.getTextTimeIncrement();
 	}
 	
 

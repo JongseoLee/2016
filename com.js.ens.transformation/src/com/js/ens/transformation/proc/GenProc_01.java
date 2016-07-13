@@ -200,8 +200,8 @@ public class GenProc_01 {
 				procDataList.add(newLien);	
 			}
 			
-			else if(line.contains(ProcMaker.lcase_dt)){
-				String newLien = line.replace(ProcMaker.lcase_dt, plogObj.get(StandType).getLcase_dt());
+			else if(line.contains(ProcMaker.lcase_inc)){
+				String newLien = line.replace(ProcMaker.lcase_inc, plogObj.get(StandType).getlcase_inc());
 				procDataList.add(newLien);	
 			}else if(line.contains(ProcMaker.post_inc)){
 				String newLien = line.replace(ProcMaker.post_inc, plogObj.get(StandType).getPost_inc());
@@ -245,8 +245,14 @@ public class GenProc_01 {
 				procDataList.add(newLien);	
 			}
 			
-			else if(line.contains(ProcMaker.inc_time)){
-				String newLien = line.replace(ProcMaker.inc_time, plogObj.get(StandType).getInc_time());
+			else if(line.contains(ProcMaker.lcase_time)){
+				String newLien = line.replace(ProcMaker.lcase_time, plogObj.get(StandType).getLcase_time());
+				procDataList.add(newLien);	
+			}else if(line.contains(ProcMaker.lcase_dt)){
+				String newLien = line.replace(ProcMaker.lcase_dt, plogObj.get(StandType).getlcase_dt());
+				procDataList.add(newLien);	
+			}else if(line.contains(ProcMaker.ltime_scale)){
+				String newLien = line.replace(ProcMaker.ltime_scale, plogObj.get(StandType).getLtime_scale());
 				procDataList.add(newLien);	
 			}else if(line.contains(ProcMaker.Domain)){
 				String newLien = line.replace(ProcMaker.Domain, plogObj.get(StandType).getDomain());

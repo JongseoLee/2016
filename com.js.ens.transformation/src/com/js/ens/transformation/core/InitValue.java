@@ -126,9 +126,10 @@ public class InitValue {
 
 	//group6
 	public static String lcase_time_F1 = "lcase_time_F1";
-	public static String lcase_dt_F1 = "lcase_dt_F1";
+	public static String lcase_inc_F1 = "lcase_inc_F1";
 	public static String post_inc_F1 = "post_inc_F1";
-	public static String inc_time_F1 = "inc_time_F1";
+	public static String lcase_dt_F1 = "lcase_dt_F1";
+	public static String ltime_scale_F1 = "ltime_scale_F1";
 	public static String ParallelDDM_F1 = "ParallelDDM_F1";
 	public static String Domain_F1 = "Domain_F1";
 	public static String ParallelMultiThread_F1 = "ParallelMultiThread_F1";
@@ -171,9 +172,10 @@ public class InitValue {
 
 	//group6
 	public static String lcase_time_F2 = "lcase_time_F2";
-	public static String lcase_dt_F2 = "lcase_dt_F2";
+	public static String lcase_inc_F2 = "lcase_inc_F2";
 	public static String post_inc_F2 = "post_inc_F2";
-	public static String inc_time_F2 = "inc_time_F2";
+	public static String lcase_dt_F2 = "lcase_dt_F2";
+	public static String ltime_scale_F2 = "ltime_scale_F2";
 	public static String ParallelDDM_F2 = "ParallelDDM_F2";
 	public static String Domain_F2 = "Domain_F2";
 	public static String ParallelMultiThread_F2 = "ParallelMultiThread_F2";
@@ -217,9 +219,10 @@ public class InitValue {
 
 	//group6
 	public static String lcase_time_F3 = "lcase_time_F3";
-	public static String lcase_dt_F3 = "lcase_dt_F3";
+	public static String lcase_inc_F3 = "lcase_inc_F3";
 	public static String post_inc_F3 = "post_inc_F3";
-	public static String inc_time_F3 = "inc_time_F3";
+	public static String lcase_dt_F3 = "lcase_dt_F3";
+	public static String ltime_scale_F3 = "ltime_scale_F3";
 	public static String ParallelDDM_F3 = "ParallelDDM_F3";
 	public static String Domain_F3 = "Domain_F3";
 	public static String ParallelMultiThread_F3 = "ParallelMultiThread_F3";
@@ -262,9 +265,10 @@ public class InitValue {
 
 	//group6
 	public static String lcase_time_F4 = "lcase_time_F4";
-	public static String lcase_dt_F4 = "lcase_dt_F4";
+	public static String lcase_inc_F4 = "lcase_inc_F4";
 	public static String post_inc_F4 = "post_inc_F4";
-	public static String inc_time_F4 = "inc_time_F4";
+	public static String lcase_dt_F4 = "lcase_dt_F4";
+	public static String ltime_scale_F4 = "ltime_scale_F4";
 	public static String ParallelDDM_F4 = "ParallelDDM_F4";
 	public static String Domain_F4 = "Domain_F4";
 	public static String ParallelMultiThread_F4 = "ParallelMultiThread_F4";
@@ -307,9 +311,10 @@ public class InitValue {
 
 	//group6
 	public static String lcase_time_F5 = "lcase_time_F5";
-	public static String lcase_dt_F5 = "lcase_dt_F5";
+	public static String lcase_inc_F5 = "lcase_inc_F5";
 	public static String post_inc_F5 = "post_inc_F5";
-	public static String inc_time_F5 = "inc_time_F5";
+	public static String lcase_dt_F5 = "lcase_dt_F5";
+	public static String ltime_scale_F5 = "ltime_scale_F5";	
 	public static String ParallelDDM_F5 = "ParallelDDM_F5";
 	public static String Domain_F5 = "Domain_F5";
 	public static String ParallelMultiThread_F5 = "ParallelMultiThread_F5";
@@ -353,9 +358,10 @@ public class InitValue {
 
 	//group6
 	public static String lcase_time_F6 = "lcase_time_F6";
-	public static String lcase_dt_F6 = "lcase_dt_F6";
+	public static String lcase_inc_F6 = "lcase_inc_F6";
 	public static String post_inc_F6 = "post_inc_F6";
-	public static String inc_time_F6 = "inc_time_F6";
+	public static String lcase_dt_F6 = "lcase_dt_F6";
+	public static String ltime_scale_F6 = "ltime_scale_F6";
 	public static String ParallelDDM_F6 = "ParallelDDM_F6";
 	public static String Domain_F6 = "Domain_F6";
 	public static String ParallelMultiThread_F6 = "ParallelMultiThread_F6";
@@ -398,9 +404,10 @@ public class InitValue {
 
 	//group6
 	public static String lcase_time_F7 = "lcase_time_F7";
-	public static String lcase_dt_F7 = "lcase_dt_F7";
+	public static String lcase_inc_F7 = "lcase_inc_F7";
 	public static String post_inc_F7 = "post_inc_F7";
-	public static String inc_time_F7 = "inc_time_F7";
+	public static String lcase_dt_F7 = "lcase_dt_F7";
+	public static String ltime_scale_F7 = "ltime_scale_F7";
 	public static String ParallelDDM_F7 = "ParallelDDM_F7";
 	public static String Domain_F7 = "Domain_F7";
 	public static String ParallelMultiThread_F7 = "ParallelMultiThread_F7";

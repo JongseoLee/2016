@@ -91,8 +91,8 @@ public class HandlerText implements Listener {
 			med.getC_textNoOfInc().execute();
 		}else if(event.widget == med.getTextPostWritingFrequency()){
 			med.getC_textPostWritingFrequency().execute();
-		}else if(event.widget == med.getTextIncrementTime()){
-			med.getC_textIncrementTime().execute();
+		}else if(event.widget == med.getTextTimeIncrement()){
+			med.getC_textTimeIncrement().execute();
 		}
 	}
 

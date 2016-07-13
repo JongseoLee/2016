@@ -1,0 +1,57 @@
+// Analysis Time(sec.) %lcase_time%
+수식
+p_len*p_thk/(roll_gap*pl_vel)*ltime_scale
+치환변수로 표현
+%STP LEN% * %ENTRY THK% / ( %ROL GAP% * %SPEED%*1000.0/60.0 ) *%ltime_scale%
+UI Label 로 표현
+Length(mm) * Thickness(mm) / (Roll Gap(mm) * Velocity(mpm) * 1000.0/60/.0) *ltime_scale
+
+
+
+// Time increment(sec.) %lcase_dt%
+수식
+lcase_time / lcase_inc 
+치환변수로 표현
+%lcase_time% / %lcase_inc% 
+UI Label 로 표현
+Analysis Time(sec.) / No. of Inc
+
+
+
+// Top WR Rot. Vel.(RPM) %wr_trot%
+수식 
+Velocity(mpm)*1000/60/(top wr Dia./2)*(Speed Different Ratio-top roll/100)*60/(2*pi) 
+치환변수로 표현 
+%SPEED% * 1000 / 60 / ( %WR TDIA% /2 ) * ( %tb_vel_rate_top% / 100 ) * 60 / ( 2 * pi )
+UI Label로 표현 
+Velocity(mpm)  * 1000 / 60 / ( Top WR Diameter(mm) / 2 ) * ( Speed Different Ratio-top roll(%) / 100 ) * 60 / 100 ) * 60 / ( 2 * pi )
+
+
+
+// Bottom WR Rot. Vel.(RPM) %wr_brot%
+수식 
+Velocity(mpm)*1000/60/(bot. wr Dia./2)*(Speed Different Ratio-bot roll/100) *60/(2*pi) 
+치환변수로 표현 
+%SPEED% * 1000 / 60 / ( %WR BDIA% /2 ) * ( %tb_vel_rate_bottom% / 100 ) * 60 / ( 2 * pi )
+UI Label로 표현 
+Velocity(mpm)  * 1000 / 60 / ( Bottom WR Diameter(mm) / 2 ) * ( Speed Different Ratio-bottom roll(%) / 100 ) * 60 / 100 ) * 60 / ( 2 * pi )
+
+
+
+// Top BUR Rot. Vel.(RPM) %bur_trot%
+수식 
+Velocity(mpm)*1000/60/(top bur Dia./2)*(Speed Different Ratio-top roll/100)*60/(2*pi)
+치환변수로 표현 
+%SPEED% * 1000 / 60 / ( %BUR TDIA% /2 ) * ( %tb_vel_rate_top% / 100 ) * 60 / ( 2 * pi )
+UI Label로 표현 
+Velocity(mpm)  * 1000 / 60 / ( Top BUR Diameter(mm) / 2 ) * ( Speed Different Ratio-top roll(%) / 100 ) * 60 / 100 ) * 60 / ( 2 * pi )
+
+
+
+// Bottom BUR Rot. Vel.(RPM) %but_brot%
+수식 
+Velocity(mpm)*1000/60/(bot. bur Dia./2)*(Speed Different Ratio-bot roll/100)*60/(2*pi) 
+치환변수로 표현 
+%SPEED% * 1000 / 60 / ( %BUR BDIA% /2 ) * ( %tb_vel_rate_bottom% / 100 ) * 60 / ( 2 * pi )=> UI Label로 표현 
+UI Label로 표현 
+Velocity(mpm)  * 1000 / 60 / ( Bottom BUR Diameter(mm) / 2 ) * ( Speed Different Ratio-bottom roll(%) / 100 ) * 60 / 100 ) * 60 / ( 2 * pi )

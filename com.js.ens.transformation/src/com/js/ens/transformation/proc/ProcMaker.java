@@ -50,7 +50,7 @@ public class ProcMaker {
 	public static String f_r2p = "%f_r2p%";
 	public static String f_r2r ="%f_r2r%";
 
-	public static String lcase_dt ="%lcase_dt%";
+	public static String lcase_inc ="%lcase_inc%";
 	public static String post_inc ="%post_inc%";
 
 
@@ -67,7 +67,9 @@ public class ProcMaker {
 	public static String PR_VALUE = "%PR VALUE%";
 	public static String MD_VALUE = "%MD VALUE%";
 
-	public static String inc_time = "%inc_time%";
+	public static String lcase_time = "%lcase_time%";
+	public static String lcase_dt = "%lcase_dt%";
+	public static String ltime_scale = "%ltime_scale%";
 	public static String Domain = "%Domain%";
 	public static String Thread = "%Thread%";
 
