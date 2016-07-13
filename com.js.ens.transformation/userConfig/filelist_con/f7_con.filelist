@@ -34,5 +34,3 @@ rolls\posco_bur_f1_f7_r1_base.mud
 rolls\posco_wr_f1_f3_r1_base.mud
 rolls\posco_wr_f4_f7_r1_base.mud
 a01_add_push_plate.proc
-02_plate_gen_i.proc
-a02_add_pull_pressure.proc
