@@ -11,7 +11,7 @@ import com.js.util.myUtil;
 
 public class ProcMaker {
 	private MainController MC = MainController.getInstance();
-	private CopyProc cp = new CopyProc();
+	//private CopyProc cp = new CopyProc();
 	private String StandType;
 	private String workspace;
 	private String destPath;
@@ -106,6 +106,9 @@ public class ProcMaker {
 	public static String PWID = "%PWID%";
 	public static String PLEN = "%PLEN%";
 	public static String PWET = "%PWET%";
+	
+	public static String plateSectionFile = "%plate_msect_filename%"; 
+	public static String dummyPlateSectionFile = "%dplate_msect_filename%";
 	
 	
 	public ProcMaker(String StandType) {

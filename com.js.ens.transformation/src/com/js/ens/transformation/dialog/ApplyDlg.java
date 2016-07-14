@@ -7,6 +7,7 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.Label;
@@ -19,6 +20,8 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
 import com.js.ens.transformation.core.MainController;
+
+import org.eclipse.swt.widgets.Text;
 
 public class ApplyDlg extends Dialog {
 	private MainController MC = MainController.getInstance();
@@ -33,7 +36,11 @@ public class ApplyDlg extends Dialog {
 	private boolean isCheckedF5 = false;
 	private boolean isCheckedF6 = false;
 	private boolean isCheckedF7 = false;
+	private Text textPlateSectionFile;
+	private Text textDummyPlateSectionFile;
 	
+	private String sectionFilePath = "";
+	private String dummySectionFilePath = "";
 	
 	/**
 	 * Create the dialog.
@@ -67,13 +74,13 @@ public class ApplyDlg extends Dialog {
 		lblComment.setLayoutData(fd_lblComment);
 		lblComment.setText("Please select rolling type.");
 		
-		Composite compositeTop = new Composite(container, SWT.None);
+		Composite compositeTop = new Composite(container, SWT.BORDER);
 		compositeTop.setLayout(new FormLayout());
 		FormData fd_compositeTop = new FormData();
-		fd_compositeTop.top = new FormAttachment(lblComment, -20,SWT.TOP);
-		fd_compositeTop.left = new FormAttachment(lblComment, 30);
-		fd_compositeTop.right = new FormAttachment(lblComment, 220, SWT.RIGHT);
-		fd_compositeTop.bottom = new FormAttachment(lblComment, 25);
+		fd_compositeTop.top = new FormAttachment(lblComment, -30, SWT.TOP);
+		fd_compositeTop.left = new FormAttachment(lblComment, 60);
+		fd_compositeTop.right = new FormAttachment(100,-15);
+		fd_compositeTop.bottom = new FormAttachment(lblComment, 10);
 		compositeTop.setLayoutData(fd_compositeTop);
 		
 		final Button btnTypeC = new Button(compositeTop, SWT.RADIO);
@@ -87,7 +94,7 @@ public class ApplyDlg extends Dialog {
 		final Button btnTypeI = new Button(compositeTop, SWT.RADIO);
 		FormData fd_btnTypeI = new FormData();
 		fd_btnTypeI.top = new FormAttachment(0, 10);
-		fd_btnTypeI.left = new FormAttachment(0, 107);
+		fd_btnTypeI.left = new FormAttachment(0, 95);
 		btnTypeI.setLayoutData(fd_btnTypeI);
 		btnTypeI.setText("Individual");
 		btnTypeI.setSelection(false);
@@ -191,6 +198,50 @@ public class ApplyDlg extends Dialog {
 		btnF7.setText("F7");
 		btnF7.setSelection(false);
 		
+		Label lblPlateSectionFile = new Label(composite, SWT.NONE);
+		FormData fd_lblPlateSectionFile = new FormData();
+		fd_lblPlateSectionFile.top = new FormAttachment(btnF1, 5);
+		fd_lblPlateSectionFile.left = new FormAttachment(0, 10);
+		lblPlateSectionFile.setLayoutData(fd_lblPlateSectionFile);
+		lblPlateSectionFile.setText("Plate Section File");
+		
+		textPlateSectionFile = new Text(composite, SWT.BORDER);
+		FormData fd_textPlateSectionFile = new FormData();
+		fd_textPlateSectionFile.right = new FormAttachment(0, 308);
+		fd_textPlateSectionFile.top = new FormAttachment(lblPlateSectionFile, 5);
+		fd_textPlateSectionFile.left = new FormAttachment(lblPlateSectionFile, 0,SWT.LEFT);
+		textPlateSectionFile.setLayoutData(fd_textPlateSectionFile);
+		
+		
+		final Button btnExplorer1 = new Button(composite, SWT.NONE);
+		FormData fd_btnExplorer1 = new FormData();
+		fd_btnExplorer1.top = new FormAttachment(textPlateSectionFile, -2, SWT.TOP);
+		fd_btnExplorer1.left = new FormAttachment(textPlateSectionFile, 3);
+		btnExplorer1.setLayoutData(fd_btnExplorer1);
+		btnExplorer1.setText("...");
+		
+		Label lblDummyPlateSection = new Label(composite, SWT.NONE);
+		FormData fd_lblDummyPlateSection = new FormData();
+		fd_lblDummyPlateSection.top = new FormAttachment(textPlateSectionFile, 5);
+		fd_lblDummyPlateSection.left = new FormAttachment(lblPlateSectionFile, 0,SWT.LEFT);
+		lblDummyPlateSection.setLayoutData(fd_lblDummyPlateSection);
+		lblDummyPlateSection.setText("Dummy Plate Section File");
+		
+		textDummyPlateSectionFile = new Text(composite, SWT.BORDER);
+		FormData fd_textDummyPlateSectionFile = new FormData();
+		fd_textDummyPlateSectionFile.right = new FormAttachment(btnF7, 0, SWT.RIGHT);
+		fd_textDummyPlateSectionFile.top = new FormAttachment(lblDummyPlateSection, 5);
+		fd_textDummyPlateSectionFile.left = new FormAttachment(lblPlateSectionFile, 0,SWT.LEFT);
+		textDummyPlateSectionFile.setLayoutData(fd_textDummyPlateSectionFile);
+		
+		final Button btnExplorer2 = new Button(composite, SWT.NONE);
+		btnExplorer2.setText("...");
+		FormData fd_btnExplorer2 = new FormData();
+		fd_btnExplorer2.top = new FormAttachment(textDummyPlateSectionFile, -2, SWT.TOP);
+		fd_btnExplorer2.left = new FormAttachment(btnExplorer1, 0, SWT.LEFT);
+		btnExplorer2.setLayoutData(fd_btnExplorer2);
+		
+		
 		isConsequent = true;
 		isIndividual = false;
 		btnTypeC.setSelection(true);
@@ -214,6 +265,8 @@ public class ApplyDlg extends Dialog {
 		btnF6.setEnabled(false);
 		btnF7.setEnabled(false);
 		
+		
+		
 		isCheckedF1 = false;
 		isCheckedF2 = false;
 		isCheckedF3 = false;
@@ -224,11 +277,69 @@ public class ApplyDlg extends Dialog {
 		
 		
 		//////////////////////////////////////////////////////////////////////
+		btnExplorer1.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				FileDialog  dlg = new FileDialog (btnExplorer1.getShell(),SWT.OPEN);
+				dlg.setText("Select plate section file");
+				
+				//String [] extNames = {"RTL(*.rtl)"};
+				//String [] extType = {"*.rtl"};
+				String [] extNames = {"All(*.*)"};
+				String [] extType = {"*.*"};
+				
+				dlg.setFilterNames(extNames);
+				dlg.setFilterExtensions(extType);
+				
+				dlg.setFilterNames(extNames);
+				String path = dlg.open();
+				if (path == null){
+					return;
+				}else {
+					textPlateSectionFile.setText(path);
+					sectionFilePath = path;
+				}
+			}
+		});
+		
+		btnExplorer2.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				FileDialog  dlg = new FileDialog (btnExplorer2.getShell(),SWT.OPEN);
+				dlg.setText("Select dummy plate section file");
+				
+				//String [] extNames = {"RTL(*.rtl)"};
+				//String [] extType = {"*.rtl"};
+				String [] extNames = {"All(*.*)"};
+				String [] extType = {"*.*"};
+				
+				dlg.setFilterNames(extNames);
+				dlg.setFilterExtensions(extType);
+				
+				dlg.setFilterNames(extNames);
+				String path = dlg.open();
+				if (path == null){
+					return;
+				}else {
+					textDummyPlateSectionFile.setText(path);
+					dummySectionFilePath = path;
+				}
+			}
+		});
+		
 		btnTypeC.addSelectionListener(new SelectionAdapter(){
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				isConsequent = btnTypeC.getSelection();
 				isIndividual = btnTypeI.getSelection();
+				/*
+				if(isConsequent){
+					MC.setApplyType("Consequent");
+				}else{
+					MC.setApplyType("Individual");
+				}
+				*/
+				
 			}
 		});
 		
@@ -237,6 +348,13 @@ public class ApplyDlg extends Dialog {
 			public void widgetSelected(SelectionEvent e) {
 				isConsequent = btnTypeC.getSelection();
 				isIndividual = btnTypeI.getSelection();
+				/*
+				if(isIndividual){
+					MC.setApplyType("Individual");
+				}else{
+					MC.setApplyType("Consequent");
+				}
+				*/
 			}
 		});
 		
@@ -268,6 +386,11 @@ public class ApplyDlg extends Dialog {
 					isCheckedF5 = false;
 					isCheckedF6 = false;
 					isCheckedF7 = false;
+					textPlateSectionFile.setEnabled(false);
+					textDummyPlateSectionFile.setEnabled(false);
+					btnExplorer1.setEnabled(false);
+					btnExplorer2.setEnabled(false);
+					
 				}else{
 					isCheckedIndividual = true;
 					composite.setEnabled(true);
@@ -278,6 +401,12 @@ public class ApplyDlg extends Dialog {
 					btnF5.setEnabled(true);
 					btnF6.setEnabled(true);
 					btnF7.setEnabled(true);
+					btnExplorer1.setEnabled(true);
+					btnExplorer2.setEnabled(true);
+					textPlateSectionFile.setEnabled(true);
+					textDummyPlateSectionFile.setEnabled(true);
+					btnExplorer1.setEnabled(true);
+					btnExplorer2.setEnabled(true);
 				}
 			}
 		});
@@ -296,6 +425,10 @@ public class ApplyDlg extends Dialog {
 					btnF5.setEnabled(true);
 					btnF6.setEnabled(true);
 					btnF7.setEnabled(true);
+					textPlateSectionFile.setEnabled(true);
+					textDummyPlateSectionFile.setEnabled(true);
+					btnExplorer1.setEnabled(true);
+					btnExplorer2.setEnabled(true);
 				}else{
 					isCheckedAll = true;
 					composite.setEnabled(false);
@@ -320,6 +453,10 @@ public class ApplyDlg extends Dialog {
 					isCheckedF5 = false;
 					isCheckedF6 = false;
 					isCheckedF7 = false;
+					textPlateSectionFile.setEnabled(false);
+					textDummyPlateSectionFile.setEnabled(false);
+					btnExplorer1.setEnabled(false);
+					btnExplorer2.setEnabled(false);
 				}
 			}
 		});
@@ -499,10 +636,28 @@ public class ApplyDlg extends Dialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(402, 260);
+		return new Point(402, 361);
 	}
 	
 	private void RunApplyResult(ArrayList<Boolean> result){
+		if(isConsequent){
+			MC.setApplyType(MC.ApplyType_Consequent);
+		}else{
+			MC.setApplyType(MC.ApplyType_Individual);
+		}
+		
+		if(isCheckedIndividual){
+			MC.setRunType(MC.RunType_Single);
+			MC.setSectionFilePath(sectionFilePath);
+			MC.setDummySectionFilePath(dummySectionFilePath);
+		}else{
+			MC.setRunType(MC.RunType_Multiful);
+			MC.setSectionFilePath(null);
+			MC.setDummySectionFilePath(null);
+		}
+		
 		MC.RunApplyResult(result);
+		
+		
 	}
 }

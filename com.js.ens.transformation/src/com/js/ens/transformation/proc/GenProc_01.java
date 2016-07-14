@@ -16,6 +16,8 @@ public class GenProc_01 {
 	private MainController MC = MainController.getInstance();
 	private String configFolder = myUtil.setPath(System.getProperty("user.dir"),"userConfig");
 	private String userModuleFolder = myUtil.setPath(System.getProperty("user.dir"), "userModule");
+	private String userModuleFolder_con = myUtil.setPath(userModuleFolder, "consquent");
+	private String userModuleFolder_ind = myUtil.setPath(userModuleFolder, "individual");
 	private String destFolder; 
 	private String newFileName;
 	private ArrayList<String> ori_fileDataList = new ArrayList<String>();
@@ -32,8 +34,15 @@ public class GenProc_01 {
 	}
 
 	public void genProc01F1(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "01_define_parameters_f1.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f1"),newFileName);
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f1"),newFileName);
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F1),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue(0);
@@ -41,8 +50,15 @@ public class GenProc_01 {
 	}
 	
 	public void genProc01F2(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "01_define_parameters_f2.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f2"),newFileName);
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f2"),newFileName);
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F2),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue(1);
@@ -50,8 +66,15 @@ public class GenProc_01 {
 	}
 
 	public void genProc01F3(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "01_define_parameters_f3.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f3"),newFileName);
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f3"),newFileName);
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F3),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue(2);
@@ -59,8 +82,15 @@ public class GenProc_01 {
 	}
 	
 	public void genProc01F4(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "01_define_parameters_f4.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f4"),newFileName);
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f4"),newFileName);
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F4),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue(3);
@@ -68,8 +98,15 @@ public class GenProc_01 {
 	}
 	
 	public void genProc01F5(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "01_define_parameters_f5.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f5"),newFileName);
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f5"),newFileName);
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F5),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue(4);
@@ -77,8 +114,15 @@ public class GenProc_01 {
 	}
 	
 	public void genProc01F6(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "01_define_parameters_f6.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f6"),newFileName);
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f6"),newFileName);
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F6),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue(5);
@@ -86,8 +130,15 @@ public class GenProc_01 {
 	}
 	
 	public void genProc01F7(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "01_define_parameters_f7.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f7"),newFileName);
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f7"),newFileName);
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F7),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue(6);
@@ -357,6 +408,19 @@ public class GenProc_01 {
 			}else if(line.contains(ProcMaker.PWET)){
 				String newLine = line.replace(ProcMaker.PWET, spObj.getPWET());
 				procDataList.add(newLine);
+			}
+			
+			else if(line.contains(ProcMaker.plateSectionFile)){
+				if(MC.getRunType().equals(MC.RunType_Single)){
+					String newLine = line.replace(ProcMaker.plateSectionFile, MC.getSectionFilePath());
+					procDataList.add(newLine);
+				}
+			}else if(line.contains(ProcMaker.dummyPlateSectionFile)){
+				if(MC.getRunType().equals(MC.RunType_Single)){
+					String newLine = line.replace(ProcMaker.dummyPlateSectionFile, MC.getDummySectionFilePath());
+					procDataList.add(newLine);	
+				}
+				
 			}
 			
 			else{

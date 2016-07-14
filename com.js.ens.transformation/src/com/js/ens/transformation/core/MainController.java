@@ -95,9 +95,15 @@ public class MainController {
 	// tab2
 	private String StandValue = "F1";
 	//private ArrayList<TableData_PLog> F_ObjList = new ArrayList<TableData_PLog>();
+	private String RunType = ""; // Multiful || Single
+	public static String RunType_Multiful = "Multiful";
+	public static String RunType_Single = "Single";
 	private String ApplyType = ""; // Consequent || Individual
-	private static String ApplyType_Consequent = "Consequent";
-	private static String ApplyType_Individual = "Individual";
+	public static String ApplyType_Consequent = "Consequent";
+	public static String ApplyType_Individual = "Individual";
+	private String sectionFilePath = "";
+	private String dummySectionFilePath = "";
+	
 	
 	public MainController() {
 		// TODO Auto-generated constructor stub
@@ -1203,12 +1209,22 @@ public class MainController {
 		this.exportResult = "";
 		this.exportResult = "[Export Result]"+"\n";
 		String userConfigPath = myUtil.setPath(System.getProperty("user.dir"), "userConfig");
+		String configFolder_con = myUtil.setPath(userConfigPath, "filelist_con");
+		String configFolder_ind = myUtil.setPath(userConfigPath, "filelist_ind");
+		
+		String configPath = "";
+		if(this.getApplyType().equals(this.ApplyType_Consequent)){
+			configPath = configFolder_con;
+		}else{
+			configPath = configFolder_ind;
+		}
+		
 		
 		for(int i=0;i<7;i++){
 			if(ApplyResult.get(i)){
 				if(i == 0){
 					this.exportResult += "* F1"+"\n";
-					String fileListPath = myUtil.setPath(userConfigPath, "f1.filelist");
+					String fileListPath = myUtil.setPath(configPath, "f1.filelist");
 					Reader obj = new Reader(fileListPath);
 					obj.running();
 					for(int j = 0; j<obj.getFileDataList().size();j++){
@@ -1226,7 +1242,7 @@ public class MainController {
 						}
 					}
 				}else if(i == 1){
-					String fileListPath = myUtil.setPath(userConfigPath, "f2.filelist");
+					String fileListPath = myUtil.setPath(configPath, "f2.filelist");
 					this.exportResult += "* F2"+"\n";
 					Reader obj = new Reader(fileListPath);
 					obj.running();
@@ -1245,7 +1261,7 @@ public class MainController {
 						}
 					}
 				}else if(i == 2){
-					String fileListPath = myUtil.setPath(userConfigPath, "f3.filelist");
+					String fileListPath = myUtil.setPath(configPath, "f3.filelist");
 					this.exportResult += "* F3"+"\n";
 					Reader obj = new Reader(fileListPath);
 					obj.running();
@@ -1264,7 +1280,7 @@ public class MainController {
 						}
 					}
 				}else if(i == 3){
-					String fileListPath = myUtil.setPath(userConfigPath, "f4.filelist");
+					String fileListPath = myUtil.setPath(configPath, "f4.filelist");
 					this.exportResult += "* F4"+"\n";
 					Reader obj = new Reader(fileListPath);
 					obj.running();
@@ -1283,7 +1299,7 @@ public class MainController {
 						}
 					}
 				}else if(i == 4){
-					String fileListPath = myUtil.setPath(userConfigPath, "f5.filelist");
+					String fileListPath = myUtil.setPath(configPath, "f5.filelist");
 					this.exportResult += "* F5"+"\n";
 					Reader obj = new Reader(fileListPath);
 					obj.running();
@@ -1302,7 +1318,7 @@ public class MainController {
 						}
 					}
 				}else if(i == 5){
-					String fileListPath = myUtil.setPath(userConfigPath, "f6.filelist");
+					String fileListPath = myUtil.setPath(configPath, "f6.filelist");
 					this.exportResult += "* F6"+"\n";
 					Reader obj = new Reader(fileListPath);
 					obj.running();
@@ -1321,7 +1337,7 @@ public class MainController {
 						}
 					}
 				}else if(i == 6){
-					String fileListPath = myUtil.setPath(userConfigPath, "f7.filelist");
+					String fileListPath = myUtil.setPath(configPath, "f7.filelist");
 					this.exportResult += "* F7"+"\n";
 					Reader obj = new Reader(fileListPath);
 					obj.running();
@@ -7281,7 +7297,33 @@ public class MainController {
 		return ApplyType;
 	}
 	public void setApplyType(String applyType) {
-		ApplyType = applyType;
+		if(applyType.equals(this.ApplyType_Consequent)){
+			ApplyType = this.ApplyType_Consequent;
+		}else{
+			ApplyType = this.ApplyType_Individual;
+		}
+	}
+	public String getSectionFilePath() {
+		return sectionFilePath;
+	}
+	public void setSectionFilePath(String sectionFilePath) {
+		this.sectionFilePath = sectionFilePath;
+	}
+	public String getDummySectionFilePath() {
+		return dummySectionFilePath;
+	}
+	public void setDummySectionFilePath(String dummySectionFilePath) {
+		this.dummySectionFilePath = dummySectionFilePath;
+	}
+	public String getRunType() {
+		return RunType;
+	}
+	public void setRunType(String runType) {
+		if(runType.equals(this.RunType_Multiful)){
+			RunType = this.RunType_Multiful;
+		}else{
+			RunType = this.RunType_Single;
+		}
 	}
 	
 }

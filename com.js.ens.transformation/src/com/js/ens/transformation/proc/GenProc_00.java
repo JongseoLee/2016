@@ -12,6 +12,8 @@ public class GenProc_00 {
 	private MainController MC = MainController.getInstance();
 	private String configFolder = myUtil.setPath(System.getProperty("user.dir"),"userConfig");
 	private String userModuleFolder = myUtil.setPath(System.getProperty("user.dir"), "userModule");
+	private String userModuleFolder_con = myUtil.setPath(userModuleFolder, "consquent");
+	private String userModuleFolder_ind = myUtil.setPath(userModuleFolder, "individual");
 	private String destFolder;
 	private String modelName;
 	private String newFileName;
@@ -25,8 +27,15 @@ public class GenProc_00 {
 	}
 	
 	public void genProc00F1(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "00_main_"+this.modelName+"_gen_f1.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f1"),"00_main_model_gen_f1.proc");
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f1"),"00_main_model_gen_f1.proc");
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F1),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue();
@@ -35,8 +44,15 @@ public class GenProc_00 {
 	
 	
 	public void genProc00F2(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "00_main_"+this.modelName+"_gen_f2.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f2"),"00_main_model_gen_f2.proc");
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f2"),"00_main_model_gen_f2.proc");
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F2),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue();
@@ -44,8 +60,15 @@ public class GenProc_00 {
 	}
 
 	public void genProc00F3(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "00_main_"+this.modelName+"_gen_f3.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f3"),"00_main_model_gen_f3.proc");
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f3"),"00_main_model_gen_f3.proc");
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F3),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue();
@@ -53,8 +76,15 @@ public class GenProc_00 {
 	}
 	
 	public void genProc00F4(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "00_main_"+this.modelName+"_gen_f4.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f4"),"00_main_model_gen_f4.proc");
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f4"),"00_main_model_gen_f4.proc");
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F4),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue();
@@ -62,8 +92,15 @@ public class GenProc_00 {
 	}
 	
 	public void genProc00F5(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "00_main_"+this.modelName+"_gen_f5.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f5"),"00_main_model_gen_f5.proc");
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f5"),"00_main_model_gen_f5.proc");
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F5),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue();
@@ -71,8 +108,15 @@ public class GenProc_00 {
 	}
 	
 	public void genProc00F6(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "00_main_"+this.modelName+"_gen_f6.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f6"),"00_main_model_gen_f6.proc");
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f6"),"00_main_model_gen_f6.proc");
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F6),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue();
@@ -80,8 +124,15 @@ public class GenProc_00 {
 	}
 	
 	public void genProc00F7(String destFolder){
+		String modulePath = "";
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+		}else{
+			modulePath = userModuleFolder_ind;
+		}
+		
 		this.newFileName = "00_main_"+this.modelName+"_gen_f7.proc";
-		String ori_filePath = myUtil.setPath(myUtil.setPath(userModuleFolder, "f7"),"00_main_model_gen_f7.proc");
+		String ori_filePath = myUtil.setPath(myUtil.setPath(modulePath, "f7"),"00_main_model_gen_f7.proc");
 		String new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F7),this.newFileName);
 		readSourceData(ori_filePath);
 		swapValue();
