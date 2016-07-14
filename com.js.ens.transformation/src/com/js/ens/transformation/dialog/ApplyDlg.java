@@ -22,6 +22,8 @@ import com.js.ens.transformation.core.MainController;
 
 public class ApplyDlg extends Dialog {
 	private MainController MC = MainController.getInstance();
+	private boolean isConsequent = true;
+	private boolean isIndividual = false;
 	private boolean isCheckedAll = true;
 	private boolean isCheckedIndividual = false;
 	private boolean isCheckedF1 = false;
@@ -63,14 +65,57 @@ public class ApplyDlg extends Dialog {
 		fd_lblComment.top = new FormAttachment(lblApply, 15);
 		fd_lblComment.left = new FormAttachment(lblApply, 0, SWT.LEFT);
 		lblComment.setLayoutData(fd_lblComment);
-		lblComment.setText("Please select the type.");
+		lblComment.setText("Please select rolling type.");
+		
+		Composite compositeTop = new Composite(container, SWT.None);
+		compositeTop.setLayout(new FormLayout());
+		FormData fd_compositeTop = new FormData();
+		fd_compositeTop.top = new FormAttachment(lblComment, -20,SWT.TOP);
+		fd_compositeTop.left = new FormAttachment(lblComment, 30);
+		fd_compositeTop.right = new FormAttachment(lblComment, 220, SWT.RIGHT);
+		fd_compositeTop.bottom = new FormAttachment(lblComment, 25);
+		compositeTop.setLayoutData(fd_compositeTop);
+		
+		final Button btnTypeC = new Button(compositeTop, SWT.RADIO);
+		FormData fd_btnTypeC = new FormData();
+		fd_btnTypeC.top = new FormAttachment(0, 10);
+		fd_btnTypeC.left = new FormAttachment(0, 10);
+		btnTypeC.setLayoutData(fd_btnTypeC);
+		btnTypeC.setText("Consequent");
+		btnTypeC.setSelection(true);
+		
+		final Button btnTypeI = new Button(compositeTop, SWT.RADIO);
+		FormData fd_btnTypeI = new FormData();
+		fd_btnTypeI.top = new FormAttachment(0, 10);
+		fd_btnTypeI.left = new FormAttachment(0, 107);
+		btnTypeI.setLayoutData(fd_btnTypeI);
+		btnTypeI.setText("Individual");
+		btnTypeI.setSelection(false);
+		
+		/*
+		final Button btnTypeC = new Button(compositeTop, SWT.RADIO);
+		FormData fd_btnTypeC = new FormData();
+		fd_btnTypeC.top = new FormAttachment(0, 10);
+		fd_btnTypeC.left = new FormAttachment(0, 10);
+		btnTypeC.setLayoutData(fd_btnTypeC);
+		btnTypeC.setText("Consequent");
+		btnTypeC.setSelection(true);
+		
+		final Button btnTypeI = new Button(compositeTop, SWT.RADIO);
+		FormData fd_btnTypeI = new FormData();
+		fd_btnTypeI.top = new FormAttachment(btnTypeC, 0, SWT.TOP);
+		fd_btnTypeI.left = new FormAttachment(btnTypeC, 10, SWT.RIGHT);
+		btnTypeI.setLayoutData(fd_btnTypeI);
+		btnTypeI.setText("Individual");
+		btnTypeI.setSelection(false);
+		*/
 		
 		final Button btnAll = new Button(container, SWT.RADIO);
 		FormData fd_btnAll = new FormData();
 		fd_btnAll.top = new FormAttachment(lblComment, 10);
 		fd_btnAll.left = new FormAttachment(lblComment, 10, SWT.LEFT);
 		btnAll.setLayoutData(fd_btnAll);
-		btnAll.setText("All selected");
+		btnAll.setText("Multiple Rolling");
 		btnAll.setSelection(true);
 		
 		final Button btnIndividual = new Button(container, SWT.RADIO);
@@ -78,7 +123,7 @@ public class ApplyDlg extends Dialog {
 		fd_btnIndividual.top = new FormAttachment(btnAll, 10);
 		fd_btnIndividual.left = new FormAttachment(btnAll, 0, SWT.LEFT);
 		btnIndividual.setLayoutData(fd_btnIndividual);
-		btnIndividual.setText("Individually selected");
+		btnIndividual.setText("Single Rolling");
 		btnAll.setSelection(false);
 		
 		final Composite composite = new Composite(container, SWT.BORDER);
@@ -90,7 +135,7 @@ public class ApplyDlg extends Dialog {
 		fd_composite.bottom = new FormAttachment(100, -10);		
 		composite.setLayoutData(fd_composite);
 		
-		final Button btnF1 = new Button(composite, SWT.CHECK);
+		final Button btnF1 = new Button(composite, SWT.RADIO);
 		FormData fd_btnF1 = new FormData();
 		fd_btnF1.top = new FormAttachment(0, 10);
 		fd_btnF1.left = new FormAttachment(0, 10);
@@ -98,7 +143,7 @@ public class ApplyDlg extends Dialog {
 		btnF1.setText("F1");
 		btnF1.setSelection(false);
 		
-		final Button btnF2 = new Button(composite, SWT.CHECK);
+		final Button btnF2 = new Button(composite, SWT.RADIO);
 		FormData fd_btnF2 = new FormData();
 		fd_btnF2.top = new FormAttachment(btnF1, 0, SWT.TOP);
 		fd_btnF2.left = new FormAttachment(btnF1, 10);
@@ -106,7 +151,7 @@ public class ApplyDlg extends Dialog {
 		btnF2.setText("F2");
 		btnF2.setSelection(false);
 
-		final Button btnF3 = new Button(composite, SWT.CHECK);
+		final Button btnF3 = new Button(composite, SWT.RADIO);
 		FormData fd_btnF3 = new FormData();
 		fd_btnF3.top = new FormAttachment(btnF1, 0, SWT.TOP);
 		fd_btnF3.left = new FormAttachment(btnF2, 10);
@@ -114,7 +159,7 @@ public class ApplyDlg extends Dialog {
 		btnF3.setText("F3");
 		btnF3.setSelection(false);
 		
-		final Button btnF4 = new Button(composite, SWT.CHECK);
+		final Button btnF4 = new Button(composite, SWT.RADIO);
 		FormData fd_btnF4 = new FormData();
 		fd_btnF4.top = new FormAttachment(btnF1, 0, SWT.TOP);
 		fd_btnF4.left = new FormAttachment(btnF3, 10);
@@ -122,7 +167,7 @@ public class ApplyDlg extends Dialog {
 		btnF4.setText("F4");
 		btnF4.setSelection(false);
 		
-		final Button btnF5 = new Button(composite, SWT.CHECK);
+		final Button btnF5 = new Button(composite, SWT.RADIO);
 		FormData fd_btnF5 = new FormData();
 		fd_btnF5.top = new FormAttachment(btnF1, 0, SWT.TOP);
 		fd_btnF5.left = new FormAttachment(btnF4, 10);
@@ -130,7 +175,7 @@ public class ApplyDlg extends Dialog {
 		btnF5.setText("F5");
 		btnF5.setSelection(false);
 		
-		final Button btnF6 = new Button(composite, SWT.CHECK);
+		final Button btnF6 = new Button(composite, SWT.RADIO);
 		FormData fd_btnF6 = new FormData();
 		fd_btnF6.top = new FormAttachment(btnF1, 0, SWT.TOP);
 		fd_btnF6.left = new FormAttachment(btnF5, 10);
@@ -138,13 +183,18 @@ public class ApplyDlg extends Dialog {
 		btnF6.setText("F6");
 		btnF6.setSelection(false);
 		
-		final Button btnF7 = new Button(composite, SWT.CHECK);
+		final Button btnF7 = new Button(composite, SWT.RADIO);
 		FormData fd_btnF7 = new FormData();
 		fd_btnF7.top = new FormAttachment(btnF1, 0, SWT.TOP);
 		fd_btnF7.left = new FormAttachment(btnF6, 10);
 		btnF7.setLayoutData(fd_btnF7);
 		btnF7.setText("F7");
 		btnF7.setSelection(false);
+		
+		isConsequent = true;
+		isIndividual = false;
+		btnTypeC.setSelection(true);
+		btnTypeI.setSelection(false);
 		
 		isCheckedAll = true;
 		isCheckedIndividual = false;
@@ -163,6 +213,7 @@ public class ApplyDlg extends Dialog {
 		btnF5.setEnabled(false);
 		btnF6.setEnabled(false);
 		btnF7.setEnabled(false);
+		
 		isCheckedF1 = false;
 		isCheckedF2 = false;
 		isCheckedF3 = false;
@@ -173,6 +224,22 @@ public class ApplyDlg extends Dialog {
 		
 		
 		//////////////////////////////////////////////////////////////////////
+		btnTypeC.addSelectionListener(new SelectionAdapter(){
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				isConsequent = btnTypeC.getSelection();
+				isIndividual = btnTypeI.getSelection();
+			}
+		});
+		
+		btnTypeI.addSelectionListener(new SelectionAdapter(){
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				isConsequent = btnTypeC.getSelection();
+				isIndividual = btnTypeI.getSelection();
+			}
+		});
+		
 		btnAll.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -261,47 +328,89 @@ public class ApplyDlg extends Dialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				isCheckedF1 = btnF1.getSelection();
+				isCheckedF2 = btnF2.getSelection();
+				isCheckedF3 = btnF3.getSelection();
+				isCheckedF4 = btnF4.getSelection();
+				isCheckedF5 = btnF5.getSelection();
+				isCheckedF6 = btnF6.getSelection();
+				isCheckedF7 = btnF7.getSelection();
 			}
 		});
 		
 		btnF2.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				isCheckedF1 = btnF1.getSelection();
 				isCheckedF2 = btnF2.getSelection();
+				isCheckedF3 = btnF3.getSelection();
+				isCheckedF4 = btnF4.getSelection();
+				isCheckedF5 = btnF5.getSelection();
+				isCheckedF6 = btnF6.getSelection();
+				isCheckedF7 = btnF7.getSelection();
 			}
 		});
 		
 		btnF3.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				isCheckedF1 = btnF1.getSelection();
+				isCheckedF2 = btnF2.getSelection();
 				isCheckedF3 = btnF3.getSelection();
+				isCheckedF4 = btnF4.getSelection();
+				isCheckedF5 = btnF5.getSelection();
+				isCheckedF6 = btnF6.getSelection();
+				isCheckedF7 = btnF7.getSelection();
 			}
 		});
 		
 		btnF4.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				isCheckedF1 = btnF1.getSelection();
+				isCheckedF2 = btnF2.getSelection();
+				isCheckedF3 = btnF3.getSelection();
 				isCheckedF4 = btnF4.getSelection();
+				isCheckedF5 = btnF5.getSelection();
+				isCheckedF6 = btnF6.getSelection();
+				isCheckedF7 = btnF7.getSelection();
 			}
 		});
 		
 		btnF5.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				isCheckedF1 = btnF1.getSelection();
+				isCheckedF2 = btnF2.getSelection();
+				isCheckedF3 = btnF3.getSelection();
+				isCheckedF4 = btnF4.getSelection();
 				isCheckedF5 = btnF5.getSelection();
+				isCheckedF6 = btnF6.getSelection();
+				isCheckedF7 = btnF7.getSelection();
 			}
 		});
 		
 		btnF6.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				isCheckedF1 = btnF1.getSelection();
+				isCheckedF2 = btnF2.getSelection();
+				isCheckedF3 = btnF3.getSelection();
+				isCheckedF4 = btnF4.getSelection();
+				isCheckedF5 = btnF5.getSelection();
 				isCheckedF6 = btnF6.getSelection();
+				isCheckedF7 = btnF7.getSelection();
 			}
 		});
 		
 		btnF7.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				isCheckedF1 = btnF1.getSelection();
+				isCheckedF2 = btnF2.getSelection();
+				isCheckedF3 = btnF3.getSelection();
+				isCheckedF4 = btnF4.getSelection();
+				isCheckedF5 = btnF5.getSelection();
+				isCheckedF6 = btnF6.getSelection();
 				isCheckedF7 = btnF7.getSelection();
 			}
 		});

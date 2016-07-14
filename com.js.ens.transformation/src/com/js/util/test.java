@@ -182,7 +182,7 @@ public class test {
 		 */
 		
 		String eq = "#p_len# * #p_thk# /( #roll_gap# * #pl_vel_mpm# * 1000.0 / 60.0 ) * #ltime_scale#";
-		String eq2 = "10 * 10 /( 2 * 5 * 1000.0 / 1000.0 ) * 50";
+		String eq2 = "10 * 10 /( 2 * 5 * 1000.0 / 1000.0 ) * 1 * Math.PI";
 		//double result =  
 		ScriptEngineManager mgr = new ScriptEngineManager();
 		ScriptEngine engine = mgr.getEngineByName("JavaScript");

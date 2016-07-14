@@ -158,14 +158,13 @@
 |!C lcase_time : analysis time calculated by (thk*len)/(roll gap) : sec. :
 |!C lcase_inc : increment no. of loadcase
 |!D post_inc : Post writing increment.
-*eval_define lcase_time p_len*p_thk/(roll_gap*pl_vel)       |!C
-*eval_define lcase_inc 4000               |!D    
-*eval_define lcase_dt lcase_time/lcase_inc    |!D
+*eval_define lcase_time %lcase_time%       |!C
+*eval_define lcase_inc %lcase_inc%               |!D    
+*eval_define lcase_dt %lcase_dt%    |!D
 *eval_define post_inc %post_inc%    |!D
 
 |!D g_fac : Gravity Acc. Factor for applying intial velocity.
 *eval_define g_fac 4.0 |!D
-
 
 |%FRCE%  |P Log table
 |%EXIT THK%  |P Log table
@@ -180,11 +179,12 @@
 |%PR VALUE%  |Poisson's Ratio
 |%MD VALUE%  |Mass Density(Mg/mm^3)
 	
-|%inc_time%  |Increment time(sec.)
+|%ltime_scale%  | ltime_scale
 |%Domain%  |Domain
 |%Thread%  |Thread
 	
-|%speed_different_ratio%  |Speed Different Ratio
+|%vel_rate_top%  | Speed Different Ratio-top roll(%)
+|%vel_rate_bottom%  | Speed Different Ratio-bottom roll(%)
 |%wr_trot%  |Top WR Rot. Vel.(RPM)
 |%wr_brot%  |Bottom WR Rot. Vel.(RPM)
 |%bur_trot%  |Top BUR Rot. Vel.(RPM)

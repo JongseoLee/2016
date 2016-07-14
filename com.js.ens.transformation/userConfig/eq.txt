@@ -5,13 +5,13 @@ lcase_time = #p_len# * #p_thk# /( #roll_gap# * #pl_vel_mpm# * 1000.0 / 60.0 ) * 
 lcase_dt = #lcase_time# / #lcase_inc# 
 
 // Top WR Rot. Vel.(RPM) 
-wr_trot = #pl_vel_mpm# * 1000 /60 / ( #wr_tdia# / 2 ) * ( #vel_rate_top# / 100 ) * 60 / ( 2 * @pi )
+wr_trot = #pl_vel_mpm# * 1000 /60 / ( #wr_tdia# / 2 ) * ( #vel_rate_top# / 100 ) * 60 / ( 2 * Math.PI )
 
 // Bottom WR Rot. Vel.(RPM) 
-wr_brot = #pl_vel_mpm# * 1000 / 60 / ( #wr_bdia# / 2 ) * ( #vel_rate_bottom# /100 ) * 60 / ( 2 * @pi )
+wr_brot = #pl_vel_mpm# * 1000 / 60 / ( #wr_bdia# / 2 ) * ( #vel_rate_bottom# /100 ) * 60 / ( 2 * Math.PI )
 
 // Top BUR Rot. Vel.(RPM) 
-bur_trot = #pl_vel_mpm# * 1000 / 60 / ( #bur_tdia# / 2 ) * ( #vel_rate_top# / 100 ) * 60 / ( 2 * @pi )
+bur_trot = #pl_vel_mpm# * 1000 / 60 / ( #bur_tdia# / 2 ) * ( #vel_rate_top# / 100 ) * 60 / ( 2 * Math.PI )
 
 // Bottom BUR Rot. Vel.(RPM) 
-bur_brot = #pl_vel_mpm# * 1000 / 60 / ( #bur_bdia# / 2 ) * ( #vel_rate_bottom# / 100 ) * 60 / ( 2 * @pi )
+bur_brot = #pl_vel_mpm# * 1000 / 60 / ( #bur_bdia# / 2 ) * ( #vel_rate_bottom# / 100 ) * 60 / ( 2 * Math.PI )

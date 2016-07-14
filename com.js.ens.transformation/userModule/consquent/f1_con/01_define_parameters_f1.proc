@@ -21,10 +21,10 @@
 |!D base_bur_tdia : top backup roll base diameter : mm :
 |!D base_bur_bdia : bottom backup roll base diameter : mm :
 |
-|  *eval_define base_wr_tdia 420.0*2.0  |!D for F1-F3 
-|  *eval_define base_wr_bdia 420.0*2.0  |!D for F1-F3
-*eval_define base_wr_tdia 340.0*2.0  |!D for F4-F7
-*eval_define base_wr_bdia 340.0*2.0  |!D for F4-F7
+*eval_define base_wr_tdia 420.0*2.0  |!D for F1-F3 
+*eval_define base_wr_bdia 420.0*2.0  |!D for F1-F3
+|  *eval_define base_wr_tdia 340.0*2.0  |!D for F4-F7
+|  *eval_define base_wr_bdia 340.0*2.0  |!D for F4-F7
 *eval_define base_bur_tdia 740.0*2.0 |!D 
 *eval_define base_bur_bdia 740.0*2.0 |!D
 
@@ -42,6 +42,8 @@
 *eval_define bur_tdia %BUR TDIA% |!P
 *eval_define bur_bdia %BUR BDIA% |!P
 *eval_define wr_crown %WR ICRN% |!P
+
+
 |
 | Calculate the value of changing roll diameter 
 |
@@ -65,7 +67,7 @@
 | Define Roll Mesh Information
 |
 |!D  wr_div_angle : work roll division angle : deg. : 10.0
-|!D  burr_div_angle : work roll division angle : deg. : 10.0
+|!D  bur_div_angle : work roll division angle : deg. : 10.0
 |
 *eval_define wr_div_angle %wr_div_angle% |!D
 *eval_define bur_div_angle %bur_div_angle% |!D
@@ -76,8 +78,8 @@
 |!D wr_len_4-7 : Length of work roll(f4-f7) : mm : 3520.0
 |!D bur_len : Length of backup roll(f1-f7) : mm : 3520.0
 |
-|*eval_define wr_len %wr_len%/2.0 | for F1-F3 Work Roll |!D
-*eval_define wr_len %wr_len%/2.0 | for F4-F7 Work Roll |!D
+*eval_define wr_len %wr_len%/2.0 | for F1-F3 Work Roll |!D
+| *eval_define wr_len %wr_len%/2.0 | for F4-F7 Work Roll |!D
 *eval_define bur_len %bur_len%/2.0 | for F1-F7 BackUp Roll |!D
 |
 |  Define plate Parameters
@@ -88,24 +90,24 @@
 |!P p_ent_temp : Entry Temperature of plate : C : (ENTRY TEMP)
 |!P p_exit_temp : Exit Temperature of plate : C : (EXIT TEMP)
 |
-|!U p_in  : initial position of plate : mm :
-|!U t_div  : meshing division no. in plate thickness direction
-|!U l_div  : meshing division no. in plate long. direction
-|!U w_div  : meshing division no. in plate width direction
-|!C pl_m  : mesh size in plate length direction
-|!C pw_m  : mesh size in plate width direction
+|!D p_in  : initial position of plate : mm :
+|!C t_div  : meshing division no. in plate thickness direction
+|!C l_div  : meshing division no. in plate long. direction
+|!D w_div  : meshing division no. in plate width direction
+|!D pl_m  : mesh size in plate length direction
+|!D pw_m  : mesh size in plate width direction
 |
-*eval_define p_thk %ENTRY THK%   |!P  --> From F2 this variable will not be used. 
-*eval_define p_wid %STP WID% |!P --> From F2 this variable will not be used. 
-*eval_define p_len %STP LEN%  |!P  --> From F2 this variable will be used for shotening.
-*eval_define p_ent_temp %ENTRY TEMP% |!P
+*eval_define p_thk %ENTRY THK%       |!P
+*eval_define p_wid %STP WID%      |!P
+*eval_define p_len %STP LEN%       |!P
+*eval_define p_ent_temp %ENTRY TEMP%  |!P
 *eval_define p_exit_temp %EXIT TEMP% |!P
-*eval_define p_in %p_in% |!D
+*eval_define p_in %p_in%       |!D
+*eval_define pl_m %pl_m%         |!D
 *eval_define t_div %t_div%           |!D
 *eval_define l_div p_len/pl_m  |!C
 *eval_define w_div p_wid/pl_m/2  |!C
-*eval_define pl_m p_len/l_div |!C
-*eval_define pw_m p_wid/w_div |!C
+*eval_define pw_m p_wid/w_div  |!C
 |
 |  Define Plate Velocity & Roll Rotation Parameters
 |
@@ -118,8 +120,8 @@
 |!C bur_trot : top backup roll rotational velocity : rad/s :
 |!C bur_brot : bottom backup roll rotational velocity : rad/s :
 |
-*eval_define mpm2mmps 1000.0/60.0          |!C
-*eval_define pl_vel_mpm %SPEED%              |!P
+*eval_define mpm2mmps 1000.0/60.0  |!C
+*eval_define pl_vel_mpm %SPEED%  |!P
 *eval_define pl_vel  pl_vel_mpm*mpm2mmps   |!C
 *eval_define wr_trot pl_vel/(wr_tdia/2)    |!C
 *eval_define wr_brot pl_vel/(wr_bdia/2)    |!C
@@ -128,16 +130,16 @@
 | 
 | Define Pass Information.
 |
-|!P  pass_line : Pass line : mm  : (P-CROSS)
+|!P  pass_line : Pass line : mm  : (PAS LINE)
 |!P  p_cross_ang : Pair cross Angle (P-CROSS)
 |!P  bend_f : Bender Force : tone : (BEND) 
-|!P  roll_torque : Rolling Torque : (TORQ) 
+|!P  roll_torque : Rolling Torque :   tone.m : (TORQ) 
 |!P  tens_f  : Tension Stress : kgf/mm2 : (TENS)
 |
-*eval_define pass_line %PAS LINE%                 |!P
-*eval_define p_cross_ang %P-CROSS%               |!P
-*eval_define roll_torque %TORQ%*9.8            |!P
-*eval_define bend_f %BEND%*1000.0*9.8         |!P
+*eval_define pass_line %PAS LINE%                |!P
+*eval_define p_cross_ang %P-CROSS%             |!P
+*eval_define roll_torque %TORQ%*9.8          |!P
+*eval_define bend_f %BEND%*1000.0*9.8       |!P
 *eval_define tens_f %TENS%*9.8*p_thk*p_wid   |!P
 |!C  Calculated Pass Line Adjustment : mm : 
 *eval_define pass_line_adj (p_thk-roll_gap)/2-pass_line
@@ -156,12 +158,11 @@
 |!C lcase_time : analysis time calculated by (thk*len)/(roll gap) : sec. :
 |!C lcase_inc : increment no. of loadcase
 |!D post_inc : Post writing increment.
-| -- *eval_define lcase_time (p_thk*p_len)/(roll_gap*pl_vel)  |!C
-| -- *eval_define lcase_dt %lcase_dt%/pl_vel    |!D
-*eval_define lcase_time p_len*1.2/pl_vel       |!C
-*eval_define lcase_inc 4000               |!D    
-*eval_define lcase_dt lcase_time/lcase_inc    |!D
+*eval_define lcase_time %lcase_time%       |!C
+*eval_define lcase_inc %lcase_inc%               |!D    
+*eval_define lcase_dt %lcase_dt%    |!D
 *eval_define post_inc %post_inc%    |!D
+
 |!D g_fac : Gravity Acc. Factor for applying intial velocity.
 *eval_define g_fac 4.0 |!D
 
@@ -179,11 +180,12 @@
 |%PR VALUE%  |Poisson's Ratio
 |%MD VALUE%  |Mass Density(Mg/mm^3)
 	
-|%inc_time%  |Increment time(sec.)
+|%ltime_scale%  | ltime_scale
 |%Domain%  |Domain
 |%Thread%  |Thread
 	
-|%speed_different_ratio%  |Speed Different Ratio
+|%vel_rate_top%  | Speed Different Ratio-top roll(%)
+|%vel_rate_bottom%  | Speed Different Ratio-bottom roll(%)
 |%wr_trot%  |Top WR Rot. Vel.(RPM)
 |%wr_brot%  |Bottom WR Rot. Vel.(RPM)
 |%bur_trot%  |Top BUR Rot. Vel.(RPM)

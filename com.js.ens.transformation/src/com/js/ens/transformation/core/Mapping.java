@@ -41,7 +41,8 @@ public class Mapping {
 				ArrayList<String> valueList = new ArrayList<String>();
 				valueList.add(splitDataTokens.get(1));
 				valueList.add(splitDataTokens.get(2));
-				valueList.add(splitDataTokens.get(3));				
+				valueList.add(splitDataTokens.get(3));
+				valueList.add(splitDataTokens.get(4));
 				
 				MappingMap.put(key,valueList);
 				dataSet.put("#"+key+"#", splitDataTokens.get(2));
@@ -58,7 +59,7 @@ public class Mapping {
 		}
 	}
 	
-	public String getProcVar(String key){
+	public String getEQVar(String key){
 		if(MappingMap.containsKey(key)){
 			return MappingMap.get(key).get(1);
 		}else{
@@ -66,9 +67,19 @@ public class Mapping {
 		}
 	}
 	
-	public String getUILabel(String key){
+	public String getProgVar(String key){
 		if(MappingMap.containsKey(key)){
 			return MappingMap.get(key).get(2);
+		}else{
+			return "no-MappingValue";
+		}
+	}
+	
+	
+	
+	public String getUILabel(String key){
+		if(MappingMap.containsKey(key)){
+			return MappingMap.get(key).get(3);
 		}else{
 			return "no-MappingValue";
 		}
@@ -129,7 +140,7 @@ public class Mapping {
 	public static String wr_thrm = "#wr_thrm#";
 
 	public static String ym_value = "#ym_value#";
-	public static String the_value = "#the_value#";
+	public static String tec_value = "#tec_value#";
 	public static String pr_value = "#pr_value#";
 	public static String md_value = "#md_value#";
 

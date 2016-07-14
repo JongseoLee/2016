@@ -95,7 +95,9 @@ public class MainController {
 	// tab2
 	private String StandValue = "F1";
 	//private ArrayList<TableData_PLog> F_ObjList = new ArrayList<TableData_PLog>();
-	
+	private String ApplyType = ""; // Consequent || Individual
+	private static String ApplyType_Consequent = "Consequent";
+	private static String ApplyType_Individual = "Individual";
 	
 	public MainController() {
 		// TODO Auto-generated constructor stub
@@ -118,6 +120,7 @@ public class MainController {
 		}else { 
 			PLogFilePath = path;
 			this.parsingPLogFile();
+			this.calcAllData("full");
 		}
 	}
 	
@@ -136,7 +139,6 @@ public class MainController {
 			initTableData_SlabPlateInfo(PLogFileDataList,tclObj);
 			initTableData_Variable(PLogFileDataList,tclObj);
 			initTableData_PLog(PLogFileDataList,tclObj);
-			
 			
 			this.updateTableData();
 		}else{
@@ -1421,6 +1423,8 @@ public class MainController {
 		med.getLblModelNameValue().setText(this.modelName);
 		med.getLblWorkspacePath().setText(this.workspace);
 		
+		this.calcAllData("full");
+		
 	}
 	
 	private void AllComponentEnable(){
@@ -1460,7 +1464,7 @@ public class MainController {
 		//System.out.println(DBFilePath);
 		this.CleanAllData();	//InitValue로 초기화
 		this.readDBFile(DBFilePath);
-		
+		this.calcAllData("full");
 	}
 	
 	private void readDBFile(String DBFilePath){
@@ -1481,7 +1485,7 @@ public class MainController {
 			}
 			
 			this.workspace = path;
-			System.out.println(this.workspace);
+			//System.out.println(this.workspace);
 			
 			med.getLblModelNameValue().setText(this.modelName);
 			med.getLblWorkspacePath().setText(this.workspace);
@@ -4083,6 +4087,7 @@ public class MainController {
 			//System.out.println(tableDataPLogList.get(6).getPR_Value());
 			break;
 		}
+		this.calcAllData("noFull");
 	}
 	
 	private void changedF1UIValues(){
@@ -4850,7 +4855,7 @@ public class MainController {
 	
 	
 	public void ChangedTextWidget(String value,String widgetName){
-		System.out.println("[ChangedTextWidget] widgetName : "+widgetName+"  ||  key : "+value);
+		//System.out.println("[ChangedTextWidget] widgetName : "+widgetName+"  ||  key : "+value);
 		switch(this.StandValue){
 			case "F1":
 				this.saveF1Values(value, widgetName);
@@ -4874,6 +4879,8 @@ public class MainController {
 				this.saveF7Values(value, widgetName);
 				break;
 		}
+		
+		this.calcAllData("noFull");
 	}
 	
 	private void saveF1Values(String value, String widgetName){
@@ -6310,69 +6317,928 @@ public class MainController {
 	//=====================================================================
 	// Equation function
 	//
-	public void calc_lcase_time(){
+	
+	public void calcAllData(String type){
+		if(type.equals("full")){
+			this.calc_lcase_time_full();
+			this.calc_lcase_dt_full();
+			this.calc_wr_brot_full();
+			this.calc_wr_trot_full();
+			this.calc_bur_trot_full();
+			this.calc_bur_brot_full();
+		}else{
+			this.calc_lcase_time();
+			this.calc_lcase_dt();
+			this.calc_wr_brot();
+			this.calc_wr_trot();
+			this.calc_bur_trot();
+			this.calc_bur_brot();
+		}
+	}
+	
+	private void calc_lcase_time(){
 		Equation eqObj = new Equation();
 		eqObj.readEquationFile();
-		Mapping mappingObj = new Mapping();
-		mappingObj.readMappingTableFile();
 		
 		String eqation = eqObj.getEquation(Equation.lcase_time);
+		String result = makeResult(eqation);
+		if(this.StandValue.equals(UILabel.F1)){
+			this.tableDataPLogList.get(0).setLcase_time(result);
+		}else if(this.StandValue.equals(UILabel.F2)){
+			this.tableDataPLogList.get(1).setLcase_time(result);
+		}else if(this.StandValue.equals(UILabel.F3)){
+			this.tableDataPLogList.get(2).setLcase_time(result);
+		}else if(this.StandValue.equals(UILabel.F4)){
+			this.tableDataPLogList.get(3).setLcase_time(result);
+		}else if(this.StandValue.equals(UILabel.F5)){
+			this.tableDataPLogList.get(4).setLcase_time(result);
+		}else if(this.StandValue.equals(UILabel.F6)){
+			this.tableDataPLogList.get(5).setLcase_time(result);
+		}else if(this.StandValue.equals(UILabel.F7)){
+			this.tableDataPLogList.get(6).setLcase_time(result);
+		}
+		med.getTextAnalysisTime().setText(result);
 		
 	}
 	
-	public void calc_lcase_dt(){
+	private void calc_lcase_dt(){
 		Equation eqObj = new Equation();
 		eqObj.readEquationFile();
-		Mapping mappingObj = new Mapping();
-		mappingObj.readMappingTableFile();
+		String eqation = eqObj.getEquation(Equation.lcase_dt);
+		String result = makeResult(eqation);
+		if(this.StandValue.equals(UILabel.F1)){
+			this.tableDataPLogList.get(0).setlcase_dt(result);
+		}else if(this.StandValue.equals(UILabel.F2)){
+			this.tableDataPLogList.get(1).setlcase_dt(result);
+		}else if(this.StandValue.equals(UILabel.F3)){
+			this.tableDataPLogList.get(2).setlcase_dt(result);
+		}else if(this.StandValue.equals(UILabel.F4)){
+			this.tableDataPLogList.get(3).setlcase_dt(result);
+		}else if(this.StandValue.equals(UILabel.F5)){
+			this.tableDataPLogList.get(4).setlcase_dt(result);
+		}else if(this.StandValue.equals(UILabel.F6)){
+			this.tableDataPLogList.get(5).setlcase_dt(result);
+		}else if(this.StandValue.equals(UILabel.F7)){
+			this.tableDataPLogList.get(6).setlcase_dt(result);
+		}
+		med.getTextTimeIncrement().setText(result);
+	}
+	
+	private void calc_wr_trot(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		String eqation = eqObj.getEquation(Equation.wr_trot);
+		String result = makeResult(eqation);
+		if(this.StandValue.equals(UILabel.F1)){
+			this.tableDataPLogList.get(0).setWr_trot(result);
+		}else if(this.StandValue.equals(UILabel.F2)){
+			this.tableDataPLogList.get(1).setWr_trot(result);
+		}else if(this.StandValue.equals(UILabel.F3)){
+			this.tableDataPLogList.get(2).setWr_trot(result);
+		}else if(this.StandValue.equals(UILabel.F4)){
+			this.tableDataPLogList.get(3).setWr_trot(result);
+		}else if(this.StandValue.equals(UILabel.F5)){
+			this.tableDataPLogList.get(4).setWr_trot(result);
+		}else if(this.StandValue.equals(UILabel.F6)){
+			this.tableDataPLogList.get(5).setWr_trot(result);
+		}else if(this.StandValue.equals(UILabel.F7)){
+			this.tableDataPLogList.get(6).setWr_trot(result);
+		}
+		med.getTextTopWRRotVel().setText(result);
+	}
+	
+	private void calc_wr_brot(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		String eqation = eqObj.getEquation(Equation.wr_brot);
+		String result = makeResult(eqation);
+		if(this.StandValue.equals(UILabel.F1)){
+			this.tableDataPLogList.get(0).setWr_brot(result);
+		}else if(this.StandValue.equals(UILabel.F2)){
+			this.tableDataPLogList.get(1).setWr_brot(result);
+		}else if(this.StandValue.equals(UILabel.F3)){
+			this.tableDataPLogList.get(2).setWr_brot(result);
+		}else if(this.StandValue.equals(UILabel.F4)){
+			this.tableDataPLogList.get(3).setWr_brot(result);
+		}else if(this.StandValue.equals(UILabel.F5)){
+			this.tableDataPLogList.get(4).setWr_brot(result);
+		}else if(this.StandValue.equals(UILabel.F6)){
+			this.tableDataPLogList.get(5).setWr_brot(result);
+		}else if(this.StandValue.equals(UILabel.F7)){
+			this.tableDataPLogList.get(6).setWr_brot(result);
+		}
+		med.getTextBottomWRRotVel().setText(result);
+	}
+	
+	private void calc_bur_trot(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		String eqation = eqObj.getEquation(Equation.bur_trot);
+		String result = makeResult(eqation);
+		if(this.StandValue.equals(UILabel.F1)){
+			this.tableDataPLogList.get(0).setBur_trot(result);
+		}else if(this.StandValue.equals(UILabel.F2)){
+			this.tableDataPLogList.get(1).setBur_trot(result);
+		}else if(this.StandValue.equals(UILabel.F3)){
+			this.tableDataPLogList.get(2).setBur_trot(result);
+		}else if(this.StandValue.equals(UILabel.F4)){
+			this.tableDataPLogList.get(3).setBur_trot(result);
+		}else if(this.StandValue.equals(UILabel.F5)){
+			this.tableDataPLogList.get(4).setBur_trot(result);
+		}else if(this.StandValue.equals(UILabel.F6)){
+			this.tableDataPLogList.get(5).setBur_trot(result);
+		}else if(this.StandValue.equals(UILabel.F7)){
+			this.tableDataPLogList.get(6).setBur_trot(result);
+		}
+		med.getTextTopBURRotVel().setText(result);
+	}
+	
+	private void calc_bur_brot(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		String eqation = eqObj.getEquation(Equation.bur_brot);
+		String result = makeResult(eqation);
+		if(this.StandValue.equals(UILabel.F1)){
+			this.tableDataPLogList.get(0).setBur_brot(result);
+		}else if(this.StandValue.equals(UILabel.F2)){
+			this.tableDataPLogList.get(1).setBur_brot(result);
+		}else if(this.StandValue.equals(UILabel.F3)){
+			this.tableDataPLogList.get(2).setBur_brot(result);
+		}else if(this.StandValue.equals(UILabel.F4)){
+			this.tableDataPLogList.get(3).setBur_brot(result);
+		}else if(this.StandValue.equals(UILabel.F5)){
+			this.tableDataPLogList.get(4).setBur_brot(result);
+		}else if(this.StandValue.equals(UILabel.F6)){
+			this.tableDataPLogList.get(5).setBur_brot(result);
+		}else if(this.StandValue.equals(UILabel.F7)){
+			this.tableDataPLogList.get(6).setBur_brot(result);
+		}
+		med.getTextBottomBURRotVel().setText(result);
 		
+	}
+	
+	
+	
+	
+	
+	
+	private void calc_lcase_time_full(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		String eqation = eqObj.getEquation(Equation.lcase_time);
+		makeResult_full(eqation,Equation.lcase_time);
 		
 	}
 	
-	public void calc_wr_trot(){
+	private void calc_lcase_dt_full(){
 		Equation eqObj = new Equation();
 		eqObj.readEquationFile();
-		Mapping mappingObj = new Mapping();
-		mappingObj.readMappingTableFile();
+		String eqation = eqObj.getEquation(Equation.lcase_dt);
+		makeResult_full(eqation,Equation.lcase_dt);
 	}
 	
-	public void calc_wr_brot(){
+	private void calc_wr_trot_full(){
 		Equation eqObj = new Equation();
 		eqObj.readEquationFile();
-		Mapping mappingObj = new Mapping();
-		mappingObj.readMappingTableFile();
+		String eqation = eqObj.getEquation(Equation.wr_trot);
+		makeResult_full(eqation,Equation.wr_trot);
 	}
 	
-	public void calc_bur_trot(){
+	private void calc_wr_brot_full(){
 		Equation eqObj = new Equation();
 		eqObj.readEquationFile();
-		Mapping mappingObj = new Mapping();
-		mappingObj.readMappingTableFile();
+		String eqation = eqObj.getEquation(Equation.wr_brot);
+		makeResult_full(eqation,Equation.wr_brot);
 	}
 	
-	public void clac_bur_brot(){
+	private void calc_bur_trot_full(){
 		Equation eqObj = new Equation();
 		eqObj.readEquationFile();
-		Mapping mappingObj = new Mapping();
-		mappingObj.readMappingTableFile();
+		String eqation = eqObj.getEquation(Equation.bur_trot);
+		makeResult_full(eqation,Equation.bur_trot);
+	}
+	
+	private void calc_bur_brot_full(){
+		Equation eqObj = new Equation();
+		eqObj.readEquationFile();
+		String eqation = eqObj.getEquation(Equation.bur_brot);
+		makeResult_full(eqation,Equation.bur_brot);
+	}
+	
+	
+	
+	
+	private void makeResult_full(String equation, String key){
+		String result = "";
+		String newEQ = "";
+		for(TableData_PLog obj : this.tableDataPLogList){
+			newEQ = equation;
+			//System.out.println(obj.getENTRY_THK());
+			if(newEQ.contains(Mapping.wr_tdia)){
+				String value = obj.getWR_TDIA();
+				newEQ = newEQ.replace(Mapping.wr_tdia, value);
+			}		
+			if(newEQ.contains(Mapping.wr_bdia)){
+				String value = obj.getWR_BDIA();
+				newEQ = newEQ.replace(Mapping.wr_bdia, value);
+			}
+			if(newEQ.contains(Mapping.bur_tdia)){
+				String value = obj.getBUR_TDIA();
+				newEQ = newEQ.replace(Mapping.bur_tdia, value);
+			}
+			if(newEQ.contains(Mapping.bur_bdia)){
+				String value = obj.getBUR_BDIA();
+				newEQ = newEQ.replace(Mapping.bur_bdia, value);
+			}
+			if(newEQ.contains(Mapping.wr_crown)){
+				String value = obj.getWR_ICRN();
+				newEQ = newEQ.replace(Mapping.wr_crown, value);
+			}
+			
+			if(newEQ.contains(Mapping.roll_gap)){
+				String value = obj.getROL_GAP();
+				newEQ = newEQ.replace(Mapping.roll_gap, value);
+			}
+			
+			if(newEQ.contains(Mapping.wr_div_angle)){
+				String value = obj.getWr_div_angle();
+				newEQ = newEQ.replace(Mapping.wr_div_angle, value);
+			}
+			if(newEQ.contains(Mapping.bur_div_angle)){
+				String value = obj.getBur_div_angle();
+				newEQ = newEQ.replace(Mapping.bur_div_angle, value);
+			}
+			
+			if(newEQ.contains(Mapping.wr_len)){
+				String value = obj.getWr_len();
+				newEQ = newEQ.replace(Mapping.wr_len, value);
+			}
+			if(newEQ.contains(Mapping.bur_len)){
+				String value = obj.getBur_len();
+				newEQ = newEQ.replace(Mapping.bur_len, value);
+			}
+			
+			if(newEQ.contains(Mapping.p_thk)){
+				String value = obj.getENTRY_THK();
+				newEQ = newEQ.replace(Mapping.p_thk, value);
+			}
+			if(newEQ.contains(Mapping.p_wid)){
+				String value = obj.getSTP_WID();
+				newEQ = newEQ.replace(Mapping.p_wid, value);
+			}
+			if(newEQ.contains(Mapping.p_len)){
+				String value = obj.getSTP_LEN();
+				newEQ = newEQ.replace(Mapping.p_len, value);
+			}
+			if(newEQ.contains(Mapping.p_ent_temp)){
+				String value = obj.getENTRY_TEMP();
+				newEQ = newEQ.replace(Mapping.p_ent_temp, value);
+			}
+			if(newEQ.contains(Mapping.p_exit_temp)){
+				String value = obj.getEXIT_TEMP();
+				newEQ = newEQ.replace(Mapping.p_exit_temp, value);
+			}
+			if(newEQ.contains(Mapping.p_in)){
+				String value = obj.getP_in();
+				newEQ = newEQ.replace(Mapping.p_in, value);
+			}
+			if(newEQ.contains(Mapping.pl_m)){
+				String value = obj.getPl_m();
+				newEQ = newEQ.replace(Mapping.pl_m, value);
+			}
+			if(newEQ.contains(Mapping.t_div)){
+				String value = obj.getT_div();
+				newEQ = newEQ.replace(Mapping.t_div, value);
+			}
+			
+			if(newEQ.contains(Mapping.pl_vel_mpm)){
+				String value = obj.getSPEED();
+				newEQ = newEQ.replace(Mapping.pl_vel_mpm, value);
+			}
+			
+			if(newEQ.contains(Mapping.pass_line)){
+				String value = obj.getPAS_LINE();
+				newEQ = newEQ.replace(Mapping.pass_line, value);
+			}
+			if(newEQ.contains(Mapping.p_cross_ang)){
+				String value = obj.getP_CROSS();
+				newEQ = newEQ.replace(Mapping.p_cross_ang, value);
+			}
+			if(newEQ.contains(Mapping.roll_torque)){
+				String value = obj.getTORQ();
+				newEQ = newEQ.replace(Mapping.roll_torque, value);
+			}
+			if(newEQ.contains(Mapping.bend_f)){
+				String value = obj.getBEND();
+				newEQ = newEQ.replace(Mapping.bend_f, value);
+			}
+			if(newEQ.contains(Mapping.tens_f)){
+				String value = obj.getTENS();
+				newEQ = newEQ.replace(Mapping.tens_f, value);
+			}
+			
+			if(newEQ.contains(Mapping.f_r2p)){
+				String value = obj.getF_r2p();
+				newEQ = newEQ.replace(Mapping.f_r2p, value);
+			}
+			if(newEQ.contains(Mapping.f_r2r)){
+				String value = obj.getF_r2r();
+				newEQ = newEQ.replace(Mapping.f_r2r, value);
+			}
+			
+			if(newEQ.contains(Mapping.lcase_inc)){
+				String value = obj.getlcase_inc();
+				newEQ = newEQ.replace(Mapping.lcase_inc, value);
+			}
+			if(newEQ.contains(Mapping.post_inc)){
+				String value = obj.getPost_inc();
+				newEQ = newEQ.replace(Mapping.post_inc, value);
+			}
+			
+			if(newEQ.contains(Mapping.frce)){
+				String value = obj.getFRCE();
+				newEQ = newEQ.replace(Mapping.frce, value);
+			}
+			if(newEQ.contains(Mapping.exit_thk)){
+				String value = obj.getEXIT_THK();
+				newEQ = newEQ.replace(Mapping.exit_thk, value);
+			}
+			if(newEQ.contains(Mapping.rol_tim)){
+				String value = obj.getROL_TIM();
+				newEQ = newEQ.replace(Mapping.rol_tim, value);
+			}
+			if(newEQ.contains(Mapping.idl_tim)){
+				String value = obj.getIDL_TIM();
+				newEQ = newEQ.replace(Mapping.idl_tim, value);
+			}
+			if(newEQ.contains(Mapping.bur_wear)){
+				String value = obj.getBUR_WEAR();
+				newEQ = newEQ.replace(Mapping.bur_wear, value);
+			}
+			if(newEQ.contains(Mapping.wr_wear)){
+				String value = obj.getWR_WEAR();
+				newEQ = newEQ.replace(Mapping.wr_wear, value);
+			}
+			if(newEQ.contains(Mapping.wr_thrm)){
+				String value = obj.getWR_THRM();
+				newEQ = newEQ.replace(Mapping.wr_thrm, value);
+			}
+			
+			if(newEQ.contains(Mapping.ym_value)){
+				String value = obj.getYM_Value();
+				newEQ = newEQ.replace(Mapping.ym_value, value);
+			}
+			if(newEQ.contains(Mapping.tec_value)){
+				String value = obj.getTEC_Value();
+				newEQ = newEQ.replace(Mapping.tec_value, value);
+			}
+			if(newEQ.contains(Mapping.pr_value)){
+				String value = obj.getPR_Value();
+				newEQ = newEQ.replace(Mapping.pr_value, value);
+			}
+			if(newEQ.contains(Mapping.md_value)){
+				String value = obj.getMD_Value();
+				newEQ = newEQ.replace(Mapping.md_value, value);
+			}
+			
+			if(newEQ.contains(Mapping.lcase_time)){
+				String value = obj.getLcase_time();
+				newEQ = newEQ.replace(Mapping.lcase_time, value);
+			}
+			if(newEQ.contains(Mapping.lcase_dt)){
+				String value = obj.getlcase_dt();
+				newEQ = newEQ.replace(Mapping.lcase_dt, value);
+			}
+			if(newEQ.contains(Mapping.ltime_scale)){
+				String value = obj.getLtime_scale();
+				newEQ = newEQ.replace(Mapping.ltime_scale, value);
+			}
+			if(newEQ.contains(Mapping.domain)){
+				String value = obj.getDomain();
+				newEQ = newEQ.replace(Mapping.domain, value);
+			}
+			if(newEQ.contains(Mapping.thread)){
+				String value = obj.getThread();
+				newEQ = newEQ.replace(Mapping.thread, value);
+			}
+			
+			if(newEQ.contains(Mapping.vel_rate_top)){
+				String value = obj.getSpeed_different_ratio_top_roll();
+				newEQ = newEQ.replace(Mapping.vel_rate_top, value);
+			}
+			if(newEQ.contains(Mapping.vel_rate_bottom)){
+				String value = obj.getSpeed_different_ratio_bottom_roll();
+				newEQ = newEQ.replace(Mapping.vel_rate_bottom, value);
+			}
+			if(newEQ.contains(Mapping.wr_trot)){
+				String value = obj.getWr_trot();
+				newEQ = newEQ.replace(Mapping.wr_trot, value);
+			}
+			if(newEQ.contains(Mapping.wr_brot)){
+				String value = obj.getWr_brot();
+				newEQ = newEQ.replace(Mapping.wr_brot, value);
+			}
+			if(newEQ.contains(Mapping.bur_trot)){
+				String value = obj.getBur_brot();
+				newEQ = newEQ.replace(Mapping.bur_trot, value);
+			}
+			if(newEQ.contains(Mapping.bur_brot)){
+				String value = obj.getBur_trot();
+				newEQ = newEQ.replace(Mapping.bur_brot, value);
+			}
+			
+			if(newEQ.contains(Mapping.var1)){
+				String value = this.TableDataVariableObj.getVAR1();
+				newEQ = newEQ.replace(Mapping.var1, value);
+			}
+			if(newEQ.contains(Mapping.var2)){
+				String value = this.TableDataVariableObj.getVAR2();
+				newEQ = newEQ.replace(Mapping.var2, value);
+			}
+			if(newEQ.contains(Mapping.var3)){
+				String value = this.TableDataVariableObj.getVAR3();
+				newEQ = newEQ.replace(Mapping.var3, value);
+			}
+			if(newEQ.contains(Mapping.var4)){
+				String value = this.TableDataVariableObj.getVAR4();
+				newEQ = newEQ.replace(Mapping.var4, value);
+			}
+			if(newEQ.contains(Mapping.var5)){
+				String value = this.TableDataVariableObj.getVAR5();
+				newEQ = newEQ.replace(Mapping.var5, value);
+			}
+			if(newEQ.contains(Mapping.var6)){
+				String value = this.TableDataVariableObj.getVAR6();
+				newEQ = newEQ.replace(Mapping.var6, value);
+			}
+			if(newEQ.contains(Mapping.var7)){
+				String value = this.TableDataVariableObj.getVAR7();
+				newEQ = newEQ.replace(Mapping.var7, value);
+			}
+			if(newEQ.contains(Mapping.var8)){
+				String value = this.TableDataVariableObj.getVAR8();
+				newEQ = newEQ.replace(Mapping.var8, value);
+			}
+			if(newEQ.contains(Mapping.var9)){
+				String value = this.TableDataVariableObj.getVAR9();
+				newEQ = newEQ.replace(Mapping.var9, value);
+			}
+			if(newEQ.contains(Mapping.var10)){
+				String value = this.TableDataVariableObj.getVAR10();
+				newEQ = newEQ.replace(Mapping.var10, value);
+			}
+			if(newEQ.contains(Mapping.var11)){
+				String value = this.TableDataVariableObj.getVAR11();
+				newEQ = newEQ.replace(Mapping.var11, value);
+			}
+			if(newEQ.contains(Mapping.var12)){
+				String value = this.TableDataVariableObj.getVAR12();
+				newEQ = newEQ.replace(Mapping.var12, value);
+			}
+			if(newEQ.contains(Mapping.var13)){
+				String value = this.TableDataVariableObj.getVAR13();
+				newEQ = newEQ.replace(Mapping.var13, value);
+			}
+			if(newEQ.contains(Mapping.var14)){
+				String value = this.TableDataVariableObj.getVAR14();
+				newEQ = newEQ.replace(Mapping.var14, value);
+			}
+			if(newEQ.contains(Mapping.var15)){
+				String value = this.TableDataVariableObj.getVAR15();
+				newEQ = newEQ.replace(Mapping.var15, value);
+			}
+			if(newEQ.contains(Mapping.var16)){
+				String value = this.TableDataVariableObj.getVAR16();
+				newEQ = newEQ.replace(Mapping.var16, value);
+			}
+			
+			if(newEQ.contains(Mapping.sthk)){
+				String value = this.TableDataSlabPlateInfoObj.getSTHK();
+				newEQ = newEQ.replace(Mapping.sthk, value);
+			}
+			if(newEQ.contains(Mapping.swid)){
+				String value = this.TableDataSlabPlateInfoObj.getSWID();
+				newEQ = newEQ.replace(Mapping.swid, value);
+			}
+			if(newEQ.contains(Mapping.slen)){
+				String value = this.TableDataSlabPlateInfoObj.getSLEN();
+				newEQ = newEQ.replace(Mapping.slen, value);
+			}
+			if(newEQ.contains(Mapping.swet)){
+				String value = this.TableDataSlabPlateInfoObj.getSWET();
+				newEQ = newEQ.replace(Mapping.swet, value);
+			}
+			if(newEQ.contains(Mapping.pthk)){
+				String value = this.TableDataSlabPlateInfoObj.getPTHK();
+				newEQ = newEQ.replace(Mapping.pthk, value);
+			}
+			if(newEQ.contains(Mapping.pwid)){
+				String value = this.TableDataSlabPlateInfoObj.getPWID();
+				newEQ = newEQ.replace(Mapping.pwid, value);
+			}
+			if(newEQ.contains(Mapping.plen)){
+				String value = this.TableDataSlabPlateInfoObj.getPLEN();
+				newEQ = newEQ.replace(Mapping.plen, value);
+			}
+			if(newEQ.contains(Mapping.pwet)){
+				String value = this.TableDataSlabPlateInfoObj.getPWET();
+				newEQ = newEQ.replace(Mapping.pwet, value);
+			}
+			
+			ScriptEngineManager mgr = new ScriptEngineManager();
+			ScriptEngine engine = mgr.getEngineByName("JavaScript");
+			
+			try {
+				result = String.valueOf(engine.eval(newEQ));
+				//System.out.println("New EQ Result : "+ engine.eval(newEQ));
+				
+			} catch (ScriptException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			//System.out.println("FULL calc : "+obj.getSTAND() + " || " + result + " || " + key );
+			//System.out.println("==> eq : "+equation);
+			//System.out.println("==> newEQ : "+ newEQ);
+			
+			if(key.equals(Equation.lcase_time)){
+				obj.setLcase_time(result);
+			}else if(key.equals(Equation.lcase_dt)){
+				obj.setlcase_dt(result);
+			}else if(key.equals(Equation.wr_trot)){
+				obj.setWr_trot(result);
+			}else if(key.equals(Equation.wr_brot)){
+				obj.setWr_brot(result);
+			}else if(key.equals(Equation.bur_trot)){
+				obj.setBur_trot(result);
+			}else if(key.equals(Equation.bur_brot)){
+				obj.setBur_brot(result);
+			}
+			
+		}
 	}
 	
 	private String makeResult(String eqation){
+		//Mapping mappingObj = new Mapping();
+		//mappingObj.readMappingTableFile();
+		TableData_PLog obj = getPLogObj();
+		//System.out.println("ORI EQ : "+eqation);
+		String newEQ = eqation;
 		
-		String newline ="";
+		
+		if(newEQ.contains(Mapping.wr_tdia)){
+			String value = obj.getWR_TDIA();
+			newEQ = newEQ.replace(Mapping.wr_tdia, value);
+		}		
+		if(newEQ.contains(Mapping.wr_bdia)){
+			String value = obj.getWR_BDIA();
+			newEQ = newEQ.replace(Mapping.wr_bdia, value);
+		}
+		if(newEQ.contains(Mapping.bur_tdia)){
+			String value = obj.getBUR_TDIA();
+			newEQ = newEQ.replace(Mapping.bur_tdia, value);
+		}
+		if(newEQ.contains(Mapping.bur_bdia)){
+			String value = obj.getBUR_BDIA();
+			newEQ = newEQ.replace(Mapping.bur_bdia, value);
+		}
+		if(newEQ.contains(Mapping.wr_crown)){
+			String value = obj.getWR_ICRN();
+			newEQ = newEQ.replace(Mapping.wr_crown, value);
+		}
+		
+		if(newEQ.contains(Mapping.roll_gap)){
+			String value = obj.getROL_GAP();
+			newEQ = newEQ.replace(Mapping.roll_gap, value);
+		}
+		
+		if(newEQ.contains(Mapping.wr_div_angle)){
+			String value = obj.getWr_div_angle();
+			newEQ = newEQ.replace(Mapping.wr_div_angle, value);
+		}
+		if(newEQ.contains(Mapping.bur_div_angle)){
+			String value = obj.getBur_div_angle();
+			newEQ = newEQ.replace(Mapping.bur_div_angle, value);
+		}
+		
+		if(newEQ.contains(Mapping.wr_len)){
+			String value = obj.getWr_len();
+			newEQ = newEQ.replace(Mapping.wr_len, value);
+		}
+		if(newEQ.contains(Mapping.bur_len)){
+			String value = obj.getBur_len();
+			newEQ = newEQ.replace(Mapping.bur_len, value);
+		}
+		
+		if(newEQ.contains(Mapping.p_thk)){
+			String value = obj.getENTRY_THK();
+			newEQ = newEQ.replace(Mapping.p_thk, value);
+		}
+		if(newEQ.contains(Mapping.p_wid)){
+			String value = obj.getSTP_WID();
+			newEQ = newEQ.replace(Mapping.p_wid, value);
+		}
+		if(newEQ.contains(Mapping.p_len)){
+			String value = obj.getSTP_LEN();
+			newEQ = newEQ.replace(Mapping.p_len, value);
+		}
+		if(newEQ.contains(Mapping.p_ent_temp)){
+			String value = obj.getENTRY_TEMP();
+			newEQ = newEQ.replace(Mapping.p_ent_temp, value);
+		}
+		if(newEQ.contains(Mapping.p_exit_temp)){
+			String value = obj.getEXIT_TEMP();
+			newEQ = newEQ.replace(Mapping.p_exit_temp, value);
+		}
+		if(newEQ.contains(Mapping.p_in)){
+			String value = obj.getP_in();
+			newEQ = newEQ.replace(Mapping.p_in, value);
+		}
+		if(newEQ.contains(Mapping.pl_m)){
+			String value = obj.getPl_m();
+			newEQ = newEQ.replace(Mapping.pl_m, value);
+		}
+		if(newEQ.contains(Mapping.t_div)){
+			String value = obj.getT_div();
+			newEQ = newEQ.replace(Mapping.t_div, value);
+		}
+		
+		if(newEQ.contains(Mapping.pl_vel_mpm)){
+			String value = obj.getSPEED();
+			newEQ = newEQ.replace(Mapping.pl_vel_mpm, value);
+		}
+		
+		if(newEQ.contains(Mapping.pass_line)){
+			String value = obj.getPAS_LINE();
+			newEQ = newEQ.replace(Mapping.pass_line, value);
+		}
+		if(newEQ.contains(Mapping.p_cross_ang)){
+			String value = obj.getP_CROSS();
+			newEQ = newEQ.replace(Mapping.p_cross_ang, value);
+		}
+		if(newEQ.contains(Mapping.roll_torque)){
+			String value = obj.getTORQ();
+			newEQ = newEQ.replace(Mapping.roll_torque, value);
+		}
+		if(newEQ.contains(Mapping.bend_f)){
+			String value = obj.getBEND();
+			newEQ = newEQ.replace(Mapping.bend_f, value);
+		}
+		if(newEQ.contains(Mapping.tens_f)){
+			String value = obj.getTENS();
+			newEQ = newEQ.replace(Mapping.tens_f, value);
+		}
+		
+		if(newEQ.contains(Mapping.f_r2p)){
+			String value = obj.getF_r2p();
+			newEQ = newEQ.replace(Mapping.f_r2p, value);
+		}
+		if(newEQ.contains(Mapping.f_r2r)){
+			String value = obj.getF_r2r();
+			newEQ = newEQ.replace(Mapping.f_r2r, value);
+		}
+		
+		if(newEQ.contains(Mapping.lcase_inc)){
+			String value = obj.getlcase_inc();
+			newEQ = newEQ.replace(Mapping.lcase_inc, value);
+		}
+		if(newEQ.contains(Mapping.post_inc)){
+			String value = obj.getPost_inc();
+			newEQ = newEQ.replace(Mapping.post_inc, value);
+		}
+		
+		if(newEQ.contains(Mapping.frce)){
+			String value = obj.getFRCE();
+			newEQ = newEQ.replace(Mapping.frce, value);
+		}
+		if(newEQ.contains(Mapping.exit_thk)){
+			String value = obj.getEXIT_THK();
+			newEQ = newEQ.replace(Mapping.exit_thk, value);
+		}
+		if(newEQ.contains(Mapping.rol_tim)){
+			String value = obj.getROL_TIM();
+			newEQ = newEQ.replace(Mapping.rol_tim, value);
+		}
+		if(newEQ.contains(Mapping.idl_tim)){
+			String value = obj.getIDL_TIM();
+			newEQ = newEQ.replace(Mapping.idl_tim, value);
+		}
+		if(newEQ.contains(Mapping.bur_wear)){
+			String value = obj.getBUR_WEAR();
+			newEQ = newEQ.replace(Mapping.bur_wear, value);
+		}
+		if(newEQ.contains(Mapping.wr_wear)){
+			String value = obj.getWR_WEAR();
+			newEQ = newEQ.replace(Mapping.wr_wear, value);
+		}
+		if(newEQ.contains(Mapping.wr_thrm)){
+			String value = obj.getWR_THRM();
+			newEQ = newEQ.replace(Mapping.wr_thrm, value);
+		}
+		
+		if(newEQ.contains(Mapping.ym_value)){
+			String value = obj.getYM_Value();
+			newEQ = newEQ.replace(Mapping.ym_value, value);
+		}
+		if(newEQ.contains(Mapping.tec_value)){
+			String value = obj.getTEC_Value();
+			newEQ = newEQ.replace(Mapping.tec_value, value);
+		}
+		if(newEQ.contains(Mapping.pr_value)){
+			String value = obj.getPR_Value();
+			newEQ = newEQ.replace(Mapping.pr_value, value);
+		}
+		if(newEQ.contains(Mapping.md_value)){
+			String value = obj.getMD_Value();
+			newEQ = newEQ.replace(Mapping.md_value, value);
+		}
+		
+		if(newEQ.contains(Mapping.lcase_time)){
+			String value = obj.getLcase_time();
+			newEQ = newEQ.replace(Mapping.lcase_time, value);
+		}
+		if(newEQ.contains(Mapping.lcase_dt)){
+			String value = obj.getlcase_dt();
+			newEQ = newEQ.replace(Mapping.lcase_dt, value);
+		}
+		if(newEQ.contains(Mapping.ltime_scale)){
+			String value = obj.getLtime_scale();
+			newEQ = newEQ.replace(Mapping.ltime_scale, value);
+		}
+		if(newEQ.contains(Mapping.domain)){
+			String value = obj.getDomain();
+			newEQ = newEQ.replace(Mapping.domain, value);
+		}
+		if(newEQ.contains(Mapping.thread)){
+			String value = obj.getThread();
+			newEQ = newEQ.replace(Mapping.thread, value);
+		}
+		
+		if(newEQ.contains(Mapping.vel_rate_top)){
+			String value = obj.getSpeed_different_ratio_top_roll();
+			newEQ = newEQ.replace(Mapping.vel_rate_top, value);
+		}
+		if(newEQ.contains(Mapping.vel_rate_bottom)){
+			String value = obj.getSpeed_different_ratio_bottom_roll();
+			newEQ = newEQ.replace(Mapping.vel_rate_bottom, value);
+		}
+		if(newEQ.contains(Mapping.wr_trot)){
+			String value = obj.getWr_trot();
+			newEQ = newEQ.replace(Mapping.wr_trot, value);
+		}
+		if(newEQ.contains(Mapping.wr_brot)){
+			String value = obj.getWr_brot();
+			newEQ = newEQ.replace(Mapping.wr_brot, value);
+		}
+		if(newEQ.contains(Mapping.bur_trot)){
+			String value = obj.getBur_brot();
+			newEQ = newEQ.replace(Mapping.bur_trot, value);
+		}
+		if(newEQ.contains(Mapping.bur_brot)){
+			String value = obj.getBur_trot();
+			newEQ = newEQ.replace(Mapping.bur_brot, value);
+		}
+		
+		if(newEQ.contains(Mapping.var1)){
+			String value = this.TableDataVariableObj.getVAR1();
+			newEQ = newEQ.replace(Mapping.var1, value);
+		}
+		if(newEQ.contains(Mapping.var2)){
+			String value = this.TableDataVariableObj.getVAR2();
+			newEQ = newEQ.replace(Mapping.var2, value);
+		}
+		if(newEQ.contains(Mapping.var3)){
+			String value = this.TableDataVariableObj.getVAR3();
+			newEQ = newEQ.replace(Mapping.var3, value);
+		}
+		if(newEQ.contains(Mapping.var4)){
+			String value = this.TableDataVariableObj.getVAR4();
+			newEQ = newEQ.replace(Mapping.var4, value);
+		}
+		if(newEQ.contains(Mapping.var5)){
+			String value = this.TableDataVariableObj.getVAR5();
+			newEQ = newEQ.replace(Mapping.var5, value);
+		}
+		if(newEQ.contains(Mapping.var6)){
+			String value = this.TableDataVariableObj.getVAR6();
+			newEQ = newEQ.replace(Mapping.var6, value);
+		}
+		if(newEQ.contains(Mapping.var7)){
+			String value = this.TableDataVariableObj.getVAR7();
+			newEQ = newEQ.replace(Mapping.var7, value);
+		}
+		if(newEQ.contains(Mapping.var8)){
+			String value = this.TableDataVariableObj.getVAR8();
+			newEQ = newEQ.replace(Mapping.var8, value);
+		}
+		if(newEQ.contains(Mapping.var9)){
+			String value = this.TableDataVariableObj.getVAR9();
+			newEQ = newEQ.replace(Mapping.var9, value);
+		}
+		if(newEQ.contains(Mapping.var10)){
+			String value = this.TableDataVariableObj.getVAR10();
+			newEQ = newEQ.replace(Mapping.var10, value);
+		}
+		if(newEQ.contains(Mapping.var11)){
+			String value = this.TableDataVariableObj.getVAR11();
+			newEQ = newEQ.replace(Mapping.var11, value);
+		}
+		if(newEQ.contains(Mapping.var12)){
+			String value = this.TableDataVariableObj.getVAR12();
+			newEQ = newEQ.replace(Mapping.var12, value);
+		}
+		if(newEQ.contains(Mapping.var13)){
+			String value = this.TableDataVariableObj.getVAR13();
+			newEQ = newEQ.replace(Mapping.var13, value);
+		}
+		if(newEQ.contains(Mapping.var14)){
+			String value = this.TableDataVariableObj.getVAR14();
+			newEQ = newEQ.replace(Mapping.var14, value);
+		}
+		if(newEQ.contains(Mapping.var15)){
+			String value = this.TableDataVariableObj.getVAR15();
+			newEQ = newEQ.replace(Mapping.var15, value);
+		}
+		if(newEQ.contains(Mapping.var16)){
+			String value = this.TableDataVariableObj.getVAR16();
+			newEQ = newEQ.replace(Mapping.var16, value);
+		}
+		
+		if(newEQ.contains(Mapping.sthk)){
+			String value = this.TableDataSlabPlateInfoObj.getSTHK();
+			newEQ = newEQ.replace(Mapping.sthk, value);
+		}
+		if(newEQ.contains(Mapping.swid)){
+			String value = this.TableDataSlabPlateInfoObj.getSWID();
+			newEQ = newEQ.replace(Mapping.swid, value);
+		}
+		if(newEQ.contains(Mapping.slen)){
+			String value = this.TableDataSlabPlateInfoObj.getSLEN();
+			newEQ = newEQ.replace(Mapping.slen, value);
+		}
+		if(newEQ.contains(Mapping.swet)){
+			String value = this.TableDataSlabPlateInfoObj.getSWET();
+			newEQ = newEQ.replace(Mapping.swet, value);
+		}
+		if(newEQ.contains(Mapping.pthk)){
+			String value = this.TableDataSlabPlateInfoObj.getPTHK();
+			newEQ = newEQ.replace(Mapping.pthk, value);
+		}
+		if(newEQ.contains(Mapping.pwid)){
+			String value = this.TableDataSlabPlateInfoObj.getPWID();
+			newEQ = newEQ.replace(Mapping.pwid, value);
+		}
+		if(newEQ.contains(Mapping.plen)){
+			String value = this.TableDataSlabPlateInfoObj.getPLEN();
+			newEQ = newEQ.replace(Mapping.plen, value);
+		}
+		if(newEQ.contains(Mapping.pwet)){
+			String value = this.TableDataSlabPlateInfoObj.getPWET();
+			newEQ = newEQ.replace(Mapping.pwet, value);
+		}
+		
+		
+		//System.out.println("New EQ : "+newEQ);
+		
 		
 		ScriptEngineManager mgr = new ScriptEngineManager();
 		ScriptEngine engine = mgr.getEngineByName("JavaScript");
+		String result = "";
 		try {
-			System.out.println("Result : "+ engine.eval(newline));
+			result = String.valueOf(engine.eval(newEQ));
+			//System.out.println("New EQ Result : "+ engine.eval(newEQ));
+			
 		} catch (ScriptException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
-		return "";
+		//System.out.println("STAND : "+ this.StandValue);
+		//System.out.println("=================================");
+		return result;
 	}
+	
+	private TableData_PLog getPLogObj(){
+		if(this.StandValue.equals(UILabel.F1)){
+			return this.tableDataPLogList.get(0);
+		}else if(this.StandValue.equals(UILabel.F2)){
+			return this.tableDataPLogList.get(1);
+		}else if(this.StandValue.equals(UILabel.F3)){
+			return this.tableDataPLogList.get(2);
+		}else if(this.StandValue.equals(UILabel.F4)){
+			return this.tableDataPLogList.get(3);
+		}else if(this.StandValue.equals(UILabel.F5)){
+			return this.tableDataPLogList.get(4);
+		}else if(this.StandValue.equals(UILabel.F6)){
+			return this.tableDataPLogList.get(5);
+		}else if(this.StandValue.equals(UILabel.F7)){
+			return this.tableDataPLogList.get(6);
+		}else {
+			return null;
+		}
+	}
+	
+	
 	
 	
 	
@@ -6410,6 +7276,12 @@ public class MainController {
 	}
 	public void setTableDataPLogList(ArrayList<TableData_PLog> tableDataPLogList) {
 		this.tableDataPLogList = tableDataPLogList;
+	}
+	public String getApplyType() {
+		return ApplyType;
+	}
+	public void setApplyType(String applyType) {
+		ApplyType = applyType;
 	}
 	
 }
