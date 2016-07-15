@@ -6865,7 +6865,8 @@ public class MainController {
 			ScriptEngine engine = mgr.getEngineByName("JavaScript");
 			
 			try {
-				result = String.valueOf(engine.eval(newEQ));
+				//result = String.valueOf(engine.eval(newEQ));
+				result = String.format("%.2f", engine.eval(newEQ));
 				//System.out.println("New EQ Result : "+ engine.eval(newEQ));
 				
 			} catch (ScriptException e) {
@@ -7221,7 +7222,9 @@ public class MainController {
 		ScriptEngine engine = mgr.getEngineByName("JavaScript");
 		String result = "";
 		try {
-			result = String.valueOf(engine.eval(newEQ));
+			//result = String.valueOf(engine.eval(newEQ));
+			result = String.format("%.2f", engine.eval(newEQ));
+			
 			//System.out.println("New EQ Result : "+ engine.eval(newEQ));
 			
 		} catch (ScriptException e) {
