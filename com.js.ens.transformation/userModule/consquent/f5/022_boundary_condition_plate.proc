@@ -1,0 +1,13 @@
+| Created by Marc Mentat 2014.0.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+*new_apply *apply_type gravity_load @popdown(apply_new_pm)
+*apply_name plate_gravity
+*apply_dof y *apply_dof_value y
+*apply_dof_value y -9800
+*add_apply_elements plate
+*select_clear
+*invisible_selected

@@ -1,0 +1,23 @@
+| Created by Marc Mentat 2014.0.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+|
+|  Define Parameters for modeling
+*exec_procedure 01_define_parameters_f1.proc
+| Generate Rolls
+*exec_procedure 03_rolls_gen_f1_f3.proc
+| Generate Plate for individual run
+*exec_procedure 02_plate_gen_i.proc 
+|
+| Assy Parts & Material/Contact Definintion
+|
+*exec_procedure 04_assy_parts_f1_f7.proc
+| Define LoadCase & Jobs
+*exec_procedure 05_load_case.proc 
+*exec_procedure 06_job_f1_f7.proc
+| ADD Global Remeshing & Adjust Loadcase
+|*exec_procedure 07_add_global_remesh_f2_f7.proc
+|*exec_procedure a01_add_push_plate.proc
+*exec_procedure a02_add_pull_pressure.proc
+| Since push plate cause some problems, add plate method is blocked 
+*save_as_model %model%_f1.mud yes

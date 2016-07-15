@@ -1,0 +1,30 @@
+| Created by Marc Mentat 2014.0.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*prog_use_current_job on *new_job *job_class structural
+*add_job_loadcases lcase1
+*job_option frictype:coulomb_bilinear
+*job_contact_table ctable1
+*add_post_tensor stress
+*add_post_tensor strain
+*add_post_tensor el_strain
+*add_post_tensor pl_strain
+*add_post_var temperature
+*job_option strain:large
+*job_option large_strn_proc:upd_lagrange
+*job_option allow_tot_lagrange:off
+*job_option write_spline_files:on
+*job_param spline_files_freq 10000
+*element_type 7 all_existing
+*job_option contact_method:segment_segment
+*job_option seg_seg_contact_presets:version_2
+*job_option lump:on
+*job_option create_model_sections:model
+*save_as_model plate yes
+*job_submit_reset
+*submit_job 1 
+*monitor_job
