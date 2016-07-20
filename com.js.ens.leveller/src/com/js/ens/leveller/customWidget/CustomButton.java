@@ -56,6 +56,7 @@ public class CustomButton implements ICommand {
 		if(widgetName.equals(Mediator.BUTTON_btnShowRollTable)){
 			ShowRollTableDlg showRollTableDlg = new ShowRollTableDlg(Display.getCurrent().getActiveShell());
 			showRollTableDlg.open();
+			
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_RadioNone_RC)){

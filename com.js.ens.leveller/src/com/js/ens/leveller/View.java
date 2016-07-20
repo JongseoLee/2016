@@ -2159,7 +2159,7 @@ public class View extends ViewPart {
 		med.getSpinnerDomain().addListener(SWT.Selection, handlerSpinner);
 		med.getSpinnerThread().addListener(SWT.Selection, handlerSpinner);
 		
-		HandlerTableViewer handlerTableViewer = new HandlerTableViewer();
+		//HandlerTableViewer handlerTableViewer = new HandlerTableViewer();
 		//med.getTableViewerUpperRoll().addSelectionChangedListener(handlerTableViewer);
 		//med.getTableViewerLowerRoll().addSelectionChangedListener(handlerTableViewer);
 	}

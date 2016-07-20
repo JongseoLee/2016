@@ -367,6 +367,36 @@ public class LevellerMain {
 			med.getTextMillStiffness().setEnabled(true);
 		}
 		
+		//update 2017.07.20 leveller version3
+		med.getTextUpperEntryRollGapMovement().setText(InitValueMap.get("UpperEntryRollGapMovement"));
+		med.getTextUpperExitRollGapMovement().setText(InitValueMap.get("UpperExitRollGapMovement"));
+		med.getTextUpperRollGapStayingTime().setText(InitValueMap.get("UpperRollGapStayingTime"));
+		med.getTextUpperRollGapMovingTime().setText(InitValueMap.get("UpperRollGapMovingTime"));
+		med.getTextLowerEntryRollGapMovement().setText(InitValueMap.get("LowerEntryRollGapMovement"));
+		med.getTextLowerExitRollGapMovement().setText(InitValueMap.get("LowerExitRollGapMovement"));
+		med.getTextLowerRollGapStayingTime().setText(InitValueMap.get("LowerRollGapStayingTime"));
+		med.getTextLowerRollGapMovingTime().setText(InitValueMap.get("LowerRollGapMovingTime"));
+		String RollType = InitValueMap.get("HDRollType");
+		if(RollType.equals("None")){
+			med.getBtnUpper().setSelection(false);
+			med.getBtnLower().setSelection(false);
+			med.getBtnNone().setSelection(true);
+		}else if(RollType.equals("Upper")){
+			med.getBtnNone().setSelection(false);
+			med.getBtnLower().setSelection(false);
+			med.getBtnUpper().setSelection(true);
+		}else if(RollType.equals("Lower")){
+			med.getBtnNone().setSelection(false);
+			med.getBtnUpper().setSelection(false);
+			med.getBtnLower().setSelection(true);
+		}
+		med.getTextFrontHDRollDia().setText(InitValueMap.get("FrontHDRollDia"));
+		med.getTextFrontHDRollPitch().setText(InitValueMap.get("FrontHDRollPitch"));
+		med.getTextFrontHDRollVericalPos().setText(InitValueMap.get("FrontHDRollVericalPos"));
+		med.getTextRearHDRollDia().setText(InitValueMap.get("RearHDRollDia"));
+		med.getTextRearHDRollPitch().setText(InitValueMap.get("RearHDRollPitch"));
+		med.getTextRearHDRollVerticalPos().setText(InitValueMap.get("RearHDRollVerticalPos"));
+		
 		
 		CreateRoll();
 		
@@ -638,7 +668,8 @@ public class LevellerMain {
 			initUpperTableData();
 			initLowerTableData();
 			
-			updateTableData();
+			// update version3 this function is called by show roll table button
+			//updateTableData();
 			
 			calcSolvingTime();
 			/*
@@ -704,6 +735,10 @@ public class LevellerMain {
 		
 	}
 	
+	public void showRollTable(){
+		//CreateRoll();
+		updateTableData();
+	}
 	public void updateTableData(){
 		try{
 			med.getTableViewerUpperRoll().setLabelProvider(new TableViewerLabelProvider_up());

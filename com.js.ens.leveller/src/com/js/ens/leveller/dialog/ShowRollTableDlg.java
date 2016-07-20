@@ -21,6 +21,9 @@ import com.js.ens.leveller.core.TableColumnLabel;
 import com.js.ens.leveller.core.TextLabel_UI;
 import com.js.ens.leveller.customWidget.CustomButton;
 import com.js.ens.leveller.customWidget.CustomTableViewer;
+import com.js.ens.leveller.handler.HandlerButton;
+import com.js.ens.leveller.handler.HandlerTableViewer;
+
 import org.eclipse.swt.layout.FormLayout;
 
 public class ShowRollTableDlg extends Dialog {
@@ -108,6 +111,13 @@ public class ShowRollTableDlg extends Dialog {
 		btnSaveRoll.setText("Save Roll");
 		// */ 
 		
+		LMain.showRollTable();
+		
+		HandlerTableViewer handlerTableViewer = new HandlerTableViewer();
+		med.getTableViewerUpperRoll().addSelectionChangedListener(handlerTableViewer);
+		med.getTableViewerLowerRoll().addSelectionChangedListener(handlerTableViewer);
+		HandlerButton handlerButton = new HandlerButton();
+		med.getBtnSaveRoll().addListener(SWT.Selection, handlerButton);
 		
 		return container;
 	}
