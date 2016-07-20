@@ -1,14 +1,14 @@
 //Plate shape parameter
-Width=3000
-Length=5000
-Thickness=30
+Width=3000.0
+Length=5000.0
+Thickness=30.0
 //Plate shape parameter-Type2 
-type2_LeftEdgeWavePitch=1000
-type2_RightEdgeWavePitch=1000
-type2_LeftEdgeWaveHeight=20
-type2_RightEdgeWaveHeight=20
-type2_LeftEdgeWavePhase=0
-type2_RightEdgeWavePhase=0
+type2_LeftEdgeWavePitch=1000.0
+type2_RightEdgeWavePitch=1000.0
+type2_LeftEdgeWaveHeight=20.0
+type2_RightEdgeWaveHeight=20.0
+type2_LeftEdgeWavePhase=0.0
+type2_RightEdgeWavePhase=0.0
 //Plate shape parameter-Type3
 type3_WavePitch=1000
 type3_WaveHeight=20
@@ -34,29 +34,47 @@ WidthAspectRatio=1
 LengthAspectRatio=1
 
 // Plate Information
-PlateVelocity=1000
-TemperatureStart=750
-TemperatureEnd=650
+PlateVelocity=1000.0
+TemperatureStart=750.0
+TemperatureEnd=650.0
 PassLineOffset=0.0
 	
 // Roll parameter
 UpperRollNum=4
 LowerRollNum=5
-RollPitch=300
-RollLength=5000
-EntryUpperRollGap=30
-ExitUpperRollGap=50
-EntryLowerRollGap=0
-ExitLowerRollGap=0	
+RollPitch=300.0
+RollLength=5000.0
+EntryUpperRollGap=30.0
+ExitUpperRollGap=50.0
+EntryLowerRollGap=0.0
+ExitLowerRollGap=0.0 
 RollFriction=0.3
-RollDiameter=280
-RollCrown=0
+RollDiameter=280.0
+RollCrown=0.0
 MillStiffness=1.0e5 
 
+UpperEntryRollGapMovement=20.0
+UpperExitRollGapMovement=15.0
+UpperRollGapStayingTime=1.0
+UpperRollGapMovingTime=2.0
+LowerEntryRollGapMovement=20.0
+LowerExitRollGapMovement=15.0
+LowerRollGapStayingTime=1.0
+LowerRollGapMovingTime=2.5
+	
+FrontHDRollDia=100.0
+FrontHDRollPitch=250.0
+FrontHDRollVericalPos=300.0
+RearHDRollDia=100.0
+RearHDRollPitch=250.0
+RearHDRollVerticalPos=300.0
+	
+HDRollType=Upper
+
 // Material parameter
-YoungsModulus=21000
-YieldStrength=900
-TensileStrength=1200
+YoungsModulus=210000.0
+YieldStrength=900.0
+TensileStrength=1200.0
 Elongation=0.3
 ThermalExpansionCoefficient=1.0e-5
 PoissonsRatio=0.3

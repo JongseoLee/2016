@@ -98,6 +98,25 @@ public class LevellerMain {
 	private String RollCrownType;
 	private String textMillStiffness;
 	private String MillStiffnessType;
+	//update version3 2016.07.20
+	private String textUpperEntryRollGapMovement;
+	private String textUpperExitRollGapMovement;
+	private String textUpperRollGapStayingTime;
+	private String textUpperRollGapMovingTime;
+	private String textLowerEntryRollGapMovement;
+	private String textLowerExitRollGapMovement;
+	private String textLowerRollGapStayingTime;
+	private String textLowerRollGapMovingTime;
+	
+	private String textFrontHDRollDia;
+	private String textFrontHDRollPitch;
+	private String textFrontHDRollVericalPos;
+	private String textRearHDRollDia;
+	private String textRearHDRollPitch;
+	private String textRearHDRollVerticalPos;
+	
+	private String HDRollType;
+	
 	
 	private ArrayList<UpTableDataContent> upTableDataList = null;
 	private ArrayList<DownTableDataContent> downTableDataList = null;
@@ -3183,6 +3202,128 @@ public class LevellerMain {
 
 	public void setExportMSG(exportInfo exportMSG) {
 		this.exportMSG = exportMSG;
+	}
+
+	public String getTextUpperEntryRollGapMovement() {
+		return textUpperEntryRollGapMovement;
+	}
+
+	public void setTextUpperEntryRollGapMovement(
+			String textUpperEntryRollGapMovement) {
+		this.textUpperEntryRollGapMovement = textUpperEntryRollGapMovement;
+	}
+
+	public String getTextUpperExitRollGapMovement() {
+		return textUpperExitRollGapMovement;
+	}
+
+	public void setTextUpperExitRollGapMovement(String textUpperExitRollGapMovement) {
+		this.textUpperExitRollGapMovement = textUpperExitRollGapMovement;
+	}
+
+	public String getTextUpperRollGapStayingTime() {
+		return textUpperRollGapStayingTime;
+	}
+
+	public void setTextUpperRollGapStayingTime(String textUpperRollGapStayingTime) {
+		this.textUpperRollGapStayingTime = textUpperRollGapStayingTime;
+	}
+
+	public String getTextUpperRollGapMovingTime() {
+		return textUpperRollGapMovingTime;
+	}
+
+	public void setTextUpperRollGapMovingTime(String textUpperRollGapMovingTime) {
+		this.textUpperRollGapMovingTime = textUpperRollGapMovingTime;
+	}
+
+	public String getTextLowerEntryRollGapMovement() {
+		return textLowerEntryRollGapMovement;
+	}
+
+	public void setTextLowerEntryRollGapMovement(
+			String textLowerEntryRollGapMovement) {
+		this.textLowerEntryRollGapMovement = textLowerEntryRollGapMovement;
+	}
+
+	public String getTextLowerExitRollGapMovement() {
+		return textLowerExitRollGapMovement;
+	}
+
+	public void setTextLowerExitRollGapMovement(String textLowerExitRollGapMovement) {
+		this.textLowerExitRollGapMovement = textLowerExitRollGapMovement;
+	}
+
+	public String getTextLowerRollGapStayingTime() {
+		return textLowerRollGapStayingTime;
+	}
+
+	public void setTextLowerRollGapStayingTime(String textLowerRollGapStayingTime) {
+		this.textLowerRollGapStayingTime = textLowerRollGapStayingTime;
+	}
+
+	public String getTextLowerRollGapMovingTime() {
+		return textLowerRollGapMovingTime;
+	}
+
+	public void setTextLowerRollGapMovingTime(String textLowerRollGapMovingTime) {
+		this.textLowerRollGapMovingTime = textLowerRollGapMovingTime;
+	}
+
+	public String getTextFrontHDRollDia() {
+		return textFrontHDRollDia;
+	}
+
+	public void setTextFrontHDRollDia(String textFrontHDRollDia) {
+		this.textFrontHDRollDia = textFrontHDRollDia;
+	}
+
+	public String getTextFrontHDRollPitch() {
+		return textFrontHDRollPitch;
+	}
+
+	public void setTextFrontHDRollPitch(String textFrontHDRollPitch) {
+		this.textFrontHDRollPitch = textFrontHDRollPitch;
+	}
+
+	public String getTextFrontHDRollVericalPos() {
+		return textFrontHDRollVericalPos;
+	}
+
+	public void setTextFrontHDRollVericalPos(String textFrontHDRollVericalPos) {
+		this.textFrontHDRollVericalPos = textFrontHDRollVericalPos;
+	}
+
+	public String getTextRearHDRollDia() {
+		return textRearHDRollDia;
+	}
+
+	public void setTextRearHDRollDia(String textRearHDRollDia) {
+		this.textRearHDRollDia = textRearHDRollDia;
+	}
+
+	public String getTextRearHDRollPitch() {
+		return textRearHDRollPitch;
+	}
+
+	public void setTextRearHDRollPitch(String textRearHDRollPitch) {
+		this.textRearHDRollPitch = textRearHDRollPitch;
+	}
+
+	public String getTextRearHDRollVerticalPos() {
+		return textRearHDRollVerticalPos;
+	}
+
+	public void setTextRearHDRollVerticalPos(String textRearHDRollVerticalPos) {
+		this.textRearHDRollVerticalPos = textRearHDRollVerticalPos;
+	}
+
+	public String getHDRollType() {
+		return HDRollType;
+	}
+
+	public void setHDRollType(String hDRollType) {
+		HDRollType = hDRollType;
 	}
 	
 	//

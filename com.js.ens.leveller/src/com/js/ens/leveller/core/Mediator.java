@@ -115,6 +115,39 @@ public class Mediator {
 	private Text textEntryLowerRollGap;
 	private Text textExitUpperRollGap;
 	private Text textExitLowerRollGap;
+	
+	private Text textUpperEntryRollGapMovement;
+	private Text textUpperExitRollGapMovement;
+	private Text textUpperRollGapStayingTime;
+	private Text textUpperRollGapMovingTime;
+	private Text textLowerEntryRollGapMovement;
+	private Text textLowerExitRollGapMovement;
+	private Text textLowerRollGapStayingTime;
+	private Text textLowerRollGapMovingTime;
+	
+	private Text textFrontHDRollDia;
+	private Text textFrontHDRollPitch;
+	private Text textFrontHDRollVericalPos;
+	private Text textRearHDRollDia;
+	private Text textRearHDRollPitch;
+	private Text textRearHDRollVerticalPos;
+	
+	private Button btnNone;
+	public ICommand customBtnNone;
+	public static String BUTTON_btnNone = "btnNone";
+	
+	private Button btnUpper;
+	public ICommand customBtnUpper;
+	public static String BUTTON_btnUpper = "btnUpper";
+	
+	private Button btnLower;
+	public ICommand customBtnLower;
+	public static String BUTTON_btnLower = "btnLower";
+	
+	private Button btnShowRollTable;
+	public ICommand customBtnShowRollTable;
+	public static String BUTTON_btnShowRollTable = "btnShowRollTable";
+	
 	private Text textRollFriction;
 	private Text textRollDiameter;
 	private Text textRollCrown;
@@ -1115,6 +1148,138 @@ public class Mediator {
 	}
 	public void setCustomBtnApply(ICommand customBtnApply) {
 		this.customBtnApply = customBtnApply;
+	}
+	public Text getTextUpperEntryRollGapMovement() {
+		return textUpperEntryRollGapMovement;
+	}
+	public void setTextUpperEntryRollGapMovement(Text textUpperEntryRollGapMovement) {
+		this.textUpperEntryRollGapMovement = textUpperEntryRollGapMovement;
+	}
+	public Text getTextUpperExitRollGapMovement() {
+		return textUpperExitRollGapMovement;
+	}
+	public void setTextUpperExitRollGapMovement(Text textUpperExitRollGapMovement) {
+		this.textUpperExitRollGapMovement = textUpperExitRollGapMovement;
+	}
+	public Text getTextUpperRollGapStayingTime() {
+		return textUpperRollGapStayingTime;
+	}
+	public void setTextUpperRollGapStayingTime(Text textUpperRollGapStayingTime) {
+		this.textUpperRollGapStayingTime = textUpperRollGapStayingTime;
+	}
+	public Text getTextUpperRollGapMovingTime() {
+		return textUpperRollGapMovingTime;
+	}
+	public void setTextUpperRollGapMovingTime(Text textUpperRollGapMovingTime) {
+		this.textUpperRollGapMovingTime = textUpperRollGapMovingTime;
+	}
+	public Text getTextLowerEntryRollGapMovement() {
+		return textLowerEntryRollGapMovement;
+	}
+	public void setTextLowerEntryRollGapMovement(Text textLowerEntryRollGapMovement) {
+		this.textLowerEntryRollGapMovement = textLowerEntryRollGapMovement;
+	}
+	public Text getTextLowerExitRollGapMovement() {
+		return textLowerExitRollGapMovement;
+	}
+	public void setTextLowerExitRollGapMovement(Text textLowerExitRollGapMovement) {
+		this.textLowerExitRollGapMovement = textLowerExitRollGapMovement;
+	}
+	public Text getTextLowerRollGapStayingTime() {
+		return textLowerRollGapStayingTime;
+	}
+	public void setTextLowerRollGapStayingTime(Text textLowerRollGapStayingTime) {
+		this.textLowerRollGapStayingTime = textLowerRollGapStayingTime;
+	}
+	public Text getTextLowerRollGapMovingTime() {
+		return textLowerRollGapMovingTime;
+	}
+	public void setTextLowerRollGapMovingTime(Text textLowerRollGapMovingTime) {
+		this.textLowerRollGapMovingTime = textLowerRollGapMovingTime;
+	}
+	public Text getTextFrontHDRollDia() {
+		return textFrontHDRollDia;
+	}
+	public void setTextFrontHDRollDia(Text textFrontHDRollDia) {
+		this.textFrontHDRollDia = textFrontHDRollDia;
+	}
+	public Text getTextFrontHDRollPitch() {
+		return textFrontHDRollPitch;
+	}
+	public void setTextFrontHDRollPitch(Text textFrontHDRollPitch) {
+		this.textFrontHDRollPitch = textFrontHDRollPitch;
+	}
+	public Text getTextFrontHDRollVericalPos() {
+		return textFrontHDRollVericalPos;
+	}
+	public void setTextFrontHDRollVericalPos(Text textFrontHDRollVericalPos) {
+		this.textFrontHDRollVericalPos = textFrontHDRollVericalPos;
+	}
+	public Text getTextRearHDRollDia() {
+		return textRearHDRollDia;
+	}
+	public void setTextRearHDRollDia(Text textRearHDRollDia) {
+		this.textRearHDRollDia = textRearHDRollDia;
+	}
+	public Text getTextRearHDRollPitch() {
+		return textRearHDRollPitch;
+	}
+	public void setTextRearHDRollPitch(Text textRearHDRollPitch) {
+		this.textRearHDRollPitch = textRearHDRollPitch;
+	}
+	public Text getTextRearHDRollVerticalPos() {
+		return textRearHDRollVerticalPos;
+	}
+	public void setTextRearHDRollVerticalPos(Text textRearHDRollVerticalPos) {
+		this.textRearHDRollVerticalPos = textRearHDRollVerticalPos;
+	}
+	public Button getBtnNone() {
+		return btnNone;
+	}
+	public void setBtnNone(Button btnNone) {
+		this.btnNone = btnNone;
+	}
+	public ICommand getCustomBtnNone() {
+		return customBtnNone;
+	}
+	public void setCustomBtnNone(ICommand customBtnNone) {
+		this.customBtnNone = customBtnNone;
+	}
+	public Button getBtnUpper() {
+		return btnUpper;
+	}
+	public void setBtnUpper(Button btnUpper) {
+		this.btnUpper = btnUpper;
+	}
+	public ICommand getCustomBtnUpper() {
+		return customBtnUpper;
+	}
+	public void setCustomBtnUpper(ICommand customBtnUpper) {
+		this.customBtnUpper = customBtnUpper;
+	}
+	public Button getBtnLower() {
+		return btnLower;
+	}
+	public void setBtnLower(Button btnLower) {
+		this.btnLower = btnLower;
+	}
+	public ICommand getCustomBtnLower() {
+		return customBtnLower;
+	}
+	public void setCustomBtnLower(ICommand customBtnLower) {
+		this.customBtnLower = customBtnLower;
+	}
+	public Button getBtnShowRollTable() {
+		return btnShowRollTable;
+	}
+	public void setBtnShowRollTable(Button btnShowRollTable) {
+		this.btnShowRollTable = btnShowRollTable;
+	}
+	public ICommand getCustomBtnShowRollTable() {
+		return customBtnShowRollTable;
+	}
+	public void setCustomBtnShowRollTable(ICommand customBtnShowRollTable) {
+		this.customBtnShowRollTable = customBtnShowRollTable;
 	}
 	
 }

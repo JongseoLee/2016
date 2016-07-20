@@ -15,6 +15,14 @@ public class HandlerButton implements Listener {
 		// TODO Auto-generated method stub
 		if(event.widget == med.getBtnCalcElementNum()){	
 			med.getCustomBtnCalcElementNum().execute();
+		}else if(event.widget == med.getBtnNone()){
+			med.getCustomBtnNone().execute();
+		}else if(event.widget == med.getBtnUpper()){
+			med.getCustomBtnUpper().execute();
+		}else if(event.widget == med.getBtnLower()){
+			med.getCustomBtnLower().execute();
+		}else if(event.widget == med.getBtnShowRollTable()){
+			med.getCustomBtnShowRollTable().execute();
 		}else if(event.widget == med.getBtnRadioNone_RC()){
 			med.getCustomBtnRadioNone_RC().execute();
 		}else if(event.widget == med.getBtnRadioApply_RC()){

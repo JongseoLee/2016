@@ -8,6 +8,7 @@ import org.eclipse.ui.part.ViewPart;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Label;
@@ -38,6 +39,8 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.swt.events.ControlAdapter;
+import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.ExpandBar;
@@ -129,7 +132,16 @@ public class View extends ViewPart {
 	private Text textLowerExitRollGapMovement;
 	private Text textLowerRollGapStayingTime;
 	private Text textLowerRollGapMovingTime;
-		
+	
+	private Text textFrontHDRollDia;
+	private Text textFrontHDRollPitch;
+	private Text textFrontHDRollVericalPos;
+	private Text textRearHDRollDia;
+	private Text textRearHDRollPitch;
+	private Text textRearHDRollVerticalPos;
+	
+	
+	
 	//--------------------------------
 	
 	public View() {
@@ -212,7 +224,7 @@ public class View extends ViewPart {
 		fd_compositeShapeParameter.top = new FormAttachment(lblModelName, 15);
 		fd_compositeShapeParameter.left = new FormAttachment(lblModelName, 0,SWT.LEFT);
 		fd_compositeShapeParameter.right = new FormAttachment(0,450);
-		fd_compositeShapeParameter.bottom = new FormAttachment(lblModelName, 355, SWT.BOTTOM);
+		fd_compositeShapeParameter.bottom = new FormAttachment(lblModelName, 360, SWT.BOTTOM);
 		compositeShapeParameter.setLayoutData(fd_compositeShapeParameter);
 		compositeShapeParameter.setLayout(new FormLayout());
 		
@@ -536,7 +548,7 @@ public class View extends ViewPart {
 		fd_compositeMeshParameter.top = new FormAttachment(compositeShapeParameter, 30);
 		fd_compositeMeshParameter.left = new FormAttachment(compositeShapeParameter, 0, SWT.LEFT);
 		fd_compositeMeshParameter.right = new FormAttachment(compositeShapeParameter, 0, SWT.RIGHT);
-		fd_compositeMeshParameter.bottom = new FormAttachment(compositeShapeParameter, 255, SWT.BOTTOM);
+		fd_compositeMeshParameter.bottom = new FormAttachment(compositeShapeParameter, 260, SWT.BOTTOM);
 		compositeMeshParameter.setLayoutData(fd_compositeMeshParameter);
 		
 		Label lblMeshParameter = new Label(compositeMeshParameter, SWT.NONE);
@@ -634,7 +646,7 @@ public class View extends ViewPart {
 		fd_compositePlateInformation.top = new FormAttachment(compositeMeshParameter,30);
 		fd_compositePlateInformation.left = new FormAttachment(compositeShapeParameter, 0, SWT.LEFT);
 		fd_compositePlateInformation.right = new FormAttachment(compositeShapeParameter, 0, SWT.RIGHT);
-		fd_compositePlateInformation.bottom = new FormAttachment(compositeMeshParameter,225,SWT.BOTTOM);
+		fd_compositePlateInformation.bottom = new FormAttachment(compositeMeshParameter,240,SWT.BOTTOM);
 		compositePlateInformation.setLayoutData(fd_compositePlateInformation);
 		
 		Label lblPlateInformation = new Label(compositePlateInformation, SWT.NONE);
@@ -716,7 +728,7 @@ public class View extends ViewPart {
 		
 		//expandJS
 		
-		Composite compositeRollParameter = new Composite(compositeParent, SWT.BORDER);
+		final Composite compositeRollParameter = new Composite(compositeParent, SWT.BORDER);
 		med.setCompositeRollParameter(compositeRollParameter);
 		compositeRollParameter.setLayout(new FormLayout());
 		FormData fd_compositeRollParameter = new FormData();
@@ -725,7 +737,53 @@ public class View extends ViewPart {
 		fd_compositeRollParameter.right = new FormAttachment(compositeShapeParameter,500,SWT.RIGHT);
 		fd_compositeRollParameter.bottom = new FormAttachment(compositePlateInformation,0,SWT.BOTTOM);
 		compositeRollParameter.setLayoutData(fd_compositeRollParameter);
+		/*
+		final ScrolledComposite sc2 = new ScrolledComposite(compositeRollParameter, SWT.H_SCROLL|SWT.V_SCROLL | SWT.None);
+		sc2.setExpandVertical(true);
+		FormData fd_sc2 = new FormData();
+		fd_sc2.top = new FormAttachment(0);
+		fd_sc2.left = new FormAttachment(0);
+		fd_sc2.right = new FormAttachment(100);
+		fd_sc2.bottom = new FormAttachment(100);
+		sc2.setLayoutData(fd_sc2);
+	
 		
+		
+		Composite compositeRollParameter_inner = new Composite(sc2, SWT.NONE);
+		FormData fd_compositeRollParameter_inner = new FormData();
+		fd_compositeRollParameter_inner.top = new FormAttachment(0,0);
+		fd_compositeRollParameter_inner.left = new FormAttachment(0,0);
+		fd_compositeRollParameter_inner.right = new FormAttachment(100,-50);
+		fd_compositeRollParameter_inner.bottom = new FormAttachment(100,-100);
+		compositeRollParameter_inner.setLayoutData(fd_compositeRollParameter_inner);
+		
+	
+		
+		
+		sc2.setContent(compositeRollParameter_inner);
+		sc2.setMinSize(200,400);
+		sc2.setExpandHorizontal(true);
+		
+		
+		sc2.addControlListener(new ControlAdapter() {
+		      public void controlResized(ControlEvent e) {
+		        Rectangle r = sc2.getClientArea();
+		        //sc2.setMinSize(compositeRollParameter.computeSize(r.width, SWT.DEFAULT));
+		        sc2.setMinSize(compositeRollParameter.computeSize(SWT.DEFAULT,r.height));
+		      }
+		});
+		compositeRollParameter_inner.setLayout(new FormLayout());
+		*/
+		/*
+		Label lblAdsf = new Label(compositeRollParameter_inner, SWT.NONE);
+		FormData fd_lblAdsf = new FormData();
+		fd_lblAdsf.right = new FormAttachment(0, 66);
+		fd_lblAdsf.top = new FormAttachment(0, 10);
+		fd_lblAdsf.left = new FormAttachment(0, 10);
+		lblAdsf.setLayoutData(fd_lblAdsf);
+		lblAdsf.setText("adsf");
+		// */
+		/*  */
 		Label lblRollParameter = new Label(compositeRollParameter, SWT.NONE);
 		lblRollParameter.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
 		FormData fd_lblRollParameter = new FormData();
@@ -870,14 +928,14 @@ public class View extends ViewPart {
 		textExitLowerRollGap.setLayoutData(fd_textExitLowerRollGap);
 		
 		Group grpRollGapMovementInformation = new Group(compositeRollParameter, SWT.NONE);
-		grpRollGapMovementInformation.setText("Roll Gap Movement Information");
+		grpRollGapMovementInformation.setText(TextLabel_UI.grpRollGapMovementInformation);
 		grpRollGapMovementInformation.setLayout(new FormLayout());
 		grpRollGapMovementInformation.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
 		FormData fd_grpRollGapMovementInformation = new FormData();
 		fd_grpRollGapMovementInformation.top = new FormAttachment(lblEntryLowerRollGap, 10);
 		fd_grpRollGapMovementInformation.left = new FormAttachment(0, 10);
 		fd_grpRollGapMovementInformation.right = new FormAttachment(100,-10);
-		fd_grpRollGapMovementInformation.bottom = new FormAttachment(lblEntryLowerRollGap, 300, SWT.BOTTOM);
+		//fd_grpRollGapMovementInformation.bottom = new FormAttachment(lblEntryLowerRollGap, 300, SWT.BOTTOM);
 		grpRollGapMovementInformation.setLayoutData(fd_grpRollGapMovementInformation);
 		
 		Label lblUpperRollGap = new Label(grpRollGapMovementInformation, SWT.NONE);
@@ -886,16 +944,17 @@ public class View extends ViewPart {
 		fd_lblUpperRollGap.top = new FormAttachment(0, 10);
 		fd_lblUpperRollGap.left = new FormAttachment(0, 5);
 		lblUpperRollGap.setLayoutData(fd_lblUpperRollGap);
-		lblUpperRollGap.setText("Upper Roll gap Movement");
+		lblUpperRollGap.setText(TextLabel_UI.lblUpperRollGap);
 		
 		Label lblUpperEntryRollGapMovement = new Label(grpRollGapMovementInformation, SWT.NONE);
 		FormData fd_lblUpperEntryRollGapMovement = new FormData();
 		fd_lblUpperEntryRollGapMovement.top = new FormAttachment(lblUpperRollGap, 10);
 		fd_lblUpperEntryRollGapMovement.left = new FormAttachment(lblUpperRollGap, 10, SWT.LEFT);
 		lblUpperEntryRollGapMovement.setLayoutData(fd_lblUpperEntryRollGapMovement);
-		lblUpperEntryRollGapMovement.setText("Upper Entry Roll Gap Movement (mm)");
+		lblUpperEntryRollGapMovement.setText(TextLabel_UI.lblUpperEntryRollGapMovement);
 		
 		textUpperEntryRollGapMovement = new Text(grpRollGapMovementInformation, SWT.BORDER);
+		med.setTextUpperEntryRollGapMovement(textUpperEntryRollGapMovement);
 		FormData fd_textUpperEntryRollGapMovement = new FormData();
 		fd_textUpperEntryRollGapMovement.top = new FormAttachment(lblUpperEntryRollGapMovement, -2, SWT.TOP);
 		fd_textUpperEntryRollGapMovement.left = new FormAttachment(lblUpperEntryRollGapMovement, 50);
@@ -907,9 +966,10 @@ public class View extends ViewPart {
 		fd_lblUpperExitRollGapMovement.top = new FormAttachment(lblUpperEntryRollGapMovement, 10);
 		fd_lblUpperExitRollGapMovement.left = new FormAttachment(lblUpperEntryRollGapMovement, 0, SWT.LEFT);
 		lblUpperExitRollGapMovement.setLayoutData(fd_lblUpperExitRollGapMovement);
-		lblUpperExitRollGapMovement.setText("Upper Exit Roll Gap Movement (mm)");
+		lblUpperExitRollGapMovement.setText(TextLabel_UI.lblUpperExitRollGapMovement);
 		
 		textUpperExitRollGapMovement = new Text(grpRollGapMovementInformation, SWT.BORDER);
+		med.setTextUpperExitRollGapMovement(textUpperExitRollGapMovement);
 		FormData fd_textUpperExitRollGapMovement = new FormData();
 		fd_textUpperExitRollGapMovement.top = new FormAttachment(lblUpperExitRollGapMovement, -2, SWT.TOP);
 		fd_textUpperExitRollGapMovement.left = new FormAttachment(textUpperEntryRollGapMovement, 0, SWT.LEFT);
@@ -921,9 +981,10 @@ public class View extends ViewPart {
 		fd_lblUpperRollGapStayingTime.top = new FormAttachment(lblUpperExitRollGapMovement, 10);
 		fd_lblUpperRollGapStayingTime.left = new FormAttachment(lblUpperExitRollGapMovement, 0, SWT.LEFT);
 		lblUpperRollGapStayingTime.setLayoutData(fd_lblUpperRollGapStayingTime);
-		lblUpperRollGapStayingTime.setText("Upper Roll Gap Staying Time (sec.)");
+		lblUpperRollGapStayingTime.setText(TextLabel_UI.lblUpperRollGapMovingTime);
 		
 		textUpperRollGapStayingTime = new Text(grpRollGapMovementInformation, SWT.BORDER);
+		med.setTextUpperRollGapStayingTime(textUpperRollGapStayingTime);
 		FormData fd_textUpperRollGapStayingTime = new FormData();
 		fd_textUpperRollGapStayingTime.top = new FormAttachment(lblUpperRollGapStayingTime, -2, SWT.TOP);
 		fd_textUpperRollGapStayingTime.left = new FormAttachment(textUpperEntryRollGapMovement, 0, SWT.LEFT);
@@ -935,9 +996,10 @@ public class View extends ViewPart {
 		fd_lblUpperRollGapMovingTime.top = new FormAttachment(lblUpperRollGapStayingTime, 10);
 		fd_lblUpperRollGapMovingTime.left = new FormAttachment(lblUpperRollGapStayingTime, 0, SWT.LEFT);
 		lblUpperRollGapMovingTime.setLayoutData(fd_lblUpperRollGapMovingTime);
-		lblUpperRollGapMovingTime.setText("Upper Roll Gap Moving Time (sec.)");
+		lblUpperRollGapMovingTime.setText(TextLabel_UI.lblUpperRollGapMovingTime);
 		
 		textUpperRollGapMovingTime = new Text(grpRollGapMovementInformation, SWT.BORDER);
+		med.setTextUpperRollGapMovingTime(textUpperRollGapMovingTime);
 		FormData fd_textUpperRollGapMovingTime = new FormData();
 		fd_textUpperRollGapMovingTime.top = new FormAttachment(lblUpperRollGapMovingTime, -2, SWT.TOP);
 		fd_textUpperRollGapMovingTime.left = new FormAttachment(textUpperEntryRollGapMovement, 0, SWT.LEFT);
@@ -951,16 +1013,17 @@ public class View extends ViewPart {
 		fd_lblLowerRollGap.top = new FormAttachment(lblUpperRollGapMovingTime, 10);
 		fd_lblLowerRollGap.left = new FormAttachment(lblUpperRollGap, 0,SWT.LEFT);
 		lblLowerRollGap.setLayoutData(fd_lblLowerRollGap);
-		lblLowerRollGap.setText("Lower Roll gap Movement");
+		lblLowerRollGap.setText(TextLabel_UI.lblLowerRollGap);
 
 		Label lblLowerEntryRollGapMovement = new Label(grpRollGapMovementInformation, SWT.NONE);
 		FormData fd_lblLowerEntryRollGapMovement = new FormData();
 		fd_lblLowerEntryRollGapMovement.top = new FormAttachment(lblLowerRollGap, 10);
 		fd_lblLowerEntryRollGapMovement.left = new FormAttachment(lblUpperRollGapStayingTime, 0, SWT.LEFT);
 		lblLowerEntryRollGapMovement.setLayoutData(fd_lblLowerEntryRollGapMovement);
-		lblLowerEntryRollGapMovement.setText("Lower Entry Roll Gap Movement (mm)");
+		lblLowerEntryRollGapMovement.setText(TextLabel_UI.lblLowerEntryRollGapMovement);
 		
 		textLowerEntryRollGapMovement = new Text(grpRollGapMovementInformation, SWT.BORDER);
+		med.setTextLowerEntryRollGapMovement(textLowerEntryRollGapMovement);
 		FormData fd_textLowerEntryRollGapMovement = new FormData();
 		fd_textLowerEntryRollGapMovement.top = new FormAttachment(lblLowerEntryRollGapMovement, -2, SWT.TOP);
 		fd_textLowerEntryRollGapMovement.left = new FormAttachment(textUpperEntryRollGapMovement, 0, SWT.LEFT);
@@ -972,9 +1035,10 @@ public class View extends ViewPart {
 		fd_lblLowerExitRollGapMovement.top = new FormAttachment(lblLowerEntryRollGapMovement, 10);
 		fd_lblLowerExitRollGapMovement.left = new FormAttachment(lblLowerEntryRollGapMovement, 0, SWT.LEFT);
 		lblLowerExitRollGapMovement.setLayoutData(fd_lblLowerExitRollGapMovement);
-		lblLowerExitRollGapMovement.setText("Lower Exit Roll Gap Movement (mm)");
+		lblLowerExitRollGapMovement.setText(TextLabel_UI.lblLowerExitRollGapMovement);
 		
 		textLowerExitRollGapMovement = new Text(grpRollGapMovementInformation, SWT.BORDER);
+		med.setTextLowerExitRollGapMovement(textLowerExitRollGapMovement);
 		FormData fd_textLowerExitRollGapMovement = new FormData();
 		fd_textLowerExitRollGapMovement.top = new FormAttachment(lblLowerExitRollGapMovement, -2, SWT.TOP);
 		fd_textLowerExitRollGapMovement.left = new FormAttachment(textUpperEntryRollGapMovement, 0, SWT.LEFT);
@@ -986,9 +1050,10 @@ public class View extends ViewPart {
 		fd_lblLowerRollGapStayingTime.top = new FormAttachment(lblLowerExitRollGapMovement, 10);
 		fd_lblLowerRollGapStayingTime.left = new FormAttachment(lblLowerExitRollGapMovement, 0, SWT.LEFT);
 		lblLowerRollGapStayingTime.setLayoutData(fd_lblLowerRollGapStayingTime);
-		lblLowerRollGapStayingTime.setText("Lower Roll Gap Staying Time (sec.)");
+		lblLowerRollGapStayingTime.setText(TextLabel_UI.lblLowerRollGapStayingTime);
 		
 		textLowerRollGapStayingTime = new Text(grpRollGapMovementInformation, SWT.BORDER);
+		med.setTextLowerRollGapStayingTime(textLowerRollGapStayingTime);
 		FormData fd_textLowerRollGapStayingTime = new FormData();
 		fd_textLowerRollGapStayingTime.top = new FormAttachment(lblLowerRollGapStayingTime, -2, SWT.TOP);
 		fd_textLowerRollGapStayingTime.left = new FormAttachment(textUpperEntryRollGapMovement, 0, SWT.LEFT);
@@ -1000,9 +1065,10 @@ public class View extends ViewPart {
 		fd_lblLowerRollGapMovingTime.top = new FormAttachment(lblLowerRollGapStayingTime, 10);
 		fd_lblLowerRollGapMovingTime.left = new FormAttachment(lblLowerRollGapStayingTime, 0, SWT.LEFT);
 		lblLowerRollGapMovingTime.setLayoutData(fd_lblLowerRollGapMovingTime);
-		lblLowerRollGapMovingTime.setText("Lower Roll Gap Moving Time (sec.)");
+		lblLowerRollGapMovingTime.setText(TextLabel_UI.lblLowerRollGapMovingTime);
 		
 		textLowerRollGapMovingTime = new Text(grpRollGapMovementInformation, SWT.BORDER);
+		med.setTextLowerRollGapMovingTime(textLowerRollGapMovingTime);
 		FormData fd_textLowerRollGapMovingTime = new FormData();
 		fd_textLowerRollGapMovingTime.top = new FormAttachment(lblLowerRollGapMovingTime, -2, SWT.TOP);
 		fd_textLowerRollGapMovingTime.left = new FormAttachment(textUpperEntryRollGapMovement, 0, SWT.LEFT);
@@ -1039,28 +1105,20 @@ public class View extends ViewPart {
 		fd_textRollDiameter.left = new FormAttachment(spinnerLowerRollNum, 0, SWT.LEFT);
 		fd_textRollDiameter.right = new FormAttachment(spinnerLowerRollNum, 0, SWT.RIGHT);
 		textRollDiameter.setLayoutData(fd_textRollDiameter);
-	
-		/*
-lblUpperRollNumber
-
-lblLowerRollNumber
-
-spinnerUpperRollNum
-
-spinnerLowerRollNum
-
-		Label lblRollCrownType = new Label(compositeRollParameter_in,SWT.NONE);
+		
+		
+		Label lblRollCrownType = new Label(compositeRollParameter,SWT.NONE);
 		FormData fd_lblRollCrownType = new FormData();
-		fd_lblRollCrownType.top = new FormAttachment(lblRollDiameter,12);
-		fd_lblRollCrownType.left = new FormAttachment(lblUpperRollNumber, 0, SWT.LEFT);
+		fd_lblRollCrownType.top = new FormAttachment(lblRollFriction,10);
+		fd_lblRollCrownType.left = new FormAttachment(lblRollFriction, 0, SWT.LEFT);
 		lblRollCrownType.setLayoutData(fd_lblRollCrownType);
 		lblRollCrownType.setText(TextLabel_UI.lblRollCrownType);
 		
 		Composite groupRollCrown = new Composite(compositeRollParameter, SWT.NONE);
 		groupRollCrown.setLayout(new FormLayout());
 		FormData fd_groupRollCrown = new FormData();
-		fd_groupRollCrown.top = new FormAttachment(lblRollCrownType, -2,SWT.TOP);
-		fd_groupRollCrown.left = new FormAttachment(spinnerUpperRollNum, 0,SWT.LEFT);
+		fd_groupRollCrown.top = new FormAttachment(lblRollCrownType, 0,SWT.TOP);
+		fd_groupRollCrown.left = new FormAttachment(lblRollCrownType, 15,SWT.RIGHT);
 		fd_groupRollCrown.right = new FormAttachment(spinnerUpperRollNum, 0, SWT.RIGHT);
 		groupRollCrown.setLayoutData(fd_groupRollCrown);
 		
@@ -1071,8 +1129,8 @@ spinnerLowerRollNum
 		customBtnRadioNone_RC.setCustomWidget_btnRadioNone_RC();
 		btnRadioNone_RC.setAlignment(SWT.CENTER);
 		FormData fd_btnRadioNone_RC = new FormData();
-		fd_btnRadioNone_RC.top = new FormAttachment(0, 5);
-		fd_btnRadioNone_RC.left = new FormAttachment(0, 5);
+		fd_btnRadioNone_RC.top = new FormAttachment(0, 0);
+		fd_btnRadioNone_RC.left = new FormAttachment(0, 0);
 		btnRadioNone_RC.setLayoutData(fd_btnRadioNone_RC);
 		btnRadioNone_RC.setText(TextLabel_UI.btnRadioNone);
 		btnRadioNone_RC.setSelection(false);
@@ -1089,33 +1147,33 @@ spinnerLowerRollNum
 		btnRadioApply_RC.setText(TextLabel_UI.btnRadioApply);
 		btnRadioApply_RC.setSelection(true);
 		
-		Label lblRollCrown = new Label(compositeRollParameter_in, SWT.NONE);
+		Label lblRollCrown = new Label(compositeRollParameter, SWT.NONE);
 		FormData fd_lblRollCrown = new FormData();
-		fd_lblRollCrown.top = new FormAttachment(lblRollCrownType, 12);
-		fd_lblRollCrown.left = new FormAttachment(lblUpperRollNumber, 10, SWT.LEFT);
+		fd_lblRollCrown.top = new FormAttachment(lblRollCrownType, 0,SWT.TOP);
+		fd_lblRollCrown.left = new FormAttachment(lblLowerRollNumber, 0, SWT.LEFT);
 		lblRollCrown.setLayoutData(fd_lblRollCrown);
 		lblRollCrown.setText(TextLabel_UI.lblRollCrown);
 		
-		textRollCrown = new Text(compositeRollParameter_in, SWT.BORDER);
+		textRollCrown = new Text(compositeRollParameter, SWT.BORDER);
 		med.setTextRollCrown(textRollCrown);
 		FormData fd_textRollCrown = new FormData();
 		fd_textRollCrown.top = new FormAttachment(lblRollCrown, -2, SWT.TOP);
-		fd_textRollCrown.left = new FormAttachment(spinnerUpperRollNum, 0, SWT.LEFT);
-		fd_textRollCrown.right = new FormAttachment(spinnerUpperRollNum, 0, SWT.RIGHT);
+		fd_textRollCrown.left = new FormAttachment(spinnerLowerRollNum, 0, SWT.LEFT);
+		fd_textRollCrown.right = new FormAttachment(spinnerLowerRollNum, 0, SWT.RIGHT);
 		textRollCrown.setLayoutData(fd_textRollCrown);
 		
-		Label lblMillStiffnessType = new Label(compositeRollParameter_in, SWT.NONE);
+		Label lblMillStiffnessType = new Label(compositeRollParameter, SWT.NONE);
 		FormData fd_lblMillStiffnessType = new FormData();
-		fd_lblMillStiffnessType.top = new FormAttachment(lblRollCrown, 12);
-		fd_lblMillStiffnessType.left = new FormAttachment(lblUpperRollNumber, 0, SWT.LEFT);
+		fd_lblMillStiffnessType.top = new FormAttachment(lblRollCrownType, 10);
+		fd_lblMillStiffnessType.left = new FormAttachment(lblRollCrownType, 0, SWT.LEFT);
 		lblMillStiffnessType.setLayoutData(fd_lblMillStiffnessType);
 		lblMillStiffnessType.setText(TextLabel_UI.lblMillStiffnessType);
 		
-		Composite groupMillStiffness = new Composite(compositeRollParameter_in,SWT.NONE);
+		Composite groupMillStiffness = new Composite(compositeRollParameter,SWT.NONE);
 		groupMillStiffness.setLayout(new FormLayout());
 		FormData fd_groupMillStiffness = new FormData();
-		fd_groupMillStiffness.top = new FormAttachment(lblMillStiffnessType, -2,SWT.TOP);
-		fd_groupMillStiffness.left = new FormAttachment(spinnerUpperRollNum, 0,SWT.LEFT);
+		fd_groupMillStiffness.top = new FormAttachment(lblMillStiffnessType, 0,SWT.TOP);
+		fd_groupMillStiffness.left = new FormAttachment(groupRollCrown, 0, SWT.LEFT);
 		fd_groupMillStiffness.right = new FormAttachment(spinnerUpperRollNum, 0, SWT.RIGHT);
 		groupMillStiffness.setLayoutData(fd_groupMillStiffness);
 		
@@ -1126,8 +1184,8 @@ spinnerLowerRollNum
 		customBtnRadioRigid_MS.setCustomWidget_btnRadioRigid_MS();
 		btnRadioRigid_MS.setAlignment(SWT.CENTER);
 		FormData fd_btnRadioRigid_MS = new FormData();
-		fd_btnRadioRigid_MS.top = new FormAttachment(0, 5);
-		fd_btnRadioRigid_MS.left = new FormAttachment(0, 5);
+		fd_btnRadioRigid_MS.top = new FormAttachment(0, 0);
+		fd_btnRadioRigid_MS.left = new FormAttachment(0, 0);
 		btnRadioRigid_MS.setLayoutData(fd_btnRadioRigid_MS);
 		btnRadioRigid_MS.setText(TextLabel_UI.btnRadioRigid);
 		btnRadioRigid_MS.setSelection(false);
@@ -1144,68 +1202,233 @@ spinnerLowerRollNum
 		btnRadioSpring_MS.setText(TextLabel_UI.btnRadioSpring);
 		btnRadioSpring_MS.setSelection(true);
 		
-		Label lblMillStiffness = new Label(compositeRollParameter_in, SWT.NONE);
+		Label lblMillStiffness = new Label(compositeRollParameter, SWT.NONE);
 		FormData fd_lblMillStiffness = new FormData();
-		fd_lblMillStiffness.top = new FormAttachment(lblMillStiffnessType, 12);
-		fd_lblMillStiffness.left = new FormAttachment(lblUpperRollNumber, 10, SWT.LEFT);
+		fd_lblMillStiffness.top = new FormAttachment(lblMillStiffnessType, 0, SWT.TOP);
+		fd_lblMillStiffness.left = new FormAttachment(lblLowerRollNumber, 0, SWT.LEFT);
 		lblMillStiffness.setLayoutData(fd_lblMillStiffness);
 		lblMillStiffness.setText(TextLabel_UI.lblMillStiffness);
 		
-		textMillStiffness = new Text(compositeRollParameter_in, SWT.BORDER);
+		textMillStiffness = new Text(compositeRollParameter, SWT.BORDER);
 		med.setTextMillStiffness(textMillStiffness);
 		FormData fd_textMillStiffness = new FormData();
 		fd_textMillStiffness.top = new FormAttachment(lblMillStiffness, -2, SWT.TOP);
-		fd_textMillStiffness.left = new FormAttachment(spinnerUpperRollNum, 0, SWT.LEFT);
-		fd_textMillStiffness.right = new FormAttachment(spinnerUpperRollNum, 0, SWT.RIGHT);
+		fd_textMillStiffness.left = new FormAttachment(spinnerLowerRollNum, 0, SWT.LEFT);
+		fd_textMillStiffness.right = new FormAttachment(spinnerLowerRollNum, 0, SWT.RIGHT);
 		textMillStiffness.setLayoutData(fd_textMillStiffness);
 
+		Group grpHoldDownRollInformation = new Group(compositeRollParameter, SWT.NONE);
+		grpHoldDownRollInformation.setText("Hold Down Roll Information");
+		grpHoldDownRollInformation.setLayout(new FormLayout());
+		grpHoldDownRollInformation.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
+		FormData fd_grpHoldDownRollInformation = new FormData();
+		fd_grpHoldDownRollInformation.top = new FormAttachment(lblMillStiffnessType, 10);
+		fd_grpHoldDownRollInformation.left = new FormAttachment(0, 10);
+		fd_grpHoldDownRollInformation.right = new FormAttachment(100,-10);
+		//fd_grpHoldDownRollInformation.bottom = new FormAttachment(lblMillStiffnessType, 300, SWT.BOTTOM);
+		grpHoldDownRollInformation.setLayoutData(fd_grpHoldDownRollInformation);
 		
-		Button btnCreateRoll = new Button(compositeRollParameter_in, SWT.CENTER);
+		Label lblHoldDownRollGeneration = new Label(grpHoldDownRollInformation, SWT.NONE);
+		lblHoldDownRollGeneration.setFont(SWTResourceManager.getFont("Arial", 9, SWT.ITALIC));
+		FormData fd_lblHoldDownRollGeneration = new FormData();
+		fd_lblHoldDownRollGeneration.top = new FormAttachment(0, 10);
+		fd_lblHoldDownRollGeneration.left = new FormAttachment(0, 5);
+		lblHoldDownRollGeneration.setLayoutData(fd_lblHoldDownRollGeneration);
+		lblHoldDownRollGeneration.setText("Hold Down Roll Generation");
+		
+		Composite compositeHoldDownRollType = new Composite(grpHoldDownRollInformation, SWT.NONE);
+		compositeHoldDownRollType.setLayout(new FormLayout());
+		FormData fd_compositeHoldDownRollType = new FormData();
+		fd_compositeHoldDownRollType.top = new FormAttachment(lblHoldDownRollGeneration, 5);
+		fd_compositeHoldDownRollType.left = new FormAttachment(lblHoldDownRollGeneration, 0, SWT.LEFT);
+		fd_compositeHoldDownRollType.right = new FormAttachment(100,-10);
+		//fd_compositeHoldDownRollType.bottom = new FormAttachment(lblHoldDownRollGeneration, 30,SWT.BOTTOM);
+		compositeHoldDownRollType.setLayoutData(fd_compositeHoldDownRollType);
+		
+		Button btnNone = new Button(compositeHoldDownRollType, SWT.RADIO);
+		med.setBtnNone(btnNone);
+		CustomButton customBtnNone = new CustomButton(Mediator.BUTTON_btnNone,med);
+		med.setCustomBtnNone(customBtnNone);
+		customBtnNone.setCustomWidget_btnNone();
+		FormData fd_btnNone = new FormData();
+		fd_btnNone.top = new FormAttachment(0);
+		fd_btnNone.left = new FormAttachment(0,120);
+		btnNone.setLayoutData(fd_btnNone);
+		btnNone.setText(TextLabel_UI.btnNone);
+		
+		Button btnUpper = new Button(compositeHoldDownRollType, SWT.RADIO);
+		med.setBtnUpper(btnUpper);
+		CustomButton customBtnUpper = new CustomButton(Mediator.BUTTON_btnUpper,med);
+		med.setCustomBtnUpper(customBtnUpper);
+		customBtnUpper.setCustomWidget_btnUpper();
+		FormData fd_btnUpper = new FormData();
+		fd_btnUpper.top = new FormAttachment(0);
+		fd_btnUpper.left = new FormAttachment(btnNone, 20,SWT.RIGHT);
+		btnUpper.setLayoutData(fd_btnUpper);
+		btnUpper.setText(TextLabel_UI.btnUpper);
+		
+		Button btnLower = new Button(compositeHoldDownRollType, SWT.RADIO);
+		med.setBtnLower(btnLower);
+		CustomButton customBtnLower = new CustomButton(Mediator.BUTTON_btnLower,med);
+		med.setCustomBtnLower(customBtnLower);
+		customBtnLower.setCustomWidget_btnLower();
+		FormData fd_btnLower = new FormData();
+		fd_btnLower.top = new FormAttachment(0);
+		fd_btnLower.left = new FormAttachment(btnUpper, 20,SWT.RIGHT);
+		btnLower.setLayoutData(fd_btnLower);
+		btnLower.setText(TextLabel_UI.btnLower);
+		
+		Label lblFrontRollPosition = new Label(grpHoldDownRollInformation, SWT.NONE);
+		lblFrontRollPosition.setText(TextLabel_UI.lblFrontRollPosition);
+		lblFrontRollPosition.setFont(SWTResourceManager.getFont("Arial", 9, SWT.ITALIC));
+		FormData fd_lblFrontRollPosition = new FormData();
+		fd_lblFrontRollPosition.top = new FormAttachment(compositeHoldDownRollType, 5);
+		fd_lblFrontRollPosition.left = new FormAttachment(lblHoldDownRollGeneration, 0, SWT.LEFT);
+		lblFrontRollPosition.setLayoutData(fd_lblFrontRollPosition);
+		
+		Label lblFrontHDRollDia = new Label(grpHoldDownRollInformation, SWT.NONE);
+		lblFrontHDRollDia.setText(TextLabel_UI.lblFrontHDRollDia);
+		FormData fd_lblFrontHDRollDia = new FormData();
+		fd_lblFrontHDRollDia.top = new FormAttachment(lblFrontRollPosition, 5);
+		fd_lblFrontHDRollDia.left = new FormAttachment(lblFrontRollPosition, 10, SWT.LEFT);
+		lblFrontHDRollDia.setLayoutData(fd_lblFrontHDRollDia);
+		
+		textFrontHDRollDia = new Text(grpHoldDownRollInformation, SWT.BORDER);
+		med.setTextFrontHDRollDia(textFrontHDRollDia);
+		FormData fd_textFrontHDRollDia = new FormData();
+		fd_textFrontHDRollDia.top = new FormAttachment(lblFrontHDRollDia, -2, SWT.TOP);
+		fd_textFrontHDRollDia.left = new FormAttachment(lblFrontHDRollDia, 100);
+		fd_textFrontHDRollDia.right = new FormAttachment(100,-20);
+		textFrontHDRollDia.setLayoutData(fd_textFrontHDRollDia);	
+		
+		Label lblFrontHDRollPitch = new Label(grpHoldDownRollInformation, SWT.NONE);
+		lblFrontHDRollPitch.setText(TextLabel_UI.lblFrontHDRollPitch);
+		FormData fd_lblFrontHDRollPitch = new FormData();
+		fd_lblFrontHDRollPitch.top = new FormAttachment(lblFrontHDRollDia, 10);
+		fd_lblFrontHDRollPitch.left = new FormAttachment(lblFrontHDRollDia, 0, SWT.LEFT);
+		lblFrontHDRollPitch.setLayoutData(fd_lblFrontHDRollPitch);
+		
+		textFrontHDRollPitch = new Text(grpHoldDownRollInformation, SWT.BORDER);
+		med.setTextFrontHDRollPitch(textFrontHDRollPitch);
+		FormData fd_textFrontHDRollPitch = new FormData();
+		fd_textFrontHDRollPitch.top = new FormAttachment(lblFrontHDRollPitch, -2, SWT.TOP);
+		fd_textFrontHDRollPitch.left = new FormAttachment(textFrontHDRollDia, 0,SWT.LEFT);
+		fd_textFrontHDRollPitch.right = new FormAttachment(textFrontHDRollDia, 0,SWT.RIGHT);
+		textFrontHDRollPitch.setLayoutData(fd_textFrontHDRollPitch);
+		
+		Label lblFrontHDRollVerticalPos = new Label(grpHoldDownRollInformation, SWT.NONE);
+		lblFrontHDRollVerticalPos.setText(TextLabel_UI.lblFrontHDRollVericalPos);
+		FormData fd_lblFrontHDRollVerticalPos = new FormData();
+		fd_lblFrontHDRollVerticalPos.top = new FormAttachment(lblFrontHDRollPitch, 10);
+		fd_lblFrontHDRollVerticalPos.left = new FormAttachment(lblFrontHDRollPitch, 0, SWT.LEFT);
+		lblFrontHDRollVerticalPos.setLayoutData(fd_lblFrontHDRollVerticalPos);
+		
+		textFrontHDRollVericalPos = new Text(grpHoldDownRollInformation, SWT.BORDER);
+		med.setTextFrontHDRollVericalPos(textFrontHDRollVericalPos);
+		FormData fd_textFrontHDRollVericalPos = new FormData();
+		fd_textFrontHDRollVericalPos.top = new FormAttachment(lblFrontHDRollVerticalPos, -2, SWT.TOP);
+		fd_textFrontHDRollVericalPos.left = new FormAttachment(textFrontHDRollDia, 0,SWT.LEFT);
+		fd_textFrontHDRollVericalPos.right = new FormAttachment(textFrontHDRollDia, 0,SWT.RIGHT);
+		textFrontHDRollVericalPos.setLayoutData(fd_textFrontHDRollVericalPos);
+		
+		Label lblRearRollPosition = new Label(grpHoldDownRollInformation, SWT.NONE);
+		lblRearRollPosition.setText(TextLabel_UI.lblRearRollPosition);
+		lblRearRollPosition.setFont(SWTResourceManager.getFont("Arial", 9, SWT.ITALIC));
+		FormData fd_lblRearRollPosition = new FormData();
+		fd_lblRearRollPosition.top = new FormAttachment(lblFrontHDRollVerticalPos, 5);
+		fd_lblRearRollPosition.left = new FormAttachment(lblFrontRollPosition, 0, SWT.LEFT);
+		lblRearRollPosition.setLayoutData(fd_lblRearRollPosition);
+		
+		Label lblRearHDRollDia = new Label(grpHoldDownRollInformation, SWT.NONE);
+		lblRearHDRollDia.setText(TextLabel_UI.lblRearHDRollDia);
+		FormData fd_lblRearHDRollDia = new FormData();
+		fd_lblRearHDRollDia.top = new FormAttachment(lblRearRollPosition, 5);
+		fd_lblRearHDRollDia.left = new FormAttachment(lblFrontHDRollVerticalPos, 0, SWT.LEFT);
+		lblRearHDRollDia.setLayoutData(fd_lblRearHDRollDia);
+		
+		textRearHDRollDia = new Text(grpHoldDownRollInformation, SWT.BORDER);
+		med.setTextRearHDRollDia(textRearHDRollDia);
+		FormData fd_textRearHDRollDia = new FormData();
+		fd_textRearHDRollDia.top = new FormAttachment(lblRearHDRollDia, -2,SWT.TOP);
+		fd_textRearHDRollDia.left = new FormAttachment(textFrontHDRollVericalPos, 0, SWT.LEFT);
+		fd_textRearHDRollDia.right = new FormAttachment(textFrontHDRollVericalPos, 0, SWT.RIGHT);
+		textRearHDRollDia.setLayoutData(fd_textRearHDRollDia);
+		
+		Label lblRearHDRollPitch = new Label(grpHoldDownRollInformation, SWT.NONE);
+		lblRearHDRollPitch.setText(TextLabel_UI.lblRearHDRollPitch);
+		FormData fd_lblRearHDRollPitch = new FormData();
+		fd_lblRearHDRollPitch.top = new FormAttachment(lblRearHDRollDia, 10);
+		fd_lblRearHDRollPitch.left = new FormAttachment(lblRearHDRollDia, 0, SWT.LEFT);
+		lblRearHDRollPitch.setLayoutData(fd_lblRearHDRollPitch);
+		
+		textRearHDRollPitch = new Text(grpHoldDownRollInformation, SWT.BORDER);
+		med.setTextRearHDRollPitch(textRearHDRollPitch);
+		FormData fd_textRearHDRollPitch = new FormData();
+		fd_textRearHDRollPitch.top = new FormAttachment(lblRearHDRollPitch, -2, SWT.TOP);
+		fd_textRearHDRollPitch.left = new FormAttachment(textRearHDRollDia, 0, SWT.LEFT);
+		fd_textRearHDRollPitch.right = new FormAttachment(textRearHDRollDia, 0, SWT.RIGHT);
+		textRearHDRollPitch.setLayoutData(fd_textRearHDRollPitch);
+		
+		Label lblRearHDRollVerticalPos = new Label(grpHoldDownRollInformation, SWT.NONE);
+		lblRearHDRollVerticalPos.setText(TextLabel_UI.lblRearHDRollVerticalPos);
+		FormData fd_lblRearHDRollVerticalPos = new FormData();
+		fd_lblRearHDRollVerticalPos.top = new FormAttachment(lblRearHDRollPitch, 10);
+		fd_lblRearHDRollVerticalPos.left = new FormAttachment(lblRearHDRollPitch, 0, SWT.LEFT);
+		lblRearHDRollVerticalPos.setLayoutData(fd_lblRearHDRollVerticalPos);
+		
+		textRearHDRollVerticalPos = new Text(grpHoldDownRollInformation, SWT.BORDER);
+		med.setTextRearHDRollVerticalPos(textRearHDRollVerticalPos);
+		FormData fd_textRearHDRollVerticalPos = new FormData();
+		fd_textRearHDRollVerticalPos.top = new FormAttachment(lblRearHDRollVerticalPos, -2, SWT.TOP);
+		fd_textRearHDRollVerticalPos.left = new FormAttachment(textRearHDRollPitch, 0, SWT.LEFT);
+		fd_textRearHDRollVerticalPos.right = new FormAttachment(textRearHDRollPitch, 0, SWT.RIGHT);
+		textRearHDRollVerticalPos.setLayoutData(fd_textRearHDRollVerticalPos);
+		
+		Button btnCreateRoll = new Button(compositeRollParameter, SWT.NONE);
 		med.setBtnCreateRoll(btnCreateRoll);
 		CustomButton customBtnCreateRoll = new CustomButton(Mediator.BUTTON_CreateRoll,med);
 		med.setCustomBtnCreateRoll(customBtnCreateRoll);
 		customBtnCreateRoll.setCustomWidget_btnCreateRoll();
-		FormData fd_btnCreateRoll = new FormData();
-		fd_btnCreateRoll.top = new FormAttachment(lblMillStiffness, 12);
-		fd_btnCreateRoll.left = new FormAttachment(lblUpperRollNumber, 0, SWT.LEFT);
-		fd_btnCreateRoll.right = new FormAttachment(spinnerUpperRollNum, 0, SWT.RIGHT);
+		FormData fd_btnCreateRoll  = new FormData();
+		fd_btnCreateRoll.top = new FormAttachment(grpHoldDownRollInformation, 5);
+		fd_btnCreateRoll.left = new FormAttachment(grpHoldDownRollInformation, 0, SWT.LEFT);
+		fd_btnCreateRoll.right = new FormAttachment(grpHoldDownRollInformation, 0, SWT.RIGHT);
 		btnCreateRoll.setLayoutData(fd_btnCreateRoll);
 		btnCreateRoll.setText(TextLabel_UI.btnCreateRoll);
 		
-		
-		
-		
-		
+		Button btnShowRollTable = new Button(compositeRollParameter, SWT.NONE);
+		med.setBtnShowRollTable(btnShowRollTable);
+		CustomButton customBtnShowRollTable = new CustomButton(Mediator.BUTTON_btnShowRollTable,med);
+		med.setCustomBtnShowRollTable(customBtnShowRollTable);
+		customBtnShowRollTable.setCustomWidget_btnShowRollTable();
+		btnShowRollTable.setText("Show Roll Table");
+		FormData fd_btnShowRollTable = new FormData();
+		fd_btnShowRollTable.top = new FormAttachment(btnCreateRoll, 10);
+		fd_btnShowRollTable.left = new FormAttachment(btnCreateRoll, 0, SWT.LEFT);
+		fd_btnShowRollTable.right = new FormAttachment(btnCreateRoll, 0, SWT.RIGHT);
+		btnShowRollTable.setLayoutData(fd_btnShowRollTable);
 		
 		
 		//expandJS
-		
-		ExpandBar expandBar_rollInfo = new ExpandBar(compositeRollParameter_in, SWT.NONE);
+		/*  
+		ExpandBar expandBar_rollInfo = new ExpandBar(compositeRollParameter, SWT.BORDER);
+		expandBar_rollInfo.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
 		expandBar_rollInfo.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		FormData fd_expandBar_rollInfo = new FormData();
 		fd_expandBar_rollInfo.top = new FormAttachment(btnCreateRoll, 5);
-		fd_expandBar_rollInfo.left = new FormAttachment(0);
-		fd_expandBar_rollInfo.right = new FormAttachment(100,0);
-		//fd_expandBar_rollInfo.bottom = new FormAttachment(100,0);
+		fd_expandBar_rollInfo.left = new FormAttachment(btnCreateRoll,0,SWT.LEFT);
+		fd_expandBar_rollInfo.right = new FormAttachment(btnCreateRoll,0,SWT.RIGHT);
 		expandBar_rollInfo.setLayoutData(fd_expandBar_rollInfo);
 		
 		ExpandItem xpndtmRollInformation = new ExpandItem(expandBar_rollInfo, SWT.NONE);
-		xpndtmRollInformation.setExpanded(true);
+		xpndtmRollInformation.setExpanded(false);
 		xpndtmRollInformation.setText("Roll Table");
 		
-		ScrolledComposite sc2 = new ScrolledComposite(expandBar_rollInfo, SWT.H_SCROLL|SWT.V_SCROLL | SWT.BORDER);
-		sc2.setLayout(new FillLayout());
-		sc2.setMinSize(300, 300);
-		sc2.setExpandHorizontal(true);
-		sc2.setExpandVertical(true);
-		
-		Composite composite_rollInfo = new Composite(sc2, SWT.NONE);
+		Composite composite_rollInfo = new Composite(expandBar_rollInfo, SWT.NONE);
 		composite_rollInfo.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
-		xpndtmRollInformation.setControl(sc2);
+		xpndtmRollInformation.setControl(composite_rollInfo);
 		xpndtmRollInformation.setHeight(100);
 		composite_rollInfo.setLayout(new FormLayout());
-		
-		sc2.setContent(composite_rollInfo);
 		
 		Label lblUpperRoll = new Label(composite_rollInfo, SWT.NONE);
 		FormData fd_lblUpperRoll = new FormData();
@@ -1267,34 +1490,6 @@ spinnerLowerRollNum
 		btnSaveRoll.setLayoutData(fd_btnSaveRoll);
 		btnSaveRoll.setText("Save Roll");
 		
-		//expandJS
-		
-
-		ExpandBar expandBar_HoldDownInfo = new ExpandBar(compositeRollParameter_in, SWT.NONE);
-		expandBar_HoldDownInfo.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
-		FormData fd_expandBar_HoldDownInfo = new FormData();
-		fd_expandBar_HoldDownInfo.top = new FormAttachment(expandBar_rollInfo,10,SWT.BOTTOM);
-		fd_expandBar_HoldDownInfo.left = new FormAttachment(0);
-		fd_expandBar_HoldDownInfo.right = new FormAttachment(100,0);
-		//fd_expandBar_HoldDownInfo.bottom = new FormAttachment(textRollDiameter, 300);
-		expandBar_HoldDownInfo.setLayoutData(fd_expandBar_HoldDownInfo);
-
-		ExpandItem xpndtmHoldDownInfo = new ExpandItem(expandBar_HoldDownInfo, SWT.NONE);
-		xpndtmHoldDownInfo.setExpanded(true);
-		xpndtmHoldDownInfo.setText("Hold Down Roll Information");
-
-		Composite composite_HoldDownInfo = new Composite(expandBar_HoldDownInfo, SWT.NONE);
-		composite_HoldDownInfo.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
-		xpndtmHoldDownInfo.setControl(composite_HoldDownInfo);
-		xpndtmHoldDownInfo.setHeight(320);
-		composite_HoldDownInfo.setLayout(new FormLayout());
-
-		Label lblUpperRoll2 = new Label(composite_HoldDownInfo, SWT.NONE);
-		FormData fd_lblUpperRoll2 = new FormData();
-		fd_lblUpperRoll2.bottom = new FormAttachment(100, -137);
-		fd_lblUpperRoll2.left = new FormAttachment(0, 99);
-		lblUpperRoll2.setLayoutData(fd_lblUpperRoll2);
-		lblUpperRoll2.setText(TextLabel_UI.lblUpperRoll);
 		
 		// */
 		
@@ -1882,7 +2077,7 @@ spinnerLowerRollNum
 		fd_btnApply.bottom = new FormAttachment(compositeRollParameter, 0, SWT.BOTTOM);
 		btnApply.setLayoutData(fd_btnApply);
 		btnApply.setText("APPLY");
-		
+	
 
 		
 		
@@ -1926,12 +2121,16 @@ spinnerLowerRollNum
 		med.getBtnRadioApply_RC().addListener(SWT.Selection, handlerButton);
 		med.getBtnRadioRigid_MS().addListener(SWT.Selection, handlerButton);
 		med.getBtnRadioSpring_MS().addListener(SWT.Selection, handlerButton);
+		med.getBtnNone().addListener(SWT.Selection, handlerButton);
+		med.getBtnUpper().addListener(SWT.Selection, handlerButton);
+		med.getBtnLower().addListener(SWT.Selection, handlerButton);
 		med.getBtnCreateRoll().addListener(SWT.Selection, handlerButton);
+		med.getBtnShowRollTable().addListener(SWT.Selection, handlerButton);
 		//med.getBtnUpperEdit().addListener(SWT.Selection, handlerButton);
 		//med.getBtnUpperSave().addListener(SWT.Selection, handlerButton);
 		//med.getBtnLowerEdit().addListener(SWT.Selection, handlerButton);
 		//med.getBtnLowerSave().addListener(SWT.Selection, handlerButton);
-		med.getBtnSaveRoll().addListener(SWT.Selection, handlerButton);
+		//med.getBtnSaveRoll().addListener(SWT.Selection, handlerButton);
 		//med.getBtnExplorer().addListener(SWT.Selection, handlerButton);
 		med.getBtnExplorerYoungsModulus().addListener(SWT.Selection, handlerButton);
 		med.getBtnExplorerFlowStress().addListener(SWT.Selection, handlerButton);
@@ -1961,8 +2160,8 @@ spinnerLowerRollNum
 		med.getSpinnerThread().addListener(SWT.Selection, handlerSpinner);
 		
 		HandlerTableViewer handlerTableViewer = new HandlerTableViewer();
-		med.getTableViewerUpperRoll().addSelectionChangedListener(handlerTableViewer);
-		med.getTableViewerLowerRoll().addSelectionChangedListener(handlerTableViewer);
+		//med.getTableViewerUpperRoll().addSelectionChangedListener(handlerTableViewer);
+		//med.getTableViewerLowerRoll().addSelectionChangedListener(handlerTableViewer);
 	}
 	
 	public void init_AllComponent(){

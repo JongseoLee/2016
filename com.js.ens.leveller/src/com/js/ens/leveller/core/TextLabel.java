@@ -1,5 +1,6 @@
 package com.js.ens.leveller.core;
 
+// Using LMain DB
 public class TextLabel {
 	//---------------------------------------------------------------------------
 	public static String lblModelName					= "Model name";
@@ -72,6 +73,31 @@ public class TextLabel {
 	public static String lblLowerRoll					= "Lower Roll";
 	public static String btnLowerEdit					= "Edit";
 	public static String btnLowerSave					= "Save";
+	public static String lblUpperEntryRollGapMovement		= "Upper Entry Roll Gap Movement";
+	public static String lblUpperExitRollGapMovement		= "Upper Exit Roll Gap Movement";
+	public static String lblUpperRollGapStayingTime			= "Upper Roll Gap Staying Time";
+	public static String lblUpperRollGapMovingTime			= "Upper Roll Gap Moving Time";
+	public static String lblLowerRollGap					= "Lower Roll gap Movement";
+	public static String lblLowerEntryRollGapMovement		= "Lower Entry Roll Gap Movement";
+	public static String lblLowerExitRollGapMovement		= "Lower Exit Roll Gap Movement";
+	public static String lblLowerRollGapStayingTime			= "Lower Roll Gap Staying Time";
+	public static String lblLowerRollGapMovingTime			= "Lower Roll Gap Moving Time";
+	
+	
+	public static String lblFrontHDRollDia					= "Front H/D Roll Dia.";
+	public static String lblFrontHDRollPitch				= "Front H/D Roll Pitch";
+	public static String lblFrontHDRollVericalPos			= "Front H/D Roll Vertical. Pos.";
+	
+	public static String lblRearHDRollDia					= "Rear H/D Roll Dia.";
+	public static String lblRearHDRollPitch					= "Rear H/D Roll Pitch";
+	public static String lblRearHDRollVerticalPos			= "Rear H/D Roll Vertical. Pos.";
+	
+	public static String HDRollType							= "HDRollType";
+	
+	public static String btnNone							="None";
+	public static String btnUpper							="Upper";
+	public static String btnLower							="Lower";
+	
 	//---------------------------------------------------------------------------
 	public static String lblMaterialParameter 			= "Material Parameter";
 	//public static String lblModulusElasticity			= "Modulus of elasticity";

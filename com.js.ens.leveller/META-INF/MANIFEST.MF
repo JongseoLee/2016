@@ -5,7 +5,8 @@ Bundle-SymbolicName: com.js.ens.leveller;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: JS
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.ui
+ org.eclipse.ui,
+ org.eclipse.swt
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ClassPath: .,
  lib/jcommon-1.0.23.jar,

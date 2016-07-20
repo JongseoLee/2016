@@ -10,6 +10,7 @@ import com.js.ens.leveller.core.LevellerMain;
 import com.js.ens.leveller.core.Mediator;
 import com.js.ens.leveller.dialog.ApplyConfirmDlg;
 import com.js.ens.leveller.dialog.ExportProcedureDlg;
+import com.js.ens.leveller.dialog.ShowRollTableDlg;
 import com.js.ens.leveller.handler.ICommand;
 import com.js.util.myUtil;
 
@@ -38,6 +39,23 @@ public class CustomButton implements ICommand {
 		if(widgetName.equals(Mediator.BUTTON_CalcElementNum)){
 			//System.out.println("=>Btn Calc Number of Elements");
 			LMain.CalcElementNumber();
+		}
+		
+		if(widgetName.equals(Mediator.BUTTON_btnNone)){
+			System.out.println("selected "+ med.getBtnNone().getText() +" : "+med.getBtnNone().getSelection());
+		}
+		
+		if(widgetName.equals(Mediator.BUTTON_btnUpper)){
+			System.out.println("selected "+ med.getBtnUpper().getText() +" : "+med.getBtnUpper().getSelection());
+		}
+		
+		if(widgetName.equals(Mediator.BUTTON_btnUpper)){
+			System.out.println("selected "+ med.getBtnLower().getText() +" : "+med.getBtnLower().getSelection());
+		}
+		
+		if(widgetName.equals(Mediator.BUTTON_btnShowRollTable)){
+			ShowRollTableDlg showRollTableDlg = new ShowRollTableDlg(Display.getCurrent().getActiveShell());
+			showRollTableDlg.open();
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_RadioNone_RC)){
@@ -232,6 +250,19 @@ public class CustomButton implements ICommand {
 	public void setCustomWidget_btnCalcElementNum(){
 		this.button = med.getBtnCalcElementNum();
 	}
+	public void setCustomWidget_btnNone(){
+		this.button = med.getBtnNone();
+	}
+	public void setCustomWidget_btnUpper(){
+		this.button = med.getBtnUpper();
+	}
+	public void setCustomWidget_btnLower(){
+		this.button = med.getBtnLower();
+	}
+	public void setCustomWidget_btnShowRollTable(){
+		this.button = med.getBtnShowRollTable();
+	}
+	
 	public void setCustomWidget_btnCreateRoll(){
 		this.button = med.getBtnCreateRoll();
 	}

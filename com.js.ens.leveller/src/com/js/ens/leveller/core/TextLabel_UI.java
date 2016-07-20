@@ -68,6 +68,35 @@ public class TextLabel_UI {
 	public static String btnRadioRigid					= "Rigid";
 	public static String btnRadioSpring					= "Spring";
 	public static String lblMillStiffness				= "Mill Stiffness (N/mm)";
+	
+	public static String grpRollGapMovementInformation	="Roll Gap Movement Information";
+	public static String lblUpperRollGap 				="Upper Roll gap Movement";
+	public static String lblUpperEntryRollGapMovement		= "Upper Entry Roll Gap Movement(mm)";
+	public static String lblUpperExitRollGapMovement		= "Upper Exit Roll Gap Movement(mm)";
+	public static String lblUpperRollGapStayingTime			= "Upper Roll Gap Staying Time(sec.)";
+	public static String lblUpperRollGapMovingTime			= "Upper Roll Gap Moving Time(sec.)";
+	public static String lblLowerRollGap					= "Lower Roll gap Movement";
+	public static String lblLowerEntryRollGapMovement		= "Lower Entry Roll Gap Movement(mm)";
+	public static String lblLowerExitRollGapMovement		= "Lower Exit Roll Gap Movement(mm)";
+	public static String lblLowerRollGapStayingTime			= "Lower Roll Gap Staying Time(sec.)";
+	public static String lblLowerRollGapMovingTime			= "Lower Roll Gap Moving Time(sec.)";
+	
+	public static String lblFrontRollPosition				= "Front Roll Position";
+	public static String lblFrontHDRollDia					= "Front H/D Roll Dia.(mm)";
+	public static String lblFrontHDRollPitch				= "Front H/D Roll Pitch(mm)";
+	public static String lblFrontHDRollVericalPos			= "Front H/D Roll Vertical. Pos.(mm)";
+	public static String lblRearRollPosition				= "Rear Roll Position";
+	public static String lblRearHDRollDia					= "Rear H/D Roll Dia.(mm)";
+	public static String lblRearHDRollPitch					= "Rear H/D Roll Pitch(mm)";
+	public static String lblRearHDRollVerticalPos			= "Rear H/D Roll Vertical. Pos.(mm)";
+	
+	public static String btnNone							="None";
+	public static String btnUpper							="Upper";
+	public static String btnLower							="Lower";
+	
+	public static String HDRollType 						= "Upper";
+	
+	
 	public static String btnCreateRoll					= "Create Roll";
 	public static String lblUpperRoll					= "Upper Roll";
 	public static String btnUpperEdit					= "Edit";

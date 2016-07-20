@@ -104,6 +104,44 @@ public class InitValue {
 	public static String lblRollDiameter					= "280";
 	public static String lblRollCrown 						= "0.0";
 	public static String lblMillStiffness					= "1.0e5";
+	
+	
+	public static String lblUpperEntryRollGapMovement		= "20.0";
+	public static String lblUpperExitRollGapMovement		= "15.0";
+	public static String lblUpperRollGapStayingTime			= "1.0";
+	public static String lblUpperRollGapMovingTime			= "2.0";
+	public static String lblLowerEntryRollGapMovement		= "20.0";
+	public static String lblLowerExitRollGapMovement		= "15.0";
+	public static String lblLowerRollGapStayingTime			= "1.0";
+	public static String lblLowerRollGapMovingTime			= "2.0";
+	
+	public static String lblFrontHDRollDia					= "100.0";
+	public static String lblFrontHDRollPitch				= "250.0";
+	public static String lblFrontHDRollVericalPos			= "300.0";
+	public static String lblRearHDRollDia					= "100.0";
+	public static String lblRearHDRollPitch					= "250.0";
+	public static String lblRearHDRollVerticalPos			= "300.0";
+	
+	public static String HDRollType 						= "Upper";
+	
+	public static String textUpperEntryRollGapMovement		= "20.0";
+	public static String textUpperExitRollGapMovement		= "15.0";
+	public static String textUpperRollGapStayingTime		= "1.0";
+	public static String textUpperRollGapMovingTime			= "2.0";
+	public static String textLowerEntryRollGapMovement		= "20.0";
+	public static String textLowerExitRollGapMovement		= "15.0";
+	public static String textLowerRollGapStayingTime		= "1.0";
+	public static String textLowerRollGapMovingTime			= "2.0";
+	
+	public static String textFrontHDRollDia					= "100.0";
+	public static String textFrontHDRollPitch				= "250.0";
+	public static String textFrontHDRollVericalPos			= "300.0";
+	public static String textRearHDRollDia					= "100.0";
+	public static String textRearHDRollPitch				= "250.0";
+	public static String textRearHDRollVerticalPos			= "300.0";
+	
+	//public String HDRollType								= "Upper";
+	
 	// Material parameter
 	public static String textYoungsModulus					= "21000";
 	public static String textFlowStress						= "1000";
