@@ -199,7 +199,7 @@ public class GenProc_01 {
 				String newLien = line.replace(ProcMaker.ENTRY_THK,plogObj.get(StandType).getENTRY_THK());
 				procDataList.add(newLien);	
 			}else if(line.contains(ProcMaker.STP_WID)){
-				String newLien = line.replace(ProcMaker.STP_WID,plogObj.get(StandType).getSTP_LEN());
+				String newLien = line.replace(ProcMaker.STP_WID,plogObj.get(StandType).getSTP_WID());
 				procDataList.add(newLien);	
 			}else if(line.contains(ProcMaker.STP_LEN)){
 				String newLien = line.replace(ProcMaker.STP_LEN,plogObj.get(StandType).getSTP_LEN());
