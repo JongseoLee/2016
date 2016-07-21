@@ -74,6 +74,26 @@ public class ProcVariable {
 		public static String lblLowerRoll					= "Lower Roll";
 		public static String btnLowerEdit					= "Edit";
 		public static String btnLowerSave					= "Save";
+		public static String lblUpperEntryRollGapMovement		= "UpperEntryRollGapMovement";
+		public static String lblUpperExitRollGapMovement		= "UpperExitRollGapMovement";
+		public static String lblUpperRollGapStayingTime			= "UpperRollGapStayingTime";
+		public static String lblUpperRollGapMovingTime			= "UpperRollGapMovingTime";
+		public static String lblLowerRollGap					= "LowerRollgapMovement";
+		public static String lblLowerEntryRollGapMovement		= "LowerEntryRollGapMovement";
+		public static String lblLowerExitRollGapMovement		= "LowerExitRollGapMovement";
+		public static String lblLowerRollGapStayingTime			= "LowerRollGapStayingTime";
+		public static String lblLowerRollGapMovingTime			= "LowerRollGapMovingTime";
+		
+		
+		public static String lblFrontHDRollDia					= "FrontHDRollDia";
+		public static String lblFrontHDRollPitch				= "FrontHDRollPitch";
+		public static String lblFrontHDRollVericalPos			= "FrontHDRollVerticalPos";
+		
+		public static String lblRearHDRollDia					= "RearHDRollDia";
+		public static String lblRearHDRollPitch					= "RearHDRollPitch";
+		public static String lblRearHDRollVerticalPos			= "RearHDRollVerticalPos"; 
+		
+		
 		//---------------------------------------------------------------------------
 		public static String lblMaterialParameter 			= "Material Parameter";
 		//public static String lblModulusElasticity			= "Modulus of elasticity";

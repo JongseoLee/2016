@@ -894,7 +894,7 @@ public class LevellerMain {
 		String msg ="\n\n"; 
 		
 		msgList.add("################################");
-		msgList.add("\t\tLeveller Roll Data");        
+		msgList.add("\tLeveller Roll Data");        
 		msgList.add("################################");
 		
 		msgList.add("Upper Roll Number \t: "+this.spinnerUpperRollNum);
@@ -1175,13 +1175,51 @@ public class LevellerMain {
 		this.textMillStiffness = null;
 		med.getTextMillStiffness().setText("");
 		
+		//update version3 
+		this.textUpperEntryRollGapMovement = null;
+		med.getTextUpperEntryRollGapMovement().setText("");
+		this.textUpperExitRollGapMovement = null;
+		med.getTextUpperExitRollGapMovement().setText("");
+		this.textUpperRollGapStayingTime = null;
+		med.getTextUpperRollGapStayingTime().setText("");
+		this.textUpperRollGapMovingTime = null;
+		med.getTextUpperRollGapMovingTime().setText("");
+		this.textLowerEntryRollGapMovement = null;
+		med.getTextLowerEntryRollGapMovement().setText("");
+		this.textLowerExitRollGapMovement = null;
+		med.getTextLowerExitRollGapMovement().setText("");
+		this.textLowerRollGapStayingTime = null;
+		med.getTextLowerRollGapStayingTime().setText("");
+		this.textLowerRollGapMovingTime = null;
+		med.getTextLowerRollGapMovingTime().setText("");
+		
+		this.textFrontHDRollDia = null;
+		med.getTextFrontHDRollDia().setText("");
+		this.textFrontHDRollPitch = null;
+		med.getTextFrontHDRollPitch().setText("");
+		this.textFrontHDRollVericalPos = null;
+		med.getTextFrontHDRollVericalPos().setText("");
+		this.textRearHDRollDia = null;
+		med.getTextRearHDRollDia().setText("");
+		this.textRearHDRollPitch = null;
+		med.getTextRearHDRollPitch().setText("");
+		this.textRearHDRollVerticalPos = null;
+		med.getTextRearHDRollVerticalPos().setText("");
+		
+		this.HDRollType = "Upper";
+		med.getBtnNone().setSelection(false);
+		med.getBtnLower().setSelection(false);
+		med.getBtnUpper().setSelection(true);
+		
+		
 		
 		try{
 			for(UpTableDataContent obj : this.upTableDataList){
 				obj = null;
 			}
 			if(this.upTableDataList != null)	this.upTableDataList.clear();
-			this.updateTableData();
+			// version3 update
+			//this.updateTableData();
 		}catch (Exception e){
 			//System.out.println("Data is empty.clearAllData");
 		}
@@ -1191,7 +1229,8 @@ public class LevellerMain {
 				obj = null;
 			}
 			if(this.downTableDataList != null) this.downTableDataList.clear();
-			this.updateTableData();
+			// version3 update
+			//this.updateTableData();
 		}catch (Exception e){
 			//System.out.println("Data is empty.clearAllData");
 		}
@@ -1797,6 +1836,145 @@ public class LevellerMain {
 					med.getTextMillStiffness().setEnabled(true);
 				}
 			}
+			// version3 update 
+			else if(parsingDataList.get(0).equals(TextLabel.lblUpperEntryRollGapMovement)){
+				if(parsingDataList.size() == 2){
+					this.textUpperEntryRollGapMovement = parsingDataList.get(1);
+					med.getTextUpperEntryRollGapMovement().setText(this.textUpperEntryRollGapMovement);
+				}else  {
+					this.textUpperEntryRollGapMovement = "No value";
+					med.getTextUpperEntryRollGapMovement().setText(this.textUpperEntryRollGapMovement);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblUpperExitRollGapMovement)){
+				if(parsingDataList.size() == 2){
+					this.textUpperExitRollGapMovement = parsingDataList.get(1);
+					med.getTextUpperExitRollGapMovement().setText(this.textUpperExitRollGapMovement);
+				}else {
+					this.textUpperExitRollGapMovement = "No value";
+					med.getTextUpperExitRollGapMovement().setText(this.textUpperExitRollGapMovement);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblUpperRollGapStayingTime)){
+				if(parsingDataList.size() == 2){
+					this.textUpperRollGapStayingTime = parsingDataList.get(1);
+					med.getTextUpperRollGapStayingTime().setText(this.textUpperRollGapStayingTime);
+				}else {
+					this.textUpperRollGapStayingTime = "No value";
+					med.getTextUpperRollGapStayingTime().setText(this.textUpperRollGapStayingTime);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblUpperRollGapMovingTime)){
+				if(parsingDataList.size() == 2){
+					this.textUpperRollGapMovingTime = parsingDataList.get(1);
+					med.getTextUpperRollGapMovingTime().setText(this.textUpperRollGapMovingTime);
+				}else {
+					this.textUpperRollGapMovingTime = "No value";
+					med.getTextUpperRollGapMovingTime().setText(this.textUpperRollGapMovingTime);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLowerEntryRollGapMovement)){
+				if(parsingDataList.size() == 2){
+					this.textLowerEntryRollGapMovement = parsingDataList.get(1);
+					med.getTextLowerEntryRollGapMovement().setText(this.textLowerEntryRollGapMovement);
+				}else {
+					this.textLowerEntryRollGapMovement = "No value";
+					med.getTextLowerEntryRollGapMovement().setText(this.textLowerEntryRollGapMovement);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLowerExitRollGapMovement)){
+				if(parsingDataList.size() == 2){
+					this.textLowerExitRollGapMovement = parsingDataList.get(1);
+					med.getTextLowerExitRollGapMovement().setText(this.textLowerExitRollGapMovement);
+				}else {
+					this.textLowerExitRollGapMovement = "No value";
+					med.getTextLowerExitRollGapMovement().setText(this.textLowerExitRollGapMovement);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLowerRollGapStayingTime)){
+				if(parsingDataList.size() == 2){
+					this.textLowerRollGapStayingTime = parsingDataList.get(1);
+					med.getTextLowerRollGapStayingTime().setText(this.textLowerRollGapStayingTime);
+				}else {
+					this.textLowerRollGapStayingTime = "No value";
+					med.getTextLowerRollGapStayingTime().setText(this.textLowerRollGapStayingTime);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLowerRollGapMovingTime)){
+				if(parsingDataList.size() == 2){
+					this.textLowerRollGapMovingTime = parsingDataList.get(1);
+					med.getTextLowerRollGapMovingTime().setText(this.textLowerRollGapMovingTime);
+				}else {
+					this.textLowerRollGapMovingTime = "No value";
+					med.getTextLowerRollGapMovingTime().setText(this.textLowerRollGapMovingTime);
+				}
+			}
+			else if(parsingDataList.get(0).equals(TextLabel.lblFrontHDRollDia)){
+				if(parsingDataList.size() == 2){
+					this.textFrontHDRollDia = parsingDataList.get(1);
+					med.getTextFrontHDRollDia().setText(this.textFrontHDRollDia);
+				}else{
+					this.textFrontHDRollDia = "No value";
+					med.getTextFrontHDRollDia().setText(this.textFrontHDRollDia);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblFrontHDRollPitch)){
+				if(parsingDataList.size() == 2){
+					this.textFrontHDRollPitch = parsingDataList.get(1);
+					med.getTextFrontHDRollPitch().setText(this.textFrontHDRollPitch);
+				}else{
+					this.textFrontHDRollPitch = "No value";
+					med.getTextFrontHDRollPitch().setText(this.textFrontHDRollPitch);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblFrontHDRollVericalPos)){
+				if(parsingDataList.size() == 2){
+					this.textFrontHDRollVericalPos = parsingDataList.get(1);
+					med.getTextFrontHDRollVericalPos().setText(this.textFrontHDRollVericalPos);
+				}else{
+					this.textFrontHDRollVericalPos = "No value";
+					med.getTextFrontHDRollVericalPos().setText(this.textFrontHDRollVericalPos);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRearHDRollDia)){
+				if(parsingDataList.size() == 2){
+					this.textRearHDRollDia = parsingDataList.get(1);
+					med.getTextRearHDRollDia().setText(this.textRearHDRollDia);
+				}else{
+					this.textRearHDRollDia = "No value";
+					med.getTextRearHDRollDia().setText(this.textRearHDRollDia);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRearHDRollPitch)){
+				if(parsingDataList.size() == 2){
+					this.textRearHDRollPitch = parsingDataList.get(1);
+					med.getTextRearHDRollPitch().setText(this.textRearHDRollPitch);
+				}else{
+					this.textRearHDRollPitch = "No value";
+					med.getTextRearHDRollPitch().setText(this.textRearHDRollPitch);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRearHDRollVerticalPos)){
+				if(parsingDataList.size() == 2){
+					this.textRearHDRollVerticalPos = parsingDataList.get(1);
+					med.getTextRearHDRollVerticalPos().setText(this.textRearHDRollVerticalPos);
+				}else{
+					this.textRearHDRollVerticalPos = "No value";
+					med.getTextRearHDRollVerticalPos().setText(this.textRearHDRollVerticalPos);
+				}
+			}
+			
+			else if(parsingDataList.get(0).equals(TextLabel.HDRollType)){
+				if(parsingDataList.size() == 2){
+					this.HDRollType = parsingDataList.get(1);
+					if(this.HDRollType.equals("None")){
+						med.getBtnUpper().setSelection(false);
+						med.getBtnLower().setSelection(false);
+						med.getBtnNone().setSelection(true);
+					}else if(this.HDRollType.equals("Lower")){
+						med.getBtnUpper().setSelection(false);
+						med.getBtnNone().setSelection(false);
+						med.getBtnLower().setSelection(true);
+					}else if(this.HDRollType.equals("Upper")){
+						med.getBtnNone().setSelection(false);
+						med.getBtnLower().setSelection(false);
+						med.getBtnUpper().setSelection(true);
+					}
+				}else {
+					this.HDRollType = "Upper";
+					med.getBtnNone().setSelection(false);
+					med.getBtnLower().setSelection(false);
+					med.getBtnUpper().setSelection(true);
+				}
+			}
 
 			else if(parsingDataList.get(0).contains("UpperRoll_")){
 				if(parsingDataList.size() == 2){
@@ -2060,7 +2238,8 @@ public class LevellerMain {
 				}
 			}
 		}
-		updateTableData();
+		//version3 update
+		//updateTableData();
 	}
 	
 	public void SaveLeveller(){
@@ -2201,7 +2380,8 @@ public class LevellerMain {
 		this.textWidthAspectRatio = med.getTextWidthAspectRatio().getText().trim();
 		this.textLengthAspectRatio = med.getTextLengthAspectRatio().getText().trim();
 		CalcElementNumber();
-		CreateRoll();
+		// version3 update
+		//CreateRoll();
 		this.textElementNumber = med.getTextElementNumber().getText().trim();
 		
 		this.db.add(TextLabel.lblThicknessElementNum+"="+this.textThicknessElementNum);
@@ -2264,6 +2444,48 @@ public class LevellerMain {
 		this.db.add(TextLabel.lblRollCrown+"="+this.textRollCrown);
 		this.db.add(TextLabel.lblMillStiffnessType+"="+this.MillStiffnessType);
 		this.db.add(TextLabel.lblMillStiffness+"="+this.textMillStiffness);
+		//update version3 
+		this.textUpperEntryRollGapMovement = med.getTextUpperEntryRollGapMovement().getText().trim();
+		this.textUpperExitRollGapMovement = med.getTextUpperExitRollGapMovement().getText().trim();
+		this.textUpperRollGapStayingTime = med.getTextUpperRollGapStayingTime().getText().trim();
+		this.textUpperRollGapMovingTime = med.getTextUpperRollGapMovingTime().getText().trim();
+		this.textLowerEntryRollGapMovement = med.getTextLowerEntryRollGapMovement().getText().trim();
+		this.textLowerExitRollGapMovement = med.getTextLowerExitRollGapMovement().getText().trim();
+		this.textLowerRollGapStayingTime = med.getTextLowerRollGapStayingTime().getText().trim();
+		this.textLowerRollGapMovingTime = med.getTextLowerRollGapMovingTime().getText().trim();
+		
+		this.db.add(TextLabel.lblUpperEntryRollGapMovement+"="+this.textUpperEntryRollGapMovement);
+		this.db.add(TextLabel.lblUpperExitRollGapMovement+"="+this.textUpperExitRollGapMovement);
+		this.db.add(TextLabel.lblUpperRollGapStayingTime+"="+this.textUpperRollGapStayingTime);
+		this.db.add(TextLabel.lblUpperRollGapMovingTime+"="+this.textUpperRollGapMovingTime);
+		this.db.add(TextLabel.lblLowerEntryRollGapMovement+"="+this.textLowerEntryRollGapMovement);
+		this.db.add(TextLabel.lblLowerExitRollGapMovement+"="+this.textLowerExitRollGapMovement);
+		this.db.add(TextLabel.lblLowerRollGapStayingTime+"="+this.textLowerRollGapStayingTime);
+		this.db.add(TextLabel.lblLowerRollGapMovingTime+"="+this.textLowerRollGapMovingTime);
+		
+		if(med.getBtnNone().getSelection()){
+			this.HDRollType = med.getBtnNone().getText();
+		}
+		if(med.getBtnUpper().getSelection()){
+			this.HDRollType = med.getBtnUpper().getText();
+		}
+		if(med.getBtnLower().getSelection()){
+			this.HDRollType = med.getBtnLower().getText();
+		}
+		this.textFrontHDRollDia = med.getTextFrontHDRollDia().getText().trim();
+		this.textFrontHDRollPitch = med.getTextFrontHDRollPitch().getText().trim();
+		this.textFrontHDRollVericalPos = med.getTextFrontHDRollVericalPos().getText().trim();
+		this.textRearHDRollDia = med.getTextRearHDRollDia().getText().trim();
+		this.textRearHDRollPitch = med.getTextRearHDRollPitch().getText().trim();
+		this.textRearHDRollVerticalPos = med.getTextRearHDRollVerticalPos().getText().trim();
+		
+		this.db.add(TextLabel.lblFrontHDRollDia+"="+this.textFrontHDRollDia);
+		this.db.add(TextLabel.lblFrontHDRollPitch+"="+this.textFrontHDRollPitch);
+		this.db.add(TextLabel.lblFrontHDRollVericalPos+"="+this.textFrontHDRollVericalPos);
+		this.db.add(TextLabel.lblRearHDRollDia+"="+this.textRearHDRollDia);
+		this.db.add(TextLabel.lblRearHDRollPitch+"="+this.textRearHDRollPitch);
+		this.db.add(TextLabel.lblRearHDRollVerticalPos+"="+this.textRearHDRollVerticalPos);
+		this.db.add(TextLabel.HDRollType+"="+this.HDRollType);
 		
 		try{
 			for(UpTableDataContent obj : this.upTableDataList){
@@ -2424,7 +2646,8 @@ public class LevellerMain {
 		this.textWidthAspectRatio = med.getTextWidthAspectRatio().getText().trim();
 		this.textLengthAspectRatio = med.getTextLengthAspectRatio().getText().trim();
 		CalcElementNumber();
-		CreateRoll();
+		// version3 update
+		//CreateRoll();
 		this.textElementNumber = med.getTextElementNumber().getText().trim();
 		
 		this.db_saveAs.add(TextLabel.lblThicknessElementNum+"="+this.textThicknessElementNum);
@@ -2485,6 +2708,48 @@ public class LevellerMain {
 		this.db_saveAs.add(TextLabel.lblRollCrown+"="+this.textRollCrown);
 		this.db_saveAs.add(TextLabel.lblMillStiffnessType+"="+this.MillStiffnessType);
 		this.db_saveAs.add(TextLabel.lblMillStiffness+"="+this.textMillStiffness);
+		//update version3
+		this.textUpperEntryRollGapMovement = med.getTextUpperEntryRollGapMovement().getText().trim();
+		this.textUpperExitRollGapMovement = med.getTextUpperExitRollGapMovement().getText().trim();
+		this.textUpperRollGapStayingTime = med.getTextUpperRollGapStayingTime().getText().trim();
+		this.textUpperRollGapMovingTime = med.getTextUpperRollGapMovingTime().getText().trim();
+		this.textLowerEntryRollGapMovement = med.getTextLowerEntryRollGapMovement().getText().trim();
+		this.textLowerExitRollGapMovement = med.getTextLowerExitRollGapMovement().getText().trim();
+		this.textLowerRollGapStayingTime = med.getTextLowerRollGapStayingTime().getText().trim();
+		this.textLowerRollGapMovingTime = med.getTextLowerRollGapMovingTime().getText().trim();
+		
+		this.db_saveAs.add(TextLabel.lblUpperEntryRollGapMovement+"="+this.textUpperEntryRollGapMovement);
+		this.db_saveAs.add(TextLabel.lblUpperExitRollGapMovement+"="+this.textUpperExitRollGapMovement);
+		this.db_saveAs.add(TextLabel.lblUpperRollGapStayingTime+"="+this.textUpperRollGapStayingTime);
+		this.db_saveAs.add(TextLabel.lblUpperRollGapMovingTime+"="+this.textUpperRollGapMovingTime);
+		this.db_saveAs.add(TextLabel.lblLowerEntryRollGapMovement+"="+this.textLowerEntryRollGapMovement);
+		this.db_saveAs.add(TextLabel.lblLowerExitRollGapMovement+"="+this.textLowerExitRollGapMovement);
+		this.db_saveAs.add(TextLabel.lblLowerRollGapStayingTime+"="+this.textLowerRollGapStayingTime);
+		this.db_saveAs.add(TextLabel.lblLowerRollGapMovingTime+"="+this.textLowerRollGapMovingTime);
+		
+		if(med.getBtnNone().getSelection()){
+			this.HDRollType = med.getBtnNone().getText();
+		}
+		if(med.getBtnUpper().getSelection()){
+			this.HDRollType = med.getBtnUpper().getText();
+		}
+		if(med.getBtnLower().getSelection()){
+			this.HDRollType = med.getBtnLower().getText();
+		}
+		this.textFrontHDRollDia = med.getTextFrontHDRollDia().getText().trim();
+		this.textFrontHDRollPitch = med.getTextFrontHDRollPitch().getText().trim();
+		this.textFrontHDRollVericalPos = med.getTextFrontHDRollVericalPos().getText().trim();
+		this.textRearHDRollDia = med.getTextRearHDRollDia().getText().trim();
+		this.textRearHDRollPitch = med.getTextRearHDRollPitch().getText().trim();
+		this.textRearHDRollVerticalPos = med.getTextRearHDRollVerticalPos().getText().trim();
+		
+		this.db_saveAs.add(TextLabel.lblFrontHDRollDia+"="+this.textFrontHDRollDia);
+		this.db_saveAs.add(TextLabel.lblFrontHDRollPitch+"="+this.textFrontHDRollPitch);
+		this.db_saveAs.add(TextLabel.lblFrontHDRollVericalPos+"="+this.textFrontHDRollVericalPos);
+		this.db_saveAs.add(TextLabel.lblRearHDRollDia+"="+this.textRearHDRollDia);
+		this.db_saveAs.add(TextLabel.lblRearHDRollPitch+"="+this.textRearHDRollPitch);
+		this.db_saveAs.add(TextLabel.lblRearHDRollVerticalPos+"="+this.textRearHDRollVerticalPos);
+		this.db_saveAs.add(TextLabel.HDRollType+"="+this.HDRollType);
 				
 		try{
 			for(UpTableDataContent obj : this.upTableDataList){

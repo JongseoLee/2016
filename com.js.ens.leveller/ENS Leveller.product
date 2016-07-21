@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="ENS Leveller" id="com.js.ens.leveller.product" application="com.js.ens.leveller.application" version="2.2" useFeatures="false" includeLaunchers="true">
+<product name="ENS Leveller" id="com.js.ens.leveller.product" application="com.js.ens.leveller.application" version="3.0" useFeatures="false" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>

@@ -42,21 +42,51 @@ public class CustomButton implements ICommand {
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_btnNone)){
-			System.out.println("selected "+ med.getBtnNone().getText() +" : "+med.getBtnNone().getSelection());
+			//System.out.println("selected "+ med.getBtnNone().getText() +" : "+med.getBtnNone().getSelection());
+			if(med.getBtnNone().getSelection()){
+				med.getTextFrontHDRollDia().setEnabled(false);
+				med.getTextFrontHDRollPitch().setEnabled(false);
+				med.getTextFrontHDRollVericalPos().setEnabled(false);
+				med.getTextRearHDRollDia().setEnabled(false);
+				med.getTextRearHDRollPitch().setEnabled(false);
+				med.getTextRearHDRollVerticalPos().setEnabled(false);
+			}else {
+				med.getTextFrontHDRollDia().setEnabled(true);
+				med.getTextFrontHDRollPitch().setEnabled(true);
+				med.getTextFrontHDRollVericalPos().setEnabled(true);
+				med.getTextRearHDRollDia().setEnabled(true);
+				med.getTextRearHDRollPitch().setEnabled(true);
+				med.getTextRearHDRollVerticalPos().setEnabled(true);
+			}
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_btnUpper)){
-			System.out.println("selected "+ med.getBtnUpper().getText() +" : "+med.getBtnUpper().getSelection());
+			//System.out.println("selected "+ med.getBtnUpper().getText() +" : "+med.getBtnUpper().getSelection());
+			if(med.getBtnUpper().getSelection()){
+				med.getTextFrontHDRollDia().setEnabled(true);
+				med.getTextFrontHDRollPitch().setEnabled(true);
+				med.getTextFrontHDRollVericalPos().setEnabled(true);
+				med.getTextRearHDRollDia().setEnabled(true);
+				med.getTextRearHDRollPitch().setEnabled(true);
+				med.getTextRearHDRollVerticalPos().setEnabled(true);
+			}
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_btnUpper)){
-			System.out.println("selected "+ med.getBtnLower().getText() +" : "+med.getBtnLower().getSelection());
+			//System.out.println("selected "+ med.getBtnLower().getText() +" : "+med.getBtnLower().getSelection());
+			if(med.getBtnLower().getSelection()){
+				med.getTextFrontHDRollDia().setEnabled(true);
+				med.getTextFrontHDRollPitch().setEnabled(true);
+				med.getTextFrontHDRollVericalPos().setEnabled(true);
+				med.getTextRearHDRollDia().setEnabled(true);
+				med.getTextRearHDRollPitch().setEnabled(true);
+				med.getTextRearHDRollVerticalPos().setEnabled(true);
+			}
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_btnShowRollTable)){
 			ShowRollTableDlg showRollTableDlg = new ShowRollTableDlg(Display.getCurrent().getActiveShell());
 			showRollTableDlg.open();
-			
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_RadioNone_RC)){

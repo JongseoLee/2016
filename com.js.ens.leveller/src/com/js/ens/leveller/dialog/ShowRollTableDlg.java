@@ -69,7 +69,7 @@ public class ShowRollTableDlg extends Dialog {
 		fd_tableUpperRoll.top = new FormAttachment(lblUpperRoll, 5);
 		fd_tableUpperRoll.left = new FormAttachment(lblUpperRoll, 0, SWT.LEFT);
 		fd_tableUpperRoll.right = new FormAttachment(100,-5);
-		fd_tableUpperRoll.bottom = new FormAttachment(lblUpperRoll, 100, SWT.BOTTOM);
+		fd_tableUpperRoll.bottom = new FormAttachment(lblUpperRoll, 150, SWT.BOTTOM);
 		tableUpperRoll.setLayoutData(fd_tableUpperRoll);
 		//tableUpperRoll.setEnabled(false);
 		
@@ -92,7 +92,7 @@ public class ShowRollTableDlg extends Dialog {
 		fd_tableLowerRoll.top = new FormAttachment(lblLowerRoll, 5);
 		fd_tableLowerRoll.left = new FormAttachment(lblUpperRoll, 0, SWT.LEFT);
 		fd_tableLowerRoll.right = new FormAttachment(100,-5);
-		fd_tableLowerRoll.bottom = new FormAttachment(lblLowerRoll, 100, SWT.BOTTOM);
+		fd_tableLowerRoll.bottom = new FormAttachment(lblLowerRoll, 150, SWT.BOTTOM);
 		tableLowerRoll.setLayoutData(fd_tableLowerRoll);
 		//tableLowerRoll.setEnabled(false);
 
@@ -136,7 +136,7 @@ public class ShowRollTableDlg extends Dialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(555, 413);
+		return new Point(473, 517);
 	}
 	
 	public void init_TableColunmn(){
