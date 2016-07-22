@@ -13,7 +13,9 @@ import com.js.io.Reader;
 import com.js.io.Writer;
 import com.js.util.myUtil;
 import com.js.ens.leveller.core.ComboLabel;
+import com.js.ens.leveller.core.DownTableDataContent;
 import com.js.ens.leveller.core.LevellerMain;
+import com.js.ens.leveller.core.UpTableDataContent;
 import com.js.ens.leveller.dialog.MessageDlg;
 
 public class define_parameters {
@@ -193,6 +195,95 @@ public class define_parameters {
 				newLine = line.replace("%"+ProcVariable.lblPassLineOffset+"%",LMain.getTextPassLineOffset());
 				procDataList.add(newLine);
 				continue;
+			}
+			//update version3 2016.07.22
+			else if(line.contains("%"+ProcVariable.lblUpperEntryRollGapMovement+"%")){
+				newLine = line.replace("%"+ProcVariable.lblUpperEntryRollGapMovement+"%",LMain.getTextUpperEntryRollGapMovement());
+				procDataList.add(newLine);
+			}else if(line.contains("%"+ProcVariable.lblUpperExitRollGapMovement +"%")){
+				newLine = line.replace("%"+ProcVariable.lblUpperExitRollGapMovement +"%",LMain.getTextUpperExitRollGapMovement());
+				procDataList.add(newLine);
+			}else if(line.contains("%"+ProcVariable.lblUpperRollGapStayingTime +"%")){
+				newLine = line.replace("%"+ProcVariable.lblUpperRollGapStayingTime +"%",LMain.getTextUpperRollGapStayingTime());
+				procDataList.add(newLine);
+			}else if(line.contains("%"+ProcVariable.lblUpperRollGapMovingTime +"%")){
+				newLine = line.replace("%"+ProcVariable.lblUpperRollGapMovingTime +"%",LMain.getTextUpperRollGapMovingTime());
+				procDataList.add(newLine);
+			}else if(line.contains("%"+ProcVariable.lblLowerEntryRollGapMovement +"%")){
+				newLine = line.replace("%"+ProcVariable.lblLowerEntryRollGapMovement +"%", LMain.getTextLowerEntryRollGapMovement());
+				procDataList.add(newLine);
+			}else if(line.contains("%"+ProcVariable.lblLowerExitRollGapMovement +"%")){
+				newLine = line.replace("%"+ProcVariable.lblLowerExitRollGapMovement +"%",LMain.getTextLowerExitRollGapMovement());
+				procDataList.add(newLine);
+			}else if(line.contains("%"+ProcVariable.lblLowerRollGapStayingTime +"%")){
+				newLine = line.replace("%"+ProcVariable.lblLowerRollGapStayingTime +"%",LMain.getTextLowerRollGapStayingTime());
+				procDataList.add(newLine);
+			}else if(line.contains("%"+ProcVariable.lblLowerRollGapStayingTime +"%")){
+				newLine = line.replace("%"+ProcVariable.lblLowerRollGapStayingTime +"%",LMain.getTextLowerRollGapMovingTime());
+				procDataList.add(newLine);
+			}
+			else if(line.contains("%"+ProcVariable.HDRollType+"%")){
+				newLine = line.replace("%"+ProcVariable.HDRollType+"%", LMain.getHDRollType().toLowerCase());
+				procDataList.add(newLine);
+			}
+			else if(line.contains("%"+ProcVariable.lblFrontHDRollDia+"%")){
+				if(!LMain.getHDRollType().equals("None")){
+					newLine = line.replace("%"+ProcVariable.lblFrontHDRollDia+"%",LMain.getTextFrontHDRollDia());
+					procDataList.add(newLine);
+				}
+			}else if(line.contains("%"+ProcVariable.lblFrontHDRollPitch+"%")){
+				if(!LMain.getHDRollType().equals("None")){
+					newLine = line.replace("%"+ProcVariable.lblFrontHDRollPitch+"%",LMain.getTextFrontHDRollPitch());
+					procDataList.add(newLine);
+				}
+			}else if(line.contains("%"+ProcVariable.lblFrontHDRollVericalPos+"%")){
+				if(!LMain.getHDRollType().equals("None")){
+					newLine = line.replace("%"+ProcVariable.lblFrontHDRollVericalPos+"%",LMain.getTextFrontHDRollVericalPos());
+					procDataList.add(newLine);
+				}
+			}else if(line.contains("%"+ProcVariable.lblRearHDRollDia+"%")){
+				if(!LMain.getHDRollType().equals("None")){
+					newLine = line.replace("%"+ProcVariable.lblRearHDRollDia+"%",LMain.getTextRearHDRollDia());
+					procDataList.add(newLine);
+				}
+			}else if(line.contains("%"+ProcVariable.lblRearHDRollPitch+"%")){
+				if(!LMain.getHDRollType().equals("None")){
+					newLine = line.replace("%"+ProcVariable.lblRearHDRollPitch+"%",LMain.getTextRearHDRollPitch());
+					procDataList.add(newLine);
+				}
+			}else if(line.contains("%"+ProcVariable.lblRearHDRollVerticalPos+"%")){
+				if(!LMain.getHDRollType().equals("None")){
+					newLine = line.replace("%"+ProcVariable.lblRearHDRollVerticalPos+"%",LMain.getTextRearHDRollVerticalPos());
+					procDataList.add(newLine);
+				}
+			}
+			else if(line.contains("%"+ProcVariable.UpperRollDataField+"%")){
+				String result = "";
+				String defineStr = "*eval_define ur_";
+				//private ArrayList<UpTableDataContent> upTableDataList = null;
+				int num = 1;
+				for(UpTableDataContent obj :LMain.getUpTableDataList()){
+					result += defineStr+ String.valueOf(num)+"_gap "+obj.getGap() +"  |"+obj.getNo() + " Gap" + "\n";
+					result += defineStr+ String.valueOf(num)+"_friction "+obj.getFriction() +"  |"+obj.getNo() + " Friction" + "\n";
+					result += defineStr+ String.valueOf(num)+"_diameter "+obj.getDiameter() +"  |"+obj.getNo() + " Diameter" + "\n";
+					num++;
+				}
+				newLine = line.replace("%"+ProcVariable.UpperRollDataField+"%",result);
+				procDataList.add(newLine);
+			}else if(line.contains("%"+ProcVariable.LowerRollDataField+"%")){
+				String result = "";
+				String defineStr = "*eval_define lr_";
+				// private ArrayList<DownTableDataContent> downTableDataList = null;
+				int num = 1;
+				for(DownTableDataContent obj : LMain.getDownTableDataList()){
+					result += defineStr+ String.valueOf(num)+"_gap "+obj.getGap() +"  |"+obj.getNo() + " Gap" + "\n";
+					result += defineStr+ String.valueOf(num)+"_friction "+obj.getFriction() +"  |"+obj.getNo() + " Friction" + "\n";
+					result += defineStr+ String.valueOf(num)+"_diameter "+obj.getDiameter() +"  |"+obj.getNo() + " Diameter" + "\n";
+					num++;
+				}
+				
+				newLine = line.replace("%"+ProcVariable.LowerRollDataField+"%",result);
+				procDataList.add(newLine);
 			}
 			
 			else if(line.contains("%"+ProcVariable.lblIncrementTime+"%")){

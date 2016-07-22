@@ -40,7 +40,6 @@ public class a2_roll_gen {
 			
 			readSourceData();
 			swapValue();
-			//createProcData();
 			writeProc();
 			
 			LMain.getExportMSG().addData("SUCCESS - Export(a2_roll_gen) \n path : "+ this.procFilePath);
@@ -82,14 +81,18 @@ public class a2_roll_gen {
 	}
 	
 	public void swapValue() throws Exception{
+		// version3 update
+		procDataList = new ArrayList<String>();
+		for(String line : fileDataList){
+			procDataList.add(line);
+		}
+		/*
 		procDataList = new ArrayList<String>();
 		String newLine = null;
 		for(String line :fileDataList){
 			if(line.contains("%"+ProcVariable.upperRollGenField+"%")){
 				if( Integer.parseInt(LMain.getSpinnerUpperRollNum()) <= Integer.parseInt(LMain.getSpinnerLowerRollNum()) ){
 					for(int i=0;i<Integer.parseInt(LMain.getSpinnerUpperRollNum());i++){
-						//procDataList.add("fdist+roll_pitch*("+i+"+1/2) "+LMain.getUpTableDataList().get(i).getGap()+"+"+LMain.getUpTableDataList().get(i).getDiameter()+"/2 -1000");
-						//procDataList.add("roll_dia/2");
 						procDataList.add("fdist+"+LMain.getUpTableDataList().get(i).getDiameter()+"/2+roll_pitch*(2*"+(i+1)+"-1)/2 "
 										+LMain.getUpTableDataList().get(i).getGap()+"+"+LMain.getUpTableDataList().get(i).getDiameter()+"/2 -1000");						
 						procDataList.add("roll_dia/2");
@@ -97,8 +100,6 @@ public class a2_roll_gen {
 					continue;
 				}else {
 					for(int i=0;i<Integer.parseInt(LMain.getSpinnerUpperRollNum());i++){
-						//procDataList.add("fdist+roll_pitch*("+i+") "+LMain.getUpTableDataList().get(i).getGap()+"+"+LMain.getUpTableDataList().get(i).getDiameter()+"/2 -1000");
-						//procDataList.add("roll_dia/2");
 						procDataList.add("fdist+"+LMain.getUpTableDataList().get(i).getDiameter()+"/2+roll_pitch*("+(i+1)+"-1) "
 								+LMain.getUpTableDataList().get(i).getGap()+"+"+LMain.getUpTableDataList().get(i).getDiameter()+"/2 -1000");
 						procDataList.add("roll_dia/2");
@@ -109,8 +110,6 @@ public class a2_roll_gen {
 			}else if(line.contains("%"+ProcVariable.lowerRollGenField+"%")){
 				if( Integer.parseInt(LMain.getSpinnerUpperRollNum()) <= Integer.parseInt(LMain.getSpinnerLowerRollNum()) ){
 					for(int i=-0;i<Integer.parseInt(LMain.getSpinnerLowerRollNum());i++){
-						//procDataList.add("fdist+roll_pitch*("+i+") "+LMain.getDownTableDataList().get(i).getGap() +"-1*"+LMain.getDownTableDataList().get(i).getDiameter()+"/2 -1000");
-						//procDataList.add("roll_dia/2");
 						procDataList.add("fdist+"+LMain.getDownTableDataList().get(i).getDiameter()+"/2+roll_pitch*("+(i+1)+"-1) "
 								+LMain.getDownTableDataList().get(i).getGap()+"-"+LMain.getDownTableDataList().get(i).getDiameter()+"/2 -1000");
 						procDataList.add("roll_dia/2");
@@ -118,8 +117,6 @@ public class a2_roll_gen {
 					continue;
 				}else{
 					for(int i=-0;i<Integer.parseInt(LMain.getSpinnerLowerRollNum());i++){
-						//procDataList.add("fdist+roll_pitch*("+i+"+1/2) "+LMain.getDownTableDataList().get(i).getGap() +"-1*"+LMain.getDownTableDataList().get(i).getDiameter()+"/2 -1000");
-						//procDataList.add("roll_dia/2");
 						procDataList.add("fdist+"+LMain.getDownTableDataList().get(i).getDiameter()+"/2+roll_pitch*(2*"+(i+1)+"-1)/2 "
 								+LMain.getDownTableDataList().get(i).getGap()+"-"+LMain.getDownTableDataList().get(i).getDiameter()+"/2 -1000");						
 						procDataList.add("roll_dia/2");
@@ -127,20 +124,10 @@ public class a2_roll_gen {
 					continue;
 				}
 			}
-			/*
-			 else if(line.contains("%"+ProcVariable.entryRollTableField+"%")){
-				procDataList.add("");
-			}
-			*/
+		
 			else if(line.contains("%"+ProcVariable.exitRollTableField+"%")){
 				if( Integer.parseInt(LMain.getSpinnerUpperRollNum()) <= Integer.parseInt(LMain.getSpinnerLowerRollNum()) ){
 					int lastNum = LMain.getDownTableDataList().size()-1;
-					//|point(fdist+roll_pitch*(l_roll_no-1)+fdist,0,-1000)
-					//|point(fdist+roll_pitch*(l_roll_no-1)+fdist+L+5000,0,-1000)
-					/*
-					point(-roll_dia/2+fdist+fdist+roll_dia/2+roll_pitch*(5-1)+roll_pitch/2, -roll_dia/2, -1000)
-					point(fdist+fdist+roll_dia/2+roll_pitch*(5-1)+roll_pitch/2, 0, -1000)
-					*/
 					procDataList.add("point(-roll_dia/2+fdist+fdist+"+LMain.getDownTableDataList().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, -roll_dia/2, -1000)");
 					procDataList.add("point(fdist+fdist+"+LMain.getDownTableDataList().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
 					procDataList.add("point(fdist+fdist+"+LMain.getDownTableDataList().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
@@ -157,6 +144,7 @@ public class a2_roll_gen {
 			}
 			
 		}
+		// */
 	}
 		
 	

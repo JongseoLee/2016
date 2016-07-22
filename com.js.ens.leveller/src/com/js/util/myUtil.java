@@ -4,8 +4,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.channels.FileChannel;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class myUtil {
 	
@@ -54,6 +59,24 @@ public class myUtil {
 		return resultPath;
 	}
 	
+	public static void printArrayList(ArrayList<String> list){
+		System.out.println("=================================");
+		for(String str:list){
+			System.out.println(str);
+		}
+		System.out.println("=================================");
+	}
+	
+	public static void printMap(Map<String,String> map){
+		Set<String> keySet = map.keySet();
+		Iterator<String> iterator = keySet.iterator();
+		while (iterator.hasNext()) {
+			String key = iterator.next();
+			Object value = map.get(key);
+			System.out.printf("key : |%s| value : |%s| %n", key, value);
+		}
+	}
+	
 	public static Boolean makeDir(String folderName){
 		boolean result = false;
 		File folder = new File(folderName);
@@ -81,6 +104,25 @@ public class myUtil {
 	}
 	 
 	public static void fileCopy(String inFileName, String outFileName) {
+		try{
+			FileInputStream inputStream = new FileInputStream(inFileName);         
+			FileOutputStream outputStream = new FileOutputStream(outFileName);
+			  
+			FileChannel fcin =  inputStream.getChannel();
+			FileChannel fcout = outputStream.getChannel();
+			  
+			long size = fcin.size();
+			fcin.transferTo(0, size, fcout);
+			  
+			fcout.close();
+			fcin.close();
+			  
+			outputStream.close();
+			inputStream.close();
+		}catch(Exception e){
+			
+		}
+		/*
 		FileInputStream fis = null;
 		FileOutputStream fos = null;
 		File fisf = new File(inFileName);
@@ -111,6 +153,7 @@ public class myUtil {
 			}
 			fosf.setExecutable(true);
 		}
+		*/
 	 }
 	 
 	public static void fileMove(String inFileName, String outFileName) {

@@ -84,6 +84,7 @@ public class ProcVariable {
 		public static String lblLowerRollGapStayingTime			= "LowerRollGapStayingTime";
 		public static String lblLowerRollGapMovingTime			= "LowerRollGapMovingTime";
 		
+		public static String HDRollType							= "HDRollType"; 
 		
 		public static String lblFrontHDRollDia					= "FrontHDRollDia";
 		public static String lblFrontHDRollPitch				= "FrontHDRollPitch";
@@ -93,7 +94,9 @@ public class ProcVariable {
 		public static String lblRearHDRollPitch					= "RearHDRollPitch";
 		public static String lblRearHDRollVerticalPos			= "RearHDRollVerticalPos"; 
 		
-		
+		public static String UpperRollDataField					= "UpperRollDataField";
+		public static String LowerRollDataField					= "LowerRollDataField";
+				
 		//---------------------------------------------------------------------------
 		public static String lblMaterialParameter 			= "Material Parameter";
 		//public static String lblModulusElasticity			= "Modulus of elasticity";

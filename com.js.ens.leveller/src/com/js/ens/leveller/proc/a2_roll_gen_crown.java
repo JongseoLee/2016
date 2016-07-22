@@ -38,8 +38,8 @@ public class a2_roll_gen_crown {
 			procFilePath = myUtil.setPath(myUtil.setPath(LMain.getWorkspace(), "proc"), "a2_roll_gen_crown.proc");
 			
 			readSourceData();
-			swapValue();
-			//createProcData();
+			//version3 update 
+			//swapValue();
 			writeProc();
 			
 			LMain.getExportMSG().addData("SUCCESS - Export(a2_roll_gen_crown) \n path : "+ this.procFilePath);
