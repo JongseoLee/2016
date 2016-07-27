@@ -27,6 +27,30 @@ public class Round {
 		numList.add(Integer.parseInt(tokens.get(6)));
 		Collections.sort(numList);
 	}
+
+	public int getNo() {
+		return No;
+	}
+
+	public void setNo(int no) {
+		No = no;
+	}
+
+	public ArrayList<Integer> getNumList() {
+		return numList;
+	}
+
+	public void setNumList(ArrayList<Integer> numList) {
+		this.numList = numList;
+	}
+
+	public int getBonusNum() {
+		return bonusNum;
+	}
+
+	public void setBonusNum(int bonusNum) {
+		this.bonusNum = bonusNum;
+	}
 	
 	
 }
