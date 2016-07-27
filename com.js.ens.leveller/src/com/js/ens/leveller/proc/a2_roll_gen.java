@@ -82,11 +82,13 @@ public class a2_roll_gen {
 	
 	public void swapValue() throws Exception{
 		// version3 update
+		/*
 		procDataList = new ArrayList<String>();
 		for(String line : fileDataList){
 			procDataList.add(line);
 		}
-		/*
+		*/
+		
 		procDataList = new ArrayList<String>();
 		String newLine = null;
 		for(String line :fileDataList){
