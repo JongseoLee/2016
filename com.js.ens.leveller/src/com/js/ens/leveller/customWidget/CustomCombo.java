@@ -27,10 +27,19 @@ public class CustomCombo implements ICommand{
 			//System.out.println("=>Combo Type : "+type);
 			LMain.ChangePlateType();
 		}
+		
+		if(widgetName.equals(Mediator.COMBO_Type_2D)){
+			String type = med.getComboType_2D().getText();
+			//System.out.println("=>Combo Type : "+type);
+			//LMain.ChangePlateType();
+		}
 	}
 	
 	public void setCustomWidget_comboType(){
 		this.combo = med.getComboType();
 	}
 	
+	public void setCustomWidget_comboType_2D(){
+		this.combo = med.getComboType_2D();
+	}
 }

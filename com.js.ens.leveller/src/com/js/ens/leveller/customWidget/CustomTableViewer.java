@@ -33,6 +33,16 @@ public class CustomTableViewer implements ICommand {
 			DownTableViewerEdit();
 		}
 		
+		
+		if(widgetName.equals(Mediator.TABLEVIEWER_UpperRoll_2D)){
+			//System.out.println("=>Upper Roll Table event");
+			UpTableViewerEdit_2D();
+		} 
+		if(widgetName.equals(Mediator.TABLEVIEWER_LowerRoll_2D)){
+			//System.out.println("=>Lower Roll Table event");
+			DownTableViewerEdit_2D();
+		}
+		
 	}
 	
 	
@@ -43,6 +53,17 @@ public class CustomTableViewer implements ICommand {
 	
 	public void setCustomWidget_tableViewerLowerRoll(){
 		this.tableViewer = med.getTableViewerLowerRoll();
+		this.table = this.tableViewer.getTable();
+	}
+	
+	
+	public void setCustomWidget_tableViewerUpperRoll_2D(){
+		this.tableViewer = med.getTableViewerUpperRoll_2D();
+		this.table = this.tableViewer.getTable();
+	}
+	
+	public void setCustomWidget_tableViewerLowerRoll_2D(){
+		this.tableViewer = med.getTableViewerLowerRoll_2D();
 		this.table = this.tableViewer.getTable();
 	}
 	
@@ -58,6 +79,30 @@ public class CustomTableViewer implements ICommand {
 	}
 	
 	public void DownTableViewerEdit(){
+		CellEditor [] editor = new CellEditor[4];
+		editor[0] = null;
+		editor[1] = new TextCellEditor(this.table);
+		editor[2] = new TextCellEditor(this.table);
+		editor[3] = new TextCellEditor(this.table);
+		
+		this.tableViewer.setCellModifier(new TableViewerModifier(this.tableViewer));
+		this.tableViewer.setCellEditors(editor);
+	}
+	
+	
+	
+	public void UpTableViewerEdit_2D(){
+		CellEditor [] editor = new CellEditor[4];
+		editor[0] = null;
+		editor[1] = new TextCellEditor(this.table);
+		editor[2] = new TextCellEditor(this.table);
+		editor[3] = new TextCellEditor(this.table);
+		
+		this.tableViewer.setCellModifier(new TableViewerModifier(this.tableViewer));
+		this.tableViewer.setCellEditors(editor);
+	}
+	
+	public void DownTableViewerEdit_2D(){
 		CellEditor [] editor = new CellEditor[4];
 		editor[0] = null;
 		editor[1] = new TextCellEditor(this.table);

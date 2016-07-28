@@ -44,6 +44,32 @@ public class CustomSpinner implements ICommand {
 			String num = med.getSpinnerThread().getText();
 			LMain.setSpinnerThread(num);
 		}
+		
+		
+		
+		
+		if(widgetName.equals(Mediator.SPINNER_UpperRollNum_2D)){
+			String num = med.getSpinnerUpperRollNum_2D().getText();
+			//LMain.setSpinnerUpperRollNum(num);
+		}
+		
+		if(widgetName.equals(Mediator.SPINNER_LowerRollNum_2D)){
+			String num = med.getSpinnerLowerRollNum_2D().getText();
+			//LMain.setSpinnerLowerRollNum(num);
+		}
+		                              
+		if(widgetName.equals(Mediator.SPINNER_Domain_2D)){
+			String num = med.getSpinnerDomain_2D().getText();
+			//LMain.setSpinnerDomain(num);
+		}
+		
+		if(widgetName.equals(Mediator.SPINNER_Thread_2D)){
+			String num = med.getSpinnerThread_2D().getText();
+			//LMain.setSpinnerThread(num);
+		}
+		
+		
+		
 	}
 	
 	public void setCustomWidget_spinnerUpperRollNum(){
@@ -61,4 +87,26 @@ public class CustomSpinner implements ICommand {
 	public void setCustomWidget_spinnerThread(){
 		this.spinner = med.getSpinnerThread();
 	}
+	
+	
+	
+	
+	public void setCustomWidget_spinnerUpperRollNum_2D(){
+		this.spinner = med.getSpinnerUpperRollNum_2D();
+	}
+	
+	public void setCustomWidget_spinnerLowerRollNum_2D(){
+		this.spinner = med.getSpinnerLowerRollNum_2D();
+	}
+	
+	public void setCustomWidget_spinnerDomain_2D(){
+		this.spinner = med.getSpinnerDomain_2D();
+	}
+	
+	public void setCustomWidget_spinnerThread_2D(){
+		this.spinner = med.getSpinnerThread_2D();
+	}
+	
+	
+	
 }
