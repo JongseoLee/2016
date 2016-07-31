@@ -1269,7 +1269,7 @@ public class Mediator {
 		private Text textThickness_2D;
 		
 		private Composite compositeShapeParameterChild_1_2D;
-		
+		               
 		private Composite compositeShapeParameterChild_2_2D;
 		private Text type2_textLeftEdgeWavePitch_2D;
 		private Text type2_textRightEdgeWavePitch_2D;
@@ -2403,6 +2403,55 @@ public class Mediator {
 		}
 		public void setCustomSpinnerThread_2D(ICommand customSpinnerThread_2D) {
 			this.customSpinnerThread_2D = customSpinnerThread_2D;
+		}
+		public Composite getCompositeShapeParameterChild_1_2D() {
+			return compositeShapeParameterChild_1_2D;
+		}
+		public void setCompositeShapeParameterChild_1_2D(
+				Composite compositeShapeParameterChild_1_2D) {
+			this.compositeShapeParameterChild_1_2D = compositeShapeParameterChild_1_2D;
+		}
+		public Composite getCompositeShapeParameterChild_2_2D() {
+			return compositeShapeParameterChild_2_2D;
+		}
+		public void setCompositeShapeParameterChild_2_2D(
+				Composite compositeShapeParameterChild_2_2D) {
+			this.compositeShapeParameterChild_2_2D = compositeShapeParameterChild_2_2D;
+		}
+		public Composite getCompositeShapeParameterChild_3_2D() {
+			return compositeShapeParameterChild_3_2D;
+		}
+		public void setCompositeShapeParameterChild_3_2D(
+				Composite compositeShapeParameterChild_3_2D) {
+			this.compositeShapeParameterChild_3_2D = compositeShapeParameterChild_3_2D;
+		}
+		public Composite getCompositeShapeParameterChild_4_2D() {
+			return compositeShapeParameterChild_4_2D;
+		}
+		public void setCompositeShapeParameterChild_4_2D(
+				Composite compositeShapeParameterChild_4_2D) {
+			this.compositeShapeParameterChild_4_2D = compositeShapeParameterChild_4_2D;
+		}
+		public Composite getCompositeShapeParameterChild_5_2D() {
+			return compositeShapeParameterChild_5_2D;
+		}
+		public void setCompositeShapeParameterChild_5_2D(
+				Composite compositeShapeParameterChild_5_2D) {
+			this.compositeShapeParameterChild_5_2D = compositeShapeParameterChild_5_2D;
+		}
+		public Composite getCompositeShapeParameterChild_6_2D() {
+			return compositeShapeParameterChild_6_2D;
+		}
+		public void setCompositeShapeParameterChild_6_2D(
+				Composite compositeShapeParameterChild_6_2D) {
+			this.compositeShapeParameterChild_6_2D = compositeShapeParameterChild_6_2D;
+		}
+		public Composite getCompositeShapeParameterChild_7_2D() {
+			return compositeShapeParameterChild_7_2D;
+		}
+		public void setCompositeShapeParameterChild_7_2D(
+				Composite compositeShapeParameterChild_7_2D) {
+			this.compositeShapeParameterChild_7_2D = compositeShapeParameterChild_7_2D;
 		}
 	
 	
