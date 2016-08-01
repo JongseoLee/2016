@@ -34,25 +34,9 @@ public class HandlerButton implements Listener {
 		}else if(event.widget == med.getBtnCreateRoll()){
 			med.getCustomBtnCreateRoll().execute();
 		}
-		/*
-		else if(event.widget == med.getBtnUpperEdit()){
-			med.getCustomBtnUpperEdit().execute();
-		}else if(event.widget == med.getBtnUpperSave()){
-			med.getCustomBtnUpperSave().execute();
-		}else if(event.widget == med.getBtnLowerEdit()){
-			med.getCustomBtnLowerEdit().execute();
-		}else if(event.widget == med.getBtnLowerSave()){
-			med.getCustomBtnLowerSave().execute();
-		}
-		*/
 		else if(event.widget == med.getBtnSaveRoll()){
 			med.getcustomBtnSaveRoll().execute();
 		}
-		/*
-		else if(event.widget == med.getBtnExplorer()){
-			med.getCustomBtnExplorer().execute();
-		}
-		*/
 		else if(event.widget == med.getBtnExplorerYoungsModulus()){
 			med.getCustomBtnExplorerYoungsModulus().execute();
 		}else if(event.widget == med.getBtnExplorerFlowStress()){
@@ -84,6 +68,66 @@ public class HandlerButton implements Listener {
 		}else if(event.widget == med.getBtnApply()){
 			med.getCustomBtnApply().execute();
 		}
+		
+		
+		//2D
+		
+		if(event.widget == med.getBtnCalcElementNum_2D()){	
+			med.getCustomBtnCalcElementNum_2D().execute();
+		}else if(event.widget == med.getBtnNone_2D()){
+			med.getCustomBtnNone_2D().execute();
+		}else if(event.widget == med.getBtnUpper_2D()){
+			med.getCustomBtnUpper_2D().execute();
+		}else if(event.widget == med.getBtnLower_2D()){
+			med.getCustomBtnLower_2D().execute();
+		}else if(event.widget == med.getBtnShowRollTable_2D()){
+			med.getCustomBtnShowRollTable_2D().execute();
+		}else if(event.widget == med.getBtnRadioNone_RC_2D()){
+			med.getCustomBtnRadioNone_RC_2D().execute();
+		}else if(event.widget == med.getBtnRadioApply_RC_2D()){
+			med.getCustomBtnRadioApply_RC_2D().execute();
+		}else if(event.widget == med.getBtnRadioRigid_MS_2D()){
+			med.getCustomBtnRadioRigid_MS_2D().execute();
+		}else if(event.widget == med.getBtnRadioSpring_MS_2D()){
+			med.getCustomBtnRadioSpring_MS_2D().execute();
+		}else if(event.widget == med.getBtnCreateRoll_2D()){
+			med.getCustomBtnCreateRoll_2D().execute();
+		}
+		else if(event.widget == med.getBtnSaveRoll_2D()){
+			med.getCustomBtnSaveRoll_2D().execute();
+		}
+		else if(event.widget == med.getBtnExplorerYoungsModulus_2D()){
+			med.getCustomBtnExplorerYoungsModulus_2D().execute();
+		}else if(event.widget == med.getBtnExplorerFlowStress_2D()){
+			med.getCustomBtnExplorerFlowStress_2D().execute();
+		}else if(event.widget == med.getBtnExplorerThermalExpansionCoefficient_2D()){
+			med.getCustomBtnExplorerThermalExpansionCoefficient_2D().execute();
+		}else if(event.widget == med.getBtnExplorerPoissonsRatio_2D()){
+			med.getCustomBtnExplorerPoissonsRatio_2D().execute();
+		}else if(event.widget == med.getBtnRadioConstant_YM_2D()){
+			med.getCustomBtnRadioConstant_YM_2D().execute();
+		}else if(event.widget == med.getBtnRadioTable_YM_2D()){
+			med.getCustomBtnRadioTable_YM_2D().execute();
+		}else if(event.widget == med.getBtnRadioConstant_FS_2D()){
+			med.getCustomBtnRadioConstant_FS_2D().execute();
+		}else if(event.widget == med.getBtnRadioTable_FS_2D()){
+			med.getCustomBtnRadioTable_FS_2D().execute();
+		}else if(event.widget == med.getBtnRadioConstant_TEC_2D()){
+			med.getCustomBtnRadioConstant_TEC_2D().execute();
+		}else if(event.widget == med.getBtnRadioTable_TEC_2D()){
+			med.getCustomBtnRadioTable_TEC_2D().execute();
+		}else if(event.widget == med.getBtnRadioConstant_PR_2D()){
+			med.getCustomBtnRadioConstant_PR_2D().execute();
+		}else if(event.widget == med.getBtnRadioTable_PR_2D()){
+			med.getCustomBtnRadioTable_PR_2D().execute();
+		}else if(event.widget == med.getBtnParallelDDMUse_2D()){
+			med.getCustomBtnParallelDDMUse_2D().execute();
+		}else if(event.widget == med.getBtnParallelMultiThreadUse_2D()){
+			med.getCustomBtnParallelMultiThreadUse_2D().execute();
+		}else if(event.widget == med.getBtnApply_2D()){
+			med.getCustomBtnApply_2D().execute();
+		}
+		
 		
 	}
 

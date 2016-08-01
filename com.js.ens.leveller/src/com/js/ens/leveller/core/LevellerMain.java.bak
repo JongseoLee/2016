@@ -32,22 +32,16 @@ import com.js.io.Writer;
 import com.js.parser.ParserDefault;
 import com.js.util.myUtil;
 
-public class LevellerMain {
-	private Logger log = Logger.getLogger(LevellerMain.class);
+public class CopyOfLevellerMain {
+	private Logger log = Logger.getLogger(CopyOfLevellerMain.class);
 	
-	private static LevellerMain instance = new LevellerMain();
-	public static LevellerMain getInstatnce(){
+	private static CopyOfLevellerMain instance = new CopyOfLevellerMain();
+	public static CopyOfLevellerMain getInstatnce(){
 		return instance;
 	}
 	private Mediator med = Mediator.getInstance();
 	
-	private String fdist = "50";
-	private String fdist_2D = "50";
-	private Map<String,String> InitValueMap = new HashMap<String,String>();
-	
-	private String workspace = null;
 	private String textModelName;
-	
 	private String comboType;
 	private String textWidth;
 	private String textLength;
@@ -113,17 +107,19 @@ public class LevellerMain {
 	private String textLowerExitRollGapMovement;
 	private String textLowerRollGapStayingTime;
 	private String textLowerRollGapMovingTime;
+	
 	private String textFrontHDRollDia;
 	private String textFrontHDRollPitch;
 	private String textFrontHDRollVericalPos;
 	private String textRearHDRollDia;
 	private String textRearHDRollPitch;
 	private String textRearHDRollVerticalPos;
+	
 	private String HDRollType;
+	
 	
 	private ArrayList<UpTableDataContent> upTableDataList = null;
 	private ArrayList<DownTableDataContent> downTableDataList = null;
-	
 	
 	private String textYoungsModulus;
 	private String YoungsModulusType;
@@ -148,160 +144,23 @@ public class LevellerMain {
 	private String spinnerThread;
 	
 	
+	private String fdist = "50";
+	
+	private String workspace = null;
 	private ArrayList<String> db = new ArrayList<String>();
 	private ArrayList<String> db_saveAs;
 	
 	private exportInfo exportMSG;
 	
+	private Map<String,String> InitValueMap = new HashMap<String,String>();
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	// 2D define
-	private String LevellerType = "2D";
-	
-	//private Map<String,String> InitValueMap_2D = new HashMap<String,String>();
-	
-	private String comboType_2D;
-	private String textWidth_2D;
-	private String textLength_2D;
-	private String textThickness_2D;
-	
-	private String type2_textLeftEdgeWavePitch_2D;
-	private String type2_textRightEdgeWavePitch_2D;
-	private String type2_textLeftEdgeWaveHeight_2D;
-	private String type2_textRightEdgeWaveHeight_2D;
-	private String type2_textLeftEdgeWavePhase_2D;
-	private String type2_textRightEdgeWavePhase_2D;
-	
-	private String type3_textWavePitch_2D;
-	private String type3_textWaveHeight_2D;
-	
-	private String type4_textGutterHeight_2D;
-	
-	private String type5_textGutterHeight_2D;
-	private String type5_textGutterLength_2D;
-	
-	private String type6_textHeadGutterHeight_2D;
-	private String type6_textHeadGutterLength_2D;
-	private String type6_textTailGutterHeight_2D;
-	private String type6_textTailGutterLength_2D;
-	
-	private String type7_textHeadGutterHeight_2D;
-	private String type7_textGutterLength_2D;
-	private String type7_textGutterLengthLength_2D;
-	private String type7_textGutterWidthLength_2D;
-	
-	private String textThicknessElementNum_2D;
-	private String textWidthAspectRatio_2D;
-	private String textLengthAspectRatio_2D;
-	private String textElementNumber_2D;
-	
-	private String textPlateVelocity_2D;
-	private String textTemperatureStart_2D;
-	private String textTemperatureEnd_2D;
-	//update version2 2016.01.27
-	private String textPassLineOffset_2D; 
-	
-	private String spinnerUpperRollNum_2D;
-	private String spinnerLowerRollNum_2D;
-	private String textRollPitch_2D;
-	private String textRollLength_2D;
-	private String textEntryUpperRollGap_2D;
-	private String textEntryLowerRollGap_2D;
-	private String textExitUpperRollGap_2D;
-	private String textExitLowerRollGap_2D;
-	private String textRollFriction_2D;
-	private String textRollDiameter_2D;
-	//update version2 2016.01.27
-	private String textRollCrown_2D;
-	private String RollCrownType_2D;
-	private String textMillStiffness_2D;
-	private String MillStiffnessType_2D;
-	//update version3 2016.07.20
-	private String textUpperEntryRollGapMovement_2D;
-	private String textUpperExitRollGapMovement_2D;
-	private String textUpperRollGapStayingTime_2D;
-	private String textUpperRollGapMovingTime_2D;
-	private String textLowerEntryRollGapMovement_2D;
-	private String textLowerExitRollGapMovement_2D;
-	private String textLowerRollGapStayingTime_2D;
-	private String textLowerRollGapMovingTime_2D;
-	private String textFrontHDRollDia_2D;
-	private String textFrontHDRollPitch_2D;
-	private String textFrontHDRollVericalPos_2D;
-	private String textRearHDRollDia_2D;
-	private String textRearHDRollPitch_2D;
-	private String textRearHDRollVerticalPos_2D;
-	private String HDRollType_2D;
-	
-	private ArrayList<UpTableDataContent> upTableDataList_2D = null;
-	private ArrayList<DownTableDataContent> downTableDataList_2D = null;
-	
-	
-	private String textYoungsModulus_2D;
-	private String YoungsModulusType_2D;
-	private String textFlowStress_2D;
-	private String FlowStressType_2D;
-	//update version2 2016.01.27
-	private String textYieldStrength_2D;
-	private String textTensileStrength_2D;
-	private String textElongation_2D;
-	
-	private String textThermalExpansionCoefficient_2D;
-	private String ThermalExpansionCoefficientType_2D;
-	private String textMassDensity_2D;
-	private String textPoissonsRatio_2D;
-	private String PoissonsRatioType_2D;
-	
-	private String textSolvingTime_2D;
-	private String textIncrementTime_2D;
-	private boolean btnParallelDDMUse_2D;
-	private String spinnerDomain_2D;
-	private boolean btnParallelMultiThreadUse_2D;
-	private String spinnerThread_2D;
-	
-	
-	private ArrayList<String> db_2D = new ArrayList<String>();
-	private ArrayList<String> db_saveAs_2D;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public LevellerMain(){
-		exportMSG = new exportInfo();
+	public Map<String, String> getInitValueMap() {
+		return InitValueMap;
 	}
-	
-	public void ChangedTabFolder(int type){
-		if(type == 0){
-			this.LevellerType = "2D";
-			System.out.println(this.LevellerType);
-		}else{
-			this.LevellerType = "3D";
-			System.out.println(this.LevellerType);
-		}
+
+	public CopyOfLevellerMain(){
+		exportMSG = new exportInfo();
 	}
 	
 	public void AllComponentDisable(){
@@ -317,30 +176,12 @@ public class LevellerMain {
 		med.getCompositeShapeParameterChild_7().setEnabled(false);
 		med.getCompositeMeshParameter().setEnabled(false);
 		med.getCompositePlateInformation().setEnabled(false);
-		
-		med.getCompositeShapeParameter_2D().setEnabled(false);
-		med.getCompositeShapeParameterChild_1_2D().setEnabled(false);
-		med.getCompositeShapeParameterChild_2_2D().setEnabled(false);
-		med.getCompositeShapeParameterChild_3_2D().setEnabled(false);
-		med.getCompositeShapeParameterChild_4_2D().setEnabled(false);
-		med.getCompositeShapeParameterChild_5_2D().setEnabled(false);
-		med.getCompositeShapeParameterChild_6_2D().setEnabled(false);
-		med.getCompositeShapeParameterChild_7_2D().setEnabled(false);
-		med.getCompositeMeshParameter_2D().setEnabled(false);
-		med.getCompositePlateInformation_2D().setEnabled(false);
-		
 		//----------------------------
 		med.getCompositeRollParameter().setEnabled(false);
-	
-		med.getCompositeRollParameter_2D().setEnabled(false);
 		//----------------------------
 		med.getCompositeMaterialParameter().setEnabled(false);
 		med.getCompositeSolvingOption().setEnabled(false);
 		med.getBtnApply().setEnabled(false);
-		
-		med.getCompositeMaterialParameter_2D().setEnabled(false);
-		med.getCompositeSolvingOption_2D().setEnabled(false);
-		med.getBtnApply_2D().setEnabled(false);
 		
 	}
 	
@@ -357,24 +198,10 @@ public class LevellerMain {
 		med.getCompositeShapeParameterChild_7().setEnabled(true);
 		med.getCompositeMeshParameter().setEnabled(true);
 		med.getCompositePlateInformation().setEnabled(true);
-		
-		med.getCompositeShapeParameter_2D().setEnabled(true);
-		med.getCompositeShapeParameterChild_1_2D().setEnabled(true);
-		med.getCompositeShapeParameterChild_2_2D().setEnabled(true);
-		med.getCompositeShapeParameterChild_3_2D().setEnabled(true);
-		med.getCompositeShapeParameterChild_4_2D().setEnabled(true);
-		med.getCompositeShapeParameterChild_5_2D().setEnabled(true);
-		med.getCompositeShapeParameterChild_6_2D().setEnabled(true);
-		med.getCompositeShapeParameterChild_7_2D().setEnabled(true);
-		med.getCompositeMeshParameter_2D().setEnabled(true);
-		med.getCompositePlateInformation_2D().setEnabled(true);
 		//----------------------------
 		med.getCompositeRollParameter().setEnabled(true);
-		
-		med.getCompositeRollParameter_2D().setEnabled(true);
 		//----------------------------
 		med.getCompositeMaterialParameter().setEnabled(true);
-		med.getCompositeMaterialParameter_2D().setEnabled(true);
 		// update version2 2016.01.27
 		/*
 		if(med.getBtnRadioConstant_FS().getSelection()){
@@ -389,11 +216,6 @@ public class LevellerMain {
 			med.getTextYieldStrength().setEnabled(false);
 			med.getTextTensileStrength().setEnabled(false);
 			med.getTextElongation().setEnabled(false);
-			
-			med.getTextFlowStress_2D().setEnabled(true);
-			med.getTextYieldStrength_2D().setEnabled(false);
-			med.getTextTensileStrength_2D().setEnabled(false);
-			med.getTextElongation_2D().setEnabled(false);
 		//}
 		
 		/*	
@@ -417,9 +239,6 @@ public class LevellerMain {
 		
 		med.getCompositeSolvingOption().setEnabled(true);
 		med.getBtnApply().setEnabled(true);
-		
-		med.getCompositeSolvingOption_2D().setEnabled(true);
-		med.getBtnApply_2D().setEnabled(true);
 	}
 	
 	public void ReadInitValue(){
@@ -454,7 +273,7 @@ public class LevellerMain {
 	
 	public void init_AllComponentValue(){
 		ReadInitValue();
-		// 3D
+		
 		med.getComboType().select(0);
 		
 		Image img = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
@@ -629,192 +448,7 @@ public class LevellerMain {
 		med.getBtnParallelMultiThreadUse().setSelection(false);
 		med.getSpinnerThread().setEnabled(false);
 		
-		
-		
-		
-		
-		
-		
-		
-		//2D
-		med.getComboType_2D().select(0);
-		
-		Image img_2D = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
-		img_2D = ImageDescriptor.createFromFile(View.class,ImagePath.Type1).createImage();
-		med.getCompositeShapeParameterChild_1_2D().setVisible(true);
-		med.getCompositeShapeParameterChild_2_2D().setVisible(false);
-		med.getCompositeShapeParameterChild_3_2D().setVisible(false);
-		med.getCompositeShapeParameterChild_4_2D().setVisible(false);
-		med.getCompositeShapeParameterChild_5_2D().setVisible(false);
-		med.getCompositeShapeParameterChild_6_2D().setVisible(false);
-		med.getCompositeShapeParameterChild_7_2D().setVisible(false);
-		
-		med.getLblPhoto_2D().setImage(img_2D);
-		med.getLblPhoto_2D().pack();
-		
-		med.getTextWidth_2D().setText(InitValueMap.get("Width_2D"));
-		med.getTextLength_2D().setText(InitValueMap.get("Length_2D"));
-		med.getTextThickness_2D().setText(InitValueMap.get("Thickness_2D"));
-		
-		med.getType2_textLeftEdgeWavePitch_2D().setText(InitValueMap.get("type2_LeftEdgeWavePitch_2D"));
-		med.getType2_textRightEdgeWavePitch_2D().setText(InitValueMap.get("type2_RightEdgeWavePitch_2D"));
-		med.getType2_textLeftEdgeWaveHeight_2D().setText(InitValueMap.get("type2_LeftEdgeWaveHeight_2D"));
-		med.getType2_textRightEdgeWaveHeight_2D().setText(InitValueMap.get("type2_RightEdgeWaveHeight_2D"));
-		med.getType2_textLeftEdgeWavePhase_2D().setText(InitValueMap.get("type2_LeftEdgeWavePhase_2D"));
-		med.getType2_textRightEdgeWavePhase_2D().setText(InitValueMap.get("type2_RightEdgeWavePhase_2D"));
-		
-		med.getType3_textWaveHeight_2D().setText(InitValueMap.get("type3_WaveHeight_2D"));
-		med.getType3_textWavePitch_2D().setText(InitValueMap.get("type3_WavePitch_2D"));
-		
-		med.getType4_textGutterHeight_2D().setText(InitValueMap.get("type4_GutterHeight_2D"));
-		
-		med.getType5_textGutterHeight_2D().setText(InitValueMap.get("type5_GutterHeight_2D"));
-		med.getType5_textGutterLength_2D().setText(InitValueMap.get("type5_GutterLength_2D"));
-		
-		med.getType6_textHeadGutterHeight_2D().setText(InitValueMap.get("type6_HeadGutterHeight_2D"));
-		med.getType6_textHeadGutterLength_2D().setText(InitValueMap.get("type6_HeadGutterLength_2D"));
-		med.getType6_textTailGutterHeight_2D().setText(InitValueMap.get("type6_TailGutterHeight_2D"));
-		med.getType6_textTailGutterLength_2D().setText(InitValueMap.get("type6_TailGutterLength_2D"));
-		
-		med.getType7_textGutterLength_2D().setText(InitValueMap.get("type7_GutterLength_2D"));
-		med.getType7_textGutterLengthLength_2D().setText(InitValueMap.get("type7_GutterLengthLength_2D"));
-		med.getType7_textGutterWidthLength_2D().setText(InitValueMap.get("type7_GutterWidthLength_2D"));
-		med.getType7_textHeadGutterHeight_2D().setText(InitValueMap.get("type7_HeadGutterHeight_2D"));
-
-		med.getTextThicknessElementNum_2D().setText(InitValueMap.get("ThicknessElementNum_2D"));
-		med.getTextWidthAspectRatio_2D().setText(InitValueMap.get("WidthAspectRatio_2D"));
-		med.getTextLengthAspectRatio_2D().setText(InitValueMap.get("LengthAspectRatio_2D"));
-		CalcElementNumber_2D();
-		
-		med.getTextPlateVelocity_2D().setText(InitValueMap.get("PlateVelocity_2D"));
-		med.getTextTemperatureStart_2D().setText(InitValueMap.get("TemperatureStart_2D"));
-		med.getTextTemperatureEnd_2D().setText(InitValueMap.get("TemperatureEnd_2D"));
-		//update version2 2016.01.27
-		med.getTextPassLineOffset_2D().setText(InitValueMap.get("PassLineOffset_2D"));
-		
-		med.getSpinnerUpperRollNum_2D().setSelection(Integer.parseInt(InitValueMap.get("UpperRollNum_2D")));
-		med.getSpinnerLowerRollNum_2D().setSelection(Integer.parseInt(InitValueMap.get("LowerRollNum_2D")));
-		med.getTextRollPitch_2D().setText(InitValueMap.get("RollPitch_2D"));
-		med.getTextRollLength_2D().setText(InitValueMap.get("RollLength_2D"));
-		med.getTextEntryUpperRollGap_2D().setText(InitValueMap.get("EntryUpperRollGap_2D"));
-		med.getTextExitUpperRollGap_2D().setText(InitValueMap.get("ExitUpperRollGap_2D"));
-		med.getTextEntryLowerRollGap_2D().setText(InitValueMap.get("EntryLowerRollGap_2D"));
-		med.getTextExitLowerRollGap_2D().setText(InitValueMap.get("ExitLowerRollGap_2D"));
-		med.getTextRollFriction_2D().setText(InitValueMap.get("RollFriction_2D"));
-		med.getTextRollDiameter_2D().setText(InitValueMap.get("RollDiameter_2D"));
-		//update version2 2016.01.27
-		med.getTextRollCrown_2D().setText(InitValueMap.get("RollCrown_2D"));
-		med.getBtnRadioNone_RC_2D().setSelection(false);
-		med.getBtnRadioApply_RC_2D().setSelection(true);
-		med.getTextMillStiffness_2D().setText(InitValueMap.get("MillStiffness_2D"));
-		med.getBtnRadioRigid_MS_2D().setSelection(false);
-		med.getBtnRadioSpring_MS_2D().setSelection(true);
-		
-		if(med.getBtnRadioNone_RC_2D().getSelection()){
-			// None
-			med.getTextRollCrown_2D().setText(InitValueMap.get("RollCrown_2D"));
-			med.getTextRollCrown_2D().setEnabled(false);
-		}else {
-			// Apply
-			med.getTextRollCrown_2D().setText(InitValueMap.get("RollCrown_2D"));
-			med.getTextRollCrown_2D().setEnabled(true);
-		}
-		
-		if(med.getBtnRadioRigid_MS_2D().getSelection()){
-			// Rigid
-			med.getTextMillStiffness_2D().setText(InitValueMap.get("MillStiffness_2D"));
-			med.getTextMillStiffness_2D().setEnabled(false);
-		}else {
-			// Spring
-			med.getTextMillStiffness_2D().setText(InitValueMap.get("MillStiffness_2D"));
-			med.getTextMillStiffness_2D().setEnabled(true);
-		}
-		
-		//update 2017.07.20 leveller version3
-		med.getTextUpperEntryRollGapMovement_2D().setText(InitValueMap.get("UpperEntryRollGapMovement_2D"));
-		med.getTextUpperExitRollGapMovement_2D().setText(InitValueMap.get("UpperExitRollGapMovement_2D"));
-		med.getTextUpperRollGapStayingTime_2D().setText(InitValueMap.get("UpperRollGapStayingTime_2D"));
-		med.getTextUpperRollGapMovingTime_2D().setText(InitValueMap.get("UpperRollGapMovingTime_2D"));
-		med.getTextLowerEntryRollGapMovement_2D().setText(InitValueMap.get("LowerEntryRollGapMovement_2D"));
-		med.getTextLowerExitRollGapMovement_2D().setText(InitValueMap.get("LowerExitRollGapMovement_2D"));
-		med.getTextLowerRollGapStayingTime_2D().setText(InitValueMap.get("LowerRollGapStayingTime_2D"));
-		med.getTextLowerRollGapMovingTime_2D().setText(InitValueMap.get("LowerRollGapMovingTime_2D"));
-		String RollType_2D = InitValueMap.get("HDRollType_2D");
-		if(RollType_2D.equals("None")){
-			med.getBtnUpper_2D().setSelection(false);
-			med.getBtnLower_2D().setSelection(false);
-			med.getBtnNone_2D().setSelection(true);
-		}else if(RollType_2D.equals("Upper")){
-			med.getBtnNone_2D().setSelection(false);
-			med.getBtnLower_2D().setSelection(false);
-			med.getBtnUpper_2D().setSelection(true);
-		}else if(RollType_2D.equals("Lower")){
-			med.getBtnNone_2D().setSelection(false);
-			med.getBtnUpper_2D().setSelection(false);
-			med.getBtnLower_2D().setSelection(true);
-		}
-		med.getTextFrontHDRollDia_2D().setText(InitValueMap.get("FrontHDRollDia_2D"));
-		med.getTextFrontHDRollPitch_2D().setText(InitValueMap.get("FrontHDRollPitch_2D"));
-		med.getTextFrontHDRollVericalPos_2D().setText(InitValueMap.get("FrontHDRollVericalPos_2D"));
-		med.getTextRearHDRollDia_2D().setText(InitValueMap.get("RearHDRollDia_2D"));
-		med.getTextRearHDRollPitch_2D().setText(InitValueMap.get("RearHDRollPitch_2D"));
-		med.getTextRearHDRollVerticalPos_2D().setText(InitValueMap.get("RearHDRollVerticalPos_2D"));
-		
-		
-		CreateRoll_2D();
-		
-		String matPath_2D 						= myUtil.setPath(System.getProperty("user.dir"), "materialData");
-		String YoungsModulus_2D					= myUtil.setPath(matPath, "elastic_modulus.txt");
-		String FlowStress_2D					= myUtil.setPath(matPath, "flow_stress.txt");
-		String ThermalExpansionCoefficient_2D	= myUtil.setPath(matPath, "expansion.txt");
-		String PoissonsRatio_2D					= myUtil.setPath(matPath, "poisson.txt");
-		//update version2 2016.01.27
-		
-		med.getBtnRadioTable_YM_2D().setSelection(true);
-		med.getBtnRadioConstant_YM_2D().setSelection(false);
-		med.getBtnRadioTable_FS_2D().setSelection(true);
-		med.getBtnRadioConstant_FS_2D().setSelection(false);
-		med.getBtnRadioTable_TEC_2D().setSelection(true);
-		med.getBtnRadioConstant_TEC_2D().setSelection(false);
-		med.getBtnRadioTable_PR_2D().setSelection(true);
-		med.getBtnRadioConstant_PR_2D().setSelection(false);
-		
-		med.getTextYoungsModulus_2D().setText(YoungsModulus_2D);
-
-		if(med.getBtnRadioConstant_FS_2D().getSelection()){
-			//Constant
-			med.getTextFlowStress_2D().setText("");
-			med.getTextYieldStrength_2D().setText(InitValueMap.get("YieldStrength_2D"));
-			med.getTextTensileStrength_2D().setText(InitValueMap.get("TensileStrength_2D"));
-			med.getTextElongation_2D().setText(InitValueMap.get("Elongation_2D"));
-		}else{
-			//Table
-			med.getTextFlowStress_2D().setText(FlowStress_2D);
-			med.getTextYieldStrength_2D().setText("");
-			med.getTextTensileStrength_2D().setText("");
-			med.getTextElongation_2D().setText("");
-		}
-		
-		
-		med.getTextThermalExpansionCoefficient_2D().setText(ThermalExpansionCoefficient_2D);
-		med.getTextPoissonsRatio_2D().setText(PoissonsRatio_2D);
-		med.getTextMassDensity_2D().setText(InitValueMap.get("MassDensity_2D"));
-		
-		
-		
-		med.getTextIncrementTime_2D().setText(InitValueMap.get("IncrementTime_2D"));
-		med.getSpinnerDomain_2D().setSelection(Integer.parseInt(InitValueMap.get("Domain_2D")));
-		med.getSpinnerThread_2D().setSelection(Integer.parseInt(InitValueMap.get("Thread_2D")));
-		
-		med.getBtnParallelDDMUse_2D().setSelection(false);
-		med.getSpinnerDomain_2D().setEnabled(false);
-		med.getBtnParallelMultiThreadUse_2D().setSelection(false);
-		med.getSpinnerThread_2D().setEnabled(false);
-		
 	}
-	
-	
-	
 	
 	public void ChangePlateType(){
 		String plateType = med.getComboType().getText();
@@ -963,153 +597,6 @@ public class LevellerMain {
 		med.getLblPhoto().pack();
 	}
 	
-	public void ChangePlateType_2D(){
-		String plateType = med.getComboType_2D().getText();
-		Image img = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
-		med.getCompositeShapeParameterChild_1_2D().setVisible(false);
-		med.getCompositeShapeParameterChild_2_2D().setVisible(false);
-		med.getCompositeShapeParameterChild_3_2D().setVisible(false);
-		med.getCompositeShapeParameterChild_4_2D().setVisible(false);
-		med.getCompositeShapeParameterChild_5_2D().setVisible(false);
-		med.getCompositeShapeParameterChild_6_2D().setVisible(false);
-		med.getCompositeShapeParameterChild_7_2D().setVisible(false);
-		
-		if(plateType.equals(ComboLabel.TYPE1)){
-			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type1).createImage();
-			med.getCompositeShapeParameterChild_1_2D().setVisible(true);
-			
-		}else if(plateType.equals(ComboLabel.TYPE2)){
-			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type2).createImage();
-			med.getCompositeShapeParameterChild_2_2D().setVisible(true);
-			try{
-				if(comboType_2D.equals(plateType)){
-					System.out.println(this.type2_textLeftEdgeWaveHeight_2D);
-					System.out.println(this.type2_textLeftEdgeWavePhase_2D);
-					System.out.println(this.type2_textLeftEdgeWavePitch_2D);
-					System.out.println(this.type2_textRightEdgeWaveHeight_2D);
-					System.out.println(this.type2_textRightEdgeWavePhase_2D);
-					System.out.println(this.type2_textRightEdgeWavePitch_2D);
-					
-					med.getType2_textLeftEdgeWavePitch_2D().setText(this.type2_textLeftEdgeWavePitch_2D);
-					med.getType2_textRightEdgeWavePitch_2D().setText(this.type2_textRightEdgeWavePitch_2D);
-					med.getType2_textLeftEdgeWaveHeight_2D().setText(this.type2_textLeftEdgeWaveHeight_2D);
-					med.getType2_textRightEdgeWaveHeight_2D().setText(this.type2_textRightEdgeWaveHeight_2D);
-					med.getType2_textLeftEdgeWavePhase_2D().setText(this.type2_textLeftEdgeWavePhase_2D);
-					med.getType2_textRightEdgeWavePhase_2D().setText(this.type2_textRightEdgeWavePhase_2D);
-				}else{
-					med.getType2_textLeftEdgeWavePitch_2D().setText(InitValueMap.get("type2_LeftEdgeWavePitch_2D"));
-					med.getType2_textRightEdgeWavePitch_2D().setText(InitValueMap.get("type2_RightEdgeWavePitch_2D"));
-					med.getType2_textLeftEdgeWaveHeight_2D().setText(InitValueMap.get("type2_LeftEdgeWaveHeight_2D"));
-					med.getType2_textRightEdgeWaveHeight_2D().setText(InitValueMap.get("type2_RightEdgeWaveHeight_2D"));
-					med.getType2_textLeftEdgeWavePhase_2D().setText(InitValueMap.get("type2_LeftEdgeWavePhase_2D"));
-					med.getType2_textRightEdgeWavePhase_2D().setText(InitValueMap.get("type2_RightEdgeWavePhase_2D"));
-					
-				}
-			}catch(Exception e){
-				med.getType2_textLeftEdgeWavePitch_2D().setText(InitValueMap.get("type2_LeftEdgeWavePitch_2D"));
-				med.getType2_textRightEdgeWavePitch_2D().setText(InitValueMap.get("type2_RightEdgeWavePitch_2D"));
-				med.getType2_textLeftEdgeWaveHeight_2D().setText(InitValueMap.get("type2_LeftEdgeWaveHeight_2D"));
-				med.getType2_textRightEdgeWaveHeight_2D().setText(InitValueMap.get("type2_RightEdgeWaveHeight_2D"));
-				med.getType2_textLeftEdgeWavePhase_2D().setText(InitValueMap.get("type2_LeftEdgeWavePhase_2D"));
-				med.getType2_textRightEdgeWavePhase_2D().setText(InitValueMap.get("type2_RightEdgeWavePhase_2D"));
-			}
-			
-		}else if(plateType.equals(ComboLabel.TYPE3)){
-			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type3).createImage();
-			med.getCompositeShapeParameterChild_3_2D().setVisible(true);
-			try{
-				if(comboType_2D.equals(plateType)){
-					med.getType3_textWaveHeight_2D().setText(this.type3_textWaveHeight_2D);
-					med.getType3_textWavePitch_2D().setText(this.type3_textWavePitch_2D);
-				}else{
-					med.getType3_textWaveHeight_2D().setText(InitValueMap.get("type3_WaveHeight_2D"));
-					med.getType3_textWavePitch_2D().setText(InitValueMap.get("type3_WavePitch_2D"));
-				}
-			}catch(Exception e){
-				med.getType3_textWaveHeight_2D().setText(InitValueMap.get("type3_WaveHeight_2D"));
-				med.getType3_textWavePitch_2D().setText(InitValueMap.get("type3_WavePitch_2D"));
-			}
-			
-		}else if(plateType.equals(ComboLabel.TYPE4)){
-			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type4).createImage();
-			med.getCompositeShapeParameterChild_4_2D().setVisible(true);
-			try{
-				if(comboType_2D.equals(plateType)){
-					med.getType4_textGutterHeight_2D().setText(this.type4_textGutterHeight_2D);
-				}else{
-					med.getType4_textGutterHeight_2D().setText(InitValueMap.get("type4_GutterHeight_2D"));
-				}
-			}catch(Exception e){
-				med.getType4_textGutterHeight_2D().setText(InitValueMap.get("type4_GutterHeight_2D"));
-			}
-			
-		}else if(plateType.equals(ComboLabel.TYPE5)){
-			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type5).createImage();
-			med.getCompositeShapeParameterChild_5_2D().setVisible(true);
-			try{
-				if(comboType_2D.equals(plateType)){
-					med.getType5_textGutterHeight_2D().setText(this.type5_textGutterHeight_2D);
-					med.getType5_textGutterLength_2D().setText(this.type5_textGutterLength_2D);
-				}else{
-					med.getType5_textGutterHeight_2D().setText(InitValueMap.get("type5_GutterHeight_2D"));
-					med.getType5_textGutterLength_2D().setText(InitValueMap.get("type5_GutterLength_2D"));
-				}
-			}catch(Exception e){
-				med.getType5_textGutterHeight_2D().setText(InitValueMap.get("type5_GutterHeight_2D"));
-				med.getType5_textGutterLength_2D().setText(InitValueMap.get("type5_GutterLength_2D"));
-			}
-		}else if(plateType.equals(ComboLabel.TYPE6)){
-			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type6).createImage();
-			med.getCompositeShapeParameterChild_6_2D().setVisible(true);
-			try{
-				if(comboType_2D.equals(plateType)){
-					med.getType6_textHeadGutterHeight_2D().setText(this.type6_textHeadGutterHeight_2D);
-					med.getType6_textHeadGutterLength_2D().setText(this.type6_textHeadGutterLength_2D);
-					med.getType6_textTailGutterHeight_2D().setText(this.type6_textTailGutterHeight_2D);
-					med.getType6_textTailGutterLength_2D().setText(this.type6_textTailGutterLength_2D);
-				}else{
-					med.getType6_textHeadGutterHeight_2D().setText(InitValueMap.get("type6_HeadGutterHeight_2D"));
-					med.getType6_textHeadGutterLength_2D().setText(InitValueMap.get("type6_HeadGutterLength_2D"));
-					med.getType6_textTailGutterHeight_2D().setText(InitValueMap.get("type6_TailGutterHeight_2D"));
-					med.getType6_textTailGutterLength_2D().setText(InitValueMap.get("type6_TailGutterLength_2D"));
-				}
-			}catch(Exception e){
-				med.getType6_textHeadGutterHeight_2D().setText(InitValueMap.get("type6_HeadGutterHeight_2D"));
-				med.getType6_textHeadGutterLength_2D().setText(InitValueMap.get("type6_HeadGutterLength_2D"));
-				med.getType6_textTailGutterHeight_2D().setText(InitValueMap.get("type6_TailGutterHeight_2D"));
-				med.getType6_textTailGutterLength_2D().setText(InitValueMap.get("type6_TailGutterLength_2D"));
-			}
-			
-			
-		}else if(plateType.equals(ComboLabel.TYPE7)){
-			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type7).createImage();
-			med.getCompositeShapeParameterChild_7_2D().setVisible(true);
-			try{
-				if(comboType_2D.equals(plateType)){
-					med.getType7_textGutterLength_2D().setText(this.type7_textGutterLength_2D);
-					med.getType7_textGutterLengthLength_2D().setText(this.type7_textGutterLengthLength_2D);
-					med.getType7_textGutterWidthLength_2D().setText(this.type7_textGutterWidthLength_2D);
-					med.getType7_textHeadGutterHeight_2D().setText(this.type7_textHeadGutterHeight_2D);
-				}else{
-					med.getType7_textGutterLength_2D().setText(InitValueMap.get("type7_GutterLength_2D"));
-					med.getType7_textGutterLengthLength_2D().setText(InitValueMap.get("type7_GutterLengthLength_2D"));
-					med.getType7_textGutterWidthLength_2D().setText(InitValueMap.get("type7_GutterWidthLength_2D"));
-					med.getType7_textHeadGutterHeight_2D().setText(InitValueMap.get("type7_HeadGutterHeight_2D"));
-				}
-			}catch(Exception e){
-				med.getType7_textGutterLength_2D().setText(InitValueMap.get("type7_GutterLength_2D"));
-				med.getType7_textGutterLengthLength_2D().setText(InitValueMap.get("type7_GutterLengthLength_2D"));
-				med.getType7_textGutterWidthLength_2D().setText(InitValueMap.get("type7_GutterWidthLength_2D"));
-				med.getType7_textHeadGutterHeight_2D().setText(InitValueMap.get("type7_HeadGutterHeight_2D"));
-			}
-			
-		}
-		
-		//this.comboType = plateType;
-		med.getLblPhoto_2D().setImage(img);
-		med.getLblPhoto_2D().pack();
-	}
-	
 	public void CalcElementNumber(){
 		
 		try{
@@ -1148,52 +635,6 @@ public class LevellerMain {
 			med.getTextElementNumber().setText(this.textElementNumber);
 			
 			String msg = "ERROR - Calcuation element number";
-			msg = msg +"\n"+e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.error(msg);			
-		}
-		
-	}
-	
-	public void CalcElementNumber_2D(){
-		
-		try{
-			//A
-			this.textWidth_2D = med.getTextWidth_2D().getText().trim();
-			double A = Double.parseDouble(this.textWidth_2D);
-			//B
-			this.textLength_2D = med.getTextLength_2D().getText().trim();
-			double B = Double.parseDouble(this.textLength_2D);
-			//C
-			this.textThickness_2D = med.getTextThickness_2D().getText().trim();
-			double C = Double.parseDouble(this.textThickness_2D);
-			//D
-			this.textThicknessElementNum_2D = med.getTextThicknessElementNum_2D().getText().trim();
-			double D = Double.parseDouble(this.textThicknessElementNum_2D);
-			//E
-			this.textWidthAspectRatio_2D = med.getTextWidthAspectRatio_2D().getText().trim();
-			double E = Double.parseDouble(this.textWidthAspectRatio_2D);
-			//F
-			this.textLengthAspectRatio_2D = med.getTextLengthAspectRatio_2D().getText().trim();
-			double F = Double.parseDouble(this.textLengthAspectRatio_2D);
-			//G
-			int G = 0;
-			G = (int)(A / ( C * E ));
-			//H
-			int H = 0;
-			H = (int)(B / ( C * F ));
-			//result
-			int result = 0;
-			result = (int)(D*G*H);
-
-			this.textElementNumber_2D = String.valueOf(result);
-			med.getTextElementNumber_2D().setText(this.textElementNumber_2D);
-		}catch (Exception e){
-			this.textElementNumber_2D = "Error";
-			med.getTextElementNumber_2D().setText(this.textElementNumber_2D);
-			
-			String msg = "ERROR - Calcuation element number_2D";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
 			messageDlg.open();
@@ -1248,53 +689,6 @@ public class LevellerMain {
 		
 	}
 	
-	public void CreateRoll_2D(){
-		try{
-			upTableDataList_2D = new ArrayList<UpTableDataContent>();
-			downTableDataList_2D = new ArrayList<DownTableDataContent>();
-			
-			this.spinnerUpperRollNum_2D = med.getSpinnerUpperRollNum_2D().getText().trim();
-			this.spinnerLowerRollNum_2D = med.getSpinnerLowerRollNum_2D().getText().trim();
-			
-			this.textRollPitch_2D = med.getTextRollPitch_2D().getText().trim();
-			this.textRollLength_2D = calcRollLength_2D().trim();
-			this.textEntryUpperRollGap_2D = med.getTextEntryUpperRollGap_2D().getText().trim();
-			this.textEntryLowerRollGap_2D = med.getTextEntryLowerRollGap_2D().getText().trim();
-			this.textExitUpperRollGap_2D = med.getTextExitUpperRollGap_2D().getText().trim();
-			this.textExitLowerRollGap_2D = med.getTextExitLowerRollGap_2D().getText().trim();
-			this.textRollFriction_2D = med.getTextRollFriction_2D().getText().trim();
-			this.textRollDiameter_2D = med.getTextRollDiameter_2D().getText().trim();
-			//update version2 2016.01.27
-			this.textRollCrown_2D = med.getTextRollCrown_2D().getText().trim();
-			this.textMillStiffness_2D = med.getTextMillStiffness_2D().getText().trim();
-			
-			med.getTextRollLength_2D().setText(this.textRollLength_2D);
-			
-			initUpperTableData_2D();
-			initLowerTableData_2D();
-			
-			// update version3 this function is called by show roll table button
-			//updateTableData();
-			
-			calcSolvingTime_2D();
-			/*
-			String msg = "SUCCESS - Create Roll Data";
-			msg = msg + checkRollData();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.info(msg);
-			*/
-		}catch(Exception e){
-			String msg = "ERROR - Create ROll_2D";
-			msg = msg +"\n"+e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.error(msg);
-		}
-		
-	}
-	
-	
 	public void initUpperTableData(){
 		try{
 			int UpperRollNum = Integer.parseInt(this.spinnerUpperRollNum);
@@ -1307,29 +701,6 @@ public class LevellerMain {
 				UTDCObj.setFriction(this.textRollFriction);
 				UTDCObj.setDiameter(this.textRollDiameter);
 				upTableDataList.add(UTDCObj);
-			}
-		}catch(Exception e){
-			String msg = "ERROR - Generate Upper Rolls";
-			msg = msg +"\n" +e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();	
-			log.error(msg);
-		}
-		
-	}
-	
-	public void initUpperTableData_2D(){
-		try{
-			int UpperRollNum = Integer.parseInt(this.spinnerUpperRollNum_2D);
-			for(int i=0;i<UpperRollNum;i++){
-				String no = "UpperRoll_"+(i+1);
-				UpTableDataContent UTDCObj = new UpTableDataContent();
-				UTDCObj.setNo(no);
-				UTDCObj.setPitch(this.textRollPitch_2D);
-				UTDCObj.setGap(calcUpperRollGap_2D(i,UpperRollNum));
-				UTDCObj.setFriction(this.textRollFriction_2D);
-				UTDCObj.setDiameter(this.textRollDiameter_2D);
-				upTableDataList_2D.add(UTDCObj);
 			}
 		}catch(Exception e){
 			String msg = "ERROR - Generate Upper Rolls";
@@ -1364,39 +735,10 @@ public class LevellerMain {
 		
 	}
 	
-	public void initLowerTableData_2D(){
-		try{
-			int LowerRollNum = Integer.parseInt(this.spinnerLowerRollNum_2D);
-			for(int i=0;i<LowerRollNum;i++){
-				String no = "LowerRoll_"+(i+1);
-				DownTableDataContent DTDCObj = new DownTableDataContent();
-				DTDCObj.setNo(no);
-				DTDCObj.setPitch(this.textRollPitch_2D);
-				DTDCObj.setGap(calcLowerRollGap_2D(i,LowerRollNum));
-				DTDCObj.setFriction(this.textRollFriction_2D);
-				DTDCObj.setDiameter(this.textRollDiameter_2D);
-				downTableDataList_2D.add(DTDCObj);
-			}
-		}catch(Exception e){
-			String msg = "ERROR - Generate Lower Rolls_2D";
-			msg = msg +"\n"+e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.error(msg);
-		}
-		
-	}
-	
 	public void showRollTable(){
 		//CreateRoll();
 		updateTableData();
 	}
-	
-	public void showRollTable_2D(){
-		//CreateRoll();
-		updateTableData_2D();
-	}
-	
 	public void updateTableData(){
 		try{
 			med.getTableViewerUpperRoll().setLabelProvider(new TableViewerLabelProvider_up());
@@ -1408,24 +750,6 @@ public class LevellerMain {
 			med.getTableViewerLowerRoll().setInput(this.downTableDataList);	
 		}catch (Exception e){
 			String msg = "ERROR - Update Roll Table Data";
-			msg = msg +"\n"+e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.error(msg);
-		}
-	}
-	
-	public void updateTableData_2D(){
-		try{
-			med.getTableViewerUpperRoll_2D().setLabelProvider(new TableViewerLabelProvider_up());
-			med.getTableViewerUpperRoll_2D().setContentProvider(new ArrayContentProvider());
-			med.getTableViewerUpperRoll_2D().setInput(this.upTableDataList_2D);
-			
-			med.getTableViewerLowerRoll_2D().setLabelProvider(new TableViewerLabelProvider_down());
-			med.getTableViewerLowerRoll_2D().setContentProvider(new ArrayContentProvider());
-			med.getTableViewerLowerRoll_2D().setInput(this.downTableDataList_2D);	
-		}catch (Exception e){
-			String msg = "ERROR - Update Roll Table Data_2D";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
 			messageDlg.open();
@@ -1452,33 +776,6 @@ public class LevellerMain {
 			result = "0";
 			
 			String msg = "ERROR - Calcuation Upper Roll Gap";
-			msg = msg +"\n"+e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.error(msg);
-		}
-		return result;
-	}
-	
-	public String calcUpperRollGap_2D(int index,int upperRollNum){
-		String result = null;
-		try{
-			double entry = Double.parseDouble(this.textEntryUpperRollGap_2D);
-			double exit = Double.parseDouble(this.textExitUpperRollGap_2D);
-			double rollNum = (upperRollNum == 1)?2:upperRollNum;
-			double distance = Double.parseDouble(String.format("%.10f", (exit-entry)/(rollNum-1)));
-			double gap = entry + (distance*index);
-			if(index == 0){
-				result = this.textEntryUpperRollGap_2D;
-			}else if(index == Integer.parseInt(this.spinnerUpperRollNum_2D)-1){
-				result = this.textExitUpperRollGap_2D;
-			}else {
-				result = String.valueOf(gap);
-			}
-		}catch (Exception e){
-			result = "0";
-			
-			String msg = "ERROR - Calcuation Upper Roll Gap_2D";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
 			messageDlg.open();
@@ -1516,35 +813,6 @@ public class LevellerMain {
 		return result;
 	}
 	
-	public String calcLowerRollGap_2D(int index, int lowerRollNum){
-		String result = null;
-		try{
-			double entry = Double.parseDouble(this.textEntryLowerRollGap_2D);
-			double exit = Double.parseDouble(this.textExitLowerRollGap_2D);
-			double rollNum = (lowerRollNum == 1)?2:lowerRollNum; 
-			double distance = Double.parseDouble(String.format("%.10f", (exit-entry)/(rollNum-1)));
-			double gap = entry + (distance*index);
-			
-			if(index == 0){
-				result = this.textEntryLowerRollGap_2D;
-			}else if(index == Integer.parseInt(this.spinnerLowerRollNum_2D)-1){
-				result = this.textExitLowerRollGap_2D;
-			}else {
-				result = String.valueOf(gap);
-			}
-			
-		}catch (Exception e){
-			result = "0";
-			
-			String msg = "ERROR - Calcuation Lower Roll Gap_2D";
-			msg = msg +"\n"+e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.error(msg);
-		}
-		return result;
-	}
-	
 	public String calcRollLength(){
 		this.textWidth = med.getTextWidth().getText().trim();
 		try{
@@ -1554,24 +822,6 @@ public class LevellerMain {
 		}catch (Exception e){
 			
 			String msg = "ERROR - Calcuation Roll Length";
-			msg = msg +"\n"+e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.error(msg);
-			
-			return "0";
-		}
-	}
-	
-	public String calcRollLength_2D(){
-		this.textWidth_2D = med.getTextWidth_2D().getText().trim();
-		try{
-			double width = Double.parseDouble(this.textWidth_2D);
-			double length = width +2000;
-			return String.valueOf(length); 
-		}catch (Exception e){
-			
-			String msg = "ERROR - Calcuation Roll Length_2D";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
 			messageDlg.open();
@@ -1592,25 +842,6 @@ public class LevellerMain {
 			log.info(msg);
 		}catch(Exception e){
 			String msg = "ERROR - Save ROll";
-			msg = msg +"\n"+e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.error(msg);
-		}
-		
-	}
-	
-	public void SaveRoll_2D(){
-		try{
-			updateTableData_2D();
-			
-			String msg = "SUCCESS - Save Roll Data_2D";
-			msg = msg + checkRollData_2D();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.info(msg);
-		}catch(Exception e){
-			String msg = "ERROR - Save ROll_2D";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
 			messageDlg.open();
@@ -1706,54 +937,6 @@ public class LevellerMain {
 		return msg;
 	}
 	
-	public String checkRollData_2D(){
-		ArrayList<String> msgList = new ArrayList<String>();
-		String msg ="\n\n"; 
-		
-		msgList.add("################################");
-		msgList.add("\tLeveller Roll Data_2D");        
-		msgList.add("################################");
-		
-		msgList.add("Upper Roll Number \t: "+this.spinnerUpperRollNum_2D);
-		msgList.add("Lower Roll Number \t: "+this.spinnerLowerRollNum_2D);
-		
-		msgList.add("\n\n"+"[Up Table]\n");
-
-		msgList.add(String.format("%-20s", "No")+
-				String.format("%-20s", "Gap")+
-				String.format("%-20s", "Friction")+
-				String.format("%-20s", "Diameter")+
-				String.format("%-20s", "Pitch")+"\n"
-				);
-		try{
-			for(UpTableDataContent obj : this.upTableDataList_2D){
-				msgList.add(obj.getAllData());
-			}
-		}catch (Exception e){
-			msgList.add("Roll Data is empty.");
-		}
-		msgList.add("\n\n"+"[Down Table]\n");
-		msgList.add(String.format("%-20s", "No")+
-				String.format("%-20s", "Gap")+
-				String.format("%-20s", "Friction")+
-				String.format("%-20s", "Diameter")+
-				String.format("%-20s", "Pitch")+"\n"
-				);
-		try{
-			for(DownTableDataContent obj : this.downTableDataList_2D){
-				msgList.add(obj.getAllData());
-			}
-		}catch (Exception e){
-			msgList.add("Roll Data is empty.");
-		}
-		
-		for(String data: msgList){
-			msg = msg + data +"\n";
-		}
-		
-		return msg;
-	}
-	
 	public void calcSolvingTime(){
 		try{
 			this.textLength = med.getTextLength().getText().trim();
@@ -1782,34 +965,6 @@ public class LevellerMain {
 		}
 	}
 	
-	public void calcSolvingTime_2D(){
-		try{
-			this.textLength_2D = med.getTextLength_2D().getText().trim();
-			double L = Double.parseDouble(this.textLength_2D);
-			//this.fdist
-			double fdists = Double.parseDouble(this.fdist_2D);
-			this.textPlateVelocity_2D = med.getTextPlateVelocity_2D().getText().trim();
-			double plate_v = Double.parseDouble(this.textPlateVelocity_2D);
-			this.textRollPitch_2D = med.getTextRollPitch_2D().getText().trim();
-			double roll_pitch = Double.parseDouble(this.textRollPitch_2D);
-			this.spinnerLowerRollNum_2D = med.getSpinnerLowerRollNum_2D().getText().trim();
-			double LowerRollNum = Double.parseDouble(this.spinnerLowerRollNum_2D);
-			
-			double result = (L + fdists + roll_pitch*(LowerRollNum-1))*1.1/plate_v;
-			this.textSolvingTime_2D = String.valueOf(result);
-			med.getTextSolvingTime_2D().setText(this.textSolvingTime_2D);	
-		}catch(Exception e){
-			this.textSolvingTime_2D = "ERROR";
-			med.getTextSolvingTime_2D().setText(this.textSolvingTime_2D);
-			
-			String msg = "ERROR - Calcuation Solving time_2D";
-			msg = msg +"\n"+e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.error(msg);
-		}
-	}
-	
 	public void Explorer_YoungsModulus(){
 		FileDialog  dlg = new FileDialog (med.getBtnExplorerYoungsModulus().getShell(),SWT.OPEN);
 		dlg.setText("Select Young's Modulus File");
@@ -1827,26 +982,6 @@ public class LevellerMain {
 		}else {
 			this.textYoungsModulus = path;
 			med.getTextYoungsModulus().setText(path);
-		}
-	}
-	
-	public void Explorer_YoungsModulus_2D(){
-		FileDialog  dlg = new FileDialog (med.getBtnExplorerYoungsModulus().getShell(),SWT.OPEN);
-		dlg.setText("Select Young's Modulus File");
-				
-		String [] extNames = {"ALL(*.*)"};
-		String [] extType = {"*.*"};
-		
-		dlg.setFilterNames(extNames);
-		dlg.setFilterExtensions(extType);
-		
-		dlg.setFilterNames(extNames);
-		String path = dlg.open();
-		if (path == null){
-			return;
-		}else {
-			this.textYoungsModulus_2D = path;
-			med.getTextYoungsModulus_2D().setText(path);
 		}
 	}
 	
@@ -1870,26 +1005,6 @@ public class LevellerMain {
 		}
 	}
 	
-	public void Explorer_FlowStress_2D(){
-		FileDialog  dlg = new FileDialog (med.getBtnExplorerFlowStress().getShell(),SWT.OPEN);
-		dlg.setText("Select Flow Stress File");
-		
-		String [] extNames = {"ALL(*.*)"};
-		String [] extType = {"*.*"};
-		
-		dlg.setFilterNames(extNames);
-		dlg.setFilterExtensions(extType);
-		
-		dlg.setFilterNames(extNames);
-		String path = dlg.open();
-		if (path == null){
-			return;
-		}else {
-			this.textFlowStress_2D = path;
-			med.getTextFlowStress_2D().setText(path);
-		}
-	}
-	
 	public void Explorer_ThermalExpansionCoefficient(){
 		FileDialog  dlg = new FileDialog (med.getBtnExplorerThermalExpansionCoefficient().getShell(),SWT.OPEN);
 		dlg.setText("Select Thermal Expansion Codfficient File");
@@ -1907,26 +1022,6 @@ public class LevellerMain {
 		}else {
 			this.textThermalExpansionCoefficient = path;
 			med.getTextThermalExpansionCoefficient().setText(path);
-		}
-	}
-	
-	public void Explorer_ThermalExpansionCoefficient_2D(){
-		FileDialog  dlg = new FileDialog (med.getBtnExplorerThermalExpansionCoefficient().getShell(),SWT.OPEN);
-		dlg.setText("Select Thermal Expansion Codfficient File");
-		
-		String [] extNames = {"ALL(*.*)"};
-		String [] extType = {"*.*"};
-		
-		dlg.setFilterNames(extNames);
-		dlg.setFilterExtensions(extType);
-		
-		dlg.setFilterNames(extNames);
-		String path = dlg.open();
-		if (path == null){
-			return;
-		}else {
-			this.textThermalExpansionCoefficient_2D = path;
-			med.getTextThermalExpansionCoefficient_2D().setText(path);
 		}
 	}
 
@@ -1949,28 +1044,6 @@ public class LevellerMain {
 			med.getTextPoissonsRatio().setText(path);
 		}
 	}
-	
-	public void Explorer_PoissonsRatio_2D(){
-		FileDialog  dlg = new FileDialog (med.getBtnExplorerPoissonsRatio().getShell(),SWT.OPEN);
-		dlg.setText("Select Poisson Ratio File");
-		
-		String [] extNames = {"ALL(*.*)"};
-		String [] extType = {"*.*"};
-		
-		dlg.setFilterNames(extNames);
-		dlg.setFilterExtensions(extType);
-		
-		dlg.setFilterNames(extNames);
-		String path = dlg.open();
-		if (path == null){
-			return;
-		}else {
-			this.textPoissonsRatio_2D = path;
-			med.getTextPoissonsRatio_2D().setText(path);
-		}
-	}
-	
-	
 	//-------------------------------------------------------------------------
 	// File menu
 	//
@@ -3192,29 +2265,6 @@ public class LevellerMain {
 		}
 	}
 	
-	public void SaveLeveller_2D(){
-		try{
-			saveAllData_2D();
-			
-			String dbPath = myUtil.setPath(this.workspace,this.textModelName+".lvdb");
-			
-			if(this.workspace != null){
-				Writer writer = new Writer(dbPath,db);
-				writer.running();
-				MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), "SUCCESS - Save Leveller Data_2D \n path : "+dbPath);
-				messageDlg.open();
-			}
-			
-			
-		}catch(Exception e){
-			String msg = "ERROR - Save Leveller Data_2D";
-			msg = msg +"\n"+e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.error(msg);
-		}
-	}
-	
 	public void SaveAsLeveller(String newPath,String newModelName){
 		try{
 			db_saveAs = new ArrayList<String>();
@@ -3258,7 +2308,6 @@ public class LevellerMain {
 	}
 	
 	public void saveAllData(){
-		this.db.add("LevellerType="+this.LevellerType);
 		this.db.add(TextLabel.lblModelName+"="+this.textModelName);
 		//--------------------------------------------
 		this.comboType = med.getComboType().getText().trim();
@@ -3523,275 +2572,7 @@ public class LevellerMain {
 		this.db.add(TextLabel.lblThread+"="+this.spinnerThread);
 	}
 	
-	public void saveAllData_2D(){
-		this.db_2D.add("LevellerType="+this.LevellerType);
-		this.db_2D.add(TextLabel.lblModelName+"="+this.textModelName);
-		//--------------------------------------------
-		
-		this.comboType_2D = med.getComboType_2D().getText().trim();
-		this.textWidth_2D = med.getTextWidth_2D().getText().trim();
-		this.textLength_2D = med.getTextLength_2D().getText().trim();
-		this.textThickness_2D = med.getTextThickness_2D().getText().trim();
-
-		this.db_2D.add(TextLabel.lblType_2D+"="+this.comboType);
-		this.db_2D.add(TextLabel.lblWidth_2D+"="+this.textWidth);
-		this.db_2D.add(TextLabel.lblLength_2D+"="+this.textLength);
-		this.db_2D.add(TextLabel.lblThickness_2D+"="+this.textThickness);
-		
-		if(this.comboType_2D.equals(ComboLabel.TYPE1)){
-			
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE2)){
-			this.type2_textLeftEdgeWavePitch_2D = med.getType2_textLeftEdgeWavePitch_2D().getText().trim();
-			this.type2_textRightEdgeWavePitch_2D = med.getType2_textRightEdgeWavePitch_2D().getText().trim();
-			this.type2_textLeftEdgeWaveHeight_2D = med.getType2_textLeftEdgeWaveHeight_2D().getText().trim();
-			this.type2_textRightEdgeWaveHeight_2D = med.getType2_textRightEdgeWaveHeight_2D().getText().trim();
-			this.type2_textLeftEdgeWavePhase_2D = med.getType2_textLeftEdgeWavePhase_2D().getText().trim();
-			this.type2_textRightEdgeWavePhase_2D = med.getType2_textRightEdgeWavePhase_2D().getText().trim();
-			
-			this.db_2D.add(TextLabel.lblLeftEdgeWavePitch_type2_2D+"="+this.type2_textLeftEdgeWavePitch_2D);
-			this.db_2D.add(TextLabel.lblRightEdgeWavePitch_type2_2D+"="+this.type2_textRightEdgeWavePitch_2D);
-			this.db_2D.add(TextLabel.lblLeftEdgeWaveHeight_type2_2D+"="+this.type2_textLeftEdgeWaveHeight_2D);
-			this.db_2D.add(TextLabel.lblRightEdgeWaveHeight_type2_2D+"="+this.type2_textRightEdgeWaveHeight_2D);
-			this.db_2D.add(TextLabel.lblLeftEdgeWavePhase_type2_2D+"="+this.type2_textLeftEdgeWavePhase_2D);
-			this.db_2D.add(TextLabel.lblRightEdgeWavePhase_type2_2D+"="+this.type2_textRightEdgeWavePhase_2D);
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE3)){
-			this.type3_textWavePitch_2D = med.getType3_textWavePitch_2D().getText().trim();
-			this.type3_textWaveHeight_2D = med.getType3_textWaveHeight_2D().getText().trim();
-			
-			this.db_2D.add(TextLabel.lblWavePitch_type3_2D+"="+this.type3_textWavePitch_2D);
-			this.db_2D.add(TextLabel.lblWaveHeight_type3_2D+"="+this.type3_textWaveHeight_2D);
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE4)){
-			this.type4_textGutterHeight_2D = med.getType4_textGutterHeight_2D().getText().trim();
-			
-			this.db_2D.add(TextLabel.lblGutterHeight_type4_2D+"="+this.type4_textGutterHeight_2D);
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE5)){
-			this.type5_textGutterHeight_2D = med.getType5_textGutterHeight_2D().getText().trim();
-			this.type5_textGutterLength_2D = med.getType5_textGutterLength_2D().getText().trim();
-			
-			this.db_2D.add(TextLabel.lblGutterHeight_type5_2D+"="+this.type5_textGutterHeight_2D);
-			this.db_2D.add(TextLabel.lblGutterLength_type5_2D+"="+this.type5_textGutterLength_2D);
-			
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE6)){
-			this.type6_textHeadGutterHeight_2D = med.getType6_textHeadGutterHeight_2D().getText().trim();
-			this.type6_textHeadGutterLength_2D = med.getType6_textHeadGutterLength_2D().getText().trim();
-			this.type6_textTailGutterHeight_2D = med.getType6_textTailGutterHeight_2D().getText().trim();
-			this.type6_textTailGutterLength_2D = med.getType6_textTailGutterLength_2D().getText().trim();
-			
-			this.db_2D.add(TextLabel.lblHeadGutterHeight_type6_2D+"="+this.type6_textHeadGutterHeight_2D);
-			this.db_2D.add(TextLabel.lblHeadGutterLength_type6_2D+"="+this.type6_textHeadGutterLength_2D);
-			this.db_2D.add(TextLabel.lblTailGutterHeight_type6_2D+"="+this.type6_textTailGutterHeight_2D);
-			this.db_2D.add(TextLabel.lblTailGutterLength_type6_2D+"="+this.type6_textTailGutterLength_2D);
-			
-		}else if(this.comboType.equals(ComboLabel.TYPE7)){
-			this.type7_textHeadGutterHeight = med.getType7_textHeadGutterHeight().getText().trim();
-			this.type7_textGutterLength = med.getType7_textGutterLength().getText().trim();
-			this.type7_textGutterLengthLength = med.getType7_textGutterLengthLength().getText().trim();
-			this.type7_textGutterWidthLength = med.getType7_textGutterWidthLength().getText().trim();
-			
-			this.db_2D.add(TextLabel.lblHeadGutterHeight_type7_2D+"="+this.type7_textHeadGutterHeight_2D);
-			this.db_2D.add(TextLabel.lblGutterLength_type7_2D+"="+this.type7_textGutterLength_2D);
-			this.db_2D.add(TextLabel.lblGutterLengthLength_type7_2D+"="+this.type7_textGutterLengthLength_2D);
-			this.db_2D.add(TextLabel.lblGutterWidthLength_type7_2D+"="+this.type7_textGutterWidthLength_2D);
-		}
-		//--------------------------------------------		
-		this.textThicknessElementNum_2D = med.getTextThicknessElementNum_2D().getText().trim();
-		this.textWidthAspectRatio_2D = med.getTextWidthAspectRatio_2D().getText().trim();
-		this.textLengthAspectRatio_2D = med.getTextLengthAspectRatio_2D().getText().trim();
-		CalcElementNumber_2D();
-		// version3 update
-		//CreateRoll();
-		this.textElementNumber_2D = med.getTextElementNumber_2D().getText().trim();
-		
-		this.db_2D.add(TextLabel.lblThicknessElementNum_2D+"="+this.textThicknessElementNum_2D);
-		this.db_2D.add(TextLabel.lblWidthAspectRatio_2D+"="+this.textWidthAspectRatio_2D);
-		this.db_2D.add(TextLabel.lblLengthAspectRatio_2D+"="+this.textLengthAspectRatio_2D);
-		this.db_2D.add(TextLabel.lblElementNumber_2D+"="+this.textElementNumber_2D);
-		//--------------------------------------------
-		this.textPlateVelocity_2D = med.getTextPlateVelocity_2D().getText().trim();
-		this.textTemperatureStart_2D = med.getTextTemperatureStart_2D().getText().trim();
-		this.textTemperatureEnd_2D = med.getTextTemperatureEnd_2D().getText().trim();
-		//update version2 2016.01.27
-		this.textPassLineOffset_2D = med.getTextPassLineOffset_2D().getText().trim();
-		
-		
-		this.db_2D.add(TextLabel.lblPlateVelocity_2D+"="+this.textPlateVelocity_2D);
-		this.db_2D.add(TextLabel.lblTemperatureStart_2D+"="+this.textTemperatureStart_2D);
-		this.db_2D.add(TextLabel.lblTemperatureEnd_2D+"="+this.textTemperatureEnd_2D);
-		//update version2 2016.01.27
-		this.db_2D.add(TextLabel.lblPassLineOffset_2D+"="+this.textPassLineOffset_2D);
-		//--------------------------------------------		
-		this.spinnerUpperRollNum_2D = med.getSpinnerUpperRollNum_2D().getText().trim();
-		this.spinnerLowerRollNum_2D = med.getSpinnerLowerRollNum_2D().getText().trim();
-		this.textRollPitch_2D = med.getTextRollPitch_2D().getText().trim();
-		this.textRollLength_2D = calcRollLength_2D().trim();
-		this.textEntryUpperRollGap_2D = med.getTextEntryUpperRollGap_2D().getText().trim();
-		this.textEntryLowerRollGap_2D = med.getTextEntryLowerRollGap_2D().getText().trim();
-		this.textExitUpperRollGap_2D = med.getTextExitUpperRollGap_2D().getText().trim();
-		this.textExitLowerRollGap_2D = med.getTextExitLowerRollGap_2D().getText().trim();
-		this.textRollFriction_2D = med.getTextRollFriction_2D().getText().trim();
-		this.textRollDiameter_2D = med.getTextRollDiameter_2D().getText().trim();
-		//update version2 2016.01.27
-		if(med.getBtnRadioNone_RC_2D().getSelection()){
-			this.RollCrownType_2D = med.getBtnRadioNone_RC_2D().getText().trim();
-		}else{
-			this.RollCrownType_2D = med.getBtnRadioApply_RC_2D().getText().trim();
-		}
-		this.textRollCrown_2D = med.getTextRollCrown_2D().getText().trim();
-		if(med.getBtnRadioRigid_MS_2D().getSelection()){
-			this.MillStiffnessType_2D = med.getBtnRadioRigid_MS_2D().getText().trim();
-		}else{
-			this.MillStiffnessType_2D = med.getBtnRadioSpring_MS_2D().getText().trim();
-		}
-		this.textMillStiffness_2D = med.getTextMillStiffness_2D().getText().trim();
-		
-		
-		med.getTextRollLength_2D().setText(this.textRollLength_2D);
-		
-		this.db_2D.add(TextLabel.lblUpperRollNumber_2D+"="+this.spinnerUpperRollNum_2D);
-		this.db_2D.add(TextLabel.lblLowerRollNumber_2D+"="+this.spinnerLowerRollNum_2D);
-		this.db_2D.add(TextLabel.lblRollPitch_2D+"="+this.textRollPitch_2D);
-		this.db_2D.add(TextLabel.lblRollLength_2D+"="+this.textRollLength_2D);
-		this.db_2D.add(TextLabel.lblEntryUpperRollGap_2D+"="+this.textEntryUpperRollGap_2D);
-		this.db_2D.add(TextLabel.lblEntryLowerRollGap_2D+"="+this.textEntryLowerRollGap_2D);
-		this.db_2D.add(TextLabel.lblExitUpperRollGap_2D+"="+this.textExitUpperRollGap_2D);
-		this.db_2D.add(TextLabel.lblExitLowerRollGap_2D+"="+this.textExitLowerRollGap_2D);
-		this.db_2D.add(TextLabel.lblRollFriction_2D+"="+this.textRollFriction_2D);
-		this.db_2D.add(TextLabel.lblRollDiameter_2D+"="+this.textRollDiameter_2D);
-		//update version2 2016.01.27
-		this.db_2D.add(TextLabel.lblRollCrownType+"="+this.RollCrownType);
-		this.db_2D.add(TextLabel.lblRollCrown+"="+this.textRollCrown);
-		this.db_2D.add(TextLabel.lblMillStiffnessType+"="+this.MillStiffnessType);
-		this.db_2D.add(TextLabel.lblMillStiffness+"="+this.textMillStiffness);
-		//update version3 
-		this.textUpperEntryRollGapMovement_2D = med.getTextUpperEntryRollGapMovement_2D().getText().trim();
-		this.textUpperExitRollGapMovement_2D = med.getTextUpperExitRollGapMovement_2D().getText().trim();
-		this.textUpperRollGapStayingTime_2D = med.getTextUpperRollGapStayingTime_2D().getText().trim();
-		this.textUpperRollGapMovingTime_2D = med.getTextUpperRollGapMovingTime_2D().getText().trim();
-		this.textLowerEntryRollGapMovement_2D = med.getTextLowerEntryRollGapMovement_2D().getText().trim();
-		this.textLowerExitRollGapMovement_2D = med.getTextLowerExitRollGapMovement_2D().getText().trim();
-		this.textLowerRollGapStayingTime_2D = med.getTextLowerRollGapStayingTime_2D().getText().trim();
-		this.textLowerRollGapMovingTime_2D = med.getTextLowerRollGapMovingTime_2D().getText().trim();
-		
-		this.db_2D.add(TextLabel.lblUpperEntryRollGapMovement_2D+"="+this.textUpperEntryRollGapMovement_2D);
-		this.db_2D.add(TextLabel.lblUpperExitRollGapMovement_2D+"="+this.textUpperExitRollGapMovement_2D);
-		this.db_2D.add(TextLabel.lblUpperRollGapStayingTime_2D+"="+this.textUpperRollGapStayingTime_2D);
-		this.db_2D.add(TextLabel.lblUpperRollGapMovingTime_2D+"="+this.textUpperRollGapMovingTime_2D);
-		this.db_2D.add(TextLabel.lblLowerEntryRollGapMovement_2D+"="+this.textLowerEntryRollGapMovement_2D);
-		this.db_2D.add(TextLabel.lblLowerExitRollGapMovement_2D+"="+this.textLowerExitRollGapMovement_2D);
-		this.db_2D.add(TextLabel.lblLowerRollGapStayingTime_2D+"="+this.textLowerRollGapStayingTime_2D);
-		this.db_2D.add(TextLabel.lblLowerRollGapMovingTime_2D+"="+this.textLowerRollGapMovingTime_2D);
-		
-		if(med.getBtnNone_2D().getSelection()){
-			this.HDRollType_2D = med.getBtnNone_2D().getText();
-		}
-		if(med.getBtnUpper_2D().getSelection()){
-			this.HDRollType_2D = med.getBtnUpper_2D().getText();
-		}
-		if(med.getBtnLower_2D().getSelection()){
-			this.HDRollType_2D = med.getBtnLower_2D().getText();
-		}
-		this.textFrontHDRollDia_2D = med.getTextFrontHDRollDia_2D().getText().trim();
-		this.textFrontHDRollPitch_2D = med.getTextFrontHDRollPitch_2D().getText().trim();
-		this.textFrontHDRollVericalPos_2D = med.getTextFrontHDRollVericalPos_2D().getText().trim();
-		this.textRearHDRollDia_2D = med.getTextRearHDRollDia_2D().getText().trim();
-		this.textRearHDRollPitch_2D = med.getTextRearHDRollPitch_2D().getText().trim();
-		this.textRearHDRollVerticalPos_2D = med.getTextRearHDRollVerticalPos_2D().getText().trim();
-		
-		this.db_2D.add(TextLabel.lblFrontHDRollDia_2D+"="+this.textFrontHDRollDia_2D);
-		this.db_2D.add(TextLabel.lblFrontHDRollPitch_2D+"="+this.textFrontHDRollPitch_2D);
-		this.db_2D.add(TextLabel.lblFrontHDRollVericalPos_2D+"="+this.textFrontHDRollVericalPos_2D);
-		this.db_2D.add(TextLabel.lblRearHDRollDia_2D+"="+this.textRearHDRollDia_2D);
-		this.db_2D.add(TextLabel.lblRearHDRollPitch_2D+"="+this.textRearHDRollPitch_2D);
-		this.db_2D.add(TextLabel.lblRearHDRollVerticalPos_2D+"="+this.textRearHDRollVerticalPos_2D);
-		this.db_2D.add(TextLabel.HDRollType_2D+"="+this.HDRollType_2D);
-		
-		try{
-			for(UpTableDataContent obj : this.upTableDataList_2D){
-				this.db_2D.add(obj.getNo()+"="+obj.getDB());
-			}
-		}catch (Exception e){
-			//System.out.println("[LevellerMain.saveAllData()] Table Data is empty.");
-		}
-		try{
-			for(DownTableDataContent obj : this.downTableDataList_2D){
-				this.db_2D.add(obj.getNo()+"="+obj.getDB());
-			}
-		}catch (Exception e){
-			//System.out.println("[LevellerMain.saveAllData()] Table Data is empty.");
-		}
-		
-		//--------------------------------------------
-		
-		if(med.getBtnRadioConstant_YM_2D().getSelection()){
-			this.YoungsModulusType_2D = med.getBtnRadioConstant_YM_2D().getText().trim();
-		}else{
-			this.YoungsModulusType_2D = med.getBtnRadioTable_YM_2D().getText().trim();
-		}
-		this.textYoungsModulus_2D = med.getTextYoungsModulus_2D().getText().trim();
-		this.db_2D.add(TextLabel.lblYoungsModulus_2D+"Type"+"="+this.YoungsModulusType_2D);
-		this.db_2D.add(TextLabel.lblYoungsModulus_2D+"="+this.textYoungsModulus_2D);
-		
-		
-		if(med.getBtnRadioConstant_FS_2D().getSelection()){
-			this.FlowStressType_2D = med.getBtnRadioConstant_FS_2D().getText().trim();
-			//update version2 2017.01.27
-			this.textYieldStrength_2D = med.getTextYieldStrength_2D().getText().trim();
-			this.textTensileStrength_2D = med.getTextTensileStrength_2D().getText().trim();
-			this.textElongation_2D = med.getTextElongation_2D().getText().trim();
-			
-			this.db_2D.add(TextLabel.lblFlowStress_2D+"Type"+"="+this.FlowStressType_2D);
-			this.db_2D.add(TextLabel.lblYieldStrength_2D+"="+this.textYieldStrength_2D);
-			this.db_2D.add(TextLabel.lblTensileStrength_2D+"="+this.textTensileStrength_2D);
-			this.db_2D.add(TextLabel.lblElongation_2D+"="+this.textElongation_2D);
-			
-		}else{
-			this.FlowStressType_2D = med.getBtnRadioTable_FS_2D().getText().trim();
-			//update version2 2017.01.27
-			this.textFlowStress_2D = med.getTextFlowStress_2D().getText().trim();
-			this.db_2D.add(TextLabel.lblFlowStress_2D+"Type"+"="+this.FlowStressType_2D);
-			this.db_2D.add(TextLabel.lblFlowStress_2D+"="+this.textFlowStress_2D);
-		}
-		
-		if(med.getBtnRadioConstant_TEC_2D().getSelection()){
-			this.ThermalExpansionCoefficientType_2D = med.getBtnRadioConstant_TEC_2D().getText().trim();
-		}else{
-			this.ThermalExpansionCoefficientType_2D = med.getBtnRadioTable_TEC_2D().getText().trim();
-		}
-		this.textThermalExpansionCoefficient_2D = med.getTextThermalExpansionCoefficient_2D().getText().trim();
-		if(med.getBtnRadioConstant_PR_2D().getSelection()){
-			this.PoissonsRatioType_2D = med.getBtnRadioConstant_PR_2D().getText().trim();
-		}else{
-			this.PoissonsRatioType_2D = med.getBtnRadioTable_PR_2D().getText().trim();
-		}
-		this.textPoissonsRatio_2D = med.getTextPoissonsRatio_2D().getText().trim();
-		this.textMassDensity_2D = med.getTextMassDensity_2D().getText().trim();
-		
-		
-		
-		this.db_2D.add(TextLabel.lblThermalExpansionCoefficient_2D+"Type"+"="+this.ThermalExpansionCoefficientType_2D);
-		this.db_2D.add(TextLabel.lblThermalExpansionCoefficient_2D+"="+this.textThermalExpansionCoefficient_2D);
-		this.db_2D.add(TextLabel.lblPoissonsRatio+"Type_2D"+"="+this.PoissonsRatioType_2D);
-		this.db_2D.add(TextLabel.lblPoissonsRatio_2D+"="+this.textPoissonsRatio_2D);
-		this.db_2D.add(TextLabel.lblMassDensity_2D+"="+this.textMassDensity_2D);
-		
-		//--------------------------------------------
-		this.textSolvingTime_2D = med.getTextSolvingTime_2D().getText().trim();
-		this.textIncrementTime_2D = med.getTextIncrementTime_2D().getText().trim();
-		this.btnParallelDDMUse_2D = med.getBtnParallelDDMUse_2D().getSelection();
-		this.spinnerDomain_2D = med.getSpinnerDomain_2D().getText().trim();
-		this.btnParallelMultiThreadUse_2D = med.getBtnParallelMultiThreadUse_2D().getSelection();
-		this.spinnerThread_2D = med.getSpinnerThread_2D().getText().trim();
-		
-		this.db_2D.add(TextLabel.lblSolvingTime_2D+"="+this.textSolvingTime_2D);
-		this.db_2D.add(TextLabel.lblIncrementTime_2D+"="+this.textIncrementTime_2D);
-		this.db_2D.add(TextLabel.lblParallelDDM_2D+"="+this.btnParallelDDMUse_2D);
-		this.db_2D.add(TextLabel.lblDomain_2D+"="+this.spinnerDomain_2D);
-		this.db_2D.add(TextLabel.lblParallelMultiThread_2D+"="+this.btnParallelMultiThreadUse_2D);
-		this.db_2D.add(TextLabel.lblThread_2D+"="+this.spinnerThread_2D);
-	}
-	
 	public void saveAsAllData(String newModelName){
-		this.db_saveAs.add("LevellerType="+this.LevellerType);
 		this.db_saveAs.add(TextLabel.lblModelName+"="+newModelName);
 		
 		//--------------------------------------------
@@ -4051,277 +2832,6 @@ public class LevellerMain {
 		this.db_saveAs.add(TextLabel.lblParallelMultiThread+"="+this.btnParallelMultiThreadUse);
 		this.db_saveAs.add(TextLabel.lblThread+"="+this.spinnerThread);
 	}
-	
-	public void saveAsAllData_2D(String newModelName){
-
-		this.db_saveAs_2D.add("LevellerType="+this.LevellerType);
-		this.db_saveAs_2D.add(TextLabel.lblModelName+"="+this.textModelName);
-
-		//--------------------------------------------
-		this.comboType_2D = med.getComboType_2D().getText().trim();
-		this.textWidth_2D = med.getTextWidth_2D().getText().trim();
-		this.textLength_2D = med.getTextLength_2D().getText().trim();
-		this.textThickness_2D = med.getTextThickness_2D().getText().trim();
-
-		this.db_saveAs_2D.add(TextLabel.lblType_2D+"="+this.comboType);
-		this.db_saveAs_2D.add(TextLabel.lblWidth_2D+"="+this.textWidth);
-		this.db_saveAs_2D.add(TextLabel.lblLength_2D+"="+this.textLength);
-		this.db_saveAs_2D.add(TextLabel.lblThickness_2D+"="+this.textThickness);
-
-		if(this.comboType_2D.equals(ComboLabel.TYPE1)){
-
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE2)){
-			this.type2_textLeftEdgeWavePitch_2D = med.getType2_textLeftEdgeWavePitch_2D().getText().trim();
-			this.type2_textRightEdgeWavePitch_2D = med.getType2_textRightEdgeWavePitch_2D().getText().trim();
-			this.type2_textLeftEdgeWaveHeight_2D = med.getType2_textLeftEdgeWaveHeight_2D().getText().trim();
-			this.type2_textRightEdgeWaveHeight_2D = med.getType2_textRightEdgeWaveHeight_2D().getText().trim();
-			this.type2_textLeftEdgeWavePhase_2D = med.getType2_textLeftEdgeWavePhase_2D().getText().trim();
-			this.type2_textRightEdgeWavePhase_2D = med.getType2_textRightEdgeWavePhase_2D().getText().trim();
-
-			this.db_saveAs_2D.add(TextLabel.lblLeftEdgeWavePitch_type2_2D+"="+this.type2_textLeftEdgeWavePitch_2D);
-			this.db_saveAs_2D.add(TextLabel.lblRightEdgeWavePitch_type2_2D+"="+this.type2_textRightEdgeWavePitch_2D);
-			this.db_saveAs_2D.add(TextLabel.lblLeftEdgeWaveHeight_type2_2D+"="+this.type2_textLeftEdgeWaveHeight_2D);
-			this.db_saveAs_2D.add(TextLabel.lblRightEdgeWaveHeight_type2_2D+"="+this.type2_textRightEdgeWaveHeight_2D);
-			this.db_saveAs_2D.add(TextLabel.lblLeftEdgeWavePhase_type2_2D+"="+this.type2_textLeftEdgeWavePhase_2D);
-			this.db_saveAs_2D.add(TextLabel.lblRightEdgeWavePhase_type2_2D+"="+this.type2_textRightEdgeWavePhase_2D);
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE3)){
-			this.type3_textWavePitch_2D = med.getType3_textWavePitch_2D().getText().trim();
-			this.type3_textWaveHeight_2D = med.getType3_textWaveHeight_2D().getText().trim();
-
-			this.db_saveAs_2D.add(TextLabel.lblWavePitch_type3_2D+"="+this.type3_textWavePitch_2D);
-			this.db_saveAs_2D.add(TextLabel.lblWaveHeight_type3_2D+"="+this.type3_textWaveHeight_2D);
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE4)){
-			this.type4_textGutterHeight_2D = med.getType4_textGutterHeight_2D().getText().trim();
-
-			this.db_saveAs_2D.add(TextLabel.lblGutterHeight_type4_2D+"="+this.type4_textGutterHeight_2D);
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE5)){
-			this.type5_textGutterHeight_2D = med.getType5_textGutterHeight_2D().getText().trim();
-			this.type5_textGutterLength_2D = med.getType5_textGutterLength_2D().getText().trim();
-
-			this.db_saveAs_2D.add(TextLabel.lblGutterHeight_type5_2D+"="+this.type5_textGutterHeight_2D);
-			this.db_saveAs_2D.add(TextLabel.lblGutterLength_type5_2D+"="+this.type5_textGutterLength_2D);
-
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE6)){
-			this.type6_textHeadGutterHeight_2D = med.getType6_textHeadGutterHeight_2D().getText().trim();
-			this.type6_textHeadGutterLength_2D = med.getType6_textHeadGutterLength_2D().getText().trim();
-			this.type6_textTailGutterHeight_2D = med.getType6_textTailGutterHeight_2D().getText().trim();
-			this.type6_textTailGutterLength_2D = med.getType6_textTailGutterLength_2D().getText().trim();
-
-			this.db_saveAs_2D.add(TextLabel.lblHeadGutterHeight_type6_2D+"="+this.type6_textHeadGutterHeight_2D);
-			this.db_saveAs_2D.add(TextLabel.lblHeadGutterLength_type6_2D+"="+this.type6_textHeadGutterLength_2D);
-			this.db_saveAs_2D.add(TextLabel.lblTailGutterHeight_type6_2D+"="+this.type6_textTailGutterHeight_2D);
-			this.db_saveAs_2D.add(TextLabel.lblTailGutterLength_type6_2D+"="+this.type6_textTailGutterLength_2D);
-
-		}else if(this.comboType.equals(ComboLabel.TYPE7)){
-			this.type7_textHeadGutterHeight = med.getType7_textHeadGutterHeight().getText().trim();
-			this.type7_textGutterLength = med.getType7_textGutterLength().getText().trim();
-			this.type7_textGutterLengthLength = med.getType7_textGutterLengthLength().getText().trim();
-			this.type7_textGutterWidthLength = med.getType7_textGutterWidthLength().getText().trim();
-
-			this.db_saveAs_2D.add(TextLabel.lblHeadGutterHeight_type7_2D+"="+this.type7_textHeadGutterHeight_2D);
-			this.db_saveAs_2D.add(TextLabel.lblGutterLength_type7_2D+"="+this.type7_textGutterLength_2D);
-			this.db_saveAs_2D.add(TextLabel.lblGutterLengthLength_type7_2D+"="+this.type7_textGutterLengthLength_2D);
-			this.db_saveAs_2D.add(TextLabel.lblGutterWidthLength_type7_2D+"="+this.type7_textGutterWidthLength_2D);
-		}
-		//--------------------------------------------		
-		this.textThicknessElementNum_2D = med.getTextThicknessElementNum_2D().getText().trim();
-		this.textWidthAspectRatio_2D = med.getTextWidthAspectRatio_2D().getText().trim();
-		this.textLengthAspectRatio_2D = med.getTextLengthAspectRatio_2D().getText().trim();
-		CalcElementNumber_2D();
-		// version3 update
-		//CreateRoll();
-		this.textElementNumber_2D = med.getTextElementNumber_2D().getText().trim();
-
-		this.db_saveAs_2D.add(TextLabel.lblThicknessElementNum_2D+"="+this.textThicknessElementNum_2D);
-		this.db_saveAs_2D.add(TextLabel.lblWidthAspectRatio_2D+"="+this.textWidthAspectRatio_2D);
-		this.db_saveAs_2D.add(TextLabel.lblLengthAspectRatio_2D+"="+this.textLengthAspectRatio_2D);
-		this.db_saveAs_2D.add(TextLabel.lblElementNumber_2D+"="+this.textElementNumber_2D);
-		//--------------------------------------------
-		this.textPlateVelocity_2D = med.getTextPlateVelocity_2D().getText().trim();
-		this.textTemperatureStart_2D = med.getTextTemperatureStart_2D().getText().trim();
-		this.textTemperatureEnd_2D = med.getTextTemperatureEnd_2D().getText().trim();
-		//update version2 2016.01.27
-		this.textPassLineOffset_2D = med.getTextPassLineOffset_2D().getText().trim();
-
-
-		this.db_saveAs_2D.add(TextLabel.lblPlateVelocity_2D+"="+this.textPlateVelocity_2D);
-		this.db_saveAs_2D.add(TextLabel.lblTemperatureStart_2D+"="+this.textTemperatureStart_2D);
-		this.db_saveAs_2D.add(TextLabel.lblTemperatureEnd_2D+"="+this.textTemperatureEnd_2D);
-		//update version2 2016.01.27
-		this.db_saveAs_2D.add(TextLabel.lblPassLineOffset_2D+"="+this.textPassLineOffset_2D);
-		//--------------------------------------------		
-		this.spinnerUpperRollNum_2D = med.getSpinnerUpperRollNum_2D().getText().trim();
-		this.spinnerLowerRollNum_2D = med.getSpinnerLowerRollNum_2D().getText().trim();
-		this.textRollPitch_2D = med.getTextRollPitch_2D().getText().trim();
-		this.textRollLength_2D = calcRollLength_2D().trim();
-		this.textEntryUpperRollGap_2D = med.getTextEntryUpperRollGap_2D().getText().trim();
-		this.textEntryLowerRollGap_2D = med.getTextEntryLowerRollGap_2D().getText().trim();
-		this.textExitUpperRollGap_2D = med.getTextExitUpperRollGap_2D().getText().trim();
-		this.textExitLowerRollGap_2D = med.getTextExitLowerRollGap_2D().getText().trim();
-		this.textRollFriction_2D = med.getTextRollFriction_2D().getText().trim();
-		this.textRollDiameter_2D = med.getTextRollDiameter_2D().getText().trim();
-		//update version2 2016.01.27
-		if(med.getBtnRadioNone_RC_2D().getSelection()){
-			this.RollCrownType_2D = med.getBtnRadioNone_RC_2D().getText().trim();
-		}else{
-			this.RollCrownType_2D = med.getBtnRadioApply_RC_2D().getText().trim();
-		}
-		this.textRollCrown_2D = med.getTextRollCrown_2D().getText().trim();
-		if(med.getBtnRadioRigid_MS_2D().getSelection()){
-			this.MillStiffnessType_2D = med.getBtnRadioRigid_MS_2D().getText().trim();
-		}else{
-			this.MillStiffnessType_2D = med.getBtnRadioSpring_MS_2D().getText().trim();
-		}
-		this.textMillStiffness_2D = med.getTextMillStiffness_2D().getText().trim();
-
-
-		med.getTextRollLength_2D().setText(this.textRollLength_2D);
-
-		this.db_saveAs_2D.add(TextLabel.lblUpperRollNumber_2D+"="+this.spinnerUpperRollNum_2D);
-		this.db_saveAs_2D.add(TextLabel.lblLowerRollNumber_2D+"="+this.spinnerLowerRollNum_2D);
-		this.db_saveAs_2D.add(TextLabel.lblRollPitch_2D+"="+this.textRollPitch_2D);
-		this.db_saveAs_2D.add(TextLabel.lblRollLength_2D+"="+this.textRollLength_2D);
-		this.db_saveAs_2D.add(TextLabel.lblEntryUpperRollGap_2D+"="+this.textEntryUpperRollGap_2D);
-		this.db_saveAs_2D.add(TextLabel.lblEntryLowerRollGap_2D+"="+this.textEntryLowerRollGap_2D);
-		this.db_saveAs_2D.add(TextLabel.lblExitUpperRollGap_2D+"="+this.textExitUpperRollGap_2D);
-		this.db_saveAs_2D.add(TextLabel.lblExitLowerRollGap_2D+"="+this.textExitLowerRollGap_2D);
-		this.db_saveAs_2D.add(TextLabel.lblRollFriction_2D+"="+this.textRollFriction_2D);
-		this.db_saveAs_2D.add(TextLabel.lblRollDiameter_2D+"="+this.textRollDiameter_2D);
-		//update version2 2016.01.27
-		this.db_saveAs_2D.add(TextLabel.lblRollCrownType+"="+this.RollCrownType);
-		this.db_saveAs_2D.add(TextLabel.lblRollCrown+"="+this.textRollCrown);
-		this.db_saveAs_2D.add(TextLabel.lblMillStiffnessType+"="+this.MillStiffnessType);
-		this.db_saveAs_2D.add(TextLabel.lblMillStiffness+"="+this.textMillStiffness);
-		//update version3 
-		this.textUpperEntryRollGapMovement_2D = med.getTextUpperEntryRollGapMovement_2D().getText().trim();
-		this.textUpperExitRollGapMovement_2D = med.getTextUpperExitRollGapMovement_2D().getText().trim();
-		this.textUpperRollGapStayingTime_2D = med.getTextUpperRollGapStayingTime_2D().getText().trim();
-		this.textUpperRollGapMovingTime_2D = med.getTextUpperRollGapMovingTime_2D().getText().trim();
-		this.textLowerEntryRollGapMovement_2D = med.getTextLowerEntryRollGapMovement_2D().getText().trim();
-		this.textLowerExitRollGapMovement_2D = med.getTextLowerExitRollGapMovement_2D().getText().trim();
-		this.textLowerRollGapStayingTime_2D = med.getTextLowerRollGapStayingTime_2D().getText().trim();
-		this.textLowerRollGapMovingTime_2D = med.getTextLowerRollGapMovingTime_2D().getText().trim();
-
-		this.db_saveAs_2D.add(TextLabel.lblUpperEntryRollGapMovement_2D+"="+this.textUpperEntryRollGapMovement_2D);
-		this.db_saveAs_2D.add(TextLabel.lblUpperExitRollGapMovement_2D+"="+this.textUpperExitRollGapMovement_2D);
-		this.db_saveAs_2D.add(TextLabel.lblUpperRollGapStayingTime_2D+"="+this.textUpperRollGapStayingTime_2D);
-		this.db_saveAs_2D.add(TextLabel.lblUpperRollGapMovingTime_2D+"="+this.textUpperRollGapMovingTime_2D);
-		this.db_saveAs_2D.add(TextLabel.lblLowerEntryRollGapMovement_2D+"="+this.textLowerEntryRollGapMovement_2D);
-		this.db_saveAs_2D.add(TextLabel.lblLowerExitRollGapMovement_2D+"="+this.textLowerExitRollGapMovement_2D);
-		this.db_saveAs_2D.add(TextLabel.lblLowerRollGapStayingTime_2D+"="+this.textLowerRollGapStayingTime_2D);
-		this.db_saveAs_2D.add(TextLabel.lblLowerRollGapMovingTime_2D+"="+this.textLowerRollGapMovingTime_2D);
-
-		if(med.getBtnNone_2D().getSelection()){
-			this.HDRollType_2D = med.getBtnNone_2D().getText();
-		}
-		if(med.getBtnUpper_2D().getSelection()){
-			this.HDRollType_2D = med.getBtnUpper_2D().getText();
-		}
-		if(med.getBtnLower_2D().getSelection()){
-			this.HDRollType_2D = med.getBtnLower_2D().getText();
-		}
-		this.textFrontHDRollDia_2D = med.getTextFrontHDRollDia_2D().getText().trim();
-		this.textFrontHDRollPitch_2D = med.getTextFrontHDRollPitch_2D().getText().trim();
-		this.textFrontHDRollVericalPos_2D = med.getTextFrontHDRollVericalPos_2D().getText().trim();
-		this.textRearHDRollDia_2D = med.getTextRearHDRollDia_2D().getText().trim();
-		this.textRearHDRollPitch_2D = med.getTextRearHDRollPitch_2D().getText().trim();
-		this.textRearHDRollVerticalPos_2D = med.getTextRearHDRollVerticalPos_2D().getText().trim();
-
-		this.db_saveAs_2D.add(TextLabel.lblFrontHDRollDia_2D+"="+this.textFrontHDRollDia_2D);
-		this.db_saveAs_2D.add(TextLabel.lblFrontHDRollPitch_2D+"="+this.textFrontHDRollPitch_2D);
-		this.db_saveAs_2D.add(TextLabel.lblFrontHDRollVericalPos_2D+"="+this.textFrontHDRollVericalPos_2D);
-		this.db_saveAs_2D.add(TextLabel.lblRearHDRollDia_2D+"="+this.textRearHDRollDia_2D);
-		this.db_saveAs_2D.add(TextLabel.lblRearHDRollPitch_2D+"="+this.textRearHDRollPitch_2D);
-		this.db_saveAs_2D.add(TextLabel.lblRearHDRollVerticalPos_2D+"="+this.textRearHDRollVerticalPos_2D);
-		this.db_saveAs_2D.add(TextLabel.HDRollType_2D+"="+this.HDRollType_2D);
-
-		try{
-			for(UpTableDataContent obj : this.upTableDataList_2D){
-				this.db_saveAs_2D.add(obj.getNo()+"="+obj.getDB());
-			}
-		}catch (Exception e){
-			//System.out.println("[LevellerMain.saveAllData()] Table Data is empty.");
-		}
-		try{
-			for(DownTableDataContent obj : this.downTableDataList_2D){
-				this.db_saveAs_2D.add(obj.getNo()+"="+obj.getDB());
-			}
-		}catch (Exception e){
-			//System.out.println("[LevellerMain.saveAllData()] Table Data is empty.");
-		}
-
-		//--------------------------------------------
-
-		if(med.getBtnRadioConstant_YM_2D().getSelection()){
-			this.YoungsModulusType_2D = med.getBtnRadioConstant_YM_2D().getText().trim();
-		}else{
-			this.YoungsModulusType_2D = med.getBtnRadioTable_YM_2D().getText().trim();
-		}
-		this.textYoungsModulus_2D = med.getTextYoungsModulus_2D().getText().trim();
-		this.db_saveAs_2D.add(TextLabel.lblYoungsModulus_2D+"Type"+"="+this.YoungsModulusType_2D);
-		this.db_saveAs_2D.add(TextLabel.lblYoungsModulus_2D+"="+this.textYoungsModulus_2D);
-
-
-		if(med.getBtnRadioConstant_FS_2D().getSelection()){
-			this.FlowStressType_2D = med.getBtnRadioConstant_FS_2D().getText().trim();
-			//update version2 2017.01.27
-			this.textYieldStrength_2D = med.getTextYieldStrength_2D().getText().trim();
-			this.textTensileStrength_2D = med.getTextTensileStrength_2D().getText().trim();
-			this.textElongation_2D = med.getTextElongation_2D().getText().trim();
-
-			this.db_saveAs_2D.add(TextLabel.lblFlowStress_2D+"Type"+"="+this.FlowStressType_2D);
-			this.db_saveAs_2D.add(TextLabel.lblYieldStrength_2D+"="+this.textYieldStrength_2D);
-			this.db_saveAs_2D.add(TextLabel.lblTensileStrength_2D+"="+this.textTensileStrength_2D);
-			this.db_saveAs_2D.add(TextLabel.lblElongation_2D+"="+this.textElongation_2D);
-
-		}else{
-			this.FlowStressType_2D = med.getBtnRadioTable_FS_2D().getText().trim();
-			//update version2 2017.01.27
-			this.textFlowStress_2D = med.getTextFlowStress_2D().getText().trim();
-			this.db_saveAs_2D.add(TextLabel.lblFlowStress_2D+"Type"+"="+this.FlowStressType_2D);
-			this.db_saveAs_2D.add(TextLabel.lblFlowStress_2D+"="+this.textFlowStress_2D);
-		}
-
-		if(med.getBtnRadioConstant_TEC_2D().getSelection()){
-			this.ThermalExpansionCoefficientType_2D = med.getBtnRadioConstant_TEC_2D().getText().trim();
-		}else{
-			this.ThermalExpansionCoefficientType_2D = med.getBtnRadioTable_TEC_2D().getText().trim();
-		}
-		this.textThermalExpansionCoefficient_2D = med.getTextThermalExpansionCoefficient_2D().getText().trim();
-		if(med.getBtnRadioConstant_PR_2D().getSelection()){
-			this.PoissonsRatioType_2D = med.getBtnRadioConstant_PR_2D().getText().trim();
-		}else{
-			this.PoissonsRatioType_2D = med.getBtnRadioTable_PR_2D().getText().trim();
-		}
-		this.textPoissonsRatio_2D = med.getTextPoissonsRatio_2D().getText().trim();
-		this.textMassDensity_2D = med.getTextMassDensity_2D().getText().trim();
-
-
-
-		this.db_saveAs_2D.add(TextLabel.lblThermalExpansionCoefficient_2D+"Type"+"="+this.ThermalExpansionCoefficientType_2D);
-		this.db_saveAs_2D.add(TextLabel.lblThermalExpansionCoefficient_2D+"="+this.textThermalExpansionCoefficient_2D);
-		this.db_saveAs_2D.add(TextLabel.lblPoissonsRatio+"Type_2D"+"="+this.PoissonsRatioType_2D);
-		this.db_saveAs_2D.add(TextLabel.lblPoissonsRatio_2D+"="+this.textPoissonsRatio_2D);
-		this.db_saveAs_2D.add(TextLabel.lblMassDensity_2D+"="+this.textMassDensity_2D);
-
-		//--------------------------------------------
-		this.textSolvingTime_2D = med.getTextSolvingTime_2D().getText().trim();
-		this.textIncrementTime_2D = med.getTextIncrementTime_2D().getText().trim();
-		this.btnParallelDDMUse_2D = med.getBtnParallelDDMUse_2D().getSelection();
-		this.spinnerDomain_2D = med.getSpinnerDomain_2D().getText().trim();
-		this.btnParallelMultiThreadUse_2D = med.getBtnParallelMultiThreadUse_2D().getSelection();
-		this.spinnerThread_2D = med.getSpinnerThread_2D().getText().trim();
-
-		this.db_saveAs_2D.add(TextLabel.lblSolvingTime_2D+"="+this.textSolvingTime_2D);
-		this.db_saveAs_2D.add(TextLabel.lblIncrementTime_2D+"="+this.textIncrementTime_2D);
-		this.db_saveAs_2D.add(TextLabel.lblParallelDDM_2D+"="+this.btnParallelDDMUse_2D);
-		this.db_saveAs_2D.add(TextLabel.lblDomain_2D+"="+this.spinnerDomain_2D);
-		this.db_saveAs_2D.add(TextLabel.lblParallelMultiThread_2D+"="+this.btnParallelMultiThreadUse_2D);
-		this.db_saveAs_2D.add(TextLabel.lblThread_2D+"="+this.spinnerThread_2D);
-		
-	}
-	
-	
 	// 여기다 proc 만들기 jsclubb
 	public void Export(){
 		try{
@@ -4362,69 +2872,6 @@ public class LevellerMain {
 		
 		if(this.exportMSG.getInfoList().size()!=0){
 			String msg = "[Export Procedure Log]\n\n";
-			for(String data : this.exportMSG.getInfoList()){
-				msg = msg + data + "\n";
-			}
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(),msg);
-			messageDlg.open();
-			exportMSG.clearList();
-			
-			
-			if(myUtil.checkOS().equals("window")){
-				try{
-					String procPath = myUtil.setPath(this.workspace, "proc");
-					Runtime.getRuntime().exec("explorer "+ procPath);
-					writeRunBat();
-				}catch(Exception e){
-					String msg2 = "ERROR - Open Proc Folder";
-					MessageDlg messageDlg2 = new MessageDlg(Display.getCurrent().getActiveShell(),msg2);
-					messageDlg2.open();
-				}
-			}
-			
-		}		
-		
-	}
-	
-	public void Export_2D(){
-		try{
-			deleteOldFiles();
-			
-			this.SaveLeveller_2D();
-			
-			if(this.comboType.equals(ComboLabel.TYPE1)){
-				main_flat mainFlatProc = new main_flat();
-				mainFlatProc.running();				
-			}else if(this.comboType.equals(ComboLabel.TYPE2)){
-				main_edgeWave mainEdgeWaveProc = new main_edgeWave();
-				mainEdgeWaveProc.running();
-			}else if(this.comboType.equals(ComboLabel.TYPE3)){
-				main_centerWave mainCenterWave = new main_centerWave();
-				mainCenterWave.running();
-			}else if(this.comboType.equals(ComboLabel.TYPE4)){
-				main_singleGutter mainSingleGutter = new main_singleGutter();
-				mainSingleGutter.running();
-			}else if(this.comboType.equals(ComboLabel.TYPE5)){
-				main_partialGutter mainPartialGutter = new main_partialGutter();
-				mainPartialGutter.running();
-			}else if(this.comboType.equals(ComboLabel.TYPE6)){
-				main_doubleGutter mainDoubleGutter = new main_doubleGutter();
-				mainDoubleGutter.running();
-			}else if(this.comboType.equals(ComboLabel.TYPE7)){
-				main_islandGutter mainIslandGutter = new main_islandGutter();
-				mainIslandGutter.running();
-			}
-			
-		}catch(Exception e){
-			String msg = "ERROR - Export files_2D";
-			msg = msg +"\n"+e.getMessage();
-			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
-			messageDlg.open();
-			log.error(msg);
-		}
-		
-		if(this.exportMSG.getInfoList().size()!=0){
-			String msg = "[Export Procedure Log_2D]\n\n";
 			for(String data : this.exportMSG.getInfoList()){
 				msg = msg + data + "\n";
 			}
@@ -5179,9 +3626,6 @@ public class LevellerMain {
 		HDRollType = hDRollType;
 	}
 	
-	public Map<String, String> getInitValueMap() {
-		return InitValueMap;
-	}
 	//
 	//
 	//
@@ -5194,679 +3638,6 @@ public class LevellerMain {
 	///////////////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////////
-
-	public String getLevellerType() {
-		return LevellerType;
-	}
-
-	public void setLevellerType(String levellerType) {
-		LevellerType = levellerType;
-	}
-	/*
-	public Map<String, String> getInitValueMap_2D() {
-		return InitValueMap_2D;
-	}
-
-	public void setInitValueMap_2D(Map<String, String> initValueMap_2D) {
-		InitValueMap_2D = initValueMap_2D;
-	}
-	 */
-	public String getTextWidth_2D() {
-		return textWidth_2D;
-	}
-
-	public void setTextWidth_2D(String textWidth_2D) {
-		this.textWidth_2D = textWidth_2D;
-	}
-
-	public String getTextLength_2D() {
-		return textLength_2D;
-	}
-
-	public void setTextLength_2D(String textLength_2D) {
-		this.textLength_2D = textLength_2D;
-	}
-
-	public String getTextThickness_2D() {
-		return textThickness_2D;
-	}
-
-	public void setTextThickness_2D(String textThickness_2D) {
-		this.textThickness_2D = textThickness_2D;
-	}
-
-	public String getType2_textLeftEdgeWavePitch_2D() {
-		return type2_textLeftEdgeWavePitch_2D;
-	}
-
-	public void setType2_textLeftEdgeWavePitch_2D(
-			String type2_textLeftEdgeWavePitch_2D) {
-		this.type2_textLeftEdgeWavePitch_2D = type2_textLeftEdgeWavePitch_2D;
-	}
-
-	public String getType2_textRightEdgeWavePitch_2D() {
-		return type2_textRightEdgeWavePitch_2D;
-	}
-
-	public void setType2_textRightEdgeWavePitch_2D(
-			String type2_textRightEdgeWavePitch_2D) {
-		this.type2_textRightEdgeWavePitch_2D = type2_textRightEdgeWavePitch_2D;
-	}
-
-	public String getType2_textLeftEdgeWaveHeight_2D() {
-		return type2_textLeftEdgeWaveHeight_2D;
-	}
-
-	public void setType2_textLeftEdgeWaveHeight_2D(
-			String type2_textLeftEdgeWaveHeight_2D) {
-		this.type2_textLeftEdgeWaveHeight_2D = type2_textLeftEdgeWaveHeight_2D;
-	}
-
-	public String getType2_textRightEdgeWaveHeight_2D() {
-		return type2_textRightEdgeWaveHeight_2D;
-	}
-
-	public void setType2_textRightEdgeWaveHeight_2D(
-			String type2_textRightEdgeWaveHeight_2D) {
-		this.type2_textRightEdgeWaveHeight_2D = type2_textRightEdgeWaveHeight_2D;
-	}
-
-	public String getType2_textLeftEdgeWavePhase_2D() {
-		return type2_textLeftEdgeWavePhase_2D;
-	}
-
-	public void setType2_textLeftEdgeWavePhase_2D(
-			String type2_textLeftEdgeWavePhase_2D) {
-		this.type2_textLeftEdgeWavePhase_2D = type2_textLeftEdgeWavePhase_2D;
-	}
-
-	public String getType2_textRightEdgeWavePhase_2D() {
-		return type2_textRightEdgeWavePhase_2D;
-	}
-
-	public void setType2_textRightEdgeWavePhase_2D(
-			String type2_textRightEdgeWavePhase_2D) {
-		this.type2_textRightEdgeWavePhase_2D = type2_textRightEdgeWavePhase_2D;
-	}
-
-	public String getType3_textWavePitch_2D() {
-		return type3_textWavePitch_2D;
-	}
-
-	public void setType3_textWavePitch_2D(String type3_textWavePitch_2D) {
-		this.type3_textWavePitch_2D = type3_textWavePitch_2D;
-	}
-
-	public String getType3_textWaveHeight_2D() {
-		return type3_textWaveHeight_2D;
-	}
-
-	public void setType3_textWaveHeight_2D(String type3_textWaveHeight_2D) {
-		this.type3_textWaveHeight_2D = type3_textWaveHeight_2D;
-	}
-
-	public String getType4_textGutterHeight_2D() {
-		return type4_textGutterHeight_2D;
-	}
-
-	public void setType4_textGutterHeight_2D(String type4_textGutterHeight_2D) {
-		this.type4_textGutterHeight_2D = type4_textGutterHeight_2D;
-	}
-
-	public String getType5_textGutterHeight_2D() {
-		return type5_textGutterHeight_2D;
-	}
-
-	public void setType5_textGutterHeight_2D(String type5_textGutterHeight_2D) {
-		this.type5_textGutterHeight_2D = type5_textGutterHeight_2D;
-	}
-
-	public String getType5_textGutterLength_2D() {
-		return type5_textGutterLength_2D;
-	}
-
-	public void setType5_textGutterLength_2D(String type5_textGutterLength_2D) {
-		this.type5_textGutterLength_2D = type5_textGutterLength_2D;
-	}
-
-	public String getType6_textHeadGutterHeight_2D() {
-		return type6_textHeadGutterHeight_2D;
-	}
-
-	public void setType6_textHeadGutterHeight_2D(
-			String type6_textHeadGutterHeight_2D) {
-		this.type6_textHeadGutterHeight_2D = type6_textHeadGutterHeight_2D;
-	}
-
-	public String getType6_textHeadGutterLength_2D() {
-		return type6_textHeadGutterLength_2D;
-	}
-
-	public void setType6_textHeadGutterLength_2D(
-			String type6_textHeadGutterLength_2D) {
-		this.type6_textHeadGutterLength_2D = type6_textHeadGutterLength_2D;
-	}
-
-	public String getType6_textTailGutterHeight_2D() {
-		return type6_textTailGutterHeight_2D;
-	}
-
-	public void setType6_textTailGutterHeight_2D(
-			String type6_textTailGutterHeight_2D) {
-		this.type6_textTailGutterHeight_2D = type6_textTailGutterHeight_2D;
-	}
-
-	public String getType6_textTailGutterLength_2D() {
-		return type6_textTailGutterLength_2D;
-	}
-
-	public void setType6_textTailGutterLength_2D(
-			String type6_textTailGutterLength_2D) {
-		this.type6_textTailGutterLength_2D = type6_textTailGutterLength_2D;
-	}
-
-	public String getType7_textHeadGutterHeight_2D() {
-		return type7_textHeadGutterHeight_2D;
-	}
-
-	public void setType7_textHeadGutterHeight_2D(
-			String type7_textHeadGutterHeight_2D) {
-		this.type7_textHeadGutterHeight_2D = type7_textHeadGutterHeight_2D;
-	}
-
-	public String getType7_textGutterLength_2D() {
-		return type7_textGutterLength_2D;
-	}
-
-	public void setType7_textGutterLength_2D(String type7_textGutterLength_2D) {
-		this.type7_textGutterLength_2D = type7_textGutterLength_2D;
-	}
-
-	public String getType7_textGutterLengthLength_2D() {
-		return type7_textGutterLengthLength_2D;
-	}
-
-	public void setType7_textGutterLengthLength_2D(
-			String type7_textGutterLengthLength_2D) {
-		this.type7_textGutterLengthLength_2D = type7_textGutterLengthLength_2D;
-	}
-
-	public String getType7_textGutterWidthLength_2D() {
-		return type7_textGutterWidthLength_2D;
-	}
-
-	public void setType7_textGutterWidthLength_2D(
-			String type7_textGutterWidthLength_2D) {
-		this.type7_textGutterWidthLength_2D = type7_textGutterWidthLength_2D;
-	}
-
-	public String getTextThicknessElementNum_2D() {
-		return textThicknessElementNum_2D;
-	}
-
-	public void setTextThicknessElementNum_2D(String textThicknessElementNum_2D) {
-		this.textThicknessElementNum_2D = textThicknessElementNum_2D;
-	}
-
-	public String getTextWidthAspectRatio_2D() {
-		return textWidthAspectRatio_2D;
-	}
-
-	public void setTextWidthAspectRatio_2D(String textWidthAspectRatio_2D) {
-		this.textWidthAspectRatio_2D = textWidthAspectRatio_2D;
-	}
-
-	public String getTextLengthAspectRatio_2D() {
-		return textLengthAspectRatio_2D;
-	}
-
-	public void setTextLengthAspectRatio_2D(String textLengthAspectRatio_2D) {
-		this.textLengthAspectRatio_2D = textLengthAspectRatio_2D;
-	}
-
-	public String getTextElementNumber_2D() {
-		return textElementNumber_2D;
-	}
-
-	public void setTextElementNumber_2D(String textElementNumber_2D) {
-		this.textElementNumber_2D = textElementNumber_2D;
-	}
-
-	public String getTextPlateVelocity_2D() {
-		return textPlateVelocity_2D;
-	}
-
-	public void setTextPlateVelocity_2D(String textPlateVelocity_2D) {
-		this.textPlateVelocity_2D = textPlateVelocity_2D;
-	}
-
-	public String getTextTemperatureStart_2D() {
-		return textTemperatureStart_2D;
-	}
-
-	public void setTextTemperatureStart_2D(String textTemperatureStart_2D) {
-		this.textTemperatureStart_2D = textTemperatureStart_2D;
-	}
-
-	public String getTextTemperatureEnd_2D() {
-		return textTemperatureEnd_2D;
-	}
-
-	public void setTextTemperatureEnd_2D(String textTemperatureEnd_2D) {
-		this.textTemperatureEnd_2D = textTemperatureEnd_2D;
-	}
-
-	public String getTextPassLineOffset_2D() {
-		return textPassLineOffset_2D;
-	}
-
-	public void setTextPassLineOffset_2D(String textPassLineOffset_2D) {
-		this.textPassLineOffset_2D = textPassLineOffset_2D;
-	}
-
-	public String getSpinnerUpperRollNum_2D() {
-		return spinnerUpperRollNum_2D;
-	}
-
-	public void setSpinnerUpperRollNum_2D(String spinnerUpperRollNum_2D) {
-		this.spinnerUpperRollNum_2D = spinnerUpperRollNum_2D;
-	}
-
-	public String getSpinnerLowerRollNum_2D() {
-		return spinnerLowerRollNum_2D;
-	}
-
-	public void setSpinnerLowerRollNum_2D(String spinnerLowerRollNum_2D) {
-		this.spinnerLowerRollNum_2D = spinnerLowerRollNum_2D;
-	}
-
-	public String getTextRollPitch_2D() {
-		return textRollPitch_2D;
-	}
-
-	public void setTextRollPitch_2D(String textRollPitch_2D) {
-		this.textRollPitch_2D = textRollPitch_2D;
-	}
-
-	public String getTextRollLength_2D() {
-		return textRollLength_2D;
-	}
-
-	public void setTextRollLength_2D(String textRollLength_2D) {
-		this.textRollLength_2D = textRollLength_2D;
-	}
-
-	public String getTextEntryUpperRollGap_2D() {
-		return textEntryUpperRollGap_2D;
-	}
-
-	public void setTextEntryUpperRollGap_2D(String textEntryUpperRollGap_2D) {
-		this.textEntryUpperRollGap_2D = textEntryUpperRollGap_2D;
-	}
-
-	public String getTextEntryLowerRollGap_2D() {
-		return textEntryLowerRollGap_2D;
-	}
-
-	public void setTextEntryLowerRollGap_2D(String textEntryLowerRollGap_2D) {
-		this.textEntryLowerRollGap_2D = textEntryLowerRollGap_2D;
-	}
-
-	public String getTextExitUpperRollGap_2D() {
-		return textExitUpperRollGap_2D;
-	}
-
-	public void setTextExitUpperRollGap_2D(String textExitUpperRollGap_2D) {
-		this.textExitUpperRollGap_2D = textExitUpperRollGap_2D;
-	}
-
-	public String getTextExitLowerRollGap_2D() {
-		return textExitLowerRollGap_2D;
-	}
-
-	public void setTextExitLowerRollGap_2D(String textExitLowerRollGap_2D) {
-		this.textExitLowerRollGap_2D = textExitLowerRollGap_2D;
-	}
-
-	public String getTextRollFriction_2D() {
-		return textRollFriction_2D;
-	}
-
-	public void setTextRollFriction_2D(String textRollFriction_2D) {
-		this.textRollFriction_2D = textRollFriction_2D;
-	}
-
-	public String getTextRollDiameter_2D() {
-		return textRollDiameter_2D;
-	}
-
-	public void setTextRollDiameter_2D(String textRollDiameter_2D) {
-		this.textRollDiameter_2D = textRollDiameter_2D;
-	}
-
-	public String getTextRollCrown_2D() {
-		return textRollCrown_2D;
-	}
-
-	public void setTextRollCrown_2D(String textRollCrown_2D) {
-		this.textRollCrown_2D = textRollCrown_2D;
-	}
-
-	public String getRollCrownType_2D() {
-		return RollCrownType_2D;
-	}
-
-	public void setRollCrownType_2D(String rollCrownType_2D) {
-		RollCrownType_2D = rollCrownType_2D;
-	}
-
-	public String getTextMillStiffness_2D() {
-		return textMillStiffness_2D;
-	}
-
-	public void setTextMillStiffness_2D(String textMillStiffness_2D) {
-		this.textMillStiffness_2D = textMillStiffness_2D;
-	}
-
-	public String getMillStiffnessType_2D() {
-		return MillStiffnessType_2D;
-	}
-
-	public void setMillStiffnessType_2D(String millStiffnessType_2D) {
-		MillStiffnessType_2D = millStiffnessType_2D;
-	}
-
-	public String getTextUpperEntryRollGapMovement_2D() {
-		return textUpperEntryRollGapMovement_2D;
-	}
-
-	public void setTextUpperEntryRollGapMovement_2D(
-			String textUpperEntryRollGapMovement_2D) {
-		this.textUpperEntryRollGapMovement_2D = textUpperEntryRollGapMovement_2D;
-	}
-
-	public String getTextUpperExitRollGapMovement_2D() {
-		return textUpperExitRollGapMovement_2D;
-	}
-
-	public void setTextUpperExitRollGapMovement_2D(
-			String textUpperExitRollGapMovement_2D) {
-		this.textUpperExitRollGapMovement_2D = textUpperExitRollGapMovement_2D;
-	}
-
-	public String getTextUpperRollGapStayingTime_2D() {
-		return textUpperRollGapStayingTime_2D;
-	}
-
-	public void setTextUpperRollGapStayingTime_2D(
-			String textUpperRollGapStayingTime_2D) {
-		this.textUpperRollGapStayingTime_2D = textUpperRollGapStayingTime_2D;
-	}
-
-	public String getTextUpperRollGapMovingTime_2D() {
-		return textUpperRollGapMovingTime_2D;
-	}
-
-	public void setTextUpperRollGapMovingTime_2D(
-			String textUpperRollGapMovingTime_2D) {
-		this.textUpperRollGapMovingTime_2D = textUpperRollGapMovingTime_2D;
-	}
-
-	public String getTextLowerEntryRollGapMovement_2D() {
-		return textLowerEntryRollGapMovement_2D;
-	}
-
-	public void setTextLowerEntryRollGapMovement_2D(
-			String textLowerEntryRollGapMovement_2D) {
-		this.textLowerEntryRollGapMovement_2D = textLowerEntryRollGapMovement_2D;
-	}
-
-	public String getTextLowerExitRollGapMovement_2D() {
-		return textLowerExitRollGapMovement_2D;
-	}
-
-	public void setTextLowerExitRollGapMovement_2D(
-			String textLowerExitRollGapMovement_2D) {
-		this.textLowerExitRollGapMovement_2D = textLowerExitRollGapMovement_2D;
-	}
-
-	public String getTextLowerRollGapStayingTime_2D() {
-		return textLowerRollGapStayingTime_2D;
-	}
-
-	public void setTextLowerRollGapStayingTime_2D(
-			String textLowerRollGapStayingTime_2D) {
-		this.textLowerRollGapStayingTime_2D = textLowerRollGapStayingTime_2D;
-	}
-
-	public String getTextLowerRollGapMovingTime_2D() {
-		return textLowerRollGapMovingTime_2D;
-	}
-
-	public void setTextLowerRollGapMovingTime_2D(
-			String textLowerRollGapMovingTime_2D) {
-		this.textLowerRollGapMovingTime_2D = textLowerRollGapMovingTime_2D;
-	}
-
-	public String getTextFrontHDRollDia_2D() {
-		return textFrontHDRollDia_2D;
-	}
-
-	public void setTextFrontHDRollDia_2D(String textFrontHDRollDia_2D) {
-		this.textFrontHDRollDia_2D = textFrontHDRollDia_2D;
-	}
-
-	public String getTextFrontHDRollPitch_2D() {
-		return textFrontHDRollPitch_2D;
-	}
-
-	public void setTextFrontHDRollPitch_2D(String textFrontHDRollPitch_2D) {
-		this.textFrontHDRollPitch_2D = textFrontHDRollPitch_2D;
-	}
-
-	public String getTextFrontHDRollVericalPos_2D() {
-		return textFrontHDRollVericalPos_2D;
-	}
-
-	public void setTextFrontHDRollVericalPos_2D(String textFrontHDRollVericalPos_2D) {
-		this.textFrontHDRollVericalPos_2D = textFrontHDRollVericalPos_2D;
-	}
-
-	public String getTextRearHDRollDia_2D() {
-		return textRearHDRollDia_2D;
-	}
-
-	public void setTextRearHDRollDia_2D(String textRearHDRollDia_2D) {
-		this.textRearHDRollDia_2D = textRearHDRollDia_2D;
-	}
-
-	public String getTextRearHDRollPitch_2D() {
-		return textRearHDRollPitch_2D;
-	}
-
-	public void setTextRearHDRollPitch_2D(String textRearHDRollPitch_2D) {
-		this.textRearHDRollPitch_2D = textRearHDRollPitch_2D;
-	}
-
-	public String getTextRearHDRollVerticalPos_2D() {
-		return textRearHDRollVerticalPos_2D;
-	}
-
-	public void setTextRearHDRollVerticalPos_2D(String textRearHDRollVerticalPos_2D) {
-		this.textRearHDRollVerticalPos_2D = textRearHDRollVerticalPos_2D;
-	}
-
-	public String getHDRollType_2D() {
-		return HDRollType_2D;
-	}
-
-	public void setHDRollType_2D(String hDRollType_2D) {
-		HDRollType_2D = hDRollType_2D;
-	}
-
-	public ArrayList<UpTableDataContent> getUpTableDataList_2D() {
-		return upTableDataList_2D;
-	}
-
-	public void setUpTableDataList_2D(
-			ArrayList<UpTableDataContent> upTableDataList_2D) {
-		this.upTableDataList_2D = upTableDataList_2D;
-	}
-
-	public ArrayList<DownTableDataContent> getDownTableDataList_2D() {
-		return downTableDataList_2D;
-	}
-
-	public void setDownTableDataList_2D(
-			ArrayList<DownTableDataContent> downTableDataList_2D) {
-		this.downTableDataList_2D = downTableDataList_2D;
-	}
-
-	public String getTextYoungsModulus_2D() {
-		return textYoungsModulus_2D;
-	}
-
-	public void setTextYoungsModulus_2D(String textYoungsModulus_2D) {
-		this.textYoungsModulus_2D = textYoungsModulus_2D;
-	}
-
-	public String getYoungsModulusType_2D() {
-		return YoungsModulusType_2D;
-	}
-
-	public void setYoungsModulusType_2D(String youngsModulusType_2D) {
-		YoungsModulusType_2D = youngsModulusType_2D;
-	}
-
-	public String getTextFlowStress_2D() {
-		return textFlowStress_2D;
-	}
-
-	public void setTextFlowStress_2D(String textFlowStress_2D) {
-		this.textFlowStress_2D = textFlowStress_2D;
-	}
-
-	public String getFlowStressType_2D() {
-		return FlowStressType_2D;
-	}
-
-	public void setFlowStressType_2D(String flowStressType_2D) {
-		FlowStressType_2D = flowStressType_2D;
-	}
-
-	public String getTextYieldStrength_2D() {
-		return textYieldStrength_2D;
-	}
-
-	public void setTextYieldStrength_2D(String textYieldStrength_2D) {
-		this.textYieldStrength_2D = textYieldStrength_2D;
-	}
-
-	public String getTextTensileStrength_2D() {
-		return textTensileStrength_2D;
-	}
-
-	public void setTextTensileStrength_2D(String textTensileStrength_2D) {
-		this.textTensileStrength_2D = textTensileStrength_2D;
-	}
-
-	public String getTextElongation_2D() {
-		return textElongation_2D;
-	}
-
-	public void setTextElongation_2D(String textElongation_2D) {
-		this.textElongation_2D = textElongation_2D;
-	}
-
-	public String getTextThermalExpansionCoefficient_2D() {
-		return textThermalExpansionCoefficient_2D;
-	}
-
-	public void setTextThermalExpansionCoefficient_2D(
-			String textThermalExpansionCoefficient_2D) {
-		this.textThermalExpansionCoefficient_2D = textThermalExpansionCoefficient_2D;
-	}
-
-	public String getThermalExpansionCoefficientType_2D() {
-		return ThermalExpansionCoefficientType_2D;
-	}
-
-	public void setThermalExpansionCoefficientType_2D(
-			String thermalExpansionCoefficientType_2D) {
-		ThermalExpansionCoefficientType_2D = thermalExpansionCoefficientType_2D;
-	}
-
-	public String getTextMassDensity_2D() {
-		return textMassDensity_2D;
-	}
-
-	public void setTextMassDensity_2D(String textMassDensity_2D) {
-		this.textMassDensity_2D = textMassDensity_2D;
-	}
-
-	public String getTextPoissonsRatio_2D() {
-		return textPoissonsRatio_2D;
-	}
-
-	public void setTextPoissonsRatio_2D(String textPoissonsRatio_2D) {
-		this.textPoissonsRatio_2D = textPoissonsRatio_2D;
-	}
-
-	public String getPoissonsRatioType_2D() {
-		return PoissonsRatioType_2D;
-	}
-
-	public void setPoissonsRatioType_2D(String poissonsRatioType_2D) {
-		PoissonsRatioType_2D = poissonsRatioType_2D;
-	}
-
-	public String getTextSolvingTime_2D() {
-		return textSolvingTime_2D;
-	}
-
-	public void setTextSolvingTime_2D(String textSolvingTime_2D) {
-		this.textSolvingTime_2D = textSolvingTime_2D;
-	}
-
-	public String getTextIncrementTime_2D() {
-		return textIncrementTime_2D;
-	}
-
-	public void setTextIncrementTime_2D(String textIncrementTime_2D) {
-		this.textIncrementTime_2D = textIncrementTime_2D;
-	}
-
-	public boolean isBtnParallelDDMUse_2D() {
-		return btnParallelDDMUse_2D;
-	}
-
-	public void setBtnParallelDDMUse_2D(boolean btnParallelDDMUse_2D) {
-		this.btnParallelDDMUse_2D = btnParallelDDMUse_2D;
-	}
-
-	public String getSpinnerDomain_2D() {
-		return spinnerDomain_2D;
-	}
-
-	public void setSpinnerDomain_2D(String spinnerDomain_2D) {
-		this.spinnerDomain_2D = spinnerDomain_2D;
-	}
-
-	public boolean isBtnParallelMultiThreadUse_2D() {
-		return btnParallelMultiThreadUse_2D;
-	}
-
-	public void setBtnParallelMultiThreadUse_2D(boolean btnParallelMultiThreadUse_2D) {
-		this.btnParallelMultiThreadUse_2D = btnParallelMultiThreadUse_2D;
-	}
-
-	public String getSpinnerThread_2D() {
-		return spinnerThread_2D;
-	}
-
-	public void setSpinnerThread_2D(String spinnerThread_2D) {
-		this.spinnerThread_2D = spinnerThread_2D;
-	}
 
 	
 	

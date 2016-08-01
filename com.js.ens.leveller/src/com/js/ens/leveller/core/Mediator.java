@@ -6,6 +6,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Spinner;
+import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.Text;
 
 import com.js.ens.leveller.handler.ICommand;
@@ -15,6 +16,12 @@ public class Mediator {
 	public static Mediator getInstance(){
 		return instance;
 	}
+	//--------------------------------------------
+	private TabFolder tabFolder;
+	public ICommand customTabFolder;
+	public static String TABFOLDER_tabFolder = "tabFolder";
+	
+	
 	//--------------------------------------------
 	private Text textModelName;
 	private Label lblworkspacePath;
@@ -2116,6 +2123,15 @@ public class Mediator {
 		public void setBtnSaveRoll_2D(Button btnSaveRoll_2D) {
 			this.btnSaveRoll_2D = btnSaveRoll_2D;
 		}
+		
+		
+		
+		public ICommand getCustomBtnSaveRoll_2D() {
+			return customBtnSaveRoll_2D;
+		}
+		public void setCustomBtnSaveRoll_2D(ICommand customBtnSaveRoll_2D) {
+			this.customBtnSaveRoll_2D = customBtnSaveRoll_2D;
+		}
 		public Composite getCompositeMaterialParameter_2D() {
 			return compositeMaterialParameter_2D;
 		}
@@ -2452,6 +2468,18 @@ public class Mediator {
 		public void setCompositeShapeParameterChild_7_2D(
 				Composite compositeShapeParameterChild_7_2D) {
 			this.compositeShapeParameterChild_7_2D = compositeShapeParameterChild_7_2D;
+		}
+		public TabFolder getTabFolder() {
+			return tabFolder;
+		}
+		public void setTabFolder(TabFolder tabFolder) {
+			this.tabFolder = tabFolder;
+		}
+		public ICommand getCustomTabFolder() {
+			return customTabFolder;
+		}
+		public void setCustomTabFolder(ICommand customTabFolder) {
+			this.customTabFolder = customTabFolder;
 		}
 	
 	

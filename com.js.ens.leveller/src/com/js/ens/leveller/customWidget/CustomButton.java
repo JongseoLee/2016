@@ -9,8 +9,10 @@ import com.js.ens.leveller.core.InitValue;
 import com.js.ens.leveller.core.LevellerMain;
 import com.js.ens.leveller.core.Mediator;
 import com.js.ens.leveller.dialog.ApplyConfirmDlg;
+import com.js.ens.leveller.dialog.ApplyConfirm_2DDlg;
 import com.js.ens.leveller.dialog.ExportProcedureDlg;
 import com.js.ens.leveller.dialog.ShowRollTableDlg;
+import com.js.ens.leveller.dialog.ShowRollTable_2DDlg;
 import com.js.ens.leveller.handler.ICommand;
 import com.js.util.myUtil;
 
@@ -254,7 +256,7 @@ public class CustomButton implements ICommand {
 		
 		
 		if(widgetName.equals(Mediator.BUTTON_CalcElementNum_2D)){
-			//LMain.CalcElementNumber();
+			LMain.CalcElementNumber_2D();
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_btnNone_2D)){
@@ -301,8 +303,8 @@ public class CustomButton implements ICommand {
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_btnShowRollTable_2D)){
-			//ShowRollTableDlg showRollTableDlg = new ShowRollTableDlg(Display.getCurrent().getActiveShell());
-			//showRollTableDlg.open();
+			ShowRollTable_2DDlg showRollTable_2DDlg = new ShowRollTable_2DDlg(Display.getCurrent().getActiveShell());
+			showRollTable_2DDlg.open();
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_RadioNone_RC_2D)){
@@ -327,27 +329,27 @@ public class CustomButton implements ICommand {
 		
 		if(widgetName.equals(Mediator.BUTTON_CreateRoll_2D)){
 			// Action
-			//LMain.CreateRoll();
+			LMain.CreateRoll_2D();
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_SaveRoll_2D)){
-			//LMain.SaveRoll();
+			LMain.SaveRoll_2D();
 		}
 	
 		if(widgetName.equals(Mediator.BUTTON_ExplorerYoungsModulus_2D)){
-			//LMain.Explorer_YoungsModulus();
+			LMain.Explorer_YoungsModulus_2D();
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_ExplorerFlowStress_2D)){
-			//LMain.Explorer_FlowStress();
+			LMain.Explorer_FlowStress_2D();
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_ExplorerThermalExpansionCoefficient_2D)){
-			LMain.Explorer_ThermalExpansionCoefficient();
+			LMain.Explorer_ThermalExpansionCoefficient_2D();
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_ExplorerPoissonsRatio_2D)){
-			LMain.Explorer_PoissonsRatio();
+			LMain.Explorer_PoissonsRatio_2D();
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_RadioConstant_YM_2D)){
@@ -449,8 +451,8 @@ public class CustomButton implements ICommand {
 		}
 		
 		if(widgetName.equals(Mediator.BUTTON_Apply_2D)){
-			//ApplyConfirmDlg applyConfirmDlg = new ApplyConfirmDlg(Display.getCurrent().getActiveShell());
-			//applyConfirmDlg.open();
+			ApplyConfirm_2DDlg applyConfirm_2DDlg = new ApplyConfirm_2DDlg(Display.getCurrent().getActiveShell());
+			applyConfirm_2DDlg.open();
 		}
 		
 		
