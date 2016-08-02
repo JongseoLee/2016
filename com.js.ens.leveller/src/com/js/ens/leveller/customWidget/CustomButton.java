@@ -256,6 +256,7 @@ public class CustomButton implements ICommand {
 		
 		
 		if(widgetName.equals(Mediator.BUTTON_CalcElementNum_2D)){
+			//System.out.println("dddddddddddddddddddd");
 			LMain.CalcElementNumber_2D();
 		}
 		
@@ -317,12 +318,12 @@ public class CustomButton implements ICommand {
 			med.getTextRollCrown_2D().setText(InitValueMap.get("RollCrown_2D"));
 		}
 		
-		if(widgetName.equals(Mediator.BUTTON_RadioRigid_MS)){
+		if(widgetName.equals(Mediator.BUTTON_RadioRigid_MS_2D)){
 			med.getTextMillStiffness_2D().setEnabled(false);
 			med.getTextMillStiffness_2D().setText(InitValueMap.get("MillStiffness_2D"));
 		}
 		
-		if(widgetName.equals(Mediator.BUTTON_RadioSpring_MS)){
+		if(widgetName.equals(Mediator.BUTTON_RadioSpring_MS_2D)){
 			med.getTextMillStiffness_2D().setEnabled(true);
 			med.getTextMillStiffness_2D().setText(InitValueMap.get("MillStiffness_2D"));
 		}

@@ -965,6 +965,7 @@ public class LevellerMain {
 	
 	public void ChangePlateType_2D(){
 		String plateType = med.getComboType_2D().getText();
+		//System.out.println(plateType);
 		Image img = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
 		med.getCompositeShapeParameterChild_1_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_2_2D().setVisible(false);
@@ -1199,7 +1200,6 @@ public class LevellerMain {
 			messageDlg.open();
 			log.error(msg);			
 		}
-		
 	}
 	
 	public void CreateRoll(){
@@ -1990,6 +1990,7 @@ public class LevellerMain {
 		
 		this.AllComponentEnable();
 		this.clearAllData();
+		this.clearAllData_2D();
 		
 		init_AllComponentValue();
 	}
@@ -2199,8 +2200,215 @@ public class LevellerMain {
 		this.ReadInitValue();
 	}
 	
+	public void clearAllData_2D(){
+		this.db_2D.clear();
+		this.InitValueMap.clear();
+		
+		
+		//--------------------------------------------
+		this.comboType_2D = null; 
+		med.getComboType_2D().select(-1);
+		Image img = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
+		med.getLblPhoto_2D().setImage(img);
+		med.getLblPhoto_2D().pack();
+		this.textWidth_2D = null;
+		med.getTextWidth_2D().setText("");
+		this.textLength_2D = null;
+		med.getTextLength_2D().setText("");
+		this.textThickness_2D = null;
+		med.getTextThickness_2D().setText("");
+		
+		this.type2_textLeftEdgeWavePitch_2D = null;
+		med.getType2_textLeftEdgeWavePitch_2D().setText("");
+		this.type2_textRightEdgeWavePitch_2D = null;
+		med.getType2_textRightEdgeWavePitch_2D().setText("");
+		this.type2_textLeftEdgeWaveHeight_2D = null;
+		med.getType2_textLeftEdgeWaveHeight_2D().setText("");
+		this.type2_textRightEdgeWaveHeight_2D = null;
+		med.getType2_textRightEdgeWaveHeight_2D().setText("");
+		this.type2_textLeftEdgeWavePhase_2D = null;
+		med.getType2_textLeftEdgeWavePhase_2D().setText("");
+		this.type2_textRightEdgeWavePhase_2D = null;
+		med.getType2_textRightEdgeWavePhase_2D().setText("");
+		
+		this.type3_textWavePitch_2D = null;
+		med.getType3_textWavePitch_2D().setText("");
+		this.type3_textWaveHeight_2D = null;
+		med.getType3_textWaveHeight_2D().setText("");
+		
+		this.type4_textGutterHeight_2D = null;
+		med.getType4_textGutterHeight_2D().setText("");
+		
+		this.type5_textGutterHeight_2D = null;
+		med.getType5_textGutterHeight_2D().setText("");
+		this.type5_textGutterLength_2D = null;
+		med.getType5_textGutterLength_2D().setText("");
+		
+		this.type6_textHeadGutterHeight_2D = null;
+		med.getType6_textHeadGutterHeight_2D().setText("");
+		this.type6_textHeadGutterLength_2D = null;
+		med.getType6_textHeadGutterLength_2D().setText("");
+		this.type6_textTailGutterHeight_2D = null;
+		med.getType6_textTailGutterHeight_2D().setText("");
+		this.type6_textTailGutterLength_2D = null;
+		med.getType6_textTailGutterLength_2D().setText("");
+		
+		this.type7_textHeadGutterHeight_2D = null;
+		med.getType7_textHeadGutterHeight_2D().setText("");
+		this.type7_textGutterLength_2D = null;
+		med.getType7_textGutterLength_2D().setText("");
+		this.type7_textGutterLengthLength_2D = null;
+		med.getType7_textGutterLengthLength_2D().setText("");
+		this.type7_textGutterWidthLength_2D = null;
+		med.getType7_textGutterWidthLength_2D().setText("");
+		
+		//--------------------------------------------		
+		this.textThicknessElementNum_2D = null;
+		med.getTextThicknessElementNum_2D().setText("");
+		this.textWidthAspectRatio_2D = null;
+		med.getTextWidthAspectRatio_2D().setText("");
+		this.textLengthAspectRatio_2D = null;
+		med.getTextLengthAspectRatio_2D().setText("");
+		this.textElementNumber_2D = null;
+		med.getTextElementNumber_2D().setText("");
+		//--------------------------------------------
+		this.textPlateVelocity_2D = null;
+		med.getTextPlateVelocity_2D().setText("");
+		this.textTemperatureStart_2D = null;
+		med.getTextTemperatureStart_2D().setText("");
+		this.textTemperatureEnd_2D = null;
+		med.getTextTemperatureEnd_2D().setText("");
+		//update version2 2017.01.27
+		this.textPassLineOffset_2D = null;
+		med.getTextPassLineOffset_2D().setText("");
+		//--------------------------------------------		
+		this.spinnerUpperRollNum_2D = null;
+		med.getSpinnerUpperRollNum_2D().setSelection(0);
+		this.spinnerLowerRollNum_2D = null;
+		med.getSpinnerLowerRollNum_2D().setSelection(0);
+		this.textRollPitch_2D = null;
+		med.getTextRollPitch_2D().setText("");
+		this.textRollLength_2D = null;
+		med.getTextRollLength_2D().setText("");
+		this.textEntryUpperRollGap_2D = null;
+		med.getTextEntryUpperRollGap_2D().setText("");
+		this.textEntryLowerRollGap_2D = null;
+		med.getTextEntryLowerRollGap_2D().setText("");
+		this.textExitUpperRollGap_2D = null;
+		med.getTextExitUpperRollGap_2D().setText("");
+		this.textExitLowerRollGap_2D = null;
+		med.getTextExitLowerRollGap_2D().setText("");
+		this.textRollFriction_2D = null;
+		med.getTextRollFriction_2D().setText("");
+		this.textRollDiameter_2D = null;
+		med.getTextRollDiameter_2D().setText("");
+		//update version2 2017.01.27
+		this.textRollCrown_2D = null;
+		med.getTextRollCrown_2D().setText("");
+		this.textMillStiffness_2D = null;
+		med.getTextMillStiffness_2D().setText("");
+		
+		//update version3 
+		this.textUpperEntryRollGapMovement_2D = null;
+		med.getTextUpperEntryRollGapMovement_2D().setText("");
+		this.textUpperExitRollGapMovement_2D = null;
+		med.getTextUpperExitRollGapMovement_2D().setText("");
+		this.textUpperRollGapStayingTime_2D = null;
+		med.getTextUpperRollGapStayingTime_2D().setText("");
+		this.textUpperRollGapMovingTime_2D = null;
+		med.getTextUpperRollGapMovingTime_2D().setText("");
+		this.textLowerEntryRollGapMovement_2D = null;
+		med.getTextLowerEntryRollGapMovement_2D().setText("");
+		this.textLowerExitRollGapMovement_2D = null;
+		med.getTextLowerExitRollGapMovement_2D().setText("");
+		this.textLowerRollGapStayingTime_2D = null;
+		med.getTextLowerRollGapStayingTime_2D().setText("");
+		this.textLowerRollGapMovingTime_2D = null;
+		med.getTextLowerRollGapMovingTime_2D().setText("");
+		
+		this.textFrontHDRollDia_2D = null;
+		med.getTextFrontHDRollDia_2D().setText("");
+		this.textFrontHDRollPitch_2D = null;
+		med.getTextFrontHDRollPitch_2D().setText("");
+		this.textFrontHDRollVericalPos_2D = null;
+		med.getTextFrontHDRollVericalPos_2D().setText("");
+		this.textRearHDRollDia_2D = null;
+		med.getTextRearHDRollDia_2D().setText("");
+		this.textRearHDRollPitch_2D = null;
+		med.getTextRearHDRollPitch_2D().setText("");
+		this.textRearHDRollVerticalPos_2D = null;
+		med.getTextRearHDRollVerticalPos_2D().setText("");
+		
+		this.HDRollType_2D = "Upper";
+		med.getBtnNone_2D().setSelection(false);
+		med.getBtnLower_2D().setSelection(false);
+		med.getBtnUpper_2D().setSelection(true);
+		
+		
+		
+		try{
+			for(UpTableDataContent obj : this.upTableDataList_2D){
+				obj = null;
+			}
+			if(this.upTableDataList_2D != null)	this.upTableDataList_2D.clear();
+			// version3 update
+			//this.updateTableData();
+		}catch (Exception e){
+			//System.out.println("Data is empty.clearAllData");
+		}
+		
+		try{
+			for(DownTableDataContent obj : this.downTableDataList_2D){
+				obj = null;
+			}
+			if(this.downTableDataList_2D != null) this.downTableDataList_2D.clear();
+			// version3 update
+			//this.updateTableData();
+		}catch (Exception e){
+			//System.out.println("Data is empty.clearAllData");
+		}
+			
+		
+		//--------------------------------------------
+		this.textYoungsModulus_2D = null;
+		med.getTextYoungsModulus_2D().setText("");
+		this.textFlowStress_2D = null;
+		med.getTextFlowStress_2D().setText("");
+		// update version2 2017.01.27
+		this.textYieldStrength_2D = null;
+		med.getTextYieldStrength_2D().setText("");
+		this.textTensileStrength_2D = null;
+		med.getTextTensileStrength_2D().setText("");
+		this.textElongation_2D = null;
+		med.getTextElongation_2D().setText("");
+		
+		this.textThermalExpansionCoefficient_2D = null;
+		med.getTextThermalExpansionCoefficient_2D().setText("");
+		this.textMassDensity_2D = null;
+		med.getTextMassDensity_2D().setText("");
+		this.textPoissonsRatio_2D = null;
+		med.getTextPoissonsRatio_2D().setText("");
+		
+		//--------------------------------------------
+		this.textSolvingTime_2D = null;
+		med.getTextSolvingTime_2D().setText("");
+		this.textIncrementTime_2D = null;
+		med.getTextIncrementTime_2D().setText("");
+		this.btnParallelDDMUse_2D = false;
+		med.getBtnParallelDDMUse_2D().setSelection(false);
+		this.spinnerDomain_2D = null;
+		med.getSpinnerDomain_2D().setSelection(3);
+		this.spinnerThread_2D = null;
+		med.getSpinnerThread_2D().setSelection(3);
+		
+		//160331 update
+		this.ReadInitValue();
+	}
+	
 	public void OpenLeveller(String dbFilePath){
 		this.clearAllData();
+		this.clearAllData_2D();
+		
 		this.ReadInitValue();
 		
 		String path = myUtil.getParrentPath(dbFilePath);
@@ -2221,7 +2429,27 @@ public class LevellerMain {
 			
 			this.workspace = path;
 			med.getlblworkspacePath().setText("Workspace : "+this.workspace);
-			setAllDataUI(dbFilePath);
+			
+			
+			Reader reader = new Reader(dbFilePath);
+			reader.running();
+			ArrayList<String> fileDataList = reader.getFileDataList();
+			
+			ArrayList<String> parsingDataList;
+			for(String line : fileDataList){
+				parsingDataList = ParserDefault.splitLineData(line, "=");
+				if(parsingDataList.get(0).equals("LevellerType")){
+					//this.db_2D.add("LevellerType="+this.LevellerType);
+					if(parsingDataList.get(1).equals("2D")){
+						setAllDataUI_2D(dbFilePath);
+						break;
+					}else{
+						setAllDataUI(dbFilePath);
+						break;
+					}
+				}
+			}
+			//setAllDataUI(dbFilePath);
 			AllComponentEnable();
 			
 		}else {
@@ -2236,7 +2464,25 @@ public class LevellerMain {
 			myUtil.makeDir(resultFolder);
 			myUtil.fileCopy(dbFilePath, newDBFilePath);
 			
-			setAllDataUI(newDBFilePath);
+			Reader reader = new Reader(newDBFilePath);
+			reader.running();
+			ArrayList<String> fileDataList = reader.getFileDataList();
+			
+			ArrayList<String> parsingDataList;
+			for(String line : fileDataList){
+				parsingDataList = ParserDefault.splitLineData(line, "=");
+				if(parsingDataList.get(0).equals("LevellerType")){
+					//this.db_2D.add("LevellerType="+this.LevellerType);
+					if(parsingDataList.get(1).equals("2D")){
+						setAllDataUI_2D(dbFilePath);
+						break;
+					}else{
+						setAllDataUI(dbFilePath);
+						break;
+					}
+				}
+			}
+			//setAllDataUI(newDBFilePath);
 			AllComponentEnable();
 		}
 		
@@ -2253,6 +2499,9 @@ public class LevellerMain {
 		ArrayList<String> parsingDataList;
 		for(String line : fileDataList){
 			parsingDataList = ParserDefault.splitLineData(line, "=");
+			
+			med.getTabFolder().setSelection(1);
+			this.LevellerType = "3D";
 			
 			if(parsingDataList.get(0).equals(TextLabel.lblModelName)){
 				if(parsingDataList.size() == 2){
@@ -3169,6 +3418,937 @@ public class LevellerMain {
 		//updateTableData();
 	}
 	
+	
+	public void setAllDataUI_2D(String newDBFilePath){
+		upTableDataList_2D = new ArrayList<UpTableDataContent>();
+		downTableDataList_2D = new ArrayList<DownTableDataContent>();
+		
+		Reader reader = new Reader(newDBFilePath);
+		reader.running();
+		ArrayList<String> fileDataList = reader.getFileDataList();
+		
+		ArrayList<String> parsingDataList;
+		for(String line : fileDataList){
+			parsingDataList = ParserDefault.splitLineData(line, "=");
+			
+			med.getTabFolder().setSelection(0);
+			this.LevellerType = "2D";
+			
+			if(parsingDataList.get(0).equals(TextLabel.lblModelName)){
+				if(parsingDataList.size() == 2){
+					this.textModelName = parsingDataList.get(1);
+					med.getTextModelName().setText(this.textModelName);
+				}else {
+					this.textModelName = "No value";
+					med.getTextModelName().setText(this.textModelName);	
+				}
+				
+			}
+			//----------------------------------------------------
+			else if(parsingDataList.get(0).equals(TextLabel.lblType_2D)){
+				if(parsingDataList.size() == 2){
+					this.comboType_2D = parsingDataList.get(1);
+					Image img = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
+					med.getCompositeShapeParameterChild_1_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_2_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_3_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_4_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_5_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_6_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_7_2D().setVisible(false);
+					if(comboType_2D.equals(ComboLabel.TYPE1)){
+						med.getComboType_2D().select(0);
+						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type1).createImage();
+						med.getCompositeShapeParameterChild_1_2D().setVisible(true);	
+					}else if(comboType_2D.equals(ComboLabel.TYPE2)){
+						med.getComboType_2D().select(1);
+						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type2).createImage();
+						med.getCompositeShapeParameterChild_2_2D().setVisible(true);
+					}else if(comboType_2D.equals(ComboLabel.TYPE3)){
+						med.getComboType_2D().select(2);
+						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type3).createImage();
+						med.getCompositeShapeParameterChild_3_2D().setVisible(true);
+					}else if(comboType_2D.equals(ComboLabel.TYPE4)){
+						med.getComboType_2D().select(3);
+						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type4).createImage();
+						med.getCompositeShapeParameterChild_4_2D().setVisible(true);
+					}else if(comboType_2D.equals(ComboLabel.TYPE5)){
+						med.getComboType_2D().select(4);
+						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type5).createImage();
+						med.getCompositeShapeParameterChild_5_2D().setVisible(true);
+					}else if(comboType_2D.equals(ComboLabel.TYPE6)){
+						med.getComboType_2D().select(5);
+						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type6).createImage();
+						med.getCompositeShapeParameterChild_6_2D().setVisible(true);
+					}else if(comboType_2D.equals(ComboLabel.TYPE7)){
+						med.getComboType_2D().select(6);
+						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type7).createImage();
+						med.getCompositeShapeParameterChild_7_2D().setVisible(true);
+					}
+					med.getLblPhoto_2D().setImage(img);
+					med.getLblPhoto_2D().pack();	
+				}else {
+					this.comboType = "No value";
+					Image img = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
+					med.getComboType_2D().select(-1);
+					med.getCompositeShapeParameterChild_1_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_2_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_3_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_4_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_5_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_6_2D().setVisible(false);
+					med.getCompositeShapeParameterChild_7_2D().setVisible(false);
+					
+					med.getLblPhoto_2D().setImage(img);
+					med.getLblPhoto_2D().pack();
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblWidth_2D)){
+				if(parsingDataList.size() == 2){
+					this.textWidth_2D = parsingDataList.get(1);
+					med.getTextWidth_2D().setText(this.textWidth_2D);
+				}else {
+					this.textWidth_2D = "No value";
+					med.getTextWidth_2D().setText(this.textWidth_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLength_2D)){
+				if(parsingDataList.size() == 2){
+					this.textLength_2D = parsingDataList.get(1);
+					med.getTextLength_2D().setText(this.textLength_2D);
+				}else {
+					this.textLength_2D = "No value";
+					med.getTextLength_2D().setText(this.textLength_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblThickness_2D)){
+				if(parsingDataList.size() == 2){
+					this.textThickness_2D = parsingDataList.get(1);
+					med.getTextThickness_2D().setText(this.textThickness_2D);
+				}else {
+					this.textThickness_2D = "No value";
+					med.getTextThickness_2D().setText(this.textThickness_2D);	
+				}
+				
+			}
+			
+			else if(parsingDataList.get(0).equals(TextLabel.lblLeftEdgeWavePitch_type2_2D)){
+				if(parsingDataList.size() == 2){
+					this.type2_textLeftEdgeWavePitch_2D = parsingDataList.get(1);
+					med.getType2_textLeftEdgeWavePitch_2D().setText(this.type2_textLeftEdgeWavePitch_2D);
+				}else {
+					this.type2_textLeftEdgeWavePitch_2D = "No value";
+					med.getType2_textLeftEdgeWavePitch_2D().setText(this.type2_textLeftEdgeWavePitch_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRightEdgeWavePitch_type2_2D)){
+				if(parsingDataList.size() == 2){
+					this.type2_textRightEdgeWavePitch_2D = parsingDataList.get(1);
+					med.getType2_textRightEdgeWavePitch_2D().setText(this.type2_textRightEdgeWavePitch_2D);
+				}else {
+					this.type2_textRightEdgeWavePitch_2D = "No value";
+					med.getType2_textRightEdgeWavePitch_2D().setText(this.type2_textRightEdgeWavePitch_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLeftEdgeWaveHeight_type2_2D)){
+				if(parsingDataList.size() == 2){
+					this.type2_textLeftEdgeWaveHeight_2D = parsingDataList.get(1);
+					med.getType2_textLeftEdgeWaveHeight_2D().setText(this.type2_textLeftEdgeWaveHeight_2D);
+				}else {
+					this.type2_textLeftEdgeWaveHeight_2D = "No value";
+					med.getType2_textLeftEdgeWaveHeight_2D().setText(this.type2_textLeftEdgeWaveHeight_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRightEdgeWaveHeight_type2_2D)){
+				if(parsingDataList.size() == 2){
+					this.type2_textRightEdgeWaveHeight_2D = parsingDataList.get(1);
+					med.getType2_textRightEdgeWaveHeight_2D().setText(this.type2_textRightEdgeWaveHeight_2D);
+				}else {
+					this.type2_textRightEdgeWaveHeight_2D = "No value";
+					med.getType2_textRightEdgeWaveHeight_2D().setText(this.type2_textRightEdgeWaveHeight_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLeftEdgeWavePhase_type2_2D)){
+				if(parsingDataList.size() == 2){
+					this.type2_textLeftEdgeWavePhase_2D = parsingDataList.get(1);
+					med.getType2_textLeftEdgeWavePhase_2D().setText(this.type2_textLeftEdgeWavePhase_2D);
+				}else {
+					this.type2_textLeftEdgeWavePhase_2D = "No value";
+					med.getType2_textLeftEdgeWavePhase_2D().setText(this.type2_textLeftEdgeWavePhase_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRightEdgeWavePhase_type2_2D)){
+				if(parsingDataList.size() == 2){
+					this.type2_textRightEdgeWavePhase_2D = parsingDataList.get(1);
+					med.getType2_textRightEdgeWavePhase_2D().setText(this.type2_textRightEdgeWavePhase_2D);
+				}else {
+					this.type2_textRightEdgeWavePhase_2D = "No value";
+					med.getType2_textRightEdgeWavePhase_2D().setText(this.type2_textRightEdgeWavePhase_2D);	
+				}
+				
+			}
+						
+			else if(parsingDataList.get(0).equals(TextLabel.lblWavePitch_type3_2D)){
+				if(parsingDataList.size() == 2){
+					this.type3_textWavePitch_2D = parsingDataList.get(1);
+					med.getType3_textWavePitch_2D().setText(this.type3_textWavePitch_2D);
+				}else {
+					this.type3_textWavePitch_2D = "No value";
+					med.getType3_textWavePitch_2D().setText(this.type3_textWavePitch_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblWaveHeight_type3_2D)){
+				if(parsingDataList.size() == 2){
+					this.type3_textWaveHeight_2D = parsingDataList.get(1);
+					med.getType3_textWaveHeight_2D().setText(this.type3_textWaveHeight_2D);
+				}else {
+					this.type3_textWaveHeight_2D = "No value";
+					med.getType3_textWaveHeight_2D().setText(this.type3_textWaveHeight_2D);	
+				}
+				
+			}
+			
+			else if(parsingDataList.get(0).equals(TextLabel.lblGutterHeight_type4_2D)){
+				if(parsingDataList.size() == 2){
+					if(comboType_2D.equals(ComboLabel.TYPE4)){
+						this.type4_textGutterHeight_2D = parsingDataList.get(1);
+						med.getType4_textGutterHeight_2D().setText(this.type4_textGutterHeight_2D);	
+					}else if(comboType_2D.equals(ComboLabel.TYPE5)){
+						this.type5_textGutterHeight_2D = parsingDataList.get(1);
+						med.getType5_textGutterHeight_2D().setText(this.type5_textGutterHeight_2D);
+					}else if(comboType_2D.equals(ComboLabel.TYPE7)){
+						this.type7_textHeadGutterHeight_2D = parsingDataList.get(1);
+						med.getType7_textHeadGutterHeight_2D().setText(this.type7_textHeadGutterHeight_2D);
+					}
+					
+					
+				}else {
+					if(comboType_2D.equals(ComboLabel.TYPE4)){
+						this.type4_textGutterHeight_2D = "No value";
+						med.getType4_textGutterHeight_2D().setText(this.type4_textGutterHeight_2D);	
+					}else if(comboType_2D.equals(ComboLabel.TYPE5)){
+						this.type5_textGutterHeight_2D = "No value";
+						med.getType5_textGutterHeight_2D().setText(this.type5_textGutterHeight_2D);
+					}else if(comboType_2D.equals(ComboLabel.TYPE7)){
+						this.type7_textHeadGutterHeight_2D = "No value";
+						med.getType7_textHeadGutterHeight_2D().setText(this.type7_textHeadGutterHeight_2D);
+					}
+				}
+				
+				
+			}
+			
+			else if(parsingDataList.get(0).equals(TextLabel.lblGutterLength_type5_2D)){
+				if(parsingDataList.size() == 2){
+					this.type5_textGutterLength_2D = parsingDataList.get(1);
+					med.getType5_textGutterLength_2D().setText(this.type5_textGutterLength_2D);	
+				}else {
+					this.type5_textGutterLength_2D = "No value";
+					med.getType5_textGutterLength_2D().setText(this.type5_textGutterLength_2D);	
+				}
+			}
+			
+			else if(parsingDataList.get(0).equals(TextLabel.lblHeadGutterHeight_type6_2D)){
+				if(parsingDataList.size() == 2){
+					this.type6_textHeadGutterHeight_2D = parsingDataList.get(1);
+					med.getType6_textHeadGutterHeight_2D().setText(this.type6_textHeadGutterHeight_2D);
+				}else {
+					this.type6_textHeadGutterHeight_2D = "No value";
+					med.getType6_textHeadGutterHeight_2D().setText(this.type6_textHeadGutterHeight_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblHeadGutterLength_type6_2D)){
+				if(parsingDataList.size() == 2){
+					this.type6_textHeadGutterLength_2D = parsingDataList.get(1);
+					med.getType6_textHeadGutterLength_2D().setText(this.type6_textHeadGutterLength_2D);
+				}else {
+					this.type6_textHeadGutterLength_2D = "No value";
+					med.getType6_textHeadGutterLength_2D().setText(this.type6_textHeadGutterLength_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblTailGutterHeight_type6_2D)){
+				if(parsingDataList.size() == 2){
+					this.type6_textTailGutterHeight_2D = parsingDataList.get(1);
+					med.getType6_textTailGutterHeight_2D().setText(this.type6_textTailGutterHeight_2D);
+				}else {
+					this.type6_textTailGutterHeight_2D = "No value";
+					med.getType6_textTailGutterHeight_2D().setText(this.type6_textTailGutterHeight_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblTailGutterLength_type6_2D)){
+				if(parsingDataList.size() == 2){
+					this.type6_textTailGutterLength_2D = parsingDataList.get(1);
+					med.getType6_textTailGutterLength_2D().setText(this.type6_textTailGutterLength_2D);
+				}else {
+					this.type6_textTailGutterLength_2D = "No value";
+					med.getType6_textTailGutterLength_2D().setText(this.type6_textTailGutterLength_2D);	
+				}
+				
+			}
+			
+			else if(parsingDataList.get(0).equals(TextLabel.lblGutterLength_type7_2D)){
+				if(parsingDataList.size() == 2){
+					this.type7_textGutterLength_2D = parsingDataList.get(1);
+					med.getType7_textGutterLength_2D().setText(this.type7_textGutterLength_2D);
+				}else {
+					this.type7_textGutterLength_2D = "No value";
+					med.getType7_textGutterLength_2D().setText(this.type7_textGutterLength_2D);	
+				}
+			}
+			
+			else if(parsingDataList.get(0).equals(TextLabel.lblGutterLengthLength_type7_2D)){
+				if(parsingDataList.size() == 2){
+					this.type7_textGutterLengthLength_2D = parsingDataList.get(1);
+					med.getType7_textGutterLengthLength_2D().setText(this.type7_textGutterLengthLength_2D);
+				}else {
+					this.type7_textGutterLengthLength_2D = "No value";
+					med.getType7_textGutterLengthLength_2D().setText(this.type7_textGutterLengthLength_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblGutterWidthLength_type7_2D)){
+				if(parsingDataList.size() == 2){
+					this.type7_textGutterWidthLength_2D = parsingDataList.get(1);
+					med.getType7_textGutterWidthLength_2D().setText(this.type7_textGutterWidthLength_2D);
+				}else {
+					this.type7_textGutterWidthLength_2D = "No value";
+					med.getType7_textGutterWidthLength_2D().setText(this.type7_textGutterWidthLength_2D);	
+				}
+				
+			}
+			//----------------------------------------------------
+			else if(parsingDataList.get(0).equals(TextLabel.lblThicknessElementNum_2D)){
+				if(parsingDataList.size() == 2){
+					this.textThicknessElementNum_2D = parsingDataList.get(1);
+					med.getTextThicknessElementNum_2D().setText(this.textThicknessElementNum_2D);
+				}else {
+					this.textThicknessElementNum_2D = "No value";
+					med.getTextThicknessElementNum_2D().setText(this.textThicknessElementNum_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblWidthAspectRatio_2D)){
+				if(parsingDataList.size() == 2){
+					this.textWidthAspectRatio_2D = parsingDataList.get(1);
+					med.getTextWidthAspectRatio_2D().setText(this.textWidthAspectRatio_2D);
+				}else {
+					this.textWidthAspectRatio_2D = "No value";
+					med.getTextWidthAspectRatio_2D().setText(this.textWidthAspectRatio_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLengthAspectRatio_2D)){
+				if(parsingDataList.size() == 2){
+					this.textLengthAspectRatio_2D = parsingDataList.get(1);
+					med.getTextLengthAspectRatio_2D().setText(this.textLengthAspectRatio_2D);
+				}else {
+					this.textLengthAspectRatio_2D = "No value";
+					med.getTextLengthAspectRatio_2D().setText(this.textLengthAspectRatio_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblElementNumber_2D)){
+				if(parsingDataList.size() == 2){
+					this.textElementNumber_2D = parsingDataList.get(1);
+					med.getTextElementNumber_2D().setText(this.textElementNumber_2D);
+				}else {
+					this.textElementNumber_2D = "No value";
+					med.getTextElementNumber_2D().setText(this.textElementNumber_2D);	
+				}
+				
+			}
+			//----------------------------------------------------
+			else if(parsingDataList.get(0).equals(TextLabel.lblPlateVelocity_2D)){
+				if(parsingDataList.size() == 2){
+					this.textPlateVelocity_2D = parsingDataList.get(1);
+					med.getTextPlateVelocity().setText(this.textPlateVelocity_2D);
+				}else {
+					this.textPlateVelocity_2D = "No value";
+					med.getTextPlateVelocity_2D().setText(this.textPlateVelocity_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblTemperatureStart_2D)){
+				if(parsingDataList.size() == 2){
+					this.textTemperatureStart_2D = parsingDataList.get(1);
+					med.getTextTemperatureStart_2D().setText(this.textTemperatureStart_2D);
+				}else {
+					this.textTemperatureStart = "No value";
+					med.getTextTemperatureStart_2D().setText(this.textTemperatureStart_2D);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblTemperatureEnd_2D)){
+				if(parsingDataList.size() == 2){
+					this.textTemperatureEnd_2D = parsingDataList.get(1);
+					med.getTextTemperatureEnd_2D().setText(this.textTemperatureEnd_2D);
+				}else {
+					this.textTemperatureEnd_2D = "No value";
+					med.getTextTemperatureEnd_2D().setText(this.textTemperatureEnd_2D);	
+				}
+				
+			}
+			//update version2 2017.01.27
+			else if(parsingDataList.get(0).equals(TextLabel.lblPassLineOffset_2D)){
+				if(parsingDataList.size() == 2){
+					this.textPassLineOffset_2D = parsingDataList.get(1);
+					med.getTextPassLineOffset_2D().setText(this.textPassLineOffset_2D);
+				}else {
+					this.textPassLineOffset_2D = "No value";
+					med.getTextPassLineOffset_2D().setText(this.textPassLineOffset_2D);
+				}
+			}
+			//----------------------------------------------------
+			else if(parsingDataList.get(0).equals(TextLabel.lblUpperRollNumber_2D)){
+				if(parsingDataList.size() == 2){
+					this.spinnerUpperRollNum_2D = parsingDataList.get(1);
+					med.getSpinnerUpperRollNum_2D().setSelection(Integer.parseInt(this.spinnerUpperRollNum_2D));
+				}else {
+					this.spinnerUpperRollNum_2D = "0";
+					med.getSpinnerUpperRollNum_2D().setSelection(0);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLowerRollNumber_2D)){
+				if(parsingDataList.size() == 2){
+					this.spinnerLowerRollNum_2D = parsingDataList.get(1);
+					med.getSpinnerLowerRollNum_2D().setSelection(Integer.parseInt(this.spinnerLowerRollNum_2D));
+				}else {
+					this.spinnerLowerRollNum_2D = "0";
+					med.getSpinnerLowerRollNum_2D().setSelection(0);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRollPitch_2D)){
+				if(parsingDataList.size() == 2){
+					this.textRollPitch_2D = parsingDataList.get(1);
+					med.getTextRollPitch_2D().setText(this.textRollPitch_2D);
+				}else {
+					this.textRollPitch_2D = "No value";
+					med.getTextRollPitch_2D().setText(this.textRollPitch_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRollLength_2D)){
+				if(parsingDataList.size() == 2){
+					this.textRollLength_2D = parsingDataList.get(1);
+					med.getTextRollLength_2D().setText(this.textRollLength_2D);	
+				}else {
+					this.textRollLength_2D = "No value";
+					med.getTextRollLength_2D().setText(this.textRollLength_2D);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblEntryUpperRollGap_2D)){
+				if(parsingDataList.size() == 2){
+					this.textEntryUpperRollGap_2D = parsingDataList.get(1);
+					med.getTextEntryUpperRollGap_2D().setText(this.textEntryUpperRollGap_2D);	
+				}else {
+					this.textEntryUpperRollGap_2D = "No value";
+					med.getTextEntryUpperRollGap_2D().setText(this.textEntryUpperRollGap_2D);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblEntryLowerRollGap_2D)){
+				if(parsingDataList.size() == 2){
+					this.textEntryLowerRollGap_2D = parsingDataList.get(1);
+					med.getTextEntryLowerRollGap_2D().setText(this.textEntryLowerRollGap_2D);	
+				}else {
+					this.textEntryLowerRollGap_2D = "No value";
+					med.getTextEntryLowerRollGap_2D().setText(this.textEntryLowerRollGap_2D);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblExitUpperRollGap_2D)){
+				if(parsingDataList.size() == 2){
+					this.textExitUpperRollGap_2D = parsingDataList.get(1);
+					med.getTextExitUpperRollGap_2D().setText(this.textExitUpperRollGap_2D);	
+				}else {
+					this.textExitUpperRollGap_2D = "No value";
+					med.getTextExitUpperRollGap_2D().setText(this.textExitUpperRollGap_2D);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblExitLowerRollGap_2D)){
+				if(parsingDataList.size() == 2){
+					this.textExitLowerRollGap_2D = parsingDataList.get(1);
+					med.getTextExitLowerRollGap_2D().setText(this.textExitLowerRollGap_2D);	
+				}else {
+					this.textExitLowerRollGap_2D = "No value";
+					med.getTextExitLowerRollGap_2D().setText(this.textExitLowerRollGap_2D);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRollFriction_2D)){
+				if(parsingDataList.size() == 2){
+					this.textRollFriction_2D = parsingDataList.get(1);
+					med.getTextRollFriction_2D().setText(this.textRollFriction_2D);	
+				}else {
+					this.textRollFriction_2D = "No value";
+					med.getTextRollFriction_2D().setText(this.textRollFriction_2D);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRollDiameter_2D)){
+				if(parsingDataList.size() == 2){
+					this.textRollDiameter_2D = parsingDataList.get(1);
+					med.getTextRollDiameter_2D().setText(this.textRollDiameter_2D);	
+				}else {
+					this.textRollDiameter_2D = "No Value";
+					med.getTextRollDiameter_2D().setText(this.textRollDiameter_2D);
+				}
+				
+			}
+			//update version2 2017.01.27
+			else if(parsingDataList.get(0).equals(TextLabel.lblRollCrown_2D)){
+				if(parsingDataList.size() == 2){
+					this.textRollCrown_2D = parsingDataList.get(1);
+					med.getTextRollCrown_2D().setText(this.textRollCrown_2D);
+				}else {
+					this.textRollCrown_2D = "No value";
+					med.getTextRollCrown_2D().setText(this.textRollCrown_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblMillStiffness_2D)){
+				if(parsingDataList.size() == 2){
+					this.textMillStiffness_2D = parsingDataList.get(1);
+					med.getTextMillStiffness_2D().setText(this.textMillStiffness_2D);
+				}else {
+					this.textMillStiffness_2D = "No value";
+					med.getTextMillStiffness_2D().setText(this.textMillStiffness_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRollCrownType_2D)){
+				if(parsingDataList.size() == 2){
+					this.RollCrownType_2D = parsingDataList.get(1);
+					if(this.RollCrownType_2D.equals("None")){
+						// None Type
+						med.getBtnRadioNone_RC_2D().setSelection(true);
+						med.getBtnRadioApply_RC_2D().setSelection(false);
+						med.getTextRollCrown_2D().setEnabled(false);
+					}else {
+						// Apply Type
+						med.getBtnRadioNone_RC_2D().setSelection(false);
+						med.getBtnRadioApply_RC_2D().setSelection(true);
+						med.getTextRollCrown_2D().setEnabled(true);
+					}
+					
+				}else {
+					this.RollCrownType_2D = "Apply";
+					med.getBtnRadioNone_RC_2D().setSelection(false);
+					med.getBtnRadioApply_RC_2D().setSelection(true);
+					med.getTextRollCrown_2D().setEnabled(true);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblMillStiffnessType_2D)){
+				if(parsingDataList.size() == 2){
+					this.MillStiffnessType_2D = parsingDataList.get(1);
+					if(this.MillStiffnessType_2D.equals("Rigid")){
+						// Rigid Type
+						med.getBtnRadioRigid_MS_2D().setSelection(true);
+						med.getBtnRadioSpring_MS_2D().setSelection(false);
+						med.getTextMillStiffness_2D().setEnabled(false);
+					}else {
+						// Spring Type
+						med.getBtnRadioRigid_MS_2D().setSelection(false);
+						med.getBtnRadioSpring_MS_2D().setSelection(true);
+						med.getTextMillStiffness_2D().setEnabled(true);
+					}
+				}else {
+					this.MillStiffnessType_2D = "Spring";
+					med.getBtnRadioRigid_MS_2D().setSelection(false);
+					med.getBtnRadioSpring_MS_2D().setSelection(true);
+					med.getTextMillStiffness_2D().setEnabled(true);
+				}
+			}
+			// version3 update 
+			else if(parsingDataList.get(0).equals(TextLabel.lblUpperEntryRollGapMovement_2D)){
+				if(parsingDataList.size() == 2){
+					this.textUpperEntryRollGapMovement_2D = parsingDataList.get(1);
+					med.getTextUpperEntryRollGapMovement_2D().setText(this.textUpperEntryRollGapMovement_2D);
+				}else  {
+					this.textUpperEntryRollGapMovement_2D = "No value";
+					med.getTextUpperEntryRollGapMovement_2D().setText(this.textUpperEntryRollGapMovement_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblUpperExitRollGapMovement_2D)){
+				if(parsingDataList.size() == 2){
+					this.textUpperExitRollGapMovement_2D = parsingDataList.get(1);
+					med.getTextUpperExitRollGapMovement_2D().setText(this.textUpperExitRollGapMovement_2D);
+				}else {
+					this.textUpperExitRollGapMovement_2D = "No value";
+					med.getTextUpperExitRollGapMovement_2D().setText(this.textUpperExitRollGapMovement_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblUpperRollGapStayingTime_2D)){
+				if(parsingDataList.size() == 2){
+					this.textUpperRollGapStayingTime_2D = parsingDataList.get(1);
+					med.getTextUpperRollGapStayingTime_2D().setText(this.textUpperRollGapStayingTime_2D);
+				}else {
+					this.textUpperRollGapStayingTime_2D = "No value";
+					med.getTextUpperRollGapStayingTime_2D().setText(this.textUpperRollGapStayingTime_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblUpperRollGapMovingTime_2D)){
+				if(parsingDataList.size() == 2){
+					this.textUpperRollGapMovingTime_2D = parsingDataList.get(1);
+					med.getTextUpperRollGapMovingTime_2D().setText(this.textUpperRollGapMovingTime_2D);
+				}else {
+					this.textUpperRollGapMovingTime_2D = "No value";
+					med.getTextUpperRollGapMovingTime_2D().setText(this.textUpperRollGapMovingTime_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLowerEntryRollGapMovement_2D)){
+				if(parsingDataList.size() == 2){
+					this.textLowerEntryRollGapMovement_2D = parsingDataList.get(1);
+					med.getTextLowerEntryRollGapMovement_2D().setText(this.textLowerEntryRollGapMovement_2D);
+				}else {
+					this.textLowerEntryRollGapMovement_2D = "No value";
+					med.getTextLowerEntryRollGapMovement_2D().setText(this.textLowerEntryRollGapMovement_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLowerExitRollGapMovement_2D)){
+				if(parsingDataList.size() == 2){
+					this.textLowerExitRollGapMovement_2D = parsingDataList.get(1);
+					med.getTextLowerExitRollGapMovement_2D().setText(this.textLowerExitRollGapMovement_2D);
+				}else {
+					this.textLowerExitRollGapMovement_2D = "No value";
+					med.getTextLowerExitRollGapMovement_2D().setText(this.textLowerExitRollGapMovement_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLowerRollGapStayingTime_2D)){
+				if(parsingDataList.size() == 2){
+					this.textLowerRollGapStayingTime_2D = parsingDataList.get(1);
+					med.getTextLowerRollGapStayingTime_2D().setText(this.textLowerRollGapStayingTime_2D);
+				}else {
+					this.textLowerRollGapStayingTime_2D = "No value";
+					med.getTextLowerRollGapStayingTime_2D().setText(this.textLowerRollGapStayingTime_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLowerRollGapMovingTime_2D)){
+				if(parsingDataList.size() == 2){
+					this.textLowerRollGapMovingTime_2D = parsingDataList.get(1);
+					med.getTextLowerRollGapMovingTime_2D().setText(this.textLowerRollGapMovingTime_2D);
+				}else {
+					this.textLowerRollGapMovingTime_2D = "No value";
+					med.getTextLowerRollGapMovingTime_2D().setText(this.textLowerRollGapMovingTime_2D);
+				}
+			}
+			else if(parsingDataList.get(0).equals(TextLabel.lblFrontHDRollDia_2D)){
+				if(parsingDataList.size() == 2){
+					this.textFrontHDRollDia_2D = parsingDataList.get(1);
+					med.getTextFrontHDRollDia_2D().setText(this.textFrontHDRollDia_2D);
+				}else{
+					this.textFrontHDRollDia_2D = "No value";
+					med.getTextFrontHDRollDia_2D().setText(this.textFrontHDRollDia_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblFrontHDRollPitch_2D)){
+				if(parsingDataList.size() == 2){
+					this.textFrontHDRollPitch_2D = parsingDataList.get(1);
+					med.getTextFrontHDRollPitch_2D().setText(this.textFrontHDRollPitch_2D);
+				}else{
+					this.textFrontHDRollPitch_2D = "No value";
+					med.getTextFrontHDRollPitch_2D().setText(this.textFrontHDRollPitch_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblFrontHDRollVericalPos_2D)){
+				if(parsingDataList.size() == 2){
+					this.textFrontHDRollVericalPos_2D = parsingDataList.get(1);
+					med.getTextFrontHDRollVericalPos_2D().setText(this.textFrontHDRollVericalPos_2D);
+				}else{
+					this.textFrontHDRollVericalPos_2D = "No value";
+					med.getTextFrontHDRollVericalPos_2D().setText(this.textFrontHDRollVericalPos_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRearHDRollDia_2D)){
+				if(parsingDataList.size() == 2){
+					this.textRearHDRollDia_2D = parsingDataList.get(1);
+					med.getTextRearHDRollDia_2D().setText(this.textRearHDRollDia_2D);
+				}else{
+					this.textRearHDRollDia_2D = "No value";
+					med.getTextRearHDRollDia_2D().setText(this.textRearHDRollDia_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRearHDRollPitch)){
+				if(parsingDataList.size() == 2){
+					this.textRearHDRollPitch_2D = parsingDataList.get(1);
+					med.getTextRearHDRollPitch_2D().setText(this.textRearHDRollPitch_2D);
+				}else{
+					this.textRearHDRollPitch_2D = "No value";
+					med.getTextRearHDRollPitch_2D().setText(this.textRearHDRollPitch_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRearHDRollVerticalPos_2D)){
+				if(parsingDataList.size() == 2){
+					this.textRearHDRollVerticalPos_2D = parsingDataList.get(1);
+					med.getTextRearHDRollVerticalPos_2D().setText(this.textRearHDRollVerticalPos_2D);
+				}else{
+					this.textRearHDRollVerticalPos_2D = "No value";
+					med.getTextRearHDRollVerticalPos_2D().setText(this.textRearHDRollVerticalPos_2D);
+				}
+			}
+			
+			else if(parsingDataList.get(0).equals(TextLabel.HDRollType_2D)){
+				if(parsingDataList.size() == 2){
+					this.HDRollType_2D = parsingDataList.get(1);
+					if(this.HDRollType_2D.equals("None")){
+						med.getBtnUpper_2D().setSelection(false);
+						med.getBtnLower_2D().setSelection(false);
+						med.getBtnNone_2D().setSelection(true);
+					}else if(this.HDRollType_2D.equals("Lower")){
+						med.getBtnUpper_2D().setSelection(false);
+						med.getBtnNone_2D().setSelection(false);
+						med.getBtnLower_2D().setSelection(true);
+					}else if(this.HDRollType_2D.equals("Upper")){
+						med.getBtnNone_2D().setSelection(false);
+						med.getBtnLower_2D().setSelection(false);
+						med.getBtnUpper_2D().setSelection(true);
+					}
+				}else {
+					this.HDRollType_2D = "Upper";
+					med.getBtnNone_2D().setSelection(false);
+					med.getBtnLower_2D().setSelection(false);
+					med.getBtnUpper_2D().setSelection(true);
+				}
+			}
+
+			else if(parsingDataList.get(0).contains("UpperRoll_")){
+				if(parsingDataList.size() == 2){
+					ArrayList<String> valueList = ParserDefault.splitLineData(parsingDataList.get(1),"\\*");
+					UpTableDataContent UTDCObj = new UpTableDataContent();
+					UTDCObj.setNo(valueList.get(0));
+					UTDCObj.setGap(valueList.get(1));
+					UTDCObj.setFriction(valueList.get(2));
+					UTDCObj.setDiameter(valueList.get(3));
+					UTDCObj.setPitch(valueList.get(4));
+					upTableDataList_2D.add(UTDCObj);	
+				}else {
+					upTableDataList_2D = new ArrayList<UpTableDataContent>();
+					
+				}
+				
+			}else if(parsingDataList.get(0).contains("LowerRoll_")){
+				if(parsingDataList.size() == 2){
+					ArrayList<String> valueList = ParserDefault.splitLineData(parsingDataList.get(1),"\\*");
+					DownTableDataContent DTDCObj = new DownTableDataContent();
+					DTDCObj.setNo(valueList.get(0));
+					DTDCObj.setGap(valueList.get(1));
+					DTDCObj.setFriction(valueList.get(2));
+					DTDCObj.setDiameter(valueList.get(3));
+					DTDCObj.setPitch(valueList.get(4));
+					downTableDataList_2D.add(DTDCObj);
+				}else {
+					downTableDataList_2D = new ArrayList<DownTableDataContent>();
+				}
+			
+			}
+
+			else if(parsingDataList.get(0).equals(TextLabel.lblYoungsModulus_2D)){
+				if(parsingDataList.size() == 2){
+					this.textYoungsModulus_2D = parsingDataList.get(1);
+					med.getTextYoungsModulus_2D().setText(this.textYoungsModulus_2D);
+				}else {
+					this.textYoungsModulus_2D = "No value";
+					med.getTextYoungsModulus_2D().setText(this.textYoungsModulus_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblFlowStress_2D)){
+				if(parsingDataList.size() == 2){
+					this.textFlowStress_2D = parsingDataList.get(1);
+					med.getTextFlowStress_2D().setText(this.textFlowStress_2D);
+				}else { 
+					this.textFlowStress_2D = "No value";
+					med.getTextFlowStress_2D().setText(this.textFlowStress_2D);
+				}
+			}
+			//update version2 2016.01.27
+			else if(parsingDataList.get(0).equals(TextLabel.lblYieldStrength_2D)){
+				if(parsingDataList.size() == 2){
+					this.textYieldStrength_2D = parsingDataList.get(1);
+					med.getTextYieldStrength_2D().setText(this.textYieldStrength_2D);
+				}else {
+					this.textYieldStrength_2D = "No value";
+					med.getTextYieldStrength_2D().setText(this.textYieldStrength_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblTensileStrength_2D)){
+				if(parsingDataList.size() == 2){
+					this.textTensileStrength_2D = parsingDataList.get(1);
+					med.getTextTensileStrength_2D().setText(this.textTensileStrength_2D);
+				}else {
+					this.textTensileStrength_2D = "No value";
+					med.getTextTensileStrength_2D().setText(this.textTensileStrength_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblElongation_2D)){
+				if(parsingDataList.size() == 2){
+					this.textElongation_2D = parsingDataList.get(1);
+					med.getTextElongation_2D().setText(this.textElongation_2D);
+				}else {
+					this.textElongation_2D = "No value";
+					med.getTextElongation_2D().setText(this.textElongation_2D);
+				}
+			}
+			
+			
+			else if(parsingDataList.get(0).equals(TextLabel.lblThermalExpansionCoefficient_2D)){
+				if(parsingDataList.size() == 2){
+					this.textThermalExpansionCoefficient_2D = parsingDataList.get(1);
+					med.getTextThermalExpansionCoefficient_2D().setText(this.textThermalExpansionCoefficient_2D);
+				}else {
+					this.textThermalExpansionCoefficient_2D = "No value";
+					med.getTextThermalExpansionCoefficient_2D().setText(this.textThermalExpansionCoefficient_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblMassDensity_2D)){
+				if(parsingDataList.size() == 2){
+					this.textMassDensity_2D = parsingDataList.get(1);
+					med.getTextMassDensity_2D().setText(this.textMassDensity_2D);
+				}else {
+					this.textMassDensity_2D = "No value";
+					med.getTextMassDensity_2D().setText(this.textMassDensity_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblYoungsModulus+"_2DType")){
+				if(parsingDataList.size() == 2){
+					this.YoungsModulusType_2D = parsingDataList.get(1);
+					if(this.YoungsModulusType_2D.equals("Constant")){
+						med.getBtnRadioConstant_YM_2D().setSelection(true);
+						med.getBtnRadioTable_YM_2D().setSelection(false);
+						med.getBtnExplorerPoissonsRatio_2D().setEnabled(false);
+					}else {
+						med.getBtnRadioConstant_YM_2D().setSelection(false);
+						med.getBtnRadioTable_YM_2D().setSelection(true);
+						med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+					}
+				}else {
+					this.YoungsModulusType_2D = "Table";
+					med.getBtnRadioConstant_YM_2D().setSelection(false);
+					med.getBtnRadioTable_YM_2D().setSelection(true);
+					med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblFlowStress+"_2DType")){
+				if(parsingDataList.size() == 2){
+					this.FlowStressType_2D = parsingDataList.get(1);
+					if(this.FlowStressType_2D.equals("Constant")){
+						med.getBtnRadioConstant_FS_2D().setSelection(true);
+						med.getBtnRadioTable_FS_2D().setSelection(false);
+						med.getBtnExplorerPoissonsRatio_2D().setEnabled(false);
+						//update version2 2016.01.27
+						med.getTextFlowStress_2D().setEnabled(false);
+						med.getTextYieldStrength_2D().setEnabled(true);
+						med.getTextTensileStrength_2D().setEnabled(true);
+						med.getTextElongation_2D().setEnabled(true);
+						
+					}else {
+						med.getBtnRadioConstant_FS_2D().setSelection(false);
+						med.getBtnRadioTable_FS_2D().setSelection(true);
+						med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+						//update version2 2016.01.27
+						med.getTextFlowStress_2D().setEnabled(true);
+						med.getTextYieldStrength_2D().setEnabled(false);
+						med.getTextTensileStrength_2D().setEnabled(false);
+						med.getTextElongation_2D().setEnabled(false);
+						
+					}
+				}else {
+					this.FlowStressType_2D = "Table";
+					med.getBtnRadioConstant_FS_2D().setSelection(false);
+					med.getBtnRadioTable_FS_2D().setSelection(true);
+					med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+					//update version2 2016.01.27
+					med.getTextFlowStress_2D().setEnabled(true);
+					med.getTextYieldStrength_2D().setEnabled(false);
+					med.getTextTensileStrength_2D().setEnabled(false);
+					med.getTextElongation_2D().setEnabled(false);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblThermalExpansionCoefficient+"_2DType")){
+				if(parsingDataList.size() == 2){
+					this.ThermalExpansionCoefficientType_2D = parsingDataList.get(1);
+					if(this.ThermalExpansionCoefficientType_2D.equals("Constant")){
+						med.getBtnRadioConstant_TEC_2D().setSelection(true);
+						med.getBtnRadioTable_TEC_2D().setSelection(false);
+						med.getBtnExplorerPoissonsRatio_2D().setEnabled(false);
+					}else {
+						med.getBtnRadioConstant_TEC_2D().setSelection(false);
+						med.getBtnRadioTable_TEC_2D().setSelection(true);
+						med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+					}
+				}else {
+					this.ThermalExpansionCoefficientType_2D = "Table";
+					med.getBtnRadioConstant_TEC_2D().setSelection(false);
+					med.getBtnRadioTable_TEC_2D().setSelection(true);
+					med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+				}
+			}
+			else if(parsingDataList.get(0).equals(TextLabel.lblPoissonsRatio+"_2DType")){
+				if(parsingDataList.size() == 2){
+					this.PoissonsRatioType_2D= parsingDataList.get(1);
+					if(this.PoissonsRatioType_2D.equals("Constant")){
+						med.getBtnRadioConstant_PR_2D().setSelection(true);
+						med.getBtnRadioTable_PR_2D().setSelection(false);
+						med.getBtnExplorerPoissonsRatio_2D().setEnabled(false);
+					}else {
+						med.getBtnRadioConstant_PR_2D().setSelection(false);
+						med.getBtnRadioTable_PR_2D().setSelection(true);
+						med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+					}
+				}else {
+					this.PoissonsRatioType_2D = "Table";
+					med.getBtnRadioConstant_PR_2D().setSelection(false);
+					med.getBtnRadioTable_PR_2D().setSelection(true);
+					med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblPoissonsRatio_2D)){
+				if(parsingDataList.size() == 2){
+					this.textPoissonsRatio_2D = parsingDataList.get(1);
+					med.getTextPoissonsRatio_2D().setText(this.textPoissonsRatio_2D);
+				}else {
+					this.textPoissonsRatio_2D = "No value";
+					med.getTextPoissonsRatio_2D().setText(this.textPoissonsRatio_2D);
+				}
+			}
+
+			else if(parsingDataList.get(0).equals(TextLabel.lblSolvingTime_2D)){
+				if(parsingDataList.size() == 2){
+					this.textSolvingTime_2D = parsingDataList.get(1);
+					med.getTextSolvingTime_2D().setText(this.textSolvingTime_2D);	
+				}else {
+					this.textSolvingTime_2D = "No value";
+					med.getTextSolvingTime_2D().setText(this.textSolvingTime_2D);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblIncrementTime_2D)){
+				if(parsingDataList.size() == 2){
+					this.textIncrementTime_2D = parsingDataList.get(1);
+					med.getTextIncrementTime_2D().setText(this.textIncrementTime_2D);	
+				}else {
+					this.textIncrementTime_2D = "No value";
+					med.getTextIncrementTime_2D().setText(this.textIncrementTime_2D);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblParallelDDM_2D)){
+				if(parsingDataList.size() == 2){
+					if(parsingDataList.get(1).equals("true")){
+						this.btnParallelDDMUse_2D = true;
+						med.getBtnParallelDDMUse_2D().setSelection(true);
+						med.getSpinnerDomain_2D().setEnabled(true);
+					}else{
+						this.btnParallelDDMUse_2D = false;
+						med.getBtnParallelDDMUse_2D().setSelection(false);
+						med.getSpinnerDomain_2D().setEnabled(false);
+					}
+				}else {
+					this.btnParallelDDMUse_2D = false;
+					med.getBtnParallelDDMUse_2D().setSelection(false);
+					med.getSpinnerDomain_2D().setEnabled(false);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblDomain_2D)){
+				if(parsingDataList.size() == 2){
+					this.spinnerDomain_2D = parsingDataList.get(1);
+					med.getSpinnerDomain_2D().setSelection(Integer.parseInt(this.spinnerDomain_2D));	
+				}else {
+					this.spinnerDomain_2D = "No value";
+					med.getSpinnerDomain_2D().setSelection(-1);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblParallelMultiThread_2D)){
+				if(parsingDataList.size() == 2){
+					if(parsingDataList.get(1).equals("true")){
+						this.btnParallelMultiThreadUse_2D = true;
+						med.getBtnParallelMultiThreadUse_2D().setSelection(true);
+						med.getSpinnerThread_2D().setEnabled(true);
+					}else{
+						this.btnParallelMultiThreadUse_2D = false;
+						med.getBtnParallelMultiThreadUse_2D().setSelection(false);
+						med.getSpinnerThread_2D().setEnabled(false);
+					}
+				}else {
+					this.btnParallelMultiThreadUse_2D = false;
+					med.getBtnParallelMultiThreadUse_2D().setSelection(false);
+					med.getSpinnerThread_2D().setEnabled(false);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblThread_2D)){
+				if(parsingDataList.size() == 2){
+					this.spinnerThread_2D = parsingDataList.get(1);
+					med.getSpinnerThread_2D().setSelection(Integer.parseInt(this.spinnerThread_2D));
+				}else {
+					this.spinnerThread_2D = "No value";
+					med.getSpinnerThread_2D().setSelection(-1);
+				}
+			}
+		}
+		//version3 update
+		//updateTableData();
+	}
+	
 	public void SaveLeveller(){
 		try{
 			saveAllData();
@@ -3199,7 +4379,7 @@ public class LevellerMain {
 			String dbPath = myUtil.setPath(this.workspace,this.textModelName+".lvdb");
 			
 			if(this.workspace != null){
-				Writer writer = new Writer(dbPath,db);
+				Writer writer = new Writer(dbPath,db_2D);
 				writer.running();
 				MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), "SUCCESS - Save Leveller Data_2D \n path : "+dbPath);
 				messageDlg.open();
@@ -3213,6 +4393,48 @@ public class LevellerMain {
 			messageDlg.open();
 			log.error(msg);
 		}
+	}
+	
+	public void SaveAsLeveller_2D(String newPath,String newModelName){
+		try{
+			db_saveAs_2D = new ArrayList<String>();
+			
+			
+			String path = newPath;
+			this.textModelName = newModelName;
+			
+			String topFolder =  myUtil.setPath(path, textModelName);
+			String procFolder = myUtil.setPath(topFolder, "proc");
+			String resultFolder = myUtil.setPath(topFolder, "result");
+			String newDBFilePath = myUtil.setPath(topFolder, this.textModelName+".lvdb");
+			this.workspace = topFolder;
+			med.getlblworkspacePath().setText("Workspace : "+this.workspace);
+			myUtil.makeDir(topFolder);
+			myUtil.makeDir(procFolder);
+			myUtil.makeDir(resultFolder);
+			
+			saveAsAllData_2D(newModelName);
+			
+			if(newDBFilePath != null){
+				Writer writer = new Writer(newDBFilePath,this.db_saveAs_2D);
+				writer.running();
+				MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), "SUCCESS - Save as Leveller Data_2D \n path : "+newDBFilePath);
+				messageDlg.open();
+			}
+			
+			this.clearAllData_2D();			
+			setAllDataUI_2D(newDBFilePath);
+
+			AllComponentEnable();
+				
+		}catch(Exception e){
+			String msg = "ERROR - Save as Leveller Data";
+			msg = msg +"\n"+e.getMessage();
+			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
+			messageDlg.open();
+			log.error(msg);
+		}
+		
 	}
 	
 	public void SaveAsLeveller(String newPath,String newModelName){
@@ -3533,10 +4755,10 @@ public class LevellerMain {
 		this.textLength_2D = med.getTextLength_2D().getText().trim();
 		this.textThickness_2D = med.getTextThickness_2D().getText().trim();
 
-		this.db_2D.add(TextLabel.lblType_2D+"="+this.comboType);
-		this.db_2D.add(TextLabel.lblWidth_2D+"="+this.textWidth);
-		this.db_2D.add(TextLabel.lblLength_2D+"="+this.textLength);
-		this.db_2D.add(TextLabel.lblThickness_2D+"="+this.textThickness);
+		this.db_2D.add(TextLabel.lblType_2D+"="+this.comboType_2D);
+		this.db_2D.add(TextLabel.lblWidth_2D+"="+this.textWidth_2D);
+		this.db_2D.add(TextLabel.lblLength_2D+"="+this.textLength_2D);
+		this.db_2D.add(TextLabel.lblThickness_2D+"="+this.textThickness_2D);
 		
 		if(this.comboType_2D.equals(ComboLabel.TYPE1)){
 			
@@ -3658,10 +4880,10 @@ public class LevellerMain {
 		this.db_2D.add(TextLabel.lblRollFriction_2D+"="+this.textRollFriction_2D);
 		this.db_2D.add(TextLabel.lblRollDiameter_2D+"="+this.textRollDiameter_2D);
 		//update version2 2016.01.27
-		this.db_2D.add(TextLabel.lblRollCrownType+"="+this.RollCrownType);
-		this.db_2D.add(TextLabel.lblRollCrown+"="+this.textRollCrown);
-		this.db_2D.add(TextLabel.lblMillStiffnessType+"="+this.MillStiffnessType);
-		this.db_2D.add(TextLabel.lblMillStiffness+"="+this.textMillStiffness);
+		this.db_2D.add(TextLabel.lblRollCrownType_2D+"="+this.RollCrownType_2D);
+		this.db_2D.add(TextLabel.lblRollCrown_2D+"="+this.textRollCrown_2D);
+		this.db_2D.add(TextLabel.lblMillStiffnessType_2D+"="+this.MillStiffnessType_2D);
+		this.db_2D.add(TextLabel.lblMillStiffness_2D+"="+this.textMillStiffness_2D);
 		//update version3 
 		this.textUpperEntryRollGapMovement_2D = med.getTextUpperEntryRollGapMovement_2D().getText().trim();
 		this.textUpperExitRollGapMovement_2D = med.getTextUpperExitRollGapMovement_2D().getText().trim();

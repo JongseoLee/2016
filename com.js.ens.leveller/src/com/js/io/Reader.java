@@ -59,7 +59,7 @@ public class Reader {
 		try {
 			while((line = reader.readLine())!=null){
 				if(line.length() !=0 ){
-					fileDataList.add(line);
+					fileDataList.add(line.replace("\t", "  "));
 				}
 			}
 		} catch (IOException e) {

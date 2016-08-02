@@ -170,8 +170,13 @@ public class SaveAsLevellerDlg extends Dialog {
 	}
 	
 	public void saveAsLeveller(){
+		if(LMain.getLevellerType().equals("2D")){
+			LMain.SaveAsLeveller_2D(newPath, newModelName);
+		}else{
+			LMain.SaveAsLeveller(newPath, newModelName);
+		}
+			
 		
-		LMain.SaveAsLeveller(newPath, newModelName);
 		
 	}
 }

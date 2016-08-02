@@ -13,7 +13,10 @@ public class HandlerCombo implements Listener {
 		// TODO Auto-generated method stub
 		if(event.widget == med.getComboType()){
 			med.getCustomComboType().execute();
+		}else if(event.widget == med.getComboType_2D()){
+			med.getCustomComboType_2D().execute();
 		}
+		
 	}
 
 }

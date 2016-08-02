@@ -53,7 +53,7 @@ public class ApplyConfirmDlg extends Dialog {
 		fd_lblExport.top = new FormAttachment(0);
 		fd_lblExport.left = new FormAttachment(0);
 		lblExport.setLayoutData(fd_lblExport);
-		lblExport.setText("Apply");
+		lblExport.setText("Apply 3D");
 		
 		Label lblDoYouExort = new Label(container, SWT.NONE);
 		FormData fd_lblDoYouExort = new FormData();

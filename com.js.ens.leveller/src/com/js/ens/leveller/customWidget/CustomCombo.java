@@ -30,7 +30,7 @@ public class CustomCombo implements ICommand{
 		
 		if(widgetName.equals(Mediator.COMBO_Type_2D)){
 			String type = med.getComboType_2D().getText();
-			//System.out.println("=>Combo Type : "+type);
+			//System.out.println("=>Combo Type_2D : "+type);
 			LMain.ChangePlateType_2D();
 		}
 	}

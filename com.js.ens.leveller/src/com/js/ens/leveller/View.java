@@ -1081,7 +1081,7 @@ public class View extends ViewPart {
 		Button btnRadioRigid_MS_2D = new Button(groupMillStiffness_2D, SWT.RADIO);
 		med.setBtnRadioRigid_MS_2D(btnRadioRigid_MS_2D);
 		CustomButton customBtnRadioRigid_MS_2D = new CustomButton(Mediator.BUTTON_RadioRigid_MS_2D,med);
-		med.setCustomBtnRadioRigid_MS(customBtnRadioRigid_MS_2D);
+		med.setCustomBtnRadioRigid_MS_2D(customBtnRadioRigid_MS_2D);
 		customBtnRadioRigid_MS_2D.setCustomWidget_btnRadioRigid_MS_2D();
 		btnRadioRigid_MS_2D.setAlignment(SWT.CENTER);
 		FormData fd_btnRadioRigid_MS_2D = new FormData();
