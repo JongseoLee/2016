@@ -1,0 +1,91 @@
+| Rotate System 
+*system_rotate
+0 90 0
+*set_curve_type arc_ppp
+*add_curves
+|-W/2 GH 0
+|W/2 GH 0
+|0 0 0
+-W GH 0
+0 GH 0
+-W/2 0 0
+*set_curve_type line
+*system_reset
+*set_duplicate_translation x -L
+*duplicate_curves
+ 1
+# | End of List
+*sub_divisions
+2
+1
+1
+*subdivide_curves_real
+ 1
+ 2
+# | End of List
+*sweep_all
+*remove_unused_nodes
+*remove_unused_points
+*fill_view
+*set_surface_type ruled
+*add_surfaces
+ 3
+ 5
+*add_surfaces
+ 4
+ 6
+*set_convert_divisions
+|  Element Edge size is defined same as thickness
+(W/2)/(aspect_ratio_of_width_direction*T)
+(L)/(aspect_ratio_of_length_direction*T)
+*convert_surfaces
+1
+2
+#
+*remove_curves
+all_existing
+|   Execute Procedure for section & Points
+*exec_procedure m1_a_singlegutter.proc 
+|
+*detach_nodes
+all_existing
+*detach_edges
+all_existing
+*detach_faces
+all_existing
+*set_move_translation y T/2
+*move_elements
+all_existing
+*move_curves
+all_existing
+*set_sweep_tolerance 0.5
+*sweep_all
+| Added for define post node set
+*remove_surfaces
+all_existing
+*remove_unused_points
+*renumber_all
+|
+| run python for saving sets with history plot points
+|
+*py_echo off
+*py_file_run mp01_define_post_set_singlegutter.py
+|Expand Shell Element
+*set_sweep_tolerance 0.5
+*sweep_all
+*expand_reset
+*shell_thickness
+T
+*expand_shells
+all_existing
+*sub_divisions
+1
+1
+element_num_of_thickness_direction
+*subdivide_elements
+all_existing
+*sweep_all
+*remove_unused_nodes
+*renumber_all
+*py_file_run mp02_redefine_post_set_singlegutter.py
+*py_echo on

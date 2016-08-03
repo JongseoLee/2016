@@ -1615,6 +1615,7 @@ public class View extends ViewPart {
 		fd_textYieldStrength_2D.left = new FormAttachment(lblYieldStrength_2D,20,SWT.RIGHT);
 		fd_textYieldStrength_2D.right = new FormAttachment(btnExplorerFlowStress_2D, 0,SWT.RIGHT);
 		textYieldStrength_2D.setLayoutData(fd_textYieldStrength_2D);
+		textYieldStrength_2D.setEnabled(false);
 		
 		Label lblTensileStrength_2D = new Label(compositeMaterialParameter_2D, SWT.NONE);
 		FormData fd_lblTensileStrength_2D = new FormData();
@@ -1630,6 +1631,7 @@ public class View extends ViewPart {
 		fd_tensileStrength_2D.left = new FormAttachment(textYieldStrength_2D,0,SWT.LEFT);
 		fd_tensileStrength_2D.right = new FormAttachment(textYieldStrength_2D, 0,SWT.RIGHT);
 		textTensileStrength_2D.setLayoutData(fd_tensileStrength_2D);
+		textTensileStrength_2D.setEnabled(false);
 		
 		Label lblElongation_2D = new Label(compositeMaterialParameter_2D, SWT.NONE);
 		FormData fd_lblElongation_2D = new FormData();
@@ -1645,6 +1647,7 @@ public class View extends ViewPart {
 		fd_textElongation_2D.left = new FormAttachment(textYieldStrength_2D, 0, SWT.LEFT);
 		fd_textElongation_2D.right = new FormAttachment(textYieldStrength_2D, 0, SWT.RIGHT);
 		textElongation_2D.setLayoutData(fd_textElongation_2D);
+		textElongation_2D.setEnabled(false);
 		//-------------------------------------------------------------------------------------
 		
 		
@@ -3272,6 +3275,7 @@ public class View extends ViewPart {
 		fd_textYieldStrength.left = new FormAttachment(lblYieldStrength,20,SWT.RIGHT);
 		fd_textYieldStrength.right = new FormAttachment(btnExplorerFlowStress, 0,SWT.RIGHT);
 		textYieldStrength.setLayoutData(fd_textYieldStrength);
+		textYieldStrength.setEnabled(false);
 		
 		Label lblTensileStrength = new Label(compositeMaterialParameter, SWT.NONE);
 		FormData fd_lblTensileStrength = new FormData();
@@ -3287,6 +3291,7 @@ public class View extends ViewPart {
 		fd_tensileStrength.left = new FormAttachment(textYieldStrength,0,SWT.LEFT);
 		fd_tensileStrength.right = new FormAttachment(textYieldStrength, 0,SWT.RIGHT);
 		textTensileStrength.setLayoutData(fd_tensileStrength);
+		textTensileStrength.setEnabled(false);
 		
 		Label lblElongation = new Label(compositeMaterialParameter, SWT.NONE);
 		FormData fd_lblElongation = new FormData();
@@ -3302,6 +3307,7 @@ public class View extends ViewPart {
 		fd_textElongation.left = new FormAttachment(textYieldStrength, 0, SWT.LEFT);
 		fd_textElongation.right = new FormAttachment(textYieldStrength, 0, SWT.RIGHT);
 		textElongation.setLayoutData(fd_textElongation);
+		textElongation.setEnabled(false);
 		//-------------------------------------------------------------------------------------
 		
 		

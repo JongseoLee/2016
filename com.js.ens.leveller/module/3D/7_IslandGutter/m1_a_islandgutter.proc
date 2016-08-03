@@ -1,0 +1,182 @@
+|
+| Start of Create Post Sections & Points sets
+|
+|
+
+|   Create Surfaces for finding Trans & Longi path points 
+|
+*set_surface_type quad
+*add_surfaces
+point(0+L/100,-T*50,0)
+point(0+L/100,T*50,0)
+point(-L-L/100,T*50,0)
+point(-L-L/100,-T*50,0)
+*duplicate_reset
+*set_duplicate_translation z W/4
+*set_duplicate_repetitions
+4
+*duplicate_surfaces
+3
+#
+*add_surfaces
+point(0,-T*50,0-W/100)
+point(0,T*50,0-W/100)
+point(0,T*50,W+W/100)
+point(0,-T*50,W+W/100)
+*duplicate_reset
+*set_duplicate_translation x -L/4
+*set_duplicate_repetitions
+4
+*duplicate_surfaces
+8
+#
+| Create Surface for island gutter peak 
+*add_surfaces
+point(-GLP,-T*50,0-W/100)
+point(-GLP,T*50,0-W/100)
+point(-GLP,T*50,W+W/100)
+point(-GLP,-T*50,W+W/100)
+| Define Section Set for Post Processing
+|
+*select_method_surface_dist
+*set_select_distance
+T/1.9
+*select_clear
+*select_nodes
+3
+*select_elements_nodes
+all_selected
+*store_elements sec_lle
+all_selected
+*select_clear
+*select_nodes
+4
+*select_elements_nodes
+all_selected
+*store_elements sec_llq
+all_selected
+*select_clear
+*select_nodes
+5
+*select_elements_nodes
+all_selected
+*store_elements sec_lc
+all_selected
+*select_clear
+*select_nodes
+6
+*select_elements_nodes
+all_selected
+*store_elements sec_lrq
+all_selected
+*select_clear
+*select_nodes
+7
+*select_elements_nodes
+all_selected
+*store_elements sec_lre
+all_selected
+*select_clear
+*select_nodes
+8
+*select_elements_nodes
+all_selected
+*store_elements sec_tf
+all_selected
+*select_clear
+*select_nodes
+9
+*select_elements_nodes
+all_selected
+*store_elements sec_tfq
+all_selected
+*select_clear
+*select_nodes
+10
+*select_elements_nodes
+all_selected
+*store_elements sec_tc
+all_selected
+*select_clear
+*select_nodes
+11
+*select_elements_nodes
+all_selected
+*store_elements sec_trq
+all_selected
+*select_clear
+*select_nodes
+12
+*select_elements_nodes
+all_selected
+*store_elements sec_tre
+all_selected
+*select_clear
+*select_nodes
+13
+*select_elements_nodes
+all_selected
+*store_elements sec_tpeak
+all_selected
+*select_clear
+*set_select_distance
+0.01
+*select_method_single
+*set_relative_tol
+0.1
+*set_surfint_trim1 on
+|
+| Create Curve for longitudinal direction
+|
+*intersect_surface
+ 3
+ 1
+ 4
+ 1
+ 5
+ 2
+ 6
+ 2
+ 7
+ 2
+|
+| Create Curve for Transverse direction
+|
+*intersect_surface
+ 8
+ 1
+ 8
+ 2
+ 9
+ 1
+ 9
+ 2
+ 10
+ 1
+ 10
+ 2
+ 11
+ 1
+ 11
+ 2
+ 12
+ 1
+ 12
+ 2
+ 13
+ 1
+ 13
+ 2
+*set_convert_uvdiv u
+1
+*convert_curves
+all_existing
+*select_elements_class line2
+*visible_selected
+*edge_curves
+all_visible
+*remove_elements
+all_visible
+|
+| End of Create Post Sections & Points sets
+|

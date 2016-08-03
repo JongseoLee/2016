@@ -1,0 +1,14 @@
+| Updated 2016.01.31. SH Kim
+*new_md_table 1 1
+*table_name
+%tableName%
+*set_md_table_type 1
+temperature
+*table_add
+%tableDataList%
+*mater_option structural:thermal_expansion:on
+*mater_param_table structural:thermal_exp
+| CTE => table name
+%tableName%
+*mater_param structural:thermal_exp
+1

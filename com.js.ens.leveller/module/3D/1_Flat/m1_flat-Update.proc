@@ -1,0 +1,63 @@
+| Create Surface
+*set_surface_type quad
+*add_surfaces
+point(0,0, W/2)
+point(0,0, 0)
+point(-L,0,0)
+point(-L,0,W/2)
+point(0, 0,W)
+point(0, 0,W/2)
+point(-L,0,W/2)
+point(-L,0,W)
+*fill_view
+*set_convert_divisions
+|  Element Edge size is defined same as thickness
+(W/2)/T   бщ   (W/2)/('Aspect ratio of width direction'*T)
+(L)/T   бщ   (L)/('Aspect ratio of length direction'*T)
+*convert_surfaces
+1
+2
+#
+*set_sweep_tolerance 0.5
+*sweep_all
+*remove_unused_nodes
+*remove_unused_points
+*set_sweep_tolerance 0.001
+*detach_nodes
+all_existing
+*detach_edges
+all_existing
+*detach_faces
+all_existing
+*move_reset
+*set_move_translation y T/2
+*move_elements
+all_existing
+*move_surfaces
+all_existing
+*exec_procedure m1_a_flat.proc
+|
+| run python for saving sets with history plot points
+|
+*py_echo off
+*py_file_run mp01_define_post_set_flat.py
+|
+| Expand Shell Element with thickness
+|
+*expand_reset
+*shell_thickness
+T
+*expand_shells
+all_existing
+*subdivide_elements
+*sub_divisions
+1
+1
+4   бщ   'Element number of thickness direction'
+*subdivide_elements
+all_existing
+*sweep_all
+*remove_unused_nodes
+*renumber_all
+*py_file_run mp02_redefine_post_set_flat.py
+*py_echo on

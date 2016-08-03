@@ -1,0 +1,9 @@
+| Updated 2016.01.31. SH Kim
+*new_mater standard *mater_option general:state:solid
+%ElasticModulusType%
+%FlowStressType%
+%Thermal_expansionType%
+%PoissonType%
+*exec_procedure mat05_mass_density.proc
+*add_mater_elements
+all_existing

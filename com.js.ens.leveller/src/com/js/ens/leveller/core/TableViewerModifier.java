@@ -65,6 +65,37 @@ public class TableViewerModifier implements ICellModifier {
 					return DTDCObj.getDiameter();
 				}
 			}
+			
+			else if (this.tableViewer == med.getTableViewerUpperRoll_2D()) {
+				UTDCObj = (UpTableDataContent) element;
+
+				// if(TableColumnLabel.COL_0.equals(property)){
+				// return UTDCObj.getNo();
+				// }else if(TableColumnLabel.COL_1.equals(property)){
+				if (TableColumnLabel.COL_1.equals(property)) {
+					return UTDCObj.getGap();
+				} else if (TableColumnLabel.COL_2.equals(property)) {
+					return UTDCObj.getFriction();
+				} else if (TableColumnLabel.COL_3.equals(property)) {
+					return UTDCObj.getDiameter();
+				}
+
+			} else if (this.tableViewer == med.getTableViewerLowerRoll_2D()) {
+				DTDCObj = (DownTableDataContent) element;
+
+				// if(TableColumnLabel.COL_0.equals(property)){
+				// return DTDCObj.getNo();
+				// }else if(TableColumnLabel.COL_1.equals(property)){
+
+				if (TableColumnLabel.COL_1.equals(property)) {
+					return DTDCObj.getGap();
+				} else if (TableColumnLabel.COL_2.equals(property)) {
+					return DTDCObj.getFriction();
+				} else if (TableColumnLabel.COL_3.equals(property)) {
+					return DTDCObj.getDiameter();
+				}
+			}
+			
 		} catch (Exception e) {
 
 		}
@@ -94,6 +125,27 @@ public class TableViewerModifier implements ICellModifier {
 					UTDCObj.setDiameter((String) value);
 				}
 			}else if(this.tableViewer == med.getTableViewerLowerRoll()){
+				DTDCObj = (DownTableDataContent) element;
+				
+				if(TableColumnLabel.COL_1.equals(property)){
+					DTDCObj.setGap((String) value);
+				}else if(TableColumnLabel.COL_2.equals(property)){
+					DTDCObj.setFriction((String) value);
+				}else if(TableColumnLabel.COL_3.equals(property)){
+					DTDCObj.setDiameter((String) value);
+				}
+			}
+			else if(this.tableViewer == med.getTableViewerUpperRoll_2D()){
+				UTDCObj = (UpTableDataContent) element;
+				
+				if(TableColumnLabel.COL_1.equals(property)){
+					UTDCObj.setGap((String) value);
+				}else if(TableColumnLabel.COL_2.equals(property)){
+					UTDCObj.setFriction((String) value);
+				}else if(TableColumnLabel.COL_3.equals(property)){
+					UTDCObj.setDiameter((String) value);
+				}
+			}else if(this.tableViewer == med.getTableViewerLowerRoll_2D()){
 				DTDCObj = (DownTableDataContent) element;
 				
 				if(TableColumnLabel.COL_1.equals(property)){

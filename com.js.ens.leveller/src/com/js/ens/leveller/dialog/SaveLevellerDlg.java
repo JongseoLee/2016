@@ -92,7 +92,12 @@ public class SaveLevellerDlg extends Dialog {
 		btn_OK.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				LMain.SaveLeveller();
+				if(LMain.getLevellerType().equals("2D")){
+					LMain.SaveLeveller_2D();
+				}else{
+					LMain.SaveLeveller();
+				}
+				
 			}
 		});
 		createButton(parent, IDialogConstants.CANCEL_ID,IDialogConstants.CANCEL_LABEL, false);

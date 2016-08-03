@@ -1,0 +1,29 @@
+*new_mater standard *mater_option general:state:solid
+%ElasticModulusType%
+%FlowStressType%
+%Thermal_expansionType%
+%PoissonType%
+*exec_procedure mat05_mass_density.proc
+*mater_param_table structural:youngs_modulus
+| elastic_modulus  => table name 
+%TableName_elasticModulus%
+*mater_param structural:youngs_modulus 1
+*mater_param_table structural:poissons_ratio
+| poisson => table name
+%TableName_poisson%
+*mater_param structural:poissons_ratio
+1
+*mater_option structural:plasticity:on
+*mater_param_table structural:yield_stress
+| flow_stress => table name
+%TableName_flowStress%
+*mater_param structural:yield_stress
+1
+*mater_option structural:thermal_expansion:on
+*mater_param_table structural:thermal_exp
+| CTE => table name
+%TableName_thermal_expansion%
+*mater_param structural:thermal_exp
+1
+*add_mater_elements
+all_existing

@@ -74,7 +74,12 @@ public class ExportProcedureDlg extends Dialog {
 		btn_OK.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				LMain.Export();
+				if(LMain.getLevellerType().equals("2D")){
+					LMain.Export();
+				}else{
+					LMain.Export_2D();
+				}
+				
 			}
 		});
 		

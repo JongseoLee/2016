@@ -1,0 +1,15 @@
+| Updated 2016.01.31.
+*mater_option structural:plasticity:on
+*mater_param structural:yield_stress
+1
+*new_md_table 1 1
+*set_md_table_type 1
+eq_plastic_strain
+*table_name
+plasticity_const
+*table_add
+0.0 %value_YieldStrength%
+%value_Elongation% %value_TensileStrength%
+*table_fit
+*mater_param_table structural:yield_stress
+plasticity_const

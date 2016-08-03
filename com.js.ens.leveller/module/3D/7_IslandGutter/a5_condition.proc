@@ -1,0 +1,43 @@
+*prog_analysis_class structural
+*prog_use_current_job on
+|
+*new_icond *icond_type velocity @popdown(icond_new_pm)
+*icond_dof x *icond_dof_value x
+*icond_dof_value x plate_v
+*add_icond_nodes
+all_existing
+*new_md_table 1 1
+*set_md_table_type 1
+time
+*table_add
+0.0, tstart
+(50*2+roll_pitch*(l_roll_no-1)+L)/plate_v, tend
+(50*2+roll_pitch*(l_roll_no-1)+L+1000)/plate_v, tend
+*table_fit
+*table_name
+temperature_profile
+*icond_name
+velocity
+*new_icond *icond_type state_variable @popdown(icond_new_pm)
+*icond_name
+temperature_i
+*icond_dof_value var 1
+*icond_dof_table var temperature_profile
+*add_icond_elements
+all_existing
+*new_apply *apply_type fixed_displacement @popdown(apply_new_pm)
+*apply_type gravity_load @popdown(apply_type_pm)
+*apply_name
+gravity
+*apply_dof y *apply_dof_value y
+*apply_dof_value y 0-9800
+*add_apply_elements
+all_existing
+*new_apply *apply_type state_variable @popdown(apply_new_pm)
+*apply_name
+temperature_bc
+*apply_dof var *apply_dof_value var 1
+*apply_dof_table var
+temperature_profile
+*add_apply_elements
+all_existing

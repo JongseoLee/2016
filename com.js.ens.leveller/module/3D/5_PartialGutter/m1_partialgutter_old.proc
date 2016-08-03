@@ -1,0 +1,182 @@
+
+| Rotate System 
+
+*system_rotate
+0 90 0
+
+*set_curve_type arc_ppp
+*add_curves | Curve No 1
+-W GH 0
+0 GH 0
+-W/2 0 0
+*system_reset
+*add_curves | Curve No 2
+-2*GL GH 0
+0 GH 0
+-GL 0 0
+*add_curves | Curve No 3
+-2*GL GH W
+0 GH W
+-GL 0 W
+*set_curve_type line
+*add_curves | Curve No 4
+point(-GL,0,0)
+point(-GL,0,W/2)
+*add_curves | Curve No 5
+point(-GL,0,W/2)
+point(-GL,0,W)
+*add_curves | Curve No 6
+point(0,0,W/2)
+point(-GL,0,W/2)
+*add_curves | Curve No 7
+point(-L,0,0)
+point(-L,0,W/2)
+*add_curves | Curve No 8
+point(-L,0,W/2)
+point(-L,0,W)
+*add_curves | Curve No 8
+point(-GL,0,0)
+point(-L,0,0)
+*add_curves | Curve No 9
+point(-GL,0,W/2)
+point(-L,0,W/2)
+*add_curves | Curve No 10
+point(-GL,0,W)
+point(-L,0,W)
+*sweep_all
+*remove_unused_points
+*fill_view
+*sub_divisions
+2
+1
+1
+*subdivide_curves_real
+ 1
+ 2
+ 3
+# | End of List
+*flip_curves
+ 15
+ 6
+# | End of List
+*set_surface_type coons
+*add_surfaces
+ 13
+ 15
+ 4
+ 6
+*flip_curves
+ 6
+# | End of List
+*add_surfaces
+ 12
+ 6
+ 5
+ 17
+*flip_curves
+ 4
+ 5
+ 7
+ 8
+# | End of List
+*set_surface_type ruled
+*add_surfaces
+ 4
+ 7
+ 5
+ 8
+*remove_curves
+14
+16
+#
+*sweep_all
+*remove_unused_points
+*renumber_all
+*set_convert_divisions
+(W/2)/T
+(GL)/T
+*convert_surfaces
+1
+2
+#
+*set_convert_divisions
+(W/2)/T
+(L-GL)/T
+*convert_surfaces
+3
+4
+#
+*set_sweep_tolerance aspect_ratio_of_width_direction*T/2
+*sweep_all
+*remove_unused_nodes
+*remove_unused_points
+|   Execute Procedure for section & Points
+*py_file_run m6_a_partial_gutter.py 
+|
+*set_sweep_tolerance T/element_num_of_thickness_direction/2
+*sweep_all
+*remove_unused_nodes
+*remove_unused_points
+*select_clear
+*select_method_single
+*select_curves all_existing
+*visible_selected
+*set_convert_uvdiv u
+1
+*convert_curves
+all_visible
+*sweep_nodes
+all_visible
+*select_elements_class line2
+*visible_selected
+*edge_curves
+all_visible
+*remove_elements
+all_visible
+*sweep_all
+|*remove_surfaces all_existing
+*remove_unused_points
+*renumber_all
+*detach_nodes
+all_existing
+*detach_edges
+all_existing
+*detach_faces
+all_existing
+*set_move_translation y T/2
+*move_elements
+all_existing
+*move_points
+all_existing
+*set_sweep_tolerance 0.5
+*sweep_all
+*set_sweep_tolerance T/element_num_of_thickness_direction/2
+*sweep_points all_existing
+*set_sweep_tolerance 0.001
+*remove_surfaces all_existing
+*remove_unused_points
+*renumber_all
+|
+| run python for saving sets with history plot points
+|
+*py_echo off
+*py_file_run mp01_define_post_set_partial_gutter.py
+*expand_reset
+*shell_thickness
+T
+*expand_shells
+all_existing
+*subdivide_elements
+*sub_divisions
+1
+1
+4
+*subdivide_elements
+all_existing
+*set_sweep_tolerance T/element_num_of_thickness_direction/2
+*sweep_all
+*remove_unused_nodes
+*renumber_all
+*set_sweep_tolerance 0.001
+*py_file_run mp02_redefine_post_set_partial_gutter.py
+*py_echo on

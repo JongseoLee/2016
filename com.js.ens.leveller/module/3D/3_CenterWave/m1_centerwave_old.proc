@@ -1,0 +1,101 @@
+| Create Surface
+*set_surface_type quad
+|Create Left Surface  (Surface no. 1)
+*add_surfaces
+point(0,0, W/2)
+point(0,0, 0)
+point(-L,0,0)
+point(-L,0,W/2)
+|Create Right Surface (Surface no. 2)
+*add_surfaces
+point(0, 0,W)
+point(0, 0,W/2)
+point(-L,0,W/2)
+point(-L,0,W)
+*fill_view
+*set_convert_divisions
+|  Element Edge size is defined same as thickness
+(W/2)/(aspect_ratio_of_width_direction*T)
+(L)/(aspect_ratio_of_length_direction*T)
+*convert_surfaces
+1
+2
+#
+|   Execute Procedure for section & Points
+*exec_procedure m1_a_centerwave.proc 
+|
+*detach_nodes
+all_existing
+*detach_edges
+all_existing
+*detach_faces
+all_existing
+*move_reset
+*set_move_formula y CH/2*(z)/(W/2)*sin(2*pi/CP*x)
+*select_clear
+*select_method_surface_dist
+*set_select_distance
+0.5
+*select_nodes
+1
+*move_nodes
+all_selected
+*select_points
+1
+*move_points
+all_selected
+*move_reset
+*set_move_formula y CH/2*(W-z)/(W/2)*sin(2*pi/CP*x)
+*select_clear
+*select_method_surface_dist
+*set_select_distance
+0.5
+*select_nodes
+2
+*move_nodes
+all_selected
+*select_points
+2
+*move_points
+all_selected
+*select_method_single
+|
+|  It should be considerated in case of which value is larger LH & RH
+|
+*move_reset
+*set_move_translation y T/2+CH/2
+*move_elements
+all_existing
+*move_curves
+all_existing
+*set_sweep_tolerance 0.5
+*sweep_all
+| Added for define post node set
+*remove_surfaces
+all_existing
+*remove_unused_points
+*renumber_all
+|
+| run python for saving sets with history plot points
+|
+*py_echo off
+*py_file_run mp01_define_post_set_centerwave.py
+|Expand Shell Element
+*expand_reset
+*set_sweep_tolerance 0.5
+*sweep_all
+*shell_thickness
+T
+*expand_shells
+all_existing
+*sub_divisions
+1
+1
+element_num_of_thickness_direction
+*subdivide_elements
+all_existing
+*sweep_all
+*remove_unused_nodes
+*renumber_all
+*py_file_run mp02_redefine_post_set_centerwave.py
+*py_echo on

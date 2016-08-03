@@ -87,7 +87,7 @@ public class OpenLevellerDlg extends Dialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				FileDialog  dlg = new FileDialog (buttonExplorer.getShell(),SWT.OPEN);
-				dlg.setText("Select Modulus of elasticity File");
+				dlg.setText("Select lvdb File");
 				
 				//String [] extNames = {"RTL(*.rtl)"};
 				//String [] extType = {"*.rtl"};

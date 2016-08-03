@@ -32,14 +32,13 @@ public class CustomTableViewer implements ICommand {
 			//System.out.println("=>Lower Roll Table event");
 			DownTableViewerEdit();
 		}
-		
-		
+
 		if(widgetName.equals(Mediator.TABLEVIEWER_UpperRoll_2D)){
-			//System.out.println("=>Upper Roll Table event");
+			//System.out.println("=>Upper Roll Table_2D event");
 			UpTableViewerEdit_2D();
 		} 
 		if(widgetName.equals(Mediator.TABLEVIEWER_LowerRoll_2D)){
-			//System.out.println("=>Lower Roll Table event");
+			//System.out.println("=>Lower Roll Table_2D event");
 			DownTableViewerEdit_2D();
 		}
 		

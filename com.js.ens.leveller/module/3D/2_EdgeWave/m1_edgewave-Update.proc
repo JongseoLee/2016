@@ -1,0 +1,103 @@
+
+| Create Surface
+*set_surface_type quad
+|Create Left Surface  (Surface no. 1)
+*add_surfaces
+point(0,0, W/2)
+point(0,0, 0)
+point(-L,0,0)
+point(-L,0,W/2)
+|Create Right Surface (Surface no. 2)
+*add_surfaces
+point(0, 0,W)
+point(0, 0,W/2)
+point(-L,0,W/2)
+point(-L,0,W)
+*fill_view
+*set_convert_divisions
+(W/2)/T   бщ   (W/2)/('Aspect ratio of width direction'*T)
+(L)/T   бщ   (L)/('Aspect ratio of length direction'*T)
+*convert_surfaces
+1
+2
+#
+|   Execute Procedure for section & Points
+*exec_procedure m1_a_edgewave.proc 
+|
+*detach_nodes
+all_existing
+*detach_edges
+all_existing
+*detach_faces
+all_existing
+*remove_surface
+3 to 10000 #
+*remove_unused_points
+*renumber_all
+*move_reset
+*select_clear
+*set_move_formula y LH/2*(W/2-z)/(W/2)*sin(2*pi/LP*x)
+*select_method_surface_dist
+*set_select_distance
+0.5
+*select_nodes
+1
+*select_points
+1
+*move_nodes
+all_selected
+*move_points
+all_selected
+*move_reset
+*set_move_formula y RH/2*(z-W/2)/(W/2)*sin(2*pi/RP*x)
+*select_clear
+*select_method_surface_dist
+*set_select_distance
+0.5
+*select_nodes
+2
+*select_points
+2
+*move_nodes
+all_selected
+*move_points
+all_selected
+*select_method_single
+|
+|  It should be considerated in case of which value is larger LH & RH
+|
+*move_reset
+*set_move_translation y T/2+max_H/2
+*move_elements
+all_existing
+*move_curves
+all_existing
+| Added for define post node set
+*remove_surfaces
+all_existing
+*remove_unused_points
+*renumber_all
+|
+| run python for saving sets with history plot points
+|
+*py_echo off
+*py_file_run mp01_define_post_set_edgewave.py
+|Expand Shell Element
+*expand_reset
+*set_sweep_tolerance 0.5
+*sweep_all
+*shell_thickness
+T
+*expand_shells
+all_existing
+*sub_divisions
+1
+1
+4   бщ   'Element number of thickness direction'
+*subdivide_elements
+all_existing
+*sweep_all
+*remove_unused_nodes
+*renumber_all
+*py_file_run mp02_redefine_post_set_edgewave.py
+*py_echo on

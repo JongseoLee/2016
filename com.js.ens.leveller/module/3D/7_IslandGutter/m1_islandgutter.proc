@@ -1,0 +1,82 @@
+
+| Create Surface
+*set_surface_type quad
+*add_surfaces
+point(0,0, W/2)
+point(0,0, 0)
+point(-L,0,0)
+point(-L,0,W/2)
+point(0, 0,W)
+point(0, 0,W/2)
+point(-L,0,W/2)
+point(-L,0,W)
+*fill_view
+*set_convert_divisions
+|  Element Edge size is defined same as thickness
+(W/2)/(aspect_ratio_of_width_direction*T)
+(L)/(aspect_ratio_of_length_direction*T)
+*convert_surfaces
+1
+2
+#
+*remove_curves all_existing
+|   Execute Procedure for section & Points
+*exec_procedure m1_a_islandgutter.proc 
+|
+*detach_nodes
+all_existing
+*detach_edges
+all_existing
+*detach_faces
+all_existing
+|*set_sweep_tolerance 0.5
+|*sweep_all
+*remove_unused_nodes
+*remove_unused_points
+*move_reset
+|*set_move_formula y HGH*exp(-1*((x-(-GLP))^2/(2*(GLL/2)^2)+(z-W/2)^2/(2*(GWL/2)^2)))
+*set_move_formula y HGH*exp(-1*((x-(-GLP))^2/(2*(GLL/sigma)^2)+(z-W/2)^2/(2*(GWL/sigma)^2)))
+*move_nodes
+all_existing
+*move_points
+all_existing
+*move_reset
+*set_move_translation y T/2
+*move_elements
+all_existing
+*move_curves
+all_existing
+|*set_sweep_tolerance 0.5
+|*sweep_nodes all_existing
+| Added for define post node set
+*remove_surfaces
+all_existing
+*remove_unused_points
+|*renumber_all
+|
+| run python for saving sets with history plot points
+|
+*py_echo off
+*py_file_run mp01_define_post_set_islandgutter.py
+*sweep_all
+|Expand Shell Element
+*expand_reset
+*set_sweep_tolerance T/element_num_of_thickness_direction/2
+*sweep_nodes all_existing
+*shell_thickness
+T
+*expand_shells
+all_existing
+*sub_divisions
+1
+1
+element_num_of_thickness_direction
+*subdivide_elements
+all_existing
+*sweep_all
+*set_sweep_tolerance 0.001
+*remove_unused_nodes
+*py_file_run mp02_redefine_post_set_islandgutter.py
+*renumber_all
+*py_echo on
+*select_method_single

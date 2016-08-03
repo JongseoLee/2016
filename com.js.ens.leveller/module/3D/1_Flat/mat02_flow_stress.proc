@@ -1,0 +1,33 @@
+| Updated 2016.01.31. SH Kim
+*new_md_table 3 1
+| define Material table name
+*table_name
+%tableName%			
+*set_md_table_type 1
+eq_plastic_strain
+*set_md_table_type 2
+temperature
+*set_md_table_type 3
+eq_plastic_strain_rate
+*md_table_add_all
+| Number of Plastic Data for each set
+%PlasticDataSetNum%
+| Number of Temperature Data for each set
+%TemperatureDataSetNum%
+| Number of Plastic Strain rate Data for each set
+%PlaticStrainDataSetNum%
+| plasstic Strain 
+%plasstic_Strain%
+| Temperature 
+%Temperature%
+| Plastic Strain Rate
+%Plastic_Strain_Rate%
+|  The Below raw should be comment
+%curveDataTable%
+| The Below is Define flow stress as table format
+*mater_option structural:plasticity:on
+*mater_param_table structural:yield_stress
+| flow_stress => table name
+%tableName%	
+*mater_param structural:yield_stress
+1
