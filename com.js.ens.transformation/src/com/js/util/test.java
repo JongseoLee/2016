@@ -7,6 +7,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 
+import com.js.io.Reader;
 import com.js.io.Writer;
 import com.js.parser.ParserDefault;
 
@@ -15,6 +16,38 @@ public class test {
 
 	public test() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public void copyAndSwap(String oriPath, String destPath){
+		myUtil.fileCopy(oriPath, destPath);
+		ArrayList<String> fileDataList = new ArrayList<String>();
+		ArrayList<String> newFileDataList = new ArrayList<String>();
+		
+		if(myUtil.checkPath(destPath)){
+			Reader Robj = new Reader(destPath);
+			Robj.running();
+			fileDataList = Robj.getFileDataList();
+			
+			String newLine = "";
+			for(String line : fileDataList){
+				if(line.contains("%jsclubb%")){
+					newLine = line.replace("%jsclubb%", "JongseoLee");
+					newFileDataList.add(newLine);
+				}else{
+					newFileDataList.add(line);
+				}
+			}
+			
+			Writer Wobj = new Writer(destPath, newFileDataList);
+			Wobj.running();
+			
+			System.out.println("END");
+		}else{
+			System.out.println("Copy Error");
+		}
+		
+		
+		
 	}
 	
 	public void setFileList(String folder,String path){
@@ -252,6 +285,7 @@ public class test {
 	
 		
 		test obj = new test();
+		/*  //office
 		obj.setFileList(path3D_f1, f1_3D);
 		obj.setFileList(path3D_f2, f2_3D);
 		obj.setFileList(path3D_f3, f3_3D);
@@ -259,6 +293,12 @@ public class test {
 		obj.setFileList(path3D_f5, f5_3D);
 		obj.setFileList(path3D_f6, f6_3D);
 		obj.setFileList(path3D_f7, f7_3D);
+		// */
+		
+		// Copy -> Swap LevellerVer3 Test ProcGen
+		String oriPath = "G:\\06.ENS2_2016\\workspace\\2016\\com.js.ens.leveller\\module\\2D\\main_flat.proc";
+		String destPath = "G:\\06.ENS2_2016\\workspace\\2016\\com.js.ens.leveller\\module\\2D\\new\\main_flat.proc";
+		obj.copyAndSwap(oriPath,destPath);
 		
 	}
 	

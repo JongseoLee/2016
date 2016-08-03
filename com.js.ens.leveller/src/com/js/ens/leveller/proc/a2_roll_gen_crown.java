@@ -197,6 +197,7 @@ public class a2_roll_gen_crown {
 		
 	
 	private void writeProc() throws Exception{
+		procDataList = this.fileDataList;
 		Writer writer = new Writer(procFilePath,procDataList);
 		writer.running();
 	}
