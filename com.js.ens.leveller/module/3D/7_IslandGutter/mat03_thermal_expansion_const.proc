@@ -1,0 +1,4 @@
+| It will be used when the expansion is defined as constant
+*mater_option structural:thermal_expansion:on
+*mater_param structural:thermal_exp
+%value_expansion%

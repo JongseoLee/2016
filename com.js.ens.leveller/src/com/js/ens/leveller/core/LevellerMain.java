@@ -385,6 +385,7 @@ public class LevellerMain {
 			med.getTextElongation().setEnabled(true);
 		}else{*/
 			//Table
+		/*
 			med.getTextFlowStress().setEnabled(true);
 			med.getTextYieldStrength().setEnabled(false);
 			med.getTextTensileStrength().setEnabled(false);
@@ -394,6 +395,7 @@ public class LevellerMain {
 			med.getTextYieldStrength_2D().setEnabled(false);
 			med.getTextTensileStrength_2D().setEnabled(false);
 			med.getTextElongation_2D().setEnabled(false);
+		*/
 		//}
 		
 		/*	
@@ -818,6 +820,7 @@ public class LevellerMain {
 	
 	public void ChangePlateType(){
 		String plateType = med.getComboType().getText();
+		this.comboType = plateType;
 		Image img = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
 		med.getCompositeShapeParameterChild_1().setVisible(false);
 		med.getCompositeShapeParameterChild_2().setVisible(false);
@@ -826,6 +829,10 @@ public class LevellerMain {
 		med.getCompositeShapeParameterChild_5().setVisible(false);
 		med.getCompositeShapeParameterChild_6().setVisible(false);
 		med.getCompositeShapeParameterChild_7().setVisible(false);
+		
+		med.getTextWidth().setText(this.textWidth);
+		med.getTextLength().setText(this.textLength);
+		med.getTextThickness().setText(this.textThickness);
 		
 		if(plateType.equals(ComboLabel.TYPE1)){
 			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type1).createImage();
@@ -965,7 +972,7 @@ public class LevellerMain {
 	
 	public void ChangePlateType_2D(){
 		String plateType = med.getComboType_2D().getText();
-		//System.out.println(plateType);
+		this.comboType_2D = plateType;
 		Image img = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
 		med.getCompositeShapeParameterChild_1_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_2_2D().setVisible(false);
@@ -974,6 +981,10 @@ public class LevellerMain {
 		med.getCompositeShapeParameterChild_5_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_6_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_7_2D().setVisible(false);
+		
+		med.getTextWidth_2D().setText(this.textWidth_2D);
+		med.getTextLength_2D().setText(this.textLength_2D);
+		med.getTextThickness_2D().setText(this.textThickness_2D);	
 		
 		if(plateType.equals(ComboLabel.TYPE1)){
 			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type1).createImage();
@@ -984,13 +995,6 @@ public class LevellerMain {
 			med.getCompositeShapeParameterChild_2_2D().setVisible(true);
 			try{
 				if(comboType_2D.equals(plateType)){
-					System.out.println(this.type2_textLeftEdgeWaveHeight_2D);
-					System.out.println(this.type2_textLeftEdgeWavePhase_2D);
-					System.out.println(this.type2_textLeftEdgeWavePitch_2D);
-					System.out.println(this.type2_textRightEdgeWaveHeight_2D);
-					System.out.println(this.type2_textRightEdgeWavePhase_2D);
-					System.out.println(this.type2_textRightEdgeWavePitch_2D);
-					
 					med.getType2_textLeftEdgeWavePitch_2D().setText(this.type2_textLeftEdgeWavePitch_2D);
 					med.getType2_textRightEdgeWavePitch_2D().setText(this.type2_textRightEdgeWavePitch_2D);
 					med.getType2_textLeftEdgeWaveHeight_2D().setText(this.type2_textLeftEdgeWaveHeight_2D);
@@ -1004,7 +1008,6 @@ public class LevellerMain {
 					med.getType2_textRightEdgeWaveHeight_2D().setText(InitValueMap.get("type2_RightEdgeWaveHeight_2D"));
 					med.getType2_textLeftEdgeWavePhase_2D().setText(InitValueMap.get("type2_LeftEdgeWavePhase_2D"));
 					med.getType2_textRightEdgeWavePhase_2D().setText(InitValueMap.get("type2_RightEdgeWavePhase_2D"));
-					
 				}
 			}catch(Exception e){
 				med.getType2_textLeftEdgeWavePitch_2D().setText(InitValueMap.get("type2_LeftEdgeWavePitch_2D"));
@@ -1285,6 +1288,7 @@ public class LevellerMain {
 			log.info(msg);
 			*/
 		}catch(Exception e){
+			//e.printStackTrace();
 			String msg = "ERROR - Create ROll_2D";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
@@ -1425,6 +1429,7 @@ public class LevellerMain {
 			med.getTableViewerLowerRoll_2D().setContentProvider(new ArrayContentProvider());
 			med.getTableViewerLowerRoll_2D().setInput(this.downTableDataList_2D);	
 		}catch (Exception e){
+			//e.printStackTrace();
 			String msg = "ERROR - Update Roll Table Data_2D";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
@@ -1610,7 +1615,8 @@ public class LevellerMain {
 			messageDlg.open();
 			log.info(msg);
 		}catch(Exception e){
-			String msg = "ERROR - Save ROll_2D";
+			//e.printStackTrace();
+			String msg = "ERROR - Save Roll_2D";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
 			messageDlg.open();
@@ -3250,17 +3256,17 @@ public class LevellerMain {
 					if(this.YoungsModulusType.equals("Constant")){
 						med.getBtnRadioConstant_YM().setSelection(true);
 						med.getBtnRadioTable_YM().setSelection(false);
-						med.getBtnExplorerPoissonsRatio().setEnabled(false);
+						med.getBtnExplorerYoungsModulus().setEnabled(false);
 					}else {
 						med.getBtnRadioConstant_YM().setSelection(false);
 						med.getBtnRadioTable_YM().setSelection(true);
-						med.getBtnExplorerPoissonsRatio().setEnabled(true);
+						med.getBtnExplorerYoungsModulus().setEnabled(true);
 					}
 				}else {
 					this.YoungsModulusType = "Table";
 					med.getBtnRadioConstant_YM().setSelection(false);
 					med.getBtnRadioTable_YM().setSelection(true);
-					med.getBtnExplorerPoissonsRatio().setEnabled(true);
+					med.getBtnExplorerYoungsModulus().setEnabled(true);
 				}
 			}else if(parsingDataList.get(0).equals(TextLabel.lblFlowStress+"Type")){
 				if(parsingDataList.size() == 2){
@@ -3268,7 +3274,7 @@ public class LevellerMain {
 					if(this.FlowStressType.equals("Constant")){
 						med.getBtnRadioConstant_FS().setSelection(true);
 						med.getBtnRadioTable_FS().setSelection(false);
-						med.getBtnExplorerPoissonsRatio().setEnabled(false);
+						med.getBtnExplorerFlowStress().setEnabled(false);
 						//update version2 2016.01.27
 						med.getTextFlowStress().setEnabled(false);
 						med.getTextYieldStrength().setEnabled(true);
@@ -3278,7 +3284,7 @@ public class LevellerMain {
 					}else {
 						med.getBtnRadioConstant_FS().setSelection(false);
 						med.getBtnRadioTable_FS().setSelection(true);
-						med.getBtnExplorerPoissonsRatio().setEnabled(true);
+						med.getBtnExplorerFlowStress().setEnabled(true);
 						//update version2 2016.01.27
 						med.getTextFlowStress().setEnabled(true);
 						med.getTextYieldStrength().setEnabled(false);
@@ -3290,7 +3296,7 @@ public class LevellerMain {
 					this.FlowStressType = "Table";
 					med.getBtnRadioConstant_FS().setSelection(false);
 					med.getBtnRadioTable_FS().setSelection(true);
-					med.getBtnExplorerPoissonsRatio().setEnabled(true);
+					med.getBtnExplorerFlowStress().setEnabled(true);
 					//update version2 2016.01.27
 					med.getTextFlowStress().setEnabled(true);
 					med.getTextYieldStrength().setEnabled(false);
@@ -3303,17 +3309,17 @@ public class LevellerMain {
 					if(this.ThermalExpansionCoefficientType.equals("Constant")){
 						med.getBtnRadioConstant_TEC().setSelection(true);
 						med.getBtnRadioTable_TEC().setSelection(false);
-						med.getBtnExplorerPoissonsRatio().setEnabled(false);
+						med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
 					}else {
 						med.getBtnRadioConstant_TEC().setSelection(false);
 						med.getBtnRadioTable_TEC().setSelection(true);
-						med.getBtnExplorerPoissonsRatio().setEnabled(true);
+						med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
 					}
 				}else {
 					this.ThermalExpansionCoefficientType = "Table";
 					med.getBtnRadioConstant_TEC().setSelection(false);
 					med.getBtnRadioTable_TEC().setSelection(true);
-					med.getBtnExplorerPoissonsRatio().setEnabled(true);
+					med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
 				}
 			}
 			else if(parsingDataList.get(0).equals(TextLabel.lblPoissonsRatio+"Type")){
@@ -3757,7 +3763,7 @@ public class LevellerMain {
 			else if(parsingDataList.get(0).equals(TextLabel.lblPlateVelocity_2D)){
 				if(parsingDataList.size() == 2){
 					this.textPlateVelocity_2D = parsingDataList.get(1);
-					med.getTextPlateVelocity().setText(this.textPlateVelocity_2D);
+					med.getTextPlateVelocity_2D().setText(this.textPlateVelocity_2D);
 				}else {
 					this.textPlateVelocity_2D = "No value";
 					med.getTextPlateVelocity_2D().setText(this.textPlateVelocity_2D);	
@@ -4041,7 +4047,7 @@ public class LevellerMain {
 					this.textRearHDRollDia_2D = "No value";
 					med.getTextRearHDRollDia_2D().setText(this.textRearHDRollDia_2D);
 				}
-			}else if(parsingDataList.get(0).equals(TextLabel.lblRearHDRollPitch)){
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRearHDRollPitch_2D)){
 				if(parsingDataList.size() == 2){
 					this.textRearHDRollPitch_2D = parsingDataList.get(1);
 					med.getTextRearHDRollPitch_2D().setText(this.textRearHDRollPitch_2D);
@@ -4175,31 +4181,31 @@ public class LevellerMain {
 					this.textMassDensity_2D = "No value";
 					med.getTextMassDensity_2D().setText(this.textMassDensity_2D);
 				}
-			}else if(parsingDataList.get(0).equals(TextLabel.lblYoungsModulus+"_2DType")){
+			}else if(parsingDataList.get(0).equals(TextLabel.lblYoungsModulus_2D+"Type")){
 				if(parsingDataList.size() == 2){
 					this.YoungsModulusType_2D = parsingDataList.get(1);
 					if(this.YoungsModulusType_2D.equals("Constant")){
 						med.getBtnRadioConstant_YM_2D().setSelection(true);
 						med.getBtnRadioTable_YM_2D().setSelection(false);
-						med.getBtnExplorerPoissonsRatio_2D().setEnabled(false);
+						med.getBtnExplorerYoungsModulus_2D().setEnabled(false);
 					}else {
 						med.getBtnRadioConstant_YM_2D().setSelection(false);
 						med.getBtnRadioTable_YM_2D().setSelection(true);
-						med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+						med.getBtnExplorerYoungsModulus_2D().setEnabled(true);
 					}
 				}else {
 					this.YoungsModulusType_2D = "Table";
 					med.getBtnRadioConstant_YM_2D().setSelection(false);
 					med.getBtnRadioTable_YM_2D().setSelection(true);
-					med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+					med.getBtnExplorerYoungsModulus_2D().setEnabled(true);
 				}
-			}else if(parsingDataList.get(0).equals(TextLabel.lblFlowStress+"_2DType")){
+			}else if(parsingDataList.get(0).equals(TextLabel.lblFlowStress_2D+"Type")){
 				if(parsingDataList.size() == 2){
 					this.FlowStressType_2D = parsingDataList.get(1);
 					if(this.FlowStressType_2D.equals("Constant")){
 						med.getBtnRadioConstant_FS_2D().setSelection(true);
 						med.getBtnRadioTable_FS_2D().setSelection(false);
-						med.getBtnExplorerPoissonsRatio_2D().setEnabled(false);
+						med.getBtnExplorerFlowStress_2D().setEnabled(false);
 						//update version2 2016.01.27
 						med.getTextFlowStress_2D().setEnabled(false);
 						med.getTextYieldStrength_2D().setEnabled(true);
@@ -4209,7 +4215,7 @@ public class LevellerMain {
 					}else {
 						med.getBtnRadioConstant_FS_2D().setSelection(false);
 						med.getBtnRadioTable_FS_2D().setSelection(true);
-						med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+						med.getBtnExplorerFlowStress_2D().setEnabled(true);
 						//update version2 2016.01.27
 						med.getTextFlowStress_2D().setEnabled(true);
 						med.getTextYieldStrength_2D().setEnabled(false);
@@ -4221,33 +4227,33 @@ public class LevellerMain {
 					this.FlowStressType_2D = "Table";
 					med.getBtnRadioConstant_FS_2D().setSelection(false);
 					med.getBtnRadioTable_FS_2D().setSelection(true);
-					med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+					med.getBtnExplorerFlowStress_2D().setEnabled(true);
 					//update version2 2016.01.27
 					med.getTextFlowStress_2D().setEnabled(true);
 					med.getTextYieldStrength_2D().setEnabled(false);
 					med.getTextTensileStrength_2D().setEnabled(false);
 					med.getTextElongation_2D().setEnabled(false);
 				}
-			}else if(parsingDataList.get(0).equals(TextLabel.lblThermalExpansionCoefficient+"_2DType")){
+			}else if(parsingDataList.get(0).equals(TextLabel.lblThermalExpansionCoefficient_2D+"Type")){
 				if(parsingDataList.size() == 2){
 					this.ThermalExpansionCoefficientType_2D = parsingDataList.get(1);
 					if(this.ThermalExpansionCoefficientType_2D.equals("Constant")){
 						med.getBtnRadioConstant_TEC_2D().setSelection(true);
 						med.getBtnRadioTable_TEC_2D().setSelection(false);
-						med.getBtnExplorerPoissonsRatio_2D().setEnabled(false);
+						med.getBtnExplorerThermalExpansionCoefficient_2D().setEnabled(false);
 					}else {
 						med.getBtnRadioConstant_TEC_2D().setSelection(false);
 						med.getBtnRadioTable_TEC_2D().setSelection(true);
-						med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+						med.getBtnExplorerThermalExpansionCoefficient_2D().setEnabled(true);
 					}
 				}else {
 					this.ThermalExpansionCoefficientType_2D = "Table";
 					med.getBtnRadioConstant_TEC_2D().setSelection(false);
 					med.getBtnRadioTable_TEC_2D().setSelection(true);
-					med.getBtnExplorerPoissonsRatio_2D().setEnabled(true);
+					med.getBtnExplorerThermalExpansionCoefficient_2D().setEnabled(true);
 				}
 			}
-			else if(parsingDataList.get(0).equals(TextLabel.lblPoissonsRatio+"_2DType")){
+			else if(parsingDataList.get(0).equals(TextLabel.lblPoissonsRatio_2D+"Type")){
 				if(parsingDataList.size() == 2){
 					this.PoissonsRatioType_2D= parsingDataList.get(1);
 					if(this.PoissonsRatioType_2D.equals("Constant")){
@@ -4428,6 +4434,7 @@ public class LevellerMain {
 			AllComponentEnable();
 				
 		}catch(Exception e){
+			//e.printStackTrace();
 			String msg = "ERROR - Save as Leveller Data";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
@@ -4804,11 +4811,11 @@ public class LevellerMain {
 			this.db_2D.add(TextLabel.lblTailGutterHeight_type6_2D+"="+this.type6_textTailGutterHeight_2D);
 			this.db_2D.add(TextLabel.lblTailGutterLength_type6_2D+"="+this.type6_textTailGutterLength_2D);
 			
-		}else if(this.comboType.equals(ComboLabel.TYPE7)){
-			this.type7_textHeadGutterHeight = med.getType7_textHeadGutterHeight().getText().trim();
-			this.type7_textGutterLength = med.getType7_textGutterLength().getText().trim();
-			this.type7_textGutterLengthLength = med.getType7_textGutterLengthLength().getText().trim();
-			this.type7_textGutterWidthLength = med.getType7_textGutterWidthLength().getText().trim();
+		}else if(this.comboType_2D.equals(ComboLabel.TYPE7)){
+			this.type7_textHeadGutterHeight_2D = med.getType7_textHeadGutterHeight_2D().getText().trim();
+			this.type7_textGutterLength_2D = med.getType7_textGutterLength_2D().getText().trim();
+			this.type7_textGutterLengthLength_2D = med.getType7_textGutterLengthLength_2D().getText().trim();
+			this.type7_textGutterWidthLength_2D = med.getType7_textGutterWidthLength_2D().getText().trim();
 			
 			this.db_2D.add(TextLabel.lblHeadGutterHeight_type7_2D+"="+this.type7_textHeadGutterHeight_2D);
 			this.db_2D.add(TextLabel.lblGutterLength_type7_2D+"="+this.type7_textGutterLength_2D);
@@ -4992,7 +4999,7 @@ public class LevellerMain {
 		
 		this.db_2D.add(TextLabel.lblThermalExpansionCoefficient_2D+"Type"+"="+this.ThermalExpansionCoefficientType_2D);
 		this.db_2D.add(TextLabel.lblThermalExpansionCoefficient_2D+"="+this.textThermalExpansionCoefficient_2D);
-		this.db_2D.add(TextLabel.lblPoissonsRatio+"Type_2D"+"="+this.PoissonsRatioType_2D);
+		this.db_2D.add(TextLabel.lblPoissonsRatio_2D+"Type"+"="+this.PoissonsRatioType_2D);
 		this.db_2D.add(TextLabel.lblPoissonsRatio_2D+"="+this.textPoissonsRatio_2D);
 		this.db_2D.add(TextLabel.lblMassDensity_2D+"="+this.textMassDensity_2D);
 		
@@ -5285,10 +5292,10 @@ public class LevellerMain {
 		this.textLength_2D = med.getTextLength_2D().getText().trim();
 		this.textThickness_2D = med.getTextThickness_2D().getText().trim();
 
-		this.db_saveAs_2D.add(TextLabel.lblType_2D+"="+this.comboType);
-		this.db_saveAs_2D.add(TextLabel.lblWidth_2D+"="+this.textWidth);
-		this.db_saveAs_2D.add(TextLabel.lblLength_2D+"="+this.textLength);
-		this.db_saveAs_2D.add(TextLabel.lblThickness_2D+"="+this.textThickness);
+		this.db_saveAs_2D.add(TextLabel.lblType_2D+"="+this.comboType_2D);
+		this.db_saveAs_2D.add(TextLabel.lblWidth_2D+"="+this.textWidth_2D);
+		this.db_saveAs_2D.add(TextLabel.lblLength_2D+"="+this.textLength_2D);
+		this.db_saveAs_2D.add(TextLabel.lblThickness_2D+"="+this.textThickness_2D);
 
 		if(this.comboType_2D.equals(ComboLabel.TYPE1)){
 
@@ -5334,11 +5341,11 @@ public class LevellerMain {
 			this.db_saveAs_2D.add(TextLabel.lblTailGutterHeight_type6_2D+"="+this.type6_textTailGutterHeight_2D);
 			this.db_saveAs_2D.add(TextLabel.lblTailGutterLength_type6_2D+"="+this.type6_textTailGutterLength_2D);
 
-		}else if(this.comboType.equals(ComboLabel.TYPE7)){
-			this.type7_textHeadGutterHeight = med.getType7_textHeadGutterHeight().getText().trim();
-			this.type7_textGutterLength = med.getType7_textGutterLength().getText().trim();
-			this.type7_textGutterLengthLength = med.getType7_textGutterLengthLength().getText().trim();
-			this.type7_textGutterWidthLength = med.getType7_textGutterWidthLength().getText().trim();
+		}else if(this.comboType_2D.equals(ComboLabel.TYPE7)){
+			this.type7_textHeadGutterHeight_2D = med.getType7_textHeadGutterHeight_2D().getText().trim();
+			this.type7_textGutterLength_2D = med.getType7_textGutterLength_2D().getText().trim();
+			this.type7_textGutterLengthLength_2D = med.getType7_textGutterLengthLength_2D().getText().trim();
+			this.type7_textGutterWidthLength_2D = med.getType7_textGutterWidthLength_2D().getText().trim();
 
 			this.db_saveAs_2D.add(TextLabel.lblHeadGutterHeight_type7_2D+"="+this.type7_textHeadGutterHeight_2D);
 			this.db_saveAs_2D.add(TextLabel.lblGutterLength_type7_2D+"="+this.type7_textGutterLength_2D);
@@ -5410,10 +5417,10 @@ public class LevellerMain {
 		this.db_saveAs_2D.add(TextLabel.lblRollFriction_2D+"="+this.textRollFriction_2D);
 		this.db_saveAs_2D.add(TextLabel.lblRollDiameter_2D+"="+this.textRollDiameter_2D);
 		//update version2 2016.01.27
-		this.db_saveAs_2D.add(TextLabel.lblRollCrownType+"="+this.RollCrownType);
-		this.db_saveAs_2D.add(TextLabel.lblRollCrown+"="+this.textRollCrown);
-		this.db_saveAs_2D.add(TextLabel.lblMillStiffnessType+"="+this.MillStiffnessType);
-		this.db_saveAs_2D.add(TextLabel.lblMillStiffness+"="+this.textMillStiffness);
+		this.db_saveAs_2D.add(TextLabel.lblRollCrownType_2D+"="+this.RollCrownType_2D);
+		this.db_saveAs_2D.add(TextLabel.lblRollCrown_2D+"="+this.textRollCrown_2D);
+		this.db_saveAs_2D.add(TextLabel.lblMillStiffnessType_2D+"="+this.MillStiffnessType_2D);
+		this.db_saveAs_2D.add(TextLabel.lblMillStiffness_2D+"="+this.textMillStiffness_2D);
 		//update version3 
 		this.textUpperEntryRollGapMovement_2D = med.getTextUpperEntryRollGapMovement_2D().getText().trim();
 		this.textUpperExitRollGapMovement_2D = med.getTextUpperExitRollGapMovement_2D().getText().trim();
@@ -5522,7 +5529,7 @@ public class LevellerMain {
 
 		this.db_saveAs_2D.add(TextLabel.lblThermalExpansionCoefficient_2D+"Type"+"="+this.ThermalExpansionCoefficientType_2D);
 		this.db_saveAs_2D.add(TextLabel.lblThermalExpansionCoefficient_2D+"="+this.textThermalExpansionCoefficient_2D);
-		this.db_saveAs_2D.add(TextLabel.lblPoissonsRatio+"Type_2D"+"="+this.PoissonsRatioType_2D);
+		this.db_saveAs_2D.add(TextLabel.lblPoissonsRatio_2D+"Type"+"="+this.PoissonsRatioType_2D);
 		this.db_saveAs_2D.add(TextLabel.lblPoissonsRatio_2D+"="+this.textPoissonsRatio_2D);
 		this.db_saveAs_2D.add(TextLabel.lblMassDensity_2D+"="+this.textMassDensity_2D);
 
@@ -5603,9 +5610,7 @@ public class LevellerMain {
 					messageDlg2.open();
 				}
 			}
-			
 		}		
-		
 	}
 	
 	public void Export_2D(){
@@ -5614,30 +5619,31 @@ public class LevellerMain {
 			
 			this.SaveLeveller_2D();
 			
-			if(this.comboType.equals(ComboLabel.TYPE1)){
+			if(this.comboType_2D.equals(ComboLabel.TYPE1)){
 				main_flat mainFlatProc = new main_flat();
 				mainFlatProc.running();				
-			}else if(this.comboType.equals(ComboLabel.TYPE2)){
+			}else if(this.comboType_2D.equals(ComboLabel.TYPE2)){
 				main_edgeWave mainEdgeWaveProc = new main_edgeWave();
 				mainEdgeWaveProc.running();
-			}else if(this.comboType.equals(ComboLabel.TYPE3)){
+			}else if(this.comboType_2D.equals(ComboLabel.TYPE3)){
 				main_centerWave mainCenterWave = new main_centerWave();
 				mainCenterWave.running();
-			}else if(this.comboType.equals(ComboLabel.TYPE4)){
+			}else if(this.comboType_2D.equals(ComboLabel.TYPE4)){
 				main_singleGutter mainSingleGutter = new main_singleGutter();
 				mainSingleGutter.running();
-			}else if(this.comboType.equals(ComboLabel.TYPE5)){
+			}else if(this.comboType_2D.equals(ComboLabel.TYPE5)){
 				main_partialGutter mainPartialGutter = new main_partialGutter();
 				mainPartialGutter.running();
-			}else if(this.comboType.equals(ComboLabel.TYPE6)){
+			}else if(this.comboType_2D.equals(ComboLabel.TYPE6)){
 				main_doubleGutter mainDoubleGutter = new main_doubleGutter();
 				mainDoubleGutter.running();
-			}else if(this.comboType.equals(ComboLabel.TYPE7)){
+			}else if(this.comboType_2D.equals(ComboLabel.TYPE7)){
 				main_islandGutter mainIslandGutter = new main_islandGutter();
 				mainIslandGutter.running();
 			}
 			
 		}catch(Exception e){
+			e.printStackTrace();
 			String msg = "ERROR - Export files_2D";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);

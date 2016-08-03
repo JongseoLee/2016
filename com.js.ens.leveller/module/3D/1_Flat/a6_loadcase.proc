@@ -1,0 +1,41 @@
+*prog_analysis_class structural
+*prog_use_current_job on
+|
+*new_loadcase *loadcase_type struc:dyn_trans
+*loadcase_name levelling
+*loadcase_ctable
+ctable1
+*loadcase_value maxrec
+50
+*loadcase_value dyn_contact_pro_fact
+.5
+*loadcase_option converge:residuals
+*loadcase_option error:relabs
+*loadcase_value minforce
+1e-3
+*loadcase_value maxforce
+1e-3
+*loadcase_value time
+%SolvingTime%
+*loadcase_value nsteps
+%SolvingTime%/t_inc
+*prog_use_current_job on *new_job *job_class structural
+*add_job_loadcases levelling
+*add_post_tensor stress
+*add_post_var von_mises
+*add_post_var tepl_strain
+*job_option strain:large
+*job_option lump:on
+*job_option frictype:coulomb_bilinear
+*job_contact_table
+ctable1
+*job_param post 10
+*job_param maxsep
+10
+*element_type 7
+all_existing
+*select_clear
+*invisible_selected
+%Parallel_D%
+%Parallel_T%
+

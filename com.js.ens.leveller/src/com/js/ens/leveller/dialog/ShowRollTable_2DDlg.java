@@ -100,7 +100,7 @@ public class ShowRollTable_2DDlg extends Dialog {
 		
 		Button btnSaveRoll_2D = new Button(container, SWT.NONE);
 		med.setBtnSaveRoll_2D(btnSaveRoll_2D);
-		CustomButton customBtnSaveRoll_2D = new CustomButton(Mediator.BUTTON_SaveRoll,med);
+		CustomButton customBtnSaveRoll_2D = new CustomButton(Mediator.BUTTON_SaveRoll_2D,med);
 		med.setCustomBtnSaveRoll_2D(customBtnSaveRoll_2D);
 		customBtnSaveRoll_2D.setCustomWidget_btnSaveRoll_2D();
 		FormData fd_btnSaveRoll_2D = new FormData();
@@ -116,6 +116,7 @@ public class ShowRollTable_2DDlg extends Dialog {
 		HandlerTableViewer handlerTableViewer = new HandlerTableViewer();
 		med.getTableViewerUpperRoll_2D().addSelectionChangedListener(handlerTableViewer);
 		med.getTableViewerLowerRoll_2D().addSelectionChangedListener(handlerTableViewer);
+		
 		HandlerButton handlerButton = new HandlerButton();
 		med.getBtnSaveRoll_2D().addListener(SWT.Selection, handlerButton);
 		

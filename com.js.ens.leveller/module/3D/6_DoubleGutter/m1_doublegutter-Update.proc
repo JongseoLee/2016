@@ -1,0 +1,218 @@
+
+| Rotate System 
+
+*system_rotate
+0 90 0
+*set_curve_type arc_ppp
+*add_curves  | Curve No 1
+-W HGH 0
+0 HGH 0
+-W/2 0 0
+*system_reset
+*add_curves | Curve No 2
+-2*HGL HGH W
+0 HGH W
+-HGL 0 W
+*add_curves | Curve No 3
+-2*HGL HGH 0
+0 HGH 0
+-HGL 0 0
+*add_curves | Curve No 4
+-L TGH W
+-L+2*TGL TGH W
+-L+TGL 0 W
+*add_curves | Curve No 5
+-L TGH 0
+-L+2*TGL TGH 0
+-L+TGL 0 0
+*set_curve_type line
+*add_curves  | Curve No 6
+point(-HGL,0,W)
+point(-HGL,0,0)
+*add_curves  | Curve No 7
+point(0,0,W/2)   
+point(-HGL,0,W/2)
+*add_curves  | Curve No 8  
+point(-L+TGL,0,W)
+point(-L+TGL,0,0)
+*add_curves  | Curve No 9
+point(-L+TGL,0,W/2)
+point(-L,0,W/2)
+*system_rotate
+0 90 0
+*set_curve_type arc_ppp
+*add_curves | Curve No 10
+-W TGH -L
+0 TGH -L
+-W/2 0 -L
+*system_reset
+*sub_divisions
+2
+1
+1
+*subdivide_curves_real
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 8
+ 10
+ # | End of List
+*sweep_all
+*remove_unused_points
+*fill_view
+*set_surface_type coons
+*flip_curves 
+ 16
+ 22
+ 7
+# | End of List
+*add_surfaces
+ 12
+ 16
+ 22
+ 7
+*flip_curves
+ 7
+ 21
+# | End of List
+*add_surfaces
+ 11
+ 7
+ 21
+ 14
+*flip_curves
+ 22
+*add_curves
+*add_surfaces
+*flip_curves
+ 19
+ 26
+ 9
+# | End of List
+*add_surfaces
+ 24
+ 19
+ 26
+ 9
+*flip_curves
+ 9
+ 25
+# | End of List
+*add_surfaces
+ 23
+ 9
+ 25
+ 17
+*set_surface_type quad
+*add_surfaces
+ 19
+ 17
+ 21
+ 22
+ 16
+ 19
+ 22
+ 20
+*remove_curves
+ 15
+ 20
+ 13
+ 18
+# | End of List
+*sweep_all
+*remove_unused_points
+*renumber_all
+*set_convert_divisions
+(W/2)/T
+(HGL)/T
+*convert_surfaces
+1
+2
+#
+*set_convert_divisions
+(W/2)/T
+(L-HGL-TGL)/T
+*convert_surfaces
+5
+6
+#
+*set_convert_divisions
+(W/2)/T
+(TGL)/T
+*convert_surfaces
+3
+4
+#
+*set_sweep_tolerance 1.0
+*sweep_all
+*remove_unused_nodes
+*remove_unused_points
+|   Execute Procedure for section & Points
+*py_file_run m1_a_doublegutter.py 
+|
+*detach_nodes
+all_existing
+*detach_edges
+all_existing
+*detach_faces
+all_existing
+*move_reset
+*set_move_translation y T/2
+*move_elements
+all_existing
+*move_curves
+all_existing
+*move_points
+all_existing
+*set_sweep_tolerance 0.5
+*sweep_all
+*move_reset
+*select_clear
+*select_curves all_existing
+*visible_selected
+*set_convert_uvdiv u
+1
+*convert_curves
+all_visible
+*sweep_nodes
+all_visible
+*select_elements_class line2
+*visible_selected
+*edge_curves
+all_visible
+*remove_elements
+all_visible
+*sweep_points
+all_visible
+*remove_surfaces all_existing
+*remove_unused_points
+*renumber_all
+|
+| run python for saving sets with history plot points
+|
+*py_echo off
+*py_file_run mp01_define_post_set_doublegutter.py
+*set_sweep_tolerance 0.5
+*sweep_nodes all_existing
+*remove_unused_nodes
+| Expand Shell Element
+*expand_reset
+*shell_thickness
+T
+*expand_shells
+all_existing
+*subdivide_elements
+*sub_divisions
+1
+1
+4   бщ   'Element number of thickness direction'
+*subdivide_elements
+all_existing
+*sweep_all
+*remove_unused_nodes
+*renumber_all
+*py_file_run mp02_redefine_post_set_doublegutter.py
+*py_echo on

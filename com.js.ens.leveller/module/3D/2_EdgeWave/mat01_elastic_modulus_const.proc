@@ -1,0 +1,5 @@
+| It will be used when the Youngs Modulus is defined as constant
+*mater_param structural:youngs_modulus
+%value_YoungsModulus%
+*mater_param_table structural:youngs_modulus
+*clear_mater_param_table structural:youngs_modulus

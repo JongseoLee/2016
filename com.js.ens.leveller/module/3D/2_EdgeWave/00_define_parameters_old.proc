@@ -1,0 +1,85 @@
+| Reset program
+*new_model yes
+*reset
+*set_nodes off
+*set_undo off
+*regenerate
+|
+|  Define plate modeling Parameters
+|
+| W : width of plate
+| L : Length of plate
+| T : Thinckness of plate
+*eval_define W %Width%
+*eval_define L %Length%
+*eval_define T %Thickness%
+
+
+|
+|  Define additional Parameters for Edge Wave Plate modeling
+|
+| RP : Wave Period of Right Edge
+| RH : Wave Height of Right Edge
+| LP : Wave Period of Left Edge
+| LH : Wave Height of Left Edge
+*eval_define RP %RightEdgeWavePitch%
+*eval_define RH %RightEdgeWaveHeight%
+*eval_define LP %LeftEdgeWavePitch%
+*eval_define LH %LeftEdgeWaveHeight%
+*eval_define max_H %MaxWaveHeight% 
+
+
+|
+| Mesh parameter
+|
+*eval_define element_num_of_thickness_direction %ElementNumberOfThicknessDirection%
+*eval_define aspect_ratio_of_width_direction %AspectRatioOfWidthDirection%
+*eval_define aspect_ratio_of_length_direction %AspectRatioOfLengthDirection%
+*eval_define number_of_elements %NumberOfElements%
+
+
+|
+|  Define Roll Information
+|  The Below Information should be considered the number or rolls
+|
+*eval_define roll_pitch %RollPitch%
+*eval_define roll_dia %RollDiameter%
+*eval_define roll_length %RollLength%
+*eval_define sgap_u %EntryUpperRollGap%
+*eval_define egap_u %ExitUpperRollGap%
+*eval_define sgap_l %EntryLowerRollGap%
+*eval_define egap_l %ExitLowerRollGap%
+*eval_define u_roll_no %UpperRollNnumber%
+| Upper Roll Numbers
+*eval_define l_roll_no %LowerRollNumber%
+| Lower Roll Numbers
+*eval_define fdist 50
+|  fidst : distance from Roll table to Roll
+
+*eval_define plate_v %PlateVelocity%
+|  plave_v : plate velocity
+
+*eval_define fric %RollFriction%
+| fric : friction coefficient
+
+*eval_define tstart %TemperatureAtStartOfLevelling%
+| tstart : temperature at start of levelling
+
+*eval_define tend %TemperatureAtEndOfLevelling%
+| tend : temperature at end of levelling
+
+|
+|  Update 2016.01.13.
+|
+*eval_define r_crown %RollCrown%
+| Define Roll Crown 
+
+*eval_define u_m_stiffness %MillStiffness%/u_roll_no
+*eval_define l_m_stiffness %MillStiffness%/l_roll_no
+| Define Mill Stiffness(%MillStiffness%)
+
+*eval_define passline_offset %PassLineOffset%
+| Define PassLine Offset
+
+*eval_define t_inc %IncrementTime%
+| Solving Option t_inc => default value 0.0025

@@ -1,0 +1,16 @@
+*job_option nod_quantities:manual
+*add_post_nodal_quantity Displacement
+*add_post_nodal_quantity Ext_Force
+*add_post_nodal_quantity Velocity
+*add_post_nodal_quantity Rea_Force
+*add_post_nodal_quantity Acceleration
+*add_post_nodal_quantity Cont_Nor_Strss
+*add_post_nodal_quantity Cont_Nor_Force
+*add_post_nodal_quantity Cont_Fri_Strss
+*add_post_nodal_quantity Cont_Fri_Force
+*add_post_nodal_quantity Cont_Status
+*add_post_nodal_quantity User_Nodal_1
+*edit_post_nodal_quantity User_Nodal_1 Deformed Coordinate
+*job_usersub_file 000_post_deformed.f
+|*job_option user_source:run_saved
+*job_option user_source:compile_nosave

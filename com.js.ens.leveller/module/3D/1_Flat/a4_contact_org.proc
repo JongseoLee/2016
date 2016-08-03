@@ -1,0 +1,50 @@
+| Created by Marc Mentat 2013.1.0 (64bit)
+*prog_option compatibility:prog_version:ment2013.1
+|
+*new_cbody mesh *contact_option state:solid *contact_option skip_structural:off
+*contact_body_name
+plate
+*add_contact_body_elements
+all_existing
+|
+|  Define Roll & Roll Table as define in UI
+|
+| The Below routine is created as roll numbers
+|
+
+| =====Upper Roll contact template=======
+%UpperRollGenContact%
+
+| =====Lower Roll contact template=======
+%LowerRollGenContact%
+
+| =========== Roll Table ================
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+roll_table
+*add_contact_body_surfaces
+%Add_contact_body_surfaces%
+#
+*flip_surfaces
+%Flip_surfaces%
+#
+*new_interact mesh:geometry *interact_option state_1:solid
+*interact_name
+friction
+*interact_param friction
+fric
+*new_interact mesh:geometry *interact_option state_1:solid
+*interact_name
+no_fric
+*interact_param friction
+0.0
+*new_contact_table
+|
+|   Define Friction between Plate and Rigid Bodys
+|  ===========  Plate <-> Upper and Lower Roll  ===========
+%PlateRollGenContactTable%
+
+|  ===========  Plate <-> Roll Table  ===========  
+*ctable_entry plate roll_table
+*contact_table_option plate roll_table contact:on
+*prog_string ctable:old_interact no_fric *ctable_entry_interact plate roll_table

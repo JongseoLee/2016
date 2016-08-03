@@ -153,7 +153,7 @@ public class SaveAsLevellerDlg extends Dialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				if(newModelName != null && newPath != null)
-				saveAsLeveller();
+					saveAsLeveller();
 				
 			}
 		});

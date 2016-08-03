@@ -1,0 +1,5 @@
+| It will be used when the poisson's ratio is defined as constant
+*mater_param structural:poissons_ratio
+%value_poisson%
+*mater_param_table structural:poissons_ratio
+*clear_mater_param_table structural:poissons_ratio

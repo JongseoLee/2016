@@ -21,15 +21,26 @@ public class HandlerTableViewer implements ISelectionChangedListener {
 			
 			if(tableViewer == med.getTableViewerUpperRoll()){
 				med.getCustomTableViewerUpperRoll().execute();
-				Table table= tableViewer.getTable();
+				//Table table= tableViewer.getTable();
 				//System.out.println("Select index : "+table.getSelectionIndex());
 			}else if(tableViewer == med.getTableViewerLowerRoll()){
 				med.getCustomTableViewerLowerRoll().execute();
-				Table table= tableViewer.getTable();
+				//Table table= tableViewer.getTable();
+				//System.out.println("Select index : "+table.getSelectionIndex());
+			}else if(tableViewer == med.getTableViewerUpperRoll_2D()){
+				med.getCustomTableViewerUpperRoll_2D().execute();
+				//Table table= tableViewer.getTable();
+				//System.out.println("Select index : "+table.getSelectionIndex());
+			}else if(tableViewer == med.getTableViewerLowerRoll_2D()){
+				med.getCustomTableViewerLowerRoll_2D().execute();
+				//Table table= tableViewer.getTable();
 				//System.out.println("Select index : "+table.getSelectionIndex());
 			}
-		}catch(Exception e){
 			
+			
+			
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 		
 	}
