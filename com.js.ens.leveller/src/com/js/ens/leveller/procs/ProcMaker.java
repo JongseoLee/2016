@@ -3,6 +3,16 @@ package com.js.ens.leveller.procs;
 import java.util.ArrayList;
 
 import com.js.ens.leveller.core.ComboLabel;
+import com.js.ens.leveller.procs.threeD.Main_centerwave;
+import com.js.ens.leveller.procs.threeD.Main_doublegutter;
+import com.js.ens.leveller.procs.threeD.Main_edgewave;
+import com.js.ens.leveller.procs.threeD.Main_flat;
+import com.js.ens.leveller.procs.threeD.Main_islandgutter;
+import com.js.ens.leveller.procs.threeD.Main_partialgutter;
+import com.js.ens.leveller.procs.threeD.Main_singlegutter;
+import com.js.ens.leveller.procs.twoD.Main_curl_2D;
+import com.js.ens.leveller.procs.twoD.Main_flat_2D;
+import com.js.ens.leveller.procs.twoD.Main_wave_2D;
 
 public class ProcMaker {
 	//---------------------------------------------------------------------------
@@ -174,27 +184,37 @@ public class ProcMaker {
 	private void genProc(String levellerType, String comboType, String prodFolder){
 		if(levellerType.equals("2D")){
 			if(comboType.equals(ComboLabel.TYPE1_2D)){
-				
+				Main_flat_2D obj = new Main_flat_2D();
+				obj.running();
 			}else if(comboType.equals(ComboLabel.TYPE2_2D)){
-				
+				Main_wave_2D obj = new Main_wave_2D();
+				obj.running();
 			}else if(comboType.equals(ComboLabel.TYPE3_2D)){
-				
+				Main_curl_2D obj = new Main_curl_2D();
+				obj.running();
 			}
 		}else if(levellerType.equals("3D")){
 			if(comboType.equals(ComboLabel.TYPE1)){
-				
+				Main_flat obj = new Main_flat();
+				obj.running();
 			}else if(comboType.equals(ComboLabel.TYPE2)){
-				
+				Main_edgewave obj = new Main_edgewave();
+				obj.running();
 			}else if(comboType.equals(ComboLabel.TYPE3)){
-				
+				Main_centerwave obj = new Main_centerwave();
+				obj.running();
 			}else if(comboType.equals(ComboLabel.TYPE4)){
-				
+				Main_singlegutter obj = new Main_singlegutter();
+				obj.running();
 			}else if(comboType.equals(ComboLabel.TYPE5)){
-				
+				Main_partialgutter obj = new Main_partialgutter();
+				obj.running();
 			}else if(comboType.equals(ComboLabel.TYPE6)){
-				
+				Main_doublegutter obj = new Main_doublegutter();
+				obj.running();
 			}else if(comboType.equals(ComboLabel.TYPE7)){
-				
+				Main_islandgutter obj = new Main_islandgutter();
+				obj.running();
 			}
 		}
 		
