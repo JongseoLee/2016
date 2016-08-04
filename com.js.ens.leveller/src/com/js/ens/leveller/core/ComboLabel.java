@@ -8,5 +8,9 @@ public class ComboLabel {
 	public static String TYPE5 = "5 (Partial Gutter)";
 	public static String TYPE6 = "6 (Double Gutter)";
 	public static String TYPE7 = "7 (Island Gutter)";
-	 
+	
+	public static String TYPE1_2D = "1 (Flat)";
+	public static String TYPE2_2D = "2 (Wave)";
+	public static String TYPE3_2D = "3 (Curl)";
+			
 }

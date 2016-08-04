@@ -1,0 +1,21 @@
+*exec_procedure 00_define_post_parameters.proc
+*py_file_run p01_getting_result_data.py
+*select_clear
+*select_sets 
+HFL
+HFC
+HFR
+HCL
+HCC
+HCR
+HRL
+HRC
+HRR
+*set_history_locations
+all_selected
+*history_collect 0 999999999 1
+*pause 5
+*py_file_run p02_history_plot.py
+*post_skip_to_last
+*exec_procedure p03_section_plot.proc
+*post_close

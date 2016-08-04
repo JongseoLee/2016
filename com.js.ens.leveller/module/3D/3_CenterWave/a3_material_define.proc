@@ -1,4 +1,6 @@
 | Updated 2016.01.31. SH Kim
+*set_undo off
+*set_update off
 *new_mater standard *mater_option general:state:solid
 %ElasticModulusType%
 %FlowStressType%
@@ -7,3 +9,4 @@
 *exec_procedure mat05_mass_density.proc
 *add_mater_elements
 all_existing
+*set_update off

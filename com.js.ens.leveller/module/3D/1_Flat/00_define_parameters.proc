@@ -75,13 +75,13 @@
 | Update 2016.07.13.
 |
 |Define Hold Down Roll
-*define hd_roll_loc %HDRollType%
-*eval_define fhd_dia %FrontHDRollDia%	
-*eval_define fhd_pitch %FrontHDRollPitch%	
-*eval_define fhd_pos %FrontHDRollVerticalPos%	
-*eval_define rhd_dia %RearHDRollDia%	
-*eval_define rhd_pitch %RearHDRollPitch%
-*eval_define rhd_pos %RearHDRollVerticalPos%
+*define hd_roll_loc %HDRollType%| HD Roll Location upper or lower
+*eval_define fhd_dia %FrontHDRollDia%	        | Front HD Roll Diameter
+*eval_define fhd_pitch %FrontHDRollPitch%	    | Front HD Roll Pitch
+*eval_define fhd_pos %FrontHDRollVerticalPos%  | Front HD Vertical Position 
+*eval_define rhd_dia %RearHDRollDia%	        | Rear HD Roll Diameter
+*eval_define rhd_pitch %RearHDRollPitch%      | Rear HD Roll Pitch
+*eval_define rhd_pos %RearHDRollVerticalPos%  | Rear HD Vertical Position 
 
 |Define Roll Gap Movement
 *eval_define URM_ent %UpperEntryRollGapMovement%  | Upper Entry Roll Gap Movement
@@ -98,3 +98,7 @@
 %UpperRollDataField%
 |Lower Roll Table
 %LowerRollDataField%
+
+|Define Roll Crown
+*eval_define urcrown %urcrwon
+*eval_define lrcrown %lrcrown

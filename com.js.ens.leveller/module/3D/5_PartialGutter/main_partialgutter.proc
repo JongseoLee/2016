@@ -18,4 +18,7 @@
 *py_file_run ap01_add_hdroll.py
 | Add Roll Gap Movement : Added from ver. 3 
 *py_file_run ap02_add_roll_movement.py
+| Change Roll Table Location : Added from ver. 3 
+*py_file_run ap03_change_roller_table
 *set_undo on
+*set_update on

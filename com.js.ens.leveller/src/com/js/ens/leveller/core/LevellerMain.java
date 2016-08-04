@@ -27,6 +27,7 @@ import com.js.ens.leveller.proc.main_flat;
 import com.js.ens.leveller.proc.main_islandGutter;
 import com.js.ens.leveller.proc.main_partialGutter;
 import com.js.ens.leveller.proc.main_singleGutter;
+import com.js.ens.leveller.procs.ProcMaker;
 import com.js.io.Reader;
 import com.js.io.Writer;
 import com.js.parser.ParserDefault;
@@ -5557,7 +5558,7 @@ public class LevellerMain {
 			deleteOldFiles();
 			
 			this.SaveLeveller();
-			
+			/*
 			if(this.comboType.equals(ComboLabel.TYPE1)){
 				main_flat mainFlatProc = new main_flat();
 				mainFlatProc.running();				
@@ -5580,6 +5581,10 @@ public class LevellerMain {
 				main_islandGutter mainIslandGutter = new main_islandGutter();
 				mainIslandGutter.running();
 			}
+			*/
+			String procFolder = myUtil.setPath(this.workspace, "proc");
+			ProcMaker obj = new ProcMaker();
+			obj.running("3D", this.comboType, procFolder);
 			
 		}catch(Exception e){
 			String msg = "ERROR - Export files";

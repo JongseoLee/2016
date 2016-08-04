@@ -104,3 +104,7 @@
 %UpperRollDataField%
 |Lower Roll Table
 %LowerRollDataField%
+
+|Define Roll Crown
+*eval_define urcrown %urcrwon
+*eval_define lrcrown %lrcrown

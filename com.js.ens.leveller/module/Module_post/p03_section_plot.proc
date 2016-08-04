@@ -1,0 +1,112 @@
+*set_nodes off
+*set_points off
+*set_curves off
+*set_surfaces off
+*set_deformed on
+|*edges_outline *find_solid_outline
+*regenerate
+*colormap 2
+*show_view 1
+*reset_view
+*select_sets sec_lle
+*visible_selected
+*fill_view
+*zoom_in
+*zoom_in
+*zoom_in
+*zoom_in
+*post_contour_bands
+*post_value Comp 11 of Stress
+*image_save_gif 1 sec_lle_sxx.gif yes
+*post_value Comp 22 of Stress
+*image_save_gif 1 sec_lle_syy.gif yes
+*post_value Comp 33 of Stress
+*image_save_gif 1 sec_lle_szz.gif yes
+*select_sets sec_llq
+*visible_selected
+*post_value Comp 11 of Stress
+*image_save_gif 1 sec_llq_sxx.gif yes
+*post_value Comp 22 of Stress
+*image_save_gif 1 sec_llq_syy.gif yes
+*post_value Comp 33 of Stress
+*image_save_gif 1 sec_llq_szz.gif yes
+*select_sets sec_lc
+*visible_selected
+*post_value Comp 11 of Stress
+*image_save_gif 1 sec_lc_sxx.gif yes
+*post_value Comp 22 of Stress
+*image_save_gif 1 sec_lc_syy.gif yes
+*post_value Comp 33 of Stress
+*image_save_gif 1 sec_lc_szz.gif yes
+*select_sets sec_lrq
+*visible_selected
+*post_value Comp 11 of Stress
+*image_save_gif 1 sec_lrq_sxx.gif yes
+*post_value Comp 22 of Stress
+*image_save_gif 1 sec_lrq_syy.gif yes
+*post_value Comp 33 of Stress
+*image_save_gif 1 sec_lrq_szz.gif yes
+*select_sets sec_lre
+*visible_selected
+*post_value Comp 11 of Stress
+*image_save_gif 1 sec_lre_sxx.gif yes
+*post_value Comp 22 of Stress
+*image_save_gif 1 sec_lre_syy.gif yes
+*post_value Comp 33 of Stress
+*image_save_gif 1 sec_lre_szz.gif yes
+*show_view 3
+*reset_view
+*select_sets sec_tc
+*visible_selected
+*rot_model_cspace_z_for
+*rot_model_cspace_z_for
+*rot_model_cspace_z_for
+*rot_model_cspace_z_for
+*rot_model_cspace_z_for
+*rot_model_cspace_z_for
+*rot_model_cspace_z_for
+*rot_model_cspace_z_for
+*rot_model_cspace_z_for
+*fill_view
+*zoom_in
+*zoom_in
+*zoom_in
+*zoom_in
+*post_value Comp 11 of Stress
+*image_save_gif 3 sec_tc_sxx.gif yes
+*post_value Comp 22 of Stress
+*image_save_gif 3 sec_tc_syy.gif yes
+*post_value Comp 33 of Stress
+*image_save_gif 3 sec_tc_szz.gif yes
+*select_sets sec_tfq
+*visible_selected
+*post_value Comp 11 of Stress
+*image_save_gif 3 sec_tfq_sxx.gif yes
+*post_value Comp 22 of Stress
+*image_save_gif 3 sec_tfq_syy.gif yes
+*post_value Comp 33 of Stress
+*image_save_gif 3 sec_tfq_szz.gif yes
+*select_sets sec_tc
+*visible_selected
+*post_value Comp 11 of Stress
+*image_save_gif 3 sec_tc_sxx.gif yes
+*post_value Comp 22 of Stress
+*image_save_gif 3 sec_tc_syy.gif yes
+*post_value Comp 33 of Stress
+*image_save_gif 3 sec_tc_szz.gif yes
+*select_sets sec_trq
+*visible_selected
+*post_value Comp 11 of Stress
+*image_save_gif 3 sec_trq_sxx.gif yes
+*post_value Comp 22 of Stress
+*image_save_gif 3 sec_trq_syy.gif yes
+*post_value Comp 33 of Stress
+*image_save_gif 3 sec_trq_szz.gif yes
+*select_sets sec_tre
+*visible_selected
+*post_value Comp 11 of Stress
+*image_save_gif 3 sec_tre_sxx.gif yes
+*post_value Comp 22 of Stress
+*image_save_gif 3 sec_tre_syy.gif yes
+*post_value Comp 33 of Stress
+*image_save_gif 3 sec_tre_szz.gif yes

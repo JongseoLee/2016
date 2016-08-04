@@ -1,6 +1,30 @@
 from py_mentat import *
 from py_post import *
 
+def get_motion_info() :
+   mvar=[]
+   u_roll_no = py_get_int("u_roll_no")
+   l_roll_no = py_get_int("l_roll_no")
+   URM_ent = py_get_float("URM_ent")
+   URM_exit = py_get_float("URM_exit")
+   URM_ts = py_get_float("URM_ts")
+   URM_te = py_get_float("URM_te")
+   LRM_ent = py_get_float("LRM_ent")
+   LRM_exit = py_get_float("LRM_exit")
+   LRM_ts = py_get_float("LRM_ts")
+   LRM_te = py_get_float("LRM_te")
+   mvar.append(u_roll_no)
+   mvar.append(l_roll_no) 
+   mvar.append(URM_ent)
+   mvar.append(URM_exit)
+   mvar.append(URM_ts)
+   mvar.append(URM_te)      
+   mvar.append(LRM_ent)
+   mvar.append(LRM_exit)
+   mvar.append(LRM_ts)
+   mvar.append(LRM_te)      
+   return mvar
+
 def create_nodes(x,y,z,sn) :
    py_send("*add_nodes %f , %f , %f " %(x, y ,z))  # n0 : Center Node of Roll
    py_send("*add_nodes %f , %f , %f " %(x+50.0, y ,z)) # n1 : Aux. Node of Roll 
@@ -26,7 +50,7 @@ def create_nodes(x,y,z,sn) :
      py_send("*add_nodes %f , %f , %f " %(x-50.0, y-25.0 ,z+50.0)) # n9 : 8th node of spring element
      py_send("*add_nodes %f , %f , %f " %(x, y-25.0 ,z))  # n10 : Fixed Point of Roll
 
-def create_spring(n0,e0,sn,nodes_up,nodes_low) :
+def create_spring(n0,e0,sn,nodes_up,nodes_low,mvar) :
   cname=sn.split("_")
   py_send("*add_elements %i %i %i %i %i %i %i %i " %(n0+2,n0+3,n0+4,n0+5,n0+6,n0+7,n0+8,n0+9))
   py_send("*new_rbe2 *rbe2_name rbe2_"+sn+"_spring ")
@@ -42,13 +66,23 @@ def create_spring(n0,e0,sn,nodes_up,nodes_low) :
       py_send("*edit_mater upper_dummy_mat ")
       py_send("*add_mater_elements %i #" %e0 )
       py_send("*edit_apply Upper_roll_rot ")
-      py_send("*add_apply_nodes %i #" %(n0+1))      
+      py_send("*add_apply_nodes %i #" %(n0+1)) 
+      val=mvar[2]+(mvar[3]-mvar[2])*((int(cname[1])-1.0)/(mvar[0]-1))
+      print "Upper Roll Motion",cname[1],mvar[0],mvar[2],mvar[3],val           
+      tname="urmotion_bc"
+      create_roll_motion_bcs(sn,tname,val)
+      py_send("add_apply_nodes %d # "%(n0+10))
   if (cname[0]== "LowerRoll" ) :      
       nodes_low.append(n0)
       py_send("*edit_mater lower_dummy_mat ")
       py_send("*add_mater_elements %i #" %e0 )
       py_send("*edit_apply Lower_roll_rot ")
       py_send("*add_apply_nodes %i #" %(n0+1)) 
+      val=mvar[6]+(mvar[7]-mvar[6])*((int(cname[1])-1.0)/(mvar[1]-1))
+      print "Lower Roll Motion",cname[1],mvar[1],mvar[6],mvar[7],val            
+      tname="urmotion_bc"
+      create_roll_motion_bcs(sn,tname,val) 
+      py_send("add_apply_nodes %d # "%(n0+10))
   py_send("*edit_apply Fix_spring ")
   py_send("*add_apply_nodes %i # " %(n0+10) )
   py_send("*edit_apply Fix_roll ")
@@ -116,14 +150,19 @@ def change_cbody_control(n0,n2) :
     print "  Contact body is changed to load Control "
 
 def create_bcs(uv,lv) :
+#
+# Create Fix Spring BCS (X,Z,RX,RY,RZ): Fix_spring
+# Create Fix Roll BCS (X,Z)  Y is supported by Spring : Fix_roll
+# Create Rotation Roll BCS (RX,RY,RZ) : Upper_roll_rot & Lower_roll_rot
+#
     py_send("*new_apply *apply_type fixed_displacement ")
     py_send("*apply_name Fix_spring ")
     py_send("*apply_dof x *apply_dof_value x ")
-    py_send("*apply_dof y *apply_dof_value y ")
+    # py_send("*apply_dof y *apply_dof_value y ")
     py_send("*apply_dof z *apply_dof_value z ")
     py_send("*apply_dof rx *apply_dof_value rx ")
     py_send("*apply_dof ry *apply_dof_value ry ")
-    py_send("*apply_dof rz *apply_dof_value rz ")
+    py_send("*apply_dof rz *apply_dof_value rz ")	
     py_send("*new_apply *apply_type fixed_displacement ") 
     py_send("*apply_name Fix_roll ")
     py_send("*apply_dof x *apply_dof_value x ")
@@ -145,21 +184,13 @@ def create_bcs(uv,lv) :
     py_send("*apply_dof z *apply_dof_value z %f" %lv)
     py_send("*apply_dof_table z rotation_table ")
 
+def create_roll_motion_bcs(sn,tname,val) :
+    py_send("*new_apply *apply_type fixed_displacement ")
+    py_send("*apply_name Fix_spring_%s " %sn)
+    py_send("*apply_dof y *apply_dof_value y %f" %val)
+    py_send("*apply_dof_table y %s" %tname)
 
-def apply_bcs(n0,n1,n2,sn) :
-    py_send("*edit_apply Fix_spring ")
-    py_send("*add_apply_nodes %d  #" %n1)
-    py_send("*edit_apply Fix_roll ")
-    py_send("*add_apply_nodes %d  #" %n0)
-    cname=sn.split("_")
-    if (cname[0]== "UpperRoll" ) :
-      py_send("*edit_apply Upper_roll_rot ")
-      py_send("*add_apply_nodes %d #" %n2)
-    if (cname[0]== "LowerRoll" ) :      
-      py_send("*edit_apply Lower_roll_rot ")
-      py_send("*add_apply_nodes %d #" %n2)
-
-def change_option () :
+def change_option() :
 #    py_send("*identify_applys *regen ")
     py_send("*edit_loadcase levelling ")
     py_send("*add_loadcase_loads Fix_spring ")
@@ -213,8 +244,28 @@ def add_tail_dummy() :
     py_send("*mater_option structural:thermal_expansion:off ")
     py_send("*add_mater_elements all_visible ")
     py_send("*select_clear *invisible_selected  ")
+
+
+def create_rmotion_bc_table(var) :
+   py_send("*new_md_table 1 1 ")
+   py_send("*table_name urmotion_bc ")
+   py_send("*set_md_table_type 1 time ")
+   py_send("*table_add ")
+   py_send("0  0 ")
+   py_send("%s 0 " %var[2])
+   py_send("%s+%s 1 " %(var[2],var[3]))
+   py_send("%s+%s+1.0 1 " %(var[2],var[3]))
+   py_send("*new_md_table 1 1 ")
+   py_send("*table_name lrmotion_bc ")
+   py_send("*set_md_table_type 1 time ")
+   py_send("*table_add ")
+   py_send("0  0 ")
+   py_send("%s 0 " %var[6])
+   py_send("%s+%s 1 " %(var[6],var[7]))
+   py_send("%s+%s+1.0 1 " %(var[6],var[7]))    
     
 def main():
+  mvar=get_motion_info()
   nodes_up=[]
   nodes_low=[]
   py_send("*set_undo off  *set_update off ")
@@ -228,8 +279,9 @@ def main():
   upper_v = py_get_float("cbody_par(%s,vrot)" % uname)
   lower_v = py_get_float("cbody_par(%s,vrot)" % lname)  
   # print upper_v, lower_v
-  create_bcs(upper_v,lower_v) # Spring Support Roll Rotation & Roll BCs 
   create_dummy_mats()
+  create_bcs(upper_v,lower_v) # Spring Support Roll Rotation & Roll BCs   
+  create_rmotion_bc_table(mvar)   
   py_send("*set_element_class hex8 ")  
   for i in range(2,nbody):
     sn = py_get_string("cbody_name_index(%d)" % i)
@@ -242,16 +294,16 @@ def main():
     py_send("*edit_contact_body %s " % sn)
     create_nodes(cx,cy,cz,sn)
     n0,e0=nnode+(i-2)*11+1,nelem+(i-2)+1
-    create_spring(n0,e0,sn,nodes_up,nodes_low)
+    create_spring(n0,e0,sn,nodes_up,nodes_low,mvar)
     change_cbody_control(n0,n0+1)
-#    apply_bcs(n0,n1,n2,sn) 
     print " Contact Body ", i, " Id ",id, " Name ", sn  
     print " Contact Body ",i," Center :",cx,cy,cz
 #    print nodes_up, nodes_low
 
-  change_option ()
+  change_option()
   create_post_proc(nodes_up,nodes_low)
   # add_tail_dummy()    
+  py_send("*define m_control load")
   py_send("*set_undo on  *set_update on ")   
 
 if __name__ == '__main__':

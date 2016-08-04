@@ -81,7 +81,7 @@ def add_contact(name,px,py,pz,tname,m_val) :
     py_send("*edit_contact_table ctable1 ")
     py_send("*ctable_entry plate %s " %name)
     py_send("*contact_table_option plate %s contact:on " %name)
-    py_send("*prog_string ctable:old_interact friction *ctable_entry_interact plate %s " %name )
+    py_send("*prog_string ctable:old_interact no_fric *ctable_entry_interact plate %s " %name )
 
 def hd_roll_gen(rname,Dia,pitch,pos,fr_flag,l_flag,mvar) :
    cx=py_get_float("cbody_par(%s,cx)" %rname)
@@ -136,25 +136,28 @@ def hd_roll_gen(rname,Dia,pitch,pos,fr_flag,l_flag,mvar) :
 
    
 def create_hd_roll(var,mvar) :
-
 #  Create Table for Motion of Rolls
    rname=""
-   if var[2] =="none" :
+   hd_loc= var[2]
+   hd_loc=hd_loc.strip()
+   if hd_loc =="none" :
       print " Hold Down Roll is not created "
-   if var[2] =="upper" :
+   if hd_loc =="upper" :
       print " Hold Down Roll is created at Upper "
       rname="UpperRoll" 
       rnamef = rname+"_1"      
-      hd_roll_gen(rnamef,var[3],var[4],var[5],0,0,mvar)
+      l_flag=0
+      hd_roll_gen(rnamef,var[3],var[4],var[5],0,l_flag,mvar)
       rnamer = rname+"_"+str(var[0])
-      hd_roll_gen(rnamer,var[6],-var[7],-var[8],1,0,mvar)
-   elif var[2] =="lower" :
+      hd_roll_gen(rnamer,var[6],-var[7],var[8],1,l_flag,mvar)
+   elif hd_loc =="lower" :
       print " Hold Down Roll is created at lower "
       rname="LowerRoll"   
       rnamef = rname+"_1"
-      hd_roll_gen(rnamef,var[3],var[4],var[5],0,1,mvar)            
+      l_flag=1 
+      hd_roll_gen(rnamef,var[3],var[4],var[5],0,l_flag,mvar)            
       rnamer = rname+"_"+str(var[1]) 
-      hd_roll_gen(rnamer,var[6],-var[7],var[8],1,1,mvar)           
+      hd_roll_gen(rnamer,var[6],-var[7],var[8],1,l_flag,mvar)           
    else :
       print " ERROR to define Upper & Lower " 
     
