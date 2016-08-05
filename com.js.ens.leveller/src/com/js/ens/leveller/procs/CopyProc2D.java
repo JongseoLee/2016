@@ -3,9 +3,11 @@ package com.js.ens.leveller.procs;
 import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
+import org.eclipse.swt.widgets.Display;
 
 import com.js.ens.leveller.core.ComboLabel;
 import com.js.ens.leveller.core.LevellerMain;
+import com.js.ens.leveller.dialog.MessageDlg;
 import com.js.io.Reader;
 import com.js.util.myUtil;
 
@@ -51,8 +53,17 @@ public class CopyProc2D {
 		this.sourceFilePahtList(filelistPath);
 		
 		for(int i=0;i<this.fullPathList.size();i++){
-			myUtil.fileCopy(this.fullPathList.get(i), this.destFullPathList.get(i));
-			log.info("* Export Proc File : "+myUtil.getFileName(this.destFullPathList.get(i)));
+			try{
+				myUtil.fileCopy(this.fullPathList.get(i), this.destFullPathList.get(i));
+				log.info("SUCCESS -  Copy Proc File \n path : "+myUtil.getFileName(this.destFullPathList.get(i)));	
+			}catch(Exception e){
+				String msg = "ERROR - Copy "+myUtil.getFileName(this.destFullPathList.get(i));
+				msg = msg +"\n"+e.getMessage();
+				MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
+				messageDlg.open();
+				log.error(msg);
+				LMain.getExportMSG().addData(msg);
+			}
 		}
 	}
 	
@@ -73,5 +84,9 @@ public class CopyProc2D {
 
 	public ArrayList<String> getFullPathList() {
 		return fullPathList;
+	}
+
+	public ArrayList<String> getDestFullPathList() {
+		return destFullPathList;
 	}
 }

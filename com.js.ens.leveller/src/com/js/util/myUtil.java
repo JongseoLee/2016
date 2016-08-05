@@ -102,7 +102,7 @@ public class myUtil {
 		File I = new File(deleteFileName);
 		I.delete();
 	}
-	 
+	
 	public static void fileCopy(String inFileName, String outFileName) {
 		try{
 			FileInputStream inputStream = new FileInputStream(inFileName);         
@@ -155,7 +155,18 @@ public class myUtil {
 		}
 		*/
 	 }
-	 
+	/*
+	public static void fileDelete(String path){
+		try{
+			File f = new File(path);
+			if(f.exists()){
+				f.delete();
+			}
+		}catch(Exception e){
+			
+		}
+	}
+	 */
 	public static void fileMove(String inFileName, String outFileName) {
 		try {
 			FileInputStream fis = new FileInputStream(inFileName);

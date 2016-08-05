@@ -6,4 +6,9 @@ public class mat04_poisson_flat {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void running(String path) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

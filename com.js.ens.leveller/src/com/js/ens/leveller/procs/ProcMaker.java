@@ -15,6 +15,25 @@ import com.js.ens.leveller.procs.twoD.Main_flat_2D;
 import com.js.ens.leveller.procs.twoD.Main_wave_2D;
 
 public class ProcMaker {
+	// 3D file name
+	public static String define_parameters	 			= "00_define_parameters.proc";
+	public static String a2_roll_gen 					= "a2_roll_gen.proc";
+	public static String a3_material_define 			= "a3_material_define.proc";
+	public static String mat01_elastic_modulus 			= "mat01_elastic_modulus.proc";
+	public static String mat01_elastic_modulus_const 	= "mat01_elastic_modulus_const.proc";
+	public static String mat02_flow_stress 				= "mat02_flow_stress.proc";
+	public static String mat02_flow_stress_const 		= "mat02_flow_stress_const.proc";
+	public static String mat03_thermal_expansion 		= "mat03_thermal_expansion.proc";
+	public static String mat03_thermal_expansion_const 	= "mat03_thermal_expansion_const.proc";
+	public static String mat04_poisson 					= "mat04_poisson.proc";
+	public static String mat04_poisson_const 			= "mat04_poisson_const.proc";
+	public static String mat05_mass_density 			= "mat05_mass_density.proc";
+	public static String a4_contact 					= "a4_contact.proc";
+	public static String a6_loadcase 					= "a6_loadcase.proc";
+	// 2D file name
+	
+
+	
 	//---------------------------------------------------------------------------
 	//---------------------------------------------------------------------------
 	//--------------------------------------------------------------------------
@@ -50,12 +69,11 @@ public class ProcMaker {
 	//---------------------------------------------------------------------------
 	//---------------------------------------------------------------------------
 	//---------------------------------------------------------------------------
-	/*
 	public static String textThicknessElementNum		= "%ElementNumberOfThicknessDirection%";
 	public static String textWidthAspectRatio			= "%AspectRatioOfWidthDirection%";
 	public static String textLengthAspectRatio			= "%AspectRatioOfLengthDirection%";
-	public static String textElementNumber				= "%NumberOfElements%";
-	*/
+	//public static String textElementNumber				= "%NumberOfElements%";
+	
 	//---------------------------------------------------------------------------
 	//---------------------------------------------------------------------------
 	//---------------------------------------------------------------------------
@@ -159,6 +177,7 @@ public class ProcMaker {
 	public static String changeMotionToLoadPy			= "%ChangeMotionToLoadPy%";
 	
 	private ArrayList<String> FullPathList = new ArrayList<String>();
+	private ArrayList<String> destFullPathList = new ArrayList<String>();
 	
 	public ProcMaker() {
 		// TODO Auto-generated constructor stub
@@ -166,7 +185,7 @@ public class ProcMaker {
 	
 	public void running(String levellerType, String comboType, String procFolder){
 		this.copyProc(levellerType, comboType, procFolder);
-		this.genProc(levellerType, comboType,procFolder);
+		this.genProc(levellerType, comboType);
 		
 	}
 	private void copyProc(String levellerType, String comboType, String procFolder){
@@ -174,14 +193,16 @@ public class ProcMaker {
 			CopyProc2D obj = new CopyProc2D(comboType,procFolder);
 			obj.running();
 			FullPathList = obj.getFullPathList();
+			destFullPathList = obj.getDestFullPathList();
 		}else if(levellerType.equals("3D")){
 			CopyProc3D obj = new CopyProc3D(comboType,procFolder);
 			obj.running();
 			FullPathList = obj.getFullPathList();
+			destFullPathList = obj.getDestFullPathList();
 		}
 		
 	}
-	private void genProc(String levellerType, String comboType, String prodFolder){
+	private void genProc(String levellerType, String comboType){
 		if(levellerType.equals("2D")){
 			if(comboType.equals(ComboLabel.TYPE1_2D)){
 				Main_flat_2D obj = new Main_flat_2D();
@@ -196,7 +217,7 @@ public class ProcMaker {
 		}else if(levellerType.equals("3D")){
 			if(comboType.equals(ComboLabel.TYPE1)){
 				Main_flat obj = new Main_flat();
-				obj.running();
+				obj.running(this.destFullPathList);
 			}else if(comboType.equals(ComboLabel.TYPE2)){
 				Main_edgewave obj = new Main_edgewave();
 				obj.running();

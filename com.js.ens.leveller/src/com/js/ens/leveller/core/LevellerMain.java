@@ -5623,7 +5623,7 @@ public class LevellerMain {
 			deleteOldFiles();
 			
 			this.SaveLeveller_2D();
-			
+			/*
 			if(this.comboType_2D.equals(ComboLabel.TYPE1)){
 				main_flat mainFlatProc = new main_flat();
 				mainFlatProc.running();				
@@ -5646,7 +5646,10 @@ public class LevellerMain {
 				main_islandGutter mainIslandGutter = new main_islandGutter();
 				mainIslandGutter.running();
 			}
-			
+			// */
+			String procFolder = myUtil.setPath(this.workspace, "proc");
+			ProcMaker obj = new ProcMaker();
+			obj.running("2D", this.comboType, procFolder);
 		}catch(Exception e){
 			e.printStackTrace();
 			String msg = "ERROR - Export files_2D";
