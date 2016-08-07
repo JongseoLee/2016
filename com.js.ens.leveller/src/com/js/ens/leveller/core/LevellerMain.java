@@ -20,13 +20,6 @@ import org.eclipse.swt.widgets.Table;
 import com.js.ens.leveller.View;
 import com.js.ens.leveller.dialog.MessageDlg;
 import com.js.ens.leveller.img.ImagePath;
-import com.js.ens.leveller.proc.main_centerWave;
-import com.js.ens.leveller.proc.main_doubleGutter;
-import com.js.ens.leveller.proc.main_edgeWave;
-import com.js.ens.leveller.proc.main_flat;
-import com.js.ens.leveller.proc.main_islandGutter;
-import com.js.ens.leveller.proc.main_partialGutter;
-import com.js.ens.leveller.proc.main_singleGutter;
 import com.js.ens.leveller.procs.ProcMaker;
 import com.js.io.Reader;
 import com.js.io.Writer;
@@ -101,8 +94,9 @@ public class LevellerMain {
 	private String textRollFriction;
 	private String textRollDiameter;
 	//update version2 2016.01.27
-	private String textRollCrown;
-	private String RollCrownType;
+	private String textUpperRollCrown;
+	private String textLowerRollCrown;
+	//private String RollCrownType;
 	private String textMillStiffness;
 	private String MillStiffnessType;
 	//update version3 2016.07.20
@@ -220,8 +214,9 @@ public class LevellerMain {
 	private String textRollFriction_2D;
 	private String textRollDiameter_2D;
 	//update version2 2016.01.27
-	private String textRollCrown_2D;
-	private String RollCrownType_2D;
+	private String textUpperRollCrown_2D;
+	private String textLowerRollCrown_2D;
+	//private String RollCrownType_2D;
 	private String textMillStiffness_2D;
 	private String MillStiffnessType_2D;
 	//update version3 2016.07.20
@@ -524,13 +519,16 @@ public class LevellerMain {
 		med.getTextRollFriction().setText(InitValueMap.get("RollFriction"));
 		med.getTextRollDiameter().setText(InitValueMap.get("RollDiameter"));
 		//update version2 2016.01.27
-		med.getTextRollCrown().setText(InitValueMap.get("RollCrown"));
-		med.getBtnRadioNone_RC().setSelection(false);
-		med.getBtnRadioApply_RC().setSelection(true);
+		//med.getTextRollCrown().setText(InitValueMap.get("RollCrown"));
+		med.getTextUpperRollCrown().setText(InitValueMap.get("UpperRollCrown"));
+		med.getTextLowerRollCrown().setText(InitValueMap.get("LowerRollCrown"));
+		//med.getBtnRadioNone_RC().setSelection(false);
+		//med.getBtnRadioApply_RC().setSelection(true);
 		med.getTextMillStiffness().setText(InitValueMap.get("MillStiffness"));
 		med.getBtnRadioRigid_MS().setSelection(false);
 		med.getBtnRadioSpring_MS().setSelection(true);
 		
+		/*
 		if(med.getBtnRadioNone_RC().getSelection()){
 			// None
 			med.getTextRollCrown().setText(InitValueMap.get("RollCrown"));
@@ -540,6 +538,7 @@ public class LevellerMain {
 			med.getTextRollCrown().setText(InitValueMap.get("RollCrown"));
 			med.getTextRollCrown().setEnabled(true);
 		}
+		*/
 		
 		if(med.getBtnRadioRigid_MS().getSelection()){
 			// Rigid
@@ -706,13 +705,15 @@ public class LevellerMain {
 		med.getTextRollFriction_2D().setText(InitValueMap.get("RollFriction_2D"));
 		med.getTextRollDiameter_2D().setText(InitValueMap.get("RollDiameter_2D"));
 		//update version2 2016.01.27
-		med.getTextRollCrown_2D().setText(InitValueMap.get("RollCrown_2D"));
-		med.getBtnRadioNone_RC_2D().setSelection(false);
-		med.getBtnRadioApply_RC_2D().setSelection(true);
+		//med.getTextRollCrown_2D().setText(InitValueMap.get("RollCrown_2D"));
+		med.getTextUpperRollCrown_2D().setText(InitValueMap.get("UpperRollCrown_2D"));
+		med.getTextLowerRollCrown_2D().setText(InitValueMap.get("LowerRollCrown_2D"));
+		//med.getBtnRadioNone_RC_2D().setSelection(false);
+		//med.getBtnRadioApply_RC_2D().setSelection(true);
 		med.getTextMillStiffness_2D().setText(InitValueMap.get("MillStiffness_2D"));
 		med.getBtnRadioRigid_MS_2D().setSelection(false);
 		med.getBtnRadioSpring_MS_2D().setSelection(true);
-		
+		/*
 		if(med.getBtnRadioNone_RC_2D().getSelection()){
 			// None
 			med.getTextRollCrown_2D().setText(InitValueMap.get("RollCrown_2D"));
@@ -722,7 +723,7 @@ public class LevellerMain {
 			med.getTextRollCrown_2D().setText(InitValueMap.get("RollCrown_2D"));
 			med.getTextRollCrown_2D().setEnabled(true);
 		}
-		
+		//*/
 		if(med.getBtnRadioRigid_MS_2D().getSelection()){
 			// Rigid
 			med.getTextMillStiffness_2D().setText(InitValueMap.get("MillStiffness_2D"));
@@ -1223,7 +1224,9 @@ public class LevellerMain {
 			this.textRollFriction = med.getTextRollFriction().getText().trim();
 			this.textRollDiameter = med.getTextRollDiameter().getText().trim();
 			//update version2 2016.01.27
-			this.textRollCrown = med.getTextRollCrown().getText().trim();
+			//this.textRollCrown = med.getTextRollCrown().getText().trim();
+			this.textUpperRollCrown = med.getTextUpperRollCrown().getText().trim();
+			this.textLowerRollCrown = med.getTextLowerRollCrown().getText().trim();
 			this.textMillStiffness = med.getTextMillStiffness().getText().trim();
 			
 			med.getTextRollLength().setText(this.textRollLength);
@@ -1269,7 +1272,9 @@ public class LevellerMain {
 			this.textRollFriction_2D = med.getTextRollFriction_2D().getText().trim();
 			this.textRollDiameter_2D = med.getTextRollDiameter_2D().getText().trim();
 			//update version2 2016.01.27
-			this.textRollCrown_2D = med.getTextRollCrown_2D().getText().trim();
+			//this.textRollCrown_2D = med.getTextRollCrown_2D().getText().trim();
+			this.textUpperRollCrown_2D = med.getTextUpperRollCrown_2D().getText().trim();
+			this.textLowerRollCrown_2D = med.getTextLowerRollCrown_2D().getText().trim();
 			this.textMillStiffness_2D = med.getTextMillStiffness_2D().getText().trim();
 			
 			med.getTextRollLength_2D().setText(this.textRollLength_2D);
@@ -2105,8 +2110,12 @@ public class LevellerMain {
 		this.textRollDiameter = null;
 		med.getTextRollDiameter().setText("");
 		//update version2 2017.01.27
-		this.textRollCrown = null;
-		med.getTextRollCrown().setText("");
+		//this.textRollCrown = null;
+		//med.getTextRollCrown().setText("");
+		this.textUpperRollCrown = null;
+		med.getTextUpperRollCrown().setText("");
+		this.textLowerRollCrown = null;
+		med.getTextLowerRollCrown().setText("");
 		this.textMillStiffness = null;
 		med.getTextMillStiffness().setText("");
 		
@@ -2310,8 +2319,12 @@ public class LevellerMain {
 		this.textRollDiameter_2D = null;
 		med.getTextRollDiameter_2D().setText("");
 		//update version2 2017.01.27
-		this.textRollCrown_2D = null;
-		med.getTextRollCrown_2D().setText("");
+		//this.textRollCrown_2D = null;
+		//med.getTextRollCrown_2D().setText("");
+		this.textUpperRollCrown_2D = null;
+		med.getTextUpperRollCrown_2D().setText("");
+		this.textLowerRollCrown_2D = null;
+		med.getTextLowerRollCrown_2D().setText("");
 		this.textMillStiffness_2D = null;
 		med.getTextMillStiffness_2D().setText("");
 		
@@ -2961,6 +2974,7 @@ public class LevellerMain {
 				
 			}
 			//update version2 2017.01.27
+			/*
 			else if(parsingDataList.get(0).equals(TextLabel.lblRollCrown)){
 				if(parsingDataList.size() == 2){
 					this.textRollCrown = parsingDataList.get(1);
@@ -2968,6 +2982,24 @@ public class LevellerMain {
 				}else {
 					this.textRollCrown = "No value";
 					med.getTextRollCrown().setText(this.textRollCrown);
+				}
+			}
+			//*/
+			else if(parsingDataList.get(0).equals(TextLabel.lblUpperRollCrown)){
+				if(parsingDataList.size() == 2){
+					this.textUpperRollCrown = parsingDataList.get(1);
+					med.getTextUpperRollCrown().setText(this.textUpperRollCrown);
+				}else {
+					this.textUpperRollCrown = "No value";
+					med.getTextUpperRollCrown().setText(this.textUpperRollCrown);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLowerRollCrown)){
+				if(parsingDataList.size() == 2){
+					this.textLowerRollCrown = parsingDataList.get(1);
+					med.getTextLowerRollCrown().setText(this.textLowerRollCrown);
+				}else {
+					this.textLowerRollCrown = "No value";
+					med.getTextLowerRollCrown().setText(this.textLowerRollCrown);
 				}
 			}else if(parsingDataList.get(0).equals(TextLabel.lblMillStiffness)){
 				if(parsingDataList.size() == 2){
@@ -2977,7 +3009,9 @@ public class LevellerMain {
 					this.textMillStiffness = "No value";
 					med.getTextMillStiffness().setText(this.textMillStiffness);
 				}
-			}else if(parsingDataList.get(0).equals(TextLabel.lblRollCrownType)){
+			}
+			/*
+			else if(parsingDataList.get(0).equals(TextLabel.lblRollCrownType)){
 				if(parsingDataList.size() == 2){
 					this.RollCrownType = parsingDataList.get(1);
 					if(this.RollCrownType.equals("None")){
@@ -2998,7 +3032,9 @@ public class LevellerMain {
 					med.getBtnRadioApply_RC().setSelection(true);
 					med.getTextRollCrown().setEnabled(true);
 				}
-			}else if(parsingDataList.get(0).equals(TextLabel.lblMillStiffnessType)){
+			}
+			//*/
+			else if(parsingDataList.get(0).equals(TextLabel.lblMillStiffnessType)){
 				if(parsingDataList.size() == 2){
 					this.MillStiffnessType = parsingDataList.get(1);
 					if(this.MillStiffnessType.equals("Rigid")){
@@ -3892,6 +3928,7 @@ public class LevellerMain {
 				
 			}
 			//update version2 2017.01.27
+			/*
 			else if(parsingDataList.get(0).equals(TextLabel.lblRollCrown_2D)){
 				if(parsingDataList.size() == 2){
 					this.textRollCrown_2D = parsingDataList.get(1);
@@ -3899,6 +3936,24 @@ public class LevellerMain {
 				}else {
 					this.textRollCrown_2D = "No value";
 					med.getTextRollCrown_2D().setText(this.textRollCrown_2D);
+				}
+			}
+			// */
+			else if(parsingDataList.get(0).equals(TextLabel.lblUpperRollCrown_2D)){
+				if(parsingDataList.size() == 2){
+					this.textUpperRollCrown_2D = parsingDataList.get(1);
+					med.getTextUpperRollCrown_2D().setText(this.textUpperRollCrown_2D);
+				}else {
+					this.textUpperRollCrown_2D = "No value";
+					med.getTextUpperRollCrown_2D().setText(this.textUpperRollCrown_2D);
+				}
+			}else if(parsingDataList.get(0).equals(TextLabel.lblLowerRollCrown_2D)){
+				if(parsingDataList.size() == 2){
+					this.textLowerRollCrown_2D = parsingDataList.get(1);
+					med.getTextLowerRollCrown_2D().setText(this.textLowerRollCrown_2D);
+				}else {
+					this.textLowerRollCrown_2D = "No value";
+					med.getTextLowerRollCrown_2D().setText(this.textLowerRollCrown_2D);
 				}
 			}else if(parsingDataList.get(0).equals(TextLabel.lblMillStiffness_2D)){
 				if(parsingDataList.size() == 2){
@@ -3908,7 +3963,9 @@ public class LevellerMain {
 					this.textMillStiffness_2D = "No value";
 					med.getTextMillStiffness_2D().setText(this.textMillStiffness_2D);
 				}
-			}else if(parsingDataList.get(0).equals(TextLabel.lblRollCrownType_2D)){
+			}
+			/*
+			else if(parsingDataList.get(0).equals(TextLabel.lblRollCrownType_2D)){
 				if(parsingDataList.size() == 2){
 					this.RollCrownType_2D = parsingDataList.get(1);
 					if(this.RollCrownType_2D.equals("None")){
@@ -3929,7 +3986,9 @@ public class LevellerMain {
 					med.getBtnRadioApply_RC_2D().setSelection(true);
 					med.getTextRollCrown_2D().setEnabled(true);
 				}
-			}else if(parsingDataList.get(0).equals(TextLabel.lblMillStiffnessType_2D)){
+			}
+			//*/
+			else if(parsingDataList.get(0).equals(TextLabel.lblMillStiffnessType_2D)){
 				if(parsingDataList.size() == 2){
 					this.MillStiffnessType_2D = parsingDataList.get(1);
 					if(this.MillStiffnessType_2D.equals("Rigid")){
@@ -4594,12 +4653,16 @@ public class LevellerMain {
 		this.textRollFriction = med.getTextRollFriction().getText().trim();
 		this.textRollDiameter = med.getTextRollDiameter().getText().trim();
 		//update version2 2016.01.27
+		/*
 		if(med.getBtnRadioNone_RC().getSelection()){
 			this.RollCrownType = med.getBtnRadioNone_RC().getText().trim();
 		}else{
 			this.RollCrownType = med.getBtnRadioApply_RC().getText().trim();
 		}
-		this.textRollCrown = med.getTextRollCrown().getText().trim();
+		// */
+		this.textUpperRollCrown = med.getTextUpperRollCrown().getText().trim();
+		this.textLowerRollCrown = med.getTextLowerRollCrown().getText().trim();
+		
 		if(med.getBtnRadioRigid_MS().getSelection()){
 			this.MillStiffnessType = med.getBtnRadioRigid_MS().getText().trim();
 		}else{
@@ -4621,8 +4684,9 @@ public class LevellerMain {
 		this.db.add(TextLabel.lblRollFriction+"="+this.textRollFriction);
 		this.db.add(TextLabel.lblRollDiameter+"="+this.textRollDiameter);
 		//update version2 2016.01.27
-		this.db.add(TextLabel.lblRollCrownType+"="+this.RollCrownType);
-		this.db.add(TextLabel.lblRollCrown+"="+this.textRollCrown);
+		//this.db.add(TextLabel.lblRollCrownType+"="+this.RollCrownType);
+		this.db.add(TextLabel.lblUpperRollCrown+"="+this.textUpperRollCrown);
+		this.db.add(TextLabel.lblLowerRollCrown+"="+this.textLowerRollCrown);
 		this.db.add(TextLabel.lblMillStiffnessType+"="+this.MillStiffnessType);
 		this.db.add(TextLabel.lblMillStiffness+"="+this.textMillStiffness);
 		//update version3 
@@ -4861,12 +4925,16 @@ public class LevellerMain {
 		this.textRollFriction_2D = med.getTextRollFriction_2D().getText().trim();
 		this.textRollDiameter_2D = med.getTextRollDiameter_2D().getText().trim();
 		//update version2 2016.01.27
+		/*
 		if(med.getBtnRadioNone_RC_2D().getSelection()){
 			this.RollCrownType_2D = med.getBtnRadioNone_RC_2D().getText().trim();
 		}else{
 			this.RollCrownType_2D = med.getBtnRadioApply_RC_2D().getText().trim();
 		}
-		this.textRollCrown_2D = med.getTextRollCrown_2D().getText().trim();
+		//*/
+		this.textUpperRollCrown_2D = med.getTextUpperRollCrown_2D().getText().trim();
+		this.textLowerRollCrown_2D = med.getTextLowerRollCrown_2D().getText().trim();
+		
 		if(med.getBtnRadioRigid_MS_2D().getSelection()){
 			this.MillStiffnessType_2D = med.getBtnRadioRigid_MS_2D().getText().trim();
 		}else{
@@ -4888,8 +4956,10 @@ public class LevellerMain {
 		this.db_2D.add(TextLabel.lblRollFriction_2D+"="+this.textRollFriction_2D);
 		this.db_2D.add(TextLabel.lblRollDiameter_2D+"="+this.textRollDiameter_2D);
 		//update version2 2016.01.27
-		this.db_2D.add(TextLabel.lblRollCrownType_2D+"="+this.RollCrownType_2D);
-		this.db_2D.add(TextLabel.lblRollCrown_2D+"="+this.textRollCrown_2D);
+		//this.db_2D.add(TextLabel.lblRollCrownType_2D+"="+this.RollCrownType_2D);
+		this.db_2D.add(TextLabel.lblUpperRollCrown_2D+"="+this.textUpperRollCrown_2D);
+		this.db_2D.add(TextLabel.lblLowerRollCrown_2D+"="+this.textLowerRollCrown_2D);
+		
 		this.db_2D.add(TextLabel.lblMillStiffnessType_2D+"="+this.MillStiffnessType_2D);
 		this.db_2D.add(TextLabel.lblMillStiffness_2D+"="+this.textMillStiffness_2D);
 		//update version3 
@@ -5127,12 +5197,16 @@ public class LevellerMain {
 		this.textRollFriction = med.getTextRollFriction().getText().trim();
 		this.textRollDiameter = med.getTextRollDiameter().getText().trim();
 		//update version2 2016.01.27
+		/*
 		if(med.getBtnRadioNone_RC().getSelection()){
 			this.RollCrownType = med.getBtnRadioNone_RC().getText().trim();
 		}else{
 			this.RollCrownType = med.getBtnRadioApply_RC().getText().trim();
 		}
-		this.textRollCrown = med.getTextRollCrown().getText().trim();
+		//*/
+		this.textUpperRollCrown = med.getTextUpperRollCrown().getText().trim();
+		this.textLowerRollCrown = med.getTextLowerRollCrown().getText().trim();
+		
 		if(med.getBtnRadioRigid_MS().getSelection()){
 			this.MillStiffnessType = med.getBtnRadioRigid_MS().getText().trim();
 		}else{
@@ -5153,8 +5227,9 @@ public class LevellerMain {
 		this.db_saveAs.add(TextLabel.lblRollFriction+"="+this.textRollFriction);
 		this.db_saveAs.add(TextLabel.lblRollDiameter+"="+this.textRollDiameter);
 		//update version2 2016.01.27
-		this.db_saveAs.add(TextLabel.lblRollCrownType+"="+this.RollCrownType);
-		this.db_saveAs.add(TextLabel.lblRollCrown+"="+this.textRollCrown);
+		//this.db_saveAs.add(TextLabel.lblRollCrownType+"="+this.RollCrownType);
+		this.db_saveAs.add(TextLabel.lblUpperRollCrown+"="+this.textUpperRollCrown);
+		this.db_saveAs.add(TextLabel.lblLowerRollCrown+"="+this.textLowerRollCrown);
 		this.db_saveAs.add(TextLabel.lblMillStiffnessType+"="+this.MillStiffnessType);
 		this.db_saveAs.add(TextLabel.lblMillStiffness+"="+this.textMillStiffness);
 		//update version3
@@ -5391,12 +5466,15 @@ public class LevellerMain {
 		this.textRollFriction_2D = med.getTextRollFriction_2D().getText().trim();
 		this.textRollDiameter_2D = med.getTextRollDiameter_2D().getText().trim();
 		//update version2 2016.01.27
+		/*
 		if(med.getBtnRadioNone_RC_2D().getSelection()){
 			this.RollCrownType_2D = med.getBtnRadioNone_RC_2D().getText().trim();
 		}else{
 			this.RollCrownType_2D = med.getBtnRadioApply_RC_2D().getText().trim();
 		}
-		this.textRollCrown_2D = med.getTextRollCrown_2D().getText().trim();
+		//*/
+		this.textUpperRollCrown_2D = med.getTextUpperRollCrown_2D().getText().trim();
+		this.textLowerRollCrown_2D = med.getTextLowerRollCrown_2D().getText().trim();
 		if(med.getBtnRadioRigid_MS_2D().getSelection()){
 			this.MillStiffnessType_2D = med.getBtnRadioRigid_MS_2D().getText().trim();
 		}else{
@@ -5418,8 +5496,9 @@ public class LevellerMain {
 		this.db_saveAs_2D.add(TextLabel.lblRollFriction_2D+"="+this.textRollFriction_2D);
 		this.db_saveAs_2D.add(TextLabel.lblRollDiameter_2D+"="+this.textRollDiameter_2D);
 		//update version2 2016.01.27
-		this.db_saveAs_2D.add(TextLabel.lblRollCrownType_2D+"="+this.RollCrownType_2D);
-		this.db_saveAs_2D.add(TextLabel.lblRollCrown_2D+"="+this.textRollCrown_2D);
+		//this.db_saveAs_2D.add(TextLabel.lblRollCrownType_2D+"="+this.RollCrownType_2D);
+		this.db_saveAs_2D.add(TextLabel.lblUpperRollCrown_2D+"="+this.textUpperRollCrown_2D);
+		this.db_saveAs_2D.add(TextLabel.lblLowerRollCrown_2D+"="+this.textLowerRollCrown_2D);
 		this.db_saveAs_2D.add(TextLabel.lblMillStiffnessType_2D+"="+this.MillStiffnessType_2D);
 		this.db_saveAs_2D.add(TextLabel.lblMillStiffness_2D+"="+this.textMillStiffness_2D);
 		//update version3 
@@ -5648,8 +5727,8 @@ public class LevellerMain {
 			}
 			// */
 			String procFolder = myUtil.setPath(this.workspace, "proc");
-			ProcMaker obj = new ProcMaker();
-			obj.running("2D", this.comboType, procFolder);
+			//ProcMaker obj = new ProcMaker();
+			//obj.running("2D", this.comboType, procFolder);
 		}catch(Exception e){
 			e.printStackTrace();
 			String msg = "ERROR - Export files_2D";
@@ -6075,12 +6154,20 @@ public class LevellerMain {
 		this.textRollDiameter = textRollDiameter;
 	}
 	
-	public String getTextRollCrown() {
-		return textRollCrown;
+	public String getTextUpperRollCrown() {
+		return textUpperRollCrown;
 	}
 
-	public void setTextRollCrown(String textRollCrown) {
-		this.textRollCrown = textRollCrown;
+	public void setTextUpperRollCrown(String textUpperRollCrown) {
+		this.textUpperRollCrown = textUpperRollCrown;
+	}
+	
+	public String getTextLowerRollCrown() {
+		return textLowerRollCrown;
+	}
+
+	public void setTextLowerRollCrown(String textLowerRollCrown) {
+		this.textLowerRollCrown = textLowerRollCrown;
 	}
 
 	public String getTextMillStiffness() {
@@ -6090,7 +6177,7 @@ public class LevellerMain {
 	public void setTextMillStiffness(String textMillStiffness) {
 		this.textMillStiffness = textMillStiffness;
 	}
-	
+	/*
 	public String getRollCrownType() {
 		return RollCrownType;
 	}
@@ -6098,7 +6185,7 @@ public class LevellerMain {
 	public void setRollCrownType(String rollCrownType) {
 		RollCrownType = rollCrownType;
 	}
-
+	//*/
 	public String getMillStiffnessType() {
 		return MillStiffnessType;
 	}
@@ -6780,14 +6867,23 @@ public class LevellerMain {
 		this.textRollDiameter_2D = textRollDiameter_2D;
 	}
 
-	public String getTextRollCrown_2D() {
-		return textRollCrown_2D;
+	public String getTextUpperRollCrown_2D() {
+		return textUpperRollCrown_2D;
 	}
 
-	public void setTextRollCrown_2D(String textRollCrown_2D) {
-		this.textRollCrown_2D = textRollCrown_2D;
+	public void setTextUpperRollCrown_2D(String textUpperRollCrown_2D) {
+		this.textUpperRollCrown_2D = textUpperRollCrown_2D;
+	}
+	
+	public String getTextLowerRollCrown_2D() {
+		return textLowerRollCrown_2D;
 	}
 
+	public void setTextLowerRollCrown_2D(String textLowerRollCrown_2D) {
+		this.textLowerRollCrown_2D = textLowerRollCrown_2D;
+	}
+
+	/*
 	public String getRollCrownType_2D() {
 		return RollCrownType_2D;
 	}
@@ -6795,6 +6891,7 @@ public class LevellerMain {
 	public void setRollCrownType_2D(String rollCrownType_2D) {
 		RollCrownType_2D = rollCrownType_2D;
 	}
+	//*/
 
 	public String getTextMillStiffness_2D() {
 		return textMillStiffness_2D;

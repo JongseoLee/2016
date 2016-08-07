@@ -62,8 +62,9 @@ public class TextLabel {
 	public static String lblExitLowerRollGap			= "Exit lower roll gap";
 	public static String lblRollFriction				= "Roll friction";
 	public static String lblRollDiameter				= "Roll Diameter";
-	public static String lblRollCrownType				= "Roll Crown Type";
-	public static String lblRollCrown					= "Roll Crown";
+	//public static String lblRollCrownType				= "Roll Crown Type";
+	public static String lblUpperRollCrown				= "Upper Roll Crown";
+	public static String lblLowerRollCrown				= "Lower Roll Crown";
 	public static String lblMillStiffnessType 			= "Mill Stiffness Type";
 	public static String lblMillStiffness				= "Mill Stiffness";
 	public static String btnCreateRoll					= "Create Roll";
@@ -194,8 +195,10 @@ public class TextLabel {
 	public static String lblExitLowerRollGap_2D			= "Exit lower roll gap_2D";
 	public static String lblRollFriction_2D				= "Roll friction_2D";
 	public static String lblRollDiameter_2D				= "Roll Diameter_2D";
-	public static String lblRollCrownType_2D				= "Roll Crown Type_2D";
-	public static String lblRollCrown_2D					= "Roll Crown_2D";
+	//public static String lblRollCrownType_2D				= "Roll Crown Type_2D";
+	//public static String lblRollCrown_2D					= "Roll Crown_2D";
+	public static String lblUpperRollCrown_2D				= "Upper Roll Crown_2D";
+	public static String lblLowerRollCrown_2D				= "Lower Roll Crown_2D";
 	public static String lblMillStiffnessType_2D 			= "Mill Stiffness Type_2D";
 	public static String lblMillStiffness_2D				= "Mill Stiffness_2D";
 	public static String btnCreateRoll_2D					= "Create Roll_2D";

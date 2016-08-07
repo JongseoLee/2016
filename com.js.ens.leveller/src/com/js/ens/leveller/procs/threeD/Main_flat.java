@@ -7,25 +7,14 @@ import org.eclipse.swt.widgets.Display;
 
 import com.js.ens.leveller.core.LevellerMain;
 import com.js.ens.leveller.dialog.MessageDlg;
-import com.js.ens.leveller.proc.ProcVariable;
 import com.js.ens.leveller.procs.ProcMaker;
 import com.js.ens.leveller.procs.threeD.flat.a2_roll_gen_flat;
 import com.js.ens.leveller.procs.threeD.flat.a3_material_define_flat;
 import com.js.ens.leveller.procs.threeD.flat.a4_contact_flat;
 import com.js.ens.leveller.procs.threeD.flat.a6_loadcase_flat;
 import com.js.ens.leveller.procs.threeD.flat.define_parameters_flat;
-import com.js.ens.leveller.procs.threeD.flat.mat01_elastic_modulus_const_flat;
-import com.js.ens.leveller.procs.threeD.flat.mat01_elastic_modulus_flat;
-import com.js.ens.leveller.procs.threeD.flat.mat02_flow_stress_const_flat;
-import com.js.ens.leveller.procs.threeD.flat.mat02_flow_stress_flat;
-import com.js.ens.leveller.procs.threeD.flat.mat03_thermal_expansion_const_flat;
-import com.js.ens.leveller.procs.threeD.flat.mat03_thermal_expansion_flat;
-import com.js.ens.leveller.procs.threeD.flat.mat04_poisson_const_flat;
-import com.js.ens.leveller.procs.threeD.flat.mat04_poisson_flat;
-import com.js.ens.leveller.procs.threeD.flat.mat05_mass_density_flat;
 import com.js.io.Reader;
 import com.js.io.Writer;
-import com.js.util.myUtil;
 
 public class Main_flat {
 	private Logger log = Logger.getLogger(Main_flat.class);
@@ -160,6 +149,17 @@ public class Main_flat {
 	}
 	
 	private void GenOtherProcs(){
+		ArrayList<String> matsPath = new ArrayList<String>();
+		matsPath.add(this.mat01_elastic_modulus_PATH);
+		matsPath.add(this.mat01_elastic_modulus_const_PATH);
+		matsPath.add(this.mat02_flow_stress_PATH);
+		matsPath.add(this.mat02_flow_stress_const_PATH);
+		matsPath.add(this.mat03_thermal_expansion_PATH);
+		matsPath.add(this.mat03_thermal_expansion_const_PATH);
+		matsPath.add(this.mat04_poisson_PATH);
+		matsPath.add(this.mat04_poisson_const_PATH);
+		matsPath.add(this.mat05_mass_density_PATH);
+		
 		//00_define_parameters.proc
 		define_parameters_flat DPObj = new define_parameters_flat();
 		DPObj.running(this.define_parameters_PATH);
@@ -168,58 +168,7 @@ public class Main_flat {
 		a2Obj.running(this.a2_roll_gen_PATH);
 		//a3_material_define.proc
 		a3_material_define_flat a3Obj = new a3_material_define_flat();
-		a3Obj.running(this.a3_material_define_PATH);
-		//mat01_~.proc
-		if(LMain.getYoungsModulusType().toLowerCase().equals("constant")){
-			mat01_elastic_modulus_const_flat EMObj = new mat01_elastic_modulus_const_flat();
-			EMObj.running(this.mat01_elastic_modulus_const_PATH);
-			myUtil.fileDelete(this.mat01_elastic_modulus_PATH);
-		}
-		//mat01_~_const.proc
-		else if(LMain.getYoungsModulusType().toLowerCase().equals("table")){
-			mat01_elastic_modulus_flat EMObj = new mat01_elastic_modulus_flat();
-			EMObj.running(this.mat01_elastic_modulus_PATH);
-			myUtil.fileDelete(this.mat01_elastic_modulus_const_PATH);
-		}
-		//mat02_~proc
-		if(LMain.getFlowStressType().toLowerCase().equals("constant")){
-			mat02_flow_stress_const_flat FSObj = new mat02_flow_stress_const_flat();
-			FSObj.running(this.mat02_flow_stress_const_PATH);
-			myUtil.fileDelete(this.mat02_flow_stress_PATH);
-		}
-		//mat02_~_const.proc
-		else if(LMain.getFlowStressType().toLowerCase().equals("table")){
-			mat02_flow_stress_flat FSObj = new mat02_flow_stress_flat();
-			FSObj.running(this.mat02_flow_stress_PATH);
-			myUtil.fileDelete(this.mat02_flow_stress_const_PATH);
-		}
-		//mat03_~proc
-		if(LMain.getThermalExpansionCoefficientType().toLowerCase().equals("constant")){
-			mat03_thermal_expansion_const_flat TECObj = new mat03_thermal_expansion_const_flat();
-			TECObj.running(this.mat03_thermal_expansion_const_PATH);
-			myUtil.fileDelete(this.mat03_thermal_expansion_PATH);
-		}
-		//mat03_~_const.proc
-		else if(LMain.getThermalExpansionCoefficientType().toLowerCase().equals("table")){
-			mat03_thermal_expansion_flat TECObj = new mat03_thermal_expansion_flat();
-			TECObj.running(this.mat03_thermal_expansion_PATH);
-			myUtil.fileDelete(this.mat03_thermal_expansion_const_PATH);
-		}
-		//mat04_~proc
-		if (LMain.getPoissonsRatioType().toLowerCase().equals("constant")) {
-			mat04_poisson_const_flat PObj = new mat04_poisson_const_flat();
-			PObj.running(this.mat04_poisson_const_PATH);
-			myUtil.fileDelete(this.mat04_poisson_PATH);
-		}
-		//mat04_~_const.proc
-		else if (LMain.getPoissonsRatioType().toLowerCase().equals("table")) {
-			mat04_poisson_flat PObj = new mat04_poisson_flat();
-			PObj.running(this.mat04_poisson_PATH);
-			myUtil.fileDelete(this.mat04_poisson_const_PATH);
-		}
-		//mat05_~proc
-		mat05_mass_density_flat MDObj = new mat05_mass_density_flat();
-		MDObj.running(this.mat05_mass_density_PATH);
+		a3Obj.running(this.a3_material_define_PATH, matsPath);
 		//a4_contact.proc
 		a4_contact_flat a4Obj = new a4_contact_flat();
 		a4Obj.running(this.a4_contact_PATH);

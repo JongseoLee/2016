@@ -53,7 +53,8 @@ EntryLowerRollGap=0.0
 ExitLowerRollGap=0.0 
 RollFriction=0.3
 RollDiameter=280.0
-RollCrown=0.0
+UpperRollCrown=-1.0
+LowerRollCrown=1.0
 MillStiffness=1.0e5 
 
 UpperEntryRollGapMovement=20.0
@@ -154,7 +155,8 @@ EntryLowerRollGap_2D=10
 ExitLowerRollGap_2D=11
 RollFriction_2D=12
 RollDiameter_2D=13
-RollCrown_2D=14
+UpperRollCrown_2D=14
+LowerRollCrown_2D=14
 MillStiffness_2D=15
 
 UpperEntryRollGapMovement_2D=16

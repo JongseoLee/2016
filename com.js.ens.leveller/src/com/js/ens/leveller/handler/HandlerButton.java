@@ -23,11 +23,15 @@ public class HandlerButton implements Listener {
 			med.getCustomBtnLower().execute();
 		}else if(event.widget == med.getBtnShowRollTable()){
 			med.getCustomBtnShowRollTable().execute();
-		}else if(event.widget == med.getBtnRadioNone_RC()){
+		}
+		/*
+		else if(event.widget == med.getBtnRadioNone_RC()){
 			med.getCustomBtnRadioNone_RC().execute();
 		}else if(event.widget == med.getBtnRadioApply_RC()){
 			med.getCustomBtnRadioApply_RC().execute();
-		}else if(event.widget == med.getBtnRadioRigid_MS()){
+		}
+		// */
+		else if(event.widget == med.getBtnRadioRigid_MS()){
 			med.getCustomBtnRadioRigid_MS().execute();
 		}else if(event.widget == med.getBtnRadioSpring_MS()){
 			med.getCustomBtnRadioSpring_MS().execute();
@@ -82,11 +86,15 @@ public class HandlerButton implements Listener {
 			med.getCustomBtnLower_2D().execute();
 		}else if(event.widget == med.getBtnShowRollTable_2D()){
 			med.getCustomBtnShowRollTable_2D().execute();
-		}else if(event.widget == med.getBtnRadioNone_RC_2D()){
+		}
+		/*
+		else if(event.widget == med.getBtnRadioNone_RC_2D()){
 			med.getCustomBtnRadioNone_RC_2D().execute();
 		}else if(event.widget == med.getBtnRadioApply_RC_2D()){
 			med.getCustomBtnRadioApply_RC_2D().execute();
-		}else if(event.widget == med.getBtnRadioRigid_MS_2D()){
+		}
+		//*/
+		else if(event.widget == med.getBtnRadioRigid_MS_2D()){
 			med.getCustomBtnRadioRigid_MS_2D().execute();
 		}else if(event.widget == med.getBtnRadioSpring_MS_2D()){
 			med.getCustomBtnRadioSpring_MS_2D().execute();

@@ -90,7 +90,7 @@ public class CustomButton implements ICommand {
 			ShowRollTableDlg showRollTableDlg = new ShowRollTableDlg(Display.getCurrent().getActiveShell());
 			showRollTableDlg.open();
 		}
-		
+		/*
 		if(widgetName.equals(Mediator.BUTTON_RadioNone_RC)){
 			med.getTextRollCrown().setEnabled(false);
 			med.getTextRollCrown().setText(InitValueMap.get("RollCrown"));
@@ -100,7 +100,7 @@ public class CustomButton implements ICommand {
 			med.getTextRollCrown().setEnabled(true);
 			med.getTextRollCrown().setText(InitValueMap.get("RollCrown"));
 		}
-		
+		//*/
 		if(widgetName.equals(Mediator.BUTTON_RadioRigid_MS)){
 			med.getTextMillStiffness().setEnabled(false);
 			med.getTextMillStiffness().setText(InitValueMap.get("MillStiffness"));
@@ -307,7 +307,7 @@ public class CustomButton implements ICommand {
 			ShowRollTable_2DDlg showRollTable_2DDlg = new ShowRollTable_2DDlg(Display.getCurrent().getActiveShell());
 			showRollTable_2DDlg.open();
 		}
-		
+		/*
 		if(widgetName.equals(Mediator.BUTTON_RadioNone_RC_2D)){
 			med.getTextRollCrown_2D().setEnabled(false);
 			med.getTextRollCrown_2D().setText(InitValueMap.get("RollCrown_2D"));
@@ -317,7 +317,7 @@ public class CustomButton implements ICommand {
 			med.getTextRollCrown_2D().setEnabled(true);
 			med.getTextRollCrown_2D().setText(InitValueMap.get("RollCrown_2D"));
 		}
-		
+		// */
 		if(widgetName.equals(Mediator.BUTTON_RadioRigid_MS_2D)){
 			med.getTextMillStiffness_2D().setEnabled(false);
 			med.getTextMillStiffness_2D().setText(InitValueMap.get("MillStiffness_2D"));
@@ -507,7 +507,7 @@ public class CustomButton implements ICommand {
 	public void setCustomWidget_btnSaveRoll(){
 		this.button = med.getBtnSaveRoll();
 	}
-	
+	/*
 	public void setCustomWidget_btnRadioNone_RC(){
 		this.button = med.getBtnRadioNone_RC();
 	}
@@ -515,7 +515,7 @@ public class CustomButton implements ICommand {
 	public void setCustomWidget_btnRadioApply_RC(){
 		this.button = med.getBtnRadioApply_RC();
 	}
-	
+	//*/
 	public void setCustomWidget_btnRadioRigid_MS(){
 		this.button = med.getBtnRadioRigid_MS();
 	}
@@ -636,7 +636,7 @@ public class CustomButton implements ICommand {
 	public void setCustomWidget_btnSaveRoll_2D(){
 		this.button = med.getBtnSaveRoll_2D();
 	}
-	
+	/*
 	public void setCustomWidget_btnRadioNone_RC_2D(){
 		this.button = med.getBtnRadioNone_RC_2D();
 	}
@@ -644,7 +644,7 @@ public class CustomButton implements ICommand {
 	public void setCustomWidget_btnRadioApply_RC_2D(){
 		this.button = med.getBtnRadioApply_RC_2D();
 	}
-	
+	//*/
 	public void setCustomWidget_btnRadioRigid_MS_2D(){
 		this.button = med.getBtnRadioRigid_MS_2D();
 	}

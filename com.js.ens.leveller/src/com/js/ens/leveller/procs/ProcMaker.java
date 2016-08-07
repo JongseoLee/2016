@@ -94,7 +94,8 @@ public class ProcMaker {
 	public static String textExitLowerRollGap			= "%ExitLowerRollGap%";
 	public static String textRollFriction				= "%RollFriction%";
 	public static String textRollDiameter				= "%RollDiameter%";
-	public static String textRollCrown					= "%RollCrown%";
+	public static String textUpperRollCrown				= "%UpperRollCrown%";
+	public static String textLowerRollCrown				= "%LowerRollCrown%";
 	public static String textMillStiffness				= "%MillStiffness%";
 	
 	public static String textUpperEntryRollGapMovement		= "%UpperEntryRollGapMovement%";
@@ -220,22 +221,22 @@ public class ProcMaker {
 				obj.running(this.destFullPathList);
 			}else if(comboType.equals(ComboLabel.TYPE2)){
 				Main_edgewave obj = new Main_edgewave();
-				obj.running();
+				obj.running(this.destFullPathList);
 			}else if(comboType.equals(ComboLabel.TYPE3)){
 				Main_centerwave obj = new Main_centerwave();
-				obj.running();
+				obj.running(this.destFullPathList);
 			}else if(comboType.equals(ComboLabel.TYPE4)){
 				Main_singlegutter obj = new Main_singlegutter();
-				obj.running();
+				obj.running(this.destFullPathList);
 			}else if(comboType.equals(ComboLabel.TYPE5)){
 				Main_partialgutter obj = new Main_partialgutter();
-				obj.running();
+				obj.running(this.destFullPathList);
 			}else if(comboType.equals(ComboLabel.TYPE6)){
 				Main_doublegutter obj = new Main_doublegutter();
-				obj.running();
+				obj.running(this.destFullPathList);
 			}else if(comboType.equals(ComboLabel.TYPE7)){
 				Main_islandgutter obj = new Main_islandgutter();
-				obj.running();
+				obj.running(this.destFullPathList);
 			}
 		}
 		

@@ -106,7 +106,9 @@ public class View extends ViewPart {
 	private Text textExitLowerRollGap_2D;
 	private Text textRollFriction_2D;
 	private Text textRollDiameter_2D;
-	private Text textRollCrown_2D;
+	//private Text textRollCrown_2D;
+	private Text textUpperRollCrown_2D;
+	private Text textLowerRollCrown_2D;
 	private Text textMillStiffness_2D;
 	private Table tableUpperRoll_2D;
 	private Table tableLowerRoll_2D;
@@ -195,7 +197,8 @@ public class View extends ViewPart {
 	private Text textExitLowerRollGap;
 	private Text textRollFriction;
 	private Text textRollDiameter;
-	private Text textRollCrown;
+	private Text textUpperRollCrown;
+	private Text textLowerRollCrown;
 	private Text textMillStiffness;
 	private Table tableUpperRoll;
 	private Table tableLowerRoll;
@@ -910,7 +913,7 @@ public class View extends ViewPart {
 		fd_textRollLength_2D.left = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.LEFT);
 		fd_textRollLength_2D.right = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.RIGHT);
 		textRollLength_2D.setLayoutData(fd_textRollLength_2D);
-		textRollLength_2D.setEnabled(false);
+		//textRollLength_2D.setEnabled(false);
 		
 		Label lblEntryUpperRollGap_2D = new Label(compositeRollParameter_2D, SWT.NONE);
 		FormData fd_lblEntryUpperRollGap_2D = new FormData();
@@ -1008,18 +1011,27 @@ public class View extends ViewPart {
 		textRollDiameter_2D.setLayoutData(fd_textRollDiameter_2D);
 		
 		
-		Label lblRollCrownType_2D = new Label(compositeRollParameter_2D,SWT.NONE);
-		FormData fd_lblRollCrownType_2D = new FormData();
-		fd_lblRollCrownType_2D.top = new FormAttachment(lblRollFriction_2D,10);
-		fd_lblRollCrownType_2D.left = new FormAttachment(lblRollFriction_2D, 0, SWT.LEFT);
-		lblRollCrownType_2D.setLayoutData(fd_lblRollCrownType_2D);
-		lblRollCrownType_2D.setText(TextLabel_UI.lblRollCrownType_2D);
+		Label lblUpperRollCrown_2D = new Label(compositeRollParameter_2D,SWT.NONE);
+		FormData fd_lblUpperRollCrown_2D = new FormData();
+		fd_lblUpperRollCrown_2D.top = new FormAttachment(lblRollFriction_2D,10);
+		fd_lblUpperRollCrown_2D.left = new FormAttachment(lblRollFriction_2D, 0, SWT.LEFT);
+		lblUpperRollCrown_2D.setLayoutData(fd_lblUpperRollCrown_2D);
+		lblUpperRollCrown_2D.setText(TextLabel_UI.lblUpperRollCrown_2D);
 		
+		textUpperRollCrown_2D = new Text(compositeRollParameter_2D, SWT.BORDER);
+		med.setTextUpperRollCrown_2D(textUpperRollCrown_2D);
+		FormData fd_textUpperRollCrown_2D = new FormData();
+		fd_textUpperRollCrown_2D.top = new FormAttachment(lblUpperRollCrown_2D, -2, SWT.TOP);
+		fd_textUpperRollCrown_2D.left = new FormAttachment(spinnerUpperRollNum_2D, 0, SWT.LEFT);
+		fd_textUpperRollCrown_2D.right = new FormAttachment(spinnerUpperRollNum_2D, 0, SWT.RIGHT);
+		textUpperRollCrown_2D.setLayoutData(fd_textUpperRollCrown_2D);
+		
+		/*
 		Composite groupRollCrown_2D = new Composite(compositeRollParameter_2D, SWT.NONE);
 		groupRollCrown_2D.setLayout(new FormLayout());
 		FormData fd_groupRollCrown_2D = new FormData();
-		fd_groupRollCrown_2D.top = new FormAttachment(lblRollCrownType_2D, 0,SWT.TOP);
-		fd_groupRollCrown_2D.left = new FormAttachment(lblRollCrownType_2D, 15,SWT.RIGHT);
+		fd_groupRollCrown_2D.top = new FormAttachment(lblUpperRollCrown_2D, 0,SWT.TOP);
+		fd_groupRollCrown_2D.left = new FormAttachment(lblUpperRollCrown_2D, 15,SWT.RIGHT);
 		fd_groupRollCrown_2D.right = new FormAttachment(spinnerUpperRollNum_2D, 0, SWT.RIGHT);
 		groupRollCrown_2D.setLayoutData(fd_groupRollCrown_2D);
 		
@@ -1047,26 +1059,26 @@ public class View extends ViewPart {
 		btnRadioApply_RC_2D.setLayoutData(fd_btnRadioApply_RC_2D);
 		btnRadioApply_RC_2D.setText(TextLabel_UI.btnRadioApply_2D);
 		btnRadioApply_RC_2D.setSelection(true);
+		// */
+		Label lblLowerRollCrown_2D = new Label(compositeRollParameter_2D, SWT.NONE);
+		FormData fd_lblLowerRollCrown_2D = new FormData();
+		fd_lblLowerRollCrown_2D.top = new FormAttachment(lblUpperRollCrown_2D, 0,SWT.TOP);
+		fd_lblLowerRollCrown_2D.left = new FormAttachment(lblLowerRollNumber_2D, 0, SWT.LEFT);
+		lblLowerRollCrown_2D.setLayoutData(fd_lblLowerRollCrown_2D);
+		lblLowerRollCrown_2D.setText(TextLabel_UI.lblLowerRollCrown_2D);
 		
-		Label lblRollCrown_2D = new Label(compositeRollParameter_2D, SWT.NONE);
-		FormData fd_lblRollCrown_2D = new FormData();
-		fd_lblRollCrown_2D.top = new FormAttachment(lblRollCrownType_2D, 0,SWT.TOP);
-		fd_lblRollCrown_2D.left = new FormAttachment(lblLowerRollNumber_2D, 0, SWT.LEFT);
-		lblRollCrown_2D.setLayoutData(fd_lblRollCrown_2D);
-		lblRollCrown_2D.setText(TextLabel_UI.lblRollCrown_2D);
-		
-		textRollCrown_2D = new Text(compositeRollParameter_2D, SWT.BORDER);
-		med.setTextRollCrown_2D(textRollCrown_2D);
-		FormData fd_textRollCrown_2D = new FormData();
-		fd_textRollCrown_2D.top = new FormAttachment(lblRollCrown_2D, -2, SWT.TOP);
-		fd_textRollCrown_2D.left = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.LEFT);
-		fd_textRollCrown_2D.right = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.RIGHT);
-		textRollCrown_2D.setLayoutData(fd_textRollCrown_2D);
+		textLowerRollCrown_2D = new Text(compositeRollParameter_2D, SWT.BORDER);
+		med.setTextLowerRollCrown_2D(textLowerRollCrown_2D);
+		FormData fd_textLowerRollCrown_2D = new FormData();
+		fd_textLowerRollCrown_2D.top = new FormAttachment(lblLowerRollCrown_2D, -2, SWT.TOP);
+		fd_textLowerRollCrown_2D.left = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.LEFT);
+		fd_textLowerRollCrown_2D.right = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.RIGHT);
+		textLowerRollCrown_2D.setLayoutData(fd_textLowerRollCrown_2D);
 		
 		Label lblMillStiffnessType_2D = new Label(compositeRollParameter_2D, SWT.NONE);
 		FormData fd_lblMillStiffnessType_2D = new FormData();
-		fd_lblMillStiffnessType_2D.top = new FormAttachment(lblRollCrownType_2D, 10);
-		fd_lblMillStiffnessType_2D.left = new FormAttachment(lblRollCrownType_2D, 0, SWT.LEFT);
+		fd_lblMillStiffnessType_2D.top = new FormAttachment(lblUpperRollCrown_2D, 10);
+		fd_lblMillStiffnessType_2D.left = new FormAttachment(lblUpperRollCrown_2D, 0, SWT.LEFT);
 		lblMillStiffnessType_2D.setLayoutData(fd_lblMillStiffnessType_2D);
 		lblMillStiffnessType_2D.setText(TextLabel_UI.lblMillStiffnessType_2D);
 		
@@ -1074,7 +1086,7 @@ public class View extends ViewPart {
 		groupMillStiffness_2D.setLayout(new FormLayout());
 		FormData fd_groupMillStiffness_2D = new FormData();
 		fd_groupMillStiffness_2D.top = new FormAttachment(lblMillStiffnessType_2D, 0,SWT.TOP);
-		fd_groupMillStiffness_2D.left = new FormAttachment(groupRollCrown_2D, 0, SWT.LEFT);
+		fd_groupMillStiffness_2D.left = new FormAttachment(lblMillStiffnessType_2D, 15,SWT.RIGHT);
 		fd_groupMillStiffness_2D.right = new FormAttachment(spinnerUpperRollNum_2D, 0, SWT.RIGHT);
 		groupMillStiffness_2D.setLayoutData(fd_groupMillStiffness_2D);
 		
@@ -2569,7 +2581,7 @@ public class View extends ViewPart {
 		fd_textRollLength.left = new FormAttachment(spinnerLowerRollNum, 0, SWT.LEFT);
 		fd_textRollLength.right = new FormAttachment(spinnerLowerRollNum, 0, SWT.RIGHT);
 		textRollLength.setLayoutData(fd_textRollLength);
-		textRollLength.setEnabled(false);
+		//textRollLength.setEnabled(false);
 		
 		
 		
@@ -2669,18 +2681,27 @@ public class View extends ViewPart {
 		textRollDiameter.setLayoutData(fd_textRollDiameter);
 		
 		
-		Label lblRollCrownType = new Label(compositeRollParameter,SWT.NONE);
-		FormData fd_lblRollCrownType = new FormData();
-		fd_lblRollCrownType.top = new FormAttachment(lblRollFriction,10);
-		fd_lblRollCrownType.left = new FormAttachment(lblRollFriction, 0, SWT.LEFT);
-		lblRollCrownType.setLayoutData(fd_lblRollCrownType);
-		lblRollCrownType.setText(TextLabel_UI.lblRollCrownType);
+		Label lblUpperRollCrown = new Label(compositeRollParameter,SWT.NONE);
+		FormData fd_lblUpperRollCrown = new FormData();
+		fd_lblUpperRollCrown.top = new FormAttachment(lblRollFriction,10);
+		fd_lblUpperRollCrown.left = new FormAttachment(lblRollFriction, 0, SWT.LEFT);
+		lblUpperRollCrown.setLayoutData(fd_lblUpperRollCrown);
+		lblUpperRollCrown.setText(TextLabel_UI.lblUpperRollCrown);
 		
+		textUpperRollCrown = new Text(compositeRollParameter, SWT.BORDER);
+		med.setTextUpperRollCrown(textUpperRollCrown);
+		FormData fd_textUpperRollCrown = new FormData();
+		fd_textUpperRollCrown.top = new FormAttachment(lblUpperRollCrown, -2, SWT.TOP);
+		fd_textUpperRollCrown.left = new FormAttachment(spinnerUpperRollNum, 0, SWT.LEFT);
+		fd_textUpperRollCrown.right = new FormAttachment(spinnerUpperRollNum, 0, SWT.RIGHT);
+		textUpperRollCrown.setLayoutData(fd_textUpperRollCrown);
+		
+		/*
 		Composite groupRollCrown = new Composite(compositeRollParameter, SWT.NONE);
 		groupRollCrown.setLayout(new FormLayout());
 		FormData fd_groupRollCrown = new FormData();
-		fd_groupRollCrown.top = new FormAttachment(lblRollCrownType, 0,SWT.TOP);
-		fd_groupRollCrown.left = new FormAttachment(lblRollCrownType, 15,SWT.RIGHT);
+		fd_groupRollCrown.top = new FormAttachment(lblUpperRollCrown, 0,SWT.TOP);
+		fd_groupRollCrown.left = new FormAttachment(lblUpperRollCrown, 15,SWT.RIGHT);
 		fd_groupRollCrown.right = new FormAttachment(spinnerUpperRollNum, 0, SWT.RIGHT);
 		groupRollCrown.setLayoutData(fd_groupRollCrown);
 		
@@ -2708,26 +2729,26 @@ public class View extends ViewPart {
 		btnRadioApply_RC.setLayoutData(fd_btnRadioApply_RC);
 		btnRadioApply_RC.setText(TextLabel_UI.btnRadioApply);
 		btnRadioApply_RC.setSelection(true);
+		// */
+		Label lblLowerRollCrown = new Label(compositeRollParameter, SWT.NONE);
+		FormData fd_lblLowerRollCrown = new FormData();
+		fd_lblLowerRollCrown.top = new FormAttachment(lblUpperRollCrown, 0,SWT.TOP);
+		fd_lblLowerRollCrown.left = new FormAttachment(lblLowerRollNumber, 0, SWT.LEFT);
+		lblLowerRollCrown.setLayoutData(fd_lblLowerRollCrown);
+		lblLowerRollCrown.setText(TextLabel_UI.lblLowerRollCrown);
 		
-		Label lblRollCrown = new Label(compositeRollParameter, SWT.NONE);
-		FormData fd_lblRollCrown = new FormData();
-		fd_lblRollCrown.top = new FormAttachment(lblRollCrownType, 0,SWT.TOP);
-		fd_lblRollCrown.left = new FormAttachment(lblLowerRollNumber, 0, SWT.LEFT);
-		lblRollCrown.setLayoutData(fd_lblRollCrown);
-		lblRollCrown.setText(TextLabel_UI.lblRollCrown);
-		
-		textRollCrown = new Text(compositeRollParameter, SWT.BORDER);
-		med.setTextRollCrown(textRollCrown);
-		FormData fd_textRollCrown = new FormData();
-		fd_textRollCrown.top = new FormAttachment(lblRollCrown, -2, SWT.TOP);
-		fd_textRollCrown.left = new FormAttachment(spinnerLowerRollNum, 0, SWT.LEFT);
-		fd_textRollCrown.right = new FormAttachment(spinnerLowerRollNum, 0, SWT.RIGHT);
-		textRollCrown.setLayoutData(fd_textRollCrown);
+		textLowerRollCrown = new Text(compositeRollParameter, SWT.BORDER);
+		med.setTextLowerRollCrown(textLowerRollCrown);
+		FormData fd_textLowerRollCrown = new FormData();
+		fd_textLowerRollCrown.top = new FormAttachment(lblLowerRollCrown, -2, SWT.TOP);
+		fd_textLowerRollCrown.left = new FormAttachment(spinnerLowerRollNum, 0, SWT.LEFT);
+		fd_textLowerRollCrown.right = new FormAttachment(spinnerLowerRollNum, 0, SWT.RIGHT);
+		textLowerRollCrown.setLayoutData(fd_textLowerRollCrown);
 		
 		Label lblMillStiffnessType = new Label(compositeRollParameter, SWT.NONE);
 		FormData fd_lblMillStiffnessType = new FormData();
-		fd_lblMillStiffnessType.top = new FormAttachment(lblRollCrownType, 10);
-		fd_lblMillStiffnessType.left = new FormAttachment(lblRollCrownType, 0, SWT.LEFT);
+		fd_lblMillStiffnessType.top = new FormAttachment(lblUpperRollCrown, 10);
+		fd_lblMillStiffnessType.left = new FormAttachment(lblUpperRollCrown, 0, SWT.LEFT);
 		lblMillStiffnessType.setLayoutData(fd_lblMillStiffnessType);
 		lblMillStiffnessType.setText(TextLabel_UI.lblMillStiffnessType);
 		
@@ -2735,7 +2756,7 @@ public class View extends ViewPart {
 		groupMillStiffness.setLayout(new FormLayout());
 		FormData fd_groupMillStiffness = new FormData();
 		fd_groupMillStiffness.top = new FormAttachment(lblMillStiffnessType, 0,SWT.TOP);
-		fd_groupMillStiffness.left = new FormAttachment(groupRollCrown, 0, SWT.LEFT);
+		fd_groupMillStiffness.left = new FormAttachment(lblMillStiffnessType, 15, SWT.RIGHT);
 		fd_groupMillStiffness.right = new FormAttachment(spinnerUpperRollNum, 0, SWT.RIGHT);
 		groupMillStiffness.setLayoutData(fd_groupMillStiffness);
 		
@@ -3614,8 +3635,8 @@ public class View extends ViewPart {
 		// 3D
 		HandlerButton handlerButton = new HandlerButton();
 		med.getBtnCalcElementNum().addListener(SWT.Selection, handlerButton);
-		med.getBtnRadioNone_RC().addListener(SWT.Selection, handlerButton);
-		med.getBtnRadioApply_RC().addListener(SWT.Selection, handlerButton);
+		//med.getBtnRadioNone_RC().addListener(SWT.Selection, handlerButton);
+		//med.getBtnRadioApply_RC().addListener(SWT.Selection, handlerButton);
 		med.getBtnRadioRigid_MS().addListener(SWT.Selection, handlerButton);
 		med.getBtnRadioSpring_MS().addListener(SWT.Selection, handlerButton);
 		med.getBtnNone().addListener(SWT.Selection, handlerButton);
@@ -3641,8 +3662,8 @@ public class View extends ViewPart {
 		
 		//HandlerButton handlerButton = new HandlerButton();
 		med.getBtnCalcElementNum_2D().addListener(SWT.Selection, handlerButton);
-		med.getBtnRadioNone_RC_2D().addListener(SWT.Selection, handlerButton);
-		med.getBtnRadioApply_RC_2D().addListener(SWT.Selection, handlerButton);
+		//med.getBtnRadioNone_RC_2D().addListener(SWT.Selection, handlerButton);
+		//med.getBtnRadioApply_RC_2D().addListener(SWT.Selection, handlerButton);
 		med.getBtnRadioRigid_MS_2D().addListener(SWT.Selection, handlerButton);
 		med.getBtnRadioSpring_MS_2D().addListener(SWT.Selection, handlerButton);
 		med.getBtnNone_2D().addListener(SWT.Selection, handlerButton);

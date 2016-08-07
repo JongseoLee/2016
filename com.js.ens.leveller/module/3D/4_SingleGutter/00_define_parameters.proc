@@ -63,7 +63,8 @@
 |
 |  Update 2016.01.13.
 |
-*eval_define r_crown %RollCrown%
+*eval_define u_r_crown %UpperRollCrown%
+*eval_define l_r_crown %LowerRollCrown%
 | Define Roll Crown 
 
 *eval_define u_m_stiffness %MillStiffness%/u_roll_no

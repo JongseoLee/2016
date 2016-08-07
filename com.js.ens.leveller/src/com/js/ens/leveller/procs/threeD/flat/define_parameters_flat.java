@@ -5,12 +5,10 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 import org.eclipse.swt.widgets.Display;
 
-import com.js.ens.leveller.core.ComboLabel;
 import com.js.ens.leveller.core.DownTableDataContent;
 import com.js.ens.leveller.core.LevellerMain;
 import com.js.ens.leveller.core.UpTableDataContent;
 import com.js.ens.leveller.dialog.MessageDlg;
-import com.js.ens.leveller.proc.ProcVariable;
 import com.js.ens.leveller.procs.ProcMaker;
 import com.js.io.Reader;
 import com.js.io.Writer;
@@ -148,8 +146,19 @@ public class define_parameters_flat {
 				continue;
 			}
 			//update version2 2016.01.27
+			/*
 			else if(line.contains(ProcMaker.textRollCrown)){
 				newLine = line.replace(ProcMaker.textRollCrown,LMain.getTextRollCrown());
+				procDataList.add(newLine);
+				continue;
+			}
+			//*/
+			else if(line.contains(ProcMaker.textUpperRollCrown)){
+				newLine = line.replace(ProcMaker.textUpperRollCrown,LMain.getTextUpperRollCrown());
+				procDataList.add(newLine);
+				continue;
+			}else if(line.contains(ProcMaker.textLowerRollCrown)){
+				newLine = line.replace(ProcMaker.textLowerRollCrown,LMain.getTextLowerRollCrown());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textMillStiffness)){

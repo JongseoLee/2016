@@ -60,10 +60,11 @@ public class TextLabel_UI {
 	public static String lblExitLowerRollGap			= "Exit lower roll gap (mm)";
 	public static String lblRollFriction				= "Roll friction";
 	public static String lblRollDiameter				= "Roll Diameter (mm)";
-	public static String lblRollCrownType				= "Roll Crown";
-	public static String btnRadioNone					= "None";
-	public static String btnRadioApply					= "Apply";
-	public static String lblRollCrown					= "Roll Crown (mm)";
+	
+	public static String lblUpperRollCrown				= "Upper Roll Crown(mm)";
+	//public static String btnRadioNone					= "None";
+	//public static String btnRadioApply				= "Apply";
+	public static String lblLowerRollCrown				= "Lower Roll Crown(mm)";
 	public static String lblMillStiffnessType			= "Mill Stiffness";
 	public static String btnRadioRigid					= "Rigid";
 	public static String btnRadioSpring					= "Spring";
@@ -200,10 +201,11 @@ public class TextLabel_UI {
 	public static String lblExitLowerRollGap_2D			= "Exit lower roll gap (mm)";
 	public static String lblRollFriction_2D				= "Roll friction";
 	public static String lblRollDiameter_2D				= "Roll Diameter (mm)";
-	public static String lblRollCrownType_2D			= "Roll Crown";
-	public static String btnRadioNone_2D				= "None";
-	public static String btnRadioApply_2D				= "Apply";
-	public static String lblRollCrown_2D				= "Roll Crown (mm)";
+	//public static String lblRollCrownType_2D			= "Roll Crown";
+	public static String lblUpperRollCrown_2D			= "Upper Roll Crown(mm)";
+	//public static String btnRadioNone_2D				= "None";
+	//public static String btnRadioApply_2D				= "Apply";
+	public static String lblLowerRollCrown_2D			= "Lower Roll Crown (mm)";
 	public static String lblMillStiffnessType_2D		= "Mill Stiffness";
 	public static String btnRadioRigid_2D				= "Rigid";
 	public static String btnRadioSpring_2D				= "Spring";

@@ -137,9 +137,11 @@ public class Mediator {
 	
 	private Text textRollFriction;
 	private Text textRollDiameter;
-	private Text textRollCrown;
+	//private Text textRollCrown;
+	private Text textUpperRollCrown;
+	private Text textLowerRollCrown;
 	private Text textMillStiffness;
-	
+	/*
 	private Button btnRadioNone_RC;
 	public ICommand customBtnRadioNone_RC;
 	public static String BUTTON_RadioNone_RC = "btnRadioNone_RC";
@@ -147,7 +149,7 @@ public class Mediator {
 	private Button btnRadioApply_RC;
 	public ICommand customBtnRadioApply_RC;
 	public static String BUTTON_RadioApply_RC = "btnRadioApply_RC";
-	
+	*/
 	private Button btnRadioRigid_MS;
 	public ICommand customBtnRadioRigid_MS;
 	public static String BUTTON_RadioRigid_MS = "btnRadioRigid_MS";
@@ -664,11 +666,17 @@ public class Mediator {
 	public void setTextRollDiameter(Text textRollDiameter) {
 		this.textRollDiameter = textRollDiameter;
 	}
-	public Text getTextRollCrown() {
-		return textRollCrown;
+	public Text getTextUpperRollCrown() {
+		return textUpperRollCrown;
 	}
-	public void setTextRollCrown(Text textRollCrown) {
-		this.textRollCrown = textRollCrown;
+	public void setTextUpperRollCrown(Text textUpperRollCrown) {
+		this.textUpperRollCrown = textUpperRollCrown;
+	}
+	public Text getTextLowerRollCrown() {
+		return textLowerRollCrown;
+	}
+	public void setTextLowerRollCrown(Text textLowerRollCrown) {
+		this.textLowerRollCrown = textLowerRollCrown;
 	}
 	public Text getTextMillStiffness() {
 		return textMillStiffness;
@@ -676,6 +684,7 @@ public class Mediator {
 	public void setTextMillStiffness(Text textMillStiffness) {
 		this.textMillStiffness = textMillStiffness;
 	}
+	/*
 	public Button getBtnRadioNone_RC() {
 		return btnRadioNone_RC;
 	}
@@ -700,6 +709,7 @@ public class Mediator {
 	public void setCustomBtnRadioApply_RC(ICommand customBtnRadioApply_RC) {
 		this.customBtnRadioApply_RC = customBtnRadioApply_RC;
 	}
+	// */
 	public Button getBtnRadioRigid_MS() {
 		return btnRadioRigid_MS;
 	}
@@ -1376,9 +1386,11 @@ public class Mediator {
 		
 		private Text textRollFriction_2D;
 		private Text textRollDiameter_2D;
-		private Text textRollCrown_2D;
+		//private Text textRollCrown_2D;
+		private Text textUpperRollCrown_2D;
+		private Text textLowerRollCrown_2D;
 		private Text textMillStiffness_2D;
-		
+		/*
 		private Button btnRadioNone_RC_2D;
 		public ICommand customBtnRadioNone_RC_2D;
 		public static String BUTTON_RadioNone_RC_2D = "btnRadioNone_RC_2D";
@@ -1386,7 +1398,7 @@ public class Mediator {
 		private Button btnRadioApply_RC_2D;
 		public ICommand customBtnRadioApply_RC_2D;
 		public static String BUTTON_RadioApply_RC_2D = "btnRadioApply_RC_2D";
-		
+		// */
 		private Button btnRadioRigid_MS_2D;
 		public ICommand customBtnRadioRigid_MS_2D;
 		public static String BUTTON_RadioRigid_MS_2D = "btnRadioRigid_MS_2D";
@@ -1971,11 +1983,17 @@ public class Mediator {
 		public void setTextRollDiameter_2D(Text textRollDiameter_2D) {
 			this.textRollDiameter_2D = textRollDiameter_2D;
 		}
-		public Text getTextRollCrown_2D() {
-			return textRollCrown_2D;
+		public Text getTextUpperRollCrown_2D() {
+			return textUpperRollCrown_2D;
 		}
-		public void setTextRollCrown_2D(Text textRollCrown_2D) {
-			this.textRollCrown_2D = textRollCrown_2D;
+		public void setTextUpperRollCrown_2D(Text textUpperRollCrown_2D) {
+			this.textUpperRollCrown_2D = textUpperRollCrown_2D;
+		}
+		public Text getTextLowerRollCrown_2D() {
+			return textLowerRollCrown_2D;
+		}
+		public void setTextLowerRollCrown_2D(Text textLowerRollCrown_2D) {
+			this.textLowerRollCrown_2D = textLowerRollCrown_2D;
 		}
 		public Text getTextMillStiffness_2D() {
 			return textMillStiffness_2D;
@@ -1983,6 +2001,7 @@ public class Mediator {
 		public void setTextMillStiffness_2D(Text textMillStiffness_2D) {
 			this.textMillStiffness_2D = textMillStiffness_2D;
 		}
+		/*
 		public Button getBtnRadioNone_RC_2D() {
 			return btnRadioNone_RC_2D;
 		}
@@ -2007,6 +2026,7 @@ public class Mediator {
 		public void setCustomBtnRadioApply_RC_2D(ICommand customBtnRadioApply_RC_2D) {
 			this.customBtnRadioApply_RC_2D = customBtnRadioApply_RC_2D;
 		}
+		//*/
 		public Button getBtnRadioRigid_MS_2D() {
 			return btnRadioRigid_MS_2D;
 		}
