@@ -1,0 +1,22 @@
+| Updated 2016.01.31. SH Kim
+*new_md_table 1 1
+*table_name
+POSCO_Mat1_poissons_ratio	
+*set_md_table_type 1
+temperature
+*table_add
+-100, 2.80E-01
+0, 2.80E-01
+20, 2.90E-01
+100, 3.00E-01
+200, 3.00E-01
+300, 3.00E-01
+400, 3.00E-01
+500, 3.00E-01
+600, 3.00E-01
+1500, 3.00E-01
+*mater_param_table structural:poissons_ratio
+| poisson => table name
+POSCO_Mat1_poissons_ratio	
+*mater_param structural:poissons_ratio
+1

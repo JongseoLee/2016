@@ -1,0 +1,33 @@
+|
+| Main Procedure of Levelling analysis
+|           created by S.H. Kim 2016.08.06
+|
+|   Flat 2D Plate
+*set_undo off
+*exec_procedure 00_define_parameters.proc
+*exec_procedure m1_curl_2d.proc
+*clear_geometry
+*renumber_all
+*exec_procedure a2_roll_gen_2d.proc
+*move_reset
+*set_move_scale_factors 1 1 0
+*move_model
+*exec_procedure a3_material_define.proc
+*exec_procedure a4_contact_2d.proc
+| Change Roll Table Location : Added from ver. 3 
+|*py_file_run ap04_define_roll_crown.py
+*exec_procedure a5_condition.proc
+*exec_procedure a6_loadcase_2d.proc
+*exec_procedure a7_deformed_coordinate.proc
+| Applying spring Support Roll. Added from ver. 2
+*py_file_run change_motion_to_load_2d.py  
+| Add Hold Down Roll : Added from ver. 3
+*py_file_run ap01_add_hdroll_2d.py
+| Add Roll Gap Movement : Added from ver. 3 
+*py_file_run ap02_add_roll_movement_2d.py
+| Change Roll Table Location : Added from ver. 3 
+*py_file_run ap03_change_roller_table_2d.py
+*select_clear
+*invisible_selected
+*set_undo on
+*set_update on

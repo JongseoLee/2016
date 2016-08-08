@@ -1,0 +1,59 @@
+|
+| Create Flat Plate model & Add Post Set Nodes
+|
+*set_curve_type line
+*add_curves
+point(0,0,0)
+point(-L,0,0)
+*fill_view
+*set_convert_divisions
+|  Element Edge size is defined same as thickness
+(L)/(aspect_ratio_of_length_direction*T)
+1
+1
+*convert_curves
+1
+#
+*sweep_all
+*detach_edges
+all_existing
+*detach_nodes
+all_existing
+| Add Wave on Plate Nodes in 2D
+*
+*move_reset
+*set_move_formula y WH/2*sin(2*pi/WP*x+pi*WPh/180)+WH/2
+*move_nodes
+all_existing
+*move_reset
+*expand_reset
+*shell_thickness
+T
+*shell_offset
+T/2
+*expand_lines
+all_existing
+*expand_reset
+*sweep_all
+*sub_divisions
+element_num_of_thickness_direction
+1
+1
+*subdivide_elements
+all_existing
+*sweep_all
+*new_geometry *geometry_type mech_planar_pstrain @popdown(geom_new_popmenu) @popdown(geom_new_structural_pm)
+*geometry_name
+plate_thick
+*geometry_param norm_to_plane_thick
+W
+*add_geometry_elements
+all_existing
+|   Execute Procedure for section & Points
+| *exec_procedure m1_a_curl.proc 
+|
+|
+| run python for saving sets with history plot points
+|
+|*py_echo off
+|*py_file_run mp01_define_post_set_curl.py

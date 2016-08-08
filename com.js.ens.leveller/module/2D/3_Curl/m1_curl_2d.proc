@@ -1,0 +1,91 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+| Create curled Plate model & Add Post Set Nodes
+|
+*set_curve_type arc_ppp
+*add_curves
+-2*fcl fch 0
+0 fch 0
+-fcl 0 0
+*fill_view
+*subdivide_curves_real
+ 1
+# | End of List
+*remove_curves
+ 2
+# | End of List
+*set_curve_type line
+*add_curves
+point(-fcl,0,0)
+point(-L+rcl,0,0)
+*fill_view
+*set_curve_type arc_ppp
+*add_curves
+-L rch 0
+-L+2*rcl rch 0
+-L+rcl 0 0
+*remove_curves
+*subdivide_curves_real
+ 5
+# | End of List
+*remove_curves
+ 7
+# | End of List
+*flip_curves
+3 6 #
+*sweep_all
+*set_convert_divisions
+(fcl)/(aspect_ratio_of_length_direction*T)
+1
+1
+*convert_curves 3 #
+*set_convert_divisions
+(L-fcl-rcl)/(aspect_ratio_of_length_direction*T)
+1
+1
+*convert_curves 4 #
+*set_convert_divisions
+(rcl)/(aspect_ratio_of_length_direction*T)
+1
+1
+*convert_curves 6 #
+*detach_edges
+all_existing
+*detach_nodes
+all_existing
+*sweep_all
+*shell_thickness
+T
+*shell_offset
+T/2
+*expand_lines
+all_existing
+*sweep_all
+*sub_divisions
+element_num_of_thickness_direction
+1
+1
+*subdivide_elements
+all_existing
+*sweep_all
+*new_geometry *geometry_type mech_planar_pstrain @popdown(geom_new_popmenu) @popdown(geom_new_structural_pm)
+*geometry_name
+plate_thick
+*geometry_param norm_to_plane_thick
+W
+*add_geometry_elements
+all_existing
+
+|   Execute Procedure for section & Points
+| *exec_procedure m1_a_curl.proc 
+|
+|
+| run python for saving sets with history plot points
+|
+|*py_echo off
+|*py_file_run mp01_define_post_set_curl.py

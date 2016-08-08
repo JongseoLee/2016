@@ -1,0 +1,77 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*exec_procedure E:\POSCO_Leveller\ENS_leveller_160727\module_2d\2.Wave_2d\main_wave_2d.proc
+*check_job
+*zoom_box
+*fill_view
+*zoom_box
+*zoom_box(1,0.451662,0.458198,0.543807,0.558089)
+*identify_contact *regen
+*update_job
+*job_submit_reset
+*submit_job 1 *monitor_job
+*update_job
+*post_open_default
+*post_skip_to_last
+*dynamic_model_on
+*scale(1,0.977355)
+*scale(1,0.944654)
+*scale(1,0.880422)
+*scale(1,0.839790)
+*scale(1,0.862966)
+*scale(1,0.953536)
+*scale(1,0.993542)
+*scale(1,0.998039)
+*scale(1,0.984030)
+*scale(1,0.927017)
+*scale(1,0.948309)
+*scale(1,0.969202)
+*scale(1,0.992957)
+*scale(1,0.998496)
+*post_rewind
+*scale(1,1.005710)
+*scale(1,1.032992)
+*scale(1,1.069170)
+*scale(1,1.054025)
+*scale(1,1.061988)
+*scale(1,1.064075)
+*scale(1,1.091654)
+*scale(1,1.070991)
+*scale(1,1.032722)
+*scale(1,1.040047)
+*scale(1,1.046465)
+*scale(1,1.056442)
+*scale(1,1.035971)
+*scale(1,1.004526)
+*scale(1,1.002555)
+*scale(1,1.001506)
+*scale(1,1.003015)
+*scale(1,1.024376)
+*scale(1,1.038347)
+*scale(1,1.139765)
+*scale(1,1.081912)
+*post_next
+*post_next
+*post_next
+*post_next
+*post_next
+*post_next
+*post_next
+*post_next
+*post_rewind
+*post_next
+*post_next
+*post_next
+*post_next
+*post_monitor
+*post_close
+*update_job
+*kill_job *monitor_job
+*update_job
+*update_job
+*quit yes

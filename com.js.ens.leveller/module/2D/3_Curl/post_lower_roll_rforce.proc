@@ -1,0 +1,14 @@
+*xy_plot_clear 
+*set_history_locations 
+864
+871
+878
+885
+892
+# 
+*history_collect 0 100000000 1 
+*history_add_var 
+Time
+Reaction Force Y
+*get_history_plots *xy_plot_fit 
+*xy_plot_export lower_roll_rforce.txt yes 

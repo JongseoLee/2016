@@ -245,7 +245,7 @@ public class test {
 		*/
 		String outPutFile2D = "D:\\8____내문서\\workspace\\2016\\com.js.ens.leveller\\module\\filelist\\2D";
 		String outPutFile3D = "D:\\8____내문서\\workspace\\2016\\com.js.ens.leveller\\module\\filelist\\3D";
-		String path2D = "D:\\8____내문서\\workspace\\2016\\com.js.ens.leveller\\module\\3D";
+		String path2D = "D:\\8____내문서\\workspace\\2016\\com.js.ens.leveller\\module\\2D";
 		String path3D = "D:\\8____내문서\\workspace\\2016\\com.js.ens.leveller\\module\\3D";
 		
 		String f1_3D = myUtil.setPath(outPutFile3D, "1_Flat.filelist");
@@ -257,7 +257,7 @@ public class test {
 		String f7_3D = myUtil.setPath(outPutFile3D, "7_IslandGutter.filelist");
 		
 		String path3D_f1 = myUtil.setPath(path3D, "1_Flat");
-		String path3D_f2 = myUtil.setPath(path3D, "2_EdgeWave");
+		String path3D_f2 = myUtil.setPath(path3D, "2_Wave");
 		String path3D_f3 = myUtil.setPath(path3D, "3_CenterWave");
 		String path3D_f4 = myUtil.setPath(path3D, "4_SingleGutter");
 		String path3D_f5 = myUtil.setPath(path3D, "5_PartialGutter");
@@ -267,20 +267,12 @@ public class test {
 		
 		
 		String f1_2D = myUtil.setPath(outPutFile2D, "1_Flat.filelist");
-		String f2_2D = myUtil.setPath(outPutFile2D, "2_EdgeWave.filelist");
-		String f3_2D = myUtil.setPath(outPutFile2D, "3_CenterWave.filelist");
-		String f4_2D = myUtil.setPath(outPutFile2D, "4_SingleGutter.filelist");
-		String f5_2D = myUtil.setPath(outPutFile2D, "5_PartialGutter.filelist");
-		String f6_2D = myUtil.setPath(outPutFile2D, "6_DoubleGutter.filelist");
-		String f7_2D = myUtil.setPath(outPutFile2D, "7_IslandGutter.filelist");
+		String f2_2D = myUtil.setPath(outPutFile2D, "2_Wave.filelist");
+		String f3_2D = myUtil.setPath(outPutFile2D, "3_Curl.filelist");
 		
 		String path2D_f1 = myUtil.setPath(path2D, "1_Flat");
-		String path2D_f2 = myUtil.setPath(path2D, "2_EdgeWave");
-		String path2D_f3 = myUtil.setPath(path2D, "3_CenterWave");
-		String path2D_f4 = myUtil.setPath(path2D, "4_SingleGutter");
-		String path2D_f5 = myUtil.setPath(path2D, "5_PartialGutter");
-		String path2D_f6 = myUtil.setPath(path2D, "6_DoubleGutter");
-		String path2D_f7 = myUtil.setPath(path2D, "7_IslandGutter");
+		String path2D_f2 = myUtil.setPath(path2D, "2_Wave");
+		String path2D_f3 = myUtil.setPath(path2D, "3_Curl");
 		
 	
 		
@@ -294,12 +286,17 @@ public class test {
 		obj.setFileList(path3D_f6, f6_3D);
 		obj.setFileList(path3D_f7, f7_3D);
 		// */
+		obj.setFileList(path2D_f1, f1_2D);
+		obj.setFileList(path2D_f2, f2_2D);
+		obj.setFileList(path2D_f3, f3_2D);
 		
+		
+		/*
 		// Copy -> Swap LevellerVer3 Test ProcGen
 		String oriPath = "G:\\06.ENS2_2016\\workspace\\2016\\com.js.ens.leveller\\module\\2D\\main_flat.proc";
 		String destPath = "G:\\06.ENS2_2016\\workspace\\2016\\com.js.ens.leveller\\module\\2D\\new\\main_flat.proc";
 		obj.copyAndSwap(oriPath,destPath);
-		
+		//*/
 	}
 	
 }

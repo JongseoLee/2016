@@ -1,0 +1,23 @@
+| Updated 2016.01.31. SH Kim
+*new_md_table 1 1
+*table_name
+POSCO_Mat1_CTE	
+*set_md_table_type 1
+temperature
+*table_add
+-100, 9.30E-06
+0, 1.16E-05
+20, 1.19E-05
+100, 1.30E-05
+200, 1.40E-05
+300, 1.50E-05
+400, 1.59E-05
+500, 1.66E-05
+600, 1.64E-05
+1500, 1.64E-05
+*mater_option structural:thermal_expansion:on
+*mater_param_table structural:thermal_exp
+| CTE => table name
+POSCO_Mat1_CTE	
+*mater_param structural:thermal_exp
+1
