@@ -68,6 +68,8 @@ public class CopyProc3D {
 			try{
 				//System.out.println(this.fullPathList.get(i));
 				//System.out.println(this.destFullPathList.get(i));
+				String msg = "SUCCESS -  Copy Proc File \n path : "+myUtil.getFileName(this.destFullPathList.get(i));
+				LMain.getExportMSG().addData(msg);
 				myUtil.fileCopy(this.fullPathList.get(i), this.destFullPathList.get(i));
 				log.info("SUCCESS -  Copy Proc File \n path : "+myUtil.getFileName(this.destFullPathList.get(i)));	
 			}catch(Exception e){

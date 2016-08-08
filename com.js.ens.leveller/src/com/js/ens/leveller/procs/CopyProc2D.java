@@ -54,6 +54,8 @@ public class CopyProc2D {
 		
 		for(int i=0;i<this.fullPathList.size();i++){
 			try{
+				String msg = "SUCCESS -  Copy Proc File \n path : "+myUtil.getFileName(this.destFullPathList.get(i));
+				LMain.getExportMSG().addData(msg);
 				myUtil.fileCopy(this.fullPathList.get(i), this.destFullPathList.get(i));
 				log.info("SUCCESS -  Copy Proc File \n path : "+myUtil.getFileName(this.destFullPathList.get(i)));	
 			}catch(Exception e){
