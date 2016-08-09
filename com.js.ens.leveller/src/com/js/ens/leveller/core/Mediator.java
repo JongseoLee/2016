@@ -45,7 +45,7 @@ public class Mediator {
 	private Text type2_textRightEdgeWaveHeight;
 	private Text type2_textLeftEdgeWavePhase;
 	private Text type2_textRightEdgeWavePhase;
-
+	
 	private Composite compositeShapeParameterChild_3;
 	private Text type3_textWavePitch;
 	private Text type3_textWaveHeight;
@@ -1288,17 +1288,30 @@ public class Mediator {
 		private Composite compositeShapeParameterChild_1_2D;
 		               
 		private Composite compositeShapeParameterChild_2_2D;
+		/*
 		private Text type2_textLeftEdgeWavePitch_2D;
 		private Text type2_textRightEdgeWavePitch_2D;
 		private Text type2_textLeftEdgeWaveHeight_2D;
 		private Text type2_textRightEdgeWaveHeight_2D;
 		private Text type2_textLeftEdgeWavePhase_2D;
 		private Text type2_textRightEdgeWavePhase_2D;
-
+		//*/
+		private Text type2_textWavePitch_2D;
+		private Text type2_textWaveHeight_2D;
+		private Text type2_textWavePhase_2D;
+		
+		
 		private Composite compositeShapeParameterChild_3_2D;
+		/*
 		private Text type3_textWavePitch_2D;
 		private Text type3_textWaveHeight_2D;
+		//*/
+		private Text type3_textFrontCurlHeight_2D;
+		private Text type3_textFrontCurlLength_2D;
+		private Text type3_textRearCurlHeight_2D;
+		private Text type3_textRearCurlLength_2D;
 		
+		/*
 		private Composite compositeShapeParameterChild_4_2D;
 		private Text type4_textGutterHeight_2D;
 		
@@ -1317,11 +1330,13 @@ public class Mediator {
 		private Text type7_textGutterLength_2D;
 		private Text type7_textGutterLengthLength_2D;
 		private Text type7_textGutterWidthLength_2D;
+		//*/
+		
 		//--------------------------------------------
 		private Composite compositeMeshParameter_2D;
 		
 		private Text textThicknessElementNum_2D;
-		private Text textWidthAspectRatio_2D;
+		//private Text textWidthAspectRatio_2D;
 		private Text textLengthAspectRatio_2D;
 		private Text textElementNumber_2D;
 		private Button btnCalcElementNum_2D;
@@ -1346,7 +1361,7 @@ public class Mediator {
 		public ICommand customSpinnerLowerRollNum_2D;
 		public static String SPINNER_LowerRollNum_2D = "spinnerLowerRollNum_2D";
 		private Text textRollPitch_2D;
-		private Text textRollLength_2D;
+		//private Text textRollLength_2D;
 		private Text textEntryUpperRollGap_2D;
 		private Text textEntryLowerRollGap_2D;
 		private Text textExitUpperRollGap_2D;
@@ -1387,8 +1402,8 @@ public class Mediator {
 		private Text textRollFriction_2D;
 		private Text textRollDiameter_2D;
 		//private Text textRollCrown_2D;
-		private Text textUpperRollCrown_2D;
-		private Text textLowerRollCrown_2D;
+		//private Text textUpperRollCrown_2D;
+		//private Text textLowerRollCrown_2D;
 		private Text textMillStiffness_2D;
 		/*
 		private Button btnRadioNone_RC_2D;
@@ -1570,6 +1585,7 @@ public class Mediator {
 		public void setTextThickness_2D(Text textThickness_2D) {
 			this.textThickness_2D = textThickness_2D;
 		}
+		/*
 		public Text getType2_textLeftEdgeWavePitch_2D() {
 			return type2_textLeftEdgeWavePitch_2D;
 		}
@@ -1612,6 +1628,26 @@ public class Mediator {
 				Text type2_textRightEdgeWavePhase_2D) {
 			this.type2_textRightEdgeWavePhase_2D = type2_textRightEdgeWavePhase_2D;
 		}
+		//*/
+		public Text getType2_textWavePitch_2D() {
+			return type2_textWavePitch_2D;
+		}
+		public void setType2_textWavePitch_2D(Text type2_textWavePitch_2D) {
+			this.type2_textWavePitch_2D = type2_textWavePitch_2D;
+		}
+		public Text getType2_textWaveHeight_2D() {
+			return type2_textWaveHeight_2D;
+		}
+		public void setType2_textWaveHeight_2D(Text type2_textWaveHeight_2D) {
+			this.type2_textWaveHeight_2D = type2_textWaveHeight_2D;
+		}
+		public Text getType2_textWavePhase_2D() {
+			return type2_textWavePhase_2D;
+		}
+		public void setType2_textWavePhase_2D(Text type2_textwavePhase_2D) {
+			this.type2_textWavePhase_2D = type2_textwavePhase_2D;
+		}
+		/*
 		public Text getType3_textWavePitch_2D() {
 			return type3_textWavePitch_2D;
 		}
@@ -1624,6 +1660,32 @@ public class Mediator {
 		public void setType3_textWaveHeight_2D(Text type3_textWaveHeight_2D) {
 			this.type3_textWaveHeight_2D = type3_textWaveHeight_2D;
 		}
+		//*/
+		public Text getType3_textFrontCurlHeight_2D() {
+			return type3_textFrontCurlHeight_2D;
+		}
+		public void setType3_textFrontCurlHeight_2D(Text type3_textFrontCurlHeight_2D) {
+			this.type3_textFrontCurlHeight_2D = type3_textFrontCurlHeight_2D;
+		}
+		public Text getType3_textFrontCurlLength_2D() {
+			return type3_textFrontCurlLength_2D;
+		}
+		public void setType3_textFrontCurlLength_2D(Text type3_textFrontCurlLength_2D) {
+			this.type3_textFrontCurlLength_2D = type3_textFrontCurlLength_2D;
+		}
+		public Text getType3_textRearCurlHeight_2D() {
+			return type3_textRearCurlHeight_2D;
+		}
+		public void setType3_textRearCurlHeight_2D(Text type3_textRearCurlHeight_2D) {
+			this.type3_textRearCurlHeight_2D = type3_textRearCurlHeight_2D;
+		}
+		public Text getType3_textRearCurlLength_2D() {
+			return type3_textRearCurlLength_2D;
+		}
+		public void setType3_textRearCurlLength_2D(Text type3_textRearCurlLength_2D) {
+			this.type3_textRearCurlLength_2D = type3_textRearCurlLength_2D;
+		}
+		/*
 		public Text getType4_textGutterHeight_2D() {
 			return type4_textGutterHeight_2D;
 		}
@@ -1692,6 +1754,7 @@ public class Mediator {
 				Text type7_textGutterWidthLength_2D) {
 			this.type7_textGutterWidthLength_2D = type7_textGutterWidthLength_2D;
 		}
+		// */
 		public Composite getCompositeMeshParameter_2D() {
 			return compositeMeshParameter_2D;
 		}
@@ -1704,12 +1767,14 @@ public class Mediator {
 		public void setTextThicknessElementNum_2D(Text textThicknessElementNum_2D) {
 			this.textThicknessElementNum_2D = textThicknessElementNum_2D;
 		}
+		/*
 		public Text getTextWidthAspectRatio_2D() {
 			return textWidthAspectRatio_2D;
 		}
 		public void setTextWidthAspectRatio_2D(Text textWidthAspectRatio_2D) {
 			this.textWidthAspectRatio_2D = textWidthAspectRatio_2D;
 		}
+		// */
 		public Text getTextLengthAspectRatio_2D() {
 			return textLengthAspectRatio_2D;
 		}
@@ -1803,12 +1868,14 @@ public class Mediator {
 		public void setTextRollPitch_2D(Text textRollPitch_2D) {
 			this.textRollPitch_2D = textRollPitch_2D;
 		}
+		/*
 		public Text getTextRollLength_2D() {
 			return textRollLength_2D;
 		}
 		public void setTextRollLength_2D(Text textRollLength_2D) {
 			this.textRollLength_2D = textRollLength_2D;
 		}
+		// */
 		public Text getTextEntryUpperRollGap_2D() {
 			return textEntryUpperRollGap_2D;
 		}
@@ -1983,6 +2050,7 @@ public class Mediator {
 		public void setTextRollDiameter_2D(Text textRollDiameter_2D) {
 			this.textRollDiameter_2D = textRollDiameter_2D;
 		}
+		/*
 		public Text getTextUpperRollCrown_2D() {
 			return textUpperRollCrown_2D;
 		}
@@ -1995,6 +2063,7 @@ public class Mediator {
 		public void setTextLowerRollCrown_2D(Text textLowerRollCrown_2D) {
 			this.textLowerRollCrown_2D = textLowerRollCrown_2D;
 		}
+		// */
 		public Text getTextMillStiffness_2D() {
 			return textMillStiffness_2D;
 		}
@@ -2461,6 +2530,7 @@ public class Mediator {
 				Composite compositeShapeParameterChild_3_2D) {
 			this.compositeShapeParameterChild_3_2D = compositeShapeParameterChild_3_2D;
 		}
+		/*
 		public Composite getCompositeShapeParameterChild_4_2D() {
 			return compositeShapeParameterChild_4_2D;
 		}
@@ -2489,6 +2559,7 @@ public class Mediator {
 				Composite compositeShapeParameterChild_7_2D) {
 			this.compositeShapeParameterChild_7_2D = compositeShapeParameterChild_7_2D;
 		}
+		// */
 		public TabFolder getTabFolder() {
 			return tabFolder;
 		}

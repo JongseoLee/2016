@@ -3,16 +3,16 @@ from py_post import *
 
 def get_motion_info() :
    mvar=[]
-   u_roll_no = py_get_int("u_roll_no")
-   l_roll_no = py_get_int("l_roll_no")
-   URM_ent = py_get_float("URM_ent")
-   URM_exit = py_get_float("URM_exit")
-   URM_ts = py_get_float("URM_ts")
-   URM_te = py_get_float("URM_te")
-   LRM_ent = py_get_float("LRM_ent")
-   LRM_exit = py_get_float("LRM_exit")
-   LRM_ts = py_get_float("LRM_ts")
-   LRM_te = py_get_float("LRM_te")
+   u_roll_no = py_get_int("u_roll_no") # VAR[0]
+   l_roll_no = py_get_int("l_roll_no") # VAR[1]
+   URM_ent = py_get_float("URM_ent")   # VAR[2]
+   URM_exit = py_get_float("URM_exit") # VAR[3]
+   URM_ts = py_get_float("URM_ts")     # VAR[4]
+   URM_te = py_get_float("URM_te")     # VAR[5]
+   LRM_ent = py_get_float("LRM_ent")   # VAR[6]
+   LRM_exit = py_get_float("LRM_exit") # VAR[7] 
+   LRM_ts = py_get_float("LRM_ts")     # VAR[8]
+   LRM_te = py_get_float("LRM_te")     # VAR[9]
    mvar.append(u_roll_no)
    mvar.append(l_roll_no) 
    mvar.append(URM_ent)
@@ -71,7 +71,8 @@ def create_spring(n0,e0,sn,nodes_up,nodes_low,mvar) :
       print "Upper Roll Motion",cname[1],mvar[0],mvar[2],mvar[3],val           
       tname="urmotion_bc"
       create_roll_motion_bcs(sn,tname,val)
-      py_send("add_apply_nodes %d # "%(n0+10))
+      py_send("*add_apply_nodes %d # "%(n0+10))
+
   if (cname[0]== "LowerRoll" ) :      
       nodes_low.append(n0)
       py_send("*edit_mater lower_dummy_mat ")
@@ -82,7 +83,7 @@ def create_spring(n0,e0,sn,nodes_up,nodes_low,mvar) :
       print "Lower Roll Motion",cname[1],mvar[1],mvar[6],mvar[7],val            
       tname="urmotion_bc"
       create_roll_motion_bcs(sn,tname,val) 
-      py_send("add_apply_nodes %d # "%(n0+10))
+      py_send("*add_apply_nodes %d # "%(n0+10))
   py_send("*edit_apply Fix_spring ")
   py_send("*add_apply_nodes %i # " %(n0+10) )
   py_send("*edit_apply Fix_roll ")
@@ -189,6 +190,9 @@ def create_roll_motion_bcs(sn,tname,val) :
     py_send("*apply_name Fix_spring_%s " %sn)
     py_send("*apply_dof y *apply_dof_value y %f" %val)
     py_send("*apply_dof_table y %s" %tname)
+    py_send("*edit_loadcase levelling ")
+    py_send("*add_loadcase_loads Fix_spring_%s " %sn)
+          
 
 def change_option() :
 #    py_send("*identify_applys *regen ")
@@ -208,18 +212,22 @@ def change_option() :
 #    py_send("*save_model ")
 
 def create_dummy_mats() :
-    mill_k=py_get_float("u_m_stiffness")/100.0
+    mill_k=py_get_float("u_m_stiffness")/10000.0  
+    # mill stiffnes scale factor is changed due to incorrect calculating section of spring element.
     py_send("*edit_mater material1 *copy_mater ")
     py_send("*mater_name upper_dummy_mat  ")
     py_send("*mater_param general:mass_density 7.85e-009*100  ")
     py_send("*mater_param structural:youngs_modulus "+str(mill_k))
+    py_send("*clear_mater_param_table structural:youngs_modulus")
     py_send("*mater_option structural:plasticity:off ")
     py_send("*mater_option structural:thermal_expansion:off ")
-    mill_k=py_get_float("l_m_stiffness")/100.0
+    mill_k=py_get_float("l_m_stiffness")/10000.0
+    # mill stiffnes scale factor is changed due to incorrect calculating section of spring element.    
     py_send("*edit_mater material1 *copy_mater ")
     py_send("*mater_name lower_dummy_mat  ")
     py_send("*mater_param general:mass_density 7.85e-009*100  ")
     py_send("*mater_param structural:youngs_modulus "+str(mill_k))
+    py_send("*clear_mater_param_table structural:youngs_modulus")    
     py_send("*mater_option structural:plasticity:off ")
     py_send("*mater_option structural:thermal_expansion:off ")
 
@@ -252,17 +260,17 @@ def create_rmotion_bc_table(var) :
    py_send("*set_md_table_type 1 time ")
    py_send("*table_add ")
    py_send("0  0 ")
-   py_send("%s 0 " %var[2])
-   py_send("%s+%s 1 " %(var[2],var[3]))
-   py_send("%s+%s+1.0 1 " %(var[2],var[3]))
+   py_send("%s 0 " %var[4])
+   py_send("%s+%s 1 " %(var[4],var[5]))
+   py_send("%s+%s+1.0 1 " %(var[4],var[5]))
    py_send("*new_md_table 1 1 ")
    py_send("*table_name lrmotion_bc ")
    py_send("*set_md_table_type 1 time ")
    py_send("*table_add ")
    py_send("0  0 ")
-   py_send("%s 0 " %var[6])
-   py_send("%s+%s 1 " %(var[6],var[7]))
-   py_send("%s+%s+1.0 1 " %(var[6],var[7]))    
+   py_send("%s 0 " %var[8])
+   py_send("%s+%s 1 " %(var[8],var[9]))
+   py_send("%s+%s+1.0 1 " %(var[8],var[9]))    
     
 def main():
   mvar=get_motion_info()

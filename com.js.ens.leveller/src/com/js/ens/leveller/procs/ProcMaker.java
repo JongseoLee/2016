@@ -41,6 +41,7 @@ public class ProcMaker {
 	public static String textLength						= "%Length%";
 	public static String textThickness					= "%Thickness%";
 
+	//3D
 	public static String type2_textLeftEdgeWavePitch 	= "%LeftEdgeWavePitch%";
 	public static String type2_textRightEdgeWavePitch	= "%RightEdgeWavePitch%";
 	public static String type2_textLeftEdgeWaveHeight 	= "%LeftEdgeWaveHeight%";
@@ -48,10 +49,19 @@ public class ProcMaker {
 	public static String type2_textLeftEdgeWavePhase	= "%LeftEdgeWavePhase%";
 	public static String type2_textRightEdgeWavePhase 	= "%RightEdgeWavePhase%";
 	public static String MaxWaveHeight					= "%MaxWaveHeight%";
-
+	//2D
+	public static String type2_textWavePitch 			= "%WavePitch%";
+	public static String type2_textWaveHeight			= "%WaveHeigth%";
+	public static String type2_textWavePhase			= "%WavePhase%";
+	//3D
 	public static String type3_textWavePitch 			= "%WavePitch%";
 	public static String type3_textWaveHeight 			= "%WaveHeight%";
-
+	//2D
+	public static String type3_textFrontCurlHeight		= "%FrontCurlHeight%";
+	public static String type3_textFrontCurlLength		= "%FrontCurlLength%";
+	public static String type3_textRearCurlHeight		= "%RearCurlHeight%";
+	public static String type3_textRearCurlLength		= "%RearCurlLength%";
+	
 	public static String type4_textGutterHeight			= "%GutterHeight%";
 
 	public static String type5_textGutterHeight			= "%GutterHeight%";
@@ -171,6 +181,7 @@ public class ProcMaker {
 	public static String upperRollGenContact			= "%UpperRollGenContact%";
 	public static String lowerRollGenContact			= "%LowerRollGenContact%";
 	public static String add_contact_body_surfaces		= "%Add_contact_body_surfaces%";
+	public static String add_contact_body_curves		= "%Add_contact_body_curves%";
 	public static String flip_surface					= "%Flip_surfaces%";
 	public static String plateRollGenContactTable		= "%PlateRollGenContactTable%";
 

@@ -57,6 +57,7 @@ def main():
    var=get_hd_info() 
    print "Hold Down Rolls variables ",var
    move_plate(var)
+   py_send("*select_clear ")
 
      
 if __name__ == '__main__':

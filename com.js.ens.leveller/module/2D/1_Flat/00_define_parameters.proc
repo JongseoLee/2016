@@ -10,104 +10,95 @@
 | W : width of plate
 | L : Length of plate
 | T : Thinckness of plate
-*eval_define W 3000.0 
-*eval_define L 5000.0
-*eval_define T 30.0
+*eval_define W %Width%
+*eval_define L %Length%
+*eval_define T %Thickness%
+
+
 |
 | Mesh parameter
 |
-*eval_define element_num_of_thickness_direction 4
-*eval_define aspect_ratio_of_width_direction 1
-*eval_define aspect_ratio_of_length_direction 1
+*eval_define element_num_of_thickness_direction %ElementNumberOfThicknessDirection%
+*eval_define aspect_ratio_of_width_direction %AspectRatioOfWidthDirection%
+*eval_define aspect_ratio_of_length_direction %AspectRatioOfLengthDirection%
+*eval_define number_of_elements %NumberOfElements%
+
+
 |
 |  Define Roll Information
 |  The Below Information should be considered the number or rolls
 |
-*eval_define roll_pitch 300.0
-*eval_define roll_dia 280.0
-|*eval_define roll_length 5000.0
-*eval_define roll_length 3000.0+2000.0 
-*eval_define sgap_u 30.0
-*eval_define egap_u 50.0
-*eval_define sgap_l 0.0
-*eval_define egap_l 0.0
-*eval_define u_roll_no 4
+*eval_define roll_pitch %RollPitch%
+*eval_define roll_dia %RollDiameter%
+|*eval_define roll_length %RollLength%
+*eval_define roll_length %Width%+2000.0
+*eval_define sgap_u %EntryUpperRollGap%
+*eval_define egap_u %ExitUpperRollGap%
+*eval_define sgap_l %EntryLowerRollGap%
+*eval_define egap_l %ExitLowerRollGap%
+*eval_define u_roll_no %UpperRollNnumber%
 | Upper Roll Numbers
-*eval_define l_roll_no 5
+*eval_define l_roll_no %LowerRollNumber%
 | Lower Roll Numbers
 *eval_define fdist 50
 |  fidst : distance from Roll table to Roll
-*eval_define plate_v 1000.0
+
+*eval_define plate_v %PlateVelocity%
 |  plave_v : plate velocity
-*eval_define fric 0.3
+
+*eval_define fric %RollFriction%
 | fric : friction coefficient
-*eval_define tstart 750.0
+
+*eval_define tstart %TemperatureAtStartOfLevelling%
 | tstart : temperature at start of levelling
-*eval_define tend 650.0
+
+*eval_define tend %TemperatureAtEndOfLevelling%
 | tend : temperature at end of levelling
+
 |
 |  Update 2016.01.13.
 |
-|*eval_define r_crown 0.0 : blocked in 2d
+|*eval_define r_crown %RollCrown%  : Blocked in 2D
 | Define Roll Crown 
-*eval_define u_m_stiffness 1.0e5/u_roll_no
-*eval_define l_m_stiffness 1.0e5/l_roll_no
-| Define Mill Stiffness(1.0e5)
-*eval_define passline_offset 0.0
+
+*eval_define u_m_stiffness %MillStiffness%/u_roll_no
+*eval_define l_m_stiffness %MillStiffness%/l_roll_no
+| Define Mill Stiffness(%MillStiffness%)
+
+*eval_define passline_offset %PassLineOffset%
 | Define PassLine Offset
-*eval_define t_inc 0.0025
+
+*eval_define t_inc %IncrementTime%
 | Solving Option t_inc => default value 0.0025
+
 |
 | Update 2016.07.13.
 |
 |Define Hold Down Roll
-*define hd_roll_loc upper | HD Roll Location upper or lower
-*eval_define fhd_dia 300.0      | Front HD Roll Diameter
-*eval_define fhd_pitch 400.0   | Front HD Roll Pitch
-*eval_define fhd_pos 0.0  | Front HD Vertical Position 
-*eval_define rhd_dia 300.0      | Rear HD Roll Diameter
-*eval_define rhd_pitch 400.0    | Rear HD Roll Pitch
-*eval_define rhd_pos 0.0  | Rear HD Vertical Position 
+*define hd_roll_loc %HDRollType%| HD Roll Location upper or lower
+*eval_define fhd_dia %FrontHDRollDia%	        | Front HD Roll Diameter
+*eval_define fhd_pitch %FrontHDRollPitch%	    | Front HD Roll Pitch
+*eval_define fhd_pos %FrontHDRollVerticalPos%  | Front HD Vertical Position 
+*eval_define rhd_dia %RearHDRollDia%	        | Rear HD Roll Diameter
+*eval_define rhd_pitch %RearHDRollPitch%      | Rear HD Roll Pitch
+*eval_define rhd_pos %RearHDRollVerticalPos%  | Rear HD Vertical Position 
+
 |Define Roll Gap Movement
-*eval_define URM_ent 20.0  | Upper Entry Roll Gap Movement
-*eval_define URM_exit 15.0  | Upper Exit Roll Gap Movement
-*eval_define URM_ts 1.0     | Upper Roll Gap Staying Time 
-*eval_define URM_te 2.0      | Upper Roll Moving Time 
-*eval_define LRM_ent 20.0  | Lower Entry Roll Gap Movement
-*eval_define LRM_exit 15.0  | Lower Exit Roll Gap Movement
-*eval_define LRM_ts 1.0     | Lower Roll Gap Staying Time 
+*eval_define URM_ent %UpperEntryRollGapMovement%  | Upper Entry Roll Gap Movement
+*eval_define URM_exit %UpperExitRollGapMovement%  | Upper Exit Roll Gap Movement
+*eval_define URM_ts %UpperRollGapStayingTime%     | Upper Roll Gap Staying Time 
+*eval_define URM_te %UpperRollGapMovingTime%      | Upper Roll Moving Time 
+*eval_define LRM_ent %LowerEntryRollGapMovement%  | Lower Entry Roll Gap Movement
+*eval_define LRM_exit %LowerExitRollGapMovement%  | Lower Exit Roll Gap Movement
+*eval_define LRM_ts %LowerRollGapStayingTime%     | Lower Roll Gap Staying Time 
+*eval_define LRM_te %LowerRollGapMovingTime%      | Lower Roll Moving Time 
+
 |Define Roll Table Data
 |Upper Roll Table 
-*eval_define ur_1_gap 30.0  |UpperRoll_1 Gap
-*eval_define ur_1_friction 0.3  |UpperRoll_1 Friction
-*eval_define ur_1_diameter 280.0  |UpperRoll_1 Diameter
-*eval_define ur_2_gap 36.6666666667  |UpperRoll_2 Gap
-*eval_define ur_2_friction 0.3  |UpperRoll_2 Friction
-*eval_define ur_2_diameter 280.0  |UpperRoll_2 Diameter
-*eval_define ur_3_gap 43.3333333334  |UpperRoll_3 Gap
-*eval_define ur_3_friction 0.3  |UpperRoll_3 Friction
-*eval_define ur_3_diameter 280.0  |UpperRoll_3 Diameter
-*eval_define ur_4_gap 50.0  |UpperRoll_4 Gap
-*eval_define ur_4_friction 0.3  |UpperRoll_4 Friction
-*eval_define ur_4_diameter 280.0  |UpperRoll_4 Diameter
-
+%UpperRollDataField%
 |Lower Roll Table
-*eval_define lr_1_gap 0.0  |LowerRoll_1 Gap
-*eval_define lr_1_friction 0.3  |LowerRoll_1 Friction
-*eval_define lr_1_diameter 280.0  |LowerRoll_1 Diameter
-*eval_define lr_2_gap 0.0  |LowerRoll_2 Gap
-*eval_define lr_2_friction 0.3  |LowerRoll_2 Friction
-*eval_define lr_2_diameter 280.0  |LowerRoll_2 Diameter
-*eval_define lr_3_gap 0.0  |LowerRoll_3 Gap
-*eval_define lr_3_friction 0.3  |LowerRoll_3 Friction
-*eval_define lr_3_diameter 280.0  |LowerRoll_3 Diameter
-*eval_define lr_4_gap 0.0  |LowerRoll_4 Gap
-*eval_define lr_4_friction 0.3  |LowerRoll_4 Friction
-*eval_define lr_4_diameter 280.0  |LowerRoll_4 Diameter
-*eval_define lr_5_gap 0.0  |LowerRoll_5 Gap
-*eval_define lr_5_friction 0.3  |LowerRoll_5 Friction
-*eval_define lr_5_diameter 280.0  |LowerRoll_5 Diameter
+%LowerRollDataField%
 
 |Define Roll Crown
-|*eval_define urcrown 10.0 : Blocked in 2D
-|*eval_define lrcrown 10.0 : Blocked in 2D
+|*eval_define urcrown %urcrwon  : Blocked in 2D
+|*eval_define lrcrown %lrcrown  : Blocked in 2D

@@ -16,9 +16,9 @@ ctable1
 *loadcase_value maxforce
 1e-3
 *loadcase_value time
-6.875000000000001
+%SolvingTime%
 *loadcase_value nsteps
-6.875000000000001/t_inc
+%SolvingTime%/t_inc
 *prog_use_current_job on *new_job *job_class structural
 *add_job_loadcases levelling
 *add_post_tensor stress
@@ -32,5 +32,9 @@ ctable1
 *job_param post 10
 *job_param maxsep
 10
-*element_type 11
+*element_type 11 | Changed in 2D
 all_existing
+*select_clear
+*invisible_selected
+%Parallel_D%
+%Parallel_T%

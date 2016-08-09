@@ -6,10 +6,10 @@ Width=3000.0
 Length=5000.0
 Thickness=30.0
 //Plate shape parameter-Type2 
-type2_LeftEdgeWavePitch=1000.0
-type2_RightEdgeWavePitch=1000.0
-type2_LeftEdgeWaveHeight=20.0
-type2_RightEdgeWaveHeight=20.0
+type2_LeftEdgeWavePitch=1000
+type2_RightEdgeWavePitch=1000
+type2_LeftEdgeWaveHeight=20
+type2_RightEdgeWaveHeight=20
 type2_LeftEdgeWavePhase=0.0
 type2_RightEdgeWavePhase=0.0
 //Plate shape parameter-Type3
@@ -66,12 +66,12 @@ LowerExitRollGapMovement=15.0
 LowerRollGapStayingTime=1.0
 LowerRollGapMovingTime=2.5
 	
-FrontHDRollDia=100.0
-FrontHDRollPitch=250.0
-FrontHDRollVericalPos=300.0
-RearHDRollDia=100.0
-RearHDRollPitch=250.0
-RearHDRollVerticalPos=300.0
+FrontHDRollDia=300.0
+FrontHDRollPitch=400.0
+FrontHDRollVericalPos=0.0
+RearHDRollDia=300.0
+RearHDRollPitch=400.0
+RearHDRollVerticalPos=0.0
 	
 HDRollType=Upper
 
@@ -104,92 +104,77 @@ Thread=4
 // 2D
 
 //Plate shape parameter_2D
-Width_2D=1
-Length_2D=2
-Thickness_2D=3
+Width_2D=3000.0
+Length_2D=5000.0
+Thickness_2D=30.0
 //Plate shape parameter-Type2_2D
-type2_LeftEdgeWavePitch_2D=2
-type2_RightEdgeWavePitch_2D=22
-type2_LeftEdgeWaveHeight_2D=222
-type2_RightEdgeWaveHeight_2D=2222
-type2_LeftEdgeWavePhase_2D=222222
-type2_RightEdgeWavePhase_2D=2222222
+type2_WavePitch_2D=1000
+type2_WaveHeight_2D=20
+type2_WavePhase_2D=0.0
 //Plate shape parameter-Type3_2D
-type3_WavePitch_2D=3
-type3_WaveHeight_2D=33
-//Plate shape parameter-Type4_2D
-type4_GutterHeight_2D=4 
-//Plate shape parameter-Type5_2D
-type5_GutterHeight_2D=5
-type5_GutterLength_2D=55
-//Plate shape parameter-Type6_2D
-type6_HeadGutterHeight_2D=6
-type6_HeadGutterLength_2D=66
-type6_TailGutterHeight_2D=666
-type6_TailGutterLength_2D=6666
-//Plate shape parameter-Type7_2D
-type7_HeadGutterHeight_2D=7
-type7_GutterLength_2D=77
-type7_GutterLengthLength_2D=777
-type7_GutterWidthLength_2D=7777
+type3_FrontCurlHeight_2D=1000
+type3_FrontCurlLength_2D=20
+type3_RearCurlHeight_2D=1000
+type3_RearCurlLength_2D=20
+
 
 // Mesh parameter_2D
-ThicknessElementNum_2D=8
-WidthAspectRatio_2D=9
-LengthAspectRatio_2D=10
+ThicknessElementNum_2D=4
+WidthAspectRatio_2D=1
+LengthAspectRatio_2D=1
 
 // Plate Information_2D
-PlateVelocity_2D=11
-TemperatureStart_2D=12
-TemperatureEnd_2D=13
-PassLineOffset_2D=14
+PlateVelocity_2D=1000.0
+TemperatureStart_2D=750.0
+TemperatureEnd_2D=650.0
+PassLineOffset_2D=0.0
 	
 // Roll parameter_2D
 UpperRollNum_2D=4
 LowerRollNum_2D=5
-RollPitch_2D=6
-RollLength_2D=7
-EntryUpperRollGap_2D=8
-ExitUpperRollGap_2D=9
-EntryLowerRollGap_2D=10
-ExitLowerRollGap_2D=11
-RollFriction_2D=12
-RollDiameter_2D=13
-UpperRollCrown_2D=14
-LowerRollCrown_2D=14
-MillStiffness_2D=15
+RollPitch_2D=300.0
+RollLength_2D=5000.0
+EntryUpperRollGap_2D=30.0
+ExitUpperRollGap_2D=50.0
+EntryLowerRollGap_2D=0.0
+ExitLowerRollGap_2D=0.0
+RollFriction_2D=0.3
+RollDiameter_2D=280.0
+UpperRollCrown_2D=-1.0
+LowerRollCrown_2D=1.0
+MillStiffness_2D=1.0e5
 
-UpperEntryRollGapMovement_2D=16
-UpperExitRollGapMovement_2D=17
-UpperRollGapStayingTime_2D=18
-UpperRollGapMovingTime_2D=19
-LowerEntryRollGapMovement_2D=20
-LowerExitRollGapMovement_2D=21
-LowerRollGapStayingTime_2D=22
-LowerRollGapMovingTime_2D=23
+UpperEntryRollGapMovement_2D=20.0
+UpperExitRollGapMovement_2D=15.0
+UpperRollGapStayingTime_2D=1.0
+UpperRollGapMovingTime_2D=2.0
+LowerEntryRollGapMovement_2D=20.0
+LowerExitRollGapMovement_2D=15.0
+LowerRollGapStayingTime_2D=1.0
+LowerRollGapMovingTime_2D=2.5
 	
-FrontHDRollDia_2D=24
-FrontHDRollPitch_2D=25
-FrontHDRollVericalPos_2D=26
-RearHDRollDia_2D=27
-RearHDRollPitch_2D=28
-RearHDRollVerticalPos_2D=29
+FrontHDRollDia_2D=300.0
+FrontHDRollPitch_2D=400.0
+FrontHDRollVericalPos_2D=0.0
+RearHDRollDia_2D=300.0
+RearHDRollPitch_2D=400.0
+RearHDRollVerticalPos_2D=0.0
 	
 HDRollType_2D=Upper
 
 // Material parameter_2D
-YoungsModulus_2D=30
-YieldStrength_2D=31
-TensileStrength_2D=32
-Elongation_2D=33
-ThermalExpansionCoefficient_2D=34
-PoissonsRatio_2D=35
-MassDensity_2D=36
+YoungsModulus_2D=210000.0
+YieldStrength_2D=900.0
+TensileStrength_2D=1200.0
+Elongation_2D=0.3
+ThermalExpansionCoefficient_2D=1.0e-5
+PoissonsRatio_2D=0.3
+MassDensity_2D=7.85e-9
 
 // Solving Option_2D
-IncrementTime_2D=37
-Domain_2D=8
-Thread_2D=8
+IncrementTime_2D=0.0025
+Domain_2D=4
+Thread_2D=4
 
 //
 ////////////////////////////////////////////////////////////

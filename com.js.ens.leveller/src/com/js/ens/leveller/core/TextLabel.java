@@ -144,7 +144,7 @@ public class TextLabel {
 	public static String lblLength_2D						= "Length_2D";
 	public static String lblThickness_2D					= "Thickness_2D";
 	
-	
+	/*
 	public static String lblLeftEdgeWavePitch_type2_2D 		= "Left edge wave pitch_2D";
 	public static String lblRightEdgeWavePitch_type2_2D		= "Right edge wave pitch_2D";
 	public static String lblLeftEdgeWaveHeight_type2_2D 	= "Left edge wave height_2D";
@@ -152,10 +152,20 @@ public class TextLabel {
 	//update - 160315
 	public static String lblLeftEdgeWavePhase_type2_2D		= "Left edge wave phase_2D";
 	public static String lblRightEdgeWavePhase_type2_2D 	= "Right edge wave phase_2D";	                                                       
-	
+	//*/
+	public static String lblWavePitch_type2_2D 			= "Wave Pitch_2D";
+	public static String lblWaveHeight_type2_2D			= "Wave Height_2D";
+	public static String lblWavePhase_type2_2D			= "Wave Phase_2D";
+	/*
 	public static String lblWavePitch_type3_2D 				= "Wave pitch_2D";
 	public static String lblWaveHeight_type3_2D 			= "Wave height_2D";
+	// */
 	
+	public static String lblFrontCurlHeight_type3_2D	= "Front Curl Height_2D";
+	public static String lblFrontCurlLength_type3_2D	= "Front Curl Length_2D";
+	public static String lblRearCurlHeight_type3_2D 	= "Rear Curl Height_2D";
+	public static String lblRearCurlLength_type3_2D		= "Rear Curl Length_2D";
+	/*
 	public static String lblGutterHeight_type4_2D			= "Gutter height_2D";
 	
 	public static String lblGutterHeight_type5_2D			= "Gutter height_2D";
@@ -170,10 +180,11 @@ public class TextLabel {
 	public static String lblGutterLength_type7_2D			= "Gutter position (Longitudinal)_2D";
 	public static String lblGutterLengthLength_type7_2D		= "Gutter Longitudinal Length_2D";
 	public static String lblGutterWidthLength_type7_2D		= "Gutter width length_2D";
+	// */
 	//---------------------------------------------------------------------------
 	public static String lblMeshParameter_2D				= "Mesh parameter_2D";
 	public static String lblThicknessElementNum_2D			= "Element number of thickness direction_2D";
-	public static String lblWidthAspectRatio_2D				= "Aspect ratio of width direction_2D";
+	//public static String lblWidthAspectRatio_2D				= "Aspect ratio of width direction_2D";
 	public static String lblLengthAspectRatio_2D			= "Aspect ratio of length direction_2D";
 	public static String lblElementNumber_2D				= "Number of Elements_2D";
 	public static String btnCalcElementNum_2D				= "Calc number of elements_2D";
@@ -188,7 +199,7 @@ public class TextLabel {
 	public static String lblUpperRollNumber_2D				= "Upper roll number_2D";
 	public static String lblLowerRollNumber_2D				= "Lower roll number_2D";
 	public static String lblRollPitch_2D					= "Roll pitch_2D";
-	public static String lblRollLength_2D					= "Roll Length_2D";
+	//public static String lblRollLength_2D					= "Roll Length_2D";
 	public static String lblEntryUpperRollGap_2D			= "Entry upper roll gap_2D";
 	public static String lblEntryLowerRollGap_2D			= "Entry lower roll gap_2D";
 	public static String lblExitUpperRollGap_2D			= "Exit upper roll gap_2D";
@@ -197,8 +208,8 @@ public class TextLabel {
 	public static String lblRollDiameter_2D				= "Roll Diameter_2D";
 	//public static String lblRollCrownType_2D				= "Roll Crown Type_2D";
 	//public static String lblRollCrown_2D					= "Roll Crown_2D";
-	public static String lblUpperRollCrown_2D				= "Upper Roll Crown_2D";
-	public static String lblLowerRollCrown_2D				= "Lower Roll Crown_2D";
+	//public static String lblUpperRollCrown_2D				= "Upper Roll Crown_2D";
+	//public static String lblLowerRollCrown_2D				= "Lower Roll Crown_2D";
 	public static String lblMillStiffnessType_2D 			= "Mill Stiffness Type_2D";
 	public static String lblMillStiffness_2D				= "Mill Stiffness_2D";
 	public static String btnCreateRoll_2D					= "Create Roll_2D";

@@ -63,15 +63,26 @@ public class View extends ViewPart {
 	private Text textLength_2D;
 	private Text textThickness_2D;
 	// Plate Shape Parameter - Plate Type 2
+	/*
 	private Text type2_textLeftEdgeWavePitch_2D;
 	private Text type2_textRightEdgeWavePitch_2D;
 	private Text type2_textLeftEdgeWaveHeight_2D;
 	private Text type2_textRightEdgeWaveHeight_2D;
 	private Text type2_textLeftEdgeWavePhase_2D;
 	private Text type2_textRightEdgeWavePhase_2D;
-	// Plate Shape Parameter - Plate Type 3 
+	// */
+	private Text type2_textWavePitch_2D;
+	private Text type2_textWaveHeight_2D;
+	private Text type2_textWavePhase_2D;
+	// Plate Shape Parameter - Plate Type 3
+	/*
 	private Text type3_textWavePitch_2D;
 	private Text type3_textWaveHeight_2D;
+	//*/
+	private Text type3_textFrontCurlHeight_2D;
+	private Text type3_textFrontCurlLength_2D;
+	private Text type3_textRearCurlHeight_2D;
+	private Text type3_textRearCurlLength_2D;
 	// Plate Shape Parameter - Plate Type 4 
 	private Text type4_textGutterHeight_2D;
 	// Plate Shape Parameter - Plate Type 5
@@ -99,7 +110,7 @@ public class View extends ViewPart {
 	private Text textPassLineOffset_2D;
 	//--------------------------------
 	private Text textRollPitch_2D;
-	private Text textRollLength_2D;
+	//private Text textRollLength_2D;
 	private Text textEntryUpperRollGap_2D;
 	private Text textEntryLowerRollGap_2D;
 	private Text textExitUpperRollGap_2D;
@@ -107,11 +118,11 @@ public class View extends ViewPart {
 	private Text textRollFriction_2D;
 	private Text textRollDiameter_2D;
 	//private Text textRollCrown_2D;
-	private Text textUpperRollCrown_2D;
-	private Text textLowerRollCrown_2D;
+	//private Text textUpperRollCrown_2D;
+	//private Text textLowerRollCrown_2D;
 	private Text textMillStiffness_2D;
-	private Table tableUpperRoll_2D;
-	private Table tableLowerRoll_2D;
+	//private Table tableUpperRoll_2D;
+	//private Table tableLowerRoll_2D;
 	//--------------------------------
 	private Text textYoungsModulus_2D;
 	private Text textFlowStress_2D;
@@ -448,30 +459,31 @@ public class View extends ViewPart {
 		med.setCompositeShapeParameterChild_2_2D(compositeShapeParameterChild_2_2D);
 		compositeShapeParameterChild_2_2D.setBounds(0, 0, 400, 184);
 		
-		Label lblLeftEdgeWavePitch_type2_2D = new Label(compositeShapeParameterChild_2_2D, SWT.NONE);
-		lblLeftEdgeWavePitch_type2_2D.setBounds(10, 10, 200, 20);
-		lblLeftEdgeWavePitch_type2_2D.setText(TextLabel_UI.lblLeftEdgeWavePitch_type2_2D);
+		Label lblWavePitch_type2_2D = new Label(compositeShapeParameterChild_2_2D, SWT.NONE);
+		lblWavePitch_type2_2D.setBounds(10, 10, 200, 20);
+		lblWavePitch_type2_2D.setText(TextLabel_UI.lblWavePitch_type2_2D);
 		
-		type2_textLeftEdgeWavePitch_2D = new Text(compositeShapeParameterChild_2_2D, SWT.BORDER);
-		med.setType2_textLeftEdgeWavePitch_2D(type2_textLeftEdgeWavePitch_2D);
-		type2_textLeftEdgeWavePitch_2D.setBounds(250, 8, 120, 24);
+		type2_textWavePitch_2D = new Text(compositeShapeParameterChild_2_2D, SWT.BORDER);
+		med.setType2_textWavePitch_2D(type2_textWavePitch_2D);
+		type2_textWavePitch_2D.setBounds(250, 8, 120, 24);
 		
-		Label lblRightEdgeWavePitch_type2_2D = new Label(compositeShapeParameterChild_2_2D, SWT.NONE);
-		lblRightEdgeWavePitch_type2_2D.setBounds(10, 37, 200, 20);
-		lblRightEdgeWavePitch_type2_2D.setText(TextLabel_UI.lblRightEdgeWavePitch_type2_2D);
+		Label lblWaveHeight_type2_2D = new Label(compositeShapeParameterChild_2_2D, SWT.NONE);
+		lblWaveHeight_type2_2D.setBounds(10, 37, 200, 20);
+		lblWaveHeight_type2_2D.setText(TextLabel_UI.lblWaveHeight_type2_2D);
 		
-		type2_textRightEdgeWavePitch_2D = new Text(compositeShapeParameterChild_2_2D, SWT.BORDER);
-		med.setType2_textRightEdgeWavePitch_2D(type2_textRightEdgeWavePitch_2D);
-		type2_textRightEdgeWavePitch_2D.setBounds(250, 35, 120, 24);
+		type2_textWaveHeight_2D = new Text(compositeShapeParameterChild_2_2D, SWT.BORDER);
+		med.setType2_textWaveHeight_2D(type2_textWaveHeight_2D);
+		type2_textWaveHeight_2D.setBounds(250, 35, 120, 24);
 		
-		Label lblLeftEdgeWaveHeight_type2_2D = new Label(compositeShapeParameterChild_2_2D, SWT.NONE);
-		lblLeftEdgeWaveHeight_type2_2D.setBounds(10, 64, 200, 20);
-		lblLeftEdgeWaveHeight_type2_2D.setText(TextLabel_UI.lblLeftEdgeWaveHeight_type2_2D);
+		Label lblWavePhase_type2_2D = new Label(compositeShapeParameterChild_2_2D, SWT.NONE);
+		lblWavePhase_type2_2D.setBounds(10, 64, 200, 20);
+		lblWavePhase_type2_2D.setText(TextLabel_UI.lblWavePhase_type2_2D);
 		
-		type2_textLeftEdgeWaveHeight_2D = new Text(compositeShapeParameterChild_2_2D, SWT.BORDER);
-		med.setType2_textLeftEdgeWaveHeight_2D(type2_textLeftEdgeWaveHeight_2D);
-		type2_textLeftEdgeWaveHeight_2D.setBounds(250, 62, 120, 24);
+		type2_textWavePhase_2D = new Text(compositeShapeParameterChild_2_2D, SWT.BORDER);
+		med.setType2_textWavePhase_2D(type2_textWavePhase_2D);
+		type2_textWavePhase_2D.setBounds(250, 62, 120, 24);
 		
+		/*
 		Label lblRightEdgeWaveHeight_type2_2D = new Label(compositeShapeParameterChild_2_2D, SWT.NONE);
 		lblRightEdgeWaveHeight_type2_2D.setBounds(10, 91, 200, 20);
 		lblRightEdgeWaveHeight_type2_2D.setText(TextLabel_UI.lblRightEdgeWaveHeight_type2_2D);
@@ -496,28 +508,46 @@ public class View extends ViewPart {
 		type2_textRightEdgeWavePhase_2D = new Text(compositeShapeParameterChild_2_2D, SWT.BORDER);
 		med.setType2_textRightEdgeWavePhase_2D(type2_textRightEdgeWavePhase_2D);
 		type2_textRightEdgeWavePhase_2D.setBounds(250, 143, 120, 24);
-		
+		// */
 		// Type3
 		Composite compositeShapeParameterChild_3_2D = new Composite(compositeShapeParameterChild_2D, SWT.NONE);
 		med.setCompositeShapeParameterChild_3_2D(compositeShapeParameterChild_3_2D);
 		compositeShapeParameterChild_3_2D.setBounds(0, 0, 400, 130);
 		
-		Label lblWavePitch_type3_2D = new Label(compositeShapeParameterChild_3_2D, SWT.NONE);
-		lblWavePitch_type3_2D.setBounds(10, 10, 170, 20);
-		lblWavePitch_type3_2D.setText(TextLabel_UI.lblWavePitch_type3_2D);
+		Label lblFrontCurlHeight_type3_2D = new Label(compositeShapeParameterChild_3_2D, SWT.NONE);
+		lblFrontCurlHeight_type3_2D.setBounds(10, 10, 170, 20);
+		lblFrontCurlHeight_type3_2D.setText(TextLabel_UI.lblFrontCurlHeight_type3_2D);
 		
-		type3_textWavePitch_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
-		med.setType3_textWavePitch_2D(type3_textWavePitch_2D);
-		type3_textWavePitch_2D.setBounds(210, 8, 120, 24);
+		type3_textFrontCurlHeight_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
+		med.setType3_textFrontCurlHeight_2D(type3_textFrontCurlHeight_2D);
+		type3_textFrontCurlHeight_2D.setBounds(210, 8, 120, 24);
 		
-		Label lblWaveHeight_type3_2D = new Label(compositeShapeParameterChild_3_2D, SWT.NONE);
-		lblWaveHeight_type3_2D.setBounds(10, 37, 170, 20);
-		lblWaveHeight_type3_2D.setText(TextLabel_UI.lblWaveHeight_type3_2D);
+		Label lblFrontCurlLength_type3_2D = new Label(compositeShapeParameterChild_3_2D, SWT.NONE);
+		lblFrontCurlLength_type3_2D.setBounds(10, 37, 170, 20);
+		lblFrontCurlLength_type3_2D.setText(TextLabel_UI.lblFrontCurlLength_type3_2D);
 		
-		type3_textWaveHeight_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
-		med.setType3_textWaveHeight_2D(type3_textWaveHeight_2D);
-		type3_textWaveHeight_2D.setBounds(210, 35, 120, 24);
+		type3_textFrontCurlLength_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
+		med.setType3_textFrontCurlLength_2D(type3_textFrontCurlLength_2D);
+		type3_textFrontCurlLength_2D.setBounds(210, 35, 120, 24);
 		
+		
+		Label lblRearCurlHeigth_type3_2D = new Label(compositeShapeParameterChild_3_2D, SWT.NONE);
+		lblRearCurlHeigth_type3_2D.setBounds(10, 37, 170, 20);
+		lblRearCurlHeigth_type3_2D.setText(TextLabel_UI.lblRearCurlHeight_type3_2D);
+		
+		type3_textRearCurlHeight_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
+		med.setType3_textRearCurlHeight_2D(type3_textRearCurlHeight_2D);
+		type3_textRearCurlHeight_2D.setBounds(210, 35, 120, 24);
+		
+		Label lblRearCurlLength_type3_2D = new Label(compositeShapeParameterChild_3_2D, SWT.NONE);
+		lblRearCurlLength_type3_2D.setBounds(10, 37, 170, 20);
+		lblRearCurlLength_type3_2D.setText(TextLabel_UI.lblRearCurlLength_type3_2D);
+		
+		type3_textRearCurlLength_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
+		med.setType3_textRearCurlLength_2D(type3_textRearCurlLength_2D);
+		type3_textRearCurlLength_2D.setBounds(210, 35, 120, 24);
+		
+		/*
 		// Type4
 		Composite compositeShapeParameterChild_4_2D = new Composite(compositeShapeParameterChild_2D, SWT.NONE);
 		med.setCompositeShapeParameterChild_4_2D(compositeShapeParameterChild_4_2D);
@@ -625,14 +655,16 @@ public class View extends ViewPart {
 		type7_textGutterWidthLength_2D = new Text(compositeShapeParameterChild_7_2D, SWT.BORDER);
 		med.setType7_textGutterWidthLength_2D(type7_textGutterWidthLength_2D);
 		type7_textGutterWidthLength_2D.setBounds(260, 89, 120, 24);
-				
+		//*/		
 		compositeShapeParameterChild_1_2D.setVisible(false);
 		compositeShapeParameterChild_2_2D.setVisible(false);
 		compositeShapeParameterChild_3_2D.setVisible(false);
+		/*
 		compositeShapeParameterChild_4_2D.setVisible(false);
 		compositeShapeParameterChild_5_2D.setVisible(false);
 		compositeShapeParameterChild_6_2D.setVisible(false);
 		compositeShapeParameterChild_7_2D.setVisible(false);
+		//*/
 		
 		//
 		//
@@ -673,7 +705,7 @@ public class View extends ViewPart {
 		fd_textThicknessElementNum_2D.left = new FormAttachment(lblThicknessElementNum_2D,20);
 		fd_textThicknessElementNum_2D.right = new FormAttachment(100, -10);
 		textThicknessElementNum_2D.setLayoutData(fd_textThicknessElementNum_2D);
-		
+		/*
 		Label lblWidthAspectRatio_2D = new Label(compositeMeshParameter_2D, SWT.NONE);
 		FormData fd_lblWidthAspectRatio_2D = new FormData();
 		fd_lblWidthAspectRatio_2D.top = new FormAttachment(lblThicknessElementNum_2D, 12);
@@ -688,10 +720,10 @@ public class View extends ViewPart {
 		fd_textWidthAspectRatio_2D.left = new FormAttachment(textThicknessElementNum_2D, 0, SWT.LEFT);
 		fd_textWidthAspectRatio_2D.right = new FormAttachment(textThicknessElementNum_2D, 0, SWT.RIGHT);
 		textWidthAspectRatio_2D.setLayoutData(fd_textWidthAspectRatio_2D);
-		
+		*/
 		Label lblLengthAspectRatio_2D = new Label(compositeMeshParameter_2D, SWT.NONE);
 		FormData fd_lblLengthAspectRatio_2D = new FormData();
-		fd_lblLengthAspectRatio_2D.top = new FormAttachment(lblWidthAspectRatio_2D, 12);
+		fd_lblLengthAspectRatio_2D.top = new FormAttachment(lblThicknessElementNum_2D, 12);
 		fd_lblLengthAspectRatio_2D.left = new FormAttachment(lblThicknessElementNum_2D, 0, SWT.LEFT);
 		lblLengthAspectRatio_2D.setLayoutData(fd_lblLengthAspectRatio_2D);
 		lblLengthAspectRatio_2D.setText(TextLabel_UI.lblLengthAspectRatio_2D);
@@ -898,7 +930,7 @@ public class View extends ViewPart {
 		fd_textRollPitch_2D.left = new FormAttachment(spinnerUpperRollNum_2D, 0, SWT.LEFT);
 		fd_textRollPitch_2D.right = new FormAttachment(spinnerUpperRollNum_2D, 0, SWT.RIGHT);
 		textRollPitch_2D.setLayoutData(fd_textRollPitch_2D);
-		
+		/*
 		Label lblRollLength_2D = new Label(compositeRollParameter_2D, SWT.NONE);
 		FormData fd_lblRollLength_2D = new FormData();
 		fd_lblRollLength_2D.top = new FormAttachment(lblRollPitch_2D, 0, SWT.TOP);
@@ -914,7 +946,7 @@ public class View extends ViewPart {
 		fd_textRollLength_2D.right = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.RIGHT);
 		textRollLength_2D.setLayoutData(fd_textRollLength_2D);
 		//textRollLength_2D.setEnabled(false);
-		
+		// */
 		Label lblEntryUpperRollGap_2D = new Label(compositeRollParameter_2D, SWT.NONE);
 		FormData fd_lblEntryUpperRollGap_2D = new FormData();
 		fd_lblEntryUpperRollGap_2D.top = new FormAttachment(lblRollPitch_2D, 10);
@@ -1010,7 +1042,7 @@ public class View extends ViewPart {
 		fd_textRollDiameter_2D.right = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.RIGHT);
 		textRollDiameter_2D.setLayoutData(fd_textRollDiameter_2D);
 		
-		
+		/*
 		Label lblUpperRollCrown_2D = new Label(compositeRollParameter_2D,SWT.NONE);
 		FormData fd_lblUpperRollCrown_2D = new FormData();
 		fd_lblUpperRollCrown_2D.top = new FormAttachment(lblRollFriction_2D,10);
@@ -1025,7 +1057,7 @@ public class View extends ViewPart {
 		fd_textUpperRollCrown_2D.left = new FormAttachment(spinnerUpperRollNum_2D, 0, SWT.LEFT);
 		fd_textUpperRollCrown_2D.right = new FormAttachment(spinnerUpperRollNum_2D, 0, SWT.RIGHT);
 		textUpperRollCrown_2D.setLayoutData(fd_textUpperRollCrown_2D);
-		
+		// */
 		/*
 		Composite groupRollCrown_2D = new Composite(compositeRollParameter_2D, SWT.NONE);
 		groupRollCrown_2D.setLayout(new FormLayout());
@@ -1060,6 +1092,7 @@ public class View extends ViewPart {
 		btnRadioApply_RC_2D.setText(TextLabel_UI.btnRadioApply_2D);
 		btnRadioApply_RC_2D.setSelection(true);
 		// */
+		/*
 		Label lblLowerRollCrown_2D = new Label(compositeRollParameter_2D, SWT.NONE);
 		FormData fd_lblLowerRollCrown_2D = new FormData();
 		fd_lblLowerRollCrown_2D.top = new FormAttachment(lblUpperRollCrown_2D, 0,SWT.TOP);
@@ -1074,11 +1107,11 @@ public class View extends ViewPart {
 		fd_textLowerRollCrown_2D.left = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.LEFT);
 		fd_textLowerRollCrown_2D.right = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.RIGHT);
 		textLowerRollCrown_2D.setLayoutData(fd_textLowerRollCrown_2D);
-		
+		// */
 		Label lblMillStiffnessType_2D = new Label(compositeRollParameter_2D, SWT.NONE);
 		FormData fd_lblMillStiffnessType_2D = new FormData();
-		fd_lblMillStiffnessType_2D.top = new FormAttachment(lblUpperRollCrown_2D, 10);
-		fd_lblMillStiffnessType_2D.left = new FormAttachment(lblUpperRollCrown_2D, 0, SWT.LEFT);
+		fd_lblMillStiffnessType_2D.top = new FormAttachment(lblRollFriction_2D, 10);
+		fd_lblMillStiffnessType_2D.left = new FormAttachment(lblRollFriction_2D, 0, SWT.LEFT);
 		lblMillStiffnessType_2D.setLayoutData(fd_lblMillStiffnessType_2D);
 		lblMillStiffnessType_2D.setText(TextLabel_UI.lblMillStiffnessType_2D);
 		

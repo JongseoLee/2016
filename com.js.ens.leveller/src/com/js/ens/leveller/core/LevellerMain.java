@@ -167,16 +167,28 @@ public class LevellerMain {
 	private String textLength_2D;
 	private String textThickness_2D;
 	
+	/*
 	private String type2_textLeftEdgeWavePitch_2D;
 	private String type2_textRightEdgeWavePitch_2D;
 	private String type2_textLeftEdgeWaveHeight_2D;
 	private String type2_textRightEdgeWaveHeight_2D;
 	private String type2_textLeftEdgeWavePhase_2D;
 	private String type2_textRightEdgeWavePhase_2D;
+	// */
+	private String type2_textWavePitch_2D;
+	private String type2_textWaveHeight_2D;
+	private String type2_textWavePhase_2D;
 	
+	/*
 	private String type3_textWavePitch_2D;
 	private String type3_textWaveHeight_2D;
+	// */
+	private String type3_textFrontCurlHeight_2D;
+	private String type3_textFrontCurlLength_2D;
+	private String type3_textRearCurlHeight_2D;
+	private String type3_textRearCurlLength_2D;
 	
+	/*
 	private String type4_textGutterHeight_2D;
 	
 	private String type5_textGutterHeight_2D;
@@ -191,9 +203,10 @@ public class LevellerMain {
 	private String type7_textGutterLength_2D;
 	private String type7_textGutterLengthLength_2D;
 	private String type7_textGutterWidthLength_2D;
+	// */
 	
 	private String textThicknessElementNum_2D;
-	private String textWidthAspectRatio_2D;
+	//private String textWidthAspectRatio_2D;
 	private String textLengthAspectRatio_2D;
 	private String textElementNumber_2D;
 	
@@ -206,7 +219,7 @@ public class LevellerMain {
 	private String spinnerUpperRollNum_2D;
 	private String spinnerLowerRollNum_2D;
 	private String textRollPitch_2D;
-	private String textRollLength_2D;
+	//private String textRollLength_2D;
 	private String textEntryUpperRollGap_2D;
 	private String textEntryLowerRollGap_2D;
 	private String textExitUpperRollGap_2D;
@@ -214,8 +227,8 @@ public class LevellerMain {
 	private String textRollFriction_2D;
 	private String textRollDiameter_2D;
 	//update version2 2016.01.27
-	private String textUpperRollCrown_2D;
-	private String textLowerRollCrown_2D;
+	//private String textUpperRollCrown_2D;
+	//private String textLowerRollCrown_2D;
 	//private String RollCrownType_2D;
 	private String textMillStiffness_2D;
 	private String MillStiffnessType_2D;
@@ -318,10 +331,12 @@ public class LevellerMain {
 		med.getCompositeShapeParameterChild_1_2D().setEnabled(false);
 		med.getCompositeShapeParameterChild_2_2D().setEnabled(false);
 		med.getCompositeShapeParameterChild_3_2D().setEnabled(false);
+		/*
 		med.getCompositeShapeParameterChild_4_2D().setEnabled(false);
 		med.getCompositeShapeParameterChild_5_2D().setEnabled(false);
 		med.getCompositeShapeParameterChild_6_2D().setEnabled(false);
 		med.getCompositeShapeParameterChild_7_2D().setEnabled(false);
+		// */
 		med.getCompositeMeshParameter_2D().setEnabled(false);
 		med.getCompositePlateInformation_2D().setEnabled(false);
 		
@@ -358,10 +373,12 @@ public class LevellerMain {
 		med.getCompositeShapeParameterChild_1_2D().setEnabled(true);
 		med.getCompositeShapeParameterChild_2_2D().setEnabled(true);
 		med.getCompositeShapeParameterChild_3_2D().setEnabled(true);
+		/*
 		med.getCompositeShapeParameterChild_4_2D().setEnabled(true);
 		med.getCompositeShapeParameterChild_5_2D().setEnabled(true);
 		med.getCompositeShapeParameterChild_6_2D().setEnabled(true);
 		med.getCompositeShapeParameterChild_7_2D().setEnabled(true);
+		// */
 		med.getCompositeMeshParameter_2D().setEnabled(true);
 		med.getCompositePlateInformation_2D().setEnabled(true);
 		//----------------------------
@@ -646,11 +663,12 @@ public class LevellerMain {
 		med.getCompositeShapeParameterChild_1_2D().setVisible(true);
 		med.getCompositeShapeParameterChild_2_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_3_2D().setVisible(false);
+		/*
 		med.getCompositeShapeParameterChild_4_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_5_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_6_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_7_2D().setVisible(false);
-		
+		// */
 		med.getLblPhoto_2D().setImage(img_2D);
 		med.getLblPhoto_2D().pack();
 		
@@ -658,16 +676,26 @@ public class LevellerMain {
 		med.getTextLength_2D().setText(InitValueMap.get("Length_2D"));
 		med.getTextThickness_2D().setText(InitValueMap.get("Thickness_2D"));
 		
+		/*
 		med.getType2_textLeftEdgeWavePitch_2D().setText(InitValueMap.get("type2_LeftEdgeWavePitch_2D"));
 		med.getType2_textRightEdgeWavePitch_2D().setText(InitValueMap.get("type2_RightEdgeWavePitch_2D"));
 		med.getType2_textLeftEdgeWaveHeight_2D().setText(InitValueMap.get("type2_LeftEdgeWaveHeight_2D"));
 		med.getType2_textRightEdgeWaveHeight_2D().setText(InitValueMap.get("type2_RightEdgeWaveHeight_2D"));
 		med.getType2_textLeftEdgeWavePhase_2D().setText(InitValueMap.get("type2_LeftEdgeWavePhase_2D"));
 		med.getType2_textRightEdgeWavePhase_2D().setText(InitValueMap.get("type2_RightEdgeWavePhase_2D"));
-		
+		// */
+		med.getType2_textWavePitch_2D().setText(InitValueMap.get("type2_textWavePitch_2D"));
+		med.getType2_textWaveHeight_2D().setText(InitValueMap.get("type2_textWaveHeight_2D"));
+		med.getType2_textWavePhase_2D().setText(InitValueMap.get("type2_textWavePhase_2D"));
+		/*
 		med.getType3_textWaveHeight_2D().setText(InitValueMap.get("type3_WaveHeight_2D"));
 		med.getType3_textWavePitch_2D().setText(InitValueMap.get("type3_WavePitch_2D"));
-		
+		// */
+		med.getType3_textFrontCurlHeight_2D().setText(InitValueMap.get("type3_textFrontCurlHeight_2D"));
+		med.getType3_textFrontCurlLength_2D().setText(InitValueMap.get("type3_textFrontCurlLength_2D"));
+		med.getType3_textRearCurlHeight_2D().setText(InitValueMap.get("type3_textRearCurlHeight_2D"));
+		med.getType3_textRearCurlLength_2D().setText(InitValueMap.get("type3_textRearCurlLength_2D"));
+		/*
 		med.getType4_textGutterHeight_2D().setText(InitValueMap.get("type4_GutterHeight_2D"));
 		
 		med.getType5_textGutterHeight_2D().setText(InitValueMap.get("type5_GutterHeight_2D"));
@@ -682,9 +710,9 @@ public class LevellerMain {
 		med.getType7_textGutterLengthLength_2D().setText(InitValueMap.get("type7_GutterLengthLength_2D"));
 		med.getType7_textGutterWidthLength_2D().setText(InitValueMap.get("type7_GutterWidthLength_2D"));
 		med.getType7_textHeadGutterHeight_2D().setText(InitValueMap.get("type7_HeadGutterHeight_2D"));
-
+		// */
 		med.getTextThicknessElementNum_2D().setText(InitValueMap.get("ThicknessElementNum_2D"));
-		med.getTextWidthAspectRatio_2D().setText(InitValueMap.get("WidthAspectRatio_2D"));
+		//med.getTextWidthAspectRatio_2D().setText(InitValueMap.get("WidthAspectRatio_2D"));
 		med.getTextLengthAspectRatio_2D().setText(InitValueMap.get("LengthAspectRatio_2D"));
 		CalcElementNumber_2D();
 		
@@ -697,7 +725,7 @@ public class LevellerMain {
 		med.getSpinnerUpperRollNum_2D().setSelection(Integer.parseInt(InitValueMap.get("UpperRollNum_2D")));
 		med.getSpinnerLowerRollNum_2D().setSelection(Integer.parseInt(InitValueMap.get("LowerRollNum_2D")));
 		med.getTextRollPitch_2D().setText(InitValueMap.get("RollPitch_2D"));
-		med.getTextRollLength_2D().setText(InitValueMap.get("RollLength_2D"));
+		//med.getTextRollLength_2D().setText(InitValueMap.get("RollLength_2D"));
 		med.getTextEntryUpperRollGap_2D().setText(InitValueMap.get("EntryUpperRollGap_2D"));
 		med.getTextExitUpperRollGap_2D().setText(InitValueMap.get("ExitUpperRollGap_2D"));
 		med.getTextEntryLowerRollGap_2D().setText(InitValueMap.get("EntryLowerRollGap_2D"));
@@ -706,8 +734,8 @@ public class LevellerMain {
 		med.getTextRollDiameter_2D().setText(InitValueMap.get("RollDiameter_2D"));
 		//update version2 2016.01.27
 		//med.getTextRollCrown_2D().setText(InitValueMap.get("RollCrown_2D"));
-		med.getTextUpperRollCrown_2D().setText(InitValueMap.get("UpperRollCrown_2D"));
-		med.getTextLowerRollCrown_2D().setText(InitValueMap.get("LowerRollCrown_2D"));
+		//med.getTextUpperRollCrown_2D().setText(InitValueMap.get("UpperRollCrown_2D"));
+		//med.getTextLowerRollCrown_2D().setText(InitValueMap.get("LowerRollCrown_2D"));
 		//med.getBtnRadioNone_RC_2D().setSelection(false);
 		//med.getBtnRadioApply_RC_2D().setSelection(true);
 		med.getTextMillStiffness_2D().setText(InitValueMap.get("MillStiffness_2D"));
@@ -979,64 +1007,101 @@ public class LevellerMain {
 		med.getCompositeShapeParameterChild_1_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_2_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_3_2D().setVisible(false);
+		/*
 		med.getCompositeShapeParameterChild_4_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_5_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_6_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_7_2D().setVisible(false);
-		
+		// */
 		med.getTextWidth_2D().setText(this.textWidth_2D);
 		med.getTextLength_2D().setText(this.textLength_2D);
 		med.getTextThickness_2D().setText(this.textThickness_2D);	
 		
-		if(plateType.equals(ComboLabel.TYPE1)){
-			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type1).createImage();
+		if(plateType.equals(ComboLabel.TYPE1_2D)){
+			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type1_2D).createImage();
 			med.getCompositeShapeParameterChild_1_2D().setVisible(true);
 			
-		}else if(plateType.equals(ComboLabel.TYPE2)){
-			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type2).createImage();
+		}else if(plateType.equals(ComboLabel.TYPE2_2D)){
+			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type2_2D).createImage();
 			med.getCompositeShapeParameterChild_2_2D().setVisible(true);
 			try{
 				if(comboType_2D.equals(plateType)){
+					/*
 					med.getType2_textLeftEdgeWavePitch_2D().setText(this.type2_textLeftEdgeWavePitch_2D);
 					med.getType2_textRightEdgeWavePitch_2D().setText(this.type2_textRightEdgeWavePitch_2D);
 					med.getType2_textLeftEdgeWaveHeight_2D().setText(this.type2_textLeftEdgeWaveHeight_2D);
 					med.getType2_textRightEdgeWaveHeight_2D().setText(this.type2_textRightEdgeWaveHeight_2D);
 					med.getType2_textLeftEdgeWavePhase_2D().setText(this.type2_textLeftEdgeWavePhase_2D);
 					med.getType2_textRightEdgeWavePhase_2D().setText(this.type2_textRightEdgeWavePhase_2D);
+					//*/
+					med.getType2_textWavePitch_2D().setText(this.type2_textWavePitch_2D);
+					med.getType2_textWaveHeight_2D().setText(this.type2_textWaveHeight_2D);
+					med.getType2_textWavePhase_2D().setText(this.type2_textWavePhase_2D);
 				}else{
+					/*
 					med.getType2_textLeftEdgeWavePitch_2D().setText(InitValueMap.get("type2_LeftEdgeWavePitch_2D"));
 					med.getType2_textRightEdgeWavePitch_2D().setText(InitValueMap.get("type2_RightEdgeWavePitch_2D"));
 					med.getType2_textLeftEdgeWaveHeight_2D().setText(InitValueMap.get("type2_LeftEdgeWaveHeight_2D"));
 					med.getType2_textRightEdgeWaveHeight_2D().setText(InitValueMap.get("type2_RightEdgeWaveHeight_2D"));
 					med.getType2_textLeftEdgeWavePhase_2D().setText(InitValueMap.get("type2_LeftEdgeWavePhase_2D"));
 					med.getType2_textRightEdgeWavePhase_2D().setText(InitValueMap.get("type2_RightEdgeWavePhase_2D"));
+					// */
+					med.getType2_textWavePitch_2D().setText(InitValueMap.get("type2_WavePitch_2D"));
+					med.getType2_textWaveHeight_2D().setText(InitValueMap.get("type2_WaveHeight_2D"));
+					med.getType2_textWavePhase_2D().setText(InitValueMap.get("type2_WavePhase_2D"));
 				}
 			}catch(Exception e){
+				/*
 				med.getType2_textLeftEdgeWavePitch_2D().setText(InitValueMap.get("type2_LeftEdgeWavePitch_2D"));
 				med.getType2_textRightEdgeWavePitch_2D().setText(InitValueMap.get("type2_RightEdgeWavePitch_2D"));
 				med.getType2_textLeftEdgeWaveHeight_2D().setText(InitValueMap.get("type2_LeftEdgeWaveHeight_2D"));
 				med.getType2_textRightEdgeWaveHeight_2D().setText(InitValueMap.get("type2_RightEdgeWaveHeight_2D"));
 				med.getType2_textLeftEdgeWavePhase_2D().setText(InitValueMap.get("type2_LeftEdgeWavePhase_2D"));
 				med.getType2_textRightEdgeWavePhase_2D().setText(InitValueMap.get("type2_RightEdgeWavePhase_2D"));
+				// */
+				med.getType2_textWavePitch_2D().setText(InitValueMap.get("type2_WavePitch_2D"));
+				med.getType2_textWaveHeight_2D().setText(InitValueMap.get("type2_WaveHeight_2D"));
+				med.getType2_textWavePhase_2D().setText(InitValueMap.get("type2_WavePhase_2D"));
 			}
 			
-		}else if(plateType.equals(ComboLabel.TYPE3)){
-			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type3).createImage();
+		}else if(plateType.equals(ComboLabel.TYPE3_2D)){
+			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type3_2D).createImage();
 			med.getCompositeShapeParameterChild_3_2D().setVisible(true);
 			try{
 				if(comboType_2D.equals(plateType)){
+					/*
 					med.getType3_textWaveHeight_2D().setText(this.type3_textWaveHeight_2D);
 					med.getType3_textWavePitch_2D().setText(this.type3_textWavePitch_2D);
+					// */
+					med.getType3_textFrontCurlHeight_2D().setText(this.type3_textFrontCurlHeight_2D);
+					med.getType3_textFrontCurlLength_2D().setText(this.type3_textFrontCurlLength_2D);
+					med.getType3_textRearCurlHeight_2D().setText(this.type3_textRearCurlHeight_2D);
+					med.getType3_textRearCurlLength_2D().setText(this.type3_textRearCurlLength_2D);
+					
 				}else{
+					/*
 					med.getType3_textWaveHeight_2D().setText(InitValueMap.get("type3_WaveHeight_2D"));
 					med.getType3_textWavePitch_2D().setText(InitValueMap.get("type3_WavePitch_2D"));
+					// */
+					med.getType3_textFrontCurlHeight_2D().setText(InitValueMap.get("type3_RearCurlHeight_2D"));
+					med.getType3_textFrontCurlLength_2D().setText(InitValueMap.get("type3_RearCurlLength_2D"));
+					med.getType3_textRearCurlHeight_2D().setText(InitValueMap.get("type3_RearCurlHeight_2D"));
+					med.getType3_textRearCurlLength_2D().setText(InitValueMap.get("type3_RearCurlLength_2D"));
 				}
 			}catch(Exception e){
+				/*
 				med.getType3_textWaveHeight_2D().setText(InitValueMap.get("type3_WaveHeight_2D"));
 				med.getType3_textWavePitch_2D().setText(InitValueMap.get("type3_WavePitch_2D"));
+				// */
+				med.getType3_textFrontCurlHeight_2D().setText(InitValueMap.get("type3_RearCurlHeight_2D"));
+				med.getType3_textFrontCurlLength_2D().setText(InitValueMap.get("type3_RearCurlLength_2D"));
+				med.getType3_textRearCurlHeight_2D().setText(InitValueMap.get("type3_RearCurlHeight_2D"));
+				med.getType3_textRearCurlLength_2D().setText(InitValueMap.get("type3_RearCurlLength_2D"));
 			}
 			
-		}else if(plateType.equals(ComboLabel.TYPE4)){
+		}
+		/*
+		else if(plateType.equals(ComboLabel.TYPE4)){
 			img = ImageDescriptor.createFromFile(View.class,ImagePath.Type4).createImage();
 			med.getCompositeShapeParameterChild_4_2D().setVisible(true);
 			try{
@@ -1110,7 +1175,7 @@ public class LevellerMain {
 			}
 			
 		}
-		
+		// */
 		//this.comboType = plateType;
 		med.getLblPhoto_2D().setImage(img);
 		med.getLblPhoto_2D().pack();
@@ -1264,7 +1329,7 @@ public class LevellerMain {
 			this.spinnerLowerRollNum_2D = med.getSpinnerLowerRollNum_2D().getText().trim();
 			
 			this.textRollPitch_2D = med.getTextRollPitch_2D().getText().trim();
-			this.textRollLength_2D = calcRollLength_2D().trim();
+			//this.textRollLength_2D = calcRollLength_2D().trim();
 			this.textEntryUpperRollGap_2D = med.getTextEntryUpperRollGap_2D().getText().trim();
 			this.textEntryLowerRollGap_2D = med.getTextEntryLowerRollGap_2D().getText().trim();
 			this.textExitUpperRollGap_2D = med.getTextExitUpperRollGap_2D().getText().trim();
@@ -1273,11 +1338,11 @@ public class LevellerMain {
 			this.textRollDiameter_2D = med.getTextRollDiameter_2D().getText().trim();
 			//update version2 2016.01.27
 			//this.textRollCrown_2D = med.getTextRollCrown_2D().getText().trim();
-			this.textUpperRollCrown_2D = med.getTextUpperRollCrown_2D().getText().trim();
-			this.textLowerRollCrown_2D = med.getTextLowerRollCrown_2D().getText().trim();
+			//this.textUpperRollCrown_2D = med.getTextUpperRollCrown_2D().getText().trim();
+			//this.textLowerRollCrown_2D = med.getTextLowerRollCrown_2D().getText().trim();
 			this.textMillStiffness_2D = med.getTextMillStiffness_2D().getText().trim();
 			
-			med.getTextRollLength_2D().setText(this.textRollLength_2D);
+			//med.getTextRollLength_2D().setText(this.textRollLength_2D);
 			
 			initUpperTableData_2D();
 			initLowerTableData_2D();
