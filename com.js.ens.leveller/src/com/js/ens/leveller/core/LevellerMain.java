@@ -1243,8 +1243,10 @@ public class LevellerMain {
 			this.textThicknessElementNum_2D = med.getTextThicknessElementNum_2D().getText().trim();
 			double D = Double.parseDouble(this.textThicknessElementNum_2D);
 			//E
-			this.textWidthAspectRatio_2D = med.getTextWidthAspectRatio_2D().getText().trim();
-			double E = Double.parseDouble(this.textWidthAspectRatio_2D);
+			// ENS 확인해야 할 부분
+			//this.textWidthAspectRatio_2D = med.getTextWidthAspectRatio_2D().getText().trim();
+			//double E = Double.parseDouble(this.textWidthAspectRatio_2D);
+			double E = 1.0;
 			//F
 			this.textLengthAspectRatio_2D = med.getTextLengthAspectRatio_2D().getText().trim();
 			double F = Double.parseDouble(this.textLengthAspectRatio_2D);
@@ -2299,6 +2301,7 @@ public class LevellerMain {
 		this.textThickness_2D = null;
 		med.getTextThickness_2D().setText("");
 		
+		/*
 		this.type2_textLeftEdgeWavePitch_2D = null;
 		med.getType2_textLeftEdgeWavePitch_2D().setText("");
 		this.type2_textRightEdgeWavePitch_2D = null;
@@ -2311,12 +2314,29 @@ public class LevellerMain {
 		med.getType2_textLeftEdgeWavePhase_2D().setText("");
 		this.type2_textRightEdgeWavePhase_2D = null;
 		med.getType2_textRightEdgeWavePhase_2D().setText("");
+		// */
+		this.type2_textWavePitch_2D = null;
+		med.getType2_textWavePitch_2D().setText("");
+		this.type2_textWaveHeight_2D = null;
+		med.getType2_textWaveHeight_2D().setText("");
+		this.type2_textWavePhase_2D = null;
+		med.getType2_textWavePhase_2D().setText("");
 		
+		/*
 		this.type3_textWavePitch_2D = null;
 		med.getType3_textWavePitch_2D().setText("");
 		this.type3_textWaveHeight_2D = null;
 		med.getType3_textWaveHeight_2D().setText("");
-		
+		// */
+		this.type3_textFrontCurlHeight_2D = null;
+		med.getType3_textRearCurlHeight_2D().setText("");
+		this.type3_textFrontCurlLength_2D = null;
+		med.getType3_textFrontCurlLength_2D().setText("");
+		this.type3_textRearCurlHeight_2D = null;
+		med.getType3_textRearCurlHeight_2D().setText("");
+		this.type3_textRearCurlLength_2D = null;
+		med.getType3_textRearCurlLength_2D().setText("");
+		/*
 		this.type4_textGutterHeight_2D = null;
 		med.getType4_textGutterHeight_2D().setText("");
 		
@@ -2342,12 +2362,13 @@ public class LevellerMain {
 		med.getType7_textGutterLengthLength_2D().setText("");
 		this.type7_textGutterWidthLength_2D = null;
 		med.getType7_textGutterWidthLength_2D().setText("");
+		// */
 		
 		//--------------------------------------------		
 		this.textThicknessElementNum_2D = null;
 		med.getTextThicknessElementNum_2D().setText("");
-		this.textWidthAspectRatio_2D = null;
-		med.getTextWidthAspectRatio_2D().setText("");
+		//this.textWidthAspectRatio_2D = null;
+		//med.getTextWidthAspectRatio_2D().setText("");
 		this.textLengthAspectRatio_2D = null;
 		med.getTextLengthAspectRatio_2D().setText("");
 		this.textElementNumber_2D = null;
@@ -2369,8 +2390,8 @@ public class LevellerMain {
 		med.getSpinnerLowerRollNum_2D().setSelection(0);
 		this.textRollPitch_2D = null;
 		med.getTextRollPitch_2D().setText("");
-		this.textRollLength_2D = null;
-		med.getTextRollLength_2D().setText("");
+		//this.textRollLength_2D = null;
+		//med.getTextRollLength_2D().setText("");
 		this.textEntryUpperRollGap_2D = null;
 		med.getTextEntryUpperRollGap_2D().setText("");
 		this.textEntryLowerRollGap_2D = null;
@@ -2386,10 +2407,12 @@ public class LevellerMain {
 		//update version2 2017.01.27
 		//this.textRollCrown_2D = null;
 		//med.getTextRollCrown_2D().setText("");
+		/*
 		this.textUpperRollCrown_2D = null;
 		med.getTextUpperRollCrown_2D().setText("");
 		this.textLowerRollCrown_2D = null;
 		med.getTextLowerRollCrown_2D().setText("");
+		//*/
 		this.textMillStiffness_2D = null;
 		med.getTextMillStiffness_2D().setText("");
 		
@@ -3560,23 +3583,27 @@ public class LevellerMain {
 					med.getCompositeShapeParameterChild_1_2D().setVisible(false);
 					med.getCompositeShapeParameterChild_2_2D().setVisible(false);
 					med.getCompositeShapeParameterChild_3_2D().setVisible(false);
+					/*
 					med.getCompositeShapeParameterChild_4_2D().setVisible(false);
 					med.getCompositeShapeParameterChild_5_2D().setVisible(false);
 					med.getCompositeShapeParameterChild_6_2D().setVisible(false);
 					med.getCompositeShapeParameterChild_7_2D().setVisible(false);
-					if(comboType_2D.equals(ComboLabel.TYPE1)){
+					// */
+					if(comboType_2D.equals(ComboLabel.TYPE1_2D)){
 						med.getComboType_2D().select(0);
-						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type1).createImage();
+						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type1_2D).createImage();
 						med.getCompositeShapeParameterChild_1_2D().setVisible(true);	
-					}else if(comboType_2D.equals(ComboLabel.TYPE2)){
+					}else if(comboType_2D.equals(ComboLabel.TYPE2_2D)){
 						med.getComboType_2D().select(1);
-						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type2).createImage();
+						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type2_2D).createImage();
 						med.getCompositeShapeParameterChild_2_2D().setVisible(true);
-					}else if(comboType_2D.equals(ComboLabel.TYPE3)){
+					}else if(comboType_2D.equals(ComboLabel.TYPE3_2D)){
 						med.getComboType_2D().select(2);
-						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type3).createImage();
+						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type3_2D).createImage();
 						med.getCompositeShapeParameterChild_3_2D().setVisible(true);
-					}else if(comboType_2D.equals(ComboLabel.TYPE4)){
+					}
+					/*
+					else if(comboType_2D.equals(ComboLabel.TYPE4)){
 						med.getComboType_2D().select(3);
 						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type4).createImage();
 						med.getCompositeShapeParameterChild_4_2D().setVisible(true);
@@ -3593,6 +3620,7 @@ public class LevellerMain {
 						img = ImageDescriptor.createFromFile(View.class,ImagePath.Type7).createImage();
 						med.getCompositeShapeParameterChild_7_2D().setVisible(true);
 					}
+					// */
 					med.getLblPhoto_2D().setImage(img);
 					med.getLblPhoto_2D().pack();	
 				}else {
@@ -3602,11 +3630,12 @@ public class LevellerMain {
 					med.getCompositeShapeParameterChild_1_2D().setVisible(false);
 					med.getCompositeShapeParameterChild_2_2D().setVisible(false);
 					med.getCompositeShapeParameterChild_3_2D().setVisible(false);
+					/*
 					med.getCompositeShapeParameterChild_4_2D().setVisible(false);
 					med.getCompositeShapeParameterChild_5_2D().setVisible(false);
 					med.getCompositeShapeParameterChild_6_2D().setVisible(false);
 					med.getCompositeShapeParameterChild_7_2D().setVisible(false);
-					
+					// */
 					med.getLblPhoto_2D().setImage(img);
 					med.getLblPhoto_2D().pack();
 				}
@@ -3640,34 +3669,36 @@ public class LevellerMain {
 				
 			}
 			
-			else if(parsingDataList.get(0).equals(TextLabel.lblLeftEdgeWavePitch_type2_2D)){
+			else if(parsingDataList.get(0).equals( TextLabel.lblWavePitch_type2_2D)){
 				if(parsingDataList.size() == 2){
-					this.type2_textLeftEdgeWavePitch_2D = parsingDataList.get(1);
-					med.getType2_textLeftEdgeWavePitch_2D().setText(this.type2_textLeftEdgeWavePitch_2D);
+					this.type2_textWavePitch_2D = parsingDataList.get(1);
+					med.getType2_textWavePitch_2D().setText(this.type2_textWavePitch_2D);
 				}else {
-					this.type2_textLeftEdgeWavePitch_2D = "No value";
-					med.getType2_textLeftEdgeWavePitch_2D().setText(this.type2_textLeftEdgeWavePitch_2D);	
+					this.type2_textWavePitch_2D = "No value";
+					med.getType2_textWavePitch_2D().setText(this.type2_textWavePitch_2D);	
 				}
 				
-			}else if(parsingDataList.get(0).equals(TextLabel.lblRightEdgeWavePitch_type2_2D)){
+			}else if(parsingDataList.get(0).equals(TextLabel.lblWaveHeight_type2_2D)){
 				if(parsingDataList.size() == 2){
-					this.type2_textRightEdgeWavePitch_2D = parsingDataList.get(1);
-					med.getType2_textRightEdgeWavePitch_2D().setText(this.type2_textRightEdgeWavePitch_2D);
+					this.type2_textWaveHeight_2D = parsingDataList.get(1);
+					med.getType2_textWaveHeight_2D().setText(this.type2_textWaveHeight_2D);
 				}else {
-					this.type2_textRightEdgeWavePitch_2D = "No value";
-					med.getType2_textRightEdgeWavePitch_2D().setText(this.type2_textRightEdgeWavePitch_2D);	
+					this.type2_textWaveHeight_2D = "No value";
+					med.getType2_textWaveHeight_2D().setText(this.type2_textWaveHeight_2D);	
 				}
 				
-			}else if(parsingDataList.get(0).equals(TextLabel.lblLeftEdgeWaveHeight_type2_2D)){
+			}else if(parsingDataList.get(0).equals(TextLabel.lblWavePhase_type2_2D)){
 				if(parsingDataList.size() == 2){
-					this.type2_textLeftEdgeWaveHeight_2D = parsingDataList.get(1);
-					med.getType2_textLeftEdgeWaveHeight_2D().setText(this.type2_textLeftEdgeWaveHeight_2D);
+					this.type2_textWavePhase_2D = parsingDataList.get(1);
+					med.getType2_textWavePhase_2D().setText(this.type2_textWavePhase_2D);
 				}else {
-					this.type2_textLeftEdgeWaveHeight_2D = "No value";
-					med.getType2_textLeftEdgeWaveHeight_2D().setText(this.type2_textLeftEdgeWaveHeight_2D);	
+					this.type2_textWavePhase_2D = "No value";
+					med.getType2_textWavePhase_2D().setText(this.type2_textWavePhase_2D);	
 				}
 				
-			}else if(parsingDataList.get(0).equals(TextLabel.lblRightEdgeWaveHeight_type2_2D)){
+			}
+			/*
+			else if(parsingDataList.get(0).equals(TextLabel.lblRightEdgeWaveHeight_type2_2D)){
 				if(parsingDataList.size() == 2){
 					this.type2_textRightEdgeWaveHeight_2D = parsingDataList.get(1);
 					med.getType2_textRightEdgeWaveHeight_2D().setText(this.type2_textRightEdgeWaveHeight_2D);
@@ -3695,27 +3726,46 @@ public class LevellerMain {
 				}
 				
 			}
-						
-			else if(parsingDataList.get(0).equals(TextLabel.lblWavePitch_type3_2D)){
+			// */
+			
+			else if(parsingDataList.get(0).equals(TextLabel.lblFrontCurlHeight_type3_2D)){
 				if(parsingDataList.size() == 2){
-					this.type3_textWavePitch_2D = parsingDataList.get(1);
-					med.getType3_textWavePitch_2D().setText(this.type3_textWavePitch_2D);
+					this.type3_textFrontCurlHeight_2D = parsingDataList.get(1);
+					med.getType3_textFrontCurlHeight_2D().setText(this.type3_textFrontCurlHeight_2D);
 				}else {
-					this.type3_textWavePitch_2D = "No value";
-					med.getType3_textWavePitch_2D().setText(this.type3_textWavePitch_2D);	
+					this.type3_textFrontCurlHeight_2D = "No value";
+					med.getType3_textFrontCurlHeight_2D().setText(this.type3_textFrontCurlHeight_2D);	
 				}
 				
-			}else if(parsingDataList.get(0).equals(TextLabel.lblWaveHeight_type3_2D)){
+			}else if(parsingDataList.get(0).equals(TextLabel.lblFrontCurlLength_type3_2D)){
 				if(parsingDataList.size() == 2){
-					this.type3_textWaveHeight_2D = parsingDataList.get(1);
-					med.getType3_textWaveHeight_2D().setText(this.type3_textWaveHeight_2D);
+					this.type3_textFrontCurlLength_2D = parsingDataList.get(1);
+					med.getType3_textFrontCurlLength_2D().setText(this.type3_textFrontCurlLength_2D);
 				}else {
-					this.type3_textWaveHeight_2D = "No value";
-					med.getType3_textWaveHeight_2D().setText(this.type3_textWaveHeight_2D);	
+					this.type3_textFrontCurlLength_2D = "No value";
+					med.getType3_textFrontCurlLength_2D().setText(this.type3_textFrontCurlLength_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRearCurlHeight_type3_2D)){
+				if(parsingDataList.size() == 2){
+					this.type3_textRearCurlHeight_2D = parsingDataList.get(1);
+					med.getType3_textRearCurlHeight_2D().setText(this.type3_textRearCurlHeight_2D);
+				}else {
+					this.type3_textRearCurlHeight_2D = "No value";
+					med.getType3_textRearCurlHeight_2D().setText(this.type3_textRearCurlHeight_2D);	
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblRearCurlLength_type3_2D)){
+				if(parsingDataList.size() == 2){
+					this.type3_textRearCurlLength_2D = parsingDataList.get(1);
+					med.getType3_textRearCurlLength_2D().setText(this.type3_textRearCurlLength_2D);
+				}else {
+					this.type3_textRearCurlLength_2D = "No value";
+					med.getType3_textRearCurlLength_2D().setText(this.type3_textRearCurlLength_2D);	
 				}
 				
 			}
-			
+			/*
 			else if(parsingDataList.get(0).equals(TextLabel.lblGutterHeight_type4_2D)){
 				if(parsingDataList.size() == 2){
 					if(comboType_2D.equals(ComboLabel.TYPE4)){
@@ -3823,6 +3873,7 @@ public class LevellerMain {
 				}
 				
 			}
+			// */
 			//----------------------------------------------------
 			else if(parsingDataList.get(0).equals(TextLabel.lblThicknessElementNum_2D)){
 				if(parsingDataList.size() == 2){
@@ -3833,7 +3884,9 @@ public class LevellerMain {
 					med.getTextThicknessElementNum_2D().setText(this.textThicknessElementNum_2D);	
 				}
 				
-			}else if(parsingDataList.get(0).equals(TextLabel.lblWidthAspectRatio_2D)){
+			}
+			/*
+			else if(parsingDataList.get(0).equals(TextLabel.lblWidthAspectRatio_2D)){
 				if(parsingDataList.size() == 2){
 					this.textWidthAspectRatio_2D = parsingDataList.get(1);
 					med.getTextWidthAspectRatio_2D().setText(this.textWidthAspectRatio_2D);
@@ -3842,7 +3895,9 @@ public class LevellerMain {
 					med.getTextWidthAspectRatio_2D().setText(this.textWidthAspectRatio_2D);	
 				}
 				
-			}else if(parsingDataList.get(0).equals(TextLabel.lblLengthAspectRatio_2D)){
+			}
+			// */
+			else if(parsingDataList.get(0).equals(TextLabel.lblLengthAspectRatio_2D)){
 				if(parsingDataList.size() == 2){
 					this.textLengthAspectRatio_2D = parsingDataList.get(1);
 					med.getTextLengthAspectRatio_2D().setText(this.textLengthAspectRatio_2D);
@@ -3928,7 +3983,9 @@ public class LevellerMain {
 					med.getTextRollPitch_2D().setText(this.textRollPitch_2D);	
 				}
 				
-			}else if(parsingDataList.get(0).equals(TextLabel.lblRollLength_2D)){
+			}
+			/*
+			else if(parsingDataList.get(0).equals(TextLabel.lblRollLength_2D)){
 				if(parsingDataList.size() == 2){
 					this.textRollLength_2D = parsingDataList.get(1);
 					med.getTextRollLength_2D().setText(this.textRollLength_2D);	
@@ -3937,7 +3994,9 @@ public class LevellerMain {
 					med.getTextRollLength_2D().setText(this.textRollLength_2D);
 				}
 				
-			}else if(parsingDataList.get(0).equals(TextLabel.lblEntryUpperRollGap_2D)){
+			}
+			// */
+			else if(parsingDataList.get(0).equals(TextLabel.lblEntryUpperRollGap_2D)){
 				if(parsingDataList.size() == 2){
 					this.textEntryUpperRollGap_2D = parsingDataList.get(1);
 					med.getTextEntryUpperRollGap_2D().setText(this.textEntryUpperRollGap_2D);	
@@ -4004,6 +4063,7 @@ public class LevellerMain {
 				}
 			}
 			// */
+			/*
 			else if(parsingDataList.get(0).equals(TextLabel.lblUpperRollCrown_2D)){
 				if(parsingDataList.size() == 2){
 					this.textUpperRollCrown_2D = parsingDataList.get(1);
@@ -4020,7 +4080,9 @@ public class LevellerMain {
 					this.textLowerRollCrown_2D = "No value";
 					med.getTextLowerRollCrown_2D().setText(this.textLowerRollCrown_2D);
 				}
-			}else if(parsingDataList.get(0).equals(TextLabel.lblMillStiffness_2D)){
+			}
+			// */
+			else if(parsingDataList.get(0).equals(TextLabel.lblMillStiffness_2D)){
 				if(parsingDataList.size() == 2){
 					this.textMillStiffness_2D = parsingDataList.get(1);
 					med.getTextMillStiffness_2D().setText(this.textMillStiffness_2D);
@@ -4897,9 +4959,10 @@ public class LevellerMain {
 		this.db_2D.add(TextLabel.lblLength_2D+"="+this.textLength_2D);
 		this.db_2D.add(TextLabel.lblThickness_2D+"="+this.textThickness_2D);
 		
-		if(this.comboType_2D.equals(ComboLabel.TYPE1)){
+		if(this.comboType_2D.equals(ComboLabel.TYPE1_2D)){
 			
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE2)){
+		}else if(this.comboType_2D.equals(ComboLabel.TYPE2_2D)){
+			/*
 			this.type2_textLeftEdgeWavePitch_2D = med.getType2_textLeftEdgeWavePitch_2D().getText().trim();
 			this.type2_textRightEdgeWavePitch_2D = med.getType2_textRightEdgeWavePitch_2D().getText().trim();
 			this.type2_textLeftEdgeWaveHeight_2D = med.getType2_textLeftEdgeWaveHeight_2D().getText().trim();
@@ -4913,13 +4976,36 @@ public class LevellerMain {
 			this.db_2D.add(TextLabel.lblRightEdgeWaveHeight_type2_2D+"="+this.type2_textRightEdgeWaveHeight_2D);
 			this.db_2D.add(TextLabel.lblLeftEdgeWavePhase_type2_2D+"="+this.type2_textLeftEdgeWavePhase_2D);
 			this.db_2D.add(TextLabel.lblRightEdgeWavePhase_type2_2D+"="+this.type2_textRightEdgeWavePhase_2D);
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE3)){
+			// */
+			this.type2_textWavePitch_2D = med.getType2_textWavePitch_2D().getText().trim();
+			this.type2_textWaveHeight_2D = med.getType2_textWaveHeight_2D().getText().trim();
+			this.type2_textWavePhase_2D = med.getType2_textWavePhase_2D().getText().trim();
+			
+			this.db_2D.add(TextLabel.lblWavePitch_type2_2D+"="+this.type2_textWavePitch_2D);
+			this.db_2D.add(TextLabel.lblWaveHeight_type2_2D+"="+this.type2_textWaveHeight_2D);
+			this.db_2D.add(TextLabel.lblWavePhase_type2_2D+"="+this.type2_textWavePhase_2D);
+			
+		}else if(this.comboType_2D.equals(ComboLabel.TYPE3_2D)){
+			/*
 			this.type3_textWavePitch_2D = med.getType3_textWavePitch_2D().getText().trim();
 			this.type3_textWaveHeight_2D = med.getType3_textWaveHeight_2D().getText().trim();
 			
 			this.db_2D.add(TextLabel.lblWavePitch_type3_2D+"="+this.type3_textWavePitch_2D);
 			this.db_2D.add(TextLabel.lblWaveHeight_type3_2D+"="+this.type3_textWaveHeight_2D);
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE4)){
+			// */
+			this.type3_textFrontCurlHeight_2D = med.getType3_textFrontCurlHeight_2D().getText().trim();
+			this.type3_textFrontCurlLength_2D = med.getType3_textFrontCurlLength_2D().getText().trim();
+			this.type3_textRearCurlHeight_2D = med.getType3_textRearCurlHeight_2D().getText().trim();
+			this.type3_textRearCurlLength_2D = med.getType3_textRearCurlLength_2D().getText().trim();
+			
+			this.db_2D.add(TextLabel.lblFrontCurlHeight_type3_2D+"="+this.type3_textFrontCurlHeight_2D);
+			this.db_2D.add(TextLabel.lblFrontCurlLength_type3_2D+"="+this.type3_textFrontCurlLength_2D);
+			this.db_2D.add(TextLabel.lblRearCurlHeight_type3_2D+"="+this.type3_textRearCurlHeight_2D);
+			this.db_2D.add(TextLabel.lblRearCurlLength_type3_2D+"="+this.type3_textRearCurlLength_2D);
+			
+		}
+		/*
+		else if(this.comboType_2D.equals(ComboLabel.TYPE4)){
 			this.type4_textGutterHeight_2D = med.getType4_textGutterHeight_2D().getText().trim();
 			
 			this.db_2D.add(TextLabel.lblGutterHeight_type4_2D+"="+this.type4_textGutterHeight_2D);
@@ -4952,9 +5038,10 @@ public class LevellerMain {
 			this.db_2D.add(TextLabel.lblGutterLengthLength_type7_2D+"="+this.type7_textGutterLengthLength_2D);
 			this.db_2D.add(TextLabel.lblGutterWidthLength_type7_2D+"="+this.type7_textGutterWidthLength_2D);
 		}
+		// */
 		//--------------------------------------------		
 		this.textThicknessElementNum_2D = med.getTextThicknessElementNum_2D().getText().trim();
-		this.textWidthAspectRatio_2D = med.getTextWidthAspectRatio_2D().getText().trim();
+		//this.textWidthAspectRatio_2D = med.getTextWidthAspectRatio_2D().getText().trim();
 		this.textLengthAspectRatio_2D = med.getTextLengthAspectRatio_2D().getText().trim();
 		CalcElementNumber_2D();
 		// version3 update
@@ -4962,7 +5049,7 @@ public class LevellerMain {
 		this.textElementNumber_2D = med.getTextElementNumber_2D().getText().trim();
 		
 		this.db_2D.add(TextLabel.lblThicknessElementNum_2D+"="+this.textThicknessElementNum_2D);
-		this.db_2D.add(TextLabel.lblWidthAspectRatio_2D+"="+this.textWidthAspectRatio_2D);
+		//this.db_2D.add(TextLabel.lblWidthAspectRatio_2D+"="+this.textWidthAspectRatio_2D);
 		this.db_2D.add(TextLabel.lblLengthAspectRatio_2D+"="+this.textLengthAspectRatio_2D);
 		this.db_2D.add(TextLabel.lblElementNumber_2D+"="+this.textElementNumber_2D);
 		//--------------------------------------------
@@ -4982,7 +5069,7 @@ public class LevellerMain {
 		this.spinnerUpperRollNum_2D = med.getSpinnerUpperRollNum_2D().getText().trim();
 		this.spinnerLowerRollNum_2D = med.getSpinnerLowerRollNum_2D().getText().trim();
 		this.textRollPitch_2D = med.getTextRollPitch_2D().getText().trim();
-		this.textRollLength_2D = calcRollLength_2D().trim();
+		//this.textRollLength_2D = calcRollLength_2D().trim();
 		this.textEntryUpperRollGap_2D = med.getTextEntryUpperRollGap_2D().getText().trim();
 		this.textEntryLowerRollGap_2D = med.getTextEntryLowerRollGap_2D().getText().trim();
 		this.textExitUpperRollGap_2D = med.getTextExitUpperRollGap_2D().getText().trim();
@@ -4997,8 +5084,8 @@ public class LevellerMain {
 			this.RollCrownType_2D = med.getBtnRadioApply_RC_2D().getText().trim();
 		}
 		//*/
-		this.textUpperRollCrown_2D = med.getTextUpperRollCrown_2D().getText().trim();
-		this.textLowerRollCrown_2D = med.getTextLowerRollCrown_2D().getText().trim();
+		//this.textUpperRollCrown_2D = med.getTextUpperRollCrown_2D().getText().trim();
+		//this.textLowerRollCrown_2D = med.getTextLowerRollCrown_2D().getText().trim();
 		
 		if(med.getBtnRadioRigid_MS_2D().getSelection()){
 			this.MillStiffnessType_2D = med.getBtnRadioRigid_MS_2D().getText().trim();
@@ -5008,12 +5095,12 @@ public class LevellerMain {
 		this.textMillStiffness_2D = med.getTextMillStiffness_2D().getText().trim();
 		
 		
-		med.getTextRollLength_2D().setText(this.textRollLength_2D);
+		//med.getTextRollLength_2D().setText(this.textRollLength_2D);
 		
 		this.db_2D.add(TextLabel.lblUpperRollNumber_2D+"="+this.spinnerUpperRollNum_2D);
 		this.db_2D.add(TextLabel.lblLowerRollNumber_2D+"="+this.spinnerLowerRollNum_2D);
 		this.db_2D.add(TextLabel.lblRollPitch_2D+"="+this.textRollPitch_2D);
-		this.db_2D.add(TextLabel.lblRollLength_2D+"="+this.textRollLength_2D);
+		//this.db_2D.add(TextLabel.lblRollLength_2D+"="+this.textRollLength_2D);
 		this.db_2D.add(TextLabel.lblEntryUpperRollGap_2D+"="+this.textEntryUpperRollGap_2D);
 		this.db_2D.add(TextLabel.lblEntryLowerRollGap_2D+"="+this.textEntryLowerRollGap_2D);
 		this.db_2D.add(TextLabel.lblExitUpperRollGap_2D+"="+this.textExitUpperRollGap_2D);
@@ -5022,8 +5109,8 @@ public class LevellerMain {
 		this.db_2D.add(TextLabel.lblRollDiameter_2D+"="+this.textRollDiameter_2D);
 		//update version2 2016.01.27
 		//this.db_2D.add(TextLabel.lblRollCrownType_2D+"="+this.RollCrownType_2D);
-		this.db_2D.add(TextLabel.lblUpperRollCrown_2D+"="+this.textUpperRollCrown_2D);
-		this.db_2D.add(TextLabel.lblLowerRollCrown_2D+"="+this.textLowerRollCrown_2D);
+		//this.db_2D.add(TextLabel.lblUpperRollCrown_2D+"="+this.textUpperRollCrown_2D);
+		//this.db_2D.add(TextLabel.lblLowerRollCrown_2D+"="+this.textLowerRollCrown_2D);
 		
 		this.db_2D.add(TextLabel.lblMillStiffnessType_2D+"="+this.MillStiffnessType_2D);
 		this.db_2D.add(TextLabel.lblMillStiffness_2D+"="+this.textMillStiffness_2D);
@@ -5438,9 +5525,10 @@ public class LevellerMain {
 		this.db_saveAs_2D.add(TextLabel.lblLength_2D+"="+this.textLength_2D);
 		this.db_saveAs_2D.add(TextLabel.lblThickness_2D+"="+this.textThickness_2D);
 
-		if(this.comboType_2D.equals(ComboLabel.TYPE1)){
+		if(this.comboType_2D.equals(ComboLabel.TYPE1_2D)){
 
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE2)){
+		}else if(this.comboType_2D.equals(ComboLabel.TYPE2_2D)){
+			/*
 			this.type2_textLeftEdgeWavePitch_2D = med.getType2_textLeftEdgeWavePitch_2D().getText().trim();
 			this.type2_textRightEdgeWavePitch_2D = med.getType2_textRightEdgeWavePitch_2D().getText().trim();
 			this.type2_textLeftEdgeWaveHeight_2D = med.getType2_textLeftEdgeWaveHeight_2D().getText().trim();
@@ -5454,13 +5542,35 @@ public class LevellerMain {
 			this.db_saveAs_2D.add(TextLabel.lblRightEdgeWaveHeight_type2_2D+"="+this.type2_textRightEdgeWaveHeight_2D);
 			this.db_saveAs_2D.add(TextLabel.lblLeftEdgeWavePhase_type2_2D+"="+this.type2_textLeftEdgeWavePhase_2D);
 			this.db_saveAs_2D.add(TextLabel.lblRightEdgeWavePhase_type2_2D+"="+this.type2_textRightEdgeWavePhase_2D);
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE3)){
+			// */
+			this.type2_textWavePitch_2D = med.getType2_textWavePitch_2D().getText().trim();
+			this.type2_textWaveHeight_2D = med.getType2_textWaveHeight_2D().getText().trim();
+			this.type2_textWavePhase_2D = med.getType2_textWavePhase_2D().getText().trim();
+			
+			this.db_saveAs_2D.add(TextLabel.lblWavePitch_type2_2D+"="+this.type2_textWavePitch_2D);
+			this.db_saveAs_2D.add(TextLabel.lblWaveHeight_type2_2D+"="+this.type2_textWaveHeight_2D);
+			this.db_saveAs_2D.add(TextLabel.lblWavePhase_type2_2D+"="+this.type2_textWavePhase_2D);
+		}else if(this.comboType_2D.equals(ComboLabel.TYPE3_2D)){
+			/*
 			this.type3_textWavePitch_2D = med.getType3_textWavePitch_2D().getText().trim();
 			this.type3_textWaveHeight_2D = med.getType3_textWaveHeight_2D().getText().trim();
 
 			this.db_saveAs_2D.add(TextLabel.lblWavePitch_type3_2D+"="+this.type3_textWavePitch_2D);
 			this.db_saveAs_2D.add(TextLabel.lblWaveHeight_type3_2D+"="+this.type3_textWaveHeight_2D);
-		}else if(this.comboType_2D.equals(ComboLabel.TYPE4)){
+			// */
+			
+			this.type3_textFrontCurlHeight_2D = med.getType3_textFrontCurlHeight_2D().getText().trim();
+			this.type3_textFrontCurlLength_2D = med.getType3_textFrontCurlLength_2D().getText().trim();
+			this.type3_textRearCurlHeight_2D = med.getType3_textRearCurlHeight_2D().getText().trim();
+			this.type3_textRearCurlLength_2D = med.getType3_textRearCurlLength_2D().getText().trim();
+			
+			this.db_saveAs_2D.add(TextLabel.lblFrontCurlHeight_type3_2D+"="+this.type3_textFrontCurlHeight_2D);
+			this.db_saveAs_2D.add(TextLabel.lblFrontCurlLength_type3_2D+"="+this.type3_textFrontCurlLength_2D);
+			this.db_saveAs_2D.add(TextLabel.lblRearCurlHeight_type3_2D+"="+this.type3_textRearCurlHeight_2D);
+			this.db_saveAs_2D.add(TextLabel.lblRearCurlLength_type3_2D+"="+this.type3_textRearCurlLength_2D);
+		}
+		/*
+		else if(this.comboType_2D.equals(ComboLabel.TYPE4)){
 			this.type4_textGutterHeight_2D = med.getType4_textGutterHeight_2D().getText().trim();
 
 			this.db_saveAs_2D.add(TextLabel.lblGutterHeight_type4_2D+"="+this.type4_textGutterHeight_2D);
@@ -5493,9 +5603,10 @@ public class LevellerMain {
 			this.db_saveAs_2D.add(TextLabel.lblGutterLengthLength_type7_2D+"="+this.type7_textGutterLengthLength_2D);
 			this.db_saveAs_2D.add(TextLabel.lblGutterWidthLength_type7_2D+"="+this.type7_textGutterWidthLength_2D);
 		}
+		// */
 		//--------------------------------------------		
 		this.textThicknessElementNum_2D = med.getTextThicknessElementNum_2D().getText().trim();
-		this.textWidthAspectRatio_2D = med.getTextWidthAspectRatio_2D().getText().trim();
+		//this.textWidthAspectRatio_2D = med.getTextWidthAspectRatio_2D().getText().trim();
 		this.textLengthAspectRatio_2D = med.getTextLengthAspectRatio_2D().getText().trim();
 		CalcElementNumber_2D();
 		// version3 update
@@ -5503,7 +5614,7 @@ public class LevellerMain {
 		this.textElementNumber_2D = med.getTextElementNumber_2D().getText().trim();
 
 		this.db_saveAs_2D.add(TextLabel.lblThicknessElementNum_2D+"="+this.textThicknessElementNum_2D);
-		this.db_saveAs_2D.add(TextLabel.lblWidthAspectRatio_2D+"="+this.textWidthAspectRatio_2D);
+		//this.db_saveAs_2D.add(TextLabel.lblWidthAspectRatio_2D+"="+this.textWidthAspectRatio_2D);
 		this.db_saveAs_2D.add(TextLabel.lblLengthAspectRatio_2D+"="+this.textLengthAspectRatio_2D);
 		this.db_saveAs_2D.add(TextLabel.lblElementNumber_2D+"="+this.textElementNumber_2D);
 		//--------------------------------------------
@@ -5523,7 +5634,7 @@ public class LevellerMain {
 		this.spinnerUpperRollNum_2D = med.getSpinnerUpperRollNum_2D().getText().trim();
 		this.spinnerLowerRollNum_2D = med.getSpinnerLowerRollNum_2D().getText().trim();
 		this.textRollPitch_2D = med.getTextRollPitch_2D().getText().trim();
-		this.textRollLength_2D = calcRollLength_2D().trim();
+		//this.textRollLength_2D = calcRollLength_2D().trim();
 		this.textEntryUpperRollGap_2D = med.getTextEntryUpperRollGap_2D().getText().trim();
 		this.textEntryLowerRollGap_2D = med.getTextEntryLowerRollGap_2D().getText().trim();
 		this.textExitUpperRollGap_2D = med.getTextExitUpperRollGap_2D().getText().trim();
@@ -5538,8 +5649,8 @@ public class LevellerMain {
 			this.RollCrownType_2D = med.getBtnRadioApply_RC_2D().getText().trim();
 		}
 		//*/
-		this.textUpperRollCrown_2D = med.getTextUpperRollCrown_2D().getText().trim();
-		this.textLowerRollCrown_2D = med.getTextLowerRollCrown_2D().getText().trim();
+		//this.textUpperRollCrown_2D = med.getTextUpperRollCrown_2D().getText().trim();
+		//this.textLowerRollCrown_2D = med.getTextLowerRollCrown_2D().getText().trim();
 		if(med.getBtnRadioRigid_MS_2D().getSelection()){
 			this.MillStiffnessType_2D = med.getBtnRadioRigid_MS_2D().getText().trim();
 		}else{
@@ -5548,12 +5659,12 @@ public class LevellerMain {
 		this.textMillStiffness_2D = med.getTextMillStiffness_2D().getText().trim();
 
 
-		med.getTextRollLength_2D().setText(this.textRollLength_2D);
+		//med.getTextRollLength_2D().setText(this.textRollLength_2D);
 
 		this.db_saveAs_2D.add(TextLabel.lblUpperRollNumber_2D+"="+this.spinnerUpperRollNum_2D);
 		this.db_saveAs_2D.add(TextLabel.lblLowerRollNumber_2D+"="+this.spinnerLowerRollNum_2D);
 		this.db_saveAs_2D.add(TextLabel.lblRollPitch_2D+"="+this.textRollPitch_2D);
-		this.db_saveAs_2D.add(TextLabel.lblRollLength_2D+"="+this.textRollLength_2D);
+		//this.db_saveAs_2D.add(TextLabel.lblRollLength_2D+"="+this.textRollLength_2D);
 		this.db_saveAs_2D.add(TextLabel.lblEntryUpperRollGap_2D+"="+this.textEntryUpperRollGap_2D);
 		this.db_saveAs_2D.add(TextLabel.lblEntryLowerRollGap_2D+"="+this.textEntryLowerRollGap_2D);
 		this.db_saveAs_2D.add(TextLabel.lblExitUpperRollGap_2D+"="+this.textExitUpperRollGap_2D);
@@ -5562,8 +5673,8 @@ public class LevellerMain {
 		this.db_saveAs_2D.add(TextLabel.lblRollDiameter_2D+"="+this.textRollDiameter_2D);
 		//update version2 2016.01.27
 		//this.db_saveAs_2D.add(TextLabel.lblRollCrownType_2D+"="+this.RollCrownType_2D);
-		this.db_saveAs_2D.add(TextLabel.lblUpperRollCrown_2D+"="+this.textUpperRollCrown_2D);
-		this.db_saveAs_2D.add(TextLabel.lblLowerRollCrown_2D+"="+this.textLowerRollCrown_2D);
+		//this.db_saveAs_2D.add(TextLabel.lblUpperRollCrown_2D+"="+this.textUpperRollCrown_2D);
+		//this.db_saveAs_2D.add(TextLabel.lblLowerRollCrown_2D+"="+this.textLowerRollCrown_2D);
 		this.db_saveAs_2D.add(TextLabel.lblMillStiffnessType_2D+"="+this.MillStiffnessType_2D);
 		this.db_saveAs_2D.add(TextLabel.lblMillStiffness_2D+"="+this.textMillStiffness_2D);
 		//update version3 
@@ -6622,7 +6733,7 @@ public class LevellerMain {
 	public void setTextThickness_2D(String textThickness_2D) {
 		this.textThickness_2D = textThickness_2D;
 	}
-
+	/*
 	public String getType2_textLeftEdgeWavePitch_2D() {
 		return type2_textLeftEdgeWavePitch_2D;
 	}
@@ -6787,7 +6898,7 @@ public class LevellerMain {
 			String type7_textGutterWidthLength_2D) {
 		this.type7_textGutterWidthLength_2D = type7_textGutterWidthLength_2D;
 	}
-
+	// */
 	public String getTextThicknessElementNum_2D() {
 		return textThicknessElementNum_2D;
 	}
@@ -6795,7 +6906,7 @@ public class LevellerMain {
 	public void setTextThicknessElementNum_2D(String textThicknessElementNum_2D) {
 		this.textThicknessElementNum_2D = textThicknessElementNum_2D;
 	}
-
+	/*
 	public String getTextWidthAspectRatio_2D() {
 		return textWidthAspectRatio_2D;
 	}
@@ -6803,7 +6914,7 @@ public class LevellerMain {
 	public void setTextWidthAspectRatio_2D(String textWidthAspectRatio_2D) {
 		this.textWidthAspectRatio_2D = textWidthAspectRatio_2D;
 	}
-
+	// */
 	public String getTextLengthAspectRatio_2D() {
 		return textLengthAspectRatio_2D;
 	}
@@ -6875,7 +6986,7 @@ public class LevellerMain {
 	public void setTextRollPitch_2D(String textRollPitch_2D) {
 		this.textRollPitch_2D = textRollPitch_2D;
 	}
-
+	/*
 	public String getTextRollLength_2D() {
 		return textRollLength_2D;
 	}
@@ -6883,7 +6994,7 @@ public class LevellerMain {
 	public void setTextRollLength_2D(String textRollLength_2D) {
 		this.textRollLength_2D = textRollLength_2D;
 	}
-
+	// */
 	public String getTextEntryUpperRollGap_2D() {
 		return textEntryUpperRollGap_2D;
 	}
@@ -6931,7 +7042,7 @@ public class LevellerMain {
 	public void setTextRollDiameter_2D(String textRollDiameter_2D) {
 		this.textRollDiameter_2D = textRollDiameter_2D;
 	}
-
+	/*
 	public String getTextUpperRollCrown_2D() {
 		return textUpperRollCrown_2D;
 	}
@@ -6947,7 +7058,7 @@ public class LevellerMain {
 	public void setTextLowerRollCrown_2D(String textLowerRollCrown_2D) {
 		this.textLowerRollCrown_2D = textLowerRollCrown_2D;
 	}
-
+	//*/
 	/*
 	public String getRollCrownType_2D() {
 		return RollCrownType_2D;
@@ -7264,6 +7375,62 @@ public class LevellerMain {
 
 	public void setSpinnerThread_2D(String spinnerThread_2D) {
 		this.spinnerThread_2D = spinnerThread_2D;
+	}
+
+	public String getType2_textWavePitch_2D() {
+		return type2_textWavePitch_2D;
+	}
+
+	public void setType2_textWavePitch_2D(String type2_textWavePitch_2D) {
+		this.type2_textWavePitch_2D = type2_textWavePitch_2D;
+	}
+
+	public String getType2_textWaveHeight_2D() {
+		return type2_textWaveHeight_2D;
+	}
+
+	public void setType2_textWaveHeight_2D(String type2_textWaveHeight_2D) {
+		this.type2_textWaveHeight_2D = type2_textWaveHeight_2D;
+	}
+
+	public String getType2_textWavePhase_2D() {
+		return type2_textWavePhase_2D;
+	}
+
+	public void setType2_textWavePhase_2D(String type2_textWavePhase_2D) {
+		this.type2_textWavePhase_2D = type2_textWavePhase_2D;
+	}
+
+	public String getType3_textFrontCurlHeight_2D() {
+		return type3_textFrontCurlHeight_2D;
+	}
+
+	public void setType3_textFrontCurlHeight_2D(String type3_textFrontCurlHeight_2D) {
+		this.type3_textFrontCurlHeight_2D = type3_textFrontCurlHeight_2D;
+	}
+
+	public String getType3_textFrontCurlLength_2D() {
+		return type3_textFrontCurlLength_2D;
+	}
+
+	public void setType3_textFrontCurlLength_2D(String type3_textFrontCurlLength_2D) {
+		this.type3_textFrontCurlLength_2D = type3_textFrontCurlLength_2D;
+	}
+
+	public String getType3_textRearCurlHeight_2D() {
+		return type3_textRearCurlHeight_2D;
+	}
+
+	public void setType3_textRearCurlHeight_2D(String type3_textRearCurlHeight_2D) {
+		this.type3_textRearCurlHeight_2D = type3_textRearCurlHeight_2D;
+	}
+
+	public String getType3_textRearCurlLength_2D() {
+		return type3_textRearCurlLength_2D;
+	}
+
+	public void setType3_textRearCurlLength_2D(String type3_textRearCurlLength_2D) {
+		this.type3_textRearCurlLength_2D = type3_textRearCurlLength_2D;
 	}
 
 	

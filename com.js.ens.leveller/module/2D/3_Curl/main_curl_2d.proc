@@ -20,7 +20,8 @@
 *exec_procedure a6_loadcase_2d.proc
 *exec_procedure a7_deformed_coordinate.proc
 | Applying spring Support Roll. Added from ver. 2
-*py_file_run change_motion_to_load_2d.py  
+|*py_file_run change_motion_to_load_2d.py  
+%ChangeMotionToLoadPy%  | This line for applying spring Support Roll. Added from ver. 2
 | Add Hold Down Roll : Added from ver. 3
 *py_file_run ap01_add_hdroll_2d.py
 | Add Roll Gap Movement : Added from ver. 3 

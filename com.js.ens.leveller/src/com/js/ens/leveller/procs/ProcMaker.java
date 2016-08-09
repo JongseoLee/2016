@@ -31,8 +31,20 @@ public class ProcMaker {
 	public static String a4_contact 					= "a4_contact.proc";
 	public static String a6_loadcase 					= "a6_loadcase.proc";
 	// 2D file name
-	
-
+	public static String define_parameters_2D				= "00_define_parameters.proc";
+	public static String a2_roll_gen_2D						= "a2_roll_gen_2d.proc";
+	public static String a3_material_define_2D				= "a3_material_define.proc";
+	public static String mat01_elastic_modulus_2D 			= "mat01_elastic_modulus.proc";
+	public static String mat01_elastic_modulus_const_2D 	= "mat01_elastic_modulus_const.proc";
+	public static String mat02_flow_stress_2D 				= "mat02_flow_stress.proc";
+	public static String mat02_flow_stress_const_2D 		= "mat02_flow_stress_const.proc";
+	public static String mat03_thermal_expansion_2D 		= "mat03_thermal_expansion.proc";
+	public static String mat03_thermal_expansion_const_2D 	= "mat03_thermal_expansion_const.proc";
+	public static String mat04_poisson_2D 					= "mat04_poisson.proc";
+	public static String mat04_poisson_const_2D 			= "mat04_poisson_const.proc";
+	public static String mat05_mass_density_2D 				= "mat05_mass_density.proc";
+	public static String a4_contact_2D 						= "a4_contact_2d.proc";
+	public static String a6_loadcase_2D						= "a6_loadcase_2d.proc"; 
 	
 	//---------------------------------------------------------------------------
 	//---------------------------------------------------------------------------
@@ -218,13 +230,13 @@ public class ProcMaker {
 		if(levellerType.equals("2D")){
 			if(comboType.equals(ComboLabel.TYPE1_2D)){
 				Main_flat_2D obj = new Main_flat_2D();
-				obj.running();
+				obj.running(this.destFullPathList);
 			}else if(comboType.equals(ComboLabel.TYPE2_2D)){
 				Main_wave_2D obj = new Main_wave_2D();
-				obj.running();
+				obj.running(this.destFullPathList);
 			}else if(comboType.equals(ComboLabel.TYPE3_2D)){
 				Main_curl_2D obj = new Main_curl_2D();
-				obj.running();
+				obj.running(this.destFullPathList);
 			}
 		}else if(levellerType.equals("3D")){
 			if(comboType.equals(ComboLabel.TYPE1)){

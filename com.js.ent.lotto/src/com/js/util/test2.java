@@ -9,7 +9,7 @@ public class test2 {
 	public ArrayList<location> dist_2_List;
 	
 	  
-	
+
 	public test2() {
 		// TODO Auto-generated constructor stub
 		int name = 1;
@@ -21,7 +21,7 @@ public class test2 {
 			}
 		}
 	}
-	
+
 	public location findLoc(int name){
 		location loc = null;
 		for(location o : this.locObjList){
@@ -77,7 +77,7 @@ public class test2 {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int name = 7;
+		int name = 25;
 		
 		test2 runTest = new test2();
 		runTest.showLoc(name);
