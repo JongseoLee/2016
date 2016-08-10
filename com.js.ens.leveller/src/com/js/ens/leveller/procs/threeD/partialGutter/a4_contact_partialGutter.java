@@ -146,7 +146,7 @@ public class a4_contact_partialGutter {
 					procDataList.add(newLine);
 				}
 				//*/
-				newLine = line.replace(ProcMaker.flip_surface, this.flip_surfaces_positiveNum);
+				newLine = line.replace(ProcMaker.flip_surface, this.flip_surfaces);
 				procDataList.add(newLine);			
 				continue;
 			}else if(line.contains(ProcMaker.plateRollGenContactTable)){

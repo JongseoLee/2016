@@ -31,8 +31,8 @@ public class define_parameters_wave {
 		// TODO Auto-generated method stub
 		this.procPath = path;
 		try{
-			if(!LMain.getMillStiffnessType().equals("Spring")){
-				String filePath = myUtil.setPath(myUtil.setPath(LMain.getWorkspace(), "proc"), "change_motion_to_load.py");
+			if(!LMain.getMillStiffnessType_2D().equals("Spring")){
+				String filePath = myUtil.setPath(myUtil.setPath(LMain.getWorkspace(), "proc"), "change_motion_to_load_2D.py");
 				myUtil.fileDelete(filePath);
 			}
 			
@@ -65,101 +65,105 @@ public class define_parameters_wave {
 		String newLine = null;
 		for(String line : fileDataList){
 			if(line.contains(ProcMaker.textWidth)){
-				newLine = line.replace(ProcMaker.textWidth, LMain.getTextWidth());
+				newLine = line.replace(ProcMaker.textWidth, LMain.getTextWidth_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textLength)){
-				newLine = line.replace(ProcMaker.textLength, LMain.getTextLength());
+				newLine = line.replace(ProcMaker.textLength, LMain.getTextLength_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textThickness)){
-				newLine = line.replace(ProcMaker.textThickness, LMain.getTextThickness());
+				newLine = line.replace(ProcMaker.textThickness, LMain.getTextThickness_2D());
 				procDataList.add(newLine);
 				continue;
 			}
 			
-			else if(line.contains(ProcMaker.type3_textFrontCurlHeight)){
-				newLine = line.replace(ProcMaker.type3_textFrontCurlHeight, LMain.getType3_textFrontCurlHeight_2D());
+
+			else if(line.contains(ProcMaker.type2_textWavePitch)){
+				newLine = line.replace(ProcMaker.type2_textWavePitch, LMain.getType2_textWavePitch_2D());
 				procDataList.add(newLine);
 				continue;
-			}else if(line.contains(ProcMaker.type3_textFrontCurlLength)){
-				newLine = line.replace(ProcMaker.type3_textFrontCurlLength, LMain.getType3_textFrontCurlLength_2D());
+			}else if(line.contains(ProcMaker.type2_textWaveHeight)){
+				newLine = line.replace(ProcMaker.type2_textWaveHeight, LMain.getType2_textWaveHeight_2D());
 				procDataList.add(newLine);
-				continue;
-			}else if(line.contains(ProcMaker.type3_textRearCurlHeight)){
-				newLine = line.replace(ProcMaker.type3_textRearCurlHeight, LMain.getType3_textRearCurlHeight_2D());
+			}else if(line.contains(ProcMaker.type2_textWavePhase)){
+				newLine = line.replace(ProcMaker.type2_textWavePhase, LMain.getType2_textWavePhase_2D());
 				procDataList.add(newLine);
-				continue;
-			}else if(line.contains(ProcMaker.type3_textRearCurlLength)){
-				newLine = line.replace(ProcMaker.type3_textRearCurlLength, LMain.getType3_textRearCurlLength_2D());
-				procDataList.add(newLine);
-				continue;
 			}
+			
 			
 			else if(line.contains(ProcMaker.textThicknessElementNum)){
-				newLine = line.replace(ProcMaker.textThicknessElementNum, LMain.getTextThicknessElementNum());
+				newLine = line.replace(ProcMaker.textThicknessElementNum, LMain.getTextThicknessElementNum_2D());
 				procDataList.add(newLine);
 				continue;
-			}else if(line.contains(ProcMaker.textWidthAspectRatio)){
+			}
+			/*
+			else if(line.contains(ProcMaker.textWidthAspectRatio)){
 				newLine = line.replace(ProcMaker.textWidthAspectRatio, LMain.getTextWidthAspectRatio());
 				procDataList.add(newLine);
 				continue;
-			}else if(line.contains(ProcMaker.textLengthAspectRatio)){
-				newLine = line.replace(ProcMaker.textLengthAspectRatio, LMain.getTextLengthAspectRatio());
+			}
+			// */
+			else if(line.contains(ProcMaker.textLengthAspectRatio)){
+				newLine = line.replace(ProcMaker.textLengthAspectRatio, LMain.getTextLengthAspectRatio_2D());
 				procDataList.add(newLine);
 				continue;
 			}
 			
 			else if(line.contains(ProcMaker.textRollPitch)){
-				newLine = line.replace(ProcMaker.textRollPitch, LMain.getTextRollPitch());
+				newLine = line.replace(ProcMaker.textRollPitch, LMain.getTextRollPitch_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textRollDiameter)){
-				newLine = line.replace(ProcMaker.textRollDiameter, LMain.getTextRollDiameter());
+				newLine = line.replace(ProcMaker.textRollDiameter, LMain.getTextRollDiameter_2D());
 				procDataList.add(newLine);
 				continue;
-			}else if(line.contains(ProcMaker.textRollLength)){
-				newLine = line.replace(ProcMaker.textRollLength, LMain.getTextRollLength());
+			}
+			/*
+			else if(line.contains(ProcMaker.textRollLength)){
+				newLine = line.replace(ProcMaker.textRollLength, LMain.getTextRollLength_2D());
 				procDataList.add(newLine);
 				continue;
-			}else if(line.contains(ProcMaker.textEntryUpperRollGap)){
-				newLine = line.replace(ProcMaker.textEntryUpperRollGap, LMain.getUpTableDataList().get(0).getGap());
+			}
+			//*/
+			else if(line.contains(ProcMaker.textEntryUpperRollGap)){
+				newLine = line.replace(ProcMaker.textEntryUpperRollGap, LMain.getUpTableDataList_2D().get(0).getGap());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textExitUpperRollGap)){
-				newLine = line.replace(ProcMaker.textExitUpperRollGap, LMain.getUpTableDataList().get(LMain.getUpTableDataList().size()-1).getGap());
+				newLine = line.replace(ProcMaker.textExitUpperRollGap, LMain.getUpTableDataList_2D().get(LMain.getUpTableDataList_2D().size()-1).getGap());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textEntryLowerRollGap)){
-				newLine = line.replace(ProcMaker.textEntryLowerRollGap,LMain.getDownTableDataList().get(0).getGap());
+				newLine = line.replace(ProcMaker.textEntryLowerRollGap,LMain.getDownTableDataList_2D().get(0).getGap());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textExitLowerRollGap)){
-				newLine = line.replace(ProcMaker.textExitLowerRollGap, LMain.getDownTableDataList().get(LMain.getDownTableDataList().size()-1).getGap());
+				newLine = line.replace(ProcMaker.textExitLowerRollGap, LMain.getDownTableDataList_2D().get(LMain.getDownTableDataList_2D().size()-1).getGap());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.spinnerUpperRollNum)){
-				newLine = line.replace(ProcMaker.spinnerUpperRollNum, LMain.getSpinnerUpperRollNum());
+				newLine = line.replace(ProcMaker.spinnerUpperRollNum, LMain.getSpinnerUpperRollNum_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.spinnerLowerRollNum)){
-				newLine = line.replace(ProcMaker.spinnerLowerRollNum, LMain.getSpinnerLowerRollNum());
+				newLine = line.replace(ProcMaker.spinnerLowerRollNum, LMain.getSpinnerLowerRollNum_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textPlateVelocity)){
-				newLine = line.replace(ProcMaker.textPlateVelocity, LMain.getTextPlateVelocity());
+				newLine = line.replace(ProcMaker.textPlateVelocity, LMain.getTextPlateVelocity_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textRollFriction)){
-				newLine = line.replace(ProcMaker.textRollFriction, LMain.getTextRollFriction());
+				newLine = line.replace(ProcMaker.textRollFriction, LMain.getTextRollFriction_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textTemperatureStart)){
-				newLine = line.replace(ProcMaker.textTemperatureStart, LMain.getTextTemperatureStart());
+				newLine = line.replace(ProcMaker.textTemperatureStart, LMain.getTextTemperatureStart_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textTemperatureEnd)){
-				newLine = line.replace(ProcMaker.textTemperatureEnd, LMain.getTextTemperatureEnd());
+				newLine = line.replace(ProcMaker.textTemperatureEnd, LMain.getTextTemperatureEnd_2D());
 				procDataList.add(newLine);
 				continue;
 			}
@@ -171,6 +175,7 @@ public class define_parameters_wave {
 				continue;
 			}
 			//*/
+			/*
 			else if(line.contains(ProcMaker.textUpperRollCrown)){
 				newLine = line.replace(ProcMaker.textUpperRollCrown,LMain.getTextUpperRollCrown());
 				procDataList.add(newLine);
@@ -179,87 +184,89 @@ public class define_parameters_wave {
 				newLine = line.replace(ProcMaker.textLowerRollCrown,LMain.getTextLowerRollCrown());
 				procDataList.add(newLine);
 				continue;
-			}else if(line.contains(ProcMaker.textMillStiffness)){
-				newLine = line.replace(ProcMaker.textMillStiffness,LMain.getTextMillStiffness());
+			}
+			// */
+			else if(line.contains(ProcMaker.textMillStiffness)){
+				newLine = line.replace(ProcMaker.textMillStiffness,LMain.getTextMillStiffness_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textPassLineOffset)){
-				newLine = line.replace(ProcMaker.textPassLineOffset,LMain.getTextPassLineOffset());
+				newLine = line.replace(ProcMaker.textPassLineOffset,LMain.getTextPassLineOffset_2D());
 				procDataList.add(newLine);
 				continue;
 			}
 			//update version3 2016.07.22
 			else if(line.contains(ProcMaker.textUpperEntryRollGapMovement)){
-				newLine = line.replace(ProcMaker.textUpperEntryRollGapMovement,LMain.getTextUpperEntryRollGapMovement());
+				newLine = line.replace(ProcMaker.textUpperEntryRollGapMovement,LMain.getTextUpperEntryRollGapMovement_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textUpperExitRollGapMovement)){
-				newLine = line.replace(ProcMaker.textUpperExitRollGapMovement,LMain.getTextUpperExitRollGapMovement());
+				newLine = line.replace(ProcMaker.textUpperExitRollGapMovement,LMain.getTextUpperExitRollGapMovement_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textUpperRollGapStayingTime)){
-				newLine = line.replace(ProcMaker.textUpperRollGapStayingTime,LMain.getTextUpperRollGapStayingTime());
+				newLine = line.replace(ProcMaker.textUpperRollGapStayingTime,LMain.getTextUpperRollGapStayingTime_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textUpperRollGapMovingTime)){
-				newLine = line.replace(ProcMaker.textUpperRollGapMovingTime,LMain.getTextUpperRollGapMovingTime());
+				newLine = line.replace(ProcMaker.textUpperRollGapMovingTime,LMain.getTextUpperRollGapMovingTime_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textLowerEntryRollGapMovement)){
-				newLine = line.replace(ProcMaker.textLowerEntryRollGapMovement, LMain.getTextLowerEntryRollGapMovement());
+				newLine = line.replace(ProcMaker.textLowerEntryRollGapMovement, LMain.getTextLowerEntryRollGapMovement_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textLowerExitRollGapMovement)){
-				newLine = line.replace(ProcMaker.textLowerExitRollGapMovement,LMain.getTextLowerExitRollGapMovement());
+				newLine = line.replace(ProcMaker.textLowerExitRollGapMovement,LMain.getTextLowerExitRollGapMovement_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textLowerRollGapStayingTime)){
-				newLine = line.replace(ProcMaker.textLowerRollGapStayingTime,LMain.getTextLowerRollGapStayingTime());
+				newLine = line.replace(ProcMaker.textLowerRollGapStayingTime,LMain.getTextLowerRollGapStayingTime_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textLowerRollGapMovingTime)){
-				newLine = line.replace(ProcMaker.textLowerRollGapMovingTime,LMain.getTextLowerRollGapMovingTime());
+				newLine = line.replace(ProcMaker.textLowerRollGapMovingTime,LMain.getTextLowerRollGapMovingTime_2D());
 				procDataList.add(newLine);
 				continue;
 			}
 			else if(line.contains(ProcMaker.HDRollType)){
-				newLine = line.replace(ProcMaker.HDRollType, LMain.getHDRollType().toLowerCase());
+				newLine = line.replace(ProcMaker.HDRollType, LMain.getHDRollType_2D().toLowerCase());
 				procDataList.add(newLine);
 				continue;
 			}
 			else if(line.contains(ProcMaker.textFrontHDRollDia)){
-				if(!LMain.getHDRollType().equals("None")){
-					newLine = line.replace(ProcMaker.textFrontHDRollDia,LMain.getTextFrontHDRollDia());
+				if(!LMain.getHDRollType_2D().equals("None")){
+					newLine = line.replace(ProcMaker.textFrontHDRollDia,LMain.getTextFrontHDRollDia_2D());
 					procDataList.add(newLine);
 				}
 				continue;
 			}else if(line.contains(ProcMaker.textFrontHDRollPitch)){
-				if(!LMain.getHDRollType().equals("None")){
-					newLine = line.replace(ProcMaker.textFrontHDRollPitch,LMain.getTextFrontHDRollPitch());
+				if(!LMain.getHDRollType_2D().equals("None")){
+					newLine = line.replace(ProcMaker.textFrontHDRollPitch,LMain.getTextFrontHDRollPitch_2D());
 					procDataList.add(newLine);
 				}
 				continue;
 			}else if(line.contains(ProcMaker.textFrontHDRollVericalPos)){
-				if(!LMain.getHDRollType().equals("None")){
-					newLine = line.replace(ProcMaker.textFrontHDRollVericalPos,LMain.getTextFrontHDRollVericalPos());
+				if(!LMain.getHDRollType_2D().equals("None")){
+					newLine = line.replace(ProcMaker.textFrontHDRollVericalPos,LMain.getTextFrontHDRollVericalPos_2D());
 					procDataList.add(newLine);
 				}
 				continue;
 			}else if(line.contains(ProcMaker.textRearHDRollDia)){
-				if(!LMain.getHDRollType().equals("None")){
-					newLine = line.replace(ProcMaker.textRearHDRollDia,LMain.getTextRearHDRollDia());
+				if(!LMain.getHDRollType_2D().equals("None")){
+					newLine = line.replace(ProcMaker.textRearHDRollDia,LMain.getTextRearHDRollDia_2D());
 					procDataList.add(newLine);
 				}
 				continue;
 			}else if(line.contains(ProcMaker.textRearHDRollPitch)){
-				if(!LMain.getHDRollType().equals("None")){
-					newLine = line.replace(ProcMaker.textRearHDRollPitch,LMain.getTextRearHDRollPitch());
+				if(!LMain.getHDRollType_2D().equals("None")){
+					newLine = line.replace(ProcMaker.textRearHDRollPitch,LMain.getTextRearHDRollPitch_2D());
 					procDataList.add(newLine);
 				}
 				continue;
 			}else if(line.contains(ProcMaker.textRearHDRollVerticalPos)){
-				if(!LMain.getHDRollType().equals("None")){
-					newLine = line.replace(ProcMaker.textRearHDRollVerticalPos,LMain.getTextRearHDRollVerticalPos());
+				if(!LMain.getHDRollType_2D().equals("None")){
+					newLine = line.replace(ProcMaker.textRearHDRollVerticalPos,LMain.getTextRearHDRollVerticalPos_2D());
 					procDataList.add(newLine);
 				}
 				continue;
@@ -268,7 +275,7 @@ public class define_parameters_wave {
 				String result = "";
 				String defineStr = "*eval_define ur_";
 				int num = 1;
-				for(UpTableDataContent obj :LMain.getUpTableDataList()){
+				for(UpTableDataContent obj :LMain.getUpTableDataList_2D()){
 					result += defineStr+ String.valueOf(num)+"_gap "+obj.getGap() +"  |"+obj.getNo() + " Gap" + "\n";
 					result += defineStr+ String.valueOf(num)+"_friction "+obj.getFriction() +"  |"+obj.getNo() + " Friction" + "\n";
 					result += defineStr+ String.valueOf(num)+"_diameter "+obj.getDiameter() +"  |"+obj.getNo() + " Diameter" + "\n";
@@ -281,7 +288,7 @@ public class define_parameters_wave {
 				String result = "";
 				String defineStr = "*eval_define lr_";
 				int num = 1;
-				for(DownTableDataContent obj : LMain.getDownTableDataList()){
+				for(DownTableDataContent obj : LMain.getDownTableDataList_2D()){
 					result += defineStr+ String.valueOf(num)+"_gap "+obj.getGap() +"  |"+obj.getNo() + " Gap" + "\n";
 					result += defineStr+ String.valueOf(num)+"_friction "+obj.getFriction() +"  |"+obj.getNo() + " Friction" + "\n";
 					result += defineStr+ String.valueOf(num)+"_diameter "+obj.getDiameter() +"  |"+obj.getNo() + " Diameter" + "\n";
@@ -294,7 +301,7 @@ public class define_parameters_wave {
 			}
 			
 			else if(line.contains(ProcMaker.textIncrementTime)){
-				newLine = line.replace(ProcMaker.textIncrementTime, LMain.getTextIncrementTime());
+				newLine = line.replace(ProcMaker.textIncrementTime, LMain.getTextIncrementTime_2D());
 				procDataList.add(newLine);
 				continue;
 			}else {
@@ -302,133 +309,6 @@ public class define_parameters_wave {
 					procDataList.add(line);
 				}
 			}
-			
-			/////////////////////////////////////////////////////////////////
-			
-			/*
-			//ComboType 2
-			if(LMain.getcomboType().equals(ComboLabel.TYPE2)){
-				if(line.contains(ProcMaker.type2_textLeftEdgeWavePitch)){
-					newLine = line.replace(ProcMaker.type2_textLeftEdgeWavePitch, LMain.getType2_textLeftEdgeWavePitch());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type2_textRightEdgeWavePitch)){
-					newLine = line.replace(ProcMaker.type2_textRightEdgeWavePitch, LMain.getType2_textRightEdgeWavePitch());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type2_textLeftEdgeWaveHeight)){
-					newLine = line.replace(ProcMaker.type2_textLeftEdgeWaveHeight, LMain.getType2_textLeftEdgeWaveHeight());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type2_textRightEdgeWaveHeight)){
-					newLine = line.replace(ProcMaker.type2_textRightEdgeWaveHeight, LMain.getType2_textRightEdgeWaveHeight());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type2_textLeftEdgeWavePhase)){
-					newLine = line.replace(ProcMaker.type2_textLeftEdgeWavePhase, LMain.getType2_textLeftEdgeWavePhase());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type2_textRightEdgeWavePhase)){
-					newLine = line.replace(ProcMaker.type2_textRightEdgeWavePhase, LMain.getType2_textRightEdgeWavePhase());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.MaxWaveHeight)){
-					double RH = Double.parseDouble(LMain.getType2_textRightEdgeWaveHeight());
-					double LH = Double.parseDouble(LMain.getType2_textLeftEdgeWaveHeight());
-					
-					if(RH >= LH )	newLine = line.replace(ProcMaker.MaxWaveHeight,String.valueOf(RH));
-					else 	newLine = line.replace(ProcMaker.MaxWaveHeight,String.valueOf(LH));
-					procDataList.add(newLine);
-					continue;
-				}
-			}
-			
-			
-			
-			//ComboType 3
-			else if(LMain.getcomboType().equals(ComboLabel.TYPE3)){
-				if(line.contains(ProcMaker.type3_textWavePitch)){
-					newLine = line.replace(ProcMaker.type3_textWavePitch, LMain.getType3_textWavePitch());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type3_textWaveHeight)){
-					newLine = line.replace(ProcMaker.type3_textWaveHeight, LMain.getType3_textWaveHeight());
-					procDataList.add(newLine);
-					continue;
-				}
-			}
-			
-			
-			
-			//ComboType 4
-			else if(LMain.getcomboType().equals(ComboLabel.TYPE4)){
-				if(line.contains(ProcMaker.type4_textGutterHeight)){
-					newLine = line.replace(ProcMaker.type4_textGutterHeight, LMain.getType4_textGutterHeight());
-					procDataList.add(newLine);
-					continue;
-				}
-			}
-			
-			
-			//ComboType 5
-			else if(LMain.getcomboType().equals(ComboLabel.TYPE5)){
-				if(line.contains(ProcMaker.type5_textGutterHeight)){
-					newLine = line.replace(ProcMaker.type5_textGutterHeight, LMain.getType5_textGutterHeight());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type5_textGutterLength)){
-					newLine = line.replace(ProcMaker.type5_textGutterLength, LMain.getType5_textGutterLength());
-					procDataList.add(newLine);
-					continue;
-				}
-			}
-			
-			
-			
-			//ComboType 6
-			else if(LMain.getcomboType().equals(ComboLabel.TYPE6)){
-				if(line.contains(ProcMaker.type6_textHeadGutterHeight)){
-					newLine = line.replace(ProcMaker.type6_textHeadGutterHeight, LMain.getType6_textHeadGutterHeight());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type6_textHeadGutterLength)){
-					newLine = line.replace(ProcMaker.type6_textHeadGutterLength, LMain.getType6_textHeadGutterLength());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type6_textTailGutterHeight)){
-					newLine = line.replace(ProcMaker.type6_textTailGutterHeight, LMain.getType6_textTailGutterHeight());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type6_textTailGutterLength)){
-					newLine = line.replace(ProcMaker.type6_textTailGutterLength, LMain.getType6_textTailGutterLength());
-					procDataList.add(newLine);
-					continue;
-				}
-			}
-			
-			
-			
-			//ComboType 7 
-			else if(LMain.getcomboType().equals(ComboLabel.TYPE7)){
-				if(line.contains(ProcMaker.type7_textHeadGutterHeight)){
-					newLine = line.replace(ProcMaker.type7_textHeadGutterHeight, LMain.getType7_textHeadGutterHeight());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type7_textGutterLength)){
-					newLine = line.replace(ProcMaker.type7_textGutterLength, LMain.getType7_textGutterLength());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type7_textGutterLengthLength)){
-					newLine = line.replace(ProcMaker.type7_textGutterLengthLength, LMain.getType7_textGutterLengthLength());
-					procDataList.add(newLine);
-					continue;
-				}else if(line.contains(ProcMaker.type7_textGutterWidthLength)){
-					newLine = line.replace(ProcMaker.type7_textGutterWidthLength, LMain.getType7_textGutterWidthLength());
-					procDataList.add(newLine);
-					continue;
-				}
-			}
-			// */
 			
 		}
 	}

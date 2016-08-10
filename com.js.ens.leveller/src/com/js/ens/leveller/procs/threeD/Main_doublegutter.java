@@ -66,6 +66,7 @@ public class Main_doublegutter {
 			
 			this.GenOtherProcs();
 		}catch(Exception e){
+			e.printStackTrace();
 			String msg = "ERROR - Export(main_doublegutter)";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
@@ -113,6 +114,7 @@ public class Main_doublegutter {
 	
 	private void readSourceData() throws Exception{
 		this.fileDataList = new ArrayList<String>();
+		System.out.println("=======>"+this.main_doublegutter_Path);
 		Reader reader = new Reader(this.main_doublegutter_Path);
 		reader.running();
 		this.fileDataList = reader.getFileDataList();

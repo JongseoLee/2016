@@ -58,7 +58,7 @@ public class mat01_elastic_modulus_wave {
 	
 	private void readMaterialTableData() throws Exception{
 		this.MaterialTableDataList = new ArrayList<String>();
-		Reader reader = new Reader(LMain.getTextYoungsModulus());
+		Reader reader = new Reader(LMain.getTextYoungsModulus_2D());
 		reader.running();
 		this.MaterialTableDataList = reader.getFileDataList();
 	}

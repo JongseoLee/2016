@@ -14,6 +14,9 @@
 *eval_define L %Length%
 *eval_define T %Thickness%
 
+*eval_define wavepitch %WavePitch%
+*eval_define waveheight %WaveHeight%
+*eval_define wavephase %WavePhase%
 
 |
 | Mesh parameter

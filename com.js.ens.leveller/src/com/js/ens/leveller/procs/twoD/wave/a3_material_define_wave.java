@@ -73,52 +73,52 @@ public class a3_material_define_wave {
 	
 	private void genMatProc() {
 		//mat01_~.proc
-		if(LMain.getYoungsModulusType().toLowerCase().equals("constant")){
+		if(LMain.getYoungsModulusType_2D().toLowerCase().equals("constant")){
 			mat01_elastic_modulus_const_wave EMObj = new mat01_elastic_modulus_const_wave();
 			EMObj.running(this.mat01_elastic_modulus_const_PATH);
 			myUtil.fileDelete(this.mat01_elastic_modulus_PATH);
 		}
 		//mat01_~_const.proc
-		else if(LMain.getYoungsModulusType().toLowerCase().equals("table")){
+		else if(LMain.getYoungsModulusType_2D().toLowerCase().equals("table")){
 			mat01_elastic_modulus_wave EMObj = new mat01_elastic_modulus_wave();
 			EMObj.running(this.mat01_elastic_modulus_PATH);
 			myUtil.fileDelete(this.mat01_elastic_modulus_const_PATH);
 			this.tableName_elasticModulus = EMObj.getTableName();
 		}
 		//mat02_~proc
-		if(LMain.getFlowStressType().toLowerCase().equals("constant")){
+		if(LMain.getFlowStressType_2D().toLowerCase().equals("constant")){
 			mat02_flow_stress_const_wave FSObj = new mat02_flow_stress_const_wave();
 			FSObj.running(this.mat02_flow_stress_const_PATH);
 			myUtil.fileDelete(this.mat02_flow_stress_PATH);
 		}
 		//mat02_~_const.proc
-		else if(LMain.getFlowStressType().toLowerCase().equals("table")){
+		else if(LMain.getFlowStressType_2D().toLowerCase().equals("table")){
 			mat02_flow_stress_wave FSObj = new mat02_flow_stress_wave();
 			FSObj.running(this.mat02_flow_stress_PATH);
 			myUtil.fileDelete(this.mat02_flow_stress_const_PATH);
 			this.tableName_flowStress = FSObj.getTableName();
 		}
 		//mat03_~proc
-		if(LMain.getThermalExpansionCoefficientType().toLowerCase().equals("constant")){
+		if(LMain.getThermalExpansionCoefficientType_2D().toLowerCase().equals("constant")){
 			mat03_thermal_expansion_const_wave TECObj = new mat03_thermal_expansion_const_wave();
 			TECObj.running(this.mat03_thermal_expansion_const_PATH);
 			myUtil.fileDelete(this.mat03_thermal_expansion_PATH);
 		}
 		//mat03_~_const.proc
-		else if(LMain.getThermalExpansionCoefficientType().toLowerCase().equals("table")){
+		else if(LMain.getThermalExpansionCoefficientType_2D().toLowerCase().equals("table")){
 			mat03_thermal_expansion_wave TECObj = new mat03_thermal_expansion_wave();
 			TECObj.running(this.mat03_thermal_expansion_PATH);
 			myUtil.fileDelete(this.mat03_thermal_expansion_const_PATH);
 			this.tableName_thermal_expansion = TECObj.getTableName();
 		}
 		//mat04_~proc
-		if (LMain.getPoissonsRatioType().toLowerCase().equals("constant")) {
+		if (LMain.getPoissonsRatioType_2D().toLowerCase().equals("constant")) {
 			mat04_poisson_const_wave PObj = new mat04_poisson_const_wave();
 			PObj.running(this.mat04_poisson_const_PATH);
 			myUtil.fileDelete(this.mat04_poisson_PATH);
 		}
 		//mat04_~_const.proc
-		else if (LMain.getPoissonsRatioType().toLowerCase().equals("table")) {
+		else if (LMain.getPoissonsRatioType_2D().toLowerCase().equals("table")) {
 			mat04_poisson_wave PObj = new mat04_poisson_wave();
 			PObj.running(this.mat04_poisson_PATH);
 			myUtil.fileDelete(this.mat04_poisson_const_PATH);
@@ -143,30 +143,30 @@ public class a3_material_define_wave {
 		String newLine = null;
 		for(String line : fileDataList){
 			if(line.contains(ProcMaker.elasticModulusType)){
-				if(LMain.getYoungsModulusType().toLowerCase().equals("constant")){
+				if(LMain.getYoungsModulusType_2D().toLowerCase().equals("constant")){
 					procDataList.add("*exec_procedure mat01_elastic_modulus_const.proc");
-				}else if(LMain.getYoungsModulusType().toLowerCase().equals("table")){
+				}else if(LMain.getYoungsModulusType_2D().toLowerCase().equals("table")){
 					procDataList.add("*exec_procedure mat01_elastic_modulus.proc");		
 				}
 				continue;
 			}else if(line.contains(ProcMaker.poissonType)){
-				if(LMain.getPoissonsRatioType().toLowerCase().equals("constant")){
+				if(LMain.getPoissonsRatioType_2D().toLowerCase().equals("constant")){
 					procDataList.add("*exec_procedure mat04_poisson_const.proc");
-				}else if(LMain.getPoissonsRatioType().toLowerCase().equals("table")){
+				}else if(LMain.getPoissonsRatioType_2D().toLowerCase().equals("table")){
 					procDataList.add("*exec_procedure mat04_poisson.proc");		
 				}
 				continue;
 			}else if(line.contains(ProcMaker.flowStressType)){
-				if(LMain.getFlowStressType().toLowerCase().equals("constant")){
+				if(LMain.getFlowStressType_2D().toLowerCase().equals("constant")){
 					procDataList.add("*exec_procedure mat02_flow_stress_const.proc");
-				}else if(LMain.getFlowStressType().toLowerCase().equals("table")){
+				}else if(LMain.getFlowStressType_2D().toLowerCase().equals("table")){
 					procDataList.add("*exec_procedure mat02_flow_stress.proc");		
 				}
 				continue;
 			}else if(line.contains(ProcMaker.thermal_expansionType)){
-				if(LMain.getThermalExpansionCoefficientType().toLowerCase().equals("constant")){
+				if(LMain.getThermalExpansionCoefficientType_2D().toLowerCase().equals("constant")){
 					procDataList.add("*exec_procedure mat03_thermal_expansion_const.proc");
-				}else if(LMain.getThermalExpansionCoefficientType().toLowerCase().equals("table")){
+				}else if(LMain.getThermalExpansionCoefficientType_2D().toLowerCase().equals("table")){
 					procDataList.add("*exec_procedure mat03_thermal_expansion.proc");		
 				}
 				continue;

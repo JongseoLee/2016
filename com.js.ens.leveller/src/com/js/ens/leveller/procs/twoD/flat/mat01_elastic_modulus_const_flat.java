@@ -59,7 +59,7 @@ public class mat01_elastic_modulus_const_flat {
 		String newLine = null;
 		for(String line : fileDataList){
 			if(line.contains(ProcMaker.textYoungsModulus)){
-				newLine = line.replace(ProcMaker.textYoungsModulus, LMain.getTextYoungsModulus());
+				newLine = line.replace(ProcMaker.textYoungsModulus, LMain.getTextYoungsModulus_2D());
 				procDataList.add(newLine);
 				continue;
 			}else {

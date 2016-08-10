@@ -63,7 +63,7 @@ public class ProcMaker {
 	public static String MaxWaveHeight					= "%MaxWaveHeight%";
 	//2D
 	public static String type2_textWavePitch 			= "%WavePitch%";
-	public static String type2_textWaveHeight			= "%WaveHeigth%";
+	public static String type2_textWaveHeight			= "%WaveHeight%";
 	public static String type2_textWavePhase			= "%WavePhase%";
 	//3D
 	public static String type3_textWavePitch 			= "%WavePitch%";
@@ -195,6 +195,7 @@ public class ProcMaker {
 	public static String add_contact_body_surfaces		= "%Add_contact_body_surfaces%";
 	public static String add_contact_body_curves		= "%Add_contact_body_curves%";
 	public static String flip_surface					= "%Flip_surfaces%";
+	public static String flip_curves					= "%Flip_curves%";
 	public static String plateRollGenContactTable		= "%PlateRollGenContactTable%";
 
 	public static String a2_RollGenType					= "%RollGenType%";
@@ -228,6 +229,7 @@ public class ProcMaker {
 	}
 	private void genProc(String levellerType, String comboType){
 		if(levellerType.equals("2D")){
+			/* */
 			if(comboType.equals(ComboLabel.TYPE1_2D)){
 				Main_flat_2D obj = new Main_flat_2D();
 				obj.running(this.destFullPathList);
@@ -238,6 +240,7 @@ public class ProcMaker {
 				Main_curl_2D obj = new Main_curl_2D();
 				obj.running(this.destFullPathList);
 			}
+			//*/
 		}else if(levellerType.equals("3D")){
 			if(comboType.equals(ComboLabel.TYPE1)){
 				Main_flat obj = new Main_flat();

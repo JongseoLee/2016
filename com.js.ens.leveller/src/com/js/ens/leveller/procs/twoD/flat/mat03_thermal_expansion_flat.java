@@ -58,7 +58,7 @@ public class mat03_thermal_expansion_flat {
 	private void readMaterialTableData() throws Exception {
 		// TODO Auto-generated method stub
 		this.MaterialTableDataList = new ArrayList<String>();
-		Reader reader = new Reader(LMain.getTextThermalExpansionCoefficient());
+		Reader reader = new Reader(LMain.getTextThermalExpansionCoefficient_2D());
 		reader.running();
 		this.MaterialTableDataList = reader.getFileDataList();
 		

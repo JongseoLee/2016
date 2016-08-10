@@ -659,7 +659,7 @@ public class LevellerMain {
 		med.getComboType_2D().select(0);
 		
 		Image img_2D = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
-		img_2D = ImageDescriptor.createFromFile(View.class,ImagePath.Type1).createImage();
+		img_2D = ImageDescriptor.createFromFile(View.class,ImagePath.Type1_2D).createImage();
 		med.getCompositeShapeParameterChild_1_2D().setVisible(true);
 		med.getCompositeShapeParameterChild_2_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_3_2D().setVisible(false);
@@ -684,17 +684,17 @@ public class LevellerMain {
 		med.getType2_textLeftEdgeWavePhase_2D().setText(InitValueMap.get("type2_LeftEdgeWavePhase_2D"));
 		med.getType2_textRightEdgeWavePhase_2D().setText(InitValueMap.get("type2_RightEdgeWavePhase_2D"));
 		// */
-		med.getType2_textWavePitch_2D().setText(InitValueMap.get("type2_textWavePitch_2D"));
-		med.getType2_textWaveHeight_2D().setText(InitValueMap.get("type2_textWaveHeight_2D"));
-		med.getType2_textWavePhase_2D().setText(InitValueMap.get("type2_textWavePhase_2D"));
+		med.getType2_textWavePitch_2D().setText(InitValueMap.get("type2_WavePitch_2D"));
+		med.getType2_textWaveHeight_2D().setText(InitValueMap.get("type2_WaveHeight_2D"));
+		med.getType2_textWavePhase_2D().setText(InitValueMap.get("type2_WavePhase_2D"));
 		/*
 		med.getType3_textWaveHeight_2D().setText(InitValueMap.get("type3_WaveHeight_2D"));
 		med.getType3_textWavePitch_2D().setText(InitValueMap.get("type3_WavePitch_2D"));
 		// */
-		med.getType3_textFrontCurlHeight_2D().setText(InitValueMap.get("type3_textFrontCurlHeight_2D"));
-		med.getType3_textFrontCurlLength_2D().setText(InitValueMap.get("type3_textFrontCurlLength_2D"));
-		med.getType3_textRearCurlHeight_2D().setText(InitValueMap.get("type3_textRearCurlHeight_2D"));
-		med.getType3_textRearCurlLength_2D().setText(InitValueMap.get("type3_textRearCurlLength_2D"));
+		med.getType3_textFrontCurlHeight_2D().setText(InitValueMap.get("type3_FrontCurlHeight_2D"));
+		med.getType3_textFrontCurlLength_2D().setText(InitValueMap.get("type3_FrontCurlLength_2D"));
+		med.getType3_textRearCurlHeight_2D().setText(InitValueMap.get("type3_RearCurlHeight_2D"));
+		med.getType3_textRearCurlLength_2D().setText(InitValueMap.get("type3_RearCurlLength_2D"));
 		/*
 		med.getType4_textGutterHeight_2D().setText(InitValueMap.get("type4_GutterHeight_2D"));
 		
@@ -849,6 +849,10 @@ public class LevellerMain {
 	
 	
 	public void ChangePlateType(){
+		this.db.clear();
+		//this.db_saveAs.clear();
+		this.saveAllData();
+		
 		String plateType = med.getComboType().getText();
 		this.comboType = plateType;
 		Image img = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
@@ -873,13 +877,14 @@ public class LevellerMain {
 			med.getCompositeShapeParameterChild_2().setVisible(true);
 			try{
 				if(comboType.equals(plateType)){
+					/*
 					System.out.println(this.type2_textLeftEdgeWaveHeight);
 					System.out.println(this.type2_textLeftEdgeWavePhase);
 					System.out.println(this.type2_textLeftEdgeWavePitch);
 					System.out.println(this.type2_textRightEdgeWaveHeight);
 					System.out.println(this.type2_textRightEdgeWavePhase);
 					System.out.println(this.type2_textRightEdgeWavePitch);
-					
+					// */
 					med.getType2_textLeftEdgeWavePitch().setText(this.type2_textLeftEdgeWavePitch);
 					med.getType2_textRightEdgeWavePitch().setText(this.type2_textRightEdgeWavePitch);
 					med.getType2_textLeftEdgeWaveHeight().setText(this.type2_textLeftEdgeWaveHeight);
@@ -1001,6 +1006,9 @@ public class LevellerMain {
 	}
 	
 	public void ChangePlateType_2D(){
+		this.db_2D.clear();
+		//this.db_saveAs_2D.clear();
+		this.saveAllData_2D();
 		String plateType = med.getComboType_2D().getText();
 		this.comboType_2D = plateType;
 		Image img = ImageDescriptor.createFromFile(View.class,ImagePath.Type0).createImage();
@@ -1013,7 +1021,9 @@ public class LevellerMain {
 		med.getCompositeShapeParameterChild_6_2D().setVisible(false);
 		med.getCompositeShapeParameterChild_7_2D().setVisible(false);
 		// */
+		
 		med.getTextWidth_2D().setText(this.textWidth_2D);
+		                                   
 		med.getTextLength_2D().setText(this.textLength_2D);
 		med.getTextThickness_2D().setText(this.textThickness_2D);	
 		
@@ -1230,6 +1240,27 @@ public class LevellerMain {
 	public void CalcElementNumber_2D(){
 		
 		try{
+			//=> (L)/(aspect_ratio_of_length_direction*T)*(element_num_of_thickness_direction)
+			
+			// L 
+			this.textLength_2D = med.getTextLength_2D().getText().trim();
+			double L = Double.parseDouble(this.textLength_2D);
+			// T 
+			this.textThickness_2D = med.getTextThickness_2D().getText().trim();
+			double T = Double.parseDouble(this.textThickness_2D);
+			// aspect_ratio_of_width_direction
+			this.textLengthAspectRatio_2D = med.getTextLengthAspectRatio_2D().getText().trim();
+			double aspect_ratio_of_length_direction = Double.parseDouble(this.textLengthAspectRatio_2D);
+			// element_num_of_thickness_direction
+			this.textThicknessElementNum_2D = med.getTextThicknessElementNum_2D().getText().trim();
+			double element_num_of_thickness_direction = Double.parseDouble(this.textThicknessElementNum_2D);
+			
+			int result = 0;
+			result = (int)((L)/(aspect_ratio_of_length_direction*T)*(element_num_of_thickness_direction));
+			
+			
+			this.textWidth_2D = med.getTextWidth_2D().getText().trim();
+			/*
 			//A
 			this.textWidth_2D = med.getTextWidth_2D().getText().trim();
 			double A = Double.parseDouble(this.textWidth_2D);
@@ -1259,6 +1290,7 @@ public class LevellerMain {
 			//result
 			int result = 0;
 			result = (int)(D*G*H);
+			// */
 
 			this.textElementNumber_2D = String.valueOf(result);
 			med.getTextElementNumber_2D().setText(this.textElementNumber_2D);
@@ -4674,6 +4706,7 @@ public class LevellerMain {
 	}
 	
 	public void saveAllData(){
+		//this.db.clear();
 		this.db.add("LevellerType="+this.LevellerType);
 		this.db.add(TextLabel.lblModelName+"="+this.textModelName);
 		//--------------------------------------------
@@ -4945,6 +4978,7 @@ public class LevellerMain {
 	}
 	
 	public void saveAllData_2D(){
+		//this.db_2D.clear();
 		this.db_2D.add("LevellerType="+this.LevellerType);
 		this.db_2D.add(TextLabel.lblModelName+"="+this.textModelName);
 		//--------------------------------------------
@@ -5243,6 +5277,7 @@ public class LevellerMain {
 	}
 	
 	public void saveAsAllData(String newModelName){
+		//this.db_saveAs.clear();
 		this.db_saveAs.add("LevellerType="+this.LevellerType);
 		this.db_saveAs.add(TextLabel.lblModelName+"="+newModelName);
 		
@@ -5510,7 +5545,7 @@ public class LevellerMain {
 	}
 	
 	public void saveAsAllData_2D(String newModelName){
-
+		//this.db_saveAs_2D.clear();
 		this.db_saveAs_2D.add("LevellerType="+this.LevellerType);
 		this.db_saveAs_2D.add(TextLabel.lblModelName+"="+this.textModelName);
 
@@ -5903,8 +5938,8 @@ public class LevellerMain {
 			}
 			// */
 			String procFolder = myUtil.setPath(this.workspace, "proc");
-			//ProcMaker obj = new ProcMaker();
-			//obj.running("2D", this.comboType, procFolder);
+			ProcMaker obj = new ProcMaker();
+			obj.running("2D", this.comboType_2D, procFolder);
 		}catch(Exception e){
 			e.printStackTrace();
 			String msg = "ERROR - Export files_2D";

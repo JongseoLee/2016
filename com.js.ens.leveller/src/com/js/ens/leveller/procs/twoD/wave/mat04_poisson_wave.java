@@ -57,7 +57,7 @@ public class mat04_poisson_wave {
 	private void readMaterialTableData() throws Exception {
 		// TODO Auto-generated method stub
 		this.MaterialTableDataList = new ArrayList<String>();
-		Reader reader = new Reader(LMain.getTextPoissonsRatio());
+		Reader reader = new Reader(LMain.getTextPoissonsRatio_2D());
 		reader.running();
 		this.MaterialTableDataList = reader.getFileDataList();
 	}

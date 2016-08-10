@@ -59,20 +59,20 @@ public class a6_loadcase_wave {
 		String newLine = null;
 		for(String line : fileDataList){
 			if(line.contains(ProcMaker.textSolvingTime)){
-				newLine = line.replace(ProcMaker.textSolvingTime, LMain.getTextSolvingTime());
+				newLine = line.replace(ProcMaker.textSolvingTime, LMain.getTextSolvingTime_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textDomain)){
-				if(LMain.isBtnParallelDDMUse()){
+				if(LMain.isBtnParallelDDMUse_2D()){
 					procDataList.add("*job_option parallel:on");
 					procDataList.add("*job_param ndomains");
-					procDataList.add(LMain.getSpinnerDomain());
+					procDataList.add(LMain.getSpinnerDomain_2D());
 				}
 			}else if(line.contains(ProcMaker.textThread)){
-				if(LMain.isbtnParallelMultiThreadUse()){
+				if(LMain.isBtnParallelMultiThreadUse_2D()){
 					procDataList.add("*job_option mfront_sparse_multi_threading:on");
 					procDataList.add("*job_param nthreads");
-					procDataList.add(LMain.getSpinnerThread());
+					procDataList.add(LMain.getSpinnerThread_2D());
 				}
 			}else{
 				procDataList.add(line);

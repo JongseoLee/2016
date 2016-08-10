@@ -59,7 +59,7 @@ public class mat05_mass_density_curl {
 		String newLine = null;
 		for(String line : fileDataList){
 			if(line.contains(ProcMaker.textMassDensity)){
-				newLine = line.replace(ProcMaker.textMassDensity, LMain.getTextMassDensity());
+				newLine = line.replace(ProcMaker.textMassDensity, LMain.getTextMassDensity_2D());
 				procDataList.add(newLine);
 				continue;
 			}else {

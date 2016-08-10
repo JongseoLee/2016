@@ -14,6 +14,11 @@
 *eval_define L %Length%
 *eval_define T %Thickness%
 
+*eval_define frontcurlheight %FrontCurlHeight%
+*eval_define frontcurllength %FrontCurlLength%
+*eval_define rearcurlheight %RearCurlHeight%
+*eval_define rearcurllength %RearCurlLength%
+
 
 |
 | Mesh parameter

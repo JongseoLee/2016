@@ -81,8 +81,25 @@ public class test2 {
 		
 		test2 runTest = new test2();
 		runTest.showLoc(name);
-		runTest.printResult();
+		//runTest.printResult();
 		
+		ArrayList<String> temp = new ArrayList<String>();
+		
+		String str = "AbCdEf";
+		for(int  i = str.length()-1 ;i>=0;i--){
+			System.out.println(str.charAt(i));
+		}
+		/* */
+		for(int i = 0; i<str.length();i++){
+			
+			char token = str.charAt(i);
+			temp.add(token+"");
+		}
+
+		for(int i = temp.size()-1 ;i >=0 ; i--){
+			System.out.println(i+" : "+temp.get(i));
+		}
+		//*/
 		
 	}
 

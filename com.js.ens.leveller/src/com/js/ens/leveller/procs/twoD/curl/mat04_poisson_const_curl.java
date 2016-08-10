@@ -59,7 +59,7 @@ public class mat04_poisson_const_curl {
 		String newLine = null;
 		for(String line : fileDataList){
 			if(line.contains(ProcMaker.textPoissonsRatio)){
-				newLine = line.replace(ProcMaker.textPoissonsRatio, LMain.getTextPoissonsRatio());
+				newLine = line.replace(ProcMaker.textPoissonsRatio, LMain.getTextPoissonsRatio_2D());
 				procDataList.add(newLine);
 				continue;
 			}else {

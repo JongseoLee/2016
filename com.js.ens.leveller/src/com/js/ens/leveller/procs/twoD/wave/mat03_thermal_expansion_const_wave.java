@@ -60,7 +60,7 @@ public class mat03_thermal_expansion_const_wave {
 		String newLine = null;
 		for(String line : fileDataList){
 			if(line.contains(ProcMaker.textThermalExpansionCoefficient)){
-				newLine = line.replace(ProcMaker.textThermalExpansionCoefficient, LMain.getTextThermalExpansionCoefficient());
+				newLine = line.replace(ProcMaker.textThermalExpansionCoefficient, LMain.getTextThermalExpansionCoefficient_2D());
 				procDataList.add(newLine);
 				continue;
 			}else {

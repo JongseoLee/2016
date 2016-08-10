@@ -69,15 +69,15 @@ public class mat02_flow_stress_const_flat {
 		String newLine = null;
 		for(String line : fileDataList){
 			if(line.contains(ProcMaker.textYieldStrength)){
-				newLine = line.replace(ProcMaker.textYieldStrength, LMain.getTextYieldStrength() );
+				newLine = line.replace(ProcMaker.textYieldStrength, LMain.getTextYieldStrength_2D() );
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textTensileStrength)){
-				newLine = line.replace(ProcMaker.textTensileStrength, LMain.getTextTensileStrength());
+				newLine = line.replace(ProcMaker.textTensileStrength, LMain.getTextTensileStrength_2D());
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textElongation)){
-				newLine = line.replace(ProcMaker.textElongation, LMain.getTextElongation());
+				newLine = line.replace(ProcMaker.textElongation, LMain.getTextElongation_2D());
 				procDataList.add(newLine);
 				continue;
 			}else {
@@ -118,15 +118,15 @@ public class mat02_flow_stress_const_flat {
 		String newLine = null;
 		for(String line : tempDataList){
 			if(line.contains(ProcMaker.textYieldStrength)){
-				newLine = line.replace(ProcMaker.textYieldStrength, LMain.getTextYieldStrength() );
+				newLine = line.replace(ProcMaker.textYieldStrength, LMain.getTextYieldStrength_2D() );
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textTensileStrength)){
-				newLine = line.replace(ProcMaker.textTensileStrength, LMain.getTextTensileStrength() );
+				newLine = line.replace(ProcMaker.textTensileStrength, LMain.getTextTensileStrength_2D() );
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textElongation)){
-				newLine = line.replace(ProcMaker.textElongation, LMain.getTextTensileStrength());
+				newLine = line.replace(ProcMaker.textElongation, LMain.getTextTensileStrength_2D());
 				procDataList.add(newLine);
 				continue;
 			}else {

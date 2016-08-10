@@ -68,7 +68,7 @@ public class mat02_flow_stress_flat {
 	
 	private void readMaterialTableData() throws Exception {
 		this.MaterialTableDataList = new ArrayList<String>();
-		Reader reader = new Reader(LMain.getTextFlowStress());
+		Reader reader = new Reader(LMain.getTextFlowStress_2D());
 		reader.running();
 		this.MaterialTableDataList = reader.getFileDataList();
 	}

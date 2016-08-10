@@ -368,13 +368,10 @@ public class View extends ViewPart {
 		CustomCombo customComboType_2D = new CustomCombo(Mediator.COMBO_Type_2D,med);
 		med.setCustomComboType_2D(customComboType_2D);
 		customComboType_2D.setCustomWidget_comboType_2D();
-		comboType_2D.setItems(new String[] {ComboLabel.TYPE1,
-											ComboLabel.TYPE2,
-											ComboLabel.TYPE3,
-											ComboLabel.TYPE4,
-											ComboLabel.TYPE5,
-											ComboLabel.TYPE6,
-											ComboLabel.TYPE7	});
+		comboType_2D.setItems(new String[] {ComboLabel.TYPE1_2D,
+											ComboLabel.TYPE2_2D,
+											ComboLabel.TYPE3_2D
+											});
 		FormData fd_comboType_2D = new FormData();
 		fd_comboType_2D.top = new FormAttachment(lblType_2D, -2, SWT.TOP);
 		fd_comboType_2D.left = new FormAttachment(lblType_2D, 50);
@@ -512,7 +509,7 @@ public class View extends ViewPart {
 		// Type3
 		Composite compositeShapeParameterChild_3_2D = new Composite(compositeShapeParameterChild_2D, SWT.NONE);
 		med.setCompositeShapeParameterChild_3_2D(compositeShapeParameterChild_3_2D);
-		compositeShapeParameterChild_3_2D.setBounds(0, 0, 400, 130);
+		compositeShapeParameterChild_3_2D.setBounds(0, 0, 400, 184);
 		
 		Label lblFrontCurlHeight_type3_2D = new Label(compositeShapeParameterChild_3_2D, SWT.NONE);
 		lblFrontCurlHeight_type3_2D.setBounds(10, 10, 170, 20);
@@ -532,20 +529,20 @@ public class View extends ViewPart {
 		
 		
 		Label lblRearCurlHeigth_type3_2D = new Label(compositeShapeParameterChild_3_2D, SWT.NONE);
-		lblRearCurlHeigth_type3_2D.setBounds(10, 37, 170, 20);
+		lblRearCurlHeigth_type3_2D.setBounds(10, 64, 170, 20);
 		lblRearCurlHeigth_type3_2D.setText(TextLabel_UI.lblRearCurlHeight_type3_2D);
 		
 		type3_textRearCurlHeight_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
 		med.setType3_textRearCurlHeight_2D(type3_textRearCurlHeight_2D);
-		type3_textRearCurlHeight_2D.setBounds(210, 35, 120, 24);
+		type3_textRearCurlHeight_2D.setBounds(210, 62, 120, 24);
 		
 		Label lblRearCurlLength_type3_2D = new Label(compositeShapeParameterChild_3_2D, SWT.NONE);
-		lblRearCurlLength_type3_2D.setBounds(10, 37, 170, 20);
+		lblRearCurlLength_type3_2D.setBounds(10, 91, 170, 20);
 		lblRearCurlLength_type3_2D.setText(TextLabel_UI.lblRearCurlLength_type3_2D);
 		
 		type3_textRearCurlLength_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
 		med.setType3_textRearCurlLength_2D(type3_textRearCurlLength_2D);
-		type3_textRearCurlLength_2D.setBounds(210, 35, 120, 24);
+		type3_textRearCurlLength_2D.setBounds(210, 89, 120, 24);
 		
 		/*
 		// Type4
