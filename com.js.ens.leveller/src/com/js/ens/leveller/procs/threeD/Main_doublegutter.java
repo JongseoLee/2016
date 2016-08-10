@@ -48,6 +48,7 @@ public class Main_doublegutter {
 	}
 
 	public void running(ArrayList<String> destFullPath){
+		this.filePathList = destFullPath;
 		try{
 			this.setFilesPath();
 			
@@ -78,6 +79,7 @@ public class Main_doublegutter {
 	
 	private void setFilesPath() throws Exception{
 		for(String path : this.filePathList){
+			
 			if(path.contains("main_doublegutter.proc")){
 				this.main_doublegutter_Path = path.trim();
 			}else if(path.contains(ProcMaker.define_parameters)){
@@ -114,7 +116,6 @@ public class Main_doublegutter {
 	
 	private void readSourceData() throws Exception{
 		this.fileDataList = new ArrayList<String>();
-		System.out.println("=======>"+this.main_doublegutter_Path);
 		Reader reader = new Reader(this.main_doublegutter_Path);
 		reader.running();
 		this.fileDataList = reader.getFileDataList();

@@ -75,9 +75,9 @@ public class ExportProcedureDlg extends Dialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				if(LMain.getLevellerType().equals("2D")){
-					LMain.Export();
-				}else{
 					LMain.Export_2D();
+				}else{
+					LMain.Export();
 				}
 				
 			}

@@ -2549,7 +2549,8 @@ public class LevellerMain {
 		this.clearAllData();
 		this.clearAllData_2D();
 		
-		this.ReadInitValue();
+		//this.ReadInitValue();
+		this.init_AllComponentValue();
 		
 		String path = myUtil.getParrentPath(dbFilePath);
 		String fileName = myUtil.getFileName(dbFilePath);
@@ -4648,6 +4649,7 @@ public class LevellerMain {
 			}
 			
 			this.clearAllData_2D();			
+			this.init_AllComponentValue();
 			setAllDataUI_2D(newDBFilePath);
 
 			AllComponentEnable();
@@ -4690,7 +4692,8 @@ public class LevellerMain {
 				messageDlg.open();
 			}
 			
-			this.clearAllData();			
+			this.clearAllData();
+			this.init_AllComponentValue();
 			setAllDataUI(newDBFilePath);
 
 			AllComponentEnable();

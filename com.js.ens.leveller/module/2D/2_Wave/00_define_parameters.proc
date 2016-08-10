@@ -14,6 +14,9 @@
 *eval_define L %Length%
 *eval_define T %Thickness%
 
+| wavepitch : Wave Pitch      | add ver3(jongseo lee)
+| waveheight : Wave Height    | add ver3(jongseo lee)
+| wavephase : Wave Phase      | add ver3(jongseo lee)
 *eval_define wavepitch %WavePitch%
 *eval_define waveheight %WaveHeight%
 *eval_define wavephase %WavePhase%

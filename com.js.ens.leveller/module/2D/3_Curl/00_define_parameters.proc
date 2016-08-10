@@ -14,6 +14,10 @@
 *eval_define L %Length%
 *eval_define T %Thickness%
 
+| frontcurlheight : Front Curl Height   | add ver3(jongseo lee)
+| frontcurllength : Front Curl Length   | add ver3(jongseo lee)
+| rearcurlheight : Rear Curl Heigth     | add ver3(jongseo lee)
+| rearcurllength : Rear Curl Length     | add ver3(jongseo lee)
 *eval_define frontcurlheight %FrontCurlHeight%
 *eval_define frontcurllength %FrontCurlLength%
 *eval_define rearcurlheight %RearCurlHeight%
