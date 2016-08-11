@@ -23,7 +23,7 @@ public class a4_contact_flat {
 	
 	private int AllRollNum = 0 ;
 	
-	private String add_contact_body_surfaces;
+	private String add_contact_body_curves;
 	private String flip_surfaces = "";
 	
 	//version 2 blocking
@@ -39,7 +39,7 @@ public class a4_contact_flat {
 		this.procPath = path;
 		try{
 			AllRollNum = Integer.parseInt(LMain.getSpinnerUpperRollNum_2D())+Integer.parseInt(LMain.getSpinnerLowerRollNum_2D());
-			add_contact_body_surfaces = (AllRollNum+1)+", "+(AllRollNum+2)+", "+(AllRollNum+3)+", "+(AllRollNum+4);
+			add_contact_body_curves = (AllRollNum+1)+", "+(AllRollNum+2)+", "+(AllRollNum+3)+", "+(AllRollNum+4);
 			for(int i=0;i<AllRollNum;i++){
 				flip_surfaces += (i+1)+",";
 				flip_surface_List.add(i+1);
@@ -84,7 +84,7 @@ public class a4_contact_flat {
 					procDataList.add("*new_cbody geometry *contact_option geometry_nodes:off");
 					procDataList.add("*contact_body_name");
 					procDataList.add(LMain.getUpTableDataList_2D().get(i).getNo());
-					procDataList.add("*add_contact_body_surfaces");
+					procDataList.add("*add_contact_body_curves");
 					procDataList.add(""+(i+1));
 					procDataList.add("#");
 					procDataList.add("*cbody_center_rot");
@@ -111,7 +111,7 @@ public class a4_contact_flat {
 					procDataList.add("*new_cbody geometry *contact_option geometry_nodes:off");
 					procDataList.add("*contact_body_name");
 					procDataList.add(LMain.getDownTableDataList_2D().get(i).getNo());
-					procDataList.add("*add_contact_body_surfaces");
+					procDataList.add("*add_contact_body_curves");
 					procDataList.add(""+String.valueOf((i+1)+Integer.parseInt(LMain.getSpinnerUpperRollNum_2D())));
 					procDataList.add("#");
 					procDataList.add("*cbody_center_rot");
@@ -131,8 +131,8 @@ public class a4_contact_flat {
 					procDataList.add("-1*plate_v/("+LMain.getDownTableDataList_2D().get(i).getDiameter()+"/2)");
 				}
 				continue;
-			}else if(line.contains(ProcMaker.add_contact_body_surfaces)){
-				newLine = line.replace(ProcMaker.add_contact_body_surfaces, this.add_contact_body_surfaces);
+			}else if(line.contains(ProcMaker.add_contact_body_curves)){
+				newLine = line.replace(ProcMaker.add_contact_body_curves, this.add_contact_body_curves);
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.flip_curves)){

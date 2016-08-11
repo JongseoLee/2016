@@ -3,8 +3,10 @@ package com.js.ent.lotto;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 import com.js.io.Reader;
+import com.js.method.YDmethod;
 import com.js.parser.ParserDefault;
 import com.js.util.myUtil;
 
@@ -118,6 +120,10 @@ public class MainTool {
 		return result;
 	}
 	
+	private void YDMethod(){
+		YDmethod obj = new YDmethod();
+		obj.running();
+	}
 	
 	
 	
@@ -147,7 +153,19 @@ public class MainTool {
 	}
 	
 	
-	
+	public int DispMenu(){
+		int menu = 0;
+		System.out.println("++++++++++++++++++++++");
+		System.out.println("         메뉴");
+		System.out.println("0.종료");
+		System.out.println("1.최근 몇회차 통계 보기");
+		System.out.println("2.원하는 기간 통계 보기");
+		System.out.println("3.시뮬레이션 결과 보기(YD method)");
+		System.out.println("++++++++++++++++++++++");
+		Scanner scan = new Scanner(System.in);
+		menu = scan.nextInt();
+		return menu;
+	}
 	
 
 	public static void main(String[] args) {
@@ -166,6 +184,33 @@ public class MainTool {
 		mt.getSortingResult(60);
 		// n1 회차 ~ n2 회차
 		mt.getSortingResult(1, 0);
+		
+		Scanner scan = new Scanner(System.in);
+		int menu = 0;
+		while(true){
+			menu = mt.DispMenu();
+			if(menu == 0){
+				System.out.println("종료");
+				System.exit(0);
+			}else if(menu == 1){
+				System.out.println("최근 몇 회 분량 데이터 ?");
+				int n = scan.nextInt();
+				mt.getSortingResult(n);
+			}else if(menu == 2){
+				System.out.println("시작 회차 ?");
+				int start = scan.nextInt();
+				System.out.println("마지막 회차 ?( 값이 0 이면 최근 회차 자동입력)");
+				int end = scan.nextInt();
+				mt.getSortingResult(start,end);
+			}else if(menu == 3){
+				System.out.println("Start~");
+				mt.YDMethod();
+				System.out.println("End~");
+			}
+		}
+	
+		
+		
 		
 		
 	}

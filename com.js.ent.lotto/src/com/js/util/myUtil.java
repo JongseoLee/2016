@@ -66,14 +66,24 @@ public class myUtil {
 		}
 		System.out.println("=================================");
 	}
-	
-	public static void printMap(Map<String,String> map){
+	/*
+	public static void printMap(Map<String,object> map){
 		Set<String> keySet = map.keySet();
 		Iterator<String> iterator = keySet.iterator();
 		while (iterator.hasNext()) {
 			String key = iterator.next();
 			Object value = map.get(key);
 			System.out.printf("key : |%s| value : |%s| %n", key, value);
+		}
+	}
+	*/
+	public static void printMap(Map<String,Integer> map){
+		Set<String> keySet = map.keySet();
+		Iterator<String> iterator = keySet.iterator();
+		while (iterator.hasNext()) {
+			String key = iterator.next();
+			int value = map.get(key);
+			System.out.printf("key : |%s| value : |%i| %n", key, value);
 		}
 	}
 	
