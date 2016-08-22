@@ -104,6 +104,14 @@ public class define_parameters_wave {
 				continue;
 			}
 			// */
+			else if(line.contains(ProcMaker.textEntryRollTableDistance)){
+				newLine = line.replace(ProcMaker.textEntryRollTableDistance, LMain.getTextEntryRollTableDistance_2D());
+				procDataList.add(newLine);
+			}else if(line.contains(ProcMaker.textExitRollTableDistance)){
+				newLine = line.replace(ProcMaker.textExitRollTableDistance, LMain.getTextExitRollTableDistance_2D());
+				procDataList.add(newLine);
+			}
+			
 			else if(line.contains(ProcMaker.textLengthAspectRatio)){
 				newLine = line.replace(ProcMaker.textLengthAspectRatio, LMain.getTextLengthAspectRatio_2D());
 				procDataList.add(newLine);

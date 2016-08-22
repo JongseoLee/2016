@@ -156,11 +156,11 @@ public class MainTool {
 	public int DispMenu(){
 		int menu = 0;
 		System.out.println("++++++++++++++++++++++");
-		System.out.println("         메뉴");
 		System.out.println("0.종료");
 		System.out.println("1.최근 몇회차 통계 보기");
 		System.out.println("2.원하는 기간 통계 보기");
-		System.out.println("3.시뮬레이션 결과 보기(YD method)");
+		System.out.println("3.시뮬레이션 (YD method)");
+		System.out.println("4.결과 추출  (YD method)");
 		System.out.println("++++++++++++++++++++++");
 		Scanner scan = new Scanner(System.in);
 		menu = scan.nextInt();

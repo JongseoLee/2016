@@ -15,17 +15,25 @@ public class YDmethod {
 	private Map <String,Integer> dupNumMap = new HashMap<String,Integer>();
 	
 	//private static final int TryNumber = 65000000;
-	private static final int TryNumber = 2800000;
+	  private static final int TryNumber = 30000000;
+	//private static final int TryNumber =  1000000;
 	public YDmethod() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	public void running(){
 		this.SimResult();
-		this.checkDuplicated();
+		//this.checkDuplicated();
 		
-		myUtil.printMap(this.dupNumMap);
+		//myUtil.printMap(this.dupNumMap);
 	
+	}
+	
+	public void running2(){
+		String file1 = "d:\\result1.csv";
+		String file2 = "d:\\result2.csv";
+		String file3 = "d:\\result3.csv";
+		
 	}
 	
 	public ArrayList<Integer> genNumberList(){
@@ -67,28 +75,32 @@ public class YDmethod {
     }
 	
 	public void SimResult(){
-		
+		System.out.println("번호 추출 시작");
 		for(int i=0; i<this.TryNumber;i++){
 			MyRound obj = new MyRound();
 			obj.setAllData(this.genNumberList());
 			this.gameList.add(obj);
 			this.tempList.add(obj);
 		}
+		System.out.println("번호 추출 끝");
 		// CSV 파일로 저장
 		this.saveGenResult();
 	}
 	
 	public void saveGenResult(){
+		System.out.println("파일로저장 시작");
 		ArrayList<String> outputlist = new ArrayList<String>();
 		for(MyRound mr : this.gameList){
 			outputlist.add(mr.getStrResult());
 		}
 		
-		Writer obj = new Writer(myUtil.setPath(System.getProperty("user.dir"), "result.csv"),outputlist);
+		Writer obj = new Writer(myUtil.setPath("d:\\", "result.csv"),outputlist);
 		obj.running();
+		System.out.println("파일로저장 끝");
 	}
 	
 	public void checkDuplicated(){
+		System.out.println("체크 시작");
 		ArrayList<String> duplNumList = new ArrayList<String>();
 		Map <String,Integer> dupNumMap = new HashMap<String,Integer>();
 		
@@ -120,6 +132,8 @@ public class YDmethod {
 				}
 			}
 		}
+		
+		System.out.println("체크 끝");
 	}
 	
 	

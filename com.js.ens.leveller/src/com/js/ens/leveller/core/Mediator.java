@@ -1362,6 +1362,9 @@ public class Mediator {
 		public static String SPINNER_LowerRollNum_2D = "spinnerLowerRollNum_2D";
 		private Text textRollPitch_2D;
 		//private Text textRollLength_2D;
+		private Text textEntryRollTableDistance_2D;
+		private Text textExitRollTableDistance_2D;
+		
 		private Text textEntryUpperRollGap_2D;
 		private Text textEntryLowerRollGap_2D;
 		private Text textExitUpperRollGap_2D;
@@ -2571,6 +2574,18 @@ public class Mediator {
 		}
 		public void setCustomTabFolder(ICommand customTabFolder) {
 			this.customTabFolder = customTabFolder;
+		}
+		public Text getTextEntryRollTableDistance_2D() {
+			return textEntryRollTableDistance_2D;
+		}
+		public void setTextEntryRollTableDistance_2D(Text textEntryRollTableDistance_2D) {
+			this.textEntryRollTableDistance_2D = textEntryRollTableDistance_2D;
+		}
+		public Text getTextExitRollTableDistance_2D() {
+			return textExitRollTableDistance_2D;
+		}
+		public void setTextExitRollTableDistance_2D(Text textExitRollTableDistance_2D) {
+			this.textExitRollTableDistance_2D = textExitRollTableDistance_2D;
 		}
 	
 	

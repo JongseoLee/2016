@@ -206,6 +206,8 @@ public class TextLabel_UI {
 	public static String lblLowerRollNumber_2D			= "Lower roll number";
 	public static String lblRollPitch_2D				= "Roll pitch (mm)";
 	//public static String lblRollLength_2D				= "Roll Length (mm)";
+	public static String lblEntryRollTableDistance_2D 	= "Entry Roll Table Dist.(mm)";
+	public static String lblExitRollTableDistance_2D	= "Exit Roll table Dist.(mm)";
 	public static String lblEntryUpperRollGap_2D		= "Entry upper roll gap (mm)";
 	public static String lblEntryLowerRollGap_2D		= "Entry lower roll gap (mm)";
 	public static String lblExitUpperRollGap_2D			= "Exit upper roll gap (mm)";

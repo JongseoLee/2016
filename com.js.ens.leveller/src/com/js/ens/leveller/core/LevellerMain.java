@@ -232,6 +232,9 @@ public class LevellerMain {
 	//private String RollCrownType_2D;
 	private String textMillStiffness_2D;
 	private String MillStiffnessType_2D;
+	//update version3 2016.08.22
+	private String textEntryRollTableDistance_2D;
+	private String textExitRollTableDistance_2D;
 	//update version3 2016.07.20
 	private String textUpperEntryRollGapMovement_2D;
 	private String textUpperExitRollGapMovement_2D;
@@ -726,6 +729,8 @@ public class LevellerMain {
 		med.getSpinnerLowerRollNum_2D().setSelection(Integer.parseInt(InitValueMap.get("LowerRollNum_2D")));
 		med.getTextRollPitch_2D().setText(InitValueMap.get("RollPitch_2D"));
 		//med.getTextRollLength_2D().setText(InitValueMap.get("RollLength_2D"));
+		med.getTextEntryRollTableDistance_2D().setText(InitValueMap.get("EntryRollTableDistance_2D"));
+		med.getTextExitRollTableDistance_2D().setText(InitValueMap.get("ExitRollTableDistance_2D"));
 		med.getTextEntryUpperRollGap_2D().setText(InitValueMap.get("EntryUpperRollGap_2D"));
 		med.getTextExitUpperRollGap_2D().setText(InitValueMap.get("ExitUpperRollGap_2D"));
 		med.getTextEntryLowerRollGap_2D().setText(InitValueMap.get("EntryLowerRollGap_2D"));
@@ -4029,6 +4034,26 @@ public class LevellerMain {
 				
 			}
 			// */
+			else if(parsingDataList.get(0).equals(TextLabel.lblEntryRollTableDistance_2D)){
+				if(parsingDataList.size() == 2){
+					this.textEntryRollTableDistance_2D = parsingDataList.get(1);
+					med.getTextEntryRollTableDistance_2D().setText(this.textEntryRollTableDistance_2D);	
+				}else {
+					this.textEntryRollTableDistance_2D = "No value";
+					med.getTextEntryRollTableDistance_2D().setText(this.textEntryRollTableDistance_2D);
+				}
+				
+			}else if(parsingDataList.get(0).equals(TextLabel.lblExitRollTableDistance_2D)){
+				if(parsingDataList.size() == 2){
+					this.textExitRollTableDistance_2D = parsingDataList.get(1);
+					med.getTextExitRollTableDistance_2D().setText(this.textExitRollTableDistance_2D);	
+				}else {
+					this.textExitRollTableDistance_2D = "No value";
+					med.getTextExitRollTableDistance_2D().setText(this.textExitRollTableDistance_2D);
+				}
+				
+			}
+			
 			else if(parsingDataList.get(0).equals(TextLabel.lblEntryUpperRollGap_2D)){
 				if(parsingDataList.size() == 2){
 					this.textEntryUpperRollGap_2D = parsingDataList.get(1);
@@ -5107,6 +5132,8 @@ public class LevellerMain {
 		this.spinnerLowerRollNum_2D = med.getSpinnerLowerRollNum_2D().getText().trim();
 		this.textRollPitch_2D = med.getTextRollPitch_2D().getText().trim();
 		//this.textRollLength_2D = calcRollLength_2D().trim();
+		this.textEntryRollTableDistance_2D = med.getTextEntryRollTableDistance_2D().getText().trim();
+		this.textExitRollTableDistance_2D = med.getTextExitRollTableDistance_2D().getText().trim();
 		this.textEntryUpperRollGap_2D = med.getTextEntryUpperRollGap_2D().getText().trim();
 		this.textEntryLowerRollGap_2D = med.getTextEntryLowerRollGap_2D().getText().trim();
 		this.textExitUpperRollGap_2D = med.getTextExitUpperRollGap_2D().getText().trim();
@@ -5138,6 +5165,8 @@ public class LevellerMain {
 		this.db_2D.add(TextLabel.lblLowerRollNumber_2D+"="+this.spinnerLowerRollNum_2D);
 		this.db_2D.add(TextLabel.lblRollPitch_2D+"="+this.textRollPitch_2D);
 		//this.db_2D.add(TextLabel.lblRollLength_2D+"="+this.textRollLength_2D);
+		this.db_2D.add(TextLabel.lblEntryRollTableDistance_2D+"="+this.textEntryRollTableDistance_2D);
+		this.db_2D.add(TextLabel.lblExitRollTableDistance_2D+"="+this.textExitRollTableDistance_2D);
 		this.db_2D.add(TextLabel.lblEntryUpperRollGap_2D+"="+this.textEntryUpperRollGap_2D);
 		this.db_2D.add(TextLabel.lblEntryLowerRollGap_2D+"="+this.textEntryLowerRollGap_2D);
 		this.db_2D.add(TextLabel.lblExitUpperRollGap_2D+"="+this.textExitUpperRollGap_2D);
@@ -5673,6 +5702,8 @@ public class LevellerMain {
 		this.spinnerLowerRollNum_2D = med.getSpinnerLowerRollNum_2D().getText().trim();
 		this.textRollPitch_2D = med.getTextRollPitch_2D().getText().trim();
 		//this.textRollLength_2D = calcRollLength_2D().trim();
+		this.textEntryRollTableDistance_2D = med.getTextEntryRollTableDistance_2D().getText().trim();
+		this.textExitRollTableDistance_2D = med.getTextExitRollTableDistance_2D().getText().trim();
 		this.textEntryUpperRollGap_2D = med.getTextEntryUpperRollGap_2D().getText().trim();
 		this.textEntryLowerRollGap_2D = med.getTextEntryLowerRollGap_2D().getText().trim();
 		this.textExitUpperRollGap_2D = med.getTextExitUpperRollGap_2D().getText().trim();
@@ -5703,6 +5734,8 @@ public class LevellerMain {
 		this.db_saveAs_2D.add(TextLabel.lblLowerRollNumber_2D+"="+this.spinnerLowerRollNum_2D);
 		this.db_saveAs_2D.add(TextLabel.lblRollPitch_2D+"="+this.textRollPitch_2D);
 		//this.db_saveAs_2D.add(TextLabel.lblRollLength_2D+"="+this.textRollLength_2D);
+		this.db_saveAs_2D.add(TextLabel.lblEntryRollTableDistance_2D+"="+this.textEntryRollTableDistance_2D);
+		this.db_saveAs_2D.add(TextLabel.lblExitRollTableDistance_2D+"="+this.textExitRollTableDistance_2D);
 		this.db_saveAs_2D.add(TextLabel.lblEntryUpperRollGap_2D+"="+this.textEntryUpperRollGap_2D);
 		this.db_saveAs_2D.add(TextLabel.lblEntryLowerRollGap_2D+"="+this.textEntryLowerRollGap_2D);
 		this.db_saveAs_2D.add(TextLabel.lblExitUpperRollGap_2D+"="+this.textExitUpperRollGap_2D);
@@ -7469,6 +7502,23 @@ public class LevellerMain {
 
 	public void setType3_textRearCurlLength_2D(String type3_textRearCurlLength_2D) {
 		this.type3_textRearCurlLength_2D = type3_textRearCurlLength_2D;
+	}
+
+	public String getTextEntryRollTableDistance_2D() {
+		return textEntryRollTableDistance_2D;
+	}
+
+	public void setTextEntryRollTableDistance_2D(
+			String textEntryRollTableDistance_2D) {
+		this.textEntryRollTableDistance_2D = textEntryRollTableDistance_2D;
+	}
+
+	public String getTextExitRollTableDistance_2D() {
+		return textExitRollTableDistance_2D;
+	}
+
+	public void setTextExitRollTableDistance_2D(String textExitRollTableDistance_2D) {
+		this.textExitRollTableDistance_2D = textExitRollTableDistance_2D;
 	}
 
 	

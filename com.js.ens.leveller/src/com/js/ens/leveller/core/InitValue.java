@@ -273,6 +273,8 @@ public class InitValue {
 	public static String spinnerLowerRollNum_2D				= "5";
 	public static String textRollPitch_2D						= "300";
 	public static String textRollLength_2D						= "5000";
+	public static String textEntryRollTableDistance_2D			= "0";
+	public static String textExitRollTableDistance_2D			= "0";
 	public static String textEntryUpperRollGap_2D				= "30";
 	public static String textEntryLowerRollGap_2D				= "0";
 	public static String textExitUpperRollGap_2D				= "50";

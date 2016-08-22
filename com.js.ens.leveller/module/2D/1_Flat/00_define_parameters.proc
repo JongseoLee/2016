@@ -31,6 +31,10 @@
 *eval_define roll_pitch %RollPitch%
 *eval_define roll_dia %RollDiameter%
 |*eval_define roll_length %RollLength%
+| Update 2016.08.22 
+*eval_define fdist %EntryRollTableDist%
+*eval_define rdist %ExitRollTableDist%
+
 *eval_define roll_length %Width%+2000.0
 *eval_define sgap_u %EntryUpperRollGap%
 *eval_define egap_u %ExitUpperRollGap%

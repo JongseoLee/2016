@@ -110,6 +110,8 @@ public class View extends ViewPart {
 	private Text textPassLineOffset_2D;
 	//--------------------------------
 	private Text textRollPitch_2D;
+	private Text textEntryRollTableDistance_2D;
+	private Text textExitRollTableDistance_2D;
 	//private Text textRollLength_2D;
 	private Text textEntryUpperRollGap_2D;
 	private Text textEntryLowerRollGap_2D;
@@ -944,9 +946,46 @@ public class View extends ViewPart {
 		textRollLength_2D.setLayoutData(fd_textRollLength_2D);
 		//textRollLength_2D.setEnabled(false);
 		// */
+		
+		
+		
+		Label lblEntryRollTableDistance_2D = new Label(compositeRollParameter_2D, SWT.NONE);
+		FormData fd_lblEntryRollTableDistance_2D = new FormData();
+		fd_lblEntryRollTableDistance_2D.top = new FormAttachment(lblRollPitch_2D, 10);
+		fd_lblEntryRollTableDistance_2D.left = new FormAttachment(lblUpperRollNumber_2D, 0, SWT.LEFT);
+		lblEntryRollTableDistance_2D.setLayoutData(fd_lblEntryRollTableDistance_2D);
+		lblEntryRollTableDistance_2D.setText(TextLabel_UI.lblEntryRollTableDistance_2D);
+		
+		textEntryRollTableDistance_2D = new Text(compositeRollParameter_2D, SWT.BORDER);
+		med.setTextEntryRollTableDistance_2D(textEntryRollTableDistance_2D);
+		FormData fd_textEntryRollTableDistance_2D = new FormData();
+		fd_textEntryRollTableDistance_2D.top = new FormAttachment(lblEntryRollTableDistance_2D, -2, SWT.TOP);
+		fd_textEntryRollTableDistance_2D.left = new FormAttachment(spinnerUpperRollNum_2D, 0, SWT.LEFT);
+		fd_textEntryRollTableDistance_2D.right = new FormAttachment(spinnerUpperRollNum_2D, 0, SWT.RIGHT);
+		textEntryRollTableDistance_2D.setLayoutData(fd_textEntryRollTableDistance_2D);
+		
+		Label lblExitRollTableDistance_2D = new Label(compositeRollParameter_2D, SWT.NONE);
+		FormData fd_lblExitRollTableDistance_2D = new FormData();
+		fd_lblExitRollTableDistance_2D.top = new FormAttachment(lblEntryRollTableDistance_2D, 0, SWT.TOP);
+		fd_lblExitRollTableDistance_2D.left = new FormAttachment(lblLowerRollNumber_2D, 0, SWT.LEFT);
+		lblExitRollTableDistance_2D.setLayoutData(fd_lblExitRollTableDistance_2D);
+		lblExitRollTableDistance_2D.setText(TextLabel_UI.lblExitRollTableDistance_2D);
+		
+		textExitRollTableDistance_2D = new Text(compositeRollParameter_2D, SWT.BORDER);
+		med.setTextExitRollTableDistance_2D(textExitRollTableDistance_2D);
+		FormData fd_textExitRollTableDistance_2D = new FormData();
+		fd_textExitRollTableDistance_2D.top = new FormAttachment(lblExitRollTableDistance_2D, -2, SWT.TOP);
+		fd_textExitRollTableDistance_2D.left = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.LEFT);
+		fd_textExitRollTableDistance_2D.right = new FormAttachment(spinnerLowerRollNum_2D, 0, SWT.RIGHT);
+		textExitRollTableDistance_2D.setLayoutData(fd_textExitRollTableDistance_2D);
+		
+		
+		
+		
+		
 		Label lblEntryUpperRollGap_2D = new Label(compositeRollParameter_2D, SWT.NONE);
 		FormData fd_lblEntryUpperRollGap_2D = new FormData();
-		fd_lblEntryUpperRollGap_2D.top = new FormAttachment(lblRollPitch_2D, 10);
+		fd_lblEntryUpperRollGap_2D.top = new FormAttachment(lblEntryRollTableDistance_2D, 10);
 		fd_lblEntryUpperRollGap_2D.left = new FormAttachment(lblUpperRollNumber_2D, 0, SWT.LEFT);
 		lblEntryUpperRollGap_2D.setLayoutData(fd_lblEntryUpperRollGap_2D);
 		lblEntryUpperRollGap_2D.setText(TextLabel_UI.lblEntryUpperRollGap_2D);

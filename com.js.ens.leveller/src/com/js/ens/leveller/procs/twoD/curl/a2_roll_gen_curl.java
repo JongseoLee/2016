@@ -101,10 +101,10 @@ public class a2_roll_gen_curl {
 					procDataList.add("point(fdist+fdist+"+LMain.getDownTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
 					procDataList.add("point(fdist+fdist+"+LMain.getDownTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2 + L + 5000, 0, -1000)");
 					// */
-					procDataList.add("point(fdist+fdist+"+LMain.getDownTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
-					procDataList.add("point(-roll_dia/2+fdist+fdist+"+LMain.getDownTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, -roll_dia/2, -1000)");
-					procDataList.add("point(fdist+fdist+"+LMain.getDownTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2 + L + 5000, 0, -1000)");
-					procDataList.add("point(fdist+fdist+"+LMain.getDownTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
+					procDataList.add("point(fdist+rdist+"+LMain.getDownTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
+					procDataList.add("point(-roll_dia/2+fdist+rdist+"+LMain.getDownTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, -roll_dia/2, -1000)");
+					procDataList.add("point(fdist+rdist+"+LMain.getDownTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2 + L + 5000, 0, -1000)");
+					procDataList.add("point(fdist+rdist+"+LMain.getDownTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
 					
 				}else{
 					int lastNum = LMain.getUpTableDataList_2D().size()-1;
@@ -114,10 +114,10 @@ public class a2_roll_gen_curl {
 					procDataList.add("point(fdist+fdist+"+LMain.getUpTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
 					procDataList.add("point(fdist+fdist+"+LMain.getUpTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2 + L + 5000, 0, -1000)");
 					// */
-					procDataList.add("point(fdist+fdist+"+LMain.getUpTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
-					procDataList.add("point(-roll_dia/2+fdist+fdist+"+LMain.getUpTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, -roll_dia/2, -1000)");
-					procDataList.add("point(fdist+fdist+"+LMain.getUpTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2 + L + 5000, 0, -1000)");
-					procDataList.add("point(fdist+fdist+"+LMain.getUpTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
+					procDataList.add("point(fdist+rdist+"+LMain.getUpTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
+					procDataList.add("point(-roll_dia/2+fdist+rdist+"+LMain.getUpTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, -roll_dia/2, -1000)");
+					procDataList.add("point(fdist+rdist+"+LMain.getUpTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2 + L + 5000, 0, -1000)");
+					procDataList.add("point(fdist+rdist+"+LMain.getUpTableDataList_2D().get(lastNum).getDiameter()+"/2+roll_pitch*("+lastNum+")+roll_pitch/2, 0, -1000)");
 				}
 			}else{
 				procDataList.add(line);

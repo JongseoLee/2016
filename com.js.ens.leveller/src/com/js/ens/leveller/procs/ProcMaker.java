@@ -110,6 +110,8 @@ public class ProcMaker {
 	public static String spinnerLowerRollNum			= "%LowerRollNumber%";
 	public static String textRollPitch					= "%RollPitch%";
 	public static String textRollLength					= "%RollLength%";
+	public static String textEntryRollTableDistance		= "%EntryRollTableDist%";
+	public static String textExitRollTableDistance 		= "%ExitRollTableDist%";
 	public static String textEntryUpperRollGap			= "%EntryUpperRollGap%";
 	public static String textEntryLowerRollGap			= "%EntryLowerRollGap%";
 	public static String textExitUpperRollGap			= "%ExitUpperRollGap%";
