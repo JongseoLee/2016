@@ -204,6 +204,8 @@ public class View extends ViewPart {
 	//--------------------------------
 	private Text textRollPitch;
 	private Text textRollLength;
+	private Text textEntryRollTableDistance;
+	private Text textExitRollTableDistance;
 	private Text textEntryUpperRollGap;
 	private Text textEntryLowerRollGap;
 	private Text textExitUpperRollGap;
@@ -401,13 +403,15 @@ public class View extends ViewPart {
 		lblWidth_2D.setLayoutData(fd_lblWidth_2D);
 		lblWidth_2D.setText(TextLabel_UI.lblWidth_2D);
 		
+		
 		textWidth_2D = new Text(compositeShapeParameter_2D, SWT.BORDER);
-		med.setTextWidth_2D(textWidth_2D);
+		//med.setTextWidth_2D(textWidth_2D);
 		FormData fd_textWidth_2D = new FormData();
 		fd_textWidth_2D.top = new FormAttachment(lblWidth_2D, -2, SWT.TOP);
 		fd_textWidth_2D.left = new FormAttachment(comboType_2D, 0, SWT.LEFT);
 		fd_textWidth_2D.right = new FormAttachment(comboType_2D, 0, SWT.RIGHT);
 		textWidth_2D.setLayoutData(fd_textWidth_2D);
+		textWidth_2D.setEnabled(false);
 		
 		Label lblLength_2D = new Label(compositeShapeParameter_2D, SWT.NONE);
 		FormData fd_lblLength_2D = new FormData();
@@ -777,7 +781,7 @@ public class View extends ViewPart {
 		fd_compositePlateInformation_2D.top = new FormAttachment(compositeMeshParameter_2D,30);
 		fd_compositePlateInformation_2D.left = new FormAttachment(compositeShapeParameter_2D, 0, SWT.LEFT);
 		fd_compositePlateInformation_2D.right = new FormAttachment(compositeShapeParameter_2D, 0, SWT.RIGHT);
-		fd_compositePlateInformation_2D.bottom = new FormAttachment(compositeMeshParameter_2D,240,SWT.BOTTOM);
+		fd_compositePlateInformation_2D.bottom = new FormAttachment(compositeMeshParameter_2D,250,SWT.BOTTOM);
 		compositePlateInformation_2D.setLayoutData(fd_compositePlateInformation_2D);
 		
 		Label lblPlateInformation_2D = new Label(compositePlateInformation_2D, SWT.NONE);
@@ -2480,7 +2484,7 @@ public class View extends ViewPart {
 		fd_compositePlateInformation.top = new FormAttachment(compositeMeshParameter,30);
 		fd_compositePlateInformation.left = new FormAttachment(compositeShapeParameter, 0, SWT.LEFT);
 		fd_compositePlateInformation.right = new FormAttachment(compositeShapeParameter, 0, SWT.RIGHT);
-		fd_compositePlateInformation.bottom = new FormAttachment(compositeMeshParameter,240,SWT.BOTTOM);
+		fd_compositePlateInformation.bottom = new FormAttachment(compositeMeshParameter,250,SWT.BOTTOM);
 		compositePlateInformation.setLayoutData(fd_compositePlateInformation);
 		
 		Label lblPlateInformation = new Label(compositePlateInformation, SWT.NONE);
@@ -2652,11 +2656,45 @@ public class View extends ViewPart {
 		textRollLength.setLayoutData(fd_textRollLength);
 		//textRollLength.setEnabled(false);
 		
+		Label lblEntryRollTableDistance = new Label(compositeRollParameter, SWT.NONE);
+		FormData fd_lblEntryRollTableDistance = new FormData();
+		fd_lblEntryRollTableDistance.top = new FormAttachment(lblRollPitch, 10);
+		fd_lblEntryRollTableDistance.left = new FormAttachment(lblUpperRollNumber, 0, SWT.LEFT);
+		lblEntryRollTableDistance.setLayoutData(fd_lblEntryRollTableDistance);
+		lblEntryRollTableDistance.setText(TextLabel_UI.lblEntryRollTableDistance);
+		
+		textEntryRollTableDistance = new Text(compositeRollParameter, SWT.BORDER);
+		med.setTextEntryRollTableDistance(textEntryRollTableDistance);
+		FormData fd_textEntryRollTableDistance = new FormData();
+		fd_textEntryRollTableDistance.top = new FormAttachment(lblEntryRollTableDistance, -2, SWT.TOP);
+		fd_textEntryRollTableDistance.left = new FormAttachment(spinnerUpperRollNum, 0, SWT.LEFT);
+		fd_textEntryRollTableDistance.right = new FormAttachment(spinnerUpperRollNum, 0, SWT.RIGHT);
+		textEntryRollTableDistance.setLayoutData(fd_textEntryRollTableDistance);
+		
+		Label lblExitRollTableDistance = new Label(compositeRollParameter, SWT.NONE);
+		FormData fd_lblExitRollTableDistance = new FormData();
+		fd_lblExitRollTableDistance.top = new FormAttachment(lblEntryRollTableDistance, 0, SWT.TOP);
+		fd_lblExitRollTableDistance.left = new FormAttachment(lblLowerRollNumber, 0, SWT.LEFT);
+		lblExitRollTableDistance.setLayoutData(fd_lblExitRollTableDistance);
+		lblExitRollTableDistance.setText(TextLabel_UI.lblExitRollTableDistance);
+		
+		textExitRollTableDistance = new Text(compositeRollParameter, SWT.BORDER);
+		med.setTextExitRollTableDistance(textExitRollTableDistance);
+		FormData fd_textExitRollTableDistance = new FormData();
+		fd_textExitRollTableDistance.top = new FormAttachment(lblExitRollTableDistance, -2, SWT.TOP);
+		fd_textExitRollTableDistance.left = new FormAttachment(spinnerLowerRollNum, 0, SWT.LEFT);
+		fd_textExitRollTableDistance.right = new FormAttachment(spinnerLowerRollNum, 0, SWT.RIGHT);
+		textExitRollTableDistance.setLayoutData(fd_textExitRollTableDistance);
+		
+		
+		
+		
+		
 		
 		
 		Label lblEntryUpperRollGap = new Label(compositeRollParameter, SWT.NONE);
 		FormData fd_lblEntryUpperRollGap = new FormData();
-		fd_lblEntryUpperRollGap.top = new FormAttachment(lblRollPitch, 10);
+		fd_lblEntryUpperRollGap.top = new FormAttachment(lblEntryRollTableDistance, 10);
 		fd_lblEntryUpperRollGap.left = new FormAttachment(lblUpperRollNumber, 0, SWT.LEFT);
 		lblEntryUpperRollGap.setLayoutData(fd_lblEntryUpperRollGap);
 		lblEntryUpperRollGap.setText(TextLabel_UI.lblEntryUpperRollGap);

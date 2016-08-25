@@ -114,7 +114,17 @@ public class define_parameters_centerWave {
 				newLine = line.replace(ProcMaker.textRollLength, LMain.getTextRollLength());
 				procDataList.add(newLine);
 				continue;
-			}else if(line.contains(ProcMaker.textEntryUpperRollGap)){
+			}
+
+			else if(line.contains(ProcMaker.textEntryRollTableDistance)){
+				newLine = line.replace(ProcMaker.textEntryRollTableDistance, LMain.getTextEntryRollTableDistance());
+				procDataList.add(newLine);
+			}else if(line.contains(ProcMaker.textExitRollTableDistance)){
+				newLine = line.replace(ProcMaker.textExitRollTableDistance, LMain.getTextExitRollTableDistance());
+				procDataList.add(newLine);
+			}
+			
+			else if(line.contains(ProcMaker.textEntryUpperRollGap)){
 				newLine = line.replace(ProcMaker.textEntryUpperRollGap, LMain.getUpTableDataList().get(0).getGap());
 				procDataList.add(newLine);
 				continue;

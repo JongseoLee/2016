@@ -98,6 +98,8 @@ public class Mediator {
 	public static String SPINNER_LowerRollNum = "spinnerLowerRollNum";
 	private Text textRollPitch;
 	private Text textRollLength;
+	private Text textEntryRollTableDistance;
+	private Text textExitRollTableDistance;
 	private Text textEntryUpperRollGap;
 	private Text textEntryLowerRollGap;
 	private Text textExitUpperRollGap;
@@ -629,6 +631,18 @@ public class Mediator {
 	}
 	public void setTextRollLength(Text textRollLength) {
 		this.textRollLength = textRollLength;
+	}
+	public Text getTextEntryRollTableDistance() {
+		return textEntryRollTableDistance;
+	}
+	public void setTextEntryRollTableDistance(Text textEntryRollTableDistance) {
+		this.textEntryRollTableDistance = textEntryRollTableDistance;
+	}
+	public Text getTextExitRollTableDistance() {
+		return textExitRollTableDistance;
+	}
+	public void setTextExitRollTableDistance(Text textExitRollTableDistance) {
+		this.textExitRollTableDistance = textExitRollTableDistance;
 	}
 	public Text getTextEntryUpperRollGap() {
 		return textEntryUpperRollGap;
@@ -1281,7 +1295,7 @@ public class Mediator {
 		public ICommand customComboType_2D;
 		public static String COMBO_Type_2D = "comboType_2D";
 		private Label lblPhoto_2D;
-		private Text textWidth_2D;
+		//private Text textWidth_2D;
 		private Text textLength_2D;
 		private Text textThickness_2D;
 		
@@ -1570,12 +1584,14 @@ public class Mediator {
 		public void setLblPhoto_2D(Label lblPhoto_2D) {
 			this.lblPhoto_2D = lblPhoto_2D;
 		}
+		/*
 		public Text getTextWidth_2D() {
 			return textWidth_2D;
 		}
 		public void setTextWidth_2D(Text textWidth_2D) {
 			this.textWidth_2D = textWidth_2D;
 		}
+		//*/
 		public Text getTextLength_2D() {
 			return textLength_2D;
 		}
@@ -2587,6 +2603,7 @@ public class Mediator {
 		public void setTextExitRollTableDistance_2D(Text textExitRollTableDistance_2D) {
 			this.textExitRollTableDistance_2D = textExitRollTableDistance_2D;
 		}
+		
 	
 	
 	

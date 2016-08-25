@@ -64,11 +64,12 @@ public class define_parameters_flat {
 		procDataList = new ArrayList<String>();
 		String newLine = null;
 		for(String line : fileDataList){
+			/*
 			if(line.contains(ProcMaker.textWidth)){
 				newLine = line.replace(ProcMaker.textWidth, LMain.getTextWidth_2D());
 				procDataList.add(newLine);
 				continue;
-			}else if(line.contains(ProcMaker.textLength)){
+			}else */ if(line.contains(ProcMaker.textLength)){
 				newLine = line.replace(ProcMaker.textLength, LMain.getTextLength_2D());
 				procDataList.add(newLine);
 				continue;
