@@ -11,7 +11,7 @@
 *store_curves upper_roll
 all_visible
 *expand_reset
-*set_expand_translation z roll_length+1000
+*set_expand_translation z roll_length+2000
 *expand_curves
 all_visible
 *store_surfaces upper_roll_s
@@ -28,7 +28,7 @@ all_visible
 *store_curves lower_roll
 all_visible
 *expand_reset
-*set_expand_translation z roll_length+1000
+*set_expand_translation z roll_length+2000
 *expand_curves
 all_visible
 *store_surfaces lower_roll_s
@@ -38,7 +38,7 @@ all_visible
 *visible_selected
 *set_curve_type line
 |
-|  Create Roll Table
+|  Entry Roll Table
 |
 *add_curves
 point(0,0,-1000)
@@ -46,7 +46,7 @@ point(-L-5000,0,-1000)
 point(0,0,-1000)
 point(fdist+roll_dia/2,-roll_dia/2,-1000)
 |
-|   for the case of the number of lower rolls is 5 
+|  Exit Roll Table
 |
 %ExitRollTableField%
 *fill_view

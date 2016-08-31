@@ -53,19 +53,11 @@ def find_center(set_name) :
    
 
 def read_path_sets() :
-   tsset=["ATS1","ATS2","ATS3","ATS4","ATS5"]
-   teset=["ATE1","ATE2","ATE3","ATE4","ATE5"]
-   lsset=["ALS1","ALS2","ALS3","ALS4","ALS5"]
-   leset=["ALE1","ALE2","ALE3","ALE4","ALE5"]
-   hset=["HFL","HFC","HFR","HCL","HCC","HCR","HRL","HRC","HRR"]
-   trans_no=len(tsset)
+   lsset=["ALS1"] # Longi Path Start Point
+   leset=["ALE1"] # Longi Path End Point
+   hset=["HF","HQ1","HC","HQ3","HR"]
    longi_no=len(lsset)
    history_no=len(hset)
-   for i in range(0,trans_no) :
-     xc,yc,zc=find_center(tsset[i])
-     save_set(tsset[i],xc,yc,zc)
-     xc,yc,zc=find_center(teset[i])
-     save_set(teset[i],xc,yc,zc)
    for i in range(0,longi_no) :
      xc,yc,zc=find_center(lsset[i])
      save_set(lsset[i],xc,yc,zc)

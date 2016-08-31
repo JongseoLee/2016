@@ -1,11 +1,5 @@
-| Created by Marc Mentat 2014.2.0 (64bit)
-*prog_option compatibility:prog_version:ment2014.2
-*prog_analysis_class structural
-*prog_use_current_job on
-*set_default_length_unit millimeter
-*set_model_length_unit millimeter
 |
-| Create curled Plate model & Add Post Set Nodes
+| Create Curled Plate model & Add Post Set Nodes
 |
 *set_curve_type arc_ppp
 *add_curves
@@ -29,7 +23,6 @@ point(-L+rcl,0,0)
 -L rch 0
 -L+2*rcl rch 0
 -L+rcl 0 0
-*remove_curves
 *subdivide_curves_real
  5
 # | End of List
@@ -39,6 +32,10 @@ point(-L+rcl,0,0)
 *flip_curves
 3 6 #
 *sweep_all
+*move_reset
+*set_move_translation y T/2
+*move_curves all_existing
+*fill_view
 *set_convert_divisions
 (fcl)/(aspect_ratio_of_length_direction*T)
 1
@@ -59,10 +56,30 @@ all_existing
 *detach_nodes
 all_existing
 *sweep_all
+|
+| Start of Create Post Sections & Points sets
+|
+|
+|   Create Curves for finding Longitudinal path points 
+|
+*set_curve_type line
+*add_curves
+point(0,-fch*5,0)
+point(0,fch*5,0)
+*duplicate_reset
+*set_duplicate_translation x -L/4
+*set_duplicate_repetitions
+4
+*duplicate_curves
+7
+#
+|
+| run python for saving sets with history & Path plot points
+|
+*py_echo off
+*py_file_run mp01_define_post_set_curl_2d.py
 *shell_thickness
 T
-*shell_offset
-T/2
 *expand_lines
 all_existing
 *sweep_all
@@ -80,12 +97,8 @@ plate_thick
 W
 *add_geometry_elements
 all_existing
-
-|   Execute Procedure for section & Points
-| *exec_procedure m1_a_curl.proc 
-|
 |
 | run python for saving sets with history plot points
 |
-|*py_echo off
-|*py_file_run mp01_define_post_set_curl.py
+*py_echo off
+*py_file_run mp02_redefine_post_set_curl_2d.py

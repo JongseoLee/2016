@@ -57,8 +57,8 @@ Rotation
 *apply_name gravity
 *apply_dof y *apply_dof_value y
 *apply_dof_value y -9800
-|*add_apply_msects plate #
-*add_apply_elements plate
+*add_apply_msects plate #
+| *add_apply_elements all_existing
 *new_md_table 1 1
 *table_name
 bend_force
@@ -103,9 +103,9 @@ p_in p_ent_temp
 *new_apply *apply_type state_variable @popdown(apply_new_pm)
 *apply_name
 temperature
-|*add_apply_elements 1 #
 *add_apply_elements
-plate
+1
+#
 *apply_dof var *apply_dof_value var
 *apply_dof_table var
 temperature_profile

@@ -174,8 +174,8 @@ def create_bcs_2d(uv,lv) :
 def create_roll_motion_bcs(sn,tname,val) :
     py_send("*new_apply *apply_type fixed_displacement ")
     py_send("*apply_name Fix_spring_%s " %sn)
-    py_send("*apply_dof y *apply_dof_value y %f" %val)
     py_send("*apply_dof_table y %s" %tname)
+    py_send("*apply_dof y *apply_dof_value y %f" %val)    
     py_send("*edit_loadcase levelling ")
     py_send("*add_loadcase_loads Fix_spring_%s " %sn)
 

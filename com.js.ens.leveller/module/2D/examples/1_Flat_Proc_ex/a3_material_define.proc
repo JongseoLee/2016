@@ -1,0 +1,12 @@
+| Updated 2016.01.31. SH Kim
+*set_undo off
+*set_update off
+*new_mater standard *mater_option general:state:solid
+*exec_procedure mat01_elastic_modulus.proc
+*exec_procedure mat02_flow_stress.proc
+*exec_procedure mat03_thermal_expansion.proc
+*exec_procedure mat04_poisson.proc
+*exec_procedure mat05_mass_density.proc
+*add_mater_elements
+all_existing
+*set_update off

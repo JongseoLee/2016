@@ -13,13 +13,15 @@
 *eval_define W %Width%
 *eval_define L %Length%
 *eval_define T %Thickness%
-
-| wavepitch : Wave Pitch      | add ver3(jongseo lee)
-| waveheight : Wave Height    | add ver3(jongseo lee)
-| wavephase : Wave Phase      | add ver3(jongseo lee)
-*eval_define wavepitch %WavePitch%
-*eval_define waveheight %WaveHeight%
-*eval_define wavephase %WavePhase%
+|
+|  Define additional Parameters for Edge Wave Plate modeling
+|
+| WP : Wave Period of Right Edge
+| WH : Wave Height of Right Edge
+| WPh : Wave Phase of Right Edge
+*eval_define WP %WavePitch%
+*eval_define WH %WaveHeight%
+*eval_define WPh %WavePhase%
 
 |
 | Mesh parameter
@@ -37,10 +39,6 @@
 *eval_define roll_pitch %RollPitch%
 *eval_define roll_dia %RollDiameter%
 |*eval_define roll_length %RollLength%
-| Update 2016.08.22 
-*eval_define fdist %EntryRollTableDist%
-*eval_define rdist %ExitRollTableDist%
-
 *eval_define roll_length %Width%+2000.0
 *eval_define sgap_u %EntryUpperRollGap%
 *eval_define egap_u %ExitUpperRollGap%
@@ -50,8 +48,10 @@
 | Upper Roll Numbers
 *eval_define l_roll_no %LowerRollNumber%
 | Lower Roll Numbers
-*eval_define fdist 50
-|  fidst : distance from Roll table to Roll
+|  fidst : Entry distance from Roll table to Roll
+|  ridst : Exit distance from Roll table to Roll
+*eval_define fdist %EntryRollTableDist%
+*eval_define rdist %ExitRollTableDist%
 
 *eval_define plate_v %PlateVelocity%
 |  plave_v : plate velocity
@@ -110,5 +110,5 @@
 %LowerRollDataField%
 
 |Define Roll Crown
-|*eval_define urcrown %urcrwon  : Blocked in 2D
-|*eval_define lrcrown %lrcrown  : Blocked in 2D
+|*eval_define urcrown %UpperRollCrown% : Blocked in 2D
+|*eval_define lrcrown %LowerRollCrown% : Blocked in 2D

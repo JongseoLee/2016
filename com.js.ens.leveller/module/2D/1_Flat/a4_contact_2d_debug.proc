@@ -1,0 +1,212 @@
+| Created by Marc Mentat 2013.1.0 (64bit)
+*prog_option compatibility:prog_version:ment2013.1
+|
+*new_cbody mesh *contact_option state:solid *contact_option skip_structural:off
+*contact_body_name
+plate
+*add_contact_body_elements
+all_existing
+|
+|  Define Roll & Roll Table as define in UI
+|
+| The Below routine is created as roll numbers
+|
+| =====Upper Roll contact template=======
+| =========== Upper Roll 1 ================
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+UpperRoll_1
+*add_contact_body_curves
+1
+#
+*cbody_center_rot
+fdist+280.0/2+roll_pitch*(2*1-1)/2 30.0+280.0/2 0.0
+*contact_value az
+1
+*contact_value vrot
+plate_v/(280.0/2)
+| =========== Upper Roll 2 ================
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+UpperRoll_2
+*add_contact_body_curves
+2
+#
+*cbody_center_rot
+fdist+280.0/2+roll_pitch*(2*2-1)/2 36.6666666667+280.0/2 0.0
+*contact_value az
+1
+*contact_value vrot
+plate_v/(280.0/2)
+| =========== Upper Roll 3 ================
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+UpperRoll_3
+*add_contact_body_curves
+3
+#
+*cbody_center_rot
+fdist+280.0/2+roll_pitch*(2*3-1)/2 43.3333333334+280.0/2 0.0
+*contact_value az
+1
+*contact_value vrot
+plate_v/(280.0/2)
+| =========== Upper Roll 4 ================
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+UpperRoll_4
+*add_contact_body_curves
+4
+#
+*cbody_center_rot
+fdist+280.0/2+roll_pitch*(2*4-1)/2 50.0+280.0/2 0.0
+*contact_value az
+1
+*contact_value vrot
+plate_v/(280.0/2)
+| =====Lower Roll contact template=======
+| =========== Lower Roll 1 ================
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+LowerRoll_1
+*add_contact_body_curves
+5
+#
+*cbody_center_rot
+fdist+280.0/2+roll_pitch*(1-1) 0.0-280.0/2 0.0
+*contact_value az
+1
+*contact_value vrot
+-1*plate_v/(280.0/2)
+| =========== Lower Roll 2 ================
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+LowerRoll_2
+*add_contact_body_curves
+6
+#
+*cbody_center_rot
+fdist+280.0/2+roll_pitch*(2-1) 0.0-280.0/2 0.0
+*contact_value az
+1
+*contact_value vrot
+-1*plate_v/(280.0/2)
+| =========== Lower Roll 3 ================
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+LowerRoll_3
+*add_contact_body_curves
+7
+#
+*cbody_center_rot
+fdist+280.0/2+roll_pitch*(3-1) 0.0-280.0/2 0.0
+*contact_value az
+1
+*contact_value vrot
+-1*plate_v/(280.0/2)
+| =========== Lower Roll 4 ================
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+LowerRoll_4
+*add_contact_body_curves
+8
+#
+*cbody_center_rot
+fdist+280.0/2+roll_pitch*(4-1) 0.0-280.0/2 0.0
+*contact_value az
+1
+*contact_value vrot
+-1*plate_v/(280.0/2)
+| =========== Lower Roll 5 ================
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+LowerRoll_5
+*add_contact_body_curves
+9
+#
+*cbody_center_rot
+fdist+280.0/2+roll_pitch*(5-1) 0.0-280.0/2 0.0
+*contact_value az
+1
+*contact_value vrot
+-1*plate_v/(280.0/2)
+| =========== Roll Table ================
+*new_cbody geometry *contact_option geometry_nodes:off
+*contact_body_name
+roll_table
+*add_contact_body_curves |changed in 2d
+10, 11, 12, 13 |changed in 2d
+#
+|*flip_curves | changed in 2d 
+|%Flip_surfaces% |changed in 2d 
+#
+*new_interact mesh:geometry *interact_option state_1:solid
+*interact_name
+friction
+*interact_param friction
+fric
+*new_interact mesh:geometry *interact_option state_1:solid
+*interact_name
+no_fric
+*interact_param friction
+0.0
+*new_contact_table
+|
+|   Define Friction between Plate and Rigid Bodys
+|  ===========  Plate <-> Upper and Lower Roll  ===========
+|  ===========  Plate <-> Upper Roll 1 ===========
+*ctable_entry plate UpperRoll_1
+*contact_table_option plate UpperRoll_1 contact:on
+*prog_string ctable:old_interact friction *ctable_entry_interact plate UpperRoll_1
+|  ===========  Plate <-> Upper Roll 2 ===========
+*ctable_entry plate UpperRoll_2
+*contact_table_option plate UpperRoll_2 contact:on
+*prog_string ctable:old_interact friction *ctable_entry_interact plate UpperRoll_2
+|  ===========  Plate <-> Upper Roll 3 ===========
+*ctable_entry plate UpperRoll_3
+*contact_table_option plate UpperRoll_3 contact:on
+*prog_string ctable:old_interact friction *ctable_entry_interact plate UpperRoll_3
+|  ===========  Plate <-> Upper Roll 4 ===========
+*ctable_entry plate UpperRoll_4
+*contact_table_option plate UpperRoll_4 contact:on
+*prog_string ctable:old_interact friction *ctable_entry_interact plate UpperRoll_4
+|  ===========  Plate <-> Lower Roll 1 ===========
+*ctable_entry plate LowerRoll_1
+*contact_table_option plate LowerRoll_1 contact:on
+*prog_string ctable:old_interact friction *ctable_entry_interact plate LowerRoll_1
+|  ===========  Plate <-> Lower Roll 2 ===========
+*ctable_entry plate LowerRoll_2
+*contact_table_option plate LowerRoll_2 contact:on
+*prog_string ctable:old_interact friction *ctable_entry_interact plate LowerRoll_2
+|  ===========  Plate <-> Lower Roll 3 ===========
+*ctable_entry plate LowerRoll_3
+*contact_table_option plate LowerRoll_3 contact:on
+*prog_string ctable:old_interact friction *ctable_entry_interact plate LowerRoll_3
+|  ===========  Plate <-> Lower Roll 4 ===========
+*ctable_entry plate LowerRoll_4
+*contact_table_option plate LowerRoll_4 contact:on
+*prog_string ctable:old_interact friction *ctable_entry_interact plate LowerRoll_4
+|  ===========  Plate <-> Lower Roll 5 ===========
+*ctable_entry plate LowerRoll_5
+*contact_table_option plate LowerRoll_5 contact:on
+*prog_string ctable:old_interact friction *ctable_entry_interact plate LowerRoll_5
+|  ===========  Plate <-> Roll Table  ===========  
+*ctable_entry plate roll_table
+*contact_table_option plate roll_table contact:on
+*prog_string ctable:old_interact no_fric *ctable_entry_interact plate roll_table
+|
+| Applying PassLine Offset : 2016.1.25
+|
+*move_reset
+*set_move_translation y passline_offset
+|Blocked in 2D : *set_move_translation z (roll_length-W)/2.0
+*select_clear
+*select_contact_body plate
+*move_elements
+all_selected
+*select_clear
+*select_contact_body roll_table
+*move_curves |changed in 2d
+all_selected
+*select_clear
+*move_reset

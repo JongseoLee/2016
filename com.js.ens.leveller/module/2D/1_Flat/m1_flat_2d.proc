@@ -5,6 +5,9 @@
 *add_curves
 point(0,0,0)
 point(-L,0,0)
+*move_reset
+*set_move_translation y T/2
+*move_curves all_existing
 *fill_view
 *set_convert_divisions
 |  Element Edge size is defined same as thickness
@@ -19,10 +22,52 @@ all_existing
 *detach_nodes
 all_existing
 *sweep_all
+|
+| Start of Create Post Sections & Points sets
+|
+|
+|   Create Curves for finding Longitudinal path points 
+|
+*set_curve_type line
+*add_curves
+point(0,-T*5,0)
+point(0,T*5,0)
+*duplicate_reset
+*set_duplicate_translation x -L/4
+*set_duplicate_repetitions
+4
+*duplicate_curves
+2
+#
+| Define Section Set for Post Processing
+|
+|  Skipped Due to 2 D
+|
+|*set_relative_tol
+|0.1
+|
+| Create Points for longitudinal direction
+|
+*intersect_curves
+3
+1 #
+4
+8 #
+5
+14 #
+*set_sweep_tolerance 0.1
+*sweep_all
+all_visible
+|
+| run python for saving sets with history & Path plot points
+|
+*py_echo off
+*py_file_run mp01_define_post_set_flat_2d.py
+|
+|  Start Expand for making Solid Elements
+|
 *shell_thickness
 T
-*shell_offset
-T/2
 *expand_lines
 all_existing
 *sweep_all
@@ -33,6 +78,11 @@ element_num_of_thickness_direction
 *subdivide_elements
 all_existing
 *sweep_all
+|
+| run python for re-saving sets with history & Path plot mid. points
+|
+*py_file_run mp02_redefine_post_set_flat_2d.py
+|
 *new_geometry *geometry_type mech_planar_pstrain @popdown(geom_new_popmenu) @popdown(geom_new_structural_pm)
 *geometry_name
 plate_thick
@@ -40,11 +90,3 @@ plate_thick
 W
 *add_geometry_elements
 all_existing
-|   Execute Procedure for section & Points
-| *exec_procedure m1_a_curl.proc 
-|
-|
-| run python for saving sets with history plot points
-|
-|*py_echo off
-|*py_file_run mp01_define_post_set_curl.py

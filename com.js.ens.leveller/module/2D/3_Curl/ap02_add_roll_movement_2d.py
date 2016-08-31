@@ -33,14 +33,14 @@ def add_motion(cname,tname,val) :
     py_send("*cbody_param_table py %s " %tname)
     py_send("*contact_value py %s " %val)
     py_send("*contact_value prot %e " %vrot)
-    py_send("*cbody_param_table prot roll_rot ")
+    py_send("*cbody_param_table prot rotation_table ")
 
 
 def add_roll_rot_table() :
     py_send("*new_md_table 1 1 ")
     py_send("*set_md_table_type 1 ")
     py_send("time")
-    py_send("*table_name roll_rot")
+    py_send("*table_name rotation_table ")
     py_send("*table_add")
     py_send("0,0 100.0,100.0 ")	  
     

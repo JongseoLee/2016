@@ -50,7 +50,6 @@ def find_center(set_name) :
      print "center node coordinate ",xc,yc,zc     
      return xc,yc,zc
 
-   
 
 def read_path_sets() :
    tsset=["ATS1","ATS2","ATS3","ATS4","ATS5"]

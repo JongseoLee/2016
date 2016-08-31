@@ -1,0 +1,28 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*exec_procedure E:\POSCO_Leveller\ENS_leveller_160808\module\2D\1_Flat_Proc_ex\main_flat_2d.proc
+*mater_param structural:youngs_modulus 2*100
+*previous_mater
+*mater_param structural:youngs_modulus 2.5*100
+*save_model
+*check_job
+*update_job
+*job_submit_reset
+*submit_job 1 *monitor_job
+*save_model
+*update_job
+*update_job
+*update_job
+*post_open_default
+*post_skip_to_last
+*zoom_box
+*zoom_box(1,0.476586,0.448426,0.526435,0.554832)
+*post_close
+*update_job
+*kill_job *monitor_job
+*quit yes

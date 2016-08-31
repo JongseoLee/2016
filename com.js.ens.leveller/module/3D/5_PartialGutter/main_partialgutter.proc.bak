@@ -1,0 +1,27 @@
+|
+| Main Procedure of Levelling analysis
+|           created by S.H. Kim 2014.12.20
+|
+*set_undo off
+*exec_procedure 00_define_parameters.proc
+*exec_procedure m1_partialgutter.proc
+|*exec_procedure a2_roll_gen.proc
+|*exec_procedure a2_roll_gen_crown.proc
+%RollGenType%
+*exec_procedure a3_material_define.proc
+*exec_procedure a4_contact.proc
+| Change Roll Table Location : Added from ver. 3 
+*py_file_run ap04_define_roll_crown.py
+*exec_procedure a5_condition.proc
+*exec_procedure a6_loadcase.proc
+*exec_procedure a7_deformed_coordinate.proc
+%ChangeMotionToLoadPy%  | This line for applying spring Support Roll. Added from ver. 2
+| Add Hold Down Roll : Added from ver. 3
+*py_file_run ap01_add_hdroll.py
+| Add Roll Gap Movement : Added from ver. 3 
+*py_file_run ap02_add_roll_movement.py
+| Change Roll Table Location : Added from ver. 3 
+*py_file_run ap03_change_roller_table
+*set_undo on
+*set_update on
+*regenerate

@@ -1,0 +1,603 @@
+Marc Mentat (C)Copyright 1994-2015, MSC Software Corporation, all rights reserved
+Command > *exec_procedure E:\POSCO_Leveller\ENS_Leveller_160822\module\2D\1_Flat\main_flat_2d.proc
+Executing procedure file E:\POSCO_Leveller\ENS_Leveller_160822\module\2D\1_Flat\main_flat_2d.proc...
+Command > |
+Command > | Main Procedure of Levelling analysis
+Command > |           created by S.H. Kim 2016.08.06
+Command > |
+Command > |   Flat 2D Plate
+Command > *set_undo off
+Command > *exec_procedure 00_define_parameters.proc
+Executing procedure file 00_define_parameters.proc...
+Command > | Reset program
+Command > *new_model yes
+Command > *reset
+Command > *set_nodes off
+Command > *set_undo off
+Command > *regenerate
+Command > |
+Command > |  Define plate modeling Parameters
+Command > |
+Command > | W : width of plate
+Command > | L : Length of plate
+Command > | T : Thinckness of plate
+Command > *eval_define W %Width%
+Bad float! %Width
+Command > *eval_define L %Length%
+Bad float! %Length
+Command > *eval_define T %Thickness%
+Bad float! %Thickness
+Command > 
+Command > 
+Command > |
+Command > | Mesh parameter
+Command > |
+Command > *eval_define element_num_of_thickness_direction %ElementNumberOfThicknessDirection%
+Bad float! %ElementNumberOfThicknessDirection
+Command > *eval_define aspect_ratio_of_width_direction %AspectRatioOfWidthDirection%
+Bad float! %AspectRatioOfWidthDirection
+Command > *eval_define aspect_ratio_of_length_direction %AspectRatioOfLengthDirection%
+Bad float! %AspectRatioOfLengthDirection
+Command > *eval_define number_of_elements %NumberOfElements%
+Bad float! %NumberOfElements
+Command > 
+Command > 
+Command > |
+Command > |  Define Roll Information
+Command > |  The Below Information should be considered the number or rolls
+Command > |
+Command > *eval_define roll_pitch %RollPitch%
+Bad float! %RollPitch
+Command > *eval_define roll_dia %RollDiameter%
+Bad float! %RollDiameter
+Command > |*eval_define roll_length %RollLength%
+Command > | Update 2016.08.22 
+Command > *eval_define fdist %EntryRollTableDist%
+Bad float! %EntryRollTableDist
+Command > *eval_define rdist %ExitRollTableDist%
+Bad float! %ExitRollTableDist
+Command > 
+Command > *eval_define roll_length %Width%+2000.0
+Bad float! %Width
+Command > *eval_define sgap_u %EntryUpperRollGap%
+Bad float! %EntryUpperRollGap
+Command > *eval_define egap_u %ExitUpperRollGap%
+Bad float! %ExitUpperRollGap
+Command > *eval_define sgap_l %EntryLowerRollGap%
+Bad float! %EntryLowerRollGap
+Command > *eval_define egap_l %ExitLowerRollGap%
+Bad float! %ExitLowerRollGap
+Command > *eval_define u_roll_no %UpperRollNnumber%
+Bad float! %UpperRollNnumber
+Command > | Upper Roll Numbers
+Command > *eval_define l_roll_no %LowerRollNumber%
+Bad float! %LowerRollNumber
+Command > | Lower Roll Numbers
+Command > *eval_define fdist 50
+Command > |  fidst : distance from Roll table to Roll
+Command > 
+Command > *eval_define plate_v %PlateVelocity%
+Bad float! %PlateVelocity
+Command > |  plave_v : plate velocity
+Command > 
+Command > *eval_define fric %RollFriction%
+Bad float! %RollFriction
+Command > | fric : friction coefficient
+Command > 
+Command > *eval_define tstart %TemperatureAtStartOfLevelling%
+Bad float! %TemperatureAtStartOfLevelling
+Command > | tstart : temperature at start of levelling
+Command > 
+Command > *eval_define tend %TemperatureAtEndOfLevelling%
+Bad float! %TemperatureAtEndOfLevelling
+Command > | tend : temperature at end of levelling
+Command > 
+Command > |
+Command > |  Update 2016.01.13.
+Command > |
+Command > |*eval_define r_crown %RollCrown%  : Blocked in 2D
+Command > | Define Roll Crown 
+Command > 
+Command > *eval_define u_m_stiffness %MillStiffness%/u_roll_no
+Bad float! %MillStiffness
+Command > *eval_define l_m_stiffness %MillStiffness%/l_roll_no
+Bad float! %MillStiffness
+Command > | Define Mill Stiffness(%MillStiffness%)
+Command > 
+Command > *eval_define passline_offset %PassLineOffset%
+Bad float! %PassLineOffset
+Command > | Define PassLine Offset
+Command > 
+Command > *eval_define t_inc %IncrementTime%
+Bad float! %IncrementTime
+Command > | Solving Option t_inc => default value 0.0025
+Command > 
+Command > |
+Command > | Update 2016.07.13.
+Command > |
+Command > |Define Hold Down Roll
+Command > *define hd_roll_loc %HDRollType%| HD Roll Location upper or lower
+Command > *eval_define fhd_dia %FrontHDRollDia%	        | Front HD Roll Diameter
+Bad float! %FrontHDRollDia
+Command > *eval_define fhd_pitch %FrontHDRollPitch%	    | Front HD Roll Pitch
+Bad float! %FrontHDRollPitch
+Command > *eval_define fhd_pos %FrontHDRollVerticalPos%  | Front HD Vertical Position 
+Bad float! %FrontHDRollVerticalPos
+Command > *eval_define rhd_dia %RearHDRollDia%	        | Rear HD Roll Diameter
+Bad float! %RearHDRollDia
+Command > *eval_define rhd_pitch %RearHDRollPitch%      | Rear HD Roll Pitch
+Bad float! %RearHDRollPitch
+Command > *eval_define rhd_pos %RearHDRollVerticalPos%  | Rear HD Vertical Position 
+Bad float! %RearHDRollVerticalPos
+Command > 
+Command > |Define Roll Gap Movement
+Command > *eval_define URM_ent %UpperEntryRollGapMovement%  | Upper Entry Roll Gap Movement
+Bad float! %UpperEntryRollGapMovement
+Command > *eval_define URM_exit %UpperExitRollGapMovement%  | Upper Exit Roll Gap Movement
+Bad float! %UpperExitRollGapMovement
+Command > *eval_define URM_ts %UpperRollGapStayingTime%     | Upper Roll Gap Staying Time 
+Bad float! %UpperRollGapStayingTime
+Command > *eval_define URM_te %UpperRollGapMovingTime%      | Upper Roll Moving Time 
+Bad float! %UpperRollGapMovingTime
+Command > *eval_define LRM_ent %LowerEntryRollGapMovement%  | Lower Entry Roll Gap Movement
+Bad float! %LowerEntryRollGapMovement
+Command > *eval_define LRM_exit %LowerExitRollGapMovement%  | Lower Exit Roll Gap Movement
+Bad float! %LowerExitRollGapMovement
+Command > *eval_define LRM_ts %LowerRollGapStayingTime%     | Lower Roll Gap Staying Time 
+Bad float! %LowerRollGapStayingTime
+Command > *eval_define LRM_te %LowerRollGapMovingTime%      | Lower Roll Moving Time 
+Bad float! %LowerRollGapMovingTime
+Command > 
+Command > |Define Roll Table Data
+Command > |Upper Roll Table 
+Command > %UpperRollDataField%
+Command not found!
+
+Command > |Lower Roll Table
+Command > %LowerRollDataField%
+Command not found!
+
+Command > 
+Command > |Define Roll Crown
+Command > |*eval_define urcrown %urcrwon  : Blocked in 2D
+Command > |*eval_define lrcrown %lrcrown  : Blocked in 2D
+Procedure file 00_define_parameters.proc closed.
+Command > *exec_procedure m1_flat_2d.proc
+Executing procedure file m1_flat_2d.proc...
+Command > |
+Command > | Create Flat Plate model & Add Post Set Nodes
+Command > |
+Command > *set_curve_type line
+Command > *add_curves
+Enter line points : point(0,0,0)
+Point 1 added.
+Enter line points : point(-L,0,0)
+Bad float! L
+Enter line points : *fill_view
+Enter line points : *set_convert_divisions
+Enter the number of convert divisions in U and V : |  Element Edge size is defined same as thickness
+Enter the number of convert divisions in U and V : (L)/(aspect_ratio_of_length_direction*T)
+Bad float! L
+Enter the number of convert divisions in U and V : 1
+Enter the number of convert divisions in U and V : 1
+Command > *convert_curves
+Enter convert curve list : 1
+ERROR: Couldn't find curve 1!
+Enter convert curve list : #
+Enter convert curve list : *detach_edges
+Enter detach edge list : all_existing
+Enter detach edge list : *detach_nodes
+Enter detach node list : all_existing
+Enter detach node list : *sweep_all
+Command > *shell_thickness
+Enter shell thickness : T
+Bad float! T
+Enter shell thickness : *shell_offset
+Enter shell offset : T/2
+Bad float! T
+Enter shell offset : *expand_lines
+Enter element list : all_existing
+Command > *sweep_all
+Command > *sub_divisions
+Enter number of divisions in the U,V and W : element_num_of_thickness_direction
+Bad float! element_num_of_thickness_direction
+Enter number of divisions in the U,V and W : 1
+Enter number of divisions in the U,V and W : 1
+Enter number of divisions in the U,V and W : *subdivide_elements
+Enter subdivide element list : all_existing
+Enter subdivide element list : *sweep_all
+Command > *new_geometry *geometry_type mech_planar_pstrain @popdown(geom_new_popmenu) @popdown(geom_new_structural_pm)
+Popmenu geom_new_popmenu does not exist or is not popped up.
+Popmenu geom_new_structural_pm does not exist or is not popped up.
+Command > *geometry_name
+Enter geometric property name : plate_thick
+Command > *geometry_param norm_to_plane_thick
+Enter geometric property parameter value : W
+Bad float! W
+Enter geometric property parameter value : *add_geometry_elements
+Enter geometry add element list : all_existing
+Enter geometry add element list : |   Execute Procedure for section & Points
+Enter geometry add element list : | *exec_procedure m1_a_curl.proc 
+Enter geometry add element list : |
+Enter geometry add element list : |
+Enter geometry add element list : | run python for saving sets with history plot points
+Enter geometry add element list : |
+Enter geometry add element list : |*py_echo off
+Procedure file m1_flat_2d.proc closed.
+Command > *clear_geometry
+Command > *renumber_all
+Command > *exec_procedure a2_roll_gen_2d.proc
+Executing procedure file a2_roll_gen_2d.proc...
+Command > *select_clear
+Command > *visible_selected
+Command > *set_curve_type circle_cr
+Command > *add_curves
+Enter center point coordinates : |
+Enter center point coordinates : |   Create Upper Rolls Curve as defined from UI
+Enter center point coordinates : |
+Enter center point coordinates : %UpperRollGenField%
+Bad float! %UpperRollGenField
+Enter center point coordinates : |
+Enter center point coordinates : |
+Enter center point coordinates : *store_curves upper_roll_c
+Enter store curve list : all_visible
+Command > |blocked in 2d :*expand_reset
+Command > |blocked in 2d :*set_expand_translation z roll_length+2000
+Command > |blocked in 2d :*expand_curves
+Command > |blocked in 2d :all_visible
+Command > |blocked in 2d :*store_surfaces upper_roll_s
+Command > |blocked in 2d :all_visible
+Command > |blocked in 2d :*visible_selected
+Command > |
+Command > |   Create Lower Rolls Curve as defined from UI
+Command > |
+Command > %LowerRollGenField%
+Command not found!
+
+Command > |
+Command > |
+Command > *store_curves lower_roll_c
+Enter store curve list : all_visible
+Command > |blocked in 2d :*expand_reset
+Command > |blocked in 2d :*set_expand_translation z roll_length+2000
+Command > |blocked in 2d :*expand_curves
+Command > |blocked in 2d :all_visible
+Command > |blocked in 2d :*store_surfaces lower_roll_s
+Command > |blocked in 2d :all_visible
+Command > |blocked in 2d :*visible_selected
+Command > *select_sets lower_roll_c
+Enter select set : *select_sets upper_roll_c
+Enter select set : *visible_selected
+Enter select set : *set_curve_type line
+Command > |
+Command > |  Create Roll Table
+Command > |
+Command > *add_curves
+Enter line points : point(0,0,-1000)
+Point 1 added.
+Enter line points : point(-L-5000,0,-1000)
+Bad float! L
+Enter line points : point(0,0,-1000)
+Point 2 added.
+Curve 1 added.
+Enter line points : point(fdist+roll_dia/2,-roll_dia/2,-1000)
+Bad float! roll_dia
+Enter line points : |
+Enter line points : |   for the case of the number of lower rolls is 5 
+Enter line points : |
+Enter line points : %ExitRollTableField%
+Bad float! %ExitRollTableField
+Enter line points : *fill_view
+Enter line points : |blocked in 2d :*set_expand_translation z roll_length
+Enter line points : |blocked in 2d :*expand_curves
+Enter line points : |blocked in 2d :all_visible
+Enter line points : *store_curves roll_table_c 
+Enter store curve list : all_visible
+Procedure file a2_roll_gen_2d.proc closed.
+Command > *move_reset
+Command > *set_move_scale_factors 1 1 0
+Command > *move_model
+Command > *exec_procedure a3_material_define.proc
+Executing procedure file a3_material_define.proc...
+Command > | Updated 2016.01.31. SH Kim
+Command > *set_undo off
+Command > *set_update off
+Command > *new_mater standard *mater_option general:state:solid
+Command > %ElasticModulusType%
+Command not found!
+
+Command > %FlowStressType%
+Command not found!
+
+Command > %Thermal_expansionType%
+Command not found!
+
+Command > %PoissonType%
+Command not found!
+
+Command > *exec_procedure mat05_mass_density.proc
+Executing procedure file mat05_mass_density.proc...
+Command > *mater_param general:mass_density
+Enter value for parameter general:mass_density : %value_MassDensity%
+Bad float! %value_MassDensity
+Procedure file mat05_mass_density.proc closed.
+Command > *add_mater_elements
+Enter add material element list : all_existing
+Enter add material element list : *set_update off
+Procedure file a3_material_define.proc closed.
+Command > *exec_procedure a4_contact_2d.proc
+Executing procedure file a4_contact_2d.proc...
+Command > | Created by Marc Mentat 2013.1.0 (64bit)
+Command > *prog_option compatibility:prog_version:ment2013.1
+Command > |
+Command > *new_cbody mesh *contact_option state:solid *contact_option skip_structural:off
+Command > *contact_body_name
+Enter contact body name : plate
+Command > *add_contact_body_elements
+Enter contact body add element list : all_existing
+Enter contact body add element list : |
+Enter contact body add element list : |  Define Roll & Roll Table as define in UI
+Enter contact body add element list : |
+Enter contact body add element list : | The Below routine is created as roll numbers
+Enter contact body add element list : |
+Enter contact body add element list : 
+Command > | =====Upper Roll contact template=======
+Command > %UpperRollGenContact% |changed in 2d
+Command not found!
+
+Command > 
+Command > | =====Lower Roll contact template=======
+Command > %LowerRollGenContact% |changed in 2d
+Command not found!
+
+Command > 
+Command > | =========== Roll Table ================
+Command > *new_cbody geometry *contact_option geometry_nodes:off
+Command > *contact_body_name
+Enter contact body name : roll_table
+Command > *add_contact_body_curves |changed in 2d
+Enter contact body add curve list : %Add_contact_body_curves% |changed in 2d
+Bad float! %Add_contact_body_curves
+Enter contact body add curve list : #
+Enter contact body add curve list : |*flip_curves | changed in 2d 
+Enter contact body add curve list : |%Flip_curves% |changed in 2d 
+Enter contact body add curve list : #
+Enter contact body add curve list : *new_interact mesh:geometry *interact_option state_1:solid
+Command > *interact_name
+Enter contact interaction name : friction
+Command > *interact_param friction
+Enter contact interaction parameter value : fric
+Bad float! fric
+Enter contact interaction parameter value : *new_interact mesh:geometry *interact_option state_1:solid
+Command > *interact_name
+Enter contact interaction name : no_fric
+Command > *interact_param friction
+Enter contact interaction parameter value : 0.0
+Command > *new_contact_table
+Command > |
+Command > |   Define Friction between Plate and Rigid Bodys
+Command > |  ===========  Plate <-> Upper and Lower Roll  ===========
+Command > %PlateRollGenContactTable%
+Command not found!
+
+Command > 
+Command > 
+Command > |  ===========  Plate <-> Roll Table  ===========  
+Command > *ctable_entry plate roll_table
+Enter contact table entry body A : *contact_table_option plate roll_table contact:on
+Command > *prog_string ctable:old_interact no_fric *ctable_entry_interact plate roll_table
+Command > |
+Command > | Applying PassLine Offset : 2016.1.25
+Command > |
+Command > *move_reset
+Command > *set_move_translation y passline_offset
+Bad float! passline_offset
+Enter move translation in the Y-direction : |Blocked in 2D : *set_move_translation z (roll_length-W)/2.0
+Enter move translation in the Y-direction : *select_clear
+Enter move translation in the Y-direction : *select_contact_body plate
+Enter select contact body : *move_elements
+Enter move element list : all_selected
+Enter move element list : *select_clear
+Enter move element list : *select_contact_body roll_table
+Enter select contact body : *move_curves |changed in 2d
+Enter move curve list : all_selected
+Enter move curve list : *select_clear
+Enter move curve list : *move_reset
+Procedure file a4_contact_2d.proc closed.
+Command > | Change Roll Table Location : Added from ver. 3 
+Command > |*py_file_run ap04_define_roll_crown.py
+Command > *exec_procedure a5_condition.proc
+Executing procedure file a5_condition.proc...
+Command > *prog_analysis_class structural
+Command > *prog_use_current_job on
+Command > |
+Command > *new_icond *icond_type velocity @popdown(icond_new_pm)
+Popmenu icond_new_pm does not exist or is not popped up.
+Command > *icond_dof x *icond_dof_value x
+Enter value for 'x' : *icond_dof_value x plate_v
+Bad float! plate_v
+Enter value for 'x' : *add_icond_nodes
+Enter add initial condition node list : all_existing
+Enter add initial condition node list : *new_md_table 1 1
+Command > *set_md_table_type 1
+Enter the type for V1 : time
+Command > *table_add
+Enter independent variable V1 value : 0.0, tstart
+Bad float! tstart
+Enter function value F : (50*2+roll_pitch*(l_roll_no-1)+L)/plate_v, tend
+Bad float! roll_pitch
+Bad float! tend
+Enter function value F : (50*2+roll_pitch*(l_roll_no-1)+L+1000)/plate_v, tend
+Bad float! roll_pitch
+Bad float! tend
+Enter function value F : *table_fit
+Enter function value F : *table_name
+Enter table name : temperature_profile
+Command > *icond_name
+Enter initial condition name : velocity
+Command > *new_icond *icond_type state_variable @popdown(icond_new_pm)
+Popmenu icond_new_pm does not exist or is not popped up.
+Command > *icond_name
+Enter initial condition name : temperature_i
+Command > *icond_dof_value var 1
+Command > *icond_dof_table var temperature_profile
+Command > *add_icond_elements
+Enter add initial condition element list : all_existing
+Enter add initial condition element list : *new_apply *apply_type fixed_displacement @popdown(apply_new_pm)
+Popmenu apply_new_pm does not exist or is not popped up.
+Command > *apply_type gravity_load @popdown(apply_type_pm)
+Popmenu apply_type_pm does not exist or is not popped up.
+Command > *apply_name
+Enter boundary condition name : gravity
+Command > *apply_dof y *apply_dof_value y
+Enter value for 'y' : *apply_dof_value y 0-9800
+Enter value for 'z' : *add_apply_elements
+Enter add apply element list : all_existing
+Enter add apply element list : *new_apply *apply_type state_variable @popdown(apply_new_pm)
+Popmenu apply_new_pm does not exist or is not popped up.
+Command > *apply_name
+Enter boundary condition name : temperature_bc
+Command > *apply_dof var *apply_dof_value var 1
+Command > *apply_dof_table var
+Enter boundary condition D.O.F. table name : temperature_profile
+Command > *add_apply_elements
+Enter add apply element list : all_existing
+Procedure file a5_condition.proc closed.
+Command > *exec_procedure a6_loadcase_2d.proc
+Executing procedure file a6_loadcase_2d.proc...
+Command > *prog_analysis_class structural
+Command > *prog_use_current_job on
+Command > |
+Command > *new_loadcase *loadcase_type struc:dyn_trans
+Command > *loadcase_name levelling
+Command > *loadcase_ctable
+Enter loadcase contact table : ctable1
+Enter loadcase contact table : *loadcase_value maxrec
+Enter loadcase parameter value : 50
+Command > *loadcase_value dyn_contact_pro_fact
+Enter loadcase parameter value : .5
+Command > *loadcase_option converge:residuals
+Command > *loadcase_option error:relabs
+Command > *loadcase_value minforce
+Enter loadcase parameter value : 1e-3
+Command > *loadcase_value maxforce
+Enter loadcase parameter value : 1e-3
+Command > *loadcase_value time
+Enter loadcase parameter value : %SolvingTime%
+Bad float! %SolvingTime
+Enter loadcase parameter value : *loadcase_value nsteps
+Enter loadcase parameter value : %SolvingTime%/t_inc
+Bad float! %SolvingTime
+Enter loadcase parameter value : *prog_use_current_job on *new_job *job_class structural
+Command > *add_job_loadcases levelling
+Enter add job loadcase : *add_post_tensor stress
+Enter add job post tensor : *add_post_var von_mises
+Enter add job post variable : *add_post_var tepl_strain
+Enter add job post variable : *job_option strain:large
+Command > *job_option lump:on
+Command > *job_option frictype:coulomb_bilinear
+Command > *job_contact_table
+Enter job contact table : ctable1
+Enter job contact table : *job_param post 10
+Command > *job_param maxsep
+Enter job parameter value : 10
+Command > *element_type 11 | Changed in 2D
+Enter element list : all_existing
+Number of unchanged elements: 0
+Command > *select_clear
+Command > *invisible_selected
+Command > %Parallel_D%
+Command not found!
+
+Command > %Parallel_T%
+Command not found!
+
+Procedure file a6_loadcase_2d.proc closed.
+Command > *exec_procedure a7_deformed_coordinate.proc
+Executing procedure file a7_deformed_coordinate.proc...
+Command > *job_option nod_quantities:manual
+Command > *add_post_nodal_quantity Displacement
+Enter add job post nodal quantity : *add_post_nodal_quantity Ext_Force
+Enter add job post nodal quantity : *add_post_nodal_quantity Velocity
+Enter add job post nodal quantity : *add_post_nodal_quantity Rea_Force
+Enter add job post nodal quantity : *add_post_nodal_quantity Acceleration
+Enter add job post nodal quantity : *add_post_nodal_quantity Cont_Nor_Strss
+Enter add job post nodal quantity : *add_post_nodal_quantity Cont_Nor_Force
+Enter add job post nodal quantity : *add_post_nodal_quantity Cont_Fri_Strss
+Enter add job post nodal quantity : *add_post_nodal_quantity Cont_Fri_Force
+Enter add job post nodal quantity : *add_post_nodal_quantity Cont_Status
+Enter add job post nodal quantity : *add_post_nodal_quantity User_Nodal_1
+Enter add job post nodal quantity : *edit_post_nodal_quantity User_Nodal_1 Deformed Coordinate
+Command > *job_usersub_file 000_post_deformed.f
+Command > |*job_option user_source:run_saved
+Command > *job_option user_source:compile_nosave
+Procedure file a7_deformed_coordinate.proc closed.
+Command > | Applying spring Support Roll. Added from ver. 2
+Command > |*py_file_run change_motion_to_load_2d.py  
+Command > %ChangeMotionToLoadPy%  | This line for applying spring Support Roll. Added from ver. 2  
+Command not found!
+
+Command > | Add Hold Down Roll : Added from ver. 3
+Command > *py_file_run ap01_add_hdroll_2d.py
+*new_md_table 1 1 
+*table_name urmotion 
+*set_md_table_type 1 time 
+*table_add 
+0  0 
+Table data point added.
+0.0 0 
+Table data point added.
+0.0+0.0 1 
+Table data point added.
+0.0+0.0+1.0 1 
+Table data point added.
+*new_md_table 1 1 
+*table_name lrmotion 
+*set_md_table_type 1 time 
+*table_add 
+0  0 
+Table data point added.
+0.0 0 
+Table data point added.
+0.0+0.0 1 
+Table data point added.
+0.0+0.0+1.0 1 
+Table data point added.
+Command > | Add Roll Gap Movement : Added from ver. 3 
+Command > *py_file_run ap02_add_roll_movement_2d.py
+*new_md_table 1 1 
+*set_md_table_type 1 
+time
+*table_name roll_rot
+*table_add
+0,0 100.0,100.0 
+Table data point added.
+Table data point added.
+Command > | Change Roll Table Location : Added from ver. 3 
+Command > *py_file_run ap03_change_roller_table_2d.py
+cbody_par: Cannot find contact body front_hd_roll!
+cbody_par: Cannot find contact body rear_hd_roll!
+*move_reset *set_move_translation x -100.000000 
+*select_clear *select_method_single 
+*select_curves 1 2  #
+ERROR: Couldn't find curve 2!
+*select_contact_body plate 
+*move_elements all_selected *move_curves all_selected 
+curve_point_id: Cannot find curve 3!
+point_x: Cannot find point 0!
+*move_reset *set_move_translation x 100.000000 
+*select_clear *select_curves 3 4  #
+ERROR: Couldn't find curve 3!
+ERROR: Couldn't find curve 4!
+*move_curves all_selected 
+*select_clear 
+Command > *select_clear
+Command > *invisible_selected
+Command > *set_undo on
+Command > *set_update on
+Procedure file E:\POSCO_Leveller\ENS_Leveller_160822\module\2D\1_Flat\main_flat_2d.proc closed.
+Command > *update_job
+Command > *fill_view
+Command > *reset_view
+Command > *fill_view
+Command > *quit yes

@@ -25,4 +25,10 @@ mp02_redefine_post_set_flat.py
 1_Flat\ap03_change_roller_table.py
 1_Flat\ap04_define_roll_crown.py
 change_motion_to_load.py
+1_Flat\ap01_add_hdroll.py
+1_Flat\ap02_add_roll_movement.py
 1_Flat\Marc Mentat.lnk
+..\..\Module_post\post_processing.proc
+..\..\Module_post\p01_getting_result_data.py             
+..\..\Module_post\p02_history_plot.py
+..\..\Module_post\p03_section_plot.proc

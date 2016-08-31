@@ -26,7 +26,7 @@ roll_table
 %Add_contact_body_curves% |changed in 2d
 #
 |*flip_curves | changed in 2d 
-|%Flip_curves% |changed in 2d 
+|%Flip_surfaces% |changed in 2d 
 #
 *new_interact mesh:geometry *interact_option state_1:solid
 *interact_name

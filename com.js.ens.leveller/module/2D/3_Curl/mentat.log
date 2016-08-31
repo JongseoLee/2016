@@ -1,0 +1,70 @@
+Marc Mentat (C)Copyright 1994-2016, MSC.Software Corporation, all rights reserved
+Executing procedure file E:\POSCO_Leveller\ENS_leveller_160825\module\2D\3_Curl\00_define_parameters.proc...
+Command > | Reset program
+Command > *new_model yes
+Command > *reset
+Command > *set_nodes off
+Command > *set_undo off
+Command > *regenerate
+Command > |
+Command > |  Define plate modeling Parameters
+Command > |
+Command > | W : width of plate
+Command > | L : Length of plate
+Command > | T : Thinckness of plate
+Command > *eval_define W %Width%
+Bad float! %Width
+Command > *eval_define L %Length%
+Bad float! %Length
+Command > *eval_define T %Thickness%
+Bad float! %Thickness
+Command > 
+Command > 
+Command > |
+Command > | Mesh parameter
+Command > |
+Command > *eval_define element_num_of_thickness_direction %ElementNumberOfThicknessDirection%
+Bad float! %ElementNumberOfThicknessDirection
+Command > *eval_define aspect_ratio_of_width_direction %AspectRatioOfWidthDirection%
+Bad float! %AspectRatioOfWidthDirection
+Command > *eval_define aspect_ratio_of_length_direction %AspectRatioOfLengthDirection%
+Bad float! %AspectRatioOfLengthDirection
+Command > *eval_define number_of_elements %NumberOfElements%
+Bad float! %NumberOfElements
+Command > 
+Command > 
+Command > |
+Command > |  Define Roll Information
+Command > |  The Below Information should be considered the number or rolls
+Command > |
+Command > *eval_define roll_pitch %RollPitch%
+Bad float! %RollPitch
+Command > *eval_define roll_dia %RollDiameter%
+Bad float! %RollDiameter
+Command > |*eval_define roll_length %RollLength%
+Command > *eval_define roll_length %Width%+2000.0
+Bad float! %Width
+Command > *eval_define sgap_u %EntryUpperRollGap%
+Bad float! %EntryUpperRollGap
+Command > *eval_define egap_u %ExitUpperRollGap%
+Bad float! %ExitUpperRollGap
+Command > *eval_define sgap_l %EntryLowerRollGap%
+Bad float! %EntryLowerRollGap
+Command > *eval_define egap_l %ExitLowerRollGap%
+Bad float! %ExitLowerRollGap
+Command > *eval_define u_roll_no %UpperRollNnumber%
+Bad float! %UpperRollNnumber
+Command > | Upper Roll Numbers
+Command > *eval_define l_roll_no %LowerRollNumber%
+Bad float! %LowerRollNumber
+Command > | Lower Roll Numbers
+Command > |  fidst : Entry distance from Roll table to Roll
+Command > |  ridst : Exit distance from Roll table to Roll
+Command > *eval_define fdist %EntryRollTableDist%
+Bad float! %EntryRollTableDist
+Command > *eval_define rdist %ExitRollTableDist%
+Bad float! %ExitRollTableDist
+Command > 
+Command > *eval_define plate_v %PlateVelocity%
+Bad float! %PlateVelocity
+Command > *quit yes

@@ -1,0 +1,33 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+|  This Procedure is for creating dummy run ***_4dummy_run.mud which will generate a rezone file.
+|
+| 
+*open_model t1_f7.mud
+*save_as_model t1_f7_4dummy_run.mud yes
+*clear_mesh
+*py_file_run m02_edit_msect_0721.py
+*msect_external_data_file plate_job2_stage07_4dummy_run.sec
+@set($job_msect,plate)
+*job_msect_option plate filename:user
+*set_job_msect_filename plate plate_job2_stage07_4rezone.sec yes
+*remove_current_adapg
+*loadcase_value time
+1e-10
+*loadcase_value nsteps 1
+*clear_job_loadcases
+*add_job_loadcases lcase0
+*submit_job 1 *monitor_job
+*save_model
+*post_open_default
+*set_deformed off *set_showmag off
+*post_rezone
+*fill_view
+*save_as_model t1_f7_dummy_rezoned.mud yes
+*post_close
+*open_model t1_f7_dummy_rezoned.mud

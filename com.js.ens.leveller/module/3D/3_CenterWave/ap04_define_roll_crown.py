@@ -55,6 +55,15 @@ def redefine_roll(var,ur_dia,lr_dia) :
    l = var[4]
    uc = var[2]
    lc = var[3]
+   if (abs(lc) <= 1.0e-10 or abs(uc) < 1.0e-10):
+     for i in range(1,var[0]+1) :
+       rname="UpperRoll_"+str(i)
+       print "Roll Name :",rname
+       py_send("*select_contact_body %s " %rname)  	   	 
+       py_send("*visible_selected ")              
+       print "Flip Surfaces with ",uc              
+       py_send("*flip_surfaces all_visible ")
+   	   
    if (abs(uc) > 1.0e-10):
      print l,uc,lc
      py_send("*system_reset *system_rotate 90,0,0")
@@ -74,8 +83,19 @@ def redefine_roll(var,ur_dia,lr_dia) :
        generate_roll_crwon(x,y,z,l,d,uc)
        py_send("*edit_contact_body %s " %rname)
        py_send("*add_contact_body_surfaces all_visible ")
+       if uc < 0.0 :
+         print "Flip Surfaces with ",uc              
+         py_send("*flip_surfaces all_visible ")
      py_send("*system_reset ")
-   if (abs(uc) > 1.0e-10):
+   else :
+     for i in range(1,var[0]+1) :
+       rname="UpperRoll_"+str(i)
+       print "Roll Name :",rname
+       py_send("*select_contact_body %s " %rname)  	   	 
+       py_send("*visible_selected ")              
+       print "Flip Surfaces with ",uc              
+       py_send("*flip_surfaces all_visible ")
+   if (abs(lc) > 1.0e-10):
      print l,uc,lc
      py_send("*system_reset *system_rotate 90,0,0")
      py_send("*set_curve_type arc_ppp")
@@ -96,13 +116,25 @@ def redefine_roll(var,ur_dia,lr_dia) :
        generate_roll_crwon(x,y,z,l,d,lc)
        py_send("*edit_contact_body %s " %rname)
        py_send("*add_contact_body_surfaces all_visible ")
-     py_send("*system_reset ") 
+       if lc < 0.0 :
+         print "Flip Surfaces with ",lc              
+         py_send("*flip_surfaces all_visible ")     
+     py_send("*system_reset ")     
+   else :
+     for i in range(1,var[1]+1) :
+       rname="LowerrRoll_"+str(i)
+       print "Roll Name :",rname
+       py_send("*select_contact_body %s " %rname)  	   	 
+       py_send("*visible_selected ")              
+       print "Flip Surfaces with ",lc              
+       py_send("*flip_surfaces all_visible ")
      py_send("*select_clear *invisible_selected " )
 
 
    
 def main():
    var,ur_dia,lr_dia=get_roll_info() 
+   print "\n Start Redefine Roll Crown \n"
    print "Rolls variables ",var
    print "Upper Rolls variables ",ur_dia
    print "Lower Rolls variables ",lr_dia
@@ -110,7 +142,7 @@ def main():
    
    redefine_roll(var,ur_dia,lr_dia)
    py_send("*py_echo on *set_undo on")   
-
+   print "\n Complete Redefine Roll Crown \n"
      
 if __name__ == '__main__':
     main()

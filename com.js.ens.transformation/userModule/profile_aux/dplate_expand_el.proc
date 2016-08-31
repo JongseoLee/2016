@@ -1,0 +1,33 @@
+*expand_reset 
+*expand_shift
+*set_expand_translation x 20
+*expand_elements
+all_selected
+*set_expand_translation x 20*2
+*expand_elements
+all_selected
+*set_expand_translation x 20*4
+*expand_elements
+all_selected
+*set_expand_translation x 20*8
+*expand_elements
+all_selected
+*set_expand_translation x 20*16
+*expand_elements
+all_selected
+*set_expand_translation x 500
+*set_expand_repetitions 5
+*expand_remove
+*expand_elements
+all_selected
+*sweep_nodes
+all_visible
+*sweep_elements
+all_visible
+*renumber_all
+*shell_thickness
+17
+*expand_shells
+all_visible
+*reset_view
+*fill_view

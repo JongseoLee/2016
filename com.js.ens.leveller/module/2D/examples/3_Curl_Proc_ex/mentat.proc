@@ -1,0 +1,65 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014.2
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*exec_procedure E:\POSCO_Leveller\ENS_leveller_160808\module\2D\3_Curl_Proc_ex\main_curl_2d.proc
+*zoom_box
+*zoom_box(1,0.483384,0.473398,0.512840,0.549403)
+*update_job
+*job_submit_reset
+*submit_job 1 *monitor_job
+*update_job
+*job_submit_reset
+*job_submit_reset
+*submit_job 1 *monitor_job
+*identify_contact *regen
+*update_job
+*update_job
+*update_job
+*post_open_default
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_rewind
+*set_deformed both
+*post_monitor
+*post_skip_to_last
+*post_close
+*edit_mater upper_dummy_mat
+*mater_param structural:youngs_modulus 2.5*100
+*next_mater
+*mater_param structural:youngs_modulus 2*100
+*save_model
+*update_job
+*kill_job *monitor_job
+*update_job
+*job_submit_reset
+*submit_job 1 *monitor_job
+*update_job
+*update_job
+*post_open_default
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_skip_to_last
+*post_close
+*update_job
+*kill_job *monitor_job
+*save_model
+*quit yes

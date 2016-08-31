@@ -28,6 +28,7 @@ public class mat01_elastic_modulus_const_flat {
 	public void running(String path) {
 		// TODO Auto-generated method stub
 		this.procPath = path;
+		//System.out.println("aaaaa : "+this.procPath);
 		try{
 			this.readSourceData();
 			this.swapValue();
@@ -36,6 +37,7 @@ public class mat01_elastic_modulus_const_flat {
 			LMain.getExportMSG().addData("SUCCESS - Export(mat01_elastic_modulus_const) \n path : "+ this.procPath);
 			log.info("SUCCESS - Export(mat01_elastic_modulus_const) \n path : "+ this.procPath);
 		}catch(Exception e){
+			//e.printStackTrace();
 			String msg = "ERROR - Export(mat01_elastic_modulus_const)";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);

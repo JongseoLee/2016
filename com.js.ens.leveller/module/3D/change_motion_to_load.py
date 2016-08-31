@@ -188,8 +188,8 @@ def create_bcs(uv,lv) :
 def create_roll_motion_bcs(sn,tname,val) :
     py_send("*new_apply *apply_type fixed_displacement ")
     py_send("*apply_name Fix_spring_%s " %sn)
-    py_send("*apply_dof y *apply_dof_value y %f" %val)
     py_send("*apply_dof_table y %s" %tname)
+    py_send("*apply_dof y *apply_dof_value y %f" %val)    
     py_send("*edit_loadcase levelling ")
     py_send("*add_loadcase_loads Fix_spring_%s " %sn)
           
@@ -212,8 +212,9 @@ def change_option() :
 #    py_send("*save_model ")
 
 def create_dummy_mats() :
-    mill_k=py_get_float("u_m_stiffness")/10000.0  
-    # mill stiffnes scale factor is changed due to incorrect calculating section of spring element.
+    mill_k=py_get_float("u_m_stiffness")/100.0  
+    # mill stiffnes scale factor should be changed due to incorrect calculating section of spring element.
+    # must be scaled down to 10000.0
     py_send("*edit_mater material1 *copy_mater ")
     py_send("*mater_name upper_dummy_mat  ")
     py_send("*mater_param general:mass_density 7.85e-009*100  ")
@@ -221,7 +222,7 @@ def create_dummy_mats() :
     py_send("*clear_mater_param_table structural:youngs_modulus")
     py_send("*mater_option structural:plasticity:off ")
     py_send("*mater_option structural:thermal_expansion:off ")
-    mill_k=py_get_float("l_m_stiffness")/10000.0
+    mill_k=py_get_float("l_m_stiffness")/100.0
     # mill stiffnes scale factor is changed due to incorrect calculating section of spring element.    
     py_send("*edit_mater material1 *copy_mater ")
     py_send("*mater_name lower_dummy_mat  ")

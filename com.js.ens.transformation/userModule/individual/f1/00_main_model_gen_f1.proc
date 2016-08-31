@@ -1,23 +1,102 @@
 | Created by Marc Mentat 2014.0.0 (64bit)
 *prog_option compatibility:prog_version:ment2014
 *prog_analysis_class structural
+*menu_execute off
 |
 |  Define Parameters for modeling
 *exec_procedure 01_define_parameters_f1.proc
+|  Generate Plates
+*exec_procedure 02_plate_gen_f0.proc
+|*pause 60
+|
+|  Edit the previous model section file.
+|     1.  Reset the model section X-size 
+|     2.  Define the vortex node no. & Create d01_define_vortex.proc
+| 
+*py_file_run  m02_edit_msect_f1.py  | Depend on Stand
+*exec_procedure d01_define_vortex.proc
+|
+|  Read the previous post file & rezone Mesh
+|
+*post_open plate_job1.t16 
+*set_deformed off *set_showmag off
+*post_skip_to
+0
+*post_rezone
+*save_as_model plate_rezoned.mud yes 
+*open_model plate_rezoned.mud
+|
+|    Vertical Stretch Nodes & Write Mesh File
+|
+*py_file_run r01_vertical_stretch.py | Depend on Stand
+*fill_view
+*save_as_model plate_reremeshed.mud yes
+|
+|  Write Mesh file for f2-f7
+|
+|*write_marc %model%_f1_job1_b1.mesh.dat yes
+|*system_command
+|move %model%_f1_job1_b1.mesh.dat %model%_f1_job1_b1.mesh | Depend on Stand
+|
+|   Generate Dummy Plate Mesh 
+|
+*exec_procedure d02_dplate_expand_el_front.proc
+*exec_procedure d02_dplate_expand_el_rear.proc
+|
+|   Nodal Scalling at the boundary edge 
+|
+*prog_param renumber:start 1
+*renumber_all
+*py_file_run r02_center_nodes_scaling.py
+*select_contact_body 01_Plate
+*remove_elements
+all_selected
+*remove_unused_nodes
+*select_clear
+*clear_geometry
+*save_as_model dplate_f1.mud yes | Depend on Stand
+*export iges dplate.igs yes
+*system_reset
+|
+|  Generate F1 Model File 
+|
 | Generate Rolls
-*exec_procedure 03_rolls_gen_f1_f3.proc
-| Generate Plate for individual run
-*exec_procedure 02_plate_gen_i.proc 
+*exec_procedure 03_rolls_gen_f1_f3.proc | Depend on Stand
+| 
+|   Import Plate model section
 |
+*new_model yes
+*new_msect_external
+*msect_name plate
+*msect_external_data_file plate_job1_stage00_m1.sec | Depend on Stand
+| The above should be changed for genera
 | Assy Parts & Material/Contact Definintion
-|
 *exec_procedure 04_assy_parts_f1_f7.proc
 | Define LoadCase & Jobs
 *exec_procedure 05_load_case.proc 
 *exec_procedure 06_job_f1_f7.proc
-| ADD Global Remeshing & Adjust Loadcase
-|*exec_procedure 07_add_global_remesh_f2_f7.proc
 |*exec_procedure a01_add_push_plate.proc
-*exec_procedure a02_add_pull_pressure.proc
-| Since push plate cause some problems, add plate method is blocked 
-*save_as_model %model%_f1.mud yes
+*select_elements all_existing
+*invisible_selected
+*import iges dplate.igs
+*store_elements dplate all_visible 
+*exec_procedure  d03_dplate_change_conditions_f1.proc
+| 
+| Define export model section file name
+|
+*job_msect_option plate filename:user
+*set_job_msect_filename plate plate_job1_stage01.sec yes
+*edit_job job1
+*remove_job_loadcases lcase2
+*job_option contact_method:node_segment
+*job_option separation:stress
+*job_option sep_strs_measure:absolute
+*job_param sepstress
+3
+*select_clear *invisible_selected
+*save_as_model %model%_f1.mud yes  | Depend on Stand
+| Change Input for Temperature Proile
+*job_write_input yes
+*py_file_run m01_change_input.py 
+*update_job
+*execute_job 1 *monitor_job

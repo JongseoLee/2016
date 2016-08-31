@@ -140,6 +140,7 @@ public class GenProc_00 {
 	}
 	
 	private void readSourceData(String ori_filePath){
+		System.out.println(ori_filePath);
 		Reader reader = new Reader(ori_filePath);
 		reader.running();
 		

@@ -14,13 +14,12 @@
 *eval_define L %Length%
 *eval_define T %Thickness%
 
+
 |
 |  Define additional Parameters for Single Gutter Plate modeling
 |
 | GH : Height of Gutter
 *eval_define GH %GutterHeight%
-
-
 |
 | Mesh parameter
 |
@@ -36,10 +35,8 @@
 |
 *eval_define roll_pitch %RollPitch%
 *eval_define roll_dia %RollDiameter%
-*eval_define roll_length %RollLength%
-| Update 2016.08.22 
-*eval_define fdist %EntryRollTableDist%
-*eval_define rdist %ExitRollTableDist%
+|*eval_define roll_length %RollLength%
+*eval_define roll_length %Width%+2000.0
 *eval_define sgap_u %EntryUpperRollGap%
 *eval_define egap_u %ExitUpperRollGap%
 *eval_define sgap_l %EntryLowerRollGap%
@@ -48,8 +45,11 @@
 | Upper Roll Numbers
 *eval_define l_roll_no %LowerRollNumber%
 | Lower Roll Numbers
-*eval_define fdist 50
-|  fidst : distance from Roll table to Roll
+
+|  fidst : Entry distance from Roll table to Roll
+|  ridst : Exit distance from Roll table to Roll
+*eval_define fdist %EntryRollTableDist%
+*eval_define rdist %ExitRollTableDist%
 
 *eval_define plate_v %PlateVelocity%
 |  plave_v : plate velocity
@@ -66,8 +66,7 @@
 |
 |  Update 2016.01.13.
 |
-*eval_define u_r_crown %UpperRollCrown%
-*eval_define l_r_crown %LowerRollCrown%
+|*eval_define r_crown %RollCrown%
 | Define Roll Crown 
 
 *eval_define u_m_stiffness %MillStiffness%/u_roll_no
@@ -79,17 +78,18 @@
 
 *eval_define t_inc %IncrementTime%
 | Solving Option t_inc => default value 0.0025
+
 |
 | Update 2016.07.13.
 |
 |Define Hold Down Roll
-*define hd_roll_loc %HDRollType%
-*eval_define fhd_dia %FrontHDRollDia%	
-*eval_define fhd_pitch %FrontHDRollPitch%	
-*eval_define fhd_pos %FrontHDRollVerticalPos%	
-*eval_define rhd_dia %RearHDRollDia%	
-*eval_define rhd_pitch %RearHDRollPitch%
-*eval_define rhd_pos %RearHDRollVerticalPos%
+*define hd_roll_loc %HDRollType%| HD Roll Location upper or lower
+*eval_define fhd_dia %FrontHDRollDia%	        | Front HD Roll Diameter
+*eval_define fhd_pitch %FrontHDRollPitch%	    | Front HD Roll Pitch
+*eval_define fhd_pos %FrontHDRollVerticalPos%  | Front HD Vertical Position 
+*eval_define rhd_dia %RearHDRollDia%	        | Rear HD Roll Diameter
+*eval_define rhd_pitch %RearHDRollPitch%      | Rear HD Roll Pitch
+*eval_define rhd_pos %RearHDRollVerticalPos%  | Rear HD Vertical Position 
 
 |Define Roll Gap Movement
 *eval_define URM_ent %UpperEntryRollGapMovement%  | Upper Entry Roll Gap Movement
@@ -108,5 +108,5 @@
 %LowerRollDataField%
 
 |Define Roll Crown
-*eval_define urcrown %urcrwon
-*eval_define lrcrown %lrcrown
+*eval_define urcrown %UpperRollCrown%
+*eval_define lrcrown %LowerRollCrown%

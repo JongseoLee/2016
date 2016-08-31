@@ -1,0 +1,57 @@
+*select_clear
+*visible_selected
+*set_curve_type circle_cr
+|
+|   Create Upper Rolls Curve as defined from UI
+|
+*add_curves
+%UpperRollGenField%
+|
+|
+*store_curves upper_roll_c
+all_visible
+|blocked in 2d :*expand_reset
+|blocked in 2d :*set_expand_translation z roll_length+2000
+|blocked in 2d :*expand_curves
+|blocked in 2d :all_visible
+|blocked in 2d :*store_surfaces upper_roll_s
+|blocked in 2d :all_visible
+|blocked in 2d :*visible_selected
+|
+|   Create Lower Rolls Curve as defined from UI
+|
+*add_curves
+%LowerRollGenField%
+|
+|
+*store_curves lower_roll_c
+all_visible
+|blocked in 2d :*expand_reset
+|blocked in 2d :*set_expand_translation z roll_length+2000
+|blocked in 2d :*expand_curves
+|blocked in 2d :all_visible
+|blocked in 2d :*store_surfaces lower_roll_s
+|blocked in 2d :all_visible
+|blocked in 2d :*visible_selected
+*select_sets lower_roll_c
+*select_sets upper_roll_c
+*visible_selected
+*set_curve_type line
+|
+|  Create Roll Table
+|
+*add_curves
+point(0,0,-1000)
+point(-L-5000,0,-1000)
+point(fdist+roll_dia/2,-roll_dia/2,-1000)
+point(0,0,-1000)
+|
+|   for the case of the number of lower rolls is 5 
+|
+%ExitRollTableField%
+*fill_view
+|blocked in 2d :*set_expand_translation z roll_length
+|blocked in 2d :*expand_curves
+|blocked in 2d :all_visible
+*store_curves roll_table_c 
+all_visible

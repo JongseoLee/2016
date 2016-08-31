@@ -22,9 +22,17 @@ def get_hd_info() :
    rhd_pos = py_get_float("rhd_pos")
    var.append(rhd_pos)
    return var
-   
+
+def change_lcase_time(tot_mx) :
+	p_v = py_get_float("plate_v")
+	ltime = py_get_float("lcase_par(,time) ")
+	ltime_new = ltime + float(tot_mx/p_v)
+	py_send("*loadcase_value time %f "%ltime_new)
+	print "Changed Loadcase time ",ltime_new,ltime,p_v,tot_mx 
+	   
 def move_plate(var) :
-   fdist_hd = 100.0 
+   fdist_hd = py_get_float("fdist")
+   rdist_hd = py_get_float("rdist")   
    hdr_loc=var[2]
    roll_no=var[0]+var[1]
    
@@ -47,11 +55,14 @@ def move_plate(var) :
        p_id=py_get_int("surface_point_id(%d,2,1)" %s_id )
        sx=py_get_float("point_x(%d)" %p_id)
        # print "Point coordinate ", s_id, p_id,sx
-       rhd_mx=rhd_cx-sx+fdist_hd       
+       rhd_mx=rhd_cx-sx+rdist_hd       
        print " Rear Roller Table Movement ",rhd_mx
        py_send("*move_reset *set_move_translation x %f " %rhd_mx) 
        py_send("*select_clear *select_surfaces "+str(s3)+" "+str(s4) +"  #")
        py_send("*move_surfaces all_selected ")
+       tot_mx = abs(fhd_mx) + abs(rhd_mx)
+       change_lcase_time(tot_mx) 
+       
      
 def main():
    var=get_hd_info() 

@@ -10,6 +10,8 @@
 %RollGenType%
 *exec_procedure a3_material_define.proc
 *exec_procedure a4_contact.proc
+| Change Roll Table Location : Added from ver. 3 
+*py_file_run ap04_define_roll_crown.py
 *exec_procedure a5_condition.proc
 *exec_procedure a6_loadcase.proc
 *exec_procedure a7_deformed_coordinate.proc
@@ -22,3 +24,5 @@
 *py_file_run ap03_change_roller_table
 *set_undo on
 *set_update on
+*select_clear
+*regenerate

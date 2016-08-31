@@ -1,0 +1,28 @@
+| Created by Marc Mentat 2014.2.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+*prog_use_current_job on
+*set_default_length_unit millimeter
+*set_model_length_unit millimeter
+|
+*msect_external_data_file plate_job2_stage05_remesh.sec
+*visible_selected
+*import iges dplate.igs
+*select_elements
+all_visible
+*mater_read C45.mfd
+*mater_name
+dplate
+*add_mater_elements
+all_selected
+*new_cbody mesh *contact_option state:solid *contact_option skip_structural:off
+*contact_body_name
+10_dplate
+*add_contact_body_elements
+all_visible
+*new_interact mesh:mesh *interact_option state_1:solid *interact_option state_2:solid
+*interact_name
+plate2dplate
+*interact_option contact_type:glue
+*interact_option project_stress_free:on
+*interact_option delay_slide_off:on

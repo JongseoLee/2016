@@ -1,0 +1,104 @@
+|*msect_external_data_file plate_job2_stage05_remesh.sec
+|*import iges dplate.igs yes
+*select_elements
+all_visible
+*mater_read C45.mfd
+*mater_name
+dplate
+*add_mater_elements
+all_selected
+*new_cbody mesh *contact_option state:solid *contact_option skip_structural:off
+*contact_body_name
+10_dplate
+*add_contact_body_elements
+all_visible
+*select_contact_body 10_dplate
+*new_interact mesh:mesh *interact_option state_1:solid *interact_option state_2:solid
+*interact_name
+plate2dplate
+*interact_option contact_type:glue
+*interact_option project_stress_free:on
+*interact_option delay_slide_off:on
+*ctable_entry 01_Plate 06_Roller_table
+*contact_table_option 01_Plate 06_Roller_table contact:off
+*ctable_entry 10_dplate 01_Plate
+*contact_table_option 01_Plate 10_dplate contact:on
+*contact_table_option 01_Plate 10_dplate contact:off
+*contact_table_option 01_Plate 10_dplate contact:on
+*prog_string ctable:old_interact plate2dplate *ctable_entry_interact 01_Plate 10_dplate
+*contact_table_option 01_Plate 10_dplate detection:second_first
+*ctable_entry 10_dplate 06_Roller_table
+*contact_table_option 10_dplate 06_Roller_table contact:on
+*prog_string ctable:old_interact plate2roll_table *ctable_entry_interact 10_dplate 06_Roller_table
+*ctable_entry 10_dplate 07_Symm_plane
+*contact_table_option 10_dplate 07_Symm_plane contact:on
+*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 10_dplate 07_Symm_plane
+*edit_contact_table ctable0
+*ctable_entry 01_Plate 06_Roller_table
+*contact_table_option 01_Plate 06_Roller_table contact:off
+*ctable_entry 10_dplate 01_Plate
+*contact_table_option 01_Plate 10_dplate contact:on
+*prog_string ctable:old_interact plate2dplate *ctable_entry_interact 01_Plate 10_dplate
+*contact_table_option 01_Plate 10_dplate detection:second_first
+*ctable_entry 10_dplate 06_Roller_table
+*contact_table_option 10_dplate 06_Roller_table contact:on
+*prog_string ctable:old_interact plate2roll_table *ctable_entry_interact 10_dplate 06_Roller_table
+*ctable_entry 10_dplate 07_Symm_plane
+*contact_table_option 10_dplate 07_Symm_plane contact:on
+*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 10_dplate 07_Symm_plane
+*new_icond *icond_type velocity @popdown(icond_new_pm)
+*icond_name
+dplate_v
+*icond_dof x *icond_dof_value x
+*icond_dof_value x 116000/60
+*add_icond_nodes
+all_selected
+*new_icond *icond_type state_variable @popdown(icond_new_pm)
+*icond_name
+dplate_tempe
+*icond_name dplate_temp
+*icond_dof var *icond_dof_value var
+*icond_dof_value var 0956
+*add_icond_elements
+all_selected
+*edit_apply gravity
+*add_apply_elements 
+all_selected
+*remove_current_adapg
+*loadcase_value time
+1e-5
+*loadcase_value nsteps
+1
+*loadcase_value dyn_contact_pro_fact
+.5
+*next_loadcase
+*loadcase_option converge:resid_and_disp
+*loadcase_value dyn_contact_pro_fact
+.5
+*loadcase_value time
+700/(199000/60)*1.25
+*loadcase_value nsteps
+300
+*renumber_all
+*edit_job job1
+*add_job_iconds dplate_temp
+*add_job_iconds dplate_v
+*job_msect_option plate filename:user
+@set($job_msect,plate)
+*set_job_msect_filename plate plate_job2_stage04.sec yes
+*remove_job_loadcases lcase2
+*job_write_input
+yes
+*py_file_run m01_change_input.py
+*copy_job
+*edit_job job2
+*job_option contact_method:node_segment
+*job_option separation:stress
+*job_option sep_strs_measure:absolute
+*job_param sepstress
+3
+*save_model
+*job_write_input
+yes
+*py_file_run m01_change_input.py
+*save_model
