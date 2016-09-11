@@ -118,7 +118,7 @@ move %model%_f3_job1_b1.mesh.dat %model%_f3_job1_b1.mesh      | Depend on Stand 
 *job_param sepstress
 3
 *select_clear *invisible_selected
-*save_as_model %model%_f4.mud yes     | Depend on Stand No.
+*save_as_model %model%_f3.mud yes     | Depend on Stand No.
 | Change Input for Temperature Proile
 *job_write_input yes
 *py_file_run m01_change_input.py 

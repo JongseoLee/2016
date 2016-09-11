@@ -17,13 +17,67 @@ public class GenProc_00 {
 	private String destFolder;
 	private String modelName;
 	private String newFileName;
+	private String StandType;
 	private ArrayList<String> ori_fileDataList = new ArrayList<String>();
 	private ArrayList<String> procDataList = new ArrayList<String>();
 	
-	public GenProc_00() {
+	public GenProc_00(String StandType) {
 		// TODO Auto-generated constructor stub
 		this.modelName = MC.getModelName();
+		this.StandType = StandType;
 		
+		
+	}
+	
+	public void genBAT(){
+		String modulePath = "";
+		String fileName = "";
+		String ori_filePath = "";
+		String new_filePath = "";
+		
+		if(MC.getApplyType().equals(MC.ApplyType_Consequent)){
+			modulePath = userModuleFolder_con;
+			fileName = "run_consq_jobs.bat";
+			ori_filePath = myUtil.setPath(modulePath,fileName);
+		}else{
+			modulePath = userModuleFolder_ind;
+			if(this.StandType.equals(UILabel.F1)){
+				fileName = "run_ind_f1.bat";
+			}else if(this.StandType.equals(UILabel.F2)){
+				fileName = "run_ind_f2.bat";
+			}else if(this.StandType.equals(UILabel.F3)){
+				fileName = "run_ind_f3.bat";
+			}else if(this.StandType.equals(UILabel.F4)){
+				fileName = "run_ind_f4.bat";
+			}else if(this.StandType.equals(UILabel.F5)){
+				fileName = "run_ind_f5.bat";
+			}else if(this.StandType.equals(UILabel.F6)){
+				fileName = "run_ind_f6.bat";
+			}else if(this.StandType.equals(UILabel.F7)){
+				fileName = "run_ind_f7.bat";
+			}
+			ori_filePath = myUtil.setPath(modulePath,fileName);
+		}
+		
+		if(this.StandType.equals(UILabel.F1)){
+			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F1),fileName);	
+		}else if(this.StandType.equals(UILabel.F2)){
+			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F2),fileName);
+		}else if(this.StandType.equals(UILabel.F3)){
+			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F3),fileName);
+		}else if(this.StandType.equals(UILabel.F4)){
+			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F4),fileName);
+		}else if(this.StandType.equals(UILabel.F5)){
+			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F5),fileName);
+		}else if(this.StandType.equals(UILabel.F6)){
+			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F6),fileName);
+		}else if(this.StandType.equals(UILabel.F7)){
+			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F7),fileName);
+		}
+		
+		readSourceData(ori_filePath);
+		swapValue();
+		writeProc(new_filePath);
 	}
 	
 	public void genProc00F1(String destFolder){
@@ -40,6 +94,7 @@ public class GenProc_00 {
 		readSourceData(ori_filePath);
 		swapValue();
 		writeProc(new_filePath);
+		genBAT();
 	}
 	
 	
@@ -57,6 +112,7 @@ public class GenProc_00 {
 		readSourceData(ori_filePath);
 		swapValue();
 		writeProc(new_filePath);
+		genBAT();
 	}
 
 	public void genProc00F3(String destFolder){
@@ -73,6 +129,7 @@ public class GenProc_00 {
 		readSourceData(ori_filePath);
 		swapValue();
 		writeProc(new_filePath);
+		genBAT();
 	}
 	
 	public void genProc00F4(String destFolder){
@@ -89,6 +146,7 @@ public class GenProc_00 {
 		readSourceData(ori_filePath);
 		swapValue();
 		writeProc(new_filePath);
+		genBAT();
 	}
 	
 	public void genProc00F5(String destFolder){
@@ -105,6 +163,7 @@ public class GenProc_00 {
 		readSourceData(ori_filePath);
 		swapValue();
 		writeProc(new_filePath);
+		genBAT();
 	}
 	
 	public void genProc00F6(String destFolder){
@@ -121,6 +180,7 @@ public class GenProc_00 {
 		readSourceData(ori_filePath);
 		swapValue();
 		writeProc(new_filePath);
+		genBAT();
 	}
 	
 	public void genProc00F7(String destFolder){
@@ -137,6 +197,7 @@ public class GenProc_00 {
 		readSourceData(ori_filePath);
 		swapValue();
 		writeProc(new_filePath);
+		genBAT();
 	}
 	
 	private void readSourceData(String ori_filePath){

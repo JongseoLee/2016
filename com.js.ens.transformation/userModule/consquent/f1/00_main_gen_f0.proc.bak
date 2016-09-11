@@ -1,0 +1,10 @@
+| Created by Marc Mentat 2014.0.0 (64bit)
+*prog_option compatibility:prog_version:ment2014
+*prog_analysis_class structural
+*menu_execute off
+|
+|  Define Parameters for modeling
+*exec_procedure 01_define_parameters_f1.proc
+|  Generate Plates
+*exec_procedure 02_plate_gen_f0.proc
+*quit yes

@@ -1,0 +1,90 @@
+*select_clear
+*select_elements
+dplate
+*mater_read C45.mfd
+*mater_name
+dplate
+*add_mater_elements
+all_selected
+*new_cbody mesh *contact_option state:solid *contact_option skip_structural:off
+*contact_body_name
+10_dplate
+*add_contact_body_elements
+all_selected
+*select_contact_body 10_dplate
+*new_interact mesh:mesh *interact_option state_1:solid *interact_option state_2:solid
+*interact_name
+plate2dplate
+*interact_option contact_type:glue
+*interact_option project_stress_free:on
+*interact_option delay_slide_off:on
+*edit_contact_table ctable1
+*ctable_entry 01_Plate 06_Roller_table
+*contact_table_option 01_Plate 06_Roller_table contact:off
+*ctable_entry 10_dplate 01_Plate
+*contact_table_option 01_Plate 10_dplate contact:on
+*prog_string ctable:old_interact plate2dplate *ctable_entry_interact 01_Plate 10_dplate
+*contact_table_option 01_Plate 10_dplate detection:second_first
+*ctable_entry 10_dplate 06_Roller_table
+*contact_table_option 10_dplate 06_Roller_table contact:on
+*prog_string ctable:old_interact plate2roll_table *ctable_entry_interact 10_dplate 06_Roller_table
+*ctable_entry 10_dplate 07_Symm_plane
+*contact_table_option 10_dplate 07_Symm_plane contact:on
+*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 10_dplate 07_Symm_plane
+*ctable_entry 01_Plate 06_Roller_table
+*contact_table_option 01_Plate 06_Roller_table contact:off
+*edit_contact_table ctable0
+*ctable_entry 01_Plate 06_Roller_table
+*contact_table_option 01_Plate 06_Roller_table contact:off
+*ctable_entry 10_dplate 01_Plate
+*contact_table_option 01_Plate 10_dplate contact:on
+*prog_string ctable:old_interact plate2dplate *ctable_entry_interact 01_Plate 10_dplate
+*contact_table_option 01_Plate 10_dplate detection:second_first
+*ctable_entry 10_dplate 06_Roller_table
+*contact_table_option 10_dplate 06_Roller_table contact:on
+*prog_string ctable:old_interact plate2roll_table *ctable_entry_interact 10_dplate 06_Roller_table
+*ctable_entry 10_dplate 07_Symm_plane
+*contact_table_option 10_dplate 07_Symm_plane contact:on
+*prog_string ctable:old_interact Symm_interact *ctable_entry_interact 10_dplate 07_Symm_plane
+*new_icond *icond_type velocity @popdown(icond_new_pm)
+*icond_name
+dplate_v
+*icond_dof x *icond_dof_value x
+*icond_dof_value x pl_vel
+*add_icond_nodes
+all_selected
+*new_icond *icond_type state_variable @popdown(icond_new_pm)
+*icond_name
+dplate_tempe
+*icond_name dplate_temp
+*icond_dof var *icond_dof_value var
+*icond_dof_value var p_ent_temp
+*add_icond_elements
+all_selected
+*edit_apply gravity
+*add_apply_elements 
+all_selected
+*select_clear
+|  Block removing global adaptive mesh
+|*remove_current_adapg
+*loadcase_value time
+1e-5
+*loadcase_value nsteps
+1
+*loadcase_value dyn_contact_pro_fact
+.5
+*next_loadcase
+*loadcase_option converge:resid_and_disp
+*loadcase_value dyn_contact_pro_fact
+.5
+*loadcase_value time
+lcase_time*1.3
+*loadcase_value nsteps
+200
+*renumber_all
+*edit_job job1
+*add_job_iconds dplate_temp
+*add_job_iconds dplate_v
+
+
+

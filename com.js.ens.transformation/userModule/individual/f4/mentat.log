@@ -1,0 +1,119 @@
+Marc Mentat (C)Copyright 1994-2016, MSC.Software Corporation, all rights reserved
+Executing procedure file F:\Rolling_3D\Program\0831\userModule\individual\f4\00_main_gen_f4.proc...
+Command > | Created by Marc Mentat 2014.0.0 (64bit)
+Command > *prog_option compatibility:prog_version:ment2014
+ERROR: Couldn't find Compatibility option value "compatibility:prog_version:ment2014"!
+Enter program option : *prog_analysis_class structural
+Command not found!
+procedure_pause           process_data              prog_data_reset           
+prog_option               prog_param                
+Enter program option : *menu_execute off
+Command > |
+Command > |  Define Parameters for modeling
+Command > *exec_procedure 01_define_parameters_f4.proc               | Depend on Stand No.
+Executing procedure file 01_define_parameters_f4.proc...
+Command > | Reset program
+Command > *new_model yes
+Command > *reset
+Command > *set_nodes off
+Command > *set_undo off
+Command > *regenerate
+Command > |
+Command > | The below is changed by S.H. Kim 2016/06/08
+Command > |---------------------------------------------------------
+Command > | !P : Data from P LOG
+Command > | !D : Data from Default Values without changing from UI
+Command > | !U : Data from UI can be changed from UI
+Command > | !C : Data calculated internally
+Command > |---------------------------------------------------------
+Command > |  Define roll modeling Parameters
+Command > |
+Command > |  Define the base Roll section model information
+Command > |
+Command > |!D base_wr_tdia : top work roll base diameter : mm :
+Command > |!D base_wr_bdia : bottom work roll base diameter : mm :
+Command > |!D base_bur_tdia : top backup roll base diameter : mm :
+Command > |!D base_bur_bdia : bottom backup roll base diameter : mm :
+Command > |
+Command > |  *eval_define base_wr_tdia 420.0*2.0  |!D for F1-F3 
+Command > |  *eval_define base_wr_bdia 420.0*2.0  |!D for F1-F3
+Command > *eval_define base_wr_tdia 340.0*2.0  |!D for F4-F7
+Command > *eval_define base_wr_bdia 340.0*2.0  |!D for F4-F7
+Command > *eval_define base_bur_tdia 740.0*2.0 |!D 
+Command > *eval_define base_bur_bdia 740.0*2.0 |!D
+Command > 
+Command > |
+Command > |  Define Roll Diameter Information
+Command > |
+Command > |!P wr_tdia : top work roll diameter : mm : (WR TDIA)
+Command > |!P wr_bdia : bottom work roll diameter : mm : (WR BDIA)
+Command > |!P bur_tdia : top work roll diameter : mm : (BUR TDIA)
+Command > |!P bur_bdia : bottom work roll diameter : mm : (BUR BDIA)
+Command > |!P wr_crown : top & bottom workroll initial crown : mm : (WR ICRN)
+Command > |
+Command > *eval_define wr_tdia %WR TDIA% |!P
+Bad float! %WRTDIA
+Command > *eval_define wr_bdia %WR BDIA% |!P
+Bad float! %WRBDIA
+Command > *eval_define bur_tdia %BUR TDIA% |!P
+Bad float! %BURTDIA
+Command > *eval_define bur_bdia %BUR BDIA% |!P
+Bad float! %BURBDIA
+Command > *eval_define wr_crown %WR ICRN% |!P
+Bad float! %WRICRN
+Command > |
+Command > | Calculate the value of changing roll diameter 
+Command > |
+Command > | !C wr_tdia_chg : top work roll diameter change from Base : mm :
+Command > | !C wr_bdia_chg : bottom work roll diameter change from Base : mm : 
+Command > | !C bur_tdia_chg : top backup roll diameter change from Base : mm :
+Command > | !C bur_bdia_chg : bottom backup roll diameter change from Base : mm : 
+Command > |
+Command > *eval_define wr_tdia_chg (wr_tdia-base_wr_tdia) |!C
+Bad float! wr_tdia
+Command > *eval_define wr_bdia_chg (wr_bdia-base_wr_bdia) |!C
+Bad float! wr_bdia
+Command > *eval_define bur_tdia_chg (bur_tdia-base_bur_tdia) |!C
+Bad float! bur_tdia
+Command > *eval_define bur_bdia_chg (bur_bdia-base_bur_bdia) |!C
+Bad float! bur_bdia
+Command > |
+Command > |  Define roll gap Parameters
+Command > |
+Command > |!P roll_gap : roll gap : mm : (ROL GAP)
+Command > |
+Command > *eval_define roll_gap %ROL GAP% |!P
+Bad float! %ROLGAP
+Command > 
+Command > |
+Command > | Define Roll Mesh Information
+Command > |
+Command > |!D  wr_div_angle : work roll division angle : deg. : 10.0
+Command > |!D  burr_div_angle : work roll division angle : deg. : 10.0
+Command > |
+Command > *eval_define wr_div_angle %wr_div_angle% |!D
+Bad float! %wr_div_angle
+Command > *eval_define bur_div_angle %bur_div_angle% |!D
+Bad float! %bur_div_angle
+Command > |
+Command > |  Define Roll Length Information
+Command > |
+Command > |!D wr_len_1-3 : Length of work roll(f1-f3) : mm : 3570.0 
+Command > |!D wr_len_4-7 : Length of work roll(f4-f7) : mm : 3520.0
+Command > |!D bur_len : Length of backup roll(f1-f7) : mm : 3520.0
+Command > |
+Command > |*eval_define wr_len %wr_len%/2.0 | for F1-F3 Work Roll |!D
+Command > *eval_define wr_len %wr_len%/2.0 | for F4-F7 Work Roll |!D
+Bad float! %wr_len
+Command > *eval_define bur_len %bur_len%/2.0 | for F1-F7 BackUp Roll |!D
+Bad float! %bur_len
+Command > |
+Command > |  Define plate Parameters
+Command > |
+Command > |!P p_thk : thickness of plate : mm : (ENTRY THK) 
+Command > |!P p_wid : width of plate : mm : (STP WID)
+Command > |!P p_len : length of plate : mm : (STP LEN)
+Command > |!P p_ent_temp : Entry Temperature of plate : C : (ENTRY TEMP)
+Command > |!P p_exit_temp : Exit Temperature of plate : C : (EXIT TEMP)
+Command > |
+Command > *quit yes

@@ -121,7 +121,7 @@ public class ProcMaker {
 		this.destPath = myUtil.setPath(workspace, "proc");
 		
 		CopyProc cpObj = new CopyProc();
-		GenProc_00 genProc00Obj = new GenProc_00();
+		GenProc_00 genProc00Obj = new GenProc_00(this.StandType);
 		GenProc_01 genProc01Obj = new GenProc_01();
 			
 		

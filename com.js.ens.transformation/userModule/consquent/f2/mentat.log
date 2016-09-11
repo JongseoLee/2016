@@ -1,0 +1,36 @@
+Marc Mentat (C)Copyright 1994-2016, MSC.Software Corporation, all rights reserved
+Executing procedure file F:\Rolling_3D\Program\0831\userModule\consquent\f2\00_main_model_gen_f2.proc...
+Command > | Created by Marc Mentat 2014.0.0 (64bit)
+Command > *prog_option compatibility:prog_version:ment2014
+ERROR: Couldn't find Compatibility option value "compatibility:prog_version:ment2014"!
+Enter program option : *prog_analysis_class structural
+Command not found!
+procedure_pause           process_data              prog_data_reset           
+prog_option               prog_param                
+Enter program option : *menu_execute off
+Command > |
+Command > |  Define Parameters for modeling
+Command > *exec_procedure 01_define_parameters_f2.proc
+Executing procedure file 01_define_parameters_f2.proc...
+Command > | Reset program
+Command > *new_model yes
+Command > *reset
+Command > *set_nodes off
+Command > *set_undo off
+Command > *regenerate
+Command > |
+Command > | The below is changed by S.H. Kim 2016/06/08
+Command > |---------------------------------------------------------
+Command > | !P : Data from P LOG
+Command > | !D : Data from Default Values without changing from UI
+Command > | !U : Data from UI can be changed from UI
+Command > | !C : Data calculated internally
+Command > |---------------------------------------------------------
+Command > |  Define roll modeling Parameters
+Command > |
+Command > |  Define the base Roll section model information
+Command > |
+Command > |!D base_wr_tdia : top work roll base diameter : mm :
+Command > |!D base_wr_bdia : bottom work roll base diameter : mm :
+Command > |!D base_bur_tdia : top backup roll base diameter : mm :
+Command > *quit yes

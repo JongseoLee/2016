@@ -1,8 +1,11 @@
 #
 #
+#  This Program is to change the MARC input for applying temperature profile.
+#
+#
+
 from py_mentat import *
 from py_post import *
-
 
 def get_fname():  # get file name
    fname = py_get_string("model_name()")

@@ -95,9 +95,9 @@
 |!C pl_m  : mesh size in plate length direction
 |!C pw_m  : mesh size in plate width direction
 |
-*eval_define p_thk %ENTRY THK% |!P  --> From F2 this variable will not be used. 
-*eval_define p_wid %STP WID% |!P --> From F2 this variable will not be used. 
-*eval_define p_len %STP LEN% |!P  --> From F2 this variable will be used for shotening.
+*eval_define p_thk %ENTRY THK% |!P  --> From F2 this variable will not be used in the case of model section. 
+*eval_define p_wid %STP WID% |!P --> From F2 this variable will not be used in the case of model section. 
+*eval_define p_len %STP LEN% |!P  --> From F2 this variable will be used for shotening in the case of model section. 
 *eval_define p_ent_temp %ENTRY TEMP% |!P
 *eval_define p_exit_temp %EXIT TEMP% |!P
 *eval_define p_in %p_in% |!D
@@ -105,7 +105,9 @@
 *eval_define t_div %t_div% |!U
 *eval_define l_div p_len/pl_m  |!C
 *eval_define w_div p_wid/pl_m/2  |!C
-*eval_define pw_m p_wid/w_div |!C
+*eval_define pw_m p_wid/w_div  |!C
+
+
 |
 |  Define Plate Velocity & Roll Rotation Parameters
 |
@@ -158,12 +160,11 @@
 | -- *eval_define lcase_time (p_thk*p_len)/(roll_gap*pl_vel)  |!C
 | -- *eval_define lcase_dt %lcase_dt%/pl_vel    |!D
 *eval_define lcase_time %lcase_time%       |!C
-*eval_define lcase_inc %lcase_inc%           |!D    
+*eval_define lcase_inc %lcase_inc%               |!D    
 *eval_define lcase_dt %lcase_dt%    |!D
 *eval_define post_inc %post_inc%    |!D
 |!D g_fac : Gravity Acc. Factor for applying intial velocity.
 *eval_define g_fac 4.0 |!D
-
 
 |%FRCE%  |P Log table
 |%EXIT THK%  |P Log table

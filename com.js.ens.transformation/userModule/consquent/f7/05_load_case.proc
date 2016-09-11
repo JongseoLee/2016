@@ -15,7 +15,6 @@
 *loadcase_option stepping:fixed
 *loadcase_option converge:resid_or_disp
 *loadcase_value time lcase_time/1000
-*loadcase_value dyn_contact_pro_fact 0.5
 |*loadcase_option stepping:multicriteria
 *loadcase_value nsteps 5
 *new_loadcase *loadcase_type struc:dyn_trans
@@ -27,10 +26,9 @@
 *loadcase_option proceed:on
 *loadcase_option converge:resid_or_disp
 *loadcase_option stepping:fixed
-*loadcase_value time lcase_time/10
+*loadcase_value time lcase_time*2.5
 |*loadcase_option stepping:multicriteria
 *loadcase_value nsteps 200
-*loadcase_value dyn_contact_pro_fact 0.5
 *new_loadcase *loadcase_type struc:dyn_trans
 |*new_loadcase *loadcase_type struc:static
 *loadcase_name lcase2
@@ -42,4 +40,3 @@
 *loadcase_option stepping:fixed
 *loadcase_value time lcase_time*1.5
 *loadcase_value nsteps lcase_inc
-*loadcase_value dyn_contact_pro_fact 0.5

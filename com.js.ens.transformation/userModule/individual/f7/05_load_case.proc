@@ -26,7 +26,7 @@
 *loadcase_option proceed:on
 *loadcase_option converge:resid_or_disp
 *loadcase_option stepping:fixed
-*loadcase_value time lcase_time
+*loadcase_value time lcase_time*2.5
 |*loadcase_option stepping:multicriteria
 *loadcase_value nsteps 200
 *new_loadcase *loadcase_type struc:dyn_trans

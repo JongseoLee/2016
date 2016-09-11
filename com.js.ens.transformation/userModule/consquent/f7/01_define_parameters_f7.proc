@@ -165,6 +165,7 @@
 |!D g_fac : Gravity Acc. Factor for applying intial velocity.
 *eval_define g_fac 4.0 |!D
 
+
 |%FRCE%  |P Log table
 |%EXIT THK%  |P Log table
 |%ROL TIM%  |P Log table

@@ -75,37 +75,45 @@ def get_center_path(rn,pvar) :
    return  fcpath,rcpath  
 
 def select_nodes(cx,cy,cz,tol) :
-	  py_send("select_clear ")
+	  py_send("*select_clear ")
 	  py_send("*select_method_box ")
 	  py_send("*select_nodes  ")
 	  py_send(str(cx-tol) + "   " + str(cx+tol))
-	  py_send(str(cy-tol*1e10) + "   " + str(cy+tol*1e10))
+	  py_send(str(cy-tol*1.0e10) + "   " + str(cy+tol*1.0e10))
 	  py_send(str(cz-tol) + "   " + str(cz+tol))
 	  py_send("*select_method_single ")
 
 
 
 
-def move_nodes(path,tol) :
+def move_nodes(path,tol,pvar) :
    py_send("*move_reset")
-   py_send("*set_move_scale_factors 1 0.7 1 ")
+   py_send("*set_move_scale_factors 1 0.7 0.0 ")
    for i in range(0,len(path)):
      cx=py_get_float("node_x(%d)" %path[i])  
      cy=py_get_float("node_y(%d)" %path[i])  
      cz=py_get_float("node_z(%d)" %path[i])       
+     print "Center node No. ",path[i],cx,cy,cz
+     mx0,my0,mz0 = cx,cy,cz
+     if i == (len(path)-1) : 
+     	  mz0 = cz - pvar[2]/pvar[5]/4.0
+     select_nodes(cx,cy,cz,tol)
      py_send("*set_move_point ")     
-     select_nodes(cx,cy,cz,tol)
-     print "Center node",path[i],cx,cy,cz
-     select_nodes(cx,cy,cz,tol)
+     py_send("%f %f %f " %(mx0,my0,mz0))
      py_send("*move_nodes all_selected")
+   py_send("*select_clear ")
+   py_send("*move_reset")
    return
    
 def scle_down(pvar,fpath,rpath) :
-   tol_d=8.0
-   tol=min(pvar[1]/pvar[4]/tol_d,pvar[2]/2.0/pvar[5]/tol_d,pvar[3]/pvar[6]/tol_d)
-   print tol
-   move_nodes(fpath,tol) 
-   move_nodes(rpath,tol) 
+   tol_d=pvar[1]
+   # tol=min(pvar[1]/pvar[4]/tol_d,pvar[2]/2.0/pvar[5]/tol_d,pvar[3]/pvar[6]/tol_d)
+   #       p_thk/t_div/tol_d      p_wid/2.0/w_div/tol_d    p_len/l_div/tol_d     
+   tol=min(pvar[1]/pvar[4],pvar[2]/2.0/pvar[5],pvar[3]/pvar[6])
+   
+   print "Selection Tolerance =",tol
+   move_nodes(fpath,tol,pvar) 
+   move_nodes(rpath,tol,pvar) 
    return
 
 

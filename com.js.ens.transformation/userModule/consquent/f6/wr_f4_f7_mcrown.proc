@@ -81,6 +81,7 @@ all_selected
 -100 100
 -5000 5000
 -0.1 0.1
+*expand_reset
 *set_expand_translation z -50
 *expand_elements
 all_selected

@@ -19,7 +19,7 @@
              point(0.0-p_in+p_len*15,pass_line_adj,0.0-100.0)             
              point(0.0-p_in+p_len*15,pass_line_adj,p_wid/2+200.0)
 *move_reset
-*set_move_translation y 0-p_thk/2
+*set_move_translation y -p_thk/2
 *move_surfaces
 1 2 3 4
 #

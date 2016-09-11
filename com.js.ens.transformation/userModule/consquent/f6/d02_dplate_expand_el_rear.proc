@@ -1,0 +1,51 @@
+*define dp_exp -20
+|*define dp_thk_r 33.06
+|*define rrcn 1614
+|*define rrcw 678
+*select_clear
+*select_method_path
+*select_edges 
+RRCM
+RREM
+# 
+*edge_lines
+all_selected
+*select_clear
+*select_elements_class line2
+*sweep_nodes
+all_selected
+*sweep_all
+*expand_reset 
+*expand_shift
+*set_expand_translation x dp_exp
+*expand_elements
+all_selected
+*set_expand_translation x dp_exp*2
+*expand_elements
+all_selected
+*set_expand_translation x dp_exp*4
+*expand_elements
+all_selected
+*set_expand_translation x dp_exp*8
+*expand_elements
+all_selected
+*set_expand_translation x dp_exp*16
+*expand_elements
+all_selected
+*set_expand_translation x -500
+*set_expand_repetitions 5
+*expand_remove
+*expand_elements
+all_selected
+*sweep_nodes
+all_visible
+*sweep_elements
+all_visible
+*shell_thickness
+dp_thk_r
+*expand_shells
+all_visible
+*reset_view
+*fill_view
+*select_clear
+*select_method_single

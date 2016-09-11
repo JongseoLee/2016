@@ -14,7 +14,7 @@
 copy ..\f1\plate_job1_stage00.sec plate_job1_stage00.sec  
 copy ..\f6\plate_job1_stage06.sec plate_job1_stage06.sec   | Depend on Stand No.
 copy ..\f1\d01_define_vortex.proc d01_define_vortex.proc 
-*py_file_run  m02_edit_msect_f7_0725.py | Depend on Stand No.
+*py_file_run  m02_edit_msect_f7.py | Depend on Stand No.
 |
 | Create a Dummy Model for Remeshing.
 |
@@ -41,7 +41,7 @@ yes
 |
 |    Vertical Stretch Nodes & Write Mesh File
 |
-*py_file_run r01_vertical_stretch_0726_f7.py               | Depend on Stand No.(C)
+*py_file_run r01_vertical_stretch_f7.py               | Depend on Stand No.(C)
 *fill_view
 *store_elements plate all_visible
 *save_as_model f6_reremeshed.mud yes                       | Depend on Stand No.(P)
@@ -55,7 +55,7 @@ yes
 |
 *prog_param renumber:start 1
 *renumber_all
-*py_file_run r02_center_nodes_scaling_0726.py
+*py_file_run r02_center_nodes_scaling.py
 *select_sets plate
 *remove_elements
 all_selected

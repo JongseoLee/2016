@@ -158,14 +158,13 @@
 |!D post_inc : Post writing increment.
 | -- *eval_define lcase_time (p_thk*p_len)/(roll_gap*pl_vel)  |!C
 | -- *eval_define lcase_dt %lcase_dt%/pl_vel    |!D
-*eval_define lcase_time %lcase_time%       |!C
+*eval_define lcase_time %lcase_time%      |!C
 *eval_define lcase_inc %lcase_inc%               |!D    
 *eval_define lcase_dt %lcase_dt%    |!D
 *eval_define post_inc %post_inc%    |!D
  
 |!D g_fac : Gravity Acc. Factor for applying intial velocity.
 *eval_define g_fac 4.0 |!D
-
 
 |%FRCE%  |P Log table
 |%EXIT THK%  |P Log table
@@ -218,4 +217,4 @@
 |%PWET%  |SlabPlate Table
 
 |%plate_msect_filename%  |plateSectionFile 
-|%dplate_msect_filename% |dummyPlateSectionFile 
+|%dplate_msect_filename%  |dummyPlateSectionFile 

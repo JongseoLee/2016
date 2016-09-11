@@ -54,14 +54,14 @@ symm_bottom
 *new_interact mesh:mesh *interact_option state_1:solid *interact_option state_2:solid
 *interact_name Roll2Plate
 *interact_option dist_tol:redefined
-*interact_param dist_tol 2
+*interact_param dist_tol 5.0
 *interact_option bias_factor:redefined
 *interact_param bias_factor 0.95
 *interact_param friction f_r2p
 *new_interact mesh:mesh *interact_option state_1:solid *interact_option state_2:solid
 *interact_name Roll2Roll
 *interact_option dist_tol:redefined
-*interact_param dist_tol 2
+*interact_param dist_tol 5.0
 *interact_option bias_factor:redefined
 *interact_param bias_factor 0.95
 *interact_param friction f_r2r
