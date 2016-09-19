@@ -29,11 +29,13 @@ import com.js.ens.leveller.customWidget.CustomCombo;
 import com.js.ens.leveller.customWidget.CustomSpinner;
 import com.js.ens.leveller.customWidget.CustomTabFolder;
 import com.js.ens.leveller.customWidget.CustomTableViewer;
+import com.js.ens.leveller.customWidget.CustomText;
 import com.js.ens.leveller.handler.HandlerButton;
 import com.js.ens.leveller.handler.HandlerCombo;
 import com.js.ens.leveller.handler.HandlerSpinner;
 import com.js.ens.leveller.handler.HandlerTabFolder;
 import com.js.ens.leveller.handler.HandlerTableViewer;
+import com.js.ens.leveller.handler.HandlerText;
 import com.js.ens.leveller.img.ImagePath;
 
 import org.eclipse.swt.widgets.Spinner;
@@ -422,6 +424,9 @@ public class View extends ViewPart {
 		
 		textLength_2D = new Text(compositeShapeParameter_2D, SWT.BORDER);
 		med.setTextLength_2D(textLength_2D);
+		CustomText c_textLength_2D = new CustomText(Mediator.TEXT_textLength_2D,med);
+		med.setC_textLength_2D(c_textLength_2D);
+		c_textLength_2D.setCustomWidget_textLength_2D();
 		FormData fd_textLength_2D = new FormData();
 		fd_textLength_2D.top = new FormAttachment(lblLength_2D, -2, SWT.TOP);
 		fd_textLength_2D.left = new FormAttachment(comboType_2D, 0, SWT.LEFT);
@@ -437,6 +442,9 @@ public class View extends ViewPart {
 		
 		textThickness_2D = new Text(compositeShapeParameter_2D, SWT.BORDER);
 		med.setTextThickness_2D(textThickness_2D);
+		CustomText c_textThickness_2D = new CustomText(Mediator.TEXT_textThickness_2D,med);
+		med.setC_textThickness_2D(c_textThickness_2D);
+		c_textThickness_2D.setCustomWidget_textThickness_2D();
 		FormData fd_textThickness_2D = new FormData();
 		fd_textThickness_2D.top = new FormAttachment(lblThickness_2D, -2, SWT.TOP);
 		fd_textThickness_2D.left = new FormAttachment(comboType_2D, 0, SWT.LEFT);
@@ -476,6 +484,9 @@ public class View extends ViewPart {
 		
 		type2_textWaveHeight_2D = new Text(compositeShapeParameterChild_2_2D, SWT.BORDER);
 		med.setType2_textWaveHeight_2D(type2_textWaveHeight_2D);
+		CustomText c_type2_textWaveHeight_2D = new CustomText(Mediator.TEXT_type2_textWaveHeight_2D,med);
+		med.setC_type2_textWaveHeight_2D(c_type2_textWaveHeight_2D);
+		c_type2_textWaveHeight_2D.setCustomWidget_type2_textWaveHeight_2D();
 		type2_textWaveHeight_2D.setBounds(250, 35, 120, 24);
 		
 		Label lblWavePhase_type2_2D = new Label(compositeShapeParameterChild_2_2D, SWT.NONE);
@@ -523,6 +534,9 @@ public class View extends ViewPart {
 		
 		type3_textFrontCurlHeight_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
 		med.setType3_textFrontCurlHeight_2D(type3_textFrontCurlHeight_2D);
+		CustomText c_type3_textFrontCurlHeight_2D = new CustomText(Mediator.TEXT_type3_textFrontCurlHeight_2D,med);
+		med.setC_type3_textFrontCurlHeight_2D(c_type3_textFrontCurlHeight_2D);
+		c_type3_textFrontCurlHeight_2D.setCustomWidget_type3_textFrontCurlHeight_2D();
 		type3_textFrontCurlHeight_2D.setBounds(210, 8, 120, 24);
 		
 		Label lblFrontCurlLength_type3_2D = new Label(compositeShapeParameterChild_3_2D, SWT.NONE);
@@ -530,6 +544,10 @@ public class View extends ViewPart {
 		lblFrontCurlLength_type3_2D.setText(TextLabel_UI.lblFrontCurlLength_type3_2D);
 		
 		type3_textFrontCurlLength_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
+		med.setType3_textFrontCurlLength_2D(type3_textFrontCurlLength_2D);
+		CustomText c_type3_textFrontCurlLength_2D = new CustomText(Mediator.TEXT_type3_textFrontCurlLength_2D,med);
+		med.setC_type3_textFrontCurlLength_2D(c_type3_textFrontCurlLength_2D);
+		c_type3_textFrontCurlLength_2D.setCustomWidget_type3_textFrontCurlLength_2D();
 		med.setType3_textFrontCurlLength_2D(type3_textFrontCurlLength_2D);
 		type3_textFrontCurlLength_2D.setBounds(210, 35, 120, 24);
 		
@@ -540,6 +558,9 @@ public class View extends ViewPart {
 		
 		type3_textRearCurlHeight_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
 		med.setType3_textRearCurlHeight_2D(type3_textRearCurlHeight_2D);
+		CustomText c_type3_textRearCurlHeight_2D = new CustomText(Mediator.TEXT_type3_textRearCurlHeight_2D,med);
+		med.setC_type3_textRearCurlHeight_2D(c_type3_textRearCurlHeight_2D);
+		c_type3_textRearCurlHeight_2D.setCustomWidget_type3_textRearCurlHeight_2D();
 		type3_textRearCurlHeight_2D.setBounds(210, 62, 120, 24);
 		
 		Label lblRearCurlLength_type3_2D = new Label(compositeShapeParameterChild_3_2D, SWT.NONE);
@@ -548,6 +569,9 @@ public class View extends ViewPart {
 		
 		type3_textRearCurlLength_2D = new Text(compositeShapeParameterChild_3_2D, SWT.BORDER);
 		med.setType3_textRearCurlLength_2D(type3_textRearCurlLength_2D);
+		CustomText c_type3_textRearCurlLength_2D = new CustomText(Mediator.TEXT_type3_textRearCurlLength_2D,med);
+		med.setC_type3_textRearCurlLength_2D(c_type3_textRearCurlLength_2D);
+		c_type3_textRearCurlLength_2D.setCustomWidget_type3_textRearCurlLength_2D();
 		type3_textRearCurlLength_2D.setBounds(210, 89, 120, 24);
 		
 		/*
@@ -2133,6 +2157,9 @@ public class View extends ViewPart {
 		
 		textWidth = new Text(compositeShapeParameter, SWT.BORDER);
 		med.setTextWidth(textWidth);
+		CustomText c_textWidth = new CustomText(Mediator.TEXT_textWidth,med);
+		med.setC_textWidth(c_textWidth);
+		c_textWidth.setCustomWidget_textWidth();
 		FormData fd_textWidth = new FormData();
 		fd_textWidth.top = new FormAttachment(lblWidth, -2, SWT.TOP);
 		fd_textWidth.left = new FormAttachment(comboType, 0, SWT.LEFT);
@@ -2148,6 +2175,9 @@ public class View extends ViewPart {
 		
 		textLength = new Text(compositeShapeParameter, SWT.BORDER);
 		med.setTextLength(textLength);
+		CustomText c_textLength = new CustomText(Mediator.Text_textLength,med);
+		med.setC_textLength(c_textLength);
+		c_textLength.setCustomWidget_textLength();
 		FormData fd_textLength = new FormData();
 		fd_textLength.top = new FormAttachment(lblLength, -2, SWT.TOP);
 		fd_textLength.left = new FormAttachment(comboType, 0, SWT.LEFT);
@@ -2163,6 +2193,9 @@ public class View extends ViewPart {
 		
 		textThickness = new Text(compositeShapeParameter, SWT.BORDER);
 		med.setTextThickness(textThickness);
+		CustomText c_textThickness = new CustomText(Mediator.TEXT_textThickness,med);
+		med.setC_textThickness(c_textThickness);
+		c_textThickness.setCustomWidget_textThickness();
 		FormData fd_textThickness = new FormData();
 		fd_textThickness.top = new FormAttachment(lblThickness, -2, SWT.TOP);
 		fd_textThickness.left = new FormAttachment(comboType, 0, SWT.LEFT);
@@ -2209,6 +2242,9 @@ public class View extends ViewPart {
 		
 		type2_textLeftEdgeWaveHeight = new Text(compositeShapeParameterChild_2, SWT.BORDER);
 		med.setType2_textLeftEdgeWaveHeight(type2_textLeftEdgeWaveHeight);
+		CustomText c_type2_textLeftEdgeWaveHeight = new CustomText(Mediator.TEXT_type2_textLeftEdgeWaveHeight,med);
+		med.setC_type2_textLeftEdgeWaveHeight(c_type2_textLeftEdgeWaveHeight);
+		c_type2_textLeftEdgeWaveHeight.setCustomWidget_type2_textLeftEdgeWaveHeight();
 		type2_textLeftEdgeWaveHeight.setBounds(250, 62, 120, 24);
 		
 		Label lblRightEdgeWaveHeight_type2 = new Label(compositeShapeParameterChild_2, SWT.NONE);
@@ -2217,6 +2253,9 @@ public class View extends ViewPart {
 		
 		type2_textRightEdgeWaveHeight = new Text(compositeShapeParameterChild_2, SWT.BORDER);
 		med.setType2_textRightEdgeWaveHeight(type2_textRightEdgeWaveHeight);
+		CustomText c_type2_textRightEdgeWaveHeight = new CustomText(Mediator.TEXT_type2_textRightEdgeWaveHeight,med);
+		med.setC_type2_textRightEdgeWaveHeight(c_type2_textRightEdgeWaveHeight);
+		c_type2_textRightEdgeWaveHeight.setCustomWidget_type2_textRightEdgeWaveHeight();
 		type2_textRightEdgeWaveHeight.setBounds(250, 89, 120, 24);
 		
 		// update -160315
@@ -2255,6 +2294,9 @@ public class View extends ViewPart {
 		
 		type3_textWaveHeight = new Text(compositeShapeParameterChild_3, SWT.BORDER);
 		med.setType3_textWaveHeight(type3_textWaveHeight);
+		CustomText c_type3_textWaveHeight = new CustomText(Mediator.TEXT_type3_textWaveHeight,med);
+		med.setC_type3_textWaveHeight(c_type3_textWaveHeight);
+		c_type3_textWaveHeight.setCustomWidget_type3_textWaveHeight();
 		type3_textWaveHeight.setBounds(210, 35, 120, 24);
 		
 		// Type4
@@ -2268,6 +2310,9 @@ public class View extends ViewPart {
 
 		type4_textGutterHeight = new Text(compositeShapeParameterChild_4, SWT.BORDER);
 		med.setType4_textGutterHeight(type4_textGutterHeight);
+		CustomText c_type4_textGutterHeight = new CustomText(Mediator.TEXT_type4_textGutterHeight,med);
+		med.setC_type4_textGutterHeight(c_type4_textGutterHeight);
+		c_type4_textGutterHeight.setCustomWidget_type4_textGutterHeight();
 		type4_textGutterHeight.setBounds(210, 8, 120, 24);
 
 		// Type5		
@@ -2281,6 +2326,9 @@ public class View extends ViewPart {
 		
 		type5_textGutterHeight = new Text(compositeShapeParameterChild_5, SWT.BORDER);
 		med.setType5_textGutterHeight(type5_textGutterHeight);
+		CustomText c_type5_textGutterHeight = new CustomText(Mediator.TEXT_type5_textGutterHeight,med);
+		med.setC_type5_textGutterHeight(c_type5_textGutterHeight);
+		c_type5_textGutterHeight.setCustomWidget_type5_textGutterHeight();
 		type5_textGutterHeight.setBounds(210, 8, 120, 24);
 		
 		Label lblGutterLength_type5 = new Label(compositeShapeParameterChild_5, SWT.NONE);
@@ -2289,6 +2337,9 @@ public class View extends ViewPart {
 		
 		type5_textGutterLength = new Text(compositeShapeParameterChild_5, SWT.BORDER);
 		med.setType5_textGutterLength(type5_textGutterLength);
+		CustomText c_type5_textGutterLength = new CustomText(Mediator.TEXT_type5_textGutterLength,med);
+		med.setC_type5_textGutterLength(c_type5_textGutterLength);
+		c_type5_textGutterLength.setCustomWidget_type5_textGutterLength();
 		type5_textGutterLength.setBounds(210, 35, 120, 24);
 	
 		// Type6
@@ -2302,6 +2353,9 @@ public class View extends ViewPart {
 		
 		type6_textHeadGutterHeight = new Text(compositeShapeParameterChild_6, SWT.BORDER);
 		med.setType6_textHeadGutterHeight(type6_textHeadGutterHeight);
+		CustomText c_type6_textHeadGutterHeight = new CustomText(Mediator.TEXT_type6_textHeadGutterHeight,med);
+		med.setC_type6_textHeadGutterHeight(c_type6_textHeadGutterHeight);
+		c_type6_textHeadGutterHeight.setCustomWidget_type6_textHeadGutterHeight();
 		type6_textHeadGutterHeight.setBounds(250, 8, 120, 24);
 		
 		Label lblHeadGutterLength_type6 = new Label(compositeShapeParameterChild_6, SWT.NONE);
@@ -2310,6 +2364,9 @@ public class View extends ViewPart {
 		
 		type6_textHeadGutterLength = new Text(compositeShapeParameterChild_6, SWT.BORDER);
 		med.setType6_textHeadGutterLength(type6_textHeadGutterLength);
+		CustomText c_type6_textHeadGutterLength = new CustomText(Mediator.TEXT_type6_textHeadGutterLength,med);
+		med.setC_type6_textHeadGutterLength(c_type6_textHeadGutterLength);
+		c_type6_textHeadGutterLength.setCustomWidget_type6_textHeadGutterLength();
 		type6_textHeadGutterLength.setBounds(250, 35, 120, 24);
 		
 		Label lblTailGutterHeight_type6 = new Label(compositeShapeParameterChild_6, SWT.NONE);
@@ -2318,6 +2375,9 @@ public class View extends ViewPart {
 		
 		type6_textTailGutterHeight = new Text(compositeShapeParameterChild_6, SWT.BORDER);
 		med.setType6_textTailGutterHeight(type6_textTailGutterHeight);
+		CustomText c_type6_textTailGutterHeight = new CustomText(Mediator.TEXT_type6_textTailGutterHeight,med);
+		med.setC_type6_textTailGutterHeight(c_type6_textTailGutterHeight);
+		c_type6_textTailGutterHeight.setCustomWidget_type6_textTailGutterHeight();
 		type6_textTailGutterHeight.setBounds(250, 62, 120, 24);
 		
 		Label lblTailGutterLength_type6 = new Label(compositeShapeParameterChild_6, SWT.NONE);
@@ -2326,6 +2386,9 @@ public class View extends ViewPart {
 		
 		type6_textTailGutterLength = new Text(compositeShapeParameterChild_6, SWT.BORDER);
 		med.setType6_textTailGutterLength(type6_textTailGutterLength);
+		CustomText c_type6_textTailGutterLength = new CustomText(Mediator.TEXT_type6_textTailGutterLength,med);
+		med.setC_type6_textTailGutterLength(c_type6_textTailGutterLength);
+		c_type6_textTailGutterLength.setCustomWidget_type6_textTailGutterLength();
 		type6_textTailGutterLength.setBounds(250, 89, 120, 24);
 		
 		// Type7
@@ -2339,6 +2402,9 @@ public class View extends ViewPart {
 		
 		type7_textHeadGutterHeight = new Text(compositeShapeParameterChild_7, SWT.BORDER);
 		med.setType7_textHeadGutterHeight(type7_textHeadGutterHeight);
+		CustomText c_type7_textHeadGutterHeight = new CustomText(Mediator.TEXT_type7_textHeadGutterHeight,med);
+		med.setC_type7_textHeadGutterHeight(c_type7_textHeadGutterHeight);
+		c_type7_textHeadGutterHeight.setCustomWidget_type7_textHeadGutterHeight();
 		type7_textHeadGutterHeight.setBounds(260, 8, 120, 24);
 		
 		Label lblGutterLength_type7 = new Label(compositeShapeParameterChild_7, SWT.NONE);
@@ -2347,6 +2413,9 @@ public class View extends ViewPart {
 		
 		type7_textGutterLength = new Text(compositeShapeParameterChild_7, SWT.BORDER);
 		med.setType7_textGutterLength(type7_textGutterLength);
+		CustomText c_type7_textGutterLength = new CustomText(Mediator.TEXT_type7_textGutterLength,med);
+		med.setC_type7_textGutterLength(c_type7_textGutterLength);
+		c_type7_textGutterLength.setCustomWidget_type7_textGutterLength();
 		type7_textGutterLength.setBounds(260, 35, 120, 24);
 		
 		Label lblGutterLengthLength_type7 = new Label(compositeShapeParameterChild_7, SWT.NONE);
@@ -2355,6 +2424,9 @@ public class View extends ViewPart {
 		
 		type7_textGutterLengthLength = new Text(compositeShapeParameterChild_7, SWT.BORDER);
 		med.setType7_textGutterLengthLength(type7_textGutterLengthLength);
+		CustomText c_type7_textGutterLengthLength = new CustomText(Mediator.TEXT_type7_textGutterLengthLength,med);
+		med.setC_type7_textGutterLengthLength(c_type7_textGutterLengthLength);
+		c_type7_textGutterLengthLength.setCustomWidget_type7_textGutterLengthLength();
 		type7_textGutterLengthLength.setBounds(260, 62, 120, 24);
 		
 		Label lblGutterWidthLength_type7 = new Label(compositeShapeParameterChild_7, SWT.NONE);
@@ -2363,6 +2435,9 @@ public class View extends ViewPart {
 		
 		type7_textGutterWidthLength = new Text(compositeShapeParameterChild_7, SWT.BORDER);
 		med.setType7_textGutterWidthLength(type7_textGutterWidthLength);
+		CustomText c_type7_textGutterWidthLength = new CustomText(Mediator.TEXT_type7_textGutterWidthLength,med);
+		med.setC_type7_textGutterWidthLength(c_type7_textGutterWidthLength);
+		c_type7_textGutterWidthLength.setCustomWidget_type7_textGutterWidthLength();
 		type7_textGutterWidthLength.setBounds(260, 89, 120, 24);
 				
 		compositeShapeParameterChild_1.setVisible(false);
@@ -3815,6 +3890,34 @@ public class View extends ViewPart {
 		//HandlerTableViewer handlerTableViewer = new HandlerTableViewer();
 		//med.getTableViewerUpperRoll().addSelectionChangedListener(handlerTableViewer);
 		//med.getTableViewerLowerRoll().addSelectionChangedListener(handlerTableViewer);
+		
+		HandlerText handlerText = new HandlerText();
+		med.getTextLength_2D().addListener(SWT.CHANGED, handlerText);
+		med.getTextThickness_2D().addListener(SWT.CHANGED, handlerText);
+		med.getType2_textWaveHeight_2D().addListener(SWT.CHANGED, handlerText);
+		med.getType3_textFrontCurlHeight_2D().addListener(SWT.CHANGED, handlerText);
+		med.getType3_textFrontCurlLength_2D().addListener(SWT.CHANGED, handlerText);
+		med.getType3_textRearCurlHeight_2D().addListener(SWT.CHANGED, handlerText);
+		med.getType3_textRearCurlLength_2D().addListener(SWT.CHANGED, handlerText);
+		
+		med.getTextWidth().addListener(SWT.CHANGED, handlerText);
+		med.getTextLength().addListener(SWT.CHANGED, handlerText);
+		med.getTextThickness().addListener(SWT.CHANGED, handlerText);
+		med.getType2_textLeftEdgeWaveHeight().addListener(SWT.CHANGED, handlerText);
+		med.getType2_textRightEdgeWaveHeight().addListener(SWT.CHANGED, handlerText);
+		med.getType3_textWaveHeight().addListener(SWT.CHANGED, handlerText);
+		med.getType4_textGutterHeight().addListener(SWT.CHANGED, handlerText);
+		med.getType5_textGutterHeight().addListener(SWT.CHANGED, handlerText);
+		med.getType5_textGutterLength().addListener(SWT.CHANGED, handlerText);
+		med.getType6_textHeadGutterHeight().addListener(SWT.CHANGED, handlerText);
+		med.getType6_textHeadGutterLength().addListener(SWT.CHANGED, handlerText);
+		med.getType6_textTailGutterHeight().addListener(SWT.CHANGED, handlerText);
+		med.getType6_textTailGutterLength().addListener(SWT.CHANGED, handlerText);
+		med.getType7_textHeadGutterHeight().addListener(SWT.CHANGED, handlerText);
+		med.getType7_textGutterLength().addListener(SWT.CHANGED, handlerText);
+		med.getType7_textGutterLengthLength().addListener(SWT.CHANGED, handlerText);
+		med.getType7_textGutterWidthLength().addListener(SWT.CHANGED, handlerText);
+		
 	}
 	
 	public void init_AllComponent(){

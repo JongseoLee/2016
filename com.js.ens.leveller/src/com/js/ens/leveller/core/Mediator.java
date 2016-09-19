@@ -33,8 +33,14 @@ public class Mediator {
 	public static String COMBO_Type = "comboType";
 	private Label lblPhoto;
 	private Text textWidth;
+	private ICommand c_textWidth;
+	public static String TEXT_textWidth = "textWidth";
 	private Text textLength;
+	private ICommand c_textLength;
+	public static String Text_textLength = "textLength";
 	private Text textThickness;
+	private ICommand c_textThickness;
+	public static String TEXT_textThickness = "textThickness";
 	
 	private Composite compositeShapeParameterChild_1;
 	
@@ -42,32 +48,61 @@ public class Mediator {
 	private Text type2_textLeftEdgeWavePitch;
 	private Text type2_textRightEdgeWavePitch;
 	private Text type2_textLeftEdgeWaveHeight;
+	private ICommand c_type2_textLeftEdgeWaveHeight;
+	public static String TEXT_type2_textLeftEdgeWaveHeight = "type2_textLeftEdgeWaveHeight";
 	private Text type2_textRightEdgeWaveHeight;
+	private ICommand c_type2_textRightEdgeWaveHeight;
+	public static String TEXT_type2_textRightEdgeWaveHeight = "type2_textRightEdgeWaveHeight";
 	private Text type2_textLeftEdgeWavePhase;
 	private Text type2_textRightEdgeWavePhase;
 	
 	private Composite compositeShapeParameterChild_3;
 	private Text type3_textWavePitch;
 	private Text type3_textWaveHeight;
+	private ICommand c_type3_textWaveHeight;
+	public static String TEXT_type3_textWaveHeight = "type3_textWaveHeight";
 	
 	private Composite compositeShapeParameterChild_4;
 	private Text type4_textGutterHeight;
+	private ICommand c_type4_textGutterHeight;
+	public static String TEXT_type4_textGutterHeight = "type4_textGutterHeight";
 	
 	private Composite compositeShapeParameterChild_5;
 	private Text type5_textGutterHeight;
+	private ICommand c_type5_textGutterHeight;
+	public static String TEXT_type5_textGutterHeight = "type5_textGutterHeight";
 	private Text type5_textGutterLength;
+	private ICommand c_type5_textGutterLength;
+	public static String TEXT_type5_textGutterLength = "type5_textGutterLength";
 	
 	private Composite compositeShapeParameterChild_6;
 	private Text type6_textHeadGutterHeight;
+	private ICommand c_type6_textHeadGutterHeight;
+	public static String TEXT_type6_textHeadGutterHeight = "type6_textHeadGutterHeight";
 	private Text type6_textHeadGutterLength;
+	private ICommand c_type6_textHeadGutterLength;
+	public static String TEXT_type6_textHeadGutterLength = "type6_textHeadGutterLength";
 	private Text type6_textTailGutterHeight;
+	private ICommand c_type6_textTailGutterHeight;
+	public static String TEXT_type6_textTailGutterHeight = "type6_textTailGutterHeight";
 	private Text type6_textTailGutterLength;
+	private ICommand c_type6_textTailGutterLength;
+	public static String TEXT_type6_textTailGutterLength = "type6_textTailGutterLength";
+	
 	
 	private Composite compositeShapeParameterChild_7;
 	private Text type7_textHeadGutterHeight;
+	private ICommand c_type7_textHeadGutterHeight;
+	public static String TEXT_type7_textHeadGutterHeight = "type7_textHeadGutterHeight";
 	private Text type7_textGutterLength;
+	private ICommand c_type7_textGutterLength;
+	public static String TEXT_type7_textGutterLength = "type7_textGutterLength";
 	private Text type7_textGutterLengthLength;
+	private ICommand c_type7_textGutterLengthLength;
+	public static String TEXT_type7_textGutterLengthLength = "type7_textGutterLengthLength";
 	private Text type7_textGutterWidthLength;
+	private ICommand c_type7_textGutterWidthLength;
+	public static String TEXT_type7_textGutterWidthLength = "type7_textGutterWidthLength";
 	//--------------------------------------------
 	private Composite compositeMeshParameter;
 	
@@ -1262,6 +1297,118 @@ public class Mediator {
 	public void setCustomBtnShowRollTable(ICommand customBtnShowRollTable) {
 		this.customBtnShowRollTable = customBtnShowRollTable;
 	}
+	public ICommand getC_textWidth() {
+		return c_textWidth;
+	}
+	public void setC_textWidth(ICommand c_textWidth) {
+		this.c_textWidth = c_textWidth;
+	}
+	public ICommand getC_textLength() {
+		return c_textLength;
+	}
+	public void setC_textLength(ICommand c_textLength) {
+		this.c_textLength = c_textLength;
+	}
+	public ICommand getC_textThickness() {
+		return c_textThickness;
+	}
+	public void setC_textThickness(ICommand c_textThickness) {
+		this.c_textThickness = c_textThickness;
+	}
+	public ICommand getC_type2_textLeftEdgeWaveHeight() {
+		return c_type2_textLeftEdgeWaveHeight;
+	}
+	public void setC_type2_textLeftEdgeWaveHeight(
+			ICommand c_type2_textLeftEdgeWaveHeight) {
+		this.c_type2_textLeftEdgeWaveHeight = c_type2_textLeftEdgeWaveHeight;
+	}
+	public ICommand getC_type2_textRightEdgeWaveHeight() {
+		return c_type2_textRightEdgeWaveHeight;
+	}
+	public void setC_type2_textRightEdgeWaveHeight(
+			ICommand c_type2_textRightEdgeWaveHeight) {
+		this.c_type2_textRightEdgeWaveHeight = c_type2_textRightEdgeWaveHeight;
+	}
+	public ICommand getC_type3_textWaveHeight() {
+		return c_type3_textWaveHeight;
+	}
+	public void setC_type3_textWaveHeight(ICommand c_type3_textWaveHeight) {
+		this.c_type3_textWaveHeight = c_type3_textWaveHeight;
+	}
+	public ICommand getC_type4_textGutterHeight() {
+		return c_type4_textGutterHeight;
+	}
+	public void setC_type4_textGutterHeight(ICommand c_type4_textGutterHeight) {
+		this.c_type4_textGutterHeight = c_type4_textGutterHeight;
+	}
+	public ICommand getC_type5_textGutterHeight() {
+		return c_type5_textGutterHeight;
+	}
+	public void setC_type5_textGutterHeight(ICommand c_type5_textGutterHeight) {
+		this.c_type5_textGutterHeight = c_type5_textGutterHeight;
+	}
+	public ICommand getC_type5_textGutterLength() {
+		return c_type5_textGutterLength;
+	}
+	public void setC_type5_textGutterLength(ICommand c_type5_textGutterLength) {
+		this.c_type5_textGutterLength = c_type5_textGutterLength;
+	}
+	public ICommand getC_type6_textHeadGutterHeight() {
+		return c_type6_textHeadGutterHeight;
+	}
+	public void setC_type6_textHeadGutterHeight(
+			ICommand c_type6_textHeadGutterHeight) {
+		this.c_type6_textHeadGutterHeight = c_type6_textHeadGutterHeight;
+	}
+	public ICommand getC_type6_textHeadGutterLength() {
+		return c_type6_textHeadGutterLength;
+	}
+	public void setC_type6_textHeadGutterLength(
+			ICommand c_type6_textHeadGutterLength) {
+		this.c_type6_textHeadGutterLength = c_type6_textHeadGutterLength;
+	}
+	public ICommand getC_type6_textTailGutterHeight() {
+		return c_type6_textTailGutterHeight;
+	}
+	public void setC_type6_textTailGutterHeight(
+			ICommand c_type6_textTailGutterHeight) {
+		this.c_type6_textTailGutterHeight = c_type6_textTailGutterHeight;
+	}
+	public ICommand getC_type6_textTailGutterLength() {
+		return c_type6_textTailGutterLength;
+	}
+	public void setC_type6_textTailGutterLength(
+			ICommand c_type6_textTailGutterLength) {
+		this.c_type6_textTailGutterLength = c_type6_textTailGutterLength;
+	}
+	public ICommand getC_type7_textHeadGutterHeight() {
+		return c_type7_textHeadGutterHeight;
+	}
+	public void setC_type7_textHeadGutterHeight(
+			ICommand c_type7_textHeadGutterHeight) {
+		this.c_type7_textHeadGutterHeight = c_type7_textHeadGutterHeight;
+	}
+	public ICommand getC_type7_textGutterLength() {
+		return c_type7_textGutterLength;
+	}
+	public void setC_type7_textGutterLength(ICommand c_type7_textGutterLength) {
+		this.c_type7_textGutterLength = c_type7_textGutterLength;
+	}
+	public ICommand getC_type7_textGutterLengthLength() {
+		return c_type7_textGutterLengthLength;
+	}
+	public void setC_type7_textGutterLengthLength(
+			ICommand c_type7_textGutterLengthLength) {
+		this.c_type7_textGutterLengthLength = c_type7_textGutterLengthLength;
+	}
+	public ICommand getC_type7_textGutterWidthLength() {
+		return c_type7_textGutterWidthLength;
+	}
+	public void setC_type7_textGutterWidthLength(
+			ICommand c_type7_textGutterWidthLength) {
+		this.c_type7_textGutterWidthLength = c_type7_textGutterWidthLength;
+	}
+	
 	//=======================================================================================================
 	//=======================================================================================================
 	//=======================================================================================================
@@ -1297,7 +1444,12 @@ public class Mediator {
 		private Label lblPhoto_2D;
 		//private Text textWidth_2D;
 		private Text textLength_2D;
+		private ICommand c_textLength_2D;
+		public static String TEXT_textLength_2D = "textLength_2D";
+		
 		private Text textThickness_2D;
+		private ICommand c_textThickness_2D;
+		public static String TEXT_textThickness_2D;
 		
 		private Composite compositeShapeParameterChild_1_2D;
 		               
@@ -1312,6 +1464,8 @@ public class Mediator {
 		//*/
 		private Text type2_textWavePitch_2D;
 		private Text type2_textWaveHeight_2D;
+		private ICommand c_type2_textWaveHeight_2D;
+		public static String TEXT_type2_textWaveHeight_2D = "type2_textWaveHeight_2D";
 		private Text type2_textWavePhase_2D;
 		
 		
@@ -1321,9 +1475,17 @@ public class Mediator {
 		private Text type3_textWaveHeight_2D;
 		//*/
 		private Text type3_textFrontCurlHeight_2D;
+		private ICommand c_type3_textFrontCurlHeight_2D;
+		public static String TEXT_type3_textFrontCurlHeight_2D = "type3_textFrontCurlHeight_2D";
 		private Text type3_textFrontCurlLength_2D;
+		private ICommand c_type3_textFrontCurlLength_2D;
+		public static String TEXT_type3_textFrontCurlLength_2D = "type3_textFrontCurlLength_2D";
 		private Text type3_textRearCurlHeight_2D;
+		private ICommand c_type3_textRearCurlHeight_2D;
+		public static String TEXT_type3_textRearCurlHeight_2D = "type3_textRearCurlHeight_2D";
 		private Text type3_textRearCurlLength_2D;
+		private ICommand c_type3_textRearCurlLength_2D;
+		public static String TEXT_type3_textRearCurlLength_2D = "type3_textRearCurlLength_2D";
 		
 		/*
 		private Composite compositeShapeParameterChild_4_2D;
@@ -2603,6 +2765,54 @@ public class Mediator {
 		public void setTextExitRollTableDistance_2D(Text textExitRollTableDistance_2D) {
 			this.textExitRollTableDistance_2D = textExitRollTableDistance_2D;
 		}
+		public ICommand getC_textLength_2D() {
+			return c_textLength_2D;
+		}
+		public void setC_textLength_2D(ICommand c_textLength_2D) {
+			this.c_textLength_2D = c_textLength_2D;
+		}
+		public ICommand getC_textThickness_2D() {
+			return c_textThickness_2D;
+		}
+		public void setC_textThickness_2D(ICommand c_textThickness_2D) {
+			this.c_textThickness_2D = c_textThickness_2D;
+		}
+		public ICommand getC_type2_textWaveHeight_2D() {
+			return c_type2_textWaveHeight_2D;
+		}
+		public void setC_type2_textWaveHeight_2D(ICommand c_type2_textWaveHeight_2D) {
+			this.c_type2_textWaveHeight_2D = c_type2_textWaveHeight_2D;
+		}
+		public ICommand getC_type3_textFrontCurlHeight_2D() {
+			return c_type3_textFrontCurlHeight_2D;
+		}
+		public void setC_type3_textFrontCurlHeight_2D(
+				ICommand c_type3_textFrontCurlHeight_2D) {
+			this.c_type3_textFrontCurlHeight_2D = c_type3_textFrontCurlHeight_2D;
+		}
+		public ICommand getC_type3_textFrontCurlLength_2D() {
+			return c_type3_textFrontCurlLength_2D;
+		}
+		public void setC_type3_textFrontCurlLength_2D(
+				ICommand c_type3_textFrontCurlLength_2D) {
+			this.c_type3_textFrontCurlLength_2D = c_type3_textFrontCurlLength_2D;
+		}
+		public ICommand getC_type3_textRearCurlHeight_2D() {
+			return c_type3_textRearCurlHeight_2D;
+		}
+		public void setC_type3_textRearCurlHeight_2D(
+				ICommand c_type3_textRearCurlHeight_2D) {
+			this.c_type3_textRearCurlHeight_2D = c_type3_textRearCurlHeight_2D;
+		}
+		public ICommand getC_type3_textRearCurlLength_2D() {
+			return c_type3_textRearCurlLength_2D;
+		}
+		public void setC_type3_textRearCurlLength_2D(
+				ICommand c_type3_textRearCurlLength_2D) {
+			this.c_type3_textRearCurlLength_2D = c_type3_textRearCurlLength_2D;
+		}
+		
+		
 		
 	
 	
