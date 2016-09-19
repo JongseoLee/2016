@@ -30,6 +30,9 @@ public class GenProc_00 {
 	}
 	
 	public void genBAT(){
+		this.ori_fileDataList.clear();
+		this.procDataList.clear();
+		
 		String modulePath = "";
 		String fileName = "";
 		String ori_filePath = "";
@@ -60,19 +63,19 @@ public class GenProc_00 {
 		}
 		
 		if(this.StandType.equals(UILabel.F1)){
-			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F1),fileName);	
+			new_filePath = myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),fileName);	
 		}else if(this.StandType.equals(UILabel.F2)){
-			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F2),fileName);
+			new_filePath = myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),fileName);
 		}else if(this.StandType.equals(UILabel.F3)){
-			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F3),fileName);
+			new_filePath = myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),fileName);
 		}else if(this.StandType.equals(UILabel.F4)){
-			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F4),fileName);
+			new_filePath = myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),fileName);
 		}else if(this.StandType.equals(UILabel.F5)){
-			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F5),fileName);
+			new_filePath = myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),fileName);
 		}else if(this.StandType.equals(UILabel.F6)){
-			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F6),fileName);
+			new_filePath = myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),fileName);
 		}else if(this.StandType.equals(UILabel.F7)){
-			new_filePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),UILabel.F7),fileName);
+			new_filePath = myUtil.setPath(myUtil.setPath(MC.getWorkspace(), "proc"),fileName);
 		}
 		
 		readSourceData(ori_filePath);
