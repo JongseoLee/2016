@@ -18,15 +18,36 @@ public class CustomText implements ICommand {
 		this.med = med;
 	}
 	
-	public void checkValue(String value){
-		try{
-			double d = Double.parseDouble(value);
-			if(d<=0.0){
-				JOptionPane.showMessageDialog(null, "Input value must be greater than zero.", "Input Error", JOptionPane.ERROR_MESSAGE);	
+	public boolean checkValue(String value){
+		
+		if(value.isEmpty()){
+			//System.out.println("null : " + value);
+		}else {
+			if(value.equals("0.")){
+				//System.out.println("입력 : 0. ");
+			}else if(value.equals("-")){
+				//System.out.println("입력 : - ");
+				//JOptionPane.showMessageDialog(null, "-", "Input Error", JOptionPane.INFORMATION_MESSAGE);
+			}else{
+				try{
+					double d = Double.parseDouble(value);
+					
+					if(d<0.0){
+						JOptionPane.showMessageDialog(null, "Input value must be greater than zero.", "Input Error", JOptionPane.ERROR_MESSAGE);
+						return true;
+					}else if(d == 0.0){
+						JOptionPane.showMessageDialog(null, "Input value must be greater than zero.", "Input Error", JOptionPane.ERROR_MESSAGE);
+						return false;
+					}
+					
+				}catch(Exception e){
+					JOptionPane.showMessageDialog(null, "Input value must be greater than zero.(2)", "Input Error", JOptionPane.ERROR_MESSAGE);
+					//System.out.println("입력 : 잘못입력  ");
+					return true;
+				}	
 			}
-		}catch(Exception e){
-			JOptionPane.showMessageDialog(null, "Input value must be greater than zero.", "Input Error", JOptionPane.ERROR_MESSAGE);
-		}		
+		}
+		return false;
 	}
 	
 	@Override
@@ -37,57 +58,107 @@ public class CustomText implements ICommand {
 			
 		}
 		*/
-		
+		//System.out.println(widgetName);
+		boolean result = false;
 		if(widgetName.equals(Mediator.TEXT_textLength_2D)){
-			this.checkValue(med.getTextLength_2D().getText().trim());
+			result = this.checkValue(med.getTextLength_2D().getText().trim());
+			if(result)
+				med.getTextLength_2D().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_textThickness_2D)){
-			this.checkValue(med.getTextThickness_2D().getText().trim());
+			result = this.checkValue(med.getTextThickness_2D().getText().trim());
+			if(result)
+				med.getTextThickness_2D().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type2_textWaveHeight_2D)){
-			this.checkValue(med.getType2_textWaveHeight_2D().getText().trim());
+			result = this.checkValue(med.getType2_textWaveHeight_2D().getText().trim());
+			if(result)
+				med.getType2_textWaveHeight_2D().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type3_textFrontCurlHeight_2D)){
-			this.checkValue(med.getType3_textFrontCurlHeight_2D().getText().trim());
+			result = this.checkValue(med.getType3_textFrontCurlHeight_2D().getText().trim());
+			if(result)
+				med.getType3_textFrontCurlHeight_2D().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type3_textFrontCurlLength_2D)){
-			this.checkValue(med.getType3_textFrontCurlLength_2D().getText().trim());
+			result = this.checkValue(med.getType3_textFrontCurlLength_2D().getText().trim());
+			
+			if(result)
+				med.getType3_textFrontCurlLength_2D().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type3_textRearCurlHeight_2D)){
-			this.checkValue(med.getType3_textRearCurlHeight_2D().getText().trim());
+			result = this.checkValue(med.getType3_textRearCurlHeight_2D().getText().trim());
+			if(result)
+				med.getType3_textRearCurlHeight_2D().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type3_textRearCurlLength_2D)){
-			this.checkValue(med.getType3_textRearCurlLength_2D().getText().trim());
+			result = this.checkValue(med.getType3_textRearCurlLength_2D().getText().trim());
+			if(result)
+				med.getType3_textRearCurlLength_2D().setText("");
 		}
 		
 		else if(widgetName.equals(Mediator.TEXT_textWidth)){
-			this.checkValue(med.getTextWidth().getText().trim());
+			result = this.checkValue(med.getTextWidth().getText().trim());
+			if(result)
+				med.getTextWidth().setText("");
 		}else if(widgetName.equals(Mediator.Text_textLength)){
-			this.checkValue(med.getTextLength().getText().trim());
+			result = this.checkValue(med.getTextLength().getText().trim());
+			if(result)
+				med.getTextLength().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_textThickness)){
-			this.checkValue(med.getTextThickness().getText().trim());
+			result = this.checkValue(med.getTextThickness().getText().trim());
+			if(result)
+				med.getTextThickness().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type2_textLeftEdgeWaveHeight)){
-			this.checkValue(med.getType2_textLeftEdgeWaveHeight().getText().trim());
+			result = this.checkValue(med.getType2_textLeftEdgeWaveHeight().getText().trim());
+			if(result)
+				med.getType2_textLeftEdgeWaveHeight().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type2_textRightEdgeWaveHeight)){
-			this.checkValue(med.getType2_textRightEdgeWaveHeight().getText().trim());
+			result = this.checkValue(med.getType2_textRightEdgeWaveHeight().getText().trim());
+			if(result)
+				med.getType2_textRightEdgeWaveHeight().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type3_textWaveHeight)){
-			this.checkValue(med.getType3_textWaveHeight().getText().trim());
+			result = this.checkValue(med.getType3_textWaveHeight().getText().trim());
+			if(result)
+				med.getType3_textWaveHeight().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type4_textGutterHeight)){
-			this.checkValue(med.getType4_textGutterHeight().getText().trim());
+			result = this.checkValue(med.getType4_textGutterHeight().getText().trim());
+			if(result)
+				med.getType4_textGutterHeight().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type5_textGutterHeight)){
-			this.checkValue(med.getType5_textGutterHeight().getText().trim());
+			result = this.checkValue(med.getType5_textGutterHeight().getText().trim());
+			if(result)
+				med.getType5_textGutterHeight().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type5_textGutterLength)){
-			this.checkValue(med.getType5_textGutterLength().getText().trim());
+			result = this.checkValue(med.getType5_textGutterLength().getText().trim());
+			if(result)
+				med.getType5_textGutterLength().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type6_textHeadGutterHeight)){
-			this.checkValue(med.getType6_textHeadGutterHeight().getText().trim());
+			result = this.checkValue(med.getType6_textHeadGutterHeight().getText().trim());
+			if(result)
+				med.getType6_textHeadGutterHeight().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type6_textHeadGutterLength)){
-			this.checkValue(med.getType6_textHeadGutterLength().getText().trim());
+			result = this.checkValue(med.getType6_textHeadGutterLength().getText().trim());
+			if(result)
+				med.getType6_textHeadGutterLength().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type6_textTailGutterHeight)){
-			this.checkValue(med.getType6_textTailGutterHeight().getText().trim());
+			result = this.checkValue(med.getType6_textTailGutterHeight().getText().trim());
+			if(result)
+				med.getType6_textTailGutterHeight().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type6_textTailGutterLength)){
-			this.checkValue(med.getType6_textTailGutterLength().getText().trim());
+			result = this.checkValue(med.getType6_textTailGutterLength().getText().trim());
+			if(result)
+				med.getType6_textTailGutterLength().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type7_textHeadGutterHeight)){
-			this.checkValue(med.getType7_textHeadGutterHeight().getText().trim());
+			result = this.checkValue(med.getType7_textHeadGutterHeight().getText().trim());
+			if(result)
+				med.getType7_textHeadGutterHeight().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type7_textGutterLength)){
-			this.checkValue(med.getType7_textGutterLength().getText().trim());
+			result = this.checkValue(med.getType7_textGutterLength().getText().trim());
+			if(result)
+				med.getType7_textGutterLength().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type7_textGutterLengthLength)){
-			this.checkValue(med.getType7_textGutterLengthLength().getText().trim());
+			result = this.checkValue(med.getType7_textGutterLengthLength().getText().trim());
+			if(result)
+				med.getType7_textGutterLengthLength().setText("");
 		}else if(widgetName.equals(Mediator.TEXT_type7_textGutterWidthLength)){
-			this.checkValue(med.getType7_textGutterWidthLength().getText().trim());
+			result = this.checkValue(med.getType7_textGutterWidthLength().getText().trim());
+			if(result)
+				med.getType7_textGutterWidthLength().setText("");
 		}
 	}
 	

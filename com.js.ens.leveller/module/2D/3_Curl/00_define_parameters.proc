@@ -21,10 +21,10 @@
 | FCH : Front Curl Height
 | RCL : Rear Curl Length
 | RCH : Rear Curl Height
-*eval_define fcl %FrontCurlHeight%
-*eval_define fch %FrontCurlLength%
-*eval_define rcl %RearCurlHeight%
-*eval_define rch %RearCurlLength%
+*eval_define fch %FrontCurlHeight%
+*eval_define fcl %FrontCurlLength%
+*eval_define rch %RearCurlHeight%
+*eval_define rcl %RearCurlLength%
 
 |
 | Mesh parameter

@@ -1449,7 +1449,7 @@ public class Mediator {
 		
 		private Text textThickness_2D;
 		private ICommand c_textThickness_2D;
-		public static String TEXT_textThickness_2D;
+		public static String TEXT_textThickness_2D = "textThickness_2D";
 		
 		private Composite compositeShapeParameterChild_1_2D;
 		               
