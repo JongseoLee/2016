@@ -21,8 +21,8 @@ import java.util.Set;
 
 public class myUtil {
 	
-	public static String getCurrentData(){
-		SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ( "yyyyMMdd", Locale.KOREA );
+	public static String getCurrentDate(){
+		SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
 		Date currentTime = new Date ( );
 		String mTime = mSimpleDateFormat.format ( currentTime );
 		System.out.println ( mTime );

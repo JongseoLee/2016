@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,13 +20,71 @@ import java.util.Map;
 import java.util.Set;
 
 public class myUtil {
-	public static String getCurrentData(){
-		SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ( "yyyyMMdd", Locale.KOREA );
+	public static String getCurrentDate(){
+		SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ( "yyyy-MM-dd", Locale.KOREA );
 		Date currentTime = new Date ( );
 		String mTime = mSimpleDateFormat.format ( currentTime );
-		System.out.println ( mTime );
+		//System.out.println ( mTime );
 		return mTime;
 	}
+	
+	public static String getIPAddress(){
+		InetAddress ip = null;
+		String IPAddress = "";
+		// 로컬 IP취득
+		try {
+			ip = InetAddress.getLocalHost();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		IPAddress = ip.getHostAddress();
+		return IPAddress;
+	}
+	
+	public static String getMacAddress(){
+		InetAddress ip = null;
+		NetworkInterface netif = null;
+		String MacAddress = "";
+		
+		// 로컬 IP취득
+		try {
+			ip = InetAddress.getLocalHost();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// 네트워크 인터페이스 취득
+		try {
+			netif = NetworkInterface.getByInetAddress(ip);
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// 네트워크 인터페이스가 NULL이 아니면
+		if (netif != null) {
+			// 네트워크 인터페이스 표시명 출력
+			//System.out.print(netif.getDisplayName() + " : ");
+
+			// 맥어드레스 취득
+			byte[] mac = null;
+			try {
+				mac = netif.getHardwareAddress();
+			} catch (SocketException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			// 맥어드레스 출력
+			for (byte b : mac) {
+				MacAddress = MacAddress + String.format("%02X", b);
+			}
+		}
+		return MacAddress;
+	}
+	
 	
 	public static String checkOS(){
 		String os = null;
