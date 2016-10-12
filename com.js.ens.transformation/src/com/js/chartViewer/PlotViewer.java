@@ -22,7 +22,7 @@ import org.eclipse.swt.events.SelectionEvent;
 
 import com.js.util.myUtil;
 
-public class ChartViewer{
+public class PlotViewer{
 
 	/**
 	 * Launch the application.
@@ -30,7 +30,7 @@ public class ChartViewer{
 	 */
 	public static void main(String[] args) {
 		try {
-			ChartViewer window = new ChartViewer("emptyHRolling-3d");
+			PlotViewer window = new PlotViewer("emptyHRolling-3d");
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,7 +52,7 @@ public class ChartViewer{
 	private String resultType;
 	private String resultFolderPath = null;
 	
-	public ChartViewer(String workspace){
+	public PlotViewer(String workspace){
 		this.resultFolderPath = workspace;
 		
 		this.resultFilesPathList = new ArrayList<String>();
@@ -72,7 +72,7 @@ public class ChartViewer{
 	}
 	
 	public void InitComponent(){
-		shell.setSize(314, 471);
+		shell.setSize(314, 421);
 		shell.setText("Post Viewer");
 		shell.setLayout(new FormLayout());
 		
@@ -81,7 +81,7 @@ public class ChartViewer{
 		fd_lbl_chartViewer.top = new FormAttachment(0, 10);
 		fd_lbl_chartViewer.left = new FormAttachment(0, 10);
 		lbl_chartViewer.setLayoutData(fd_lbl_chartViewer);
-		lbl_chartViewer.setText("* Chart Viewer");
+		lbl_chartViewer.setText("* Plot Viewer");
 		
 		Label lbl_description = new Label(shell, SWT.NONE);
 		FormData fd_lbl_description = new FormData();
@@ -89,14 +89,15 @@ public class ChartViewer{
 		fd_lbl_description.left = new FormAttachment(lbl_chartViewer, 10, SWT.LEFT);
 		lbl_description.setLayoutData(fd_lbl_description);
 		lbl_description.setText("Select result files.");
-		
+		/*
 		final Label lbl_resultType = new Label(shell, SWT.NONE);
 		FormData fd_lbl_resultType = new FormData();
 		fd_lbl_resultType.top = new FormAttachment(lbl_description, 10);
 		fd_lbl_resultType.left = new FormAttachment(0,10);
 		lbl_resultType.setLayoutData(fd_lbl_resultType);
 		lbl_resultType.setText("Result Type");
-		
+		//*/
+		/*
 		final Combo combo_postType = new Combo(shell, SWT.READ_ONLY);
 		combo_postType.setItems(new String[] {"","Path", "History"});
 		FormData fd_combo_postType = new FormData();
@@ -144,14 +145,14 @@ public class ChartViewer{
 				}
 			}
 		});
-		
+		//*/
 		list_resultFiles = new List(shell, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI);
 		list_resultFiles.setToolTipText("Add or Drag & Drop result file");
 		FormData fd_list_resultFiles = new FormData();
-		fd_list_resultFiles.top = new FormAttachment(lbl_resultType, 10);
+		fd_list_resultFiles.top = new FormAttachment(lbl_description, 10);
 		fd_list_resultFiles.left = new FormAttachment(0, 10);
 		fd_list_resultFiles.right = new FormAttachment(100, -10);
-		fd_list_resultFiles.bottom = new FormAttachment(lbl_resultType, 250, SWT.BOTTOM);
+		fd_list_resultFiles.bottom = new FormAttachment(lbl_description, 250, SWT.BOTTOM);
 		list_resultFiles.setLayoutData(fd_list_resultFiles);
 		list_resultFiles.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -183,8 +184,8 @@ public class ChartViewer{
 				}else{
 					fd.setFilterPath(resultFolderPath);
 				}
-				String [] filterName = {"txt files","All files"};
-				String [] filterExt = {"*.txt","*.*"};
+				String [] filterName = {"csv files","All files"};
+				String [] filterExt = {"*.csv","*.*"};
 				fd.setFilterNames(filterName);
 				fd.setFilterExtensions(filterExt);
 				String selected = fd.open();
@@ -254,7 +255,7 @@ public class ChartViewer{
 				}
 				*/
 				try{
-					PostPlotManager postMgr = new PostPlotManager(resultType,resultFilesPathList);
+					PostPlotManager_ver2 postMgr = new PostPlotManager_ver2(resultFilesPathList);
 					postMgr.running();
 				}catch (Exception e2){
 					

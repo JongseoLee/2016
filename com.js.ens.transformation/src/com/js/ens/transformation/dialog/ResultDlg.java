@@ -19,6 +19,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
 import com.js.chartViewer.ChartViewer;
+import com.js.chartViewer.PlotViewer;
 import com.js.ens.transformation.core.MainController;
 import com.js.imageViewer.ImageViewer;
 import com.js.util.myUtil;
@@ -69,7 +70,7 @@ public class ResultDlg extends Dialog {
 						ChartViewer window = new ChartViewer(myUtil.setPath(MC.getWorkspace(), "result"));
 						window.open();
 					}else{
-						ChartViewer window = new ChartViewer("emptyLeveller");
+						ChartViewer window = new ChartViewer("emptyHRolling-3d");
 						window.open();	
 					}
 					
@@ -122,6 +123,33 @@ public class ResultDlg extends Dialog {
 		fd_btnImageViewer.bottom = new FormAttachment(btnChartViewer,85,SWT.BOTTOM);
 		btnImageViewer.setLayoutData(fd_btnImageViewer);
 		btnImageViewer.setText("Image Viewer");
+		
+		Button btnPlotViewer = new Button(container, SWT.NONE);
+		btnPlotViewer.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				try {
+					if(MC.getWorkspace() != null){
+						PlotViewer window = new PlotViewer(myUtil.setPath(MC.getWorkspace(), "result"));
+						window.open();
+					}else{
+						PlotViewer window = new PlotViewer("emptyHRolling-3d");
+						window.open();	
+					}
+					
+					
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}
+		});
+		btnPlotViewer.setText("Plot Viewer");
+		FormData fd_btnPlotViewer = new FormData();
+		fd_btnPlotViewer.top = new FormAttachment(btnImageViewer, 5);
+		fd_btnPlotViewer.left = new FormAttachment(btnChartViewer, 0, SWT.LEFT);
+		fd_btnPlotViewer.right = new FormAttachment(btnChartViewer, 0, SWT.RIGHT);
+		fd_btnPlotViewer.bottom = new FormAttachment(btnImageViewer, 85, SWT.BOTTOM);
+		btnPlotViewer.setLayoutData(fd_btnPlotViewer);
 		return container;
 	}
 
@@ -139,7 +167,7 @@ public class ResultDlg extends Dialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(406, 371);
+		return new Point(409, 446);
 	}
 
 }
