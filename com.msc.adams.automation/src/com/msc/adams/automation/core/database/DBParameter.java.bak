@@ -1,0 +1,123 @@
+package com.msc.adams.automation.core.database;
+
+public class DBParameter {
+	// Common
+	public static final String projectName_T = "projectName";
+	public static final String projectName_V = "%projectName%";
+	public static final String workspace_T = "workspace";
+	public static final String workspace_V = "%workspace%";
+	public static final String date_T = "date";
+	public static final String date_V = "%date%";
+	public static final String LastUpdate_T = "LastUpdate";
+	public static final String LastUpdate_V = "%LastUpdate%";
+	public static final String DatabaseFolder_T = "DatabaseFolder";
+	public static final String DatabaseFolder_V = "%DatabaseFolder%";
+	public static final String SolverType_T = "SolverType";
+	public static final String SolverType_V = "%SolverType%";
+	
+	// Database Path List
+	public static final String BladeDatabaseSymmetric_T = "BladeDatabaseSymmetric";
+	public static final String BladeDatabaseNonSymmetric_T = "BladeDatabaseNonSymmetric";
+	//public static final String BladeDatabaseType3_T = "BladeDatabaseType3";
+	//public static final String BladeDatabaseType4_T = "BladeDatabaseType4";
+	public static final String BladeDatabaseSymmetric_V = "%BladeDatabaseSymmetric%";
+	public static final String BladeDatabaseNonSymmetric_V = "%BladeDatabaseNonSymmetric%";
+	//public static final String BladeDatabaseType3_V = "%BladeDatabaseType3%";
+	//public static final String BladeDatabaseType4_V = "%BladeDatabaseType4%";
+	
+	// Database Path List
+	public static final String LinkageDatabaseSerialParallel_T ="LinkageDatabaseSerialParallel";
+	public static final String LinkageDatabaseSerialOpposed_T ="LinkageDatabaseSerialOpposed";
+	public static final String LinkageDatabaseModuleTandem_T ="LinkageDatabaseModuleTandem";
+	public static final String LinkageDatabaseSerialTandem_T ="LinkageDatabaseSerialTandem";
+	public static final String LinkageDatabaseSerialParallel_V ="%LinkageDatabaseSerialParallel%";
+	public static final String LinkageDatabaseSerialOpposed_V ="%LinkageDatabaseSerialOpposed%";
+	public static final String LinkageDatabaseModuleTandem_V ="%LinkageDatabaseModuleTandem%";
+	public static final String LinkageDatabaseSerialTandem_V ="%LinkageDatabaseSerialTandem%";
+	
+	public static final String WindshieldDatabase_T = "WindsshieldDatabase";
+	public static final String WindshieldDatabase_V = "%WindsshieldDatabase%";
+	
+	public static final String BladeDatabasePath_T = "BladeDatabasePath";
+	public static final String BladeDatabasePath_V = "%BladeDatabasePath%";
+	public static final String LinkageDatabasePath_T = "LinkageDatabasePath";
+	public static final String LinkageDatabasePath_V = "%LinkageDatabasePath%";
+	
+	// Step1
+	public static final String Step1Completed_T = "Step1Completed";
+	public static final String Step1Completed_V = "%Step1Completed%";
+	// Step1 - blade
+	public static final String bladeType_T = "bladeType";
+	public static final String bladeType_V = "%bladeType%";
+	public static final String bladeDBName_T = "bladeDBName";
+	public static final String bladeDBName_V = "%bladeDBName%";
+	public static final String bladeDBPath_T = "bladeDBPath";
+	public static final String bladeDBPath_V = "%bladeDBPath%";
+	// Step1 - linkage
+	public static final String linkageType_T = "linkageType";
+	public static final String linkageType_V = "%linkageType%";
+	public static final String linkageDBName_T = "linkageDBName";
+	public static final String linkageDBName_V = "%linkageDBName%";
+	public static final String linkageDBPath_T = "linkageDBPath";
+	public static final String linkageDBPath_V = "%linkageDBPath%";
+	// Step1 - windShield
+	public static final String windShieldType_T	= "windShieldType";
+	public static final String windShieldType_V	= "%windShieldType%";
+	public static final String windShieldDBName_T = "windShieldDBName";
+	public static final String windShieldDBName_V = "%windShieldDBName%";
+	public static final String windShieldDBPath_T = "windShieldDBPath";
+	public static final String windShieldDBPath_V = "%windShieldDBPath%";
+	public static final String windShieldRadius_T = "windShieldRadius";
+	public static final String windShieldRadius_V = "%windShieldRadius%";
+	public static final String windShieldX_T = "windShieldX"; 
+	public static final String windShieldX_V = "%windShieldX%";
+	public static final String windShieldY_T = "windShieldY"; 
+	public static final String windShieldY_V = "%windShieldY%";
+	public static final String windShieldZ_T = "windShieldZ"; 
+	public static final String windShieldZ_V = "%windShieldZ%";
+	
+
+	// Step2
+	public static final String Step2Skip_T = "Step2Skip";
+	public static final String Step2Skip_V = "%Step2Skip%";
+	public static final String Step2Completed_T = "Step2Completed";
+	public static final String Step2Completed_V = "%Step2Completed%";
+	// Step2 - selected Part 
+	public static final String partDataPath_T = "partDataPath";
+	public static final String partDataPath_V = "%partDataPath%";
+	public static final String allPartList_T = "allPartList";
+	public static final String allPartList_V = "%allPartList%";
+	public static final String selectedPartList_T = "selectedPartList";
+	public static final String selectedPartList_V = "%selectedPartList%";
+	public static final String selectedParInfo_T = "selectedParInfo";
+	public static final String selectedParInfo_V = "%selectedParInfo%";
+	
+	
+	
+	// Step3
+	public static final String Step3Skip_T = "Step3Skip";
+	public static final String Step3Skip_V = "%Step3Skip%";
+	public static final String Step3Completed_T = "Step3Completed";
+	public static final String Step3Completed_V = "%Step3Completed%";
+	// Step3 - Swapping Part 
+	public static final String SwappingPartInfo_T = "SwappingPartInfo";
+	public static final String SwappingPartInfo_V = "%SwappingPartInfo%";
+	
+	
+	// Step4
+	public static final String Step4Completed_T = "Step4Completed";
+	public static final String Step4Completed_V = "%Step4Completed%";
+	// Sovling and Export Result
+	public static final String AdamsSolving_T = "AdamsSolving";
+	public static final String AdamsSolving_V = "%AdamsSolving%";
+	public static final String ExportModel_T = "ExportModel";
+	public static final String ExportModel_V = "%ExportModel%";
+	public static final String ExportDAC_T = "ExportDAC";
+	public static final String ExportDAC_V = "%ExportDAC%";
+	
+	
+	
+	// Step5
+	public static final String Step5Completed_T = "Step5Completed";
+	public static final String Step5Completed_V = "%Step5Completed%";
+}

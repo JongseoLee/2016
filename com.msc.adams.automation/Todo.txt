@@ -1,0 +1,23 @@
+<2017.03.16>
+END - 1. RunScript config 파일로 설정하기
+END - 2. Setup 모듈 만들기 - http://www.java2s.com/Code/Java/SWT-JFace-Eclipse/Asurveyusingawizard.htm
+
+<2017.03.22>
+END - 1. MNF용 inputdeck 생성시 쓰레드 체크 => createInputdeckForMNF()
+END - 2. Adams Result 출력시 다른 방법 체크
+
+<2017.03.31>
+END - 1. MSR 용 input 만들기 (Set 위치 변경)
+END - 2. MSM 모듈 만들기 
+END - 3. 2종 모델 추가 (Blade 모델 문의)
+
+<2017.04.13>
+END - 1. Setup 모듈 업데이트 : 패스 설정 할때 설명 자세히... E:\HMCTest  => ver1.1
+
+<2017.04.14>
+END - 1. FEM 데이터 수정 할것
+ ===> HMC 로 부터 온 set 정보 샘플을 가지고 Set , 형식으로  쓰는 법 구현하기
+         
+<2017.04.18>
+1. HMSET 에 파트 이름이 없을경우 All 로 쓰기 에러 처리할것 (CreateInputdeckFEMFATForMSR.java ->ParsingBulkFile() HMSET 정의 하는 부분)
+2. Preference Dlg 필요 없는 항목 Solver 선택 부분 삭제?? 문의

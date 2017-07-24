@@ -1,0 +1,9 @@
+package com.msc.adams.automation.core.database;
+
+public class ReadDBFile {
+
+	public ReadDBFile() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

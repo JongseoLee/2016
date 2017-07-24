@@ -1,0 +1,609 @@
+package com.msc.adams.automation.core.database;
+
+import java.util.ArrayList;
+
+import com.msc.adams.automation.core.MainController;
+import com.msc.adams.automation.datas.Blade;
+import com.msc.adams.automation.datas.Linkage;
+import com.msc.adams.automation.datas.Part;
+import com.msc.adams.automation.datas.SwappingPart;
+import com.msc.io.Reader;
+import com.msc.io.Writer;
+import com.msc.util.myUtil;
+
+public class WriteDBFile {
+	private MainController MC = MainController.getInstance();
+	
+	private String templateDBFilePath;
+	private String msckDBFilePath;
+	private String DBFileName;
+	
+	private ArrayList<String> templateDBFileDataList;
+	private ArrayList<String> outputDBFileDataList;
+	public WriteDBFile() {
+		// TODO Auto-generated constructor stub
+		//this.templateDBFilePath = myUtil.setPath(myUtil.setPath(myUtil.setPath(MC.getAppPath(), DatabaseFolderName.msck_Template),DatabaseFolderName.DBFile),"dbTemplate.msck");
+		this.DBFileName = MC.getProjectName()+".msck";
+		this.msckDBFilePath = myUtil.setPath(MC.getWorkspace(), this.DBFileName);
+		this.templateDBFileDataList = new ArrayList<String>();
+		this.outputDBFileDataList = new ArrayList<String>();
+		//this.readTemplateFile();
+		
+	}
+	
+	private void readTemplateFile(){
+		Reader obj = new Reader(this.templateDBFilePath);
+		obj.running();
+		this.templateDBFileDataList = obj.getFileDataList();
+	}
+	
+	
+	/*
+	public void WriteDBFileData(String step){
+		
+		if(MC.STEP1.equals(step)){
+			this.writeDBfile_Step1();
+		}else if(MC.STEP2.equals(step)){
+			this.writeDBfile_Step2();
+		}else if(MC.STEP3.equals(step)){
+			this.writeDBfile_Step3();
+		}else if(MC.STEP4.equals(step)){
+			this.writeDBfile_Step4();
+		}else if(MC.STEP5.equals(step)){
+			this.writeDBfile_Step5();
+		}else if(step.equals("all")){
+			this.writeDBfile_Step1();
+			this.writeDBfile_Step2();
+			this.writeDBfile_Step3();
+			this.writeDBfile_Step4();
+			this.writeDBfile_Step5();
+		}
+	}
+	// */
+	
+	/*
+	public void writeDBfile_Common(){
+		
+		for(String line : this.templateDBFileDataList){
+			if(line.contains(DBParameter.projectName_V)){
+				String newLine = line.replace(DBParameter.projectName_V, MC.getProjectName());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.workspace_V)){
+				String newLine = line.replace(DBParameter.workspace_V, MC.getWorkspace());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.date_V)){
+				String newLine = line.replace(DBParameter.date_V, myUtil.getCurrentTime());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.LastUpdate_V)){
+				String newLine = line.replace(DBParameter.LastUpdate_V, myUtil.getCurrentTime());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.DatabaseFolder_V)){
+				String newLine = line.replace(DBParameter.DatabaseFolder_V, MC.getDatabasePath());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.SolverType_V)){
+				String newLine = line.replace(DBParameter.SolverType_V, MC.getSolverType());
+				this.outputDBFileDataList.add(newLine);
+			}
+			
+			
+			else {
+				this.outputDBFileDataList.add(line);
+			}
+		}
+		this.flushDBFile(this.outputDBFileDataList);
+		
+	}
+	// */
+	/*
+	public void writeDBFile_Preference(){
+		ArrayList<String> copyDBFileDataList = new ArrayList<String>();
+		for(String line : this.outputDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_T)){
+				String newLine = DBParameter.LastUpdate_T+"="+DBParameter.LastUpdate_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.DatabaseFolder_T)){
+				String newLine = DBParameter.DatabaseFolder_T+"="+DBParameter.DatabaseFolder_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.SolverType_T)){
+				String newLine = DBParameter.SolverType_T+"="+DBParameter.SolverType_V;
+				copyDBFileDataList.add(newLine);
+			}else{
+				copyDBFileDataList.add(line);
+			}
+		}
+		
+		this.outputDBFileDataList.clear();
+		
+		for(String line : copyDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_V)){
+				String newLine = line.replace(DBParameter.LastUpdate_V, myUtil.getCurrentTime());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.DatabaseFolder_V)){
+				String newLine = line.replace(DBParameter.DatabaseFolder_V, MC.getDatabasePath());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.SolverType_V)){
+				String newLine = line.replace(DBParameter.SolverType_V, MC.getSolverType());
+				System.out.println(MC.getSolverType());
+				this.outputDBFileDataList.add(newLine);
+			}else{
+				this.outputDBFileDataList.add(line);
+			}
+		}
+	}
+	// */
+	/*
+	private void writeDBfile_Step1(){
+		
+		ArrayList<String> copyDBFileDataList = new ArrayList<String>();
+		//reset format
+		for(String line : this.outputDBFileDataList){
+			// Selected database value - blade / linkage / windshield
+			if(line.contains(DBParameter.LastUpdate_T)){
+				String newLine = DBParameter.LastUpdate_T+"=" +DBParameter.LastUpdate_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step1Completed_T)){
+				String newLine = DBParameter.Step1Completed_T+"="+DBParameter.Step1Completed_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.bladeType_T)){
+				String newLine = DBParameter.bladeType_T+"="+DBParameter.bladeType_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.bladeDBName_T)){
+				String newLine = DBParameter.bladeDBName_T+"="+DBParameter.bladeDBName_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.bladeDBPath_T)){
+				String newLine = DBParameter.bladeDBPath_T+"="+DBParameter.bladeDBPath_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.linkageType_T)){
+				String newLine = DBParameter.linkageType_T+"="+DBParameter.linkageType_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.linkageDBName_T)){
+				String newLine = DBParameter.linkageDBName_T+"="+DBParameter.linkageDBName_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.linkageDBPath_T)){
+				String newLine = DBParameter.linkageDBPath_T+"="+DBParameter.linkageDBPath_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldType_T)){
+				String newLine = DBParameter.windShieldType_T+"="+DBParameter.windShieldType_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldDBName_T)){
+				String newLine = DBParameter.windShieldDBName_T+"="+DBParameter.windShieldDBName_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldDBPath_T)){
+				String newLine = DBParameter.windShieldDBPath_T+"="+DBParameter.windShieldDBPath_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldRadius_T)){
+				String newLine = DBParameter.windShieldRadius_T+"="+DBParameter.windShieldRadius_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldX_T)){
+				String newLine = DBParameter.windShieldX_T+"="+DBParameter.windShieldX_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldY_T)){
+				String newLine = DBParameter.windShieldY_T+"="+DBParameter.windShieldY_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldZ_T)){
+				String newLine = DBParameter.windShieldZ_T+"="+DBParameter.windShieldZ_V;
+				copyDBFileDataList.add(newLine);
+			}
+			
+			else{
+				copyDBFileDataList.add(line);
+			}
+			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+		}
+		this.outputDBFileDataList.clear();
+		
+		
+		
+		
+		//Write
+		for(String line : copyDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_V)){
+				String newLine = line.replace(DBParameter.LastUpdate_V, myUtil.getCurrentTime());
+				this.outputDBFileDataList.add(newLine);
+			}
+			
+			else if(line.contains(DBParameter.Step1Completed_V)){
+				boolean result = MC.isCompletedStep1();
+				String newLine = "";
+				if(result == true){
+					newLine = line.replace(DBParameter.Step1Completed_V, "true");
+				}else{
+					newLine = line.replace(DBParameter.Step1Completed_V, "false");
+				}
+				this.outputDBFileDataList.add(newLine);
+			}
+			
+			else if(line.contains(DBParameter.bladeType_V)){
+				String newLine = line.replace(DBParameter.bladeType_V, MC.getDBStep1().getBladeType());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.bladeDBName_V)){
+				String newLine = line.replace(DBParameter.bladeDBName_V, MC.getDBStep1().getSelectedBladeDBName());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.bladeDBPath_V)){
+				String newLine = line.replace(DBParameter.bladeDBPath_V, MC.getDBStep1().getSelectedBladeDBPath());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.linkageType_V)){
+				String newLine = line.replace(DBParameter.linkageType_V, MC.getDBStep1().getLinkageType());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.linkageDBName_V)){
+				String newLine = line.replace(DBParameter.linkageDBName_V, MC.getDBStep1().getSelectedLinkageDBName());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.linkageDBPath_V)){
+				String newLine = line.replace(DBParameter.linkageDBPath_V, MC.getDBStep1().getSelectedLinkageDBPath());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldType_V)){
+				String newLine = line.replace(DBParameter.windShieldType_V, MC.getDBStep1().getWindshieldType());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldDBName_V)){
+				String newLine = line.replace(DBParameter.windShieldDBName_V, MC.getDBStep1().getSelectedWindshieldDBName());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldDBPath_V)){
+				String newLine = line.replace(DBParameter.windShieldDBPath_V, MC.getDBStep1().getSelectedWindshieldDBPath());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldRadius_V)){
+				String newLine = line.replace(DBParameter.windShieldRadius_V, MC.getDBStep1().getRadius());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldX_V)){
+				String newLine = line.replace(DBParameter.windShieldX_V, MC.getDBStep1().getX());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldY_V)){
+				String newLine = line.replace(DBParameter.windShieldY_V, MC.getDBStep1().getY());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.windShieldZ_V)){
+				String newLine = line.replace(DBParameter.windShieldZ_V, MC.getDBStep1().getZ());
+				this.outputDBFileDataList.add(newLine);
+			}
+			
+			else {
+				this.outputDBFileDataList.add(line);
+			}
+		}
+		
+		this.flushDBFile(this.outputDBFileDataList);
+	}
+	
+	public void writeDBFile_Step2_Skip(){
+		ArrayList<String> copyDBFileDataList = new ArrayList<String>();
+		//reset format
+		for(String line : this.outputDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_T)){
+				String newLine = DBParameter.LastUpdate_T +"="+DBParameter.LastUpdate_V;
+				copyDBFileDataList.add(newLine);
+			}else if (line.contains(DBParameter.Step2Skip_T)){
+				String newLine = DBParameter.Step2Skip_T+"="+DBParameter.Step2Skip_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step2Completed_T)){
+				String newLine = DBParameter.Step2Completed_T+"="+DBParameter.Step2Completed_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.partDataPath_T)){
+				String newLine = DBParameter.partDataPath_T+"="+DBParameter.partDataPath_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.allPartList_T)){
+				String newLine = DBParameter.allPartList_T+"="+DBParameter.allPartList_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.selectedPartList_T)){
+				String newLine = DBParameter.selectedPartList_T+"="+DBParameter.selectedPartList_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.selectedParInfo_T)){
+				String newLine = DBParameter.selectedParInfo_T+"="+DBParameter.selectedParInfo_V;
+				copyDBFileDataList.add(newLine);
+			}
+			else {
+				copyDBFileDataList.add(line);
+			}
+		}
+		
+		this.outputDBFileDataList.clear();
+		
+		// write
+		for(String line : copyDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_V)){
+				String newLine = line.replace(DBParameter.LastUpdate_V, myUtil.getCurrentTime());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step2Skip_V)){
+				boolean result = MC.getDBStep2().isSkiped();
+				String newLine = "";
+				if(result == true){
+					newLine = line.replace(DBParameter.Step2Skip_V, "true");
+				}else{
+					newLine = line.replace(DBParameter.Step2Skip_V, "false");
+				}
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step2Completed_V)){
+				boolean result = MC.isCompletedStep2();
+				String newLine = "";
+				if(result == true){
+					newLine = line.replace(DBParameter.Step2Completed_V, "true");
+				}else{
+					newLine = line.replace(DBParameter.Step2Completed_V, "false");
+				}
+				this.outputDBFileDataList.add(newLine);
+			}
+			
+			else{
+				this.outputDBFileDataList.add(line);
+			}
+		}
+		this.flushDBFile(this.outputDBFileDataList);
+	}
+	
+	private void writeDBfile_Step2(){
+		ArrayList<String> copyDBFileDataList = new ArrayList<String>();
+		//reset format
+		//System.out.println("SIZE  : "+this.outputDBFileDataList.size());
+		for(String line : this.outputDBFileDataList){
+			//System.out.println(line);
+			if(line.contains(DBParameter.LastUpdate_T)){
+				String newLine = DBParameter.LastUpdate_T+"="+DBParameter.LastUpdate_V;
+				copyDBFileDataList.add(newLine);
+			}else if (line.contains(DBParameter.Step2Skip_T)){
+				String newLine = DBParameter.Step2Skip_T+"="+DBParameter.Step2Skip_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step2Completed_T)){
+				String newLine = DBParameter.Step2Completed_T+"="+DBParameter.Step2Completed_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.partDataPath_T)){
+				String newLine = DBParameter.partDataPath_T+"="+DBParameter.partDataPath_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.allPartList_T)){
+				String newLine = DBParameter.allPartList_T+"="+DBParameter.allPartList_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.selectedPartList_T)){
+				String newLine = DBParameter.selectedPartList_T+"="+DBParameter.selectedPartList_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.selectedParInfo_T)){
+				String newLine = DBParameter.selectedParInfo_T+"="+DBParameter.selectedParInfo_V;
+				copyDBFileDataList.add(newLine);
+			}
+			
+			else {
+				copyDBFileDataList.add(line);
+			}
+		}
+		this.outputDBFileDataList.clear();
+		
+		// write
+		for(String line : copyDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_V)){
+				String newLine = line.replace(DBParameter.LastUpdate_V, myUtil.getCurrentTime());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step2Skip_V)){
+				boolean result = MC.getDBStep2().isSkiped();
+				String newLine = "";
+				if(result == true){
+					newLine = line.replace(DBParameter.Step2Skip_V, "true");
+				}else{
+					newLine = line.replace(DBParameter.Step2Skip_V, "false");
+				}
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step2Completed_V)){
+				boolean result = MC.isCompletedStep2();
+				String newLine = "";
+				if(result == true){
+					newLine = line.replace(DBParameter.Step2Completed_V, "true");
+				}else{
+					newLine = line.replace(DBParameter.Step2Completed_V, "false");
+				}
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.partDataPath_V)){
+				String newLine = line.replace(DBParameter.partDataPath_V, MC.getDBStep2().getPartDataPath());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.allPartList_V)){
+				String allPartNameList = "";
+				for(Part obj : MC.getDBStep2().getPartList()){
+					allPartNameList += obj.getPartName()+",";
+				}
+				String newLine = line.replace(DBParameter.allPartList_V, allPartNameList);
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.selectedPartList_V)){
+				String selectedPartNameList = "";
+				for(Part obj : MC.getDBStep2().getSelectedPartList()){
+					selectedPartNameList += obj.getPartName()+",";
+				}
+				String newLine = line.replace(DBParameter.selectedPartList_V, selectedPartNameList);
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.selectedParInfo_V)){
+				String AllData = "";
+				for(Part obj : MC.getDBStep2().getSelectedPartList()){
+					
+					AllData += obj.getStringPartDB();
+				}
+				String newLine = line.replace(DBParameter.selectedParInfo_V,AllData);
+				this.outputDBFileDataList.add(newLine);
+			}
+			
+			
+			else{
+				this.outputDBFileDataList.add(line);
+			}
+		}
+		this.flushDBFile(this.outputDBFileDataList);
+	}
+
+	public void writeDBFile_Step3_Skip(){
+		ArrayList<String> copyDBFileDataList = new ArrayList<String>();
+		//reset format
+		for(String line : this.outputDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_T)){
+				String newLine = DBParameter.LastUpdate_T +"="+DBParameter.LastUpdate_V;
+				copyDBFileDataList.add(newLine);
+			}else if (line.contains(DBParameter.Step3Skip_T)){
+				String newLine = DBParameter.Step3Skip_T+"="+DBParameter.Step3Skip_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step3Completed_T)){
+				String newLine = DBParameter.Step3Completed_T+"="+DBParameter.Step3Completed_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.SwappingPartInfo_T)){
+				String newLine = DBParameter.SwappingPartInfo_T+"="+DBParameter.SwappingPartInfo_V;
+				copyDBFileDataList.add(newLine);
+			}else {
+				copyDBFileDataList.add(line);
+			}
+		}
+			
+		this.outputDBFileDataList.clear();
+			
+		// write
+		for(String line : copyDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_V)){
+				String newLine = line.replace(DBParameter.LastUpdate_V, myUtil.getCurrentTime());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step3Skip_V)){
+				boolean result = MC.getDBStep3().isSkiped();
+				String newLine = "";
+				if(result == true){
+					newLine = line.replace(DBParameter.Step3Skip_V, "true");
+				}else{
+					newLine = line.replace(DBParameter.Step3Skip_V, "false");
+				}
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step3Completed_V)){
+				boolean result = MC.isCompletedStep3();
+				String newLine = "";
+				if(result == true){
+					newLine = line.replace(DBParameter.Step3Completed_V, "true");
+				}else{
+					newLine = line.replace(DBParameter.Step3Completed_V, "false");
+				}
+				this.outputDBFileDataList.add(newLine);
+			}			
+			else{
+				this.outputDBFileDataList.add(line);
+			}
+		}
+		this.flushDBFile(this.outputDBFileDataList);
+	}
+	
+	private void writeDBfile_Step3(){
+		ArrayList<String> copyDBFileDataList = new ArrayList<String>();
+		//reset format
+		for(String line : this.outputDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_T)){
+				String newLine = DBParameter.LastUpdate_T +"="+DBParameter.LastUpdate_V;
+				copyDBFileDataList.add(newLine);
+			}else if (line.contains(DBParameter.Step3Skip_T)){
+				String newLine = DBParameter.Step3Skip_T+"="+DBParameter.Step3Skip_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step3Completed_T)){
+				String newLine = DBParameter.Step3Completed_T+"="+DBParameter.Step3Completed_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.SwappingPartInfo_T)){
+				String newLine = DBParameter.SwappingPartInfo_T+"="+DBParameter.SwappingPartInfo_V;
+				copyDBFileDataList.add(newLine);
+			}else {
+				copyDBFileDataList.add(line);
+			}
+		}
+			
+		this.outputDBFileDataList.clear();
+			
+		// write
+		for(String line : copyDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_V)){
+				String newLine = line.replace(DBParameter.LastUpdate_V, myUtil.getCurrentTime());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step3Skip_V)){
+				boolean result = MC.getDBStep3().isSkiped();
+				String newLine = "";
+				if(result == true){
+					newLine = line.replace(DBParameter.Step3Skip_V, "true");
+				}else{
+					newLine = line.replace(DBParameter.Step3Skip_V, "false");
+				}
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step3Completed_V)){
+				boolean result = MC.isCompletedStep3();
+				String newLine = "";
+				if(result == true){
+					newLine = line.replace(DBParameter.Step3Completed_V, "true");
+				}else{
+					newLine = line.replace(DBParameter.Step3Completed_V, "false");
+				}
+				this.outputDBFileDataList.add(newLine);
+			}
+			
+			else if(line.contains(DBParameter.SwappingPartInfo_V)){
+				String AllData = "";
+				for(SwappingPart obj : MC.getDBStep3().getSwappingPartList()){
+					AllData += obj.getStringSwappingPartDB();
+				}
+				String newLine = line.replace(DBParameter.SwappingPartInfo_V,AllData);
+				this.outputDBFileDataList.add(newLine);
+			}
+			else{
+				this.outputDBFileDataList.add(line);
+			}
+		}
+		this.flushDBFile(this.outputDBFileDataList);
+	}
+
+	private void writeDBfile_Step4(){
+		ArrayList<String> copyDBFileDataList = new ArrayList<String>();
+		//reset format
+		for(String line : this.outputDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_T)){
+				String newLine = DBParameter.LastUpdate_T +"="+DBParameter.LastUpdate_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step4Completed_T)){
+				String newLine = DBParameter.Step4Completed_T+"="+DBParameter.Step4Completed_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.AdamsSolving_T)){
+				String newLine = DBParameter.AdamsSolving_T+"="+DBParameter.AdamsSolving_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.ExportModel_T)){
+				String newLine = DBParameter.ExportModel_T+"="+DBParameter.ExportModel_V;
+				copyDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.ExportDAC_T)){
+				String newLine = DBParameter.ExportDAC_T+"="+DBParameter.ExportDAC_V;
+				copyDBFileDataList.add(newLine);
+			}else {
+				copyDBFileDataList.add(line);
+			}
+		}
+			
+		this.outputDBFileDataList.clear();
+			
+		// write
+		for(String line : copyDBFileDataList){
+			if(line.contains(DBParameter.LastUpdate_V)){
+				String newLine = line.replace(DBParameter.LastUpdate_V, myUtil.getCurrentTime());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.Step4Completed_V)){
+				boolean result = MC.isCompletedStep3();
+				String newLine = "";
+				if(result == true){
+					newLine = line.replace(DBParameter.Step4Completed_V, "true");
+				}else{
+					newLine = line.replace(DBParameter.Step4Completed_V, "false");
+				}
+				this.outputDBFileDataList.add(newLine);
+			}
+			
+			else if(line.contains(DBParameter.AdamsSolving_V)){
+				String newLine = line.replace(DBParameter.AdamsSolving_V, MC.getDBStep4().getAdamsSolving());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.ExportModel_V)){
+				String newLine = line.replace(DBParameter.ExportModel_V, MC.getDBStep4().getExportModel());
+				this.outputDBFileDataList.add(newLine);
+			}else if(line.contains(DBParameter.ExportDAC_V)){
+				String newLine = line.replace(DBParameter.ExportDAC_V, MC.getDBStep4().getExportDAC());
+				this.outputDBFileDataList.add(newLine);
+			}
+			else{
+				this.outputDBFileDataList.add(line);
+			}
+		}
+		this.flushDBFile(this.outputDBFileDataList);
+	}
+	
+	private void writeDBfile_Step5(){
+		
+	}
+	// */
+	private void flushDBFile(ArrayList<String> fileDataList){
+		/*
+		Writer obj = new Writer(this.msckDBFilePath);
+		obj.running(fileDataList);
+		// */
+	}
+}
