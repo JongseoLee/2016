@@ -185,15 +185,28 @@ public class UILabel {
 	// 1) 
 	public static String Youngs_Modulus="Young's Modulus(MPa)";
 	// 2)
+	public static String Flow_Stress="Flow Stress (MPa)";
+	public static String Yield_Strength="Yield Strength (N/mm^2)";
+	public static String Tensile_Strength="Tensile Strength (N/mm^2)";
+	public static String Elongation="Elongation (mm/mm)";
+	// 3)
 	public static String Thermal_Expansion_Coefficient="Thermal Expansion Coefficient(mm/mm)";
 	// 3)
 	public static String Poissons_Ratio="Poisson's Ratio";
 	// 4)
 	public static String Mass_Density="Mass Density(Mg/mm^3)";
+	// 5) etc
 	public static String YM_Constant="YM_Constant";
 	public static String YM_Table="YM_Table";
 	public static String YM_Value="YM_Value";
+	public static String FS_Constant="FS_Constant";
+	public static String FS_Table="FS_Table";
+	public static String FS_Value="FS_Value";
+	public static String YS_Value="YS_Value";
+	public static String TS_Value="TS_Value";
+	public static String E_Value ="E_Value";
 	public static String TEC_Constant="TEC_Constant";
+	
 	public static String TEC_Table="TEC_Table";
 	public static String TEC_Value="TEC_Value";
 	public static String PR_Constant="PR_Constant";

@@ -122,7 +122,24 @@ public class CustomText implements ICommand {
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
 			value = med.getTextYoungsModulus().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textYoungsModulus);
-		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+		}else if(widgetName.equals(Mediator.TEXT_textFlowStress)){
+			value = med.getTextFlowStress().getText().trim();
+			MC.ChangedTextWidget(value, Mediator.TEXT_textFlowStress);
+		}else if(widgetName.equals(Mediator.TEXT_textYieldStrength)){
+			value = med.getTextYieldStrength().getText().trim();
+			//System.out.println(value);
+			MC.ChangedTextWidget(value, Mediator.TEXT_textYieldStrength);
+		}else if(widgetName.equals(Mediator.TEXT_textTensileStrength)){
+			value = med.getTextTensileStrength().getText().trim();
+			MC.ChangedTextWidget(value, Mediator.TEXT_textTensileStrength);
+		}else if(widgetName.equals(Mediator.Text_textElongation)){
+			value = med.getTextElongation().getText().trim();
+			MC.ChangedTextWidget(value, Mediator.Text_textElongation);
+		}
+		
+		
+		
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
 			value = med.getTextThermalExpansionCoefficient().getText().trim();
 			MC.ChangedTextWidget(value,Mediator.TEXT_textThermalExpansionCoefficient);
 		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
@@ -247,6 +264,19 @@ public class CustomText implements ICommand {
 	public void setCustomWidget_textYoungsModulus(){
 		this.text = med.getTextYoungsModulus();
 	}
+	public void setCustomWidget_textFlowStress(){
+		this.text = med.getTextFlowStress();
+	}
+	public void setCustomWidget_textYieldStrength(){
+		this.text = med.getTextYieldStrength();
+	}
+	public void setCustomWidget_textTensileStrength(){
+		this.text = med.getTextTensileStrength();
+	}
+	public void setCustomWidget_textElongation(){
+		this.text = med.getTextElongation();
+	}
+	
 	public void setCustomWidget_textThermalExpansionCoefficient(){
 		this.text = med.getTextThermalExpansionCoefficient();
 	}

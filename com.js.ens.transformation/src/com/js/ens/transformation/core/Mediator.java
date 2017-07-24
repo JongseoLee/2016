@@ -245,6 +245,34 @@ public class Mediator {
 	public ICommand C_btnExplorerYoungsModulus;
 	public static String BUTTON_btnExplorerYoungsModulus = "btnExplorerYoungsModulus";
 	
+	private Button btnConstant4_FS;
+	public ICommand C_btnConstant4_FS;
+	public static String BUTTON_btnConstant4_FS = "btnConstant4_FS";
+	
+	private Button btnTable4_FS;
+	public ICommand C_btnTable4_FS;
+	public static String BUTTON_btnTable4_FS = "btnTable4_FS";
+		
+	private Text textFlowStress;
+	public ICommand C_textFlowStress;
+	public static String TEXT_textFlowStress = "textFlowStress";
+	
+	private Button btnExplorerFlowStress;
+	public ICommand C_btnExplorerFlowStress;
+	public static String BUTTON_btnExplorerFlowStress = "btnExplorerFlowStress";
+	
+	private Text textYieldStrength;
+	public ICommand C_textYieldStrength;
+	public static String TEXT_textYieldStrength = "textYieldStrength";
+	
+	private Text textTensileStrength;
+	public ICommand C_textTensileStrength;
+	public static String TEXT_textTensileStrength = "textTensileStrength";
+	
+	private Text textElongation;
+	public ICommand C_textElongation;
+	public static String Text_textElongation = "textElongation";
+	
 	private Button btnConstant2_TEC;
 	public ICommand C_btnConstant2_TEC;
 	public static String BUTTON_btnConstant2_TEC = "btnConstant2_TEC";
@@ -1350,6 +1378,90 @@ public class Mediator {
 	}
 	public void setC_textBottomBURRotVel(ICommand c_textBottomBURRotVel) {
 		C_textBottomBURRotVel = c_textBottomBURRotVel;
+	}
+	public Button getBtnConstant4_FS() {
+		return btnConstant4_FS;
+	}
+	public void setBtnConstant4_FS(Button btnConstant4_FS) {
+		this.btnConstant4_FS = btnConstant4_FS;
+	}
+	public ICommand getC_btnConstant4_FS() {
+		return C_btnConstant4_FS;
+	}
+	public void setC_btnConstant4_FS(ICommand c_btnConstant4_FS) {
+		C_btnConstant4_FS = c_btnConstant4_FS;
+	}
+	public Button getBtnTable4_FS() {
+		return btnTable4_FS;
+	}
+	public void setBtnTable4_FS(Button btnTable4_FS) {
+		this.btnTable4_FS = btnTable4_FS;
+	}
+	public ICommand getC_btnTable4_FS() {
+		return C_btnTable4_FS;
+	}
+	public void setC_btnTable4_FS(ICommand c_btnTable4_FS) {
+		C_btnTable4_FS = c_btnTable4_FS;
+	}
+	public Text getTextFlowStress() {
+		return textFlowStress;
+	}
+	public void setTextFlowStress(Text textFlowStress) {
+		this.textFlowStress = textFlowStress;
+	}
+	public ICommand getC_textFlowStress() {
+		return C_textFlowStress;
+	}
+	public void setC_textFlowStress(ICommand c_textFlowStress) {
+		C_textFlowStress = c_textFlowStress;
+	}
+	public Button getBtnExplorerFlowStress() {
+		return btnExplorerFlowStress;
+	}
+	public void setBtnExplorerFlowStress(Button btnExplorerFlowStress) {
+		this.btnExplorerFlowStress = btnExplorerFlowStress;
+	}
+	public ICommand getC_btnExplorerFlowStress() {
+		return C_btnExplorerFlowStress;
+	}
+	public void setC_btnExplorerFlowStress(ICommand c_btnExplorerFlowStress) {
+		C_btnExplorerFlowStress = c_btnExplorerFlowStress;
+	}
+	public Text getTextYieldStrength() {
+		return textYieldStrength;
+	}
+	public void setTextYieldStrength(Text textYieldStrength) {
+		this.textYieldStrength = textYieldStrength;
+	}
+	public ICommand getC_textYieldStrength() {
+		return C_textYieldStrength;
+	}
+	public void setC_textYieldStrength(ICommand c_textYieldStrength) {
+		C_textYieldStrength = c_textYieldStrength;
+	}
+	public Text getTextTensileStrength() {
+		return textTensileStrength;
+	}
+	public void setTextTensileStrength(Text textTensileStrength) {
+		this.textTensileStrength = textTensileStrength;
+	}
+	public ICommand getC_textTensileStrength() {
+		return C_textTensileStrength;
+	}
+	public void setC_textTensileStrength(ICommand c_textTensileStrength) {
+		C_textTensileStrength = c_textTensileStrength;
+	}
+	public Text getTextElongation() {
+		return textElongation;
+	}
+	public void setTextElongation(Text textElongation) {
+		this.textElongation = textElongation;
+	}
+	public ICommand getC_textElongation() {
+		return C_textElongation;
+	}
+	public void setC_textElongation(ICommand c_textElongation) {
+		C_textElongation = c_textElongation;
 	}
 	
 }

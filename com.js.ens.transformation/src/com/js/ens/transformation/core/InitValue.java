@@ -11,11 +11,19 @@ import com.js.util.myUtil;
 public class InitValue {
 	private Map<String,String> initValueMap;
 	private String initValuePath;
+	private String YM_tableValuePath;
+	private String FS_tableValuePath;
+	private String TEC_tableValuePath;
+	private String PR_tableValuePath;
 	
 	public InitValue(){
-		initValueMap = new HashMap<String,String>();
+		this.initValueMap = new HashMap<String,String>();
 		//initValuePath = myUtil.setPath(System.getProperty("user.dir"), "InitValue.txt");
-		initValuePath = myUtil.setPath(myUtil.setPath(System.getProperty("user.dir"), "userConfig"),"InitValue.txt");
+		this.initValuePath = myUtil.setPath(myUtil.setPath(System.getProperty("user.dir"), "userConfig"),"InitValue.txt");
+		this.YM_tableValuePath = myUtil.setPath(myUtil.setPath(System.getProperty("user.dir"), "materialData"), "elastic_modulus.txt");
+		this.FS_tableValuePath = myUtil.setPath(myUtil.setPath(System.getProperty("user.dir"), "materialData"), "flow_stress.txt");
+		this.TEC_tableValuePath = myUtil.setPath(myUtil.setPath(System.getProperty("user.dir"), "materialData"), "expansion.txt");
+		this.PR_tableValuePath = myUtil.setPath(myUtil.setPath(System.getProperty("user.dir"), "materialData"), "poisson.txt");
 	}
 	
 	public void readInitValueFile(){
@@ -116,6 +124,13 @@ public class InitValue {
 	public static String YM_Constant_F1 = "YM_Constant_F1";
 	public static String YM_Table_F1 = "YM_Table_F1";
 	public static String YM_Value_F1 = "YM_Value_F1";
+	public static String FS_Constant_F1 = "FS_Constant_F1";
+	public static String FS_Table_F1 = "FS_Table_F1";
+	public static String FS_Value_F1 = "FS_Value_F1";
+	public static String YS_Value_F1 = "YS_Value_F1";
+	public static String TS_Value_F1 = "TS_Value_F1";
+	public static String E_Value_F1 = "E_Value_F1";
+	
 	public static String TEC_Constant_F1 = "TEC_Constant_F1";
 	public static String TEC_Table_F1 = "TEC_Table_F1";
 	public static String TEC_Value_F1 = "TEC_Value_F1";
@@ -162,6 +177,13 @@ public class InitValue {
 	public static String YM_Constant_F2 = "YM_Constant_F2";
 	public static String YM_Table_F2 = "YM_Table_F2";
 	public static String YM_Value_F2 = "YM_Value_F2";
+	public static String FS_Constant_F2 = "FS_Constant_F2";
+	public static String FS_Table_F2 = "FS_Table_F2";
+	public static String FS_Value_F2 = "FS_Value_F2";
+	public static String YS_Value_F2 = "YS_Value_F2";
+	public static String TS_Value_F2 = "TS_Value_F2";
+	public static String E_Value_F2 = "E_Value_F2";
+	
 	public static String TEC_Constant_F2 = "TEC_Constant_F2";
 	public static String TEC_Table_F2 = "TEC_Table_F2";
 	public static String TEC_Value_F2 = "TEC_Value_F2";
@@ -209,6 +231,13 @@ public class InitValue {
 	public static String YM_Constant_F3 = "YM_Constant_F3";
 	public static String YM_Table_F3 = "YM_Table_F3";
 	public static String YM_Value_F3 = "YM_Value_F3";
+	public static String FS_Constant_F3 = "FS_Constant_F3";
+	public static String FS_Table_F3 = "FS_Table_F3";
+	public static String FS_Value_F3 = "FS_Value_F3";
+	public static String YS_Value_F3 = "YS_Value_F3";
+	public static String TS_Value_F3 = "TS_Value_F3";
+	public static String E_Value_F3 = "E_Value_F3";
+	
 	public static String TEC_Constant_F3 = "TEC_Constant_F3";
 	public static String TEC_Table_F3 = "TEC_Table_F3";
 	public static String TEC_Value_F3 = "TEC_Value_F3";
@@ -255,6 +284,13 @@ public class InitValue {
 	public static String YM_Constant_F4 = "YM_Constant_F4";
 	public static String YM_Table_F4 = "YM_Table_F4";
 	public static String YM_Value_F4 = "YM_Value_F4";
+	public static String FS_Constant_F4 = "FS_Constant_F4";
+	public static String FS_Table_F4 = "FS_Table_F4";
+	public static String FS_Value_F4 = "FS_Value_F4";
+	public static String YS_Value_F4 = "YS_Value_F4";
+	public static String TS_Value_F4 = "TS_Value_F4";
+	public static String E_Value_F4 = "E_Value_F4";
+	
 	public static String TEC_Constant_F4 = "TEC_Constant_F4";
 	public static String TEC_Table_F4 = "TEC_Table_F4";
 	public static String TEC_Value_F4 = "TEC_Value_F4";
@@ -301,6 +337,13 @@ public class InitValue {
 	public static String YM_Constant_F5 = "YM_Constant_F5";
 	public static String YM_Table_F5 = "YM_Table_F5";
 	public static String YM_Value_F5 = "YM_Value_F5";
+	public static String FS_Constant_F5 = "FS_Constant_F5";
+	public static String FS_Table_F5 = "FS_Table_F5";
+	public static String FS_Value_F5 = "FS_Value_F5";
+	public static String YS_Value_F5 = "YS_Value_F5";
+	public static String TS_Value_F5 = "TS_Value_F5";
+	public static String E_Value_F5 = "E_Value_F5";
+	
 	public static String TEC_Constant_F5 = "TEC_Constant_F5";
 	public static String TEC_Table_F5 = "TEC_Table_F5";
 	public static String TEC_Value_F5 = "TEC_Value_F5";
@@ -348,6 +391,13 @@ public class InitValue {
 	public static String YM_Constant_F6 = "YM_Constant_F6";
 	public static String YM_Table_F6 = "YM_Table_F6";
 	public static String YM_Value_F6 = "YM_Value_F6";
+	public static String FS_Constant_F6 = "FS_Constant_F6";
+	public static String FS_Table_F6 = "FS_Table_F6";
+	public static String FS_Value_F6 = "FS_Value_F6";
+	public static String YS_Value_F6 = "YS_Value_F6";
+	public static String TS_Value_F6 = "TS_Value_F6";
+	public static String E_Value_F6 = "E_Value_F6";
+	
 	public static String TEC_Constant_F6 = "TEC_Constant_F6";
 	public static String TEC_Table_F6 = "TEC_Table_F6";
 	public static String TEC_Value_F6 = "TEC_Value_F6";
@@ -394,6 +444,13 @@ public class InitValue {
 	public static String YM_Constant_F7 = "YM_Constant_F7";
 	public static String YM_Table_F7 = "YM_Table_F7";
 	public static String YM_Value_F7 = "YM_Value_F7";
+	public static String FS_Constant_F7 = "FS_Constant_F7";
+	public static String FS_Table_F7 = "FS_Table_F7";
+	public static String FS_Value_F7 = "FS_Value_F7";
+	public static String YS_Value_F7 = "YS_Value_F7";
+	public static String TS_Value_F7 = "TS_Value_F7";
+	public static String E_Value_F7 = "E_Value_F7";
+	
 	public static String TEC_Constant_F7 = "TEC_Constant_F7";
 	public static String TEC_Table_F7 = "TEC_Table_F7";
 	public static String TEC_Value_F7 = "TEC_Value_F7";
@@ -610,5 +667,37 @@ public class InitValue {
 	public static String BUR_WEAR_F7 = "BUR WEAR_F7";
 	public static String WR_WEAR_F7 = "WR WEAR_F7";
 	public static String WR_THRM_F7 = "WR THRM_F7";
+
+	public String getYM_tableValuePath() {
+		return YM_tableValuePath;
+	}
+
+	public void setYM_tableValuePath(String yM_tableValuePath) {
+		YM_tableValuePath = yM_tableValuePath;
+	}
+
+	public String getFS_tableValuePath() {
+		return FS_tableValuePath;
+	}
+
+	public void setFS_tableValuePath(String fS_tableValuePath) {
+		FS_tableValuePath = fS_tableValuePath;
+	}
+
+	public String getTEC_tableValuePath() {
+		return TEC_tableValuePath;
+	}
+
+	public void setTEC_tableValuePath(String tEC_tableValuePath) {
+		TEC_tableValuePath = tEC_tableValuePath;
+	}
+
+	public String getPR_tableValuePath() {
+		return PR_tableValuePath;
+	}
+
+	public void setPR_tableValuePath(String pR_tableValuePath) {
+		PR_tableValuePath = pR_tableValuePath;
+	}
 	
 }

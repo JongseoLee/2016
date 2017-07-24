@@ -282,6 +282,7 @@ public class GenProc_01 {
 				procDataList.add(newLien);	
 			}
 			
+			/*
 			else if(line.contains(ProcMaker.YM_VALUE)){
 				String newLien = line.replace(ProcMaker.YM_VALUE, plogObj.get(StandType).getYM_Value());
 				procDataList.add(newLien);	
@@ -295,6 +296,7 @@ public class GenProc_01 {
 				String newLien = line.replace(ProcMaker.MD_VALUE, plogObj.get(StandType).getMD_Value());
 				procDataList.add(newLien);	
 			}
+			// */
 			
 			else if(line.contains(ProcMaker.lcase_time)){
 				String newLien = line.replace(ProcMaker.lcase_time, plogObj.get(StandType).getLcase_time());

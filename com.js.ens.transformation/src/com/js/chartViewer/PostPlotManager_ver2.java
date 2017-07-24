@@ -218,7 +218,7 @@ public class PostPlotManager_ver2 {
 			for(String line : fileDataList){
 				splitDataTokens = ParserDefault.splitLineData(line, ",");
 				if(splitDataTokens.size() == 2){
-					if(splitDataTokens.get(0).toLowerCase().contains("plate profile")){
+					if(splitDataTokens.get(0).toLowerCase().contains("plate") && splitDataTokens.get(0).toLowerCase().contains("profile")){
 						legendTitle = splitDataTokens.get(1);
 					}
 				}

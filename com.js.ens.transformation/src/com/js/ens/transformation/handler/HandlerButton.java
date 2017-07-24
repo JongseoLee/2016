@@ -37,7 +37,15 @@ public class HandlerButton implements Listener {
 			med.getC_btnTable1_YM().execute();
 		}else if(event.widget == med.getBtnExplorerYoungsModulus()){
 			med.getC_btnExplorerYoungsModulus().execute();
-		}else if(event.widget == med.getBtnConstant2_TEC()){
+		}else if(event.widget == med.getBtnConstant4_FS()){
+			med.getC_btnConstant4_FS().execute();
+		}else if(event.widget == med.getBtnTable4_FS()){
+			med.getC_btnTable4_FS().execute();
+		}else if(event.widget == med.getBtnExplorerFlowStress()){
+			med.getC_btnExplorerFlowStress().execute();
+		}
+		
+		else if(event.widget == med.getBtnConstant2_TEC()){
 			med.getC_btnConstant2_TEC().execute();
 		}else if(event.widget == med.getBtnTable2_TEC()){
 			med.getC_btnTable2_TEC().execute();

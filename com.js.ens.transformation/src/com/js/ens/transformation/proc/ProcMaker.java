@@ -62,10 +62,13 @@ public class ProcMaker {
 	public static String WR_WEAR = "%WR WEAR%";
 	public static String WR_THRM = "%WR THRM%";
 
+	/*
 	public static String YM_VALUE = "%YM VALUE%";
 	public static String TEH_VALUE ="%TEH VALUE%";
 	public static String PR_VALUE = "%PR VALUE%";
 	public static String MD_VALUE = "%MD VALUE%";
+	// */
+	
 
 	public static String lcase_time = "%lcase_time%";
 	public static String lcase_dt = "%lcase_dt%";
@@ -123,49 +126,56 @@ public class ProcMaker {
 		CopyProc cpObj = new CopyProc();
 		GenProc_00 genProc00Obj = new GenProc_00(this.StandType);
 		GenProc_01 genProc01Obj = new GenProc_01();
-			
+		GenProcMat genProcMatObj = new GenProcMat();
 		
 		if(this.StandType.equals(UILabel.F1)){
 			myUtil.makeDir(myUtil.setPath(this.destPath, UILabel.F1));
 			myUtil.makeDir(myUtil.setPath(myUtil.setPath(this.destPath, UILabel.F1),"rolls"));
 			genProc00Obj.genProc00F1(this.destPath);
 			genProc01Obj.genProc01F1(this.destPath);
+			genProcMatObj.genProcMatF1(this.destPath);
 			cpObj.copyF1(this.destPath);
 		}else if(this.StandType.equals(UILabel.F2)){
 			myUtil.makeDir(myUtil.setPath(this.destPath, UILabel.F2));
 			myUtil.makeDir(myUtil.setPath(myUtil.setPath(this.destPath, UILabel.F2),"rolls"));
 			genProc00Obj.genProc00F2(this.destPath);
 			genProc01Obj.genProc01F2(this.destPath);
+			genProcMatObj.genProcMatF2(this.destPath);
 			cpObj.copyF2(this.destPath);
 		}else if(this.StandType.equals(UILabel.F3)){
 			myUtil.makeDir(myUtil.setPath(this.destPath, UILabel.F3));
 			myUtil.makeDir(myUtil.setPath(myUtil.setPath(this.destPath, UILabel.F3),"rolls"));
 			genProc00Obj.genProc00F3(this.destPath);
 			genProc01Obj.genProc01F3(this.destPath);
+			genProcMatObj.genProcMatF3(this.destPath);
 			cpObj.copyF3(this.destPath);
 		}else if(this.StandType.equals(UILabel.F4)){
 			myUtil.makeDir(myUtil.setPath(this.destPath, UILabel.F4));
 			myUtil.makeDir(myUtil.setPath(myUtil.setPath(this.destPath, UILabel.F4),"rolls"));
 			genProc00Obj.genProc00F4(this.destPath);
 			genProc01Obj.genProc01F4(this.destPath);
+			genProcMatObj.genProcMatF4(this.destPath);
 			cpObj.copyF4(this.destPath);
 		}else if(this.StandType.equals(UILabel.F5)){
 			myUtil.makeDir(myUtil.setPath(this.destPath, UILabel.F5));
 			myUtil.makeDir(myUtil.setPath(myUtil.setPath(this.destPath, UILabel.F5),"rolls"));
 			genProc00Obj.genProc00F5(this.destPath);
 			genProc01Obj.genProc01F5(this.destPath);
+			genProcMatObj.genProcMatF5(this.destPath);
 			cpObj.copyF5(this.destPath);
 		}else if(this.StandType.equals(UILabel.F6)){
 			myUtil.makeDir(myUtil.setPath(this.destPath, UILabel.F6));
 			myUtil.makeDir(myUtil.setPath(myUtil.setPath(this.destPath, UILabel.F6),"rolls"));
 			genProc00Obj.genProc00F6(this.destPath);
 			genProc01Obj.genProc01F6(this.destPath);
+			genProcMatObj.genProcMatF6(this.destPath);
 			cpObj.copyF6(this.destPath);
 		}else if(this.StandType.equals(UILabel.F7)){
 			myUtil.makeDir(myUtil.setPath(this.destPath, UILabel.F7));
 			myUtil.makeDir(myUtil.setPath(myUtil.setPath(this.destPath, UILabel.F7),"rolls"));
 			genProc00Obj.genProc00F7(this.destPath);
 			genProc01Obj.genProc01F7(this.destPath);
+			genProcMatObj.genProcMatF7(this.destPath);
 			cpObj.copyF7(this.destPath);
 		}
 		

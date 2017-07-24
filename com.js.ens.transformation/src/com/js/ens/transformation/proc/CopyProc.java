@@ -122,7 +122,7 @@ public class CopyProc {
 			modulePath = userModuleFolder_ind;
 		}
 		
-		for(int i=2;i<fileList.size();i++){
+		for(int i=12;i<fileList.size();i++){
 			//log.info("* START - Write file");
 			String procPath = myUtil.setPath(myUtil.setPath(modulePath, StandType), fileList.get(i));
 			String destProcPath = myUtil.setPath(myUtil.setPath(destFolder,StandType), fileList.get(i));

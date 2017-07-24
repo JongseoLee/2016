@@ -79,7 +79,18 @@ public class HandlerText implements Listener {
 			med.getC_textBottomBURRotVel().execute();
 		}else if(event.widget == med.getTextYoungsModulus()){
 			med.getC_textYoungsModulus().execute();
-		}else if(event.widget == med.getTextThermalExpansionCoefficient()){
+		}else if(event.widget == med.getTextFlowStress()){
+			med.getC_textFlowStress().execute();
+		}else if(event.widget == med.getTextYieldStrength()){
+			med.getC_textYieldStrength().execute();
+		}else if(event.widget == med.getTextTensileStrength()){
+			med.getC_textTensileStrength().execute();
+		}else if(event.widget == med.getTextElongation()){
+			med.getC_textElongation().execute();
+		}
+		
+		
+		else if(event.widget == med.getTextThermalExpansionCoefficient()){
 			med.getC_textThermalExpansionCoefficient().execute();
 		}else if(event.widget == med.getTextPoissonsRatio()){
 			med.getC_textPoissonsRatio().execute();

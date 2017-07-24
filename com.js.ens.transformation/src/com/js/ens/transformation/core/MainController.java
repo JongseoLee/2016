@@ -155,11 +155,13 @@ public class MainController {
 		TableColumnLabel tclObj = new TableColumnLabel();
 		tclObj.readTableColumnLabelFile();
 		
+		
 		initTableData_SlabPlateInfo(initDataList,tclObj);
 		initTableData_Variable(initDataList,tclObj);
 		initTableData_PLog(initDataList,tclObj);
 		
 		this.updateTableData();
+		
 	}
 
 	private void initTableData_SlabPlateInfo(ArrayList<String> fileDataList,TableColumnLabel tclObj){
@@ -214,6 +216,7 @@ public class MainController {
 	}
 	
 	private void initTableData_PLog(ArrayList<String> fileDataList,TableColumnLabel tclObj){
+		
 		// line 7~31 => column 6, data line 7~30
 		int lineNumber = 0;
 		ArrayList<String> dataList = new ArrayList<String>();
@@ -229,15 +232,16 @@ public class MainController {
 			lineNumber++;
 		}
 		
+		
 		// dataList에 PLog의 Line 데이터 저장
 		for(int i = lineNumber+1 ; i<lineNumber+25;i++){
 			dataList.add(fileDataList.get(i));
 		}
 		this.createPLogObj(dataList);
-
 		
 		// UI에 표시한 데이터 형식으로 재 가공
 		this.createTableRowData();
+		
 	}
 	
 	//F1~F7 Obj 만들기
@@ -679,7 +683,60 @@ public class MainController {
 				this.tableDataPLogList.get(4).setMD_Value(tempList.get(5));
 				this.tableDataPLogList.get(5).setMD_Value(tempList.get(6));
 				this.tableDataPLogList.get(6).setMD_Value(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.FS_Constant)){
+				this.tableDataPLogList.get(0).setFS_Constant(tempList.get(1));
+				this.tableDataPLogList.get(1).setFS_Constant(tempList.get(2));
+				this.tableDataPLogList.get(2).setFS_Constant(tempList.get(3));
+				this.tableDataPLogList.get(3).setFS_Constant(tempList.get(4));
+				this.tableDataPLogList.get(4).setFS_Constant(tempList.get(5));
+				this.tableDataPLogList.get(5).setFS_Constant(tempList.get(6));
+				this.tableDataPLogList.get(6).setFS_Constant(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.FS_Table)){
+				this.tableDataPLogList.get(0).setFS_Table(tempList.get(1));
+				this.tableDataPLogList.get(1).setFS_Table(tempList.get(2));
+				this.tableDataPLogList.get(2).setFS_Table(tempList.get(3));
+				this.tableDataPLogList.get(3).setFS_Table(tempList.get(4));
+				this.tableDataPLogList.get(4).setFS_Table(tempList.get(5));
+				this.tableDataPLogList.get(5).setFS_Table(tempList.get(6));
+				this.tableDataPLogList.get(6).setFS_Table(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.FS_Value)){
+				this.tableDataPLogList.get(0).setFS_Value(tempList.get(1));
+				this.tableDataPLogList.get(1).setFS_Value(tempList.get(2));
+				this.tableDataPLogList.get(2).setFS_Value(tempList.get(3));
+				this.tableDataPLogList.get(3).setFS_Value(tempList.get(4));
+				this.tableDataPLogList.get(4).setFS_Value(tempList.get(5));
+				this.tableDataPLogList.get(5).setFS_Value(tempList.get(6));
+				this.tableDataPLogList.get(6).setFS_Value(tempList.get(7));
 			}
+			if(tempList.get(0).equals(UILabel.YS_Value)){
+				this.tableDataPLogList.get(0).setYS_Value(tempList.get(1));
+				this.tableDataPLogList.get(1).setYS_Value(tempList.get(2));
+				this.tableDataPLogList.get(2).setYS_Value(tempList.get(3));
+				this.tableDataPLogList.get(3).setYS_Value(tempList.get(4));
+				this.tableDataPLogList.get(4).setYS_Value(tempList.get(5));
+				this.tableDataPLogList.get(5).setYS_Value(tempList.get(6));
+				this.tableDataPLogList.get(6).setYS_Value(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.TS_Value)){
+				this.tableDataPLogList.get(0).setTS_Value(tempList.get(1));
+				this.tableDataPLogList.get(1).setTS_Value(tempList.get(2));
+				this.tableDataPLogList.get(2).setTS_Value(tempList.get(3));
+				this.tableDataPLogList.get(3).setTS_Value(tempList.get(4));
+				this.tableDataPLogList.get(4).setTS_Value(tempList.get(5));
+				this.tableDataPLogList.get(5).setTS_Value(tempList.get(6));
+				this.tableDataPLogList.get(6).setTS_Value(tempList.get(7));
+			}if(tempList.get(0).equals(UILabel.E_Value)){
+				this.tableDataPLogList.get(0).setE_Value(tempList.get(1));
+				this.tableDataPLogList.get(1).setE_Value(tempList.get(2));
+				this.tableDataPLogList.get(2).setE_Value(tempList.get(3));
+				this.tableDataPLogList.get(3).setE_Value(tempList.get(4));
+				this.tableDataPLogList.get(4).setE_Value(tempList.get(5));
+				this.tableDataPLogList.get(5).setE_Value(tempList.get(6));
+				this.tableDataPLogList.get(6).setE_Value(tempList.get(7));
+			}
+			
+			
+			
+			
 			if(tempList.get(0).equals(UILabel.lcase_time)){
 				this.tableDataPLogList.get(0).setLcase_time(tempList.get(1));
 				this.tableDataPLogList.get(1).setLcase_time(tempList.get(2));
@@ -1238,7 +1295,7 @@ public class MainController {
 						if(myUtil.checkPath(filePath)){
 							this.exportResult += "SUCCESS - "+filePath+"\n";
 						}else{
-							this.exportResult += "FAIL - "+filePath+"\n";
+							this.exportResult += "SKIP - "+filePath+"\n";
 						}
 					}
 				}else if(i == 1){
@@ -1257,7 +1314,7 @@ public class MainController {
 						if(myUtil.checkPath(filePath)){
 							this.exportResult += "SUCCESS - "+filePath+"\n";
 						}else{
-							this.exportResult += "FAIL - "+filePath+"\n";
+							this.exportResult += "SKIP - "+filePath+"\n";
 						}
 					}
 				}else if(i == 2){
@@ -1276,7 +1333,7 @@ public class MainController {
 						if(myUtil.checkPath(filePath)){
 							this.exportResult += "SUCCESS - "+filePath+"\n";
 						}else{
-							this.exportResult += "FAIL - "+filePath+"\n";
+							this.exportResult += "SKIP - "+filePath+"\n";
 						}
 					}
 				}else if(i == 3){
@@ -1295,7 +1352,7 @@ public class MainController {
 						if(myUtil.checkPath(filePath)){
 							this.exportResult += "SUCCESS - "+filePath+"\n";
 						}else{
-							this.exportResult += "FAIL - "+filePath+"\n";
+							this.exportResult += "SKIP - "+filePath+"\n";
 						}
 					}
 				}else if(i == 4){
@@ -1314,7 +1371,7 @@ public class MainController {
 						if(myUtil.checkPath(filePath)){
 							this.exportResult += "SUCCESS - "+filePath+"\n";
 						}else{
-							this.exportResult += "FAIL - "+filePath+"\n";
+							this.exportResult += "SKIP - "+filePath+"\n";
 						}
 					}
 				}else if(i == 5){
@@ -1333,7 +1390,7 @@ public class MainController {
 						if(myUtil.checkPath(filePath)){
 							this.exportResult += "SUCCESS - "+filePath+"\n";
 						}else{
-							this.exportResult += "FAIL - "+filePath+"\n";
+							this.exportResult += "SKIP - "+filePath+"\n";
 						}
 					}
 				}else if(i == 6){
@@ -1352,7 +1409,7 @@ public class MainController {
 						if(myUtil.checkPath(filePath)){
 							this.exportResult += "SUCCESS - "+filePath+"\n";
 						}else{
-							this.exportResult += "FAIL - "+filePath+"\n";
+							this.exportResult += "SKIP - "+filePath+"\n";
 						}
 					}
 				}
@@ -1586,14 +1643,24 @@ public class MainController {
 			Pobj.setYM_Constant(openDBMap.get("YM_Constant"+"_"+Pobj.getSTAND()));
 			Pobj.setYM_Table(openDBMap.get("YM_Table"+"_"+Pobj.getSTAND()));
 			Pobj.setYM_Value(openDBMap.get(UILabel.Youngs_Modulus+"_"+Pobj.getSTAND()));
+			Pobj.setYM_Value_T(openDBMap.get(UILabel.Youngs_Modulus+"_T_"+Pobj.getSTAND()));
 			
 			Pobj.setTEC_Constant(openDBMap.get("TEC_Constant"+"_"+Pobj.getSTAND()));
 			Pobj.setTEC_Table(openDBMap.get("TEC_Table"+"_"+Pobj.getSTAND()));
 			Pobj.setTEC_Value(openDBMap.get(UILabel.Thermal_Expansion_Coefficient+"_"+Pobj.getSTAND()));
+			Pobj.setTEC_Value_T(openDBMap.get(UILabel.Thermal_Expansion_Coefficient+"_T_"+Pobj.getSTAND()));
 			
 			Pobj.setPR_Constant(openDBMap.get("PR_Constant"+"_"+Pobj.getSTAND()));
 			Pobj.setPR_Table(openDBMap.get("PR_Table"+"_"+Pobj.getSTAND()));
 			Pobj.setPR_Value(openDBMap.get(UILabel.Poissons_Ratio+"_"+Pobj.getSTAND()));
+			Pobj.setPR_Value_T(openDBMap.get(UILabel.Poissons_Ratio+"_T_"+Pobj.getSTAND()));
+			                                 //  FS_Constant
+			Pobj.setFS_Constant(openDBMap.get("FS_Constant"+"_"+Pobj.getSTAND()));
+			Pobj.setFS_Table(openDBMap.get("FS_Table"+"_"+Pobj.getSTAND()));
+			Pobj.setFS_Value(openDBMap.get(UILabel.Flow_Stress+"_"+Pobj.getSTAND()));
+			Pobj.setYS_Value(openDBMap.get(UILabel.Yield_Strength+"_"+Pobj.getSTAND()));
+			Pobj.setTS_Value(openDBMap.get(UILabel.Tensile_Strength+"_"+Pobj.getSTAND()));
+			Pobj.setE_Value(openDBMap.get(UILabel.Elongation+"_"+Pobj.getSTAND()));
 			
 			Pobj.setMD_Value(openDBMap.get(UILabel.Mass_Density+"_"+Pobj.getSTAND()));
 			
@@ -1613,8 +1680,11 @@ public class MainController {
 			Pobj.setBUR_WEAR(openDBMap.get("BUR WEAR"+"_"+Pobj.getSTAND()));
 			Pobj.setWR_WEAR(openDBMap.get("WR WEAR"+"_"+Pobj.getSTAND()));
 			Pobj.setWR_THRM(openDBMap.get("WR THRM"+"_"+Pobj.getSTAND()));
+			
+			
 		}
 		this.initPLogTables_open(openDBMap);
+		
 	}
 	
 	//
@@ -2264,6 +2334,7 @@ public class MainController {
 	}
 	
 	private void initPLogTables_open(Map<String,String> openDBMap){
+		
 		InitValue obj =new InitValue();
 		obj.readInitValueFile();
 		ArrayList<String> initDataList = new ArrayList<String>();
@@ -2540,7 +2611,12 @@ public class MainController {
 					tableDataPLogList.get(6).getWR_THRM()+","+					
 					",,,,,,,";
 		initDataList.add(line31);
+		
+		
 		this.parsingPLogFile(initDataList);
+		
+		TableData_PLog Pobj4 =    this.tableDataPLogList.get(0);
+		
 	}
 	
 	private void saveAllF1Values(){
@@ -2584,31 +2660,59 @@ public class MainController {
 		obj.setBur_brot(med.getTextBottomBURRotVel().getText());
 		//Group5
 		if(med.getBtnConstant1_YM().getSelection()){
-			obj.setYM_Constant("true");;
+			obj.setYM_Constant("true");
 			obj.setYM_Table("false");
+			obj.setYM_Value(med.getTextYoungsModulus().getText());
 		}else{
 			obj.setYM_Table("true");
 			obj.setYM_Constant("false");
+			obj.setYM_Value_T(med.getTextYoungsModulus().getText());
 		}
-		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		
+		if(med.getBtnConstant4_FS().getSelection()){
+			obj.setFS_Constant("true");
+			obj.setFS_Table("false");
+			//obj.setFS_Value(med.getTextFlowStress().getText());
+			obj.setYS_Value(med.getTextYieldStrength().getText());
+			obj.setTS_Value(med.getTextTensileStrength().getText());
+			obj.setE_Value(med.getTextElongation().getText());
+		}else{
+			obj.setFS_Table("true");
+			obj.setFS_Constant("false");
+			obj.setFS_Value(med.getTextFlowStress().getText());
+			//obj.setYS_Value(med.getTextYieldStrength().getText());
+			//obj.setTS_Value(med.getTextTensileStrength().getText());
+			//obj.setE_Value(med.getTextElongation().getText());
+		}
+		/*
+		obj.setFS_Value(med.getTextFlowStress().getText());
+		obj.setYS_Value(med.getTextYieldStrength().getText());
+		obj.setTS_Value(med.getTextTensileStrength().getText());
+		obj.setE_Value(med.getTextElongation().getText());
+		*/
 		
 		if(med.getBtnConstant2_TEC().getSelection()){
 			obj.setTEC_Constant("true");
 			obj.setTEC_Table("false");
+			obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
 		}else{
 			obj.setTEC_Table("true");
 			obj.setTEC_Constant("false");
+			obj.setTEC_Value_T(med.getTextThermalExpansionCoefficient().getText());
 		}
-		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
 		
 		if(med.getBtnConstant3_PR().getSelection()){
 			obj.setPR_Constant("true");
 			obj.setPR_Table("false");
+			obj.setPR_Value(med.getTextPoissonsRatio().getText());
 		}else{
 			obj.setPR_Table("true");
-			obj.setPR_Constant("fasle");
+			obj.setPR_Constant("false");
+			obj.setPR_Value_T(med.getTextPoissonsRatio().getText());
 		}
-		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
 		
 		obj.setMD_Value(med.getTextMassDensity().getText());
 		//Group6
@@ -2685,29 +2789,48 @@ public class MainController {
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
 			obj.setYM_Table("false");
+			obj.setYM_Value(med.getTextYoungsModulus().getText());
 		}else{
 			obj.setYM_Table("true");
 			obj.setYM_Constant("false");
+			obj.setYM_Value_T(med.getTextYoungsModulus().getText());
 		}
-		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		
+		if(med.getBtnConstant4_FS().getSelection()){
+			obj.setFS_Constant("true");
+			obj.setFS_Table("false");
+			obj.setYS_Value(med.getTextYieldStrength().getText());
+			obj.setTS_Value(med.getTextTensileStrength().getText());
+			obj.setE_Value(med.getTextElongation().getText());
+		}else{
+			obj.setFS_Table("true");
+			obj.setFS_Constant("false");
+			obj.setFS_Value(med.getTextFlowStress().getText());
+		}
+		
 		
 		if(med.getBtnConstant2_TEC().getSelection()){
 			obj.setTEC_Constant("true");
 			obj.setTEC_Table("false");
+			obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
 		}else{
 			obj.setTEC_Table("true");
 			obj.setTEC_Constant("false");
+			obj.setTEC_Value_T(med.getTextThermalExpansionCoefficient().getText());
 		}
-		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
 		
 		if(med.getBtnConstant3_PR().getSelection()){
 			obj.setPR_Constant("true");
 			obj.setPR_Table("false");
+			obj.setPR_Value(med.getTextPoissonsRatio().getText());
 		}else{
 			obj.setPR_Table("true");
-			obj.setPR_Constant("fasle");
+			obj.setPR_Constant("false");
+			obj.setPR_Value_T(med.getTextPoissonsRatio().getText());
 		}
-		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
 		
 		obj.setMD_Value(med.getTextMassDensity().getText());
 		//Group6
@@ -2784,29 +2907,49 @@ public class MainController {
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
 			obj.setYM_Table("false");
+			obj.setYM_Value(med.getTextYoungsModulus().getText());
 		}else{
 			obj.setYM_Table("true");
 			obj.setYM_Constant("false");
+			obj.setYM_Value_T(med.getTextYoungsModulus().getText());
 		}
-		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		
+		if(med.getBtnConstant4_FS().getSelection()){
+			obj.setFS_Constant("true");
+			obj.setFS_Table("false");
+			
+			obj.setYS_Value(med.getTextYieldStrength().getText());
+			obj.setTS_Value(med.getTextTensileStrength().getText());
+			obj.setE_Value(med.getTextElongation().getText());
+		}else{
+			obj.setFS_Table("true");
+			obj.setFS_Constant("false");
+			obj.setFS_Value(med.getTextFlowStress().getText());
+		}
+		
 		
 		if(med.getBtnConstant2_TEC().getSelection()){
 			obj.setTEC_Constant("true");
 			obj.setTEC_Table("false");
+			obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
 		}else{
 			obj.setTEC_Table("true");
 			obj.setTEC_Constant("false");
+			obj.setTEC_Value_T(med.getTextThermalExpansionCoefficient().getText());
 		}
-		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
 		
 		if(med.getBtnConstant3_PR().getSelection()){
 			obj.setPR_Constant("true");
 			obj.setPR_Table("false");
+			obj.setPR_Value(med.getTextPoissonsRatio().getText());
 		}else{
 			obj.setPR_Table("true");
-			obj.setPR_Constant("fasle");
+			obj.setPR_Constant("false");
+			obj.setPR_Value_T(med.getTextPoissonsRatio().getText());
 		}
-		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
 		
 		obj.setMD_Value(med.getTextMassDensity().getText());
 		//Group6
@@ -2883,29 +3026,49 @@ public class MainController {
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
 			obj.setYM_Table("false");
+			obj.setYM_Value(med.getTextYoungsModulus().getText());
 		}else{
 			obj.setYM_Table("true");
 			obj.setYM_Constant("false");
+			obj.setYM_Value_T(med.getTextYoungsModulus().getText());
 		}
-		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		
+		if(med.getBtnConstant4_FS().getSelection()){
+			obj.setFS_Constant("true");
+			obj.setFS_Table("false");
+			obj.setYS_Value(med.getTextYieldStrength().getText());
+			obj.setTS_Value(med.getTextTensileStrength().getText());
+			obj.setE_Value(med.getTextElongation().getText());
+		}else{
+			obj.setFS_Table("true");
+			obj.setFS_Constant("false");
+			obj.setFS_Value(med.getTextFlowStress().getText());
+		}
+		
+		
 		
 		if(med.getBtnConstant2_TEC().getSelection()){
 			obj.setTEC_Constant("true");
 			obj.setTEC_Table("false");
+			obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
 		}else{
 			obj.setTEC_Table("true");
 			obj.setTEC_Constant("false");
+			obj.setTEC_Value_T(med.getTextThermalExpansionCoefficient().getText());
 		}
-		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
 		
 		if(med.getBtnConstant3_PR().getSelection()){
 			obj.setPR_Constant("true");
 			obj.setPR_Table("false");
+			obj.setPR_Value(med.getTextPoissonsRatio().getText());
 		}else{
 			obj.setPR_Table("true");
-			obj.setPR_Constant("fasle");
+			obj.setPR_Constant("false");
+			obj.setPR_Value_T(med.getTextPoissonsRatio().getText());
 		}
-		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
 		
 		obj.setMD_Value(med.getTextMassDensity().getText());
 		//Group6
@@ -2982,29 +3145,50 @@ public class MainController {
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
 			obj.setYM_Table("false");
+			obj.setYM_Value(med.getTextYoungsModulus().getText());
 		}else{
 			obj.setYM_Table("true");
 			obj.setYM_Constant("false");
+			obj.setYM_Value_T(med.getTextYoungsModulus().getText());
 		}
-		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		
+		if(med.getBtnConstant4_FS().getSelection()){
+			obj.setFS_Constant("true");
+			obj.setFS_Table("false");
+			
+			obj.setYS_Value(med.getTextYieldStrength().getText());
+			obj.setTS_Value(med.getTextTensileStrength().getText());
+			obj.setE_Value(med.getTextElongation().getText());
+		}else{
+			obj.setFS_Table("true");
+			obj.setFS_Constant("false");
+			obj.setFS_Value(med.getTextFlowStress().getText());
+		}
+		
+		
 		
 		if(med.getBtnConstant2_TEC().getSelection()){
 			obj.setTEC_Constant("true");
 			obj.setTEC_Table("false");
+			obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
 		}else{
 			obj.setTEC_Table("true");
 			obj.setTEC_Constant("false");
+			obj.setTEC_Value_T(med.getTextThermalExpansionCoefficient().getText());
 		}
-		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
 		
 		if(med.getBtnConstant3_PR().getSelection()){
 			obj.setPR_Constant("true");
 			obj.setPR_Table("false");
+			obj.setPR_Value(med.getTextPoissonsRatio().getText());
 		}else{
 			obj.setPR_Table("true");
-			obj.setPR_Constant("fasle");
+			obj.setPR_Constant("false");
+			obj.setPR_Value_T(med.getTextPoissonsRatio().getText());
 		}
-		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
 		
 		obj.setMD_Value(med.getTextMassDensity().getText());
 		//Group6
@@ -3081,29 +3265,50 @@ public class MainController {
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
 			obj.setYM_Table("false");
+			obj.setYM_Value(med.getTextYoungsModulus().getText());
 		}else{
 			obj.setYM_Table("true");
 			obj.setYM_Constant("false");
+			obj.setYM_Value_T(med.getTextYoungsModulus().getText());
 		}
-		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		
+		if(med.getBtnConstant4_FS().getSelection()){
+			obj.setFS_Constant("true");
+			obj.setFS_Table("false");
+			
+			obj.setYS_Value(med.getTextYieldStrength().getText());
+			obj.setTS_Value(med.getTextTensileStrength().getText());
+			obj.setE_Value(med.getTextElongation().getText());
+		}else{
+			obj.setFS_Table("true");
+			obj.setFS_Constant("false");
+			obj.setFS_Value(med.getTextFlowStress().getText());
+		}
+		
+		
 		
 		if(med.getBtnConstant2_TEC().getSelection()){
 			obj.setTEC_Constant("true");
 			obj.setTEC_Table("false");
+			obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
 		}else{
 			obj.setTEC_Table("true");
 			obj.setTEC_Constant("false");
+			obj.setTEC_Value_T(med.getTextThermalExpansionCoefficient().getText());
 		}
-		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
 		
 		if(med.getBtnConstant3_PR().getSelection()){
 			obj.setPR_Constant("true");
 			obj.setPR_Table("false");
+			obj.setPR_Value(med.getTextPoissonsRatio().getText());
 		}else{
 			obj.setPR_Table("true");
-			obj.setPR_Constant("fasle");
+			obj.setPR_Constant("false");
+			obj.setPR_Value_T(med.getTextPoissonsRatio().getText());
 		}
-		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
 		
 		obj.setMD_Value(med.getTextMassDensity().getText());
 		//Group6
@@ -3180,29 +3385,50 @@ public class MainController {
 		if(med.getBtnConstant1_YM().getSelection()){
 			obj.setYM_Constant("true");;
 			obj.setYM_Table("false");
+			obj.setYM_Value(med.getTextYoungsModulus().getText());
 		}else{
 			obj.setYM_Table("true");
 			obj.setYM_Constant("false");
+			obj.setYM_Value_T(med.getTextYoungsModulus().getText());
 		}
-		obj.setYM_Value(med.getTextYoungsModulus().getText());
+		
+		
+		if(med.getBtnConstant4_FS().getSelection()){
+			obj.setFS_Constant("true");
+			obj.setFS_Table("false");
+			
+			obj.setYS_Value(med.getTextYieldStrength().getText());
+			obj.setTS_Value(med.getTextTensileStrength().getText());
+			obj.setE_Value(med.getTextElongation().getText());
+		}else{
+			obj.setFS_Table("true");
+			obj.setFS_Constant("false");
+			obj.setFS_Value(med.getTextFlowStress().getText());
+		}
+		
+		
 		
 		if(med.getBtnConstant2_TEC().getSelection()){
 			obj.setTEC_Constant("true");
 			obj.setTEC_Table("false");
+			obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
 		}else{
 			obj.setTEC_Table("true");
 			obj.setTEC_Constant("false");
+			obj.setTEC_Value_T(med.getTextThermalExpansionCoefficient().getText());
 		}
-		obj.setTEC_Value(med.getTextThermalExpansionCoefficient().getText());
+		
 		
 		if(med.getBtnConstant3_PR().getSelection()){
 			obj.setPR_Constant("true");
 			obj.setPR_Table("false");
+			obj.setPR_Value(med.getTextPoissonsRatio().getText());
 		}else{
 			obj.setPR_Table("true");
-			obj.setPR_Constant("fasle");
+			obj.setPR_Constant("false");
+			obj.setPR_Value_T(med.getTextPoissonsRatio().getText());
 		}
-		obj.setPR_Value(med.getTextPoissonsRatio().getText());
+		
 		
 		obj.setMD_Value(med.getTextMassDensity().getText());
 		//Group6
@@ -3237,6 +3463,7 @@ public class MainController {
 	}
 	
 	private void initF1Values(){
+		//System.out.println("asdfasdfasdfasdfasdf");
 		InitValue obj = new InitValue();
 		obj.readInitValueFile();
 		
@@ -3288,29 +3515,58 @@ public class MainController {
 		if(obj.getInitValue(InitValue.YM_Constant_F1).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F1));
 		}else{
 			med.getBtnTable1_YM().setSelection(true);
 			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_tableValuePath());
 		}
-		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F1));
+		
+		//System.out.println(obj.getInitValue(InitValue.YS_Value_F1)+"|"+obj.getInitValue(InitValue.TS_Value_F1)+"|"+obj.getInitValue(InitValue.E_Value_F1));
+		//System.out.println("-------------------");
+		if(obj.getInitValue(InitValue.FS_Constant_F1).toLowerCase().equals("true")){
+			//System.out.println("1");
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getInitValue(InitValue.YS_Value_F1));
+			med.getTextTensileStrength().setText(obj.getInitValue(InitValue.TS_Value_F1));
+			med.getTextElongation().setText(obj.getInitValue(InitValue.E_Value_F1));
+			//System.out.println(obj.getInitValue(InitValue.YS_Value_F1)+"|"+obj.getInitValue(InitValue.TS_Value_F1)+"|"+obj.getInitValue(InitValue.E_Value_F1));
+			
+		}else{
+			//System.out.println("2");
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_tableValuePath());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+		}
+		
 		
 		if(obj.getInitValue(InitValue.TEC_Constant_F1).toLowerCase().equals("true")){
 			med.getBtnConstant2_TEC().setSelection(true);
 			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F1));
 		}else{
 			med.getBtnTable2_TEC().setSelection(true);
 			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_tableValuePath());
 		}
-		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F1));
+		
+		
 		
 		if(obj.getInitValue(InitValue.PR_Constant_F1).toLowerCase().equals("true")){
 			med.getBtnConstant3_PR().setSelection(true);
 			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F1));
 		}else{
 			med.getBtnTable3_PR().setSelection(true);
 			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_tableValuePath());
 		}
-		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F1));
+		
 		
 		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F1));
 		//Group6
@@ -3352,6 +3608,7 @@ public class MainController {
 				med.getSpinnerThread().setSelection(0);
 			}
 		}
+		//this.checkObj();
 	}
 	
 	private void initF2Values(){
@@ -3406,29 +3663,52 @@ public class MainController {
 		if(obj.getInitValue(InitValue.YM_Constant_F2).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F2));
 		}else{
 			med.getBtnTable1_YM().setSelection(true);
 			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_tableValuePath());
 		}
 		
-		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F2));
+		
+		if(obj.getInitValue(InitValue.FS_Constant_F2).toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getInitValue(InitValue.YS_Value_F2));
+			med.getTextTensileStrength().setText(obj.getInitValue(InitValue.TS_Value_F2));
+			med.getTextElongation().setText(obj.getInitValue(InitValue.E_Value_F2));
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_tableValuePath());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+		}
+		
+		
 		if(obj.getInitValue(InitValue.TEC_Constant_F2).toLowerCase().equals("true")){
 			med.getBtnConstant2_TEC().setSelection(true);
 			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F2));
 		}else{
 			med.getBtnTable2_TEC().setSelection(true);
 			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_tableValuePath());
 		}
-		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F2));
+		
 		
 		if(obj.getInitValue(InitValue.PR_Constant_F2).toLowerCase().equals("true")){
 			med.getBtnConstant3_PR().setSelection(true);
 			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F2));
 		}else{
 			med.getBtnTable3_PR().setSelection(true);
 			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_tableValuePath());
 		}
-		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F2));
+		
 		
 		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F2));
 		//Group6
@@ -3524,29 +3804,53 @@ public class MainController {
 		if(obj.getInitValue(InitValue.YM_Constant_F3).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F3));
 		}else{
 			med.getBtnTable1_YM().setSelection(true);
 			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_tableValuePath());
+			
 		}
 		
-		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F3));
+		
+		if(obj.getInitValue(InitValue.FS_Constant_F3).toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getInitValue(InitValue.YS_Value_F3));
+			med.getTextTensileStrength().setText(obj.getInitValue(InitValue.TS_Value_F3));
+			med.getTextElongation().setText(obj.getInitValue(InitValue.E_Value_F3));
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_tableValuePath());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+		}
+		
+		
 		if(obj.getInitValue(InitValue.TEC_Constant_F3).toLowerCase().equals("true")){
 			med.getBtnConstant2_TEC().setSelection(true);
 			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F3));
 		}else{
 			med.getBtnTable2_TEC().setSelection(true);
 			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_tableValuePath());
 		}
-		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F3));
+		
 		
 		if(obj.getInitValue(InitValue.PR_Constant_F3).toLowerCase().equals("true")){
 			med.getBtnConstant3_PR().setSelection(true);
 			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F3));
 		}else{
 			med.getBtnTable3_PR().setSelection(true);
 			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_tableValuePath());
 		}
-		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F3));
+		
 		
 		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F3));
 		//Group6
@@ -3642,29 +3946,52 @@ public class MainController {
 		if(obj.getInitValue(InitValue.YM_Constant_F4).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F4));
 		}else{
 			med.getBtnTable1_YM().setSelection(true);
 			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_tableValuePath());
 		}
 		
-		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F4));
+		
+		if(obj.getInitValue(InitValue.FS_Constant_F4).toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getInitValue(InitValue.YS_Value_F4));
+			med.getTextTensileStrength().setText(obj.getInitValue(InitValue.TS_Value_F4));
+			med.getTextElongation().setText(obj.getInitValue(InitValue.E_Value_F4));
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_tableValuePath());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+		}
+		
+		
 		if(obj.getInitValue(InitValue.TEC_Constant_F4).toLowerCase().equals("true")){
 			med.getBtnConstant2_TEC().setSelection(true);
 			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F4));
 		}else{
 			med.getBtnTable2_TEC().setSelection(true);
 			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_tableValuePath());
 		}
-		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F4));
+		
 		
 		if(obj.getInitValue(InitValue.PR_Constant_F4).toLowerCase().equals("true")){
 			med.getBtnConstant3_PR().setSelection(true);
 			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F4));
 		}else{
 			med.getBtnTable3_PR().setSelection(true);
 			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_tableValuePath());
 		}
-		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F4));
+		
 		
 		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F4));
 		//Group6
@@ -3760,29 +4087,52 @@ public class MainController {
 		if(obj.getInitValue(InitValue.YM_Constant_F5).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F5));
 		}else{
 			med.getBtnTable1_YM().setSelection(true);
 			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_tableValuePath());
 		}
 		
-		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F5));
+		
+		if(obj.getInitValue(InitValue.FS_Constant_F5).toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getInitValue(InitValue.YS_Value_F5));
+			med.getTextTensileStrength().setText(obj.getInitValue(InitValue.TS_Value_F5));
+			med.getTextElongation().setText(obj.getInitValue(InitValue.E_Value_F5));
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_tableValuePath());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+		}
+		
+		
 		if(obj.getInitValue(InitValue.TEC_Constant_F5).toLowerCase().equals("true")){
 			med.getBtnConstant2_TEC().setSelection(true);
 			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F5));
 		}else{
 			med.getBtnTable2_TEC().setSelection(true);
 			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_tableValuePath());
 		}
-		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F5));
+		
 		
 		if(obj.getInitValue(InitValue.PR_Constant_F5).toLowerCase().equals("true")){
 			med.getBtnConstant3_PR().setSelection(true);
 			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F5));
 		}else{
 			med.getBtnTable3_PR().setSelection(true);
 			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_tableValuePath());
 		}
-		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F5));
+		
 		
 		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F5));
 		//Group6
@@ -3878,29 +4228,52 @@ public class MainController {
 		if(obj.getInitValue(InitValue.YM_Constant_F6).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F6));
 		}else{
 			med.getBtnTable1_YM().setSelection(true);
 			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_tableValuePath());
 		}
 		
-		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F6));
+		
+		if(obj.getInitValue(InitValue.FS_Constant_F6).toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getInitValue(InitValue.YS_Value_F6));
+			med.getTextTensileStrength().setText(obj.getInitValue(InitValue.TS_Value_F6));
+			med.getTextElongation().setText(obj.getInitValue(InitValue.E_Value_F6));
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_tableValuePath());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+		}
+		
+		
 		if(obj.getInitValue(InitValue.TEC_Constant_F6).toLowerCase().equals("true")){
 			med.getBtnConstant2_TEC().setSelection(true);
 			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F6));
 		}else{
 			med.getBtnTable2_TEC().setSelection(true);
 			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_tableValuePath());
 		}
-		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F6));
+		
 		
 		if(obj.getInitValue(InitValue.PR_Constant_F6).toLowerCase().equals("true")){
 			med.getBtnConstant3_PR().setSelection(true);
 			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F6));
 		}else{
 			med.getBtnTable3_PR().setSelection(true);
 			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_tableValuePath());
 		}
-		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F6));
+		
 		
 		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F6));
 		//Group6
@@ -3996,29 +4369,52 @@ public class MainController {
 		if(obj.getInitValue(InitValue.YM_Constant_F7).toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F7));
 		}else{
 			med.getBtnTable1_YM().setSelection(true);
 			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_tableValuePath());
 		}
 		
-		med.getTextYoungsModulus().setText(obj.getInitValue(InitValue.YM_Value_F7));
+		
+		if(obj.getInitValue(InitValue.FS_Constant_F7).toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getInitValue(InitValue.FS_Value_F7));
+			med.getTextYieldStrength().setText(obj.getInitValue(InitValue.YS_Value_F7));
+			med.getTextTensileStrength().setText(obj.getInitValue(InitValue.TS_Value_F7));
+			med.getTextElongation().setText(obj.getInitValue(InitValue.E_Value_F7));
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_tableValuePath());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+		}
+		
+		
 		if(obj.getInitValue(InitValue.TEC_Constant_F7).toLowerCase().equals("true")){
 			med.getBtnConstant2_TEC().setSelection(true);
 			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F7));
 		}else{
 			med.getBtnTable2_TEC().setSelection(true);
 			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_tableValuePath());
 		}
-		med.getTextThermalExpansionCoefficient().setText(obj.getInitValue(InitValue.TEC_Value_F7));
+		
 		
 		if(obj.getInitValue(InitValue.PR_Constant_F7).toLowerCase().equals("true")){
 			med.getBtnConstant3_PR().setSelection(true);
 			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F7));
 		}else{
 			med.getBtnTable3_PR().setSelection(true);
 			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_tableValuePath());
 		}
-		med.getTextPoissonsRatio().setText(obj.getInitValue(InitValue.PR_Value_F7));
+		
 		
 		med.getTextMassDensity().setText(obj.getInitValue(InitValue.MD_Value_F7));
 		//Group6
@@ -4107,7 +4503,11 @@ public class MainController {
 	}
 	
 	private void changedF1UIValues(){
+		//InitValue objInitValue = new InitValue();
+		//objInitValue.readInitValueFile();
+		
 		TableData_PLog obj = tableDataPLogList.get(0);
+		//this.checkObj();
 		
 		//Group1
 		med.getTextTopWRDiameter().setText(obj.getWR_TDIA());
@@ -4146,6 +4546,7 @@ public class MainController {
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
 		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
+		/*
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
@@ -4174,6 +4575,76 @@ public class MainController {
 		med.getTextPoissonsRatio().setText(obj.getPR_Value());
 
 		med.getTextMassDensity().setText(obj.getMD_Value());
+		// */
+		//////////////
+		
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value());
+			med.getBtnExplorerYoungsModulus().setEnabled(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			med.getBtnExplorerYoungsModulus().setEnabled(true);
+		}
+		
+		if(obj.getFS_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getYS_Value());
+			med.getTextTensileStrength().setText(obj.getTS_Value());
+			med.getTextElongation().setText(obj.getE_Value());
+			
+			med.getTextFlowStress().setEnabled(false);
+			med.getTextYieldStrength().setEnabled(true);
+			med.getTextTensileStrength().setEnabled(true);
+			med.getTextElongation().setEnabled(true);
+			med.getBtnExplorerFlowStress().setEnabled(false);
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_Value());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText("" );
+			med.getTextElongation().setText(" ");
+			med.getTextFlowStress().setEnabled(true);
+			med.getTextYieldStrength().setEnabled(false);
+			med.getTextTensileStrength().setEnabled(false);
+			med.getTextElongation().setEnabled(false);
+			med.getBtnExplorerFlowStress().setEnabled(true);
+		}
+		
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
+		}
+
+		
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			med.getBtnExplorerPoissonsRatio().setEnabled(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			med.getBtnExplorerPoissonsRatio().setEnabled(true);
+		}
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		
+		
+		
 		//Group6
 		med.getTextAnalysisTime().setText(obj.getLcase_time());
 		med.getTextNoOfInc().setText(obj.getlcase_inc());
@@ -4216,6 +4687,9 @@ public class MainController {
 	}
 	
 	private void changedF2UIValues(){
+		InitValue objInitValue = new InitValue();
+		objInitValue.readInitValueFile();
+		
 		TableData_PLog obj = tableDataPLogList.get(1);
 		
 		//Group1
@@ -4255,6 +4729,7 @@ public class MainController {
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
 		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
+		/*
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
@@ -4282,6 +4757,70 @@ public class MainController {
 		}
 		med.getTextPoissonsRatio().setText(obj.getPR_Value());
 
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		// */
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value());
+			med.getBtnExplorerYoungsModulus().setEnabled(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			med.getBtnExplorerYoungsModulus().setEnabled(true);
+		}
+		
+		if(obj.getFS_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getYS_Value());
+			med.getTextTensileStrength().setText(obj.getTS_Value());
+			med.getTextElongation().setText(obj.getE_Value());
+			med.getTextFlowStress().setEnabled(false);
+			med.getTextYieldStrength().setEnabled(true);
+			med.getTextTensileStrength().setEnabled(true);
+			med.getTextElongation().setEnabled(true);
+			med.getBtnExplorerFlowStress().setEnabled(false);
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_Value());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+			med.getTextFlowStress().setEnabled(true);
+			med.getTextYieldStrength().setEnabled(false);
+			med.getTextTensileStrength().setEnabled(false);
+			med.getTextElongation().setEnabled(false);
+			med.getBtnExplorerFlowStress().setEnabled(true);
+		}
+		
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
+		}
+
+		
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			med.getBtnExplorerPoissonsRatio().setEnabled(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			med.getBtnExplorerPoissonsRatio().setEnabled(true);
+		}
 		med.getTextMassDensity().setText(obj.getMD_Value());
 		//Group6
 		med.getTextAnalysisTime().setText(obj.getLcase_time());
@@ -4325,6 +4864,9 @@ public class MainController {
 	}
 	
 	private void changedF3UIValues(){
+		InitValue objInitValue = new InitValue();
+		objInitValue.readInitValueFile();
+		
 		TableData_PLog obj = tableDataPLogList.get(2);
 		
 		//Group1
@@ -4364,6 +4906,7 @@ public class MainController {
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
 		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
+		/*
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
@@ -4391,6 +4934,70 @@ public class MainController {
 		}
 		med.getTextPoissonsRatio().setText(obj.getPR_Value());
 
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		// */
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value());
+			med.getBtnExplorerYoungsModulus().setEnabled(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			med.getBtnExplorerYoungsModulus().setEnabled(true);
+		}
+		
+		if(obj.getFS_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getYS_Value());
+			med.getTextTensileStrength().setText(obj.getTS_Value());
+			med.getTextElongation().setText(obj.getE_Value());
+			med.getTextFlowStress().setEnabled(false);
+			med.getTextYieldStrength().setEnabled(true);
+			med.getTextTensileStrength().setEnabled(true);
+			med.getTextElongation().setEnabled(true);
+			med.getBtnExplorerFlowStress().setEnabled(false);
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_Value());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+			med.getTextFlowStress().setEnabled(true);
+			med.getTextYieldStrength().setEnabled(false);
+			med.getTextTensileStrength().setEnabled(false);
+			med.getTextElongation().setEnabled(false);
+			med.getBtnExplorerFlowStress().setEnabled(true);
+		}
+		
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
+		}
+
+		
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			med.getBtnExplorerPoissonsRatio().setEnabled(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			med.getBtnExplorerPoissonsRatio().setEnabled(true);
+		}
 		med.getTextMassDensity().setText(obj.getMD_Value());
 		//Group6
 		med.getTextAnalysisTime().setText(obj.getLcase_time());
@@ -4434,6 +5041,9 @@ public class MainController {
 	}
 	
 	private void changedF4UIValues(){
+		InitValue objInitValue = new InitValue();
+		objInitValue.readInitValueFile();
+		
 		TableData_PLog obj = tableDataPLogList.get(3);
 		
 		//Group1
@@ -4473,6 +5083,7 @@ public class MainController {
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
 		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
+		/*
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
@@ -4500,6 +5111,70 @@ public class MainController {
 		}
 		med.getTextPoissonsRatio().setText(obj.getPR_Value());
 
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		// */
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value());
+			med.getBtnExplorerYoungsModulus().setEnabled(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			med.getBtnExplorerYoungsModulus().setEnabled(true);
+		}
+		
+		if(obj.getFS_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getYS_Value());
+			med.getTextTensileStrength().setText(obj.getTS_Value());
+			med.getTextElongation().setText(obj.getE_Value());
+			med.getTextFlowStress().setEnabled(false);
+			med.getTextYieldStrength().setEnabled(true);
+			med.getTextTensileStrength().setEnabled(true);
+			med.getTextElongation().setEnabled(true);
+			med.getBtnExplorerFlowStress().setEnabled(false);
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_Value());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+			med.getTextFlowStress().setEnabled(true);
+			med.getTextYieldStrength().setEnabled(false);
+			med.getTextTensileStrength().setEnabled(false);
+			med.getTextElongation().setEnabled(false);
+			med.getBtnExplorerFlowStress().setEnabled(true);
+		}
+		
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
+		}
+
+		
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			med.getBtnExplorerPoissonsRatio().setEnabled(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			med.getBtnExplorerPoissonsRatio().setEnabled(true);
+		}
 		med.getTextMassDensity().setText(obj.getMD_Value());
 		//Group6
 		med.getTextAnalysisTime().setText(obj.getLcase_time());
@@ -4543,6 +5218,9 @@ public class MainController {
 	}
 	
 	private void changedF5UIValues(){
+		InitValue objInitValue = new InitValue();
+		objInitValue.readInitValueFile();
+		
 		TableData_PLog obj = tableDataPLogList.get(4);
 		
 		//Group1
@@ -4582,6 +5260,7 @@ public class MainController {
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
 		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
+		/*
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
@@ -4609,6 +5288,70 @@ public class MainController {
 		}
 		med.getTextPoissonsRatio().setText(obj.getPR_Value());
 
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		// */
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value());
+			med.getBtnExplorerYoungsModulus().setEnabled(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			med.getBtnExplorerYoungsModulus().setEnabled(true);
+		}
+		
+		if(obj.getFS_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getYS_Value());
+			med.getTextTensileStrength().setText(obj.getTS_Value());
+			med.getTextElongation().setText(obj.getE_Value());
+			med.getTextFlowStress().setEnabled(false);
+			med.getTextYieldStrength().setEnabled(true);
+			med.getTextTensileStrength().setEnabled(true);
+			med.getTextElongation().setEnabled(true);
+			med.getBtnExplorerFlowStress().setEnabled(false);
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_Value());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+			med.getTextFlowStress().setEnabled(true);
+			med.getTextYieldStrength().setEnabled(false);
+			med.getTextTensileStrength().setEnabled(false);
+			med.getTextElongation().setEnabled(false);
+			med.getBtnExplorerFlowStress().setEnabled(true);
+		}
+		
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
+		}
+
+		
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			med.getBtnExplorerPoissonsRatio().setEnabled(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			med.getBtnExplorerPoissonsRatio().setEnabled(true);
+		}
 		med.getTextMassDensity().setText(obj.getMD_Value());
 		//Group6
 		med.getTextAnalysisTime().setText(obj.getLcase_time());
@@ -4652,6 +5395,9 @@ public class MainController {
 	}
 	
 	private void changedF6UIValues(){
+		InitValue objInitValue = new InitValue();
+		objInitValue.readInitValueFile();
+		
 		TableData_PLog obj = tableDataPLogList.get(5);
 		
 		//Group1
@@ -4691,6 +5437,7 @@ public class MainController {
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
 		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
+		/*
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
@@ -4718,6 +5465,70 @@ public class MainController {
 		}
 		med.getTextPoissonsRatio().setText(obj.getPR_Value());
 
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		//*/
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value());
+			med.getBtnExplorerYoungsModulus().setEnabled(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			med.getBtnExplorerYoungsModulus().setEnabled(true);
+		}
+		
+		if(obj.getFS_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getYS_Value());
+			med.getTextTensileStrength().setText(obj.getTS_Value());
+			med.getTextElongation().setText(obj.getE_Value());
+			med.getTextFlowStress().setEnabled(false);
+			med.getTextYieldStrength().setEnabled(true);
+			med.getTextTensileStrength().setEnabled(true);
+			med.getTextElongation().setEnabled(true);
+			med.getBtnExplorerFlowStress().setEnabled(false);
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_Value());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+			med.getTextFlowStress().setEnabled(true);
+			med.getTextYieldStrength().setEnabled(false);
+			med.getTextTensileStrength().setEnabled(false);
+			med.getTextElongation().setEnabled(false);
+			med.getBtnExplorerFlowStress().setEnabled(true);
+		}
+		
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
+		}
+
+		
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			med.getBtnExplorerPoissonsRatio().setEnabled(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			med.getBtnExplorerPoissonsRatio().setEnabled(true);
+		}
 		med.getTextMassDensity().setText(obj.getMD_Value());
 		//Group6
 		med.getTextAnalysisTime().setText(obj.getLcase_time());
@@ -4761,6 +5572,9 @@ public class MainController {
 	}
 	
 	private void changedF7UIValues(){
+		InitValue objInitValue = new InitValue();
+		objInitValue.readInitValueFile();
+		
 		TableData_PLog obj = tableDataPLogList.get(6);
 		
 		//Group1
@@ -4800,6 +5614,7 @@ public class MainController {
 		med.getTextTopBURRotVel().setText(obj.getBur_trot());
 		med.getTextBottomBURRotVel().setText(obj.getBur_brot());
 		//Group5
+		/*
 		if(obj.getYM_Constant().toLowerCase().equals("true")){
 			med.getBtnConstant1_YM().setSelection(true);
 			med.getBtnTable1_YM().setSelection(false);
@@ -4827,6 +5642,70 @@ public class MainController {
 		}
 		med.getTextPoissonsRatio().setText(obj.getPR_Value());
 
+		med.getTextMassDensity().setText(obj.getMD_Value());
+		// */
+		if(obj.getYM_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant1_YM().setSelection(true);
+			med.getBtnTable1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value());
+			med.getBtnExplorerYoungsModulus().setEnabled(false);
+		}else{
+			med.getBtnTable1_YM().setSelection(true);
+			med.getBtnConstant1_YM().setSelection(false);
+			med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			med.getBtnExplorerYoungsModulus().setEnabled(true);
+		}
+		
+		if(obj.getFS_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant4_FS().setSelection(true);
+			med.getBtnTable4_FS().setSelection(false);
+			med.getTextFlowStress().setText(" ");
+			med.getTextYieldStrength().setText(obj.getYS_Value());
+			med.getTextTensileStrength().setText(obj.getTS_Value());
+			med.getTextElongation().setText(obj.getE_Value());
+			med.getTextFlowStress().setEnabled(false);
+			med.getTextYieldStrength().setEnabled(true);
+			med.getTextTensileStrength().setEnabled(true);
+			med.getTextElongation().setEnabled(true);
+			med.getBtnExplorerFlowStress().setEnabled(false);
+		}else{
+			med.getBtnTable4_FS().setSelection(true);
+			med.getBtnConstant4_FS().setSelection(false);
+			med.getTextFlowStress().setText(obj.getFS_Value());
+			med.getTextYieldStrength().setText(" ");
+			med.getTextTensileStrength().setText(" ");
+			med.getTextElongation().setText(" ");
+			med.getTextFlowStress().setEnabled(true);
+			med.getTextYieldStrength().setEnabled(false);
+			med.getTextTensileStrength().setEnabled(false);
+			med.getTextElongation().setEnabled(false);
+			med.getBtnExplorerFlowStress().setEnabled(true);
+		}
+		
+		if(obj.getTEC_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant2_TEC().setSelection(true);
+			med.getBtnTable2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(false);
+		}else{
+			med.getBtnTable2_TEC().setSelection(true);
+			med.getBtnConstant2_TEC().setSelection(false);
+			med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			med.getBtnExplorerThermalExpansionCoefficient().setEnabled(true);
+		}
+
+		
+		if(obj.getPR_Constant().toLowerCase().equals("true")){
+			med.getBtnConstant3_PR().setSelection(true);
+			med.getBtnTable3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			med.getBtnExplorerPoissonsRatio().setEnabled(false);
+		}else{
+			med.getBtnTable3_PR().setSelection(true);
+			med.getBtnConstant3_PR().setSelection(false);
+			med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			med.getBtnExplorerPoissonsRatio().setEnabled(true);
+		}
 		med.getTextMassDensity().setText(obj.getMD_Value());
 		//Group6
 		med.getTextAnalysisTime().setText(obj.getLcase_time());
@@ -4868,35 +5747,839 @@ public class MainController {
 			}
 		}
 	}
-	
+	public void ChangedMaterialParameter(String value, String widgetName){
+		switch(this.StandValue){
+			case "F1":
+				this.changeMaterialF1Values(value,widgetName);
+				break;
+			case "F2":
+				this.changeMaterialF2Values(value,widgetName);
+				break;
+			case "F3":
+				this.changeMaterialF3Values(value,widgetName);
+				break;
+			case "F4":
+				this.changeMaterialF4Values(value,widgetName);
+				break;
+			case "F5":
+				this.changeMaterialF5Values(value,widgetName);
+				break;
+			case "F6":
+				this.changeMaterialF6Values(value,widgetName);
+				break;
+			case "F7":
+				this.changeMaterialF7Values(value,widgetName);
+				break;
+			
+		}
+	}
+	private void changeMaterialF1Values(String value, String widgetName){
+		//InitValue objInitValue = new InitValue();
+		//objInitValue.readInitValueFile();
+		TableData_PLog obj = tableDataPLogList.get(0);
+		
+		if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			if(value.equals("true")){
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}
+				
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			if(value.equals("true")){
+				//System.out.println("dfsd");
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());				
+				
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+				
+			}else{
+				
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+				
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+				
+			}else{
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());
+
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+			}
+			
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Constant- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}else {
+				//System.out.println("Constant- false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Table- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}else {
+				//System.out.println("Table - false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			}
+		}
+	}
+	private void changeMaterialF2Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(1);
+		if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			if(value.equals("true")){
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}
+				
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			if(value.equals("true")){
+				//System.out.println("dfsd");
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());				
+				
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+				
+			}else{
+				
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+				
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+				
+			}else{
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());
+
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+			}
+			
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Constant- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}else {
+				//System.out.println("Constant- false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Table- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}else {
+				//System.out.println("Table - false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			}
+		}
+	}
+	private void changeMaterialF3Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(2);
+		if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			if(value.equals("true")){
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}
+				
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			if(value.equals("true")){
+				//System.out.println("dfsd");
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());				
+				
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+				
+			}else{
+				
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+				
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+				
+			}else{
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());
+
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+			}
+			
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Constant- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}else {
+				//System.out.println("Constant- false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Table- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}else {
+				//System.out.println("Table - false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			}
+		}
+	}
+	private void changeMaterialF4Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(3);
+		if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			if(value.equals("true")){
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}
+				
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			if(value.equals("true")){
+				//System.out.println("dfsd");
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());				
+				
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+				
+			}else{
+				
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+				
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+				
+			}else{
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());
+
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+			}
+			
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Constant- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}else {
+				//System.out.println("Constant- false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Table- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}else {
+				//System.out.println("Table - false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			}
+		}
+	}
+	private void changeMaterialF5Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(4);
+		if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			if(value.equals("true")){
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}
+				
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			if(value.equals("true")){
+				//System.out.println("dfsd");
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());				
+				
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+				
+			}else{
+				
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+				
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+				
+			}else{
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());
+
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+			}
+			
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Constant- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}else {
+				//System.out.println("Constant- false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Table- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}else {
+				//System.out.println("Table - false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			}
+		}
+	}
+	private void changeMaterialF6Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(5);
+		if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			if(value.equals("true")){
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}
+				
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			if(value.equals("true")){
+				//System.out.println("dfsd");
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());				
+				
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+				
+			}else{
+				
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+				
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+				
+			}else{
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());
+
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+			}
+			
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Constant- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}else {
+				//System.out.println("Constant- false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Table- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}else {
+				//System.out.println("Table - false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			}
+		}
+	}
+	private void changeMaterialF7Values(String value, String widgetName){
+		TableData_PLog obj = tableDataPLogList.get(6);
+		if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+			if(value.equals("true")){
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}
+				
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+			if(value.equals("true")){
+				//System.out.println("dfsd");
+				med.getTextYoungsModulus().setText(obj.getYM_Value_T());
+			}else{
+				med.getTextYoungsModulus().setText(obj.getYM_Value());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());				
+				
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+				
+			}else{
+				
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			if(value.equals("true")){
+				med.getTextFlowStress().setText(obj.getFS_Value());
+				med.getTextYieldStrength().setText(" ");
+				med.getTextTensileStrength().setText(" ");
+				med.getTextElongation().setText(" ");
+				
+				med.getTextFlowStress().setEnabled(true);
+				med.getTextYieldStrength().setEnabled(false);
+				med.getTextTensileStrength().setEnabled(false);
+				med.getTextElongation().setEnabled(false);
+				
+			}else{
+				med.getTextFlowStress().setText(" ");
+				med.getTextYieldStrength().setText(obj.getYS_Value());
+				med.getTextTensileStrength().setText(obj.getTS_Value());
+				med.getTextElongation().setText(obj.getE_Value());
+
+				med.getTextFlowStress().setEnabled(false);
+				med.getTextYieldStrength().setEnabled(true);
+				med.getTextTensileStrength().setEnabled(true);
+				med.getTextElongation().setEnabled(true);
+			}
+			
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Constant- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}else {
+				//System.out.println("Constant- false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+			if(value.equals("true")){
+				//System.out.println("Table- true");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value_T());
+			}else {
+				//System.out.println("Table - false");
+				med.getTextThermalExpansionCoefficient().setText(obj.getTEC_Value());	
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());
+			}
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+			if(value.equals("true")){
+				med.getTextPoissonsRatio().setText(obj.getPR_Value_T());	
+			}else{
+				med.getTextPoissonsRatio().setText(obj.getPR_Value());
+			}
+		}
+	}
 	
 	public void ChangedTextWidget(String value,String widgetName){
 		//System.out.println("[ChangedTextWidget] widgetName : "+widgetName+"  ||  key : "+value);
 		switch(this.StandValue){
 			case "F1":
 				this.saveF1Values(value, widgetName);
+				this.saveSameMaterialAllData(UILabel.F1,value, widgetName);
 				break;
 			case "F2":
 				this.saveF2Values(value, widgetName);
+				this.saveSameMaterialAllData(UILabel.F2,value, widgetName);
 				break;
 			case "F3":
 				this.saveF3Values(value, widgetName);
+				this.saveSameMaterialAllData(UILabel.F3,value, widgetName);
 				break;
 			case "F4":
 				this.saveF4Values(value, widgetName);
+				this.saveSameMaterialAllData(UILabel.F4,value, widgetName);
 				break;
 			case "F5":
 				this.saveF5Values(value, widgetName);
+				this.saveSameMaterialAllData(UILabel.F5,value, widgetName);
 				break;
 			case "F6":
 				this.saveF6Values(value, widgetName);
+				this.saveSameMaterialAllData(UILabel.F6,value, widgetName);
 				break;
 			case "F7":
 				this.saveF7Values(value, widgetName);
+				this.saveSameMaterialAllData(UILabel.F7,value, widgetName);
 				break;
 		}
 		
 		this.calcAllData("noFull");
+	}
+	private void saveSameMaterialAllData(String standType, String value,String widgetName){
+		String V = "";
+		String WN = "";
+		String YM_TYPE = "";
+		String FS_TYPE = "";
+		String TEC_TYPE = "";
+		String PR_TYPE = "";
+		
+		if(standType.equals(UILabel.F1)){
+			V = value;
+			WN = widgetName;
+			YM_TYPE = this.tableDataPLogList.get(0).getYM_Constant();
+			FS_TYPE = this.tableDataPLogList.get(0).getFS_Constant();
+			TEC_TYPE = this.tableDataPLogList.get(0).getTEC_Constant();
+			PR_TYPE = this.tableDataPLogList.get(0).getPR_Constant();
+		}else if(standType.equals(UILabel.F2)){
+			V = value;
+			WN = widgetName;
+			YM_TYPE = this.tableDataPLogList.get(0).getYM_Constant();
+			FS_TYPE = this.tableDataPLogList.get(0).getFS_Constant();
+			TEC_TYPE = this.tableDataPLogList.get(0).getTEC_Constant();
+			PR_TYPE = this.tableDataPLogList.get(0).getPR_Constant();
+		}else if(standType.equals(UILabel.F3)){
+			V = value;
+			WN = widgetName;
+			YM_TYPE = this.tableDataPLogList.get(0).getYM_Constant();
+			FS_TYPE = this.tableDataPLogList.get(0).getFS_Constant();
+			TEC_TYPE = this.tableDataPLogList.get(0).getTEC_Constant();
+			PR_TYPE = this.tableDataPLogList.get(0).getPR_Constant();
+		}else if(standType.equals(UILabel.F4)){
+			V = value;
+			WN = widgetName;
+			YM_TYPE = this.tableDataPLogList.get(0).getYM_Constant();
+			FS_TYPE = this.tableDataPLogList.get(0).getFS_Constant();
+			TEC_TYPE = this.tableDataPLogList.get(0).getTEC_Constant();
+			PR_TYPE = this.tableDataPLogList.get(0).getPR_Constant();
+		}else if(standType.equals(UILabel.F5)){
+			V = value;
+			WN = widgetName;
+			YM_TYPE = this.tableDataPLogList.get(0).getYM_Constant();
+			FS_TYPE = this.tableDataPLogList.get(0).getFS_Constant();
+			TEC_TYPE = this.tableDataPLogList.get(0).getTEC_Constant();
+			PR_TYPE = this.tableDataPLogList.get(0).getPR_Constant();
+		}else if(standType.equals(UILabel.F6)){
+			V = value;
+			WN = widgetName;
+			YM_TYPE = this.tableDataPLogList.get(0).getYM_Constant();
+			FS_TYPE = this.tableDataPLogList.get(0).getFS_Constant();
+			TEC_TYPE = this.tableDataPLogList.get(0).getTEC_Constant();
+			PR_TYPE = this.tableDataPLogList.get(0).getPR_Constant();
+		}else if(standType.equals(UILabel.F7)){
+			V = value;
+			WN = widgetName;
+			YM_TYPE = this.tableDataPLogList.get(0).getYM_Constant();
+			FS_TYPE = this.tableDataPLogList.get(0).getFS_Constant();
+			TEC_TYPE = this.tableDataPLogList.get(0).getTEC_Constant();
+			PR_TYPE = this.tableDataPLogList.get(0).getPR_Constant();
+		}
+		
+		for(TableData_PLog obj : this.tableDataPLogList){
+			if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
+				if(med.getBtnConstant1_YM().getSelection()){
+					obj.setYM_Value(V);
+				}else{
+					obj.setYM_Value_T(V);
+				}
+			}else if(widgetName.equals(Mediator.TEXT_textFlowStress)){
+				obj.setFS_Value(V);
+			}else if(widgetName.equals(Mediator.TEXT_textYieldStrength)){
+				obj.setYS_Value(V);
+			}else if(widgetName.equals(Mediator.TEXT_textTensileStrength)){
+				obj.setTS_Value(V);
+			}else if(widgetName.equals(Mediator.Text_textElongation)){
+				obj.setE_Value(V);
+			}
+			else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+				if(med.getBtnConstant2_TEC().getSelection()){
+					obj.setTEC_Value(V);	
+				}else{
+					obj.setTEC_Value_T(V);
+				}
+			}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+				if(med.getBtnConstant3_PR().getSelection()){
+					obj.setPR_Value(V);
+				}else{
+					obj.setPR_Value_T(V);
+				}
+			}else if(widgetName.equals(Mediator.TEXT_textMassDensity)){
+				obj.setMD_Value(V);
+			}
+			
+			else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+				obj.setYM_Constant(V);
+			}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
+				obj.setYM_Table(V);
+			}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+				obj.setFS_Constant(V);
+			}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+				obj.setFS_Table(V);
+			}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+				obj.setTEC_Constant(V);
+			}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
+				obj.setTEC_Table(V);
+			}else if(widgetName.equals(Mediator.BUTTON_btnConstant3_PR)){
+				obj.setPR_Constant(V);
+			}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
+				obj.setPR_Table(V);
+			}
+			
+		}
 	}
 	
 	private void saveF1Values(String value, String widgetName){
@@ -4965,15 +6648,52 @@ public class MainController {
 			obj.setBur_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
 			obj.setBur_brot(value);
-		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
-			obj.setYM_Value(value);
-		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
-			obj.setTEC_Value(value);
+		}
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		//      
+		//   ==========================>>>>>>>>>>>>>>>>>>>>>
+		//
+		else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
+			if(med.getBtnConstant1_YM().getSelection()){
+				obj.setYM_Value(value);
+			}else{
+				obj.setYM_Value_T(value);
+			}
+		}else if(widgetName.equals(Mediator.TEXT_textFlowStress)){
+			obj.setFS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYieldStrength)){
+			obj.setYS_Value(value);
+			//System.out.println("=>"+value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensileStrength)){
+			obj.setTS_Value(value);
+		}else if(widgetName.equals(Mediator.Text_textElongation)){
+			obj.setE_Value(value);
+		}
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			if(med.getBtnConstant2_TEC().getSelection()){
+				obj.setTEC_Value(value);	
+			}else{
+				obj.setTEC_Value_T(value);
+			}
 		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
-			obj.setPR_Value(value);
+			if(med.getBtnConstant3_PR().getSelection()){
+				obj.setPR_Value(value);
+			}else{
+				obj.setPR_Value_T(value);
+			}
 		}else if(widgetName.equals(Mediator.TEXT_textMassDensity)){
 			obj.setMD_Value(value);
-		}else if(widgetName.equals(Mediator.TEXT_textAnalysisTime)){
+		}
+		//
+		//
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		else if(widgetName.equals(Mediator.TEXT_textAnalysisTime)){
 			obj.setLcase_time(value);
 		}else if(widgetName.equals(Mediator.TEXT_textNoOfInc)){
 			obj.setlcase_inc(value);
@@ -4989,10 +6709,24 @@ public class MainController {
 			obj.setParallelMultiThread(value);
 		}else if(widgetName.equals(Mediator.SPINNER_spinnerThread)){
 			obj.setThread(value);
-		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+		}
+		
+		
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		//      
+		//   ==========================>>>>>>>>>>>>>>>>>>>>>
+		//
+		else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
 			obj.setYM_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
 			obj.setYM_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			obj.setFS_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			obj.setFS_Table(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
 			obj.setTEC_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
@@ -5002,6 +6736,13 @@ public class MainController {
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable3_PR)){
 			obj.setPR_Table(value);
 		}
+		//
+		//
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		
 	}
 	
 	private void saveF2Values(String value, String widgetName){
@@ -5070,9 +6811,52 @@ public class MainController {
 			obj.setBur_trot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
 			obj.setBur_brot(value);
-		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
-			obj.setYM_Value(value);
-		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+		}
+		
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		//      
+		//   ==========================>>>>>>>>>>>>>>>>>>>>>
+		//
+		else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
+			if(med.getBtnConstant1_YM().getSelection()){
+				obj.setYM_Value(value);
+			}else{
+				obj.setYM_Value_T(value);
+			}
+		}else if(widgetName.equals(Mediator.TEXT_textFlowStress)){
+			obj.setFS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYieldStrength)){
+			obj.setYS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensileStrength)){
+			obj.setTS_Value(value);
+		}else if(widgetName.equals(Mediator.Text_textElongation)){
+			obj.setE_Value(value);
+		}
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			if(med.getBtnConstant2_TEC().getSelection()){
+				obj.setTEC_Value(value);	
+			}else{
+				obj.setTEC_Value_T(value);
+			}
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			if(med.getBtnConstant3_PR().getSelection()){
+				obj.setPR_Value(value);
+			}else{
+				obj.setPR_Value_T(value);
+			}
+		}
+		//
+		//
+		//     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////////////
+		
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
 			obj.setTEC_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
 			obj.setPR_Value(value);
@@ -5094,10 +6878,19 @@ public class MainController {
 			obj.setParallelMultiThread(value);
 		}else if(widgetName.equals(Mediator.SPINNER_spinnerThread)){
 			obj.setThread(value);
-		}else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
+		}
+		
+		
+		
+		
+		else if(widgetName.equals(Mediator.BUTTON_btnConstant1_YM)){
 			obj.setYM_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
 			obj.setYM_Table(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			obj.setFS_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			obj.setFS_Table(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
 			obj.setTEC_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
@@ -5176,8 +6969,35 @@ public class MainController {
 		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
 			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
-			obj.setYM_Value(value);
-		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			if(med.getBtnConstant1_YM().getSelection()){
+				obj.setYM_Value(value);
+			}else{
+				obj.setYM_Value_T(value);
+			}
+		}else if(widgetName.equals(Mediator.TEXT_textFlowStress)){
+			obj.setFS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYieldStrength)){
+			obj.setYS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensileStrength)){
+			obj.setTS_Value(value);
+		}else if(widgetName.equals(Mediator.Text_textElongation)){
+			obj.setE_Value(value);
+		}
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			if(med.getBtnConstant2_TEC().getSelection()){
+				obj.setTEC_Value(value);	
+			}else{
+				obj.setTEC_Value_T(value);
+			}
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			if(med.getBtnConstant3_PR().getSelection()){
+				obj.setPR_Value(value);
+			}else{
+				obj.setPR_Value_T(value);
+			}
+		}
+		
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
 			obj.setTEC_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
 			obj.setPR_Value(value);
@@ -5203,7 +7023,13 @@ public class MainController {
 			obj.setYM_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
 			obj.setYM_Table(value);
-		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			obj.setFS_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			obj.setFS_Table(value);
+		}
+		
+		else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
 			obj.setTEC_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
 			obj.setTEC_Table(value);
@@ -5281,8 +7107,35 @@ public class MainController {
 		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
 			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
-			obj.setYM_Value(value);
-		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			if(med.getBtnConstant1_YM().getSelection()){
+				obj.setYM_Value(value);
+			}else{
+				obj.setYM_Value_T(value);
+			}
+		}else if(widgetName.equals(Mediator.TEXT_textFlowStress)){
+			obj.setFS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYieldStrength)){
+			obj.setYS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensileStrength)){
+			obj.setTS_Value(value);
+		}else if(widgetName.equals(Mediator.Text_textElongation)){
+			obj.setE_Value(value);
+		}
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			if(med.getBtnConstant2_TEC().getSelection()){
+				obj.setTEC_Value(value);	
+			}else{
+				obj.setTEC_Value_T(value);
+			}
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			if(med.getBtnConstant3_PR().getSelection()){
+				obj.setPR_Value(value);
+			}else{
+				obj.setPR_Value_T(value);
+			}
+		}
+		
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
 			obj.setTEC_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
 			obj.setPR_Value(value);
@@ -5308,7 +7161,13 @@ public class MainController {
 			obj.setYM_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
 			obj.setYM_Table(value);
-		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			obj.setFS_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			obj.setFS_Table(value);
+		}
+		
+		else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
 			obj.setTEC_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
 			obj.setTEC_Table(value);
@@ -5386,8 +7245,36 @@ public class MainController {
 		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
 			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
-			obj.setYM_Value(value);
-		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			if(med.getBtnConstant1_YM().getSelection()){
+				obj.setYM_Value(value);
+			}else{
+				obj.setYM_Value_T(value);
+			}
+		}else if(widgetName.equals(Mediator.TEXT_textFlowStress)){
+			obj.setFS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYieldStrength)){
+			obj.setYS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensileStrength)){
+			obj.setTS_Value(value);
+		}else if(widgetName.equals(Mediator.Text_textElongation)){
+			obj.setE_Value(value);
+		}
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			if(med.getBtnConstant2_TEC().getSelection()){
+				obj.setTEC_Value(value);	
+			}else{
+				obj.setTEC_Value_T(value);
+			}
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			if(med.getBtnConstant3_PR().getSelection()){
+				obj.setPR_Value(value);
+			}else{
+				obj.setPR_Value_T(value);
+			}
+		}
+		
+		
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
 			obj.setTEC_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
 			obj.setPR_Value(value);
@@ -5413,7 +7300,13 @@ public class MainController {
 			obj.setYM_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
 			obj.setYM_Table(value);
-		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			obj.setFS_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			obj.setFS_Table(value);
+		}
+		
+		else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
 			obj.setTEC_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
 			obj.setTEC_Table(value);
@@ -5492,7 +7385,17 @@ public class MainController {
 			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
 			obj.setYM_Value(value);
-		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+		}else if(widgetName.equals(Mediator.TEXT_textFlowStress)){
+			obj.setFS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYieldStrength)){
+			obj.setYS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensileStrength)){
+			obj.setTS_Value(value);
+		}else if(widgetName.equals(Mediator.Text_textElongation)){
+			obj.setE_Value(value);
+		}
+		
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
 			obj.setTEC_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
 			obj.setPR_Value(value);
@@ -5518,7 +7421,13 @@ public class MainController {
 			obj.setYM_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
 			obj.setYM_Table(value);
-		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			obj.setFS_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			obj.setFS_Table(value);
+		}
+		
+		else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
 			obj.setTEC_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
 			obj.setTEC_Table(value);
@@ -5596,8 +7505,36 @@ public class MainController {
 		}else if(widgetName.equals(Mediator.TEXT_textBottomBURRotVel)){
 			obj.setBur_brot(value);
 		}else if(widgetName.equals(Mediator.TEXT_textYoungsModulus)){
-			obj.setYM_Value(value);
-		}else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			if(med.getBtnConstant1_YM().getSelection()){
+				obj.setYM_Value(value);
+			}else{
+				obj.setYM_Value_T(value);
+			}
+		}else if(widgetName.equals(Mediator.TEXT_textFlowStress)){
+			obj.setFS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textYieldStrength)){
+			obj.setYS_Value(value);
+		}else if(widgetName.equals(Mediator.TEXT_textTensileStrength)){
+			obj.setTS_Value(value);
+		}else if(widgetName.equals(Mediator.Text_textElongation)){
+			obj.setE_Value(value);
+		}
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
+			if(med.getBtnConstant2_TEC().getSelection()){
+				obj.setTEC_Value(value);	
+			}else{
+				obj.setTEC_Value_T(value);
+			}
+		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
+			if(med.getBtnConstant3_PR().getSelection()){
+				obj.setPR_Value(value);
+			}else{
+				obj.setPR_Value_T(value);
+			}
+		}
+		
+		
+		else if(widgetName.equals(Mediator.TEXT_textThermalExpansionCoefficient)){
 			obj.setTEC_Value(value);
 		}else if(widgetName.equals(Mediator.TEXT_textPoissonsRatio)){
 			obj.setPR_Value(value);
@@ -5623,7 +7560,13 @@ public class MainController {
 			obj.setYM_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable1_YM)){
 			obj.setYM_Table(value);
-		}else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
+		}else if(widgetName.equals(Mediator.BUTTON_btnConstant4_FS)){
+			obj.setFS_Constant(value);
+		}else if(widgetName.equals(Mediator.BUTTON_btnTable4_FS)){
+			obj.setFS_Table(value);
+		}
+		
+		else if(widgetName.equals(Mediator.BUTTON_btnConstant2_TEC)){
 			obj.setTEC_Constant(value);
 		}else if(widgetName.equals(Mediator.BUTTON_btnTable2_TEC)){
 			obj.setTEC_Table(value);
@@ -5651,6 +7594,27 @@ public class MainController {
 		}else {
 			//this.textYoungsModulus = path;
 			this.ChangedTextWidget(path, Mediator.TEXT_textYoungsModulus);
+			med.getTextYoungsModulus().setText(path);
+		}
+	}
+	
+	public void Explorer_FlowStress(){
+		FileDialog  dlg = new FileDialog (med.getBtnExplorerFlowStress().getShell(),SWT.OPEN);
+		dlg.setText("Select Flow Stress File");
+				
+		String [] extNames = {"ALL(*.*)"};
+		String [] extType = {"*.*"};
+		
+		dlg.setFilterNames(extNames);
+		dlg.setFilterExtensions(extType);
+		
+		dlg.setFilterNames(extNames);
+		String path = dlg.open();
+		if (path == null){
+			return;
+		}else {
+			//this.textYoungsModulus = path;
+			this.ChangedTextWidget(path, Mediator.TEXT_textFlowStress);
 			med.getTextYoungsModulus().setText(path);
 		}
 	}
@@ -6167,6 +8131,7 @@ public class MainController {
 				tableDataPLogList.get(5).getYM_Value()+","+
 				tableDataPLogList.get(6).getYM_Value()+","+
 				",,,,,,,";
+		
 		String ov_line19 = "TEC_Constant"+","+
 				tableDataPLogList.get(0).getTEC_Constant()+","+
 				tableDataPLogList.get(1).getTEC_Constant()+","+
@@ -6311,6 +8276,65 @@ public class MainController {
 				tableDataPLogList.get(5).getThread()+","+
 				tableDataPLogList.get(6).getThread()+","+
 				",,,,,,,";
+		
+		
+		String ov_line35 = "FS_Constant"+","+
+				tableDataPLogList.get(0).getFS_Constant()+","+
+				tableDataPLogList.get(1).getFS_Constant()+","+
+				tableDataPLogList.get(2).getFS_Constant()+","+
+				tableDataPLogList.get(3).getFS_Constant()+","+
+				tableDataPLogList.get(4).getFS_Constant()+","+
+				tableDataPLogList.get(5).getFS_Constant()+","+
+				tableDataPLogList.get(6).getFS_Constant()+","+
+				",,,,,,,";
+		String ov_line36 = "FS_Table"+","+
+				tableDataPLogList.get(0).getFS_Table()+","+
+				tableDataPLogList.get(1).getFS_Table()+","+
+				tableDataPLogList.get(2).getFS_Table()+","+
+				tableDataPLogList.get(3).getFS_Table()+","+
+				tableDataPLogList.get(4).getFS_Table()+","+
+				tableDataPLogList.get(5).getFS_Table()+","+
+				tableDataPLogList.get(6).getFS_Table()+","+
+				",,,,,,,";
+		String ov_line37 = "FS_Value"+","+
+				tableDataPLogList.get(0).getFS_Value()+","+
+				tableDataPLogList.get(1).getFS_Value()+","+
+				tableDataPLogList.get(2).getFS_Value()+","+
+				tableDataPLogList.get(3).getFS_Value()+","+
+				tableDataPLogList.get(4).getFS_Value()+","+
+				tableDataPLogList.get(5).getFS_Value()+","+
+				tableDataPLogList.get(6).getFS_Value()+","+
+				",,,,,,,";
+		String ov_line38 = "YS_Value"+","+
+				tableDataPLogList.get(0).getYS_Value()+","+
+				tableDataPLogList.get(1).getYS_Value()+","+
+				tableDataPLogList.get(2).getYS_Value()+","+
+				tableDataPLogList.get(3).getYS_Value()+","+
+				tableDataPLogList.get(4).getYS_Value()+","+
+				tableDataPLogList.get(5).getYS_Value()+","+
+				tableDataPLogList.get(6).getYS_Value()+","+
+				",,,,,,,";
+		String ov_line39 = "TS_Value"+","+
+				tableDataPLogList.get(0).getTS_Value()+","+
+				tableDataPLogList.get(1).getTS_Value()+","+
+				tableDataPLogList.get(2).getTS_Value()+","+
+				tableDataPLogList.get(3).getTS_Value()+","+
+				tableDataPLogList.get(4).getTS_Value()+","+
+				tableDataPLogList.get(5).getTS_Value()+","+
+				tableDataPLogList.get(6).getTS_Value()+","+
+				",,,,,,,";
+		String ov_line40 = "E_Value"+","+
+				tableDataPLogList.get(0).getE_Value()+","+
+				tableDataPLogList.get(1).getE_Value()+","+
+				tableDataPLogList.get(2).getE_Value()+","+
+				tableDataPLogList.get(3).getE_Value()+","+
+				tableDataPLogList.get(4).getE_Value()+","+
+				tableDataPLogList.get(5).getE_Value()+","+
+				tableDataPLogList.get(6).getE_Value()+","+
+				",,,,,,,";
+		
+		
+		
 		otherValueList.add(ov_line1);otherValueList.add(ov_line2);otherValueList.add(ov_line3);
 		otherValueList.add(ov_line4);otherValueList.add(ov_line5);otherValueList.add(ov_line6);
 		otherValueList.add(ov_line7);otherValueList.add(ov_line8);otherValueList.add(ov_line9);
@@ -6323,6 +8347,12 @@ public class MainController {
 		otherValueList.add(ov_line28);otherValueList.add(ov_line29);otherValueList.add(ov_line30);
 		otherValueList.add(ov_line31);otherValueList.add(ov_line32);otherValueList.add(ov_line33);
 		otherValueList.add(ov_line34);
+		otherValueList.add(ov_line35);
+		otherValueList.add(ov_line36);
+		otherValueList.add(ov_line37);
+		otherValueList.add(ov_line38);
+		otherValueList.add(ov_line39);
+		otherValueList.add(ov_line40);
 		
 	}
 	

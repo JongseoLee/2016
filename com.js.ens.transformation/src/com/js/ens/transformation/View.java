@@ -95,6 +95,11 @@ public class View extends ViewPart {
 	private Text textBottomBURRotVel;
 
 	private Text textYoungsModulus;
+	private Text textFlowStress;
+	private Text textYieldStrength;
+	private Text textTensileStrength;
+	private Text textElongation;
+	
 	private Text textThermalExpansionCoefficient;
 	private Text textPoissonsRatio;
 	private Text textMassDensity;
@@ -1007,9 +1012,9 @@ public class View extends ViewPart {
 		fd_grpMaterialParameter.top = new FormAttachment(grpWorkRollwrParameter, 0, SWT.TOP);
 		fd_grpMaterialParameter.left = new FormAttachment(grpProcessInformation, 10, SWT.RIGHT);
 		fd_grpMaterialParameter.right = new FormAttachment(grpProcessInformation, 410,SWT.RIGHT);
-		fd_grpMaterialParameter.bottom = new FormAttachment(groupSTAND, 340, SWT.BOTTOM);
+		fd_grpMaterialParameter.bottom = new FormAttachment(groupSTAND, 460, SWT.BOTTOM);
 		grpMaterialParameter.setLayoutData(fd_grpMaterialParameter);
-
+		//--------------------------------------------------------------------------------------------------------
 		Label lblYoungsModulus = new Label(grpMaterialParameter, SWT.NONE);
 		FormData fd_lblYoungsModulus = new FormData();
 		fd_lblYoungsModulus.top = new FormAttachment(0, 10);
@@ -1069,11 +1074,134 @@ public class View extends ViewPart {
 		fd_btnExplorerYoungsModulus.left = new FormAttachment(textYoungsModulus, 5);
 		btnExplorerYoungsModulus.setLayoutData(fd_btnExplorerYoungsModulus);
 		btnExplorerYoungsModulus.setText("...");
+		//--------------------------------------------------------------------------------------------------------
 		
+		Label lblFlowStress = new Label(grpMaterialParameter, SWT.NONE);
+		FormData fd_lblFlowStress = new FormData();
+		fd_lblFlowStress.top = new FormAttachment(textYoungsModulus, 12);
+		fd_lblFlowStress.left = new FormAttachment(lblYoungsModulus, 0, SWT.LEFT);
+		lblFlowStress.setLayoutData(fd_lblFlowStress);
+		lblFlowStress.setText(ulObj.getUILabelValue(UILabel.Flow_Stress));
+		
+		Composite compositeFlowStress = new Composite(grpMaterialParameter, SWT.NONE);
+		compositeFlowStress.setLayout(new FormLayout());
+		FormData fd_compositeFlowStress = new FormData();
+		fd_compositeFlowStress.top = new FormAttachment(lblFlowStress, 5);
+		fd_compositeFlowStress.left = new FormAttachment(lblFlowStress, 10,SWT.LEFT);
+		compositeFlowStress.setLayoutData(fd_compositeFlowStress);
+		
+		
+		Button btnConstant4_FS = new Button(compositeFlowStress, SWT.RADIO);
+		med.setBtnConstant4_FS(btnConstant4_FS);
+		CustomButton c_btnConstant4_FS = new CustomButton(Mediator.BUTTON_btnConstant4_FS,med);
+		med.setC_btnConstant4_FS(c_btnConstant4_FS);
+		c_btnConstant4_FS.setCustomWidget_btnConstant4_FS();
+		FormData fd_btnConstant4_FS = new FormData();
+		fd_btnConstant4_FS.top = new FormAttachment(0, 0);
+		fd_btnConstant4_FS.left = new FormAttachment(0, 0);
+		btnConstant4_FS.setLayoutData(fd_btnConstant4_FS);
+		btnConstant4_FS.setText(ulObj.getUILabelValue(UILabel.Constatnt));
+		//btnConstant4_FS.setSelection(true);
+		
+		
+		Button btnTable4_FS = new Button(compositeFlowStress, SWT.RADIO);
+		med.setBtnTable4_FS(btnTable4_FS);
+		CustomButton c_btnTable4_FS = new CustomButton(Mediator.BUTTON_btnTable4_FS, med);
+		med.setC_btnTable4_FS(c_btnTable4_FS);
+		c_btnTable4_FS.setCustomWidget_btnTable4_FS();
+		FormData fd_btnTable4_FS = new FormData();
+		fd_btnTable4_FS.top = new FormAttachment(btnConstant4_FS, 0, SWT.TOP);
+		fd_btnTable4_FS.left = new FormAttachment(btnConstant4_FS, 20);
+		btnTable4_FS.setLayoutData(fd_btnTable4_FS);
+		btnTable4_FS.setText(ulObj.getUILabelValue(UILabel.Table));
+		//btnTable4_FS.setSelection(false);
+		
+		textFlowStress = new Text(grpMaterialParameter, SWT.BORDER);
+		med.setTextFlowStress(textFlowStress);
+		CustomText c_textFlowStress = new CustomText(Mediator.TEXT_textFlowStress,med);
+		med.setC_textFlowStress(c_textFlowStress);
+		c_textFlowStress.setCustomWidget_textFlowStress();
+		FormData fd_textFlowStress = new FormData();
+		fd_textFlowStress.top = new FormAttachment(compositeFlowStress, 5);
+		fd_textFlowStress.left = new FormAttachment(textYoungsModulus,0,SWT.LEFT);
+		fd_textFlowStress.right = new FormAttachment(textYoungsModulus, 0,SWT.RIGHT);
+		textFlowStress.setLayoutData(fd_textFlowStress);
+		
+		Button btnExplorerFlowStress = new Button(grpMaterialParameter, SWT.NONE);
+		med.setBtnExplorerFlowStress(btnExplorerFlowStress);
+		CustomButton c_btnExplorerFlowStress = new CustomButton(Mediator.BUTTON_btnExplorerFlowStress,med);
+		med.setC_btnExplorerFlowStress(c_btnExplorerFlowStress);
+		c_btnExplorerFlowStress.setCustomWidget_btnExplorerFlowStress();
+		FormData fd_btnExplorerFlowStress = new FormData();
+		fd_btnExplorerFlowStress.top = new FormAttachment(textFlowStress, -2, SWT.TOP);
+		fd_btnExplorerFlowStress.left = new FormAttachment(textFlowStress, 5);
+		btnExplorerFlowStress.setLayoutData(fd_btnExplorerFlowStress);
+		btnExplorerFlowStress.setText("...");
+		
+		//-------------------------------------------------------------------------------------
+		
+		Label lblYieldStrength = new Label(grpMaterialParameter, SWT.NONE);
+		FormData fd_lblYieldStrength = new FormData();
+		fd_lblYieldStrength.top = new FormAttachment(textFlowStress, 12);
+		fd_lblYieldStrength.left = new FormAttachment(lblYoungsModulus,20, SWT.LEFT);
+		lblYieldStrength.setLayoutData(fd_lblYieldStrength);
+		lblYieldStrength.setText(ulObj.getUILabelValue(UILabel.Yield_Strength));
+		
+		textYieldStrength = new Text(grpMaterialParameter, SWT.BORDER);
+		med.setTextYieldStrength(textYieldStrength);
+		CustomText c_textYieldStrength = new CustomText(Mediator.TEXT_textYieldStrength,med);
+		med.setC_textYieldStrength(c_textYieldStrength);
+		c_textYieldStrength.setCustomWidget_textYieldStrength();
+		FormData fd_textYieldStrength = new FormData();
+		fd_textYieldStrength.top = new FormAttachment(lblYieldStrength, -2,SWT.TOP);
+		fd_textYieldStrength.left = new FormAttachment(lblYieldStrength,20,SWT.RIGHT);
+		fd_textYieldStrength.right = new FormAttachment(btnExplorerFlowStress, 0,SWT.RIGHT);
+		textYieldStrength.setLayoutData(fd_textYieldStrength);
+		textYieldStrength.setEnabled(false);
+		
+		Label lblTensileStrength = new Label(grpMaterialParameter, SWT.NONE);
+		FormData fd_lblTensileStrength = new FormData();
+		fd_lblTensileStrength.top = new FormAttachment(lblYieldStrength, 12);
+		fd_lblTensileStrength.left = new FormAttachment(lblYoungsModulus, 20, SWT.LEFT);
+		lblTensileStrength.setLayoutData(fd_lblTensileStrength);
+		lblTensileStrength.setText(ulObj.getUILabelValue(UILabel.Tensile_Strength));
+		
+		textTensileStrength = new Text(grpMaterialParameter, SWT.BORDER);
+		med.setTextTensileStrength(textTensileStrength);
+		CustomText c_textTensileStrength = new CustomText(Mediator.TEXT_textTensileStrength,med);
+		med.setC_textTensileStrength(c_textTensileStrength);
+		c_textTensileStrength.setCustomWidget_textTensileStrength();
+		FormData fd_tensileStrength_2D = new FormData();
+		fd_tensileStrength_2D.top = new FormAttachment(lblTensileStrength,-2, SWT.TOP);
+		fd_tensileStrength_2D.left = new FormAttachment(textYieldStrength,0,SWT.LEFT);
+		fd_tensileStrength_2D.right = new FormAttachment(textYieldStrength, 0,SWT.RIGHT);
+		textTensileStrength.setLayoutData(fd_tensileStrength_2D);
+		textTensileStrength.setEnabled(false);
+		
+		Label lblElongation = new Label(grpMaterialParameter, SWT.NONE);
+		FormData fd_lblElongation = new FormData();
+		fd_lblElongation.top = new FormAttachment(lblTensileStrength, 12);
+		fd_lblElongation.left = new FormAttachment(lblYoungsModulus, 20, SWT.LEFT);
+		lblElongation.setLayoutData(fd_lblElongation);
+		lblElongation.setText(ulObj.getUILabelValue(UILabel.Elongation));
+		
+		textElongation = new Text(grpMaterialParameter, SWT.BORDER);
+		med.setTextElongation(textElongation);
+		CustomText c_textElongation = new CustomText(Mediator.Text_textElongation,med);
+		med.setC_textElongation(c_textElongation);
+		c_textElongation.setCustomWidget_textElongation();
+		FormData fd_textElongation = new FormData();
+		fd_textElongation.top = new FormAttachment(lblElongation,-2,SWT.TOP);
+		fd_textElongation.left = new FormAttachment(textYieldStrength, 0, SWT.LEFT);
+		fd_textElongation.right = new FormAttachment(textYieldStrength, 0, SWT.RIGHT);
+		textElongation.setLayoutData(fd_textElongation);
+		textElongation.setEnabled(false);
+		//-------------------------------------------------------------------------------------
+		/* */
 		
 		Label lblThermalExpansionCoefficient = new Label(grpMaterialParameter, SWT.NONE);
 		FormData fd_lblThermalExpansionCoefficient = new FormData();
-		fd_lblThermalExpansionCoefficient.top = new FormAttachment(textYoungsModulus, 10);
+		fd_lblThermalExpansionCoefficient.top = new FormAttachment(lblElongation, 10);
 		fd_lblThermalExpansionCoefficient.left = new FormAttachment(lblYoungsModulus, 0, SWT.LEFT);
 		lblThermalExpansionCoefficient.setLayoutData(fd_lblThermalExpansionCoefficient);
 		lblThermalExpansionCoefficient.setText(ulObj.getUILabelValue(UILabel.Thermal_Expansion_Coefficient));
@@ -1228,7 +1356,7 @@ public class View extends ViewPart {
 		fd_grpAnalysisInformation.top = new FormAttachment(grpMaterialParameter, 5);
 		fd_grpAnalysisInformation.left = new FormAttachment(grpMaterialParameter, 0, SWT.LEFT);
 		fd_grpAnalysisInformation.right = new FormAttachment(grpMaterialParameter, 0,SWT.RIGHT);
-		fd_grpAnalysisInformation.bottom = new FormAttachment(grpMaterialParameter, 290, SWT.BOTTOM);
+		fd_grpAnalysisInformation.bottom = new FormAttachment(grpMaterialParameter, 230, SWT.BOTTOM);
 		grpAnalysisInformation.setLayoutData(fd_grpAnalysisInformation);
 		
 		Label lblAnalysisTime = new Label(grpAnalysisInformation, SWT.NONE);
@@ -1596,11 +1724,14 @@ public class View extends ViewPart {
 		med.getBtnF7().addListener(SWT.Selection, handlerButton);
 		med.getBtnConstant1_YM().addListener(SWT.Selection, handlerButton);
 		med.getBtnTable1_YM().addListener(SWT.Selection, handlerButton);
+		med.getBtnConstant4_FS().addListener(SWT.Selection, handlerButton);
+		med.getBtnTable4_FS().addListener(SWT.Selection, handlerButton);
 		med.getBtnConstant2_TEC().addListener(SWT.Selection, handlerButton);
 		med.getBtnTable2_TEC().addListener(SWT.Selection, handlerButton);
 		med.getBtnConstant3_PR().addListener(SWT.Selection, handlerButton);
 		med.getBtnTable3_PR().addListener(SWT.Selection, handlerButton);
 		med.getBtnExplorerYoungsModulus().addListener(SWT.Selection, handlerButton);
+		med.getBtnExplorerFlowStress().addListener(SWT.Selection, handlerButton);
 		med.getBtnExplorerThermalExpansionCoefficient().addListener(SWT.Selection, handlerButton);
 		med.getBtnExplorerPoissonsRatio().addListener(SWT.Selection, handlerButton);
 		med.getBtnParallelDDM().addListener(SWT.Selection, handlerButton);
@@ -1650,6 +1781,10 @@ public class View extends ViewPart {
 		med.getTextBottomBURRotVel().addListener(SWT.CHANGED, handlerText);
 		
 		med.getTextYoungsModulus().addListener(SWT.CHANGED, handlerText);
+		med.getTextFlowStress().addListener(SWT.CHANGED, handlerText);
+		med.getTextYieldStrength().addListener(SWT.CHANGED, handlerText);
+		med.getTextTensileStrength().addListener(SWT.CHANGED, handlerText);
+		med.getTextElongation().addListener(SWT.CHANGED, handlerText);
 		med.getTextThermalExpansionCoefficient().addListener(SWT.CHANGED, handlerText);
 		med.getTextPoissonsRatio().addListener(SWT.CHANGED, handlerText);
 		med.getTextMassDensity().addListener(SWT.CHANGED, handlerText);

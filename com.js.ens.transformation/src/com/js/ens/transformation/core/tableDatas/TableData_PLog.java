@@ -60,12 +60,21 @@ public class TableData_PLog {
 	//group5
 	private String YM_Constant = "";
 	private String YM_Table = "";
+	private String YM_Value_T = "";
 	private String YM_Value = "";
+	private String FS_Constant = "";
+	private String FS_Table = "";
+	private String FS_Value = "";
+	private String YS_Value = "";
+	private String TS_Value = "";
+	private String E_Value = "";
 	private String TEC_Constant = "";
 	private String TEC_Table = "";
+	private String TEC_Value_T = "";
 	private String TEC_Value = "";
 	private String PR_Constant = "";
 	private String PR_Table = "";
+	private String PR_Value_T = "";
 	private String PR_Value = "";
 	private String MD_Value = "";
 	
@@ -150,12 +159,22 @@ public class TableData_PLog {
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F1);
 		YM_Table = obj.getInitValue(InitValue.YM_Table_F1);
 		YM_Value = obj.getInitValue(InitValue.YM_Value_F1);
+		YM_Value_T = obj.getYM_tableValuePath();
+		FS_Constant = obj.getInitValue(InitValue.FS_Constant_F1);
+		FS_Table = obj.getInitValue(InitValue.FS_Table_F1);
+		FS_Value = obj.getFS_tableValuePath();
+		YS_Value = obj.getInitValue(InitValue.YS_Value_F1);
+		TS_Value = obj.getInitValue(InitValue.TS_Value_F1);
+		E_Value = obj.getInitValue(InitValue.E_Value_F1);
+		//System.out.println(YS_Value+"|"+TS_Value+"|"+E_Value);
 		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F1);
 		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F1);
 		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F1);
+		TEC_Value_T = obj.getTEC_tableValuePath();
 		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F1);
 		PR_Table = obj.getInitValue(InitValue.PR_Table_F1);
 		PR_Value = obj.getInitValue(InitValue.PR_Value_F1);
+		PR_Value_T = obj.getPR_tableValuePath();
 		MD_Value = obj.getInitValue(InitValue.MD_Value_F1);
 		
 		//group6
@@ -199,15 +218,23 @@ public class TableData_PLog {
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F2);
 		YM_Table = obj.getInitValue(InitValue.YM_Table_F2);
+		YM_Value_T = obj.getYM_tableValuePath();
 		YM_Value = obj.getInitValue(InitValue.YM_Value_F2);
+		FS_Constant = obj.getInitValue(InitValue.FS_Constant_F2);
+		FS_Table = obj.getInitValue(InitValue.FS_Table_F2);
+		FS_Value = obj.getFS_tableValuePath();
+		YS_Value = obj.getInitValue(InitValue.YS_Value_F2);
+		TS_Value = obj.getInitValue(InitValue.TS_Value_F2);
+		E_Value = obj.getInitValue(InitValue.E_Value_F2);
 		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F2);
 		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F2);
+		TEC_Value_T = obj.getTEC_tableValuePath();
 		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F2);
 		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F2);
 		PR_Table = obj.getInitValue(InitValue.PR_Table_F2);
+		PR_Value_T = obj.getPR_tableValuePath();
 		PR_Value = obj.getInitValue(InitValue.PR_Value_F2);
 		MD_Value = obj.getInitValue(InitValue.MD_Value_F2);
-		
 		//group6
 		lcase_time = obj.getInitValue(InitValue.lcase_time_F2);
 		lcase_inc = obj.getInitValue(InitValue.lcase_inc_F2);
@@ -249,12 +276,21 @@ public class TableData_PLog {
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F3);
 		YM_Table = obj.getInitValue(InitValue.YM_Table_F3);
+		YM_Value_T = obj.getYM_tableValuePath();
 		YM_Value = obj.getInitValue(InitValue.YM_Value_F3);
+		FS_Constant = obj.getInitValue(InitValue.FS_Constant_F3);
+		FS_Table = obj.getInitValue(InitValue.FS_Table_F3);
+		FS_Value = obj.getFS_tableValuePath();
+		YS_Value = obj.getInitValue(InitValue.YS_Value_F3);
+		TS_Value = obj.getInitValue(InitValue.TS_Value_F3);
+		E_Value = obj.getInitValue(InitValue.E_Value_F3);
 		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F3);
 		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F3);
+		TEC_Value_T = obj.getTEC_tableValuePath();
 		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F3);
 		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F3);
 		PR_Table = obj.getInitValue(InitValue.PR_Table_F3);
+		PR_Value_T = obj.getPR_tableValuePath();
 		PR_Value = obj.getInitValue(InitValue.PR_Value_F3);
 		MD_Value = obj.getInitValue(InitValue.MD_Value_F3);
 		
@@ -299,12 +335,21 @@ public class TableData_PLog {
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F4);
 		YM_Table = obj.getInitValue(InitValue.YM_Table_F4);
+		YM_Value_T = obj.getYM_tableValuePath();
 		YM_Value = obj.getInitValue(InitValue.YM_Value_F4);
+		FS_Constant = obj.getInitValue(InitValue.FS_Constant_F4);
+		FS_Table = obj.getInitValue(InitValue.FS_Table_F4);
+		FS_Value = obj.getFS_tableValuePath();
+		YS_Value = obj.getInitValue(InitValue.YS_Value_F4);
+		TS_Value = obj.getInitValue(InitValue.TS_Value_F4);
+		E_Value = obj.getInitValue(InitValue.E_Value_F4);
 		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F4);
 		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F4);
+		TEC_Value_T = obj.getTEC_tableValuePath();
 		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F4);
 		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F4);
 		PR_Table = obj.getInitValue(InitValue.PR_Table_F4);
+		PR_Value_T = obj.getPR_tableValuePath();
 		PR_Value = obj.getInitValue(InitValue.PR_Value_F4);
 		MD_Value = obj.getInitValue(InitValue.MD_Value_F4);
 		
@@ -349,12 +394,21 @@ public class TableData_PLog {
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F5);
 		YM_Table = obj.getInitValue(InitValue.YM_Table_F5);
+		YM_Value_T = obj.getYM_tableValuePath();
 		YM_Value = obj.getInitValue(InitValue.YM_Value_F5);
+		FS_Constant = obj.getInitValue(InitValue.FS_Constant_F5);
+		FS_Table = obj.getInitValue(InitValue.FS_Table_F5);
+		FS_Value = obj.getFS_tableValuePath();
+		YS_Value = obj.getInitValue(InitValue.YS_Value_F5);
+		TS_Value = obj.getInitValue(InitValue.TS_Value_F5);
+		E_Value = obj.getInitValue(InitValue.E_Value_F5);
 		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F5);
 		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F5);
+		TEC_Value_T = obj.getTEC_tableValuePath();
 		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F5);
 		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F5);
 		PR_Table = obj.getInitValue(InitValue.PR_Table_F5);
+		PR_Value_T = obj.getPR_tableValuePath();
 		PR_Value = obj.getInitValue(InitValue.PR_Value_F5);
 		MD_Value = obj.getInitValue(InitValue.MD_Value_F5);
 		
@@ -399,12 +453,21 @@ public class TableData_PLog {
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F6);
 		YM_Table = obj.getInitValue(InitValue.YM_Table_F6);
+		YM_Value_T = obj.getYM_tableValuePath();
 		YM_Value = obj.getInitValue(InitValue.YM_Value_F6);
+		FS_Constant = obj.getInitValue(InitValue.FS_Constant_F6);
+		FS_Table = obj.getInitValue(InitValue.FS_Table_F6);
+		FS_Value = obj.getFS_tableValuePath();
+		YS_Value = obj.getInitValue(InitValue.YS_Value_F6);
+		TS_Value = obj.getInitValue(InitValue.TS_Value_F6);
+		E_Value = obj.getInitValue(InitValue.E_Value_F6);
 		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F6);
 		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F6);
+		TEC_Value_T = obj.getTEC_tableValuePath();
 		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F6);
 		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F6);
 		PR_Table = obj.getInitValue(InitValue.PR_Table_F6);
+		PR_Value_T = obj.getPR_tableValuePath();
 		PR_Value = obj.getInitValue(InitValue.PR_Value_F6);
 		MD_Value = obj.getInitValue(InitValue.MD_Value_F6);
 		
@@ -449,12 +512,21 @@ public class TableData_PLog {
 		//group5
 		YM_Constant = obj.getInitValue(InitValue.YM_Constant_F7);
 		YM_Table = obj.getInitValue(InitValue.YM_Table_F7);
+		YM_Value_T = obj.getYM_tableValuePath();
 		YM_Value = obj.getInitValue(InitValue.YM_Value_F7);
+		FS_Constant = obj.getInitValue(InitValue.FS_Constant_F7);
+		FS_Table = obj.getInitValue(InitValue.FS_Table_F7);
+		FS_Value = obj.getFS_tableValuePath();
+		YS_Value = obj.getInitValue(InitValue.YS_Value_F7);
+		TS_Value = obj.getInitValue(InitValue.TS_Value_F7);
+		E_Value = obj.getInitValue(InitValue.E_Value_F7);
 		TEC_Constant = obj.getInitValue(InitValue.TEC_Constant_F7);
 		TEC_Table = obj.getInitValue(InitValue.TEC_Table_F7);
+		TEC_Value_T = obj.getTEC_tableValuePath();
 		TEC_Value = obj.getInitValue(InitValue.TEC_Value_F7);
 		PR_Constant = obj.getInitValue(InitValue.PR_Constant_F7);
 		PR_Table = obj.getInitValue(InitValue.PR_Table_F7);
+		PR_Value_T = obj.getPR_tableValuePath();
 		PR_Value = obj.getInitValue(InitValue.PR_Value_F7);
 		MD_Value = obj.getInitValue(InitValue.MD_Value_F7);
 		
@@ -854,6 +926,54 @@ public class TableData_PLog {
 		YM_Table = yM_Table;
 	}
 
+	public String getFS_Constant() {
+		return FS_Constant;
+	}
+
+	public void setFS_Constant(String fS_Constant) {
+		FS_Constant = fS_Constant;
+	}
+
+	public String getFS_Table() {
+		return FS_Table;
+	}
+
+	public void setFS_Table(String fS_Table) {
+		FS_Table = fS_Table;
+	}
+
+	public String getFS_Value() {
+		return FS_Value;
+	}
+
+	public void setFS_Value(String fS_Value) {
+		FS_Value = fS_Value;
+	}
+
+	public String getYS_Value() {
+		return YS_Value;
+	}
+
+	public void setYS_Value(String yS_Value) {
+		YS_Value = yS_Value;
+	}
+
+	public String getTS_Value() {
+		return TS_Value;
+	}
+
+	public void setTS_Value(String tS_Value) {
+		TS_Value = tS_Value;
+	}
+
+	public String getE_Value() {
+		return E_Value;
+	}
+
+	public void setE_Value(String e_Value) {
+		E_Value = e_Value;
+	}
+
 	public String getTEC_Constant() {
 		return TEC_Constant;
 	}
@@ -880,6 +1000,30 @@ public class TableData_PLog {
 
 	public String getPR_Table() {
 		return PR_Table;
+	}
+
+	public String getYM_Value_T() {
+		return YM_Value_T;
+	}
+
+	public void setYM_Value_T(String yM_Value_T) {
+		YM_Value_T = yM_Value_T;
+	}
+
+	public String getTEC_Value_T() {
+		return TEC_Value_T;
+	}
+
+	public void setTEC_Value_T(String tEC_Value_T) {
+		TEC_Value_T = tEC_Value_T;
+	}
+
+	public String getPR_Value_T() {
+		return PR_Value_T;
+	}
+
+	public void setPR_Value_T(String pR_Value_T) {
+		PR_Value_T = pR_Value_T;
 	}
 
 	public void setPR_Table(String pR_Table) {
@@ -980,12 +1124,26 @@ public class TableData_PLog {
 		DB.add("YM_Constant"					+"_"+this.STAND+"="+	this.YM_Constant);
 		DB.add("YM_Table"						+"_"+this.STAND+"="+	this.YM_Table);
 		DB.add(UILabel.Youngs_Modulus			+"_"+this.STAND+"="+	this.YM_Value);
+		DB.add(UILabel.Youngs_Modulus			+"_T_"+this.STAND+"="+	this.YM_Value_T);
+		
+		DB.add("FS_Constant"					+"_"+this.STAND+"="+	this.FS_Constant);
+		DB.add("FS_Table"						+"_"+this.STAND+"="+	this.FS_Table);
+		
+		DB.add(UILabel.Flow_Stress				+"_"+this.STAND+"="+	this.FS_Value);
+		DB.add(UILabel.Yield_Strength			+"_"+this.STAND+"="+	this.YS_Value);
+		DB.add(UILabel.Tensile_Strength			+"_"+this.STAND+"="+	this.TS_Value);
+		DB.add(UILabel.Elongation				+"_"+this.STAND+"="+	this.E_Value);		
+		
 		DB.add("TEC_Constant"					+"_"+this.STAND+"="+	this.TEC_Constant);
 		DB.add("TEC_Table"						+"_"+this.STAND+"="+	this.TEC_Table);
 		DB.add(UILabel.Thermal_Expansion_Coefficient	+"_"+this.STAND+"="+	this.TEC_Value);
+		DB.add(UILabel.Thermal_Expansion_Coefficient	+"_T_"+this.STAND+"="+	this.TEC_Value_T);
+		
 		DB.add("PR_Constant"					+"_"+this.STAND+"="+	this.PR_Constant);
 		DB.add("PR_Table"						+"_"+this.STAND+"="+	this.PR_Table);
 		DB.add(UILabel.Poissons_Ratio			+"_"+this.STAND+"="+	this.PR_Value);
+		DB.add(UILabel.Poissons_Ratio			+"_T_"+this.STAND+"="+	this.PR_Value_T);
+		
 		DB.add(UILabel.Mass_Density				+"_"+this.STAND+"="+	this.MD_Value);
 		//group6
 		DB.add(UILabel.Analysis_Time			+"_"+this.STAND+"="+	this.lcase_time);
