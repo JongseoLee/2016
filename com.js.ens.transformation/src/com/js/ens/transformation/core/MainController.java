@@ -84,7 +84,7 @@ public class MainController {
 	private ArrayList<TableData_Variable> tableDataVariableList = null;
 	//private Map<String,String> tableDataVariableMap = null;
 	
-	// tableDataPLogList ´Â F1 ~ F7 ±îÁöÀÇ µ¥ÀÌÅÍ 7°³ obj°¡ ÀúÀåµÊ
+	// tableDataPLogList ï¿½ï¿½ F1 ~ F7 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 7ï¿½ï¿½ objï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	//private TableData_common  tabeDataCommon = null;
 	private ArrayList<TableData_PLog> tableDataPLogList = null;
 	private ArrayList<String> otherValueList = null;
@@ -221,7 +221,7 @@ public class MainController {
 		int lineNumber = 0;
 		ArrayList<String> dataList = new ArrayList<String>();
 
-		//CSV ÆÄÀÏ¿¡¼­ PLog Å×ÀÌºí ¶óÀÎ ¼ö Ã£±â
+		//CSV ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ PLog ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã£ï¿½ï¿½
 		for(String line:fileDataList){
 			ArrayList<String> tempList = ParserDefault.splitLineData(line, ",");
 			if(tempList.size()!=0){
@@ -233,20 +233,20 @@ public class MainController {
 		}
 		
 		
-		// dataList¿¡ PLogÀÇ Line µ¥ÀÌÅÍ ÀúÀå
+		// dataListï¿½ï¿½ PLogï¿½ï¿½ Line ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		for(int i = lineNumber+1 ; i<lineNumber+25;i++){
 			dataList.add(fileDataList.get(i));
 		}
 		this.createPLogObj(dataList);
 		
-		// UI¿¡ Ç¥½ÃÇÑ µ¥ÀÌÅÍ Çü½ÄÀ¸·Î Àç °¡°ø
+		// UIï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		this.createTableRowData();
 		
 	}
 	
-	//F1~F7 Obj ¸¸µé±â
+	//F1~F7 Obj ï¿½ï¿½ï¿½ï¿½ï¿½
 	private void createPLogObj(ArrayList<String> dataList){
-		// dataList ´Â CSV ÀÇ PLogµ¥ÀÌÅÍ¸¸ ³Ñ¾î¿È
+		// dataList ï¿½ï¿½ CSV ï¿½ï¿½ PLogï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ñ¾ï¿½ï¿½
 		this.saveOtherValues();
 		
 		this.tableDataPLogList = new ArrayList<TableData_PLog>();
@@ -805,7 +805,7 @@ public class MainController {
 		}
 	}
 	
-	//PLog Å×ÀÌºí ¿ë µ¥ÀÌÅÍ ¸¸µé±â
+	//PLog ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	private void createTableRowData(){
 		//1
 		TableRowData_BUR_TDIA r1Obj = new TableRowData_BUR_TDIA();
@@ -907,7 +907,7 @@ public class MainController {
 		this.tableRowDataList.add(r24Obj);
 	}
 	
-	// Table¿¡ µ¥ÀÌÅÍ »ðÀÔ 
+	// Tableï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	private void updateTableData(){
 		try{
 			med.getTableViewerSlabPlateInfo().setLabelProvider(new TableViewerLabelProvider_SlabPlateInfo());
@@ -1243,9 +1243,9 @@ public class MainController {
 				if(i == 6) makeResultF7();
 			}
 		}
-		// DB File ÀúÀå
+		// DB File ï¿½ï¿½ï¿½ï¿½
 		this.RunSaveProject();
-		// CSV ÆÄÀÏ ÀúÀå
+		// CSV ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		this.ExportPLog();
 		
 		this.checkResultFiles_All();
@@ -1511,7 +1511,7 @@ public class MainController {
 		this.InitComponentValue();
 	}
 	
-	//F1~F7¿¡¼­ ÀÔ·ÂÇØ¼­ µ¥ÀÌÅÍ ÀúÀåÇÒ¶§ Obj »ý¼ºÇÏ´Â °÷
+	//F1~F7ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ Obj ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½
 	private void setUpDataSheet(){
 		this.tableDataPLogList = new ArrayList<TableData_PLog>();
 		for(int i=0;i<7;i++){
@@ -1535,7 +1535,7 @@ public class MainController {
 	
 	public void RunOpenProject(String DBFilePath){
 		//System.out.println(DBFilePath);
-		this.CleanAllData();	//InitValue·Î ÃÊ±âÈ­
+		this.CleanAllData();	//InitValueï¿½ï¿½ ï¿½Ê±ï¿½È­
 		this.readDBFile(DBFilePath);
 		this.calcAllData("full");
 	}
@@ -1817,7 +1817,7 @@ public class MainController {
 	}
 	
 	public void RunExportProject(){
-		//¸ðµç proc »ý¼º
+		//ï¿½ï¿½ï¿½ proc ï¿½ï¿½
 		//System.out.println("Export");
 		/*
 		ProcMaker procObj1 = new ProcMaker(UILabel.F1);
@@ -2029,7 +2029,7 @@ public class MainController {
 	//=====================================================================
 	
 	//=====================================================================
-	// ³ª¸ÓÁö ºÎºÐ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 	//
 	
 	private void InitComponentValue(){
@@ -2049,7 +2049,7 @@ public class MainController {
 		this.initF1Values();
 		this.saveAllF1Values();
 	
-		// initvalue -> PLog table µ¿±âÈ­
+		// initvalue -> PLog table ï¿½ï¿½ï¿½ï¿½È­
 		this.initPLogTables();
 	}
 	
@@ -4461,7 +4461,7 @@ public class MainController {
 	public void ChangedSTANDValue(String value){
 		this.StandValue = value;
 		//System.out.println("Current STAND : "+value);
-		// UI ÃÊ±â°ª º¯°æ ÄÚµå »ðÀÔ
+		// UI ï¿½Ê±â°ª ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 		switch(this.StandValue){
 		case "F1":
 			this.changedF1UIValues();
@@ -7615,7 +7615,7 @@ public class MainController {
 		}else {
 			//this.textYoungsModulus = path;
 			this.ChangedTextWidget(path, Mediator.TEXT_textFlowStress);
-			med.getTextYoungsModulus().setText(path);
+			med.getTextFlowStress().setText(path);
 		}
 	}
 	
