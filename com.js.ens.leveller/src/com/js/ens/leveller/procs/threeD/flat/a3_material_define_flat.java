@@ -72,52 +72,53 @@ public class a3_material_define_flat {
 	}
 	
 	private void genMatProc() {
-		//mat01_~.proc
+		//mat01_~_const.proc
 		if(LMain.getYoungsModulusType().toLowerCase().equals("constant")){
 			mat01_elastic_modulus_const_flat EMObj = new mat01_elastic_modulus_const_flat();
 			EMObj.running(this.mat01_elastic_modulus_const_PATH);
 			myUtil.fileDelete(this.mat01_elastic_modulus_PATH);
 		}
-		//mat01_~_const.proc
+		//mat01_~.proc
 		else if(LMain.getYoungsModulusType().toLowerCase().equals("table")){
 			mat01_elastic_modulus_flat EMObj = new mat01_elastic_modulus_flat();
 			EMObj.running(this.mat01_elastic_modulus_PATH);
 			myUtil.fileDelete(this.mat01_elastic_modulus_const_PATH);
 			this.tableName_elasticModulus = EMObj.getTableName();
 		}
-		//mat02_~proc
+		//mat02_~_const.proc
 		if(LMain.getFlowStressType().toLowerCase().equals("constant")){
+			
 			mat02_flow_stress_const_flat FSObj = new mat02_flow_stress_const_flat();
 			FSObj.running(this.mat02_flow_stress_const_PATH);
 			myUtil.fileDelete(this.mat02_flow_stress_PATH);
 		}
-		//mat02_~_const.proc
+		//mat02_~.proc
 		else if(LMain.getFlowStressType().toLowerCase().equals("table")){
 			mat02_flow_stress_flat FSObj = new mat02_flow_stress_flat();
 			FSObj.running(this.mat02_flow_stress_PATH);
 			myUtil.fileDelete(this.mat02_flow_stress_const_PATH);
 			this.tableName_flowStress = FSObj.getTableName();
 		}
-		//mat03_~proc
+		//mat03_~_constant.proc
 		if(LMain.getThermalExpansionCoefficientType().toLowerCase().equals("constant")){
 			mat03_thermal_expansion_const_flat TECObj = new mat03_thermal_expansion_const_flat();
 			TECObj.running(this.mat03_thermal_expansion_const_PATH);
 			myUtil.fileDelete(this.mat03_thermal_expansion_PATH);
 		}
-		//mat03_~_const.proc
+		//mat03_~.proc
 		else if(LMain.getThermalExpansionCoefficientType().toLowerCase().equals("table")){
 			mat03_thermal_expansion_flat TECObj = new mat03_thermal_expansion_flat();
 			TECObj.running(this.mat03_thermal_expansion_PATH);
 			myUtil.fileDelete(this.mat03_thermal_expansion_const_PATH);
 			this.tableName_thermal_expansion = TECObj.getTableName();
 		}
-		//mat04_~proc
+		//mat04_~_constant.proc
 		if (LMain.getPoissonsRatioType().toLowerCase().equals("constant")) {
 			mat04_poisson_const_flat PObj = new mat04_poisson_const_flat();
 			PObj.running(this.mat04_poisson_const_PATH);
 			myUtil.fileDelete(this.mat04_poisson_PATH);
 		}
-		//mat04_~_const.proc
+		//mat04_~.proc
 		else if (LMain.getPoissonsRatioType().toLowerCase().equals("table")) {
 			mat04_poisson_flat PObj = new mat04_poisson_flat();
 			PObj.running(this.mat04_poisson_PATH);

@@ -123,7 +123,7 @@ public class mat02_flow_stress_const_centerWave {
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textElongation)){
-				newLine = line.replace(ProcMaker.textElongation, LMain.getTextTensileStrength());
+				newLine = line.replace(ProcMaker.textElongation, LMain.getTextElongation());
 				procDataList.add(newLine);
 				continue;
 			}else {

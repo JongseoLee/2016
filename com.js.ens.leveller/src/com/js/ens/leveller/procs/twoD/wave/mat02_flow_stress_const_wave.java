@@ -126,7 +126,7 @@ public class mat02_flow_stress_const_wave {
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textElongation)){
-				newLine = line.replace(ProcMaker.textElongation, LMain.getTextTensileStrength_2D());
+				newLine = line.replace(ProcMaker.textElongation, LMain.getTextElongation_2D());
 				procDataList.add(newLine);
 				continue;
 			}else {

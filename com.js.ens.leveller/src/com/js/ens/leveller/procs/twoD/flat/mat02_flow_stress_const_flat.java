@@ -46,12 +46,15 @@ public class mat02_flow_stress_const_flat {
 			LMain.getExportMSG().addData("SUCCESS - Export(mat02_flow_stress_const) \n path : "+ this.procPath);
 			log.info("SUCCESS - Export(mat02_flow_stress_const) \n path : "+ this.procPath);
 		}catch(Exception e){
+			
 			String msg = "ERROR - Export(mat02_flow_stress_const)";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
 			messageDlg.open();
 			log.error(msg);
 			LMain.getExportMSG().addData(msg);
+			
+			//e.printStackTrace();
 		}
 	}
 	
@@ -126,7 +129,7 @@ public class mat02_flow_stress_const_flat {
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textElongation)){
-				newLine = line.replace(ProcMaker.textElongation, LMain.getTextTensileStrength_2D());
+				newLine = line.replace(ProcMaker.textElongation, LMain.getTextElongation_2D());
 				procDataList.add(newLine);
 				continue;
 			}else {

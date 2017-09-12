@@ -1286,7 +1286,7 @@ public class LevellerMain {
 			this.textThicknessElementNum_2D = med.getTextThicknessElementNum_2D().getText().trim();
 			double D = Double.parseDouble(this.textThicknessElementNum_2D);
 			//E
-			// ENS È®ÀÎÇØ¾ß ÇÒ ºÎºÐ
+			// ENS È®ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½ ï¿½Îºï¿½
 			//this.textWidthAspectRatio_2D = med.getTextWidthAspectRatio_2D().getText().trim();
 			//double E = Double.parseDouble(this.textWidthAspectRatio_2D);
 			double E = 1.0;
@@ -5932,8 +5932,9 @@ public class LevellerMain {
 	}
 	
 	
-	// ¿©±â´Ù proc ¸¸µé±â jsclubb
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ proc ï¿½ï¿½ï¿½ï¿½ï¿½ jsclubb
 	public void Export(){
+		//System.out.println("------>3D");
 		try{
 			deleteOldFiles();
 			
@@ -5999,6 +6000,7 @@ public class LevellerMain {
 	}
 	
 	public void Export_2D(){
+		System.out.println("------>2D");
 		try{
 			deleteOldFiles();
 			

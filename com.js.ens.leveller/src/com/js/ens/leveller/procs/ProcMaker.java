@@ -244,7 +244,9 @@ public class ProcMaker {
 			}
 			//*/
 		}else if(levellerType.equals("3D")){
+			
 			if(comboType.equals(ComboLabel.TYPE1)){
+				//System.out.println("Main flat");
 				Main_flat obj = new Main_flat();
 				obj.running(this.destFullPathList);
 			}else if(comboType.equals(ComboLabel.TYPE2)){

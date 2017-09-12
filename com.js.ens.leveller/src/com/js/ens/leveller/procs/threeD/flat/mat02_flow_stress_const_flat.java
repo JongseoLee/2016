@@ -33,7 +33,7 @@ public class mat02_flow_stress_const_flat {
 	public void running(String path) {
 		// TODO Auto-generated method stub
 		this.procPath = path;
-
+		//System.out.println("Main flat-mat02_constant");
 		try{
 			this.readSourceData();
 			this.swapValue();
@@ -46,6 +46,7 @@ public class mat02_flow_stress_const_flat {
 			LMain.getExportMSG().addData("SUCCESS - Export(mat02_flow_stress_const) \n path : "+ this.procPath);
 			log.info("SUCCESS - Export(mat02_flow_stress_const) \n path : "+ this.procPath);
 		}catch(Exception e){
+			//e.printStackTrace();
 			String msg = "ERROR - Export(mat02_flow_stress_const)";
 			msg = msg +"\n"+e.getMessage();
 			MessageDlg messageDlg = new MessageDlg(Display.getCurrent().getActiveShell(), msg);
@@ -57,6 +58,7 @@ public class mat02_flow_stress_const_flat {
 	
 	private void readSourceData() throws Exception {
 		// TODO Auto-generated method stub
+		//System.out.println("1");
 		this.fileDataList = new ArrayList<String>();
 		Reader reader = new Reader(this.procPath);
 		reader.running();
@@ -65,6 +67,7 @@ public class mat02_flow_stress_const_flat {
 	
 	private void swapValue() throws Exception {
 		// TODO Auto-generated method stub
+		//System.out.println("2");
 		procDataList = new ArrayList<String>();
 		String newLine = null;
 		for(String line : fileDataList){
@@ -87,6 +90,7 @@ public class mat02_flow_stress_const_flat {
 	}
 	
 	private void checkFinish() throws Exception{
+		//System.out.println("3");
 		boolean isFinish = false;
 		tempDataList = new ArrayList<String>();
 		for(String line:procDataList){
@@ -114,6 +118,7 @@ public class mat02_flow_stress_const_flat {
 	}
 	
 	public void swapValue2(ArrayList<String> tempDataList) throws Exception{
+		//System.out.println("3");
 		procDataList = new ArrayList<String>();
 		String newLine = null;
 		for(String line : tempDataList){
@@ -126,7 +131,7 @@ public class mat02_flow_stress_const_flat {
 				procDataList.add(newLine);
 				continue;
 			}else if(line.contains(ProcMaker.textElongation)){
-				newLine = line.replace(ProcMaker.textElongation, LMain.getTextTensileStrength());
+				newLine = line.replace(ProcMaker.textElongation, LMain.getTextElongation());
 				procDataList.add(newLine);
 				continue;
 			}else {
@@ -136,6 +141,7 @@ public class mat02_flow_stress_const_flat {
 	}
 	
 	private void writeProc() throws Exception {
+		//System.out.println("4");
 		// TODO Auto-generated method stub
 		Writer writer = new Writer(this.procPath,this.procDataList);
 		writer.running();
