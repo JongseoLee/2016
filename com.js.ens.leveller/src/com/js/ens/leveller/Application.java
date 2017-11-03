@@ -30,7 +30,7 @@ public class Application implements IApplication {
 		PropertyConfigurator.configure(myUtil.setPath(System.getProperty("user.dir"),"log4j.properties"));
 		log.info("Start ENSLeveller");
 		
-		/* */
+		/* 
 		LicenseCheck engine = new LicenseCheck();
 		try {
 			int returnCode = 0;
@@ -58,7 +58,7 @@ public class Application implements IApplication {
 			display.dispose();
 		}
 		//*/
-		/* 
+		/* */
 		try {
 			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
 			if (returnCode == PlatformUI.RETURN_RESTART) {
