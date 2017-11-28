@@ -13,3 +13,4 @@ Bundle-ClassPath: .,
  lib/jfreechart-1.0.19.jar,
  lib/log4j-1.2.17.jar,
  lib/commons-codec-1.10.jar
+Export-Package: org.eclipse.wb.swt

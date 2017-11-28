@@ -10,6 +10,11 @@ import com.js.util.myUtil;
 
 
 public class TableColumnLabel {
+	private static TableColumnLabel instance = new TableColumnLabel();
+	public static TableColumnLabel getInstance(){
+		return instance;
+	}
+	
 	private Map<String,String> tableColumnLabelMap;
 	private String tableColumnLabelPath;
 	
@@ -17,6 +22,7 @@ public class TableColumnLabel {
 		tableColumnLabelMap = new HashMap<String,String>();
 		//tableColumnLabelPath = myUtil.setPath(System.getProperty("user.dir"), "TableColumnLabel.txt");	
 		tableColumnLabelPath = myUtil.setPath(myUtil.setPath(System.getProperty("user.dir"), "userConfig"),"TableColumnLabel.txt");
+		this.readTableColumnLabelFile();
 	}
 	
 	public void readTableColumnLabelFile(){

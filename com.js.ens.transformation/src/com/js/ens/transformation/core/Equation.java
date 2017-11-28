@@ -24,6 +24,9 @@ public class Equation {
 			// Time increment(sec.) 
 			lcase_dt = #lcase_time# / #lcase_inc# 
 			
+			// No. of Inc
+			lcase_inc = #lcase_inc#
+			
 			// Top WR Rot. Vel.(RPM) 
 			wr_trot = #pl_vel_mpm# * 1000 /60 / ( #wr_tdia# / 2 ) * ( #vel_rate_top# / 100 ) * 60 / ( 2 * @pi )
 			
@@ -75,6 +78,7 @@ public class Equation {
 	// key 
 	public static String lcase_time = "lcase_time";
 	public static String lcase_dt = "lcase_dt";
+	public static String lcase_inc = "lcase_inc";
 	public static String wr_trot = "wr_trot"; 
 	public static String wr_brot = "wr_brot";
 	public static String bur_trot = "bur_trot";

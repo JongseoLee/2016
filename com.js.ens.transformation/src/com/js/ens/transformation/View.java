@@ -50,8 +50,8 @@ public class View extends ViewPart {
 	public View() {
 	}
 	
-	private TableColumnLabel tclObj;
-	private UILabel ulObj;
+	private TableColumnLabel tclObj = TableColumnLabel.getInstance();
+	private UILabel ulObj = UILabel.getInstance();
 	
 	public static final String ID = "com.js.ens.transformation.view";
 	private Table tableSlabPlateInfo;
@@ -63,11 +63,16 @@ public class View extends ViewPart {
 	private Text textWRCrown;
 	private Text textWRLength;
 	private Text textWRMeshAngle;
+	private Text textWRChamferX;
+	private Text textWRChamferY;
+	private Text textWRRound;
 	
 	private Text textTopBURDiameter;
 	private Text textBottomBURDiameter;
 	private Text textBURLength;
 	private Text textBURMeshAngle;
+	private Text textBURChamferX;
+	private Text textBURChamferY;
 
 	private Text textThickness;
 	private Text textWidth;
@@ -77,6 +82,7 @@ public class View extends ViewPart {
 	private Text textInitialPosition;
 	private Text textMeshLength;
 	private Text textThicknessMeshDivisions;
+	private Text textPlateCrown;
 	
 	private Text textVelocity;
 	private Text textRollGap;
@@ -104,6 +110,9 @@ public class View extends ViewPart {
 	private Text textPoissonsRatio;
 	private Text textMassDensity;
 	
+	private Text textRollYoungsModulus;
+	private Text textRollPoissonsRatio;
+	
 	private Text textAnalysisTime;
 	private Text textNoOfInc;
 	private Text textPostWritingFrequency;
@@ -116,8 +125,8 @@ public class View extends ViewPart {
 		tclObj = new TableColumnLabel();
 		tclObj.readTableColumnLabelFile();
 		
-		ulObj = new UILabel();
-		ulObj.readUILabelFile();
+		//ulObj = new UILabel();
+		//ulObj.readUILabelFile();
 		//--------------------------------------------------------------------------
 		parent.setLayout(new FormLayout());
 		
@@ -250,7 +259,7 @@ public class View extends ViewPart {
 		FormData fd_groupSTAND = new FormData();
 		fd_groupSTAND.top = new FormAttachment(0, 10);
 		fd_groupSTAND.left = new FormAttachment(0, 10);		
-		fd_groupSTAND.right = new FormAttachment(0, 400);
+		fd_groupSTAND.right = new FormAttachment(0, 410);
 		groupSTAND.setLayoutData(fd_groupSTAND);
 		
 		Button btnF1 = new Button(groupSTAND, SWT.RADIO);
@@ -350,8 +359,8 @@ public class View extends ViewPart {
 		FormData fd_grpWorkRollwrParameter = new FormData();
 		fd_grpWorkRollwrParameter.top = new FormAttachment(groupSTAND, 5);
 		fd_grpWorkRollwrParameter.left = new FormAttachment(0,10);
-		fd_grpWorkRollwrParameter.right = new FormAttachment(0, 400);
-		fd_grpWorkRollwrParameter.bottom = new FormAttachment(groupSTAND, 190, SWT.BOTTOM);
+		fd_grpWorkRollwrParameter.right = new FormAttachment(0, 390);
+		fd_grpWorkRollwrParameter.bottom = new FormAttachment(groupSTAND, 250, SWT.BOTTOM);
 		grpWorkRollwrParameter.setLayoutData(fd_grpWorkRollwrParameter);
 		
 		Label lblTopWRDiameter = new Label(grpWorkRollwrParameter, SWT.NONE);
@@ -445,6 +454,60 @@ public class View extends ViewPart {
 		fd_textWRMeshAngle.right = new FormAttachment(100, -10);
 		textWRMeshAngle.setLayoutData(fd_textWRMeshAngle);
 		
+		Label lblWRChamferX = new Label(grpWorkRollwrParameter, SWT.NONE);
+		FormData fd_lblWRChamferX = new FormData();
+		fd_lblWRChamferX.top = new FormAttachment(lblWRMeshAngle, 10);
+		fd_lblWRChamferX.left = new FormAttachment(lblTopWRDiameter, 0, SWT.LEFT);
+		lblWRChamferX.setLayoutData(fd_lblWRChamferX);
+		lblWRChamferX.setText(ulObj.getUILabelValue(UILabel.WR_Chamfer_X));
+		
+		textWRChamferX = new Text(grpWorkRollwrParameter, SWT.BORDER);
+		med.setTextWRChamferX(textWRChamferX);
+		CustomText c_textWRChamferX = new CustomText(Mediator.Text_textWRChamferX,med);
+		med.setC_textWRChamferX(c_textWRChamferX);
+		c_textWRChamferX.setCustomWidget_textWRChamferX();
+		FormData fd_textWRChamferX = new FormData();
+		fd_textWRChamferX.top = new FormAttachment(lblWRChamferX, -2, SWT.TOP);
+		fd_textWRChamferX.left = new FormAttachment(textTopWRDiameter, 0, SWT.LEFT);
+		fd_textWRChamferX.right = new FormAttachment(100,-10);
+		textWRChamferX.setLayoutData(fd_textWRChamferX);
+		
+		Label lblWRChamferY = new Label(grpWorkRollwrParameter, SWT.NONE);
+		FormData fd_lblWRChamferY = new FormData();
+		fd_lblWRChamferY.top = new FormAttachment(lblWRChamferX, 10);
+		fd_lblWRChamferY.left = new FormAttachment(lblTopWRDiameter, 0, SWT.LEFT);
+		lblWRChamferY.setLayoutData(fd_lblWRChamferY);
+		lblWRChamferY.setText(ulObj.getUILabelValue(UILabel.WR_Chamfer_Y));
+		
+		textWRChamferY = new Text(grpWorkRollwrParameter, SWT.BORDER);
+		med.setTextWRChamferY(textWRChamferY);
+		CustomText c_textWRChamferY = new CustomText(Mediator.Text_textWRChamferY,med);
+		med.setC_textWRChamferY(c_textWRChamferY);
+		c_textWRChamferY.setCustomWidget_textWRChamferY();
+		FormData fd_textWRChamferY = new FormData();
+		fd_textWRChamferY.top = new FormAttachment(lblWRChamferY, -2, SWT.TOP);
+		fd_textWRChamferY.left = new FormAttachment(textTopWRDiameter, 0, SWT.LEFT);
+		fd_textWRChamferY.right = new FormAttachment(100,-10);
+		textWRChamferY.setLayoutData(fd_textWRChamferY);
+		
+		Label lblWRRound = new Label(grpWorkRollwrParameter, SWT.NONE);
+		FormData fd_lblWRRound = new FormData();
+		fd_lblWRRound.top = new FormAttachment(lblWRChamferY, 10);
+		fd_lblWRRound.left = new FormAttachment(lblTopWRDiameter, 0, SWT.LEFT);
+		lblWRRound.setLayoutData(fd_lblWRRound);
+		lblWRRound.setText(ulObj.getUILabelValue(UILabel.WR_Round));
+		
+		textWRRound = new Text(grpWorkRollwrParameter, SWT.BORDER);
+		med.setTextWRRound(textWRRound);
+		CustomText c_textWRRound = new CustomText(Mediator.Text_textWRRound,med);
+		med.setC_textWRRound(c_textWRRound);
+		c_textWRRound.setCustomWidget_textWRRound();
+		FormData fd_textWRRound = new FormData();
+		fd_textWRRound.top = new FormAttachment(lblWRRound, -2, SWT.TOP);
+		fd_textWRRound.left = new FormAttachment(textTopWRDiameter, 0, SWT.LEFT);
+		fd_textWRRound.right = new FormAttachment(100,-10);
+		textWRRound.setLayoutData(fd_textWRRound);
+		
 		//
 		// Group1 End
 		//=============
@@ -462,7 +525,7 @@ public class View extends ViewPart {
 		fd_grpBackUpRollburParameter.top = new FormAttachment(grpWorkRollwrParameter, 5);
 		fd_grpBackUpRollburParameter.left = new FormAttachment(grpWorkRollwrParameter, 0,SWT.LEFT);
 		fd_grpBackUpRollburParameter.right = new FormAttachment(grpWorkRollwrParameter, 0,SWT.RIGHT);
-		fd_grpBackUpRollburParameter.bottom = new FormAttachment(grpWorkRollwrParameter, 170, SWT.BOTTOM);
+		fd_grpBackUpRollburParameter.bottom = new FormAttachment(grpWorkRollwrParameter, 190, SWT.BOTTOM);
 		grpBackUpRollburParameter.setLayoutData(fd_grpBackUpRollburParameter);
 		
 		Label lblTopBURDiameter = new Label(grpBackUpRollburParameter, SWT.NONE);
@@ -538,6 +601,41 @@ public class View extends ViewPart {
 		fd_textBURMeshAngle.right = new FormAttachment(100, -10);
 		textBURMeshAngle.setLayoutData(fd_textBURMeshAngle);
 		
+		Label lblBURChamferX = new Label(grpBackUpRollburParameter, SWT.NONE);
+		FormData fd_lblBURChamferX = new FormData();
+		fd_lblBURChamferX.top = new FormAttachment(lblBURMeshAngle, 10);
+		fd_lblBURChamferX.left = new FormAttachment(lblTopBURDiameter, 0, SWT.LEFT);
+		lblBURChamferX.setLayoutData(fd_lblBURChamferX);
+		lblBURChamferX.setText(ulObj.getUILabelValue(UILabel.BUR_Chamfer_X));
+		
+		textBURChamferX = new Text(grpBackUpRollburParameter, SWT.BORDER);
+		med.setTextBURChamferX(textBURChamferX);
+		CustomText c_textBURChamferX = new CustomText(Mediator.TEXT_textBURChamferX,med);
+		med.setC_textBURChamferX(c_textBURChamferX);
+		c_textBURChamferX.setCustomWidget_textBURChamferX();
+		FormData fd_textBURChamferX = new FormData();
+		fd_textBURChamferX.top = new FormAttachment(lblBURChamferX,-2,SWT.TOP);
+		fd_textBURChamferX.left = new FormAttachment(textTopBURDiameter, 0,SWT.LEFT);
+		fd_textBURChamferX.right = new FormAttachment(100, -10);
+		textBURChamferX.setLayoutData(fd_textBURChamferX);
+		
+		Label lblBURChamferY = new Label(grpBackUpRollburParameter, SWT.NONE);
+		FormData fd_lblBURChamferY = new FormData();
+		fd_lblBURChamferY.top = new FormAttachment(lblBURChamferX, 10);
+		fd_lblBURChamferY.left = new FormAttachment(lblTopBURDiameter, 0, SWT.LEFT);
+		lblBURChamferY.setLayoutData(fd_lblBURChamferY);
+		lblBURChamferY.setText(ulObj.getUILabelValue(UILabel.BUR_Chamfer_Y));
+		
+		textBURChamferY = new Text(grpBackUpRollburParameter, SWT.BORDER);
+		med.setTextBURChamferY(textBURChamferY);
+		CustomText c_textBURChamferY = new CustomText(Mediator.TEXT_textBURChamferY,med);
+		med.setC_textBURChamferY(c_textBURChamferY);
+		c_textBURChamferY.setCustomWidget_textBURChamfery();
+		FormData fd_textBURChamferY = new FormData();
+		fd_textBURChamferY.top = new FormAttachment(lblBURChamferY,-2,SWT.TOP);
+		fd_textBURChamferY.left = new FormAttachment(textTopBURDiameter, 0,SWT.LEFT);
+		fd_textBURChamferY.right = new FormAttachment(100, -10);
+		textBURChamferY.setLayoutData(fd_textBURChamferY);
 		//
 		// Group2 End
 		//=============
@@ -555,7 +653,7 @@ public class View extends ViewPart {
 		fd_grpPlateParameter.top = new FormAttachment(grpBackUpRollburParameter, 5);
 		fd_grpPlateParameter.left = new FormAttachment(grpWorkRollwrParameter, 0,SWT.LEFT);
 		fd_grpPlateParameter.right = new FormAttachment(grpWorkRollwrParameter, 0,SWT.RIGHT);
-		fd_grpPlateParameter.bottom = new FormAttachment(grpBackUpRollburParameter, 280, SWT.BOTTOM);
+		fd_grpPlateParameter.bottom = new FormAttachment(grpBackUpRollburParameter, 265, SWT.BOTTOM);
 		grpPlateParameter.setLayoutData(fd_grpPlateParameter);
 		
 		Label lblThickness = new Label(grpPlateParameter, SWT.NONE);
@@ -702,6 +800,24 @@ public class View extends ViewPart {
 		fd_textThicknessMeshDivisions.right = new FormAttachment(100, -10);
 		textThicknessMeshDivisions.setLayoutData(fd_textThicknessMeshDivisions);
 		
+		Label lblPlateCrown = new Label(grpPlateParameter, SWT.NONE);
+		FormData fd_lblPlateCrown = new FormData();
+		fd_lblPlateCrown.top = new FormAttachment(lblThicknessMeshDivisions, 10);
+		fd_lblPlateCrown.left = new FormAttachment(lblThickness, 0,SWT.LEFT);
+		lblPlateCrown.setLayoutData(fd_lblPlateCrown);
+		lblPlateCrown.setText(ulObj.getUILabelValue(UILabel.Plate_Crown));
+		
+		textPlateCrown = new Text(grpPlateParameter, SWT.BORDER);
+		med.setTextPlateCrown(textPlateCrown);
+		CustomText c_textPlateCrown = new CustomText(Mediator.TEXT_textPlateCrown,med);
+		med.setC_textPlateCrown(c_textPlateCrown);
+		c_textPlateCrown.setCustomWidget_textPlateCrown();
+		FormData fd_textPlateCrown = new FormData();
+		fd_textPlateCrown.top = new FormAttachment(lblPlateCrown,-2,SWT.TOP);
+		fd_textPlateCrown.left = new FormAttachment(textThickness, 0,SWT.LEFT);
+		fd_textPlateCrown.right = new FormAttachment(100, -10);
+		textPlateCrown.setLayoutData(fd_textPlateCrown);
+		
 		
 		//
 		// Group3 End
@@ -719,7 +835,7 @@ public class View extends ViewPart {
 		fd_grpProcessInformation.top = new FormAttachment(grpWorkRollwrParameter, 0, SWT.TOP);
 		fd_grpProcessInformation.left = new FormAttachment(grpWorkRollwrParameter, 10, SWT.RIGHT);
 		fd_grpProcessInformation.right = new FormAttachment(grpWorkRollwrParameter, 410,SWT.RIGHT);
-		fd_grpProcessInformation.bottom = new FormAttachment(groupSTAND, 480, SWT.BOTTOM);
+		fd_grpProcessInformation.bottom = new FormAttachment(groupSTAND, 430, SWT.BOTTOM);
 		grpProcessInformation.setLayoutData(fd_grpProcessInformation);
 		
 		Label lblVelocity = new Label(grpProcessInformation, SWT.NONE);
@@ -999,6 +1115,60 @@ public class View extends ViewPart {
 		//
 		// Group4 End
 		//=============
+		
+		//=============
+		// Group Roll Material Parameter Start
+		//
+		Group grpRollMaterialParameter= new Group(compositeDetail, SWT.NONE);
+		med.setGrpRollMaterialParameter(grpRollMaterialParameter);
+		grpRollMaterialParameter.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
+		grpRollMaterialParameter.setText(ulObj.getUILabelValue(UILabel.Roll_Material_Parameter));
+		grpRollMaterialParameter.setLayout(new FormLayout());
+		FormData fd_grpRollMaterialParameter = new FormData();
+		fd_grpRollMaterialParameter.top = new FormAttachment(grpProcessInformation, 5);
+		fd_grpRollMaterialParameter.left = new FormAttachment(grpProcessInformation, 0, SWT.LEFT);
+		fd_grpRollMaterialParameter.right = new FormAttachment(grpProcessInformation, 0, SWT.RIGHT);
+		fd_grpRollMaterialParameter.bottom = new FormAttachment(grpProcessInformation, 100, SWT.BOTTOM);
+		grpRollMaterialParameter.setLayoutData(fd_grpRollMaterialParameter);
+		
+		Label lblRollYoungsModulus = new Label(grpRollMaterialParameter, SWT.NONE);
+		FormData fd_lblRollYoungsModulus = new FormData();
+		fd_lblRollYoungsModulus.top = new FormAttachment(0, 10);
+		fd_lblRollYoungsModulus.left = new FormAttachment(0, 10);
+		lblRollYoungsModulus.setLayoutData(fd_lblRollYoungsModulus);
+		lblRollYoungsModulus.setText(ulObj.getUILabelValue(UILabel.Roll_Youngs_Modulus));
+				
+		textRollYoungsModulus = new Text(grpRollMaterialParameter, SWT.BORDER);
+		med.setTextRollYoungsModulus(textRollYoungsModulus);
+		CustomText c_textRollYoungsModulus = new CustomText(Mediator.TEXT_textRollYoungsModulus,med);
+		med.setC_textRollYoungsModulus(c_textRollYoungsModulus);
+		c_textRollYoungsModulus.setCustomWidget_textRollYoungsModulus();
+		FormData fd_textRollYoungsModulus = new FormData();
+		fd_textRollYoungsModulus.top = new FormAttachment(lblRollYoungsModulus,-2,SWT.TOP);
+		fd_textRollYoungsModulus.left = new FormAttachment(lblRollYoungsModulus, 100 ,SWT.RIGHT);
+		fd_textRollYoungsModulus.right = new FormAttachment(100, -10);
+		textRollYoungsModulus.setLayoutData(fd_textRollYoungsModulus);
+		
+		Label lblRollPoissonsRatio = new Label(grpRollMaterialParameter, SWT.NONE);
+		FormData fd_lblRollPoissonsRatio = new FormData();
+		fd_lblRollPoissonsRatio.top = new FormAttachment(lblRollYoungsModulus, 10);
+		fd_lblRollPoissonsRatio.left = new FormAttachment(lblRollYoungsModulus, 0, SWT.LEFT);
+		lblRollPoissonsRatio.setLayoutData(fd_lblRollPoissonsRatio);
+		lblRollPoissonsRatio.setText(ulObj.getUILabelValue(UILabel.Roll_Poissons_Ratio));
+				
+		textRollPoissonsRatio = new Text(grpRollMaterialParameter, SWT.BORDER);
+		med.setTextRollPoissonsRatio(textRollPoissonsRatio);
+		CustomText c_textRollPoissonsRatio = new CustomText(Mediator.TEXT_textRollPoissonsRatio,med);
+		med.setC_textRollPoissonsRatio(c_textRollPoissonsRatio);
+		c_textRollPoissonsRatio.setCustomWidget_textRollPossionRatio();
+		FormData fd_textRollPoissonsRatio = new FormData();
+		fd_textRollPoissonsRatio.top = new FormAttachment(lblRollPoissonsRatio,-2,SWT.TOP);
+		fd_textRollPoissonsRatio.left = new FormAttachment(textRollYoungsModulus, 0,SWT.LEFT);
+		fd_textRollPoissonsRatio.right = new FormAttachment(100, -10);
+		textRollPoissonsRatio.setLayoutData(fd_textRollPoissonsRatio);
+		//
+		//Group Roll Material ParameterEnd
+		//=============
 
 		//=============
 		// Group5 Start
@@ -1006,7 +1176,7 @@ public class View extends ViewPart {
 		Group grpMaterialParameter = new Group(compositeDetail, SWT.NONE);
 		med.setGrpMaterialParameter(grpMaterialParameter);
 		grpMaterialParameter.setFont(SWTResourceManager.getFont("Arial", 9, SWT.BOLD));
-		grpMaterialParameter.setText(ulObj.getUILabelValue(UILabel.Material_parameter));
+		grpMaterialParameter.setText(ulObj.getUILabelValue(UILabel.Plate_Material_parameter));
 		grpMaterialParameter.setLayout(new FormLayout());
 		FormData fd_grpMaterialParameter = new FormData();
 		fd_grpMaterialParameter.top = new FormAttachment(grpWorkRollwrParameter, 0, SWT.TOP);
@@ -1356,7 +1526,7 @@ public class View extends ViewPart {
 		fd_grpAnalysisInformation.top = new FormAttachment(grpMaterialParameter, 5);
 		fd_grpAnalysisInformation.left = new FormAttachment(grpMaterialParameter, 0, SWT.LEFT);
 		fd_grpAnalysisInformation.right = new FormAttachment(grpMaterialParameter, 0,SWT.RIGHT);
-		fd_grpAnalysisInformation.bottom = new FormAttachment(grpMaterialParameter, 230, SWT.BOTTOM);
+		fd_grpAnalysisInformation.bottom = new FormAttachment(grpMaterialParameter, 240, SWT.BOTTOM);
 		grpAnalysisInformation.setLayoutData(fd_grpAnalysisInformation);
 		
 		Label lblAnalysisTime = new Label(grpAnalysisInformation, SWT.NONE);
@@ -1433,9 +1603,10 @@ public class View extends ViewPart {
 		
 		
 		
+		
 		Label lblParallelDDM = new Label(grpAnalysisInformation, SWT.NONE);
 		FormData fd_lblParallelDDM = new FormData();
-		fd_lblParallelDDM.top = new FormAttachment(lblPostWritingFrequency, 10);
+		fd_lblParallelDDM.top = new FormAttachment(lblTimeIncrement, 10);
 		fd_lblParallelDDM.left = new FormAttachment(lblAnalysisTime, 0,SWT.LEFT);
 		lblParallelDDM.setLayoutData(fd_lblParallelDDM);
 		lblParallelDDM.setText(ulObj.getUILabelValue(UILabel.Parallel_DDM));
@@ -1749,11 +1920,17 @@ public class View extends ViewPart {
 		med.getTextWRCrown().addListener(SWT.CHANGED, handlerText);
 		med.getTextWRLength().addListener(SWT.CHANGED, handlerText);
 		med.getTextWRMeshAngle().addListener(SWT.CHANGED, handlerText);
+		med.getTextWRChamferX().addListener(SWT.CHANGED, handlerText);
+		med.getTextWRChamferY().addListener(SWT.CHANGED, handlerText);
+		med.getTextWRRound().addListener(SWT.CHANGED, handlerText);
 		
 		med.getTextTopBURDiameter().addListener(SWT.CHANGED, handlerText);
 		med.getTextBottomBURDiameter().addListener(SWT.CHANGED, handlerText);
 		med.getTextBURLength().addListener(SWT.CHANGED, handlerText);
 		med.getTextBURMeshAngle().addListener(SWT.CHANGED, handlerText);
+		med.getTextBURChamferX().addListener(SWT.CHANGED, handlerText);
+		med.getTextBURChamferY().addListener(SWT.CHANGED, handlerText);
+		med.getTextBURChamferY().addListener(SWT.CHANGED, handlerText);
 		
 		med.getTextThickness().addListener(SWT.CHANGED, handlerText);
 		med.getTextWidth().addListener(SWT.CHANGED, handlerText);
@@ -1763,6 +1940,7 @@ public class View extends ViewPart {
 		med.getTextInitialPosition().addListener(SWT.CHANGED, handlerText);
 		med.getTextMeshLength().addListener(SWT.CHANGED, handlerText);
 		med.getTextThicknessMeshDivisions().addListener(SWT.CHANGED, handlerText);
+		med.getTextPlateCrown().addListener(SWT.CHANGED, handlerText);
 		
 		med.getTextVelocity().addListener(SWT.CHANGED, handlerText);
 		med.getTextRollGap().addListener(SWT.CHANGED, handlerText);
@@ -1779,6 +1957,9 @@ public class View extends ViewPart {
 		med.getTextBottomWRRotVel().addListener(SWT.CHANGED, handlerText);
 		med.getTextTopBURRotVel().addListener(SWT.CHANGED, handlerText);
 		med.getTextBottomBURRotVel().addListener(SWT.CHANGED, handlerText);
+		
+		med.getTextRollYoungsModulus().addListener(SWT.CHANGED, handlerText);
+		med.getTextRollPoissonsRatio().addListener(SWT.CHANGED, handlerText);
 		
 		med.getTextYoungsModulus().addListener(SWT.CHANGED, handlerText);
 		med.getTextFlowStress().addListener(SWT.CHANGED, handlerText);

@@ -31,7 +31,7 @@ public class Application implements IApplication {
 		System.setProperty("LogPath.ens", myUtil.setPath(System.getProperty("user.dir"), "userLog"));
 		PropertyConfigurator.configure(myUtil.setPath(userConfigPath,"log4j.properties"));
 		log.info("Start HRolling-3d");
-		/* 
+		/* */
 		LicenseCheck engine = new LicenseCheck();
 		try {
 			int returnCode = 0;
@@ -60,7 +60,7 @@ public class Application implements IApplication {
 			display.dispose();
 		}
 		// */
-		/* */
+		/* 
 		try {
 			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
 			if (returnCode == PlatformUI.RETURN_RESTART) {

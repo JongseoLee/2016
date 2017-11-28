@@ -124,26 +124,14 @@
       </command>
    </extension>
    <extension
-         id="Transformation"
+         id="HRolling3d_Ver1"
          point="org.eclipse.core.runtime.products">
       <product
             application="com.js.ens.transformation.application"
-            name="Transformation">
+            name="HRolling3d_ver1">
          <property
                name="appName"
-               value="Transformation">
-         </property>
-      </product>
-   </extension>
-   <extension
-         id="productRev1"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="com.js.ens.transformation.application"
-            name="HRolling-3d">
-         <property
-               name="appName"
-               value="HRolling-3d">
+               value="HRolling3d_ver1">
          </property>
          <property
                name="windowImages"
