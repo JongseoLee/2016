@@ -25,6 +25,7 @@ public class LicenseModule {
 	public void readLicenseFile(){
 		String progPath = System.getProperty("user.dir");
 		String licensePath = myUtil.setPath(myUtil.setPath(progPath, "License"),"License.ens");
+		//System.out.println(licensePath);
 		Reader reader = new Reader(licensePath);
 		reader.running();
 		ArrayList<String> dataList = new ArrayList<String>();
